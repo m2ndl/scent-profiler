@@ -163,7 +163,7 @@ test("with a backend: pending ratings go out at once when the page is hidden or 
 
 /* The quiz and the profiler on one device: the quiz's word answers reach the profiler as the same told items. */
 const quizSeed = extra => Object.assign({ pp_device: JSON.stringify("d_test"), pp_lang: JSON.stringify("en") }, extra || {});
-const picksOf = h => [...h.matchAll(/<div class="rec">[^]*?<b>([^<]+)<\/b>/g)].map(m => m[1]);
+const picksOf = h => [...h.matchAll(/<div class="rec(?: qpick)?">[^]*?<b>([^<]+)<\/b>/g)].map(m => m[1]);
 /* the quiz from its picker to the result, every card left as it is */
 function quizToEnd(q, o) {
   o = Object.assign({ taste: "unsure", told: ["unsure"] }, o);
@@ -251,7 +251,7 @@ test("with no rated perfume and an enjoyed note in the quiz, the profiler shows 
   assert.deepEqual(picksOf(els.recs.innerHTML), picksOf(qh).slice(0, 3));
   assert.match(els.profile.innerHTML, /Also uses 2 answers from the quiz\./);
   /* a pick holding a family the visitor said they avoid says so */
-  const { picks } = E.recommend(E.computeProfile({ ratings: {}, auto: {}, images: {}, told: N.toldItems(answers) }), {});
+  const { picks } = E.recommend(E.computeProfile({ ratings: {}, auto: {}, images: {}, told: N.toldItems(answers) }), {}, N.avoidedNotes(answers));
   const risk = picks.map(p => p.risks.slice().sort((x, y) => y.sev - x.sev)[0]).find(x => x && x.kind === "told");
   assert.ok(risk, "a pick's main risk is a family the visitor avoids");
   const stage = { opening: "opening", heart: "heart", drydown: "drydown" }[risk.s];
@@ -268,12 +268,18 @@ test("zero bottles with a taste answer: no pick says the visitor said they avoid
     return els.recs.innerHTML;
   };
   assert.doesNotMatch(recsOf({ notes: { lemon: 1 }, taste: "sweet" }), /which you said you avoid/);
-  /* "sweet" plus "avoid vanilla": citrus is pushed down only by the bitter side of the taste answer */
+  /* "sweet" plus "avoid vanilla": a line may say the visitor avoids vanilla, which they did; citrus, pushed down only by
+     the bitter side of the taste answer, is never worded as avoided, only as leaned against */
   const answers = { notes: { vanilla: -1 }, taste: "sweet" }, h = recsOf(answers);
-  const { picks } = E.recommend(E.computeProfile({ ratings: {}, auto: {}, images: {}, told: N.toldItems(answers) }), {});
-  const risk = picks.map(p => p.risks.slice().sort((x, y) => y.sev - x.sev)[0]).find(x => x && x.kind === "told");
-  assert.ok(risk && risk.f === "citrus_fresh", "a pick's main risk is citrus, from the taste answer alone");
-  const stage = { opening: "opening", heart: "heart", drydown: "drydown" }[risk.s];
-  assert.match(h, new RegExp(`Contains ${esc(FAMILIES.citrus_fresh.en).replace(/[()]/g, "\\$&")} in the ${stage}, which your quiz answers lean against\\.`));
-  assert.doesNotMatch(h, /which you said you avoid/);
+  const lines = [...h.matchAll(/<div class="risk">([^<]*)<\/div>/g)].map(m => m[1]);
+  for (const line of lines) {
+    if (/which you said you avoid/.test(line)) assert.match(line, new RegExp("^Contains " + esc(FAMILIES.vanilla_gourmand.en)), line);
+    if (line.includes(esc(FAMILIES.citrus_fresh.en))) assert.match(line, /which your quiz answers lean against\./, line);
+  }
+  /* and no pick is led by vanilla: the avoided card rules those out */
+  for (const name of picksOf(h)) {
+    const P = W.PP_DATA.PERFUMES.find(x => esc(x.name) === name);
+    assert.ok(P, name);
+    for (const s of ["heart", "drydown"]) { const st = P.stages[s], w = st.vanilla_gourmand || 0; assert.ok(!(w >= 0.7 && w >= Math.max(...Object.values(st))), P.id + " is led by vanilla"); }
+  }
 });

@@ -100,9 +100,9 @@ test("two bottles: verdicts written as ratings, a narrowing round, then the told
   assert.match(h, /<div>Has bothered you: sharp \/ chemical <span class="src">\(from what you told us\)<\/span><\/div>/);
   assert.doesNotMatch(h, /class="qnote"/, "no anosmia note when the answer is no");
   const prof = E.computeProfile({ ratings: r, auto: {}, images: {}, told: N.toldItems(stored(page, "pp_quiz_v1")) });
-  const { picks } = E.recommend(prof, r);
+  const { picks } = E.recommend(prof, r, N.avoidedNotes(stored(page, "pp_quiz_v1")));
   assert.equal(picks.length, 3);
-  assert.equal((h.match(/<div class="rec">/g) || []).length, 3);
+  assert.equal((h.match(/<div class="rec qpick">/g) || []).length, 3);
   let at = -1;
   for (const p of picks) { const i = h.indexOf(`<b>${esc(p.P.name)}</b>`); assert.ok(i > at, `${p.P.id} shown in rank order`); at = i; }
   assert.match(h, /<a class="btn qfull" href="profile\.html#sec-profile">See the full profile</);
@@ -425,7 +425,7 @@ test("the full run: note rows on the first bottle, skip the rest, the picker, ta
     assert.match(h, new RegExp(`<div>${reEsc(line)} <span class="src">\\(from what you told us\\)</span></div>`));
   /* the unnoticed woody amber row brings the anosmia note although the answer was no */
   assert.match(h, new RegExp(`<div class="qnote">You did not notice the woody ambers \\(Ambroxan-type\\) in ${reEsc(esc(sauvage.name))}\\. Musks and woody ambers may be hard`));
-  const { picks } = E.recommend(E.computeProfile({ ratings: r, auto: {}, images: {}, told: N.toldItems(quiz) }), r);
+  const { picks } = E.recommend(E.computeProfile({ ratings: r, auto: {}, images: {}, told: N.toldItems(quiz) }), r, N.avoidedNotes(quiz));
   assert.deepEqual([...h.matchAll(/data-event="sample:([^"]+)"/g)].map(m => m[1]).filter((x, i, a) => a.indexOf(x) === i), [...picks.map(p => p.P.id)]);
 });
 
@@ -436,9 +436,9 @@ test("zero bottles and an enjoyed note: picks based only on what the visitor tol
   finish(page);
   const h = html(page), quiz = stored(page, "pp_quiz_v1");
   assert.match(h, /<h1>Based only on what you told us<\/h1>/);
-  const { picks } = E.recommend(E.computeProfile({ ratings: {}, auto: {}, images: {}, told: N.toldItems(quiz) }), {});
+  const { picks } = E.recommend(E.computeProfile({ ratings: {}, auto: {}, images: {}, told: N.toldItems(quiz) }), {}, N.avoidedNotes(quiz));
   assert.equal(picks.length, 3);
-  assert.equal((h.match(/<div class="rec">/g) || []).length, 3);
+  assert.equal((h.match(/<div class="rec qpick">/g) || []).length, 3);
   assert.equal((h.match(/<div class="rec tester">/g) || []).length, 3);
   const confirm = h.indexOf('<h2 class="qh2">Samples that would confirm it</h2>');
   assert.ok(h.indexOf('<div class="rec">') < confirm && confirm < h.indexOf('<div class="rec tester">'), "the picks, then the heading, then the testers");
@@ -802,4 +802,35 @@ test("the start screen, one reached event per screen, the result event, and the 
   await few.settle();
   assert.equal(few.snapshot().els.qcompare.innerHTML, "");
   assert.match(html(few), /<p class="qcompare" id="qcompare"><\/p>/);
+});
+
+test("an avoided note keeps perfumes it leads out of the picks, unless a kept bottle carries it; every pick says why", () => {
+  const led = (P, f) => ["heart", "drydown"].some(s => { const st = P.stages[s], w = st[f] || 0; return w >= 0.7 && w >= Math.max(...Object.values(st)); });
+  const picksIn = h => [...h.matchAll(/data-event="sample:([^"]+)"/g)].map(m => m[1]).filter((x, i, a) => a.indexOf(x) === i);
+  /* the reported case: no bottles, rose liked and musk avoided on the note cards; Roses Musk used to be the third pick */
+  let page = open({ localStorage: seed({ pp_quiz_v1: JSON.stringify({ notes: { rose: 1, musk: -1 } }) }) });
+  page.click({ dataset: { none: "1" } });
+  finish(page);
+  let h = html(page), ids = picksIn(h.split('class="rec tester"')[0]);
+  assert.equal(ids.length, 3);
+  for (const id of ids) {
+    assert.notEqual(id, "rosesmusk");
+    assert.ok(!led(E.byId[id], "white_musk") && !/musk/i.test(E.byId[id].name), id + " is led by musk or named for it");
+  }
+  assert.equal((h.match(/<div class="rec qpick">[^]*?<div class="(why|risk)">/g) || []).length, 3, "each pick has a reason line");
+  assert.match(h, /which you said you avoid; [^<]+ leads\.|Has rose, which you like\./);
+
+  /* Yara kept: her bottle carries white musk, so the picks follow the bottle and the result says so */
+  page = open({ localStorage: seed({ pp_quiz_v1: JSON.stringify({ notes: { musk: -1 } }) }) });
+  keep(page, ["yara"], []);
+  finish(page);
+  h = html(page);
+  assert.match(h, /<p class="qcontra">You said you avoid musk, but Yara, which you kept, has clean white musks, so the picks do not leave it out\. Perhaps another kind of musk is what bothers you\.<\/p>/);
+  page.click({ id: "lang-ar" });
+  assert.match(html(page), /<p class="qcontra">قلت إنك تتجنب المسك، لكن يارا الذي احتفظت به فيه المسك الأبيض النظيف، لذلك لا تستبعده الترشيحات\./);
+
+  /* the count of perfumes ruled out takes in what the avoided note rules out */
+  const prof = E.computeProfile({ ratings: {}, auto: {}, images: {}, told: N.toldItems({ notes: { musk: -1 } }) });
+  assert.ok(E.ruledOut(prof, N.avoidedNotes({ notes: { musk: -1 } })).includes("rosesmusk"));
+  assert.ok(!E.ruledOut(prof).includes("rosesmusk"), "without the avoided note, nothing is ruled out");
 });

@@ -113,7 +113,18 @@ window.PP_NOTES = (function () {
       return out;
     }
 
-    return { questions, toldItems };
+    /* The note-picker cards the visitor avoided, for engine.recommend's veto: the card's families (its own fams, else
+       the mapper's) and the word a perfume's name would carry ("musk" in Roses Musk), brackets dropped. */
+    function avoidedNotes(quiz) {
+      const answers = (quiz && quiz.notes) || {}, out = [];
+      for (const screen of (D.QUIZ || {}).notePicker || []) for (const n of screen.notes) {
+        if (answers[n.id] !== -1) continue;
+        out.push({ id: n.id, fams: n.fams || M.famsForNote(n.en) || {}, words: [n.en.replace(/\s*\(.*\)\s*/, "").trim()] });
+      }
+      return out;
+    }
+
+    return { questions, toldItems, avoidedNotes };
   }
 
   /* quiz.told as stored now ({ told: [chipId], toldNone }), from either form: an old string value is a

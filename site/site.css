@@ -607,6 +607,18 @@ details.qhow > summary { cursor: pointer; font-weight: 600; color: var(--gold); 
 #quiz.qsearching { padding-bottom: 70vh; }
 /* "More notes" sits under the cards; only Next stays pinned to the bottom of the screen */
 .qmore { margin-top: 14px; }
+/* the picks as stacked cards: the bottle and name, why it was chosen, what to watch for, then the links */
+.recs-list { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.qpick { padding: 14px 16px 14px; }
+.qpick-head { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; }
+.qpick-head .thumb { width: 72px; height: 72px; border: 0; box-shadow: none; flex: none; }
+.qpick-head b { display: block; font-family: var(--font-display); font-weight: 600; font-size: 20px; line-height: 1.25; }
+[dir="rtl"] .qpick-head b { font-weight: 700; line-height: 1.5; }
+.qpick .why, .qpick .risk { font-size: 14.5px; line-height: 1.55; margin-top: 6px; }
+.qpick-links { display: flex; align-items: center; gap: 14px; margin-top: 12px; flex-wrap: wrap; }
+.qpick-links .qsample { min-width: 120px; }
+/* a note the visitor avoids that their own bottles carry: said plainly under the taste card */
+.qcontra { margin: 12px 2px 0; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); padding-inline-start: 12px; border-inline-start: 3px solid var(--oil); }
 /* the full profile: the next step after the picks, dark wood with gold type so it stands apart from the gold Sample buttons */
 .qfull.btn { display: flex; width: 100%; min-height: 60px; margin-top: 22px; padding: 14px 28px; font-size: 19px; font-weight: 700; text-decoration: none;
   background: linear-gradient(180deg, #3A2718 0%, #2A1B11 100%); color: #F2D68A; border: 1px solid rgba(242,214,138,.55);

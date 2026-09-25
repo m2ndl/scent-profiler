@@ -216,7 +216,8 @@
 
   /* ---------- profile engine (engine.js) ---------- */
   const computeProfile = () => E.computeProfile(Object.assign(state(), { told }));
-  const recommend = prof => E.recommend(prof, ratings);
+  /* the quiz's avoided note cards veto picks unless a kept bottle carries the note (engine.recommend) */
+  const recommend = prof => E.recommend(prof, ratings, N.avoidedNotes(quiz));
   const settleSuggestion = prof => E.settleSuggestion(prof, ratings);
 
   /* ---------- persistence and sharing ---------- */
@@ -414,14 +415,16 @@
     if (!gate) { host.innerHTML = `<div class="empty">${esc(t().emptyRecs)}</div>`; return; }
     const { picks, badAny } = recommend(prof);
     if (!picks.length) { host.innerHTML = `<div class="empty">${esc(t().emptyRecs)}</div>`; return; }
-    host.innerHTML = `<div class="recs">` + picks.map(({ P, risks }) => {
+    host.innerHTML = `<div class="recs">` + picks.map(({ P, reason }) => {
       const whys = [];
       const clear = badAny.filter(f => (P.stages.drydown[f] || 0) < 0.2);
       if (clear.length) whys.push(t().whyClear(listJoin(clear.slice(0, 3).map(fam))));
       const liked = Object.entries(prof).filter(([f, v]) => (v.cls === "goodLikely" || v.cls === "goodPossible") && STAGES.some(s => (P.stages[s][f] || 0) >= 0.4)).sort((a, b) => b[1].score - a[1].score)[0];
       if (liked) { const src = liked[1].evidence.find(e => e.value > 0); if (src) whys.push(t().whyShares(fam(liked[0]), pname(src.perfume))); }
-      const risk = risks.sort((a, b) => b.sev - a.sev)[0];
-      const riskLine = risk ? (risk.kind === "unknown" ? t().riskUnknown(fam(risk.f), stageName(risk.s)) : risk.kind === "mixed" ? t().riskMixed(fam(risk.f), stageName(risk.s)) : risk.kind === "told" ? (saidAvoid(risk.f) ? t().riskTold : t().riskLean)(fam(risk.f), stageName(risk.s)) : t().riskNeg(fam(risk.f), stageName(risk.s))) : "";
+      /* one thing to watch for at most, chosen by the engine (a family the visitor avoids, a possible deal-breaker, a
+         family their bottles split on, an untried family that leads) */
+      const risk = reason && reason.watch;
+      const riskLine = risk ? ((risk.kind === "avoid" || risk.kind === "avoidOpening" || risk.kind === "lean") ? (saidAvoid(risk.f) ? t().riskTold : t().riskLean)(fam(risk.f), stageName(risk.s)) : risk.kind === "unknown" ? t().riskUnknown(fam(risk.f), stageName(risk.s)) : risk.kind === "mixed" ? t().riskMixed(fam(risk.f), stageName(risk.s)) : t().riskNeg(fam(risk.f), stageName(risk.s))) : "";
       const q = encodeURIComponent(P.house + " " + P.name);
       const link = (tpl, label, primary) => `<a class="${primary ? "primary" : ""}" href="${tpl.replace("{q}", q)}" target="_blank" rel="noopener sponsored">${esc(label)}</a>`;
       const PP = resolve(P.id) || P;

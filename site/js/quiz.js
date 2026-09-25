@@ -59,6 +59,17 @@
       anos: { yes: "Yes", no: "No", unsure: "Not sure" },
       resultH: "Your scent profile",
       drawn: { likely: "Drawn to", possible: "Probably drawn to" }, breaker: { likely: "Your deal-breaker", possible: "Possible deal-breaker" },
+      why: likes => `Has ${likes}, which you like.`, clearOf: fams => `Free of ${fams}.`,
+      watch: {
+        avoid: (f, s, top) => `A light touch of ${f} in the ${s}, which you said you avoid; ${top} leads.`,
+        avoidOpening: f => `A touch of ${f} in the opening only, which you said you avoid; it fades within the hour.`,
+        neg: (f, s) => `Some ${f} in the ${s}, which may be a deal-breaker for you: try a sample first.`,
+        lean: (f, s) => `Some ${f} in the ${s}, which your answers lean against.`,
+        mixed: (f, s) => `${f.charAt(0).toUpperCase() + f.slice(1)} in the ${s}: it went well in one of your bottles and badly in another.`,
+        unknown: (f, s) => `Led by ${f} in the ${s}, which you have not tried yet: a sample will tell.`
+      },
+      stageWord: { opening: "opening", heart: "heart", drydown: "base" },
+      contradict: (note, bottles, many, f) => `You said you avoid ${note}, but ${bottles}, which you kept, ${many ? "have" : "has"} ${f}, so the picks do not leave it out. Perhaps another kind of ${note} is what bothers you.`,
       fromBottles: "From your bottles:", has: "has", without: f => `No ${f.charAt(0).toLowerCase() + f.slice(1)}`, getSample: "Sample",
       basis: (b, a) => `Built from ${b} ${b === 1 ? "bottle" : "bottles"} and ${a} ${a === 1 ? "answer" : "answers"}.`,
       reading: "Reading your bottles", kept: "You kept", turned: "Turned on you", skip: "Show my result",
@@ -146,6 +157,19 @@
       anos: { yes: "نعم", no: "لا", unsure: "لست متأكداً" },
       resultH: "ذائقتك العطرية",
       drawn: { likely: "تنجذب إلى", possible: "على الأرجح تنجذب إلى" }, breaker: { likely: "يفسد العطر عليك", possible: "قد يفسد العطر عليك" },
+      why: likes => `فيه ${likes}، من العائلات التي تحبها.`, clearOf: fams => `خالٍ من ${fams}.`,
+      watch: {
+        avoid: (f, s, top) => `فيه لمسة خفيفة من ${f} في ${s}، مما قلت إنك تتجنبه، لكن الغالب عليه ${top}.`,
+        avoidOpening: f => `فيه لمسة من ${f} في البداية فقط، مما قلت إنك تتجنبه، وتختفي خلال ساعة.`,
+        neg: (f, s) => `فيه شيء من ${f} في ${s}، وقد يفسد العطر عليك: جرّب عيّنة أولاً.`,
+        lean: (f, s) => `فيه شيء من ${f} في ${s}، وإجاباتك تميل ضدّه.`,
+        mixed: (f, s) => `فيه ${f} في ${s}، وقد نجح معك في عطر وانقلب عليك في آخر.`,
+        unknown: (f, s) => `يغلب عليه ${f} في ${s}، ولم تجرّبه بعد: العيّنة ستخبرك.`
+      },
+      stageWord: { opening: "البداية", heart: "القلب", drydown: "القاعدة" },
+      contradict: (note, bottles, many, f) => many
+        ? `قلت إنك تتجنب ${note}، لكن ${bottles}، وقد احتفظت بها، فيها ${f}، لذلك لا تستبعده الترشيحات. ربما ما يزعجك نوع آخر من ${note}.`
+        : `قلت إنك تتجنب ${note}، لكن ${bottles} الذي احتفظت به فيه ${f}، لذلك لا تستبعده الترشيحات. ربما ما يزعجك نوع آخر من ${note}.`,
       fromBottles: "من عطورك:", has: "فيه", without: f => `خالٍ من ${f}`, getSample: "عينة",
       basis: (b, a) => `بُني على ${b} من عطورك و${a} من إجاباتك.`,
       reading: "نقرأ عطورك", kept: "أبقيتها", turned: "انقلبت عليك", skip: "اعرض النتيجة",
@@ -269,7 +293,9 @@
   const derived = entry => E.derived(entry);
   /* the visitor's word answers as told items (notes.js), so both pages build the same list */
   const computeProfile = () => E.computeProfile(Object.assign(state(), { told: N.toldItems(quiz) }));
-  const recommend = prof => E.recommend(prof, ratings);
+  /* the note cards the visitor avoided (notes.js): a veto on the picks unless a kept bottle says otherwise */
+  const avoided = () => N.avoidedNotes(quiz);
+  const recommend = prof => E.recommend(prof, ratings, avoided());
 
   /* ---------- persistence and sharing (as app.js) ---------- */
   /* One pending send per perfume, so answering another bottle never cancels it; pending sends go out at once
@@ -752,22 +778,45 @@
     return `<div class="qreveal"><div class="qtaste">${rows || `<p class="qtaste-none">${esc(t().noFamilies)}</p>`}</div>
       <p class="qbasis">${esc(t().basis(ids.length, answerCount(ids)))}</p></div>`;
   }
-  /* a pick as a tile: the bottle, its name, what it has that you like and what it is free of */
-  function pickTileHtml(pick, prof) {
-    const P = pick.P, PP = resolve(P.id) || P;
-    const strong = st => Object.entries(P.stages[st] || {}).filter(([, w]) => w >= 0.5);
-    const likes = new Set(byStrength(prof, ["goodLikely", "goodPossible"]));
-    const has = strong("drydown").concat(strong("heart")).filter(([f]) => likes.has(f)).sort((a, b) => b[1] - a[1]).map(([f]) => f)[0];
-    const carries = f => ["opening", "heart", "drydown"].some(st => (P.stages[st][f] || 0) >= 0.3);
-    const free = byStrength(prof, ["badLikely", "badPossible"]).find(f => !carries(f));
-    const chips = (has ? `<span class="qchip good sm"><span class="sr">${esc(t().has)} </span>${esc(famShort(has))}</span>` : "")
-      + (free ? `<span class="qchip free sm">${esc(t().without(famShort(free)))}</span>` : "");
+  /* A family's short name inside a sentence: lower case in English, as written in Arabic. */
+  const famIn = f => low(famShort(f));
+  /* a list inside a sentence: "a, b and c"; in Arabic the last item takes و ("أ، ب وج") */
+  const andJoin = arr => lang === "ar" ? (arr.length > 1 ? arr.slice(0, -1).join("، ") + " و" + arr[arr.length - 1] : arr[0] || "") : listJoin(arr);
+  /* A note card's name inside a sentence, brackets dropped: "musk"; in Arabic with the article, "المسك". */
+  const noteIn = id => {
+    const n = QUIZ.notePicker.flatMap(s => s.notes).find(x => x.id === id); if (!n) return id;
+    const w = (lang === "ar" ? n.ar : n.en).replace(/\s*\(.*\)\s*/, "").trim();
+    return lang === "ar" ? (/^ال|\s/.test(w) ? w : "ال" + w) : w.toLowerCase();
+  };
+  /* A pick as a card: the bottle and its name, then why it was chosen (the families it has that the visitor likes,
+     the deal-breakers it is free of) and, only when there is one, the thing to watch for and why it still made it. */
+  function pickTileHtml(pick) {
+    const P = pick.P, PP = resolve(P.id) || P, r = pick.reason || { likes: [], clear: [], watch: null };
+    const lines = [];
+    if (r.likes.length) lines.push(`<div class="why">${esc(t().why(andJoin(r.likes.map(famIn))))}</div>`);
+    if (r.clear.length) lines.push(`<div class="why">${esc(t().clearOf(andJoin(r.clear.map(famIn))))}</div>`);
+    const w = r.watch;
+    if (w) {
+      const W = t().watch, s = t().stageWord[w.s];
+      const text = w.kind === "avoid" ? W.avoid(famIn(w.f), s, w.top ? famIn(w.top) : famIn(w.f)) : w.kind === "avoidOpening" ? W.avoidOpening(famIn(w.f)) : W[w.kind](famIn(w.f), s);
+      lines.push(`<div class="risk">${esc(text)}</div>`);
+    }
     const q = encodeURIComponent(P.house + " " + P.name);
     const sample = (lang === "ar" ? CONFIG.links.sampleSA : CONFIG.links.sampleUS).replace("{q}", q);
-    return `<div class="rec">${imgTag(PP)}<b>${esc(pname(P))}</b><span class="qtile-house">${esc(P.house)}</span>
-      ${chips ? `<div class="qchips">${chips}</div>` : ""}
-      <a class="btn primary qsample" href="${sample}" target="_blank" rel="noopener sponsored" data-event="${esc("sample:" + P.id)}">${esc(t().getSample)}</a>
-      <a class="qbottle" href="${CONFIG.links.bottle.replace("{q}", q)}" target="_blank" rel="noopener sponsored" data-event="${esc("sample:" + P.id)}">${esc(t().bottle)}</a></div>`;
+    return `<div class="rec qpick"><div class="qpick-head">${imgTag(PP)}<div class="grow"><b>${esc(pname(P))}</b><span class="qtile-house">${esc(P.house)}</span></div></div>
+      ${lines.join("")}
+      <div class="qpick-links"><a class="btn primary qsample" href="${sample}" target="_blank" rel="noopener sponsored" data-event="${esc("sample:" + P.id)}">${esc(t().getSample)}</a>
+      <a class="qbottle" href="${CONFIG.links.bottle.replace("{q}", q)}" target="_blank" rel="noopener sponsored" data-event="${esc("sample:" + P.id)}">${esc(t().bottle)}</a></div></div>`;
+  }
+  /* When a kept bottle carries a note the visitor said they avoid, the picks follow the bottle; this says so. */
+  function contradictHtml(list) {
+    const seen = new Set(), out = [];
+    for (const c of list || []) {
+      if (seen.has(c.note) || !c.perfumes.length) continue; seen.add(c.note);
+      const names = c.perfumes.map(id => resolve(id)).filter(Boolean).map(pname);
+      out.push(`<p class="qcontra">${esc(t().contradict(noteIn(c.note), andJoin(names), names.length > 1, famIn(c.f)))}</p>`);
+    }
+    return out.join("");
   }
 
   /* ---------- the taste name: nine palates cover the 32 families; the strongest liked group names the visitor ---------- */
@@ -866,7 +915,7 @@
   const emblemSvg = (a, size) => `<svg class="qemblem" width="${size}" height="${size}" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="qe-${a.id}" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".55" stop-color="${a.color}" stop-opacity="1"/><stop offset="1" stop-color="${a.color2 || a.color}"/></radialGradient><linearGradient id="qr-${a.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B8862A"/><stop offset=".35" stop-color="#F2D68A"/><stop offset=".55" stop-color="#C99C43"/><stop offset=".75" stop-color="#FBECB8"/><stop offset="1" stop-color="#A8781F"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="url(#qr-${a.id})"/><circle cx="32" cy="32" r="26.5" fill="url(#qe-${a.id})"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#FCF8F0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">${ICON[a.icon || a.id]}</g></svg>`;
   /* the funnel: every catalogue perfume checked, the ones a deal-breaker rules out, the three chosen */
   function funnelHtml(prof, nPicks) {
-    const total = E.PERFUMES.length, out = E.ruledOut(prof).length;
+    const total = E.PERFUMES.length, out = E.ruledOut(prof, avoided()).length;
     let i = 0; const cell = (n, label, cls) => `<div class="qfun ${cls || ""}"><b id="qc-${i++}" data-count="${n}">${n}</b><span>${esc(label)}</span></div>`;
     return `<div class="qfunnel">${cell(total, t().funnel.checked)}${cell(out, t().funnel.out, "out")}${nPicks ? cell(nPicks, t().funnel.picked, "pick") : ""}</div>`;
   }
@@ -941,7 +990,7 @@
     } else {
       text(t().card.title, M, 262, `600 76px ${disp}`, "#2A1B11");
     }
-    const ruled = E.ruledOut(prof).length;
+    const ruled = E.ruledOut(prof, avoided()).length;
     text(`${E.PERFUMES.length} ${t().funnel.checked} · ${ruled} ${t().funnel.out}`, M, 372, `600 30px ${body}`, "#614E3F");
     x.fillStyle = gold; x.fillRect(rtl ? W - M - 120 : M, 398, 120, 6);
     const good = drawnTo(prof), bad = byStrength(prof, ["badLikely", "badPossible"]).slice(0, 2);
@@ -1012,7 +1061,7 @@
     const picksHtml = () => {
       const { picks } = recommend(prof);
       shown.picks = picks.map(p => p.P.id);
-      return picks.length ? `<div class="recs recs-tiles">${picks.map(pk => pickTileHtml(pk, prof)).join("")}</div>` : "";
+      return picks.length ? `<div class="recs recs-list">${picks.map(pk => pickTileHtml(pk)).join("")}</div>` : "";
     };
     if (!ids.length) {
       const testers = orderedTesters();
@@ -1048,7 +1097,7 @@
       ? `<div class="qname-hero" style="--arch:${arch.color}">${emblemSvg(arch, 96)}<div><p class="eyebrow">${esc(t().palate)}</p><h1>${esc(arch[lang])}</h1></div></div><p class="qpal">${esc(palateText(arch, prof).about)}</p>`
       : `<div class="hero"><h1>${esc(t().resultH)}</h1></div>`;
     return topHtml() + `<div class="qresult">${hero}${funnelHtml(prof, nPicks)}
-      ${tasteCardHtml(prof, ids)}<p class="qcompare" id="qcompare">${compareHtml(prof)}</p>${tipHtml}${recs}
+      ${tasteCardHtml(prof, ids)}${contradictHtml(recommend(prof).contradicted)}<p class="qcompare" id="qcompare">${compareHtml(prof)}</p>${tipHtml}${recs}
       <a class="btn qfull" href="${esc(profilerHref("", "#sec-profile"))}">${esc(t().full)}</a>
       <div class="qshare"><button type="button" class="btn" data-sharecard="1">${esc(t().share)}</button></div>${anos}
       <details class="qhow"><summary>${esc(t().how)}</summary><p class="notes">${esc(t().resultLede)}</p>${famHtml}${told}</details></div>` + foot();

@@ -147,10 +147,21 @@ The rules below are implemented in `site/js/engine.js`.
   while a family marked "didn't notice it" (`unnoticed`) gives no evidence at all.
 - What the visitor told the quiz in words (`state.told`: notes enjoyed or avoided, bitter or
   sweet, complaints) counts at 0.3 of an item's weight in separate sums, used only for a family
-  with no strong bottle evidence, so it can reorder the picks but never sets a class or excludes
-  a perfume. A family known only from told answers scores their weighted sum over their weights
+  with no strong bottle evidence, so it can reorder the picks but never sets a class. A family known only from told answers scores their weighted sum over their weights
   plus 0.3, which pulls it toward zero: one full-weight answer gives 0.5, and a 0.3-weight side
   effect of the bitter or sweet answer about 0.23.
+- A note card answered "avoid" is also a veto on the picks (`PP_NOTES.avoidedNotes`, `engine.recommend(prof, ratings,
+  avoid)`): no pick where that card's family (weight 0.5 or more on the card) leads the heart or the base (0.7 or more,
+  and the strongest there), or whose name carries the note, and `ruledOut()` counts those perfumes. A kept bottle that
+  holds the family strongly (`pos > 0`) lifts the veto: the bottles win, `recommend()` returns the family under
+  `contradicted`, and the quiz result says so under the taste card ("You said you avoid musk, but Yara, which you kept,
+  has clean white musks..."). With no avoided card nothing changes, so the engine golden is unaffected.
+- Each pick carries `reason`: up to two liked families it has in the heart or base (a liked class, or a clear lean
+  from the visitor's words), up to two deal-breakers it is free of, and at most one thing to watch for, in this order:
+  an avoided family that is only secondary here (0.3 or more) or only in the opening, a possible deal-breaker, a family
+  the visitor's words lean against, a family their bottles split on, then an untried family that leads the heart or
+  base. Traces under 0.3 are never named. The quiz shows these as lines on stacked pick cards; the profile page uses the
+  watch item for its risk line.
 - A family is a **likely deal-breaker** when its weighted mean is ≤ −0.7 across two or more
   perfumes with no positive rating; **possible** on one perfume, or on a milder mean across
   several; **mixed** when the same family drew both likes and dislikes.
@@ -229,7 +240,8 @@ Everyone then answers the told questions, answers in words kept in `pp_quiz_v1`:
   sure); stored as `anosmia`.
 
 Both pages turn these answers into the same told items (`PP_NOTES.toldItems`) and pass them to computeProfile
-(see How the profile is computed): they can reorder the picks but never set a class or exclude a perfume. The
+(see How the profile is computed): they can reorder the picks but never set a class; an avoided note card also vetoes
+the picks it leads, unless a kept bottle carries it. The
 complaints also order the testers, and anosmia yes or not sure adds a note naming the white-musk tester and its
 sample link. Known limit: "peach" maps to the sweet-fruit family, which also holds berries and pineapple. A
 separate data task, the lactone split, will give peach, apricot, coconut, osmanthus and tuberose their own family.
