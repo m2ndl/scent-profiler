@@ -757,6 +757,7 @@ test("the start screen, one reached event per screen, the result event, and the 
   assert.equal((h.match(/<img class="thumb/g) || []).length, 5);
   assert.match(h, /<li><b>1<\/b><span>Your bottles<\/span><\/li><li><b>2<\/b><span>Notes you know<\/span><\/li><li><b>3<\/b><span>Sweet or bitter<\/span><\/li><li><b>4<\/b><span>What bothers you<\/span><\/li>/);
   assert.match(h, /data-start="1">Start</);
+  assert.ok(h.indexOf('data-start="1"') < h.indexOf('class="qsteps"'), "Start comes straight after the promise, before the four parts");
   /* a returning visitor goes to their profile to rate the samples; the old quiz address lands on the front page */
   assert.match(h, /<p class="qreturn"><a href="profile\.html">Took the quiz before\? Rate the samples you tried<\/a><\/p>/);
   assert.match(fs.readFileSync(path.join(SITE, "quiz.html"), "utf8"), /location\.replace\("index\.html" \+ location\.search \+ location\.hash\)/);

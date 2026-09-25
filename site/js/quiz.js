@@ -462,8 +462,16 @@
     const auto = Object.keys(AUTO).filter(id => open(id) && !byId[id]).map(id => resolve(id)).filter(P => P && hit(P));
     return verified.concat(auto).slice(0, 12);
   }
+  /* While the list is open the page gets room below it (the search box sits near the end of the grid screen), and on a
+     phone the box scrolls to the top of the screen, so the keyboard does not cover the list. */
+  function roomForResults(open) {
+    const host = $("quiz"); if (host && host.classList) host.classList[open ? "add" : "remove"]("qsearching");
+    const q = $("q");
+    try { if (open && q && window.innerWidth < 700 && q.getBoundingClientRect().top > window.innerHeight * .25) q.scrollIntoView({ block: "start", behavior: "smooth" }); } catch (err) { /* not available */ }
+  }
   function showResults(list) {
     const box = $("results"); if (!box) return;
+    roomForResults(list.length > 0);
     if (!list.length) { box.hidden = true; box.innerHTML = ""; return; }
     box.innerHTML = list.map(P => `<button type="button" data-add="${esc(P.id)}"><span class="with-thumb" style="align-items:center">${imgTag(P, "sm")}<span>${esc(pname(P))} <span class="house">${lang === "ar" ? esc(P.name) : (P.ar ? esc(P.ar) : "")}</span></span></span><span class="house">${esc(P.house)} · ${esc(t().cats[P.gender])}</span></button>`).join("");
     box.hidden = false;
@@ -528,14 +536,14 @@
     const rated = ratedBefore(id);
     return `<button type="button" class="qtile" data-tile="${esc(id)}" aria-pressed="${!rated && !!on}"${rated ? " disabled" : ""}>${imgTag(P)}<span class="qtile-name">${esc(pname(P))}</span><span class="qtile-house">${esc(P.house)}</span>${rated ? `<span class="qtile-tag rated">${esc(t().rated)}</span>` : ""}${line ? `<span class="qtile-tag">${esc(line)}</span>` : ""}</button>`;
   }
-  /* The start screen: the promise, five of the grid's bottles, the four parts, and Start. */
+  /* The start screen: five of the grid's bottles, the promise, Start, then the four parts and a link for a returning visitor. */
   function startHtml() {
     const shelf = QUIZ.grid.slice(0, 5).map(id => imgTag(resolve(id))).join("");
     return `<div class="qstart"><div class="qstart-shelf" aria-hidden="true">${shelf}</div>
       <div class="hero"><h1>${esc(t().startH)}</h1><p>${esc(t().startLede)}</p></div>
+      <button type="button" class="btn primary qstart-go" data-start="1">${esc(t().startGo)}</button>
       <p class="qsteps-h">${esc(t().startParts)}</p><ol class="qsteps">${t().parts.map((name, i) => `<li><b>${i + 1}</b><span>${esc(name)}</span></li>`).join("")}</ol>
-      <p class="qreturn"><a href="${esc(profilerHref())}">${esc(t().startBack)}</a></p>
-      <div class="qactions"><button type="button" class="btn primary" data-start="1">${esc(t().startGo)}</button></div></div>` + foot();
+      <p class="qreturn"><a href="${esc(profilerHref())}">${esc(t().startBack)}</a></p></div>` + foot();
   }
   /* The grid screen keeps its search box across tile taps: only the tiles and the buttons are redrawn. */
   function gridHtml() {
