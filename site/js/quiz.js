@@ -628,7 +628,7 @@
     };
     return topHtml() + `<div class="hero"><h1>${esc(t().pickerH[QUIZ.notePicker[pk].id])}</h1><p>${esc(t().pickerQ)}</p></div>
       <div class="pcards">${cards.map(card).join("")}</div>
-      ${cards.length < s.cards.length ? `<div class="qactions"><button type="button" class="btn" data-pmore="1">${esc(t().pickMore(s.cards.length - cards.length))}</button></div>` : ""}
+      ${cards.length < s.cards.length ? `<div class="qmore"><button type="button" class="btn" data-pmore="1">${esc(t().pickMore(s.cards.length - cards.length))}</button></div>` : ""}
       <div class="qactions"><button type="button" class="btn primary" data-continue="1">${esc(t().next)}</button></div>` + foot();
   }
   function tasteHtml() {

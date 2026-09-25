@@ -605,6 +605,8 @@ details.qhow > summary { cursor: pointer; font-weight: 600; color: var(--gold); 
 .qstart .qsteps-h { margin-top: 30px; }
 /* room below an open search list, so the box can scroll to the top of a phone screen above the keyboard */
 #quiz.qsearching { padding-bottom: 70vh; }
+/* "More notes" sits under the cards; only Next stays pinned to the bottom of the screen */
+.qmore { margin-top: 14px; }
 /* while a name is being typed, the list is solid (the glass surfaces let the bar show through) and Continue steps aside */
 .search .results { background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; }
 #quiz.qsearching .qactions { visibility: hidden; }
