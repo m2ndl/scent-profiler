@@ -1,0 +1,16 @@
+# Round 2, advocate C
+
+## The strongest objection
+
+B, A and Fable make one point in three forms: a type is a bundle of families that occur together, and a dislike-first site has to separate them (round1_B.md:58; round1_A.md:51; round1_fable.md:47). I checked it through tools/lib/site.js, and it holds. Each of my seven types rewards at least one of the ten deciding families: Fresh radiant rewards woody amber, Clean musk rewards white musk, and both sweet types reward vanilla. Of 96 perfumes whose leading opening family is citrus or aquatic, 66 dry down to woody amber or white musk at 0.5 or more. A reported 58 of 73; I could not reproduce that count, but the share is similar. So a visitor typed "Clean musk" from lifestyle answers is steered toward the family that most often fails on skin, and none of the answers tested that family. Calkin and Jellinek call it "a mistake to be too categorical" about perfume families, and say some perfumes are "almost impossible to place" (calkin_jellinek_perfumery_practice_principles_1994.txt:4568-4569). My count agrees: 25 hybrids, Baccarat Rouge 540 among them, fit no type.
+
+My worked example failed for a separate reason, and A's brief showed why. I mapped "still wear" to heart +1 and drydown +2. A maps it to drydown +1, and "stopped" to drydown -2 (round1_A.md:10). I reran both. With A's mapping, woody amber becomes badPossible (-1.00) and the picks are Tonka Impériale, Angels' Share and Arabians Tonka, none of which has woody amber in its drydown. With mine, woody amber is mixed (-0.67) and Jean Lowe Immortel (woody amber 0.8) comes first. This changed my view: an asymmetric verdict does more for the dislike-first thesis than any type prior.
+
+Little of C survives. The lifestyle questions have no shown link to whether a wearer tolerates a family (round1_fable.md:47; round1_D.md:57). My Thibout evidence links occasion words to perfume styles on a perception map, not to what a wearer can stand six hours later. The type still works as a name: a short label in both languages for the top of whatever profile the core path produces, plus a share card that carries it. That is position 3's "categories are names", and it needs a table in data.js and no engine change. I withdraw withPrior as the way a type enters the engine.
+
+## Borda vote
+
+1. A: verdicts on worn bottles are the strongest evidence the site can collect, its asymmetric mapping settles the Sauvage and Khamrah case with no engine change, and its zero-bottle testers are honest about what they prove.
+2. B: it is the only rival that gives a zero-bottle profile at family level and can say "vanilla yes, woody amber no", although its descriptions of unfamiliar materials meet the five-to-one dislike of unfamiliar odours (engen_odor_sensation_memory_1991.txt:868-871).
+3. C: a named type is a good label and share card but a weak mechanism, because every type rewards a deciding family that the answers never tested.
+4. D: complaint chips without a bottle spread over several families, its chip change alters 46 of the 60 golden scenarios (rechecked), and its anosmia flag drops 35 or 36 perfumes on a self-report that Fable's source found over-flags (round1_fable.md:20).

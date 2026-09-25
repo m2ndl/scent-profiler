@@ -1,0 +1,170 @@
+@@@OLD
+  let quiz = store.get("pp_quiz_v1", {});          /* { told: chip id or "none", anosmia: "yes" | "no" | "unsure" } */
+  if (!quiz || typeof quiz !== "object") quiz = {};
+@@@NEW
+  /* { notes: { noteId: 1 | -1 }, taste: "bitter" | "sweet" | "both" | "unsure", told: [chipId], toldNone: true when
+     nothing has bothered the visitor, anosmia: "yes" | "no" | "unsure" }. An old string told is read through normTold. */
+  let quiz = store.get("pp_quiz_v1", {});
+  if (!quiz || typeof quiz !== "object") quiz = {};
+  if ("told" in quiz || "toldNone" in quiz) { const nt = normTold(quiz); quiz.told = nt.told; if (nt.toldNone) quiz.toldNone = true; else delete quiz.toldNone; }
+@@@END
+@@@OLD
+  /* the step machine: grid, verdicts, narrow, told, anosmia, result */
+@@@NEW
+  /* the step machine, in four parts: grid, verdicts, notes and narrow (your bottles); picker (notes you know);
+     taste (sweet or bitter); told and anosmia (what bothers you); then the result */
+@@@END
+@@@OLD
+  const ans = {};               /* id -> { verdict, stage, when, chips } for bottles answered on this visit */
+@@@NEW
+  const ans = {};               /* id -> { verdict, stage, when, chips, na, un } for bottles answered on this visit (na, un: note answers) */
+@@@END
+@@@OLD
+  let doneSent = false;
+@@@NEW
+  let pk = 0;                   /* the note picker screen shown */
+  let noNotes = false;          /* "Skip notes for the other bottles" was chosen */
+  let editing = new Set();      /* answered note rows reopened with "Change" on the screen shown */
+  let toldUnsure = false;       /* "I don't know" on the complaints screen; not stored */
+  const hist = [];              /* one snapshot per screen shown, for Back */
+  const sent = new Set();       /* events already sent on this visit: each goes out once, when its screen is first left */
+  let doneSent = false;
+@@@END
+@@@OLD
+  const cap = s => (lang === "en" && s ? s[0].toUpperCase() + s.slice(1) : s);
+@@@NEW
+  const cap = s => (lang === "en" && s ? s[0].toUpperCase() + s.slice(1) : s);
+  const low = s => (lang === "en" && s ? s[0].toLowerCase() + s.slice(1) : s);
+@@@END
+@@@OLD
+  const shopTrial = id => { const r = ratings[id]; return !!r && r.src === "quiz" && r.opening === -1 && r.heart == null && r.drydown == null; };
+@@@NEW
+  const shopTrial = id => { const r = ratings[id]; return !!r && r.src === "quiz" && r.opening === -1 && r.heart == null && r.drydown == null; };
+  /* rated before this visit: a bottle answered on this visit can still be picked again after Back */
+  const ratedBefore = id => hasStage(id) && !ans[id];
+  /* A bottle's note rows (notes.js): shop rows for a shop trial, worn rows otherwise. */
+  const kindOf = id => ((ans[id] ? ans[id].verdict === "shop" : shopTrial(id)) ? "shop" : "worn");
+  const rowsFor = id => { const P = resolve(id); return P ? N.questions(P, kindOf(id)) : []; };
+@@@END
+@@@OLD
+  const computeProfile = () => E.computeProfile(state());
+@@@NEW
+  /* the visitor's word answers as told items (notes.js), so both pages build the same list */
+  const computeProfile = () => E.computeProfile(Object.assign(state(), { told: N.toldItems(quiz) }));
+@@@END
+@@@OLD
+     again 0, chips on that stage. shop: opening -1, chips on opening. other: nothing written. */
+@@@NEW
+     again 0, chips on that stage; "I don't remember" when keeps the drydown. shop: opening -1, chips on opening.
+     other and unsure: nothing written. The note rows' answers go into noteAnswers and unnoticed. */
+@@@END
+@@@OLD
+    if (a.verdict === "other") {
+@@@NEW
+    if (a.verdict === "other" || a.verdict === "unsure") {
+@@@END
+@@@OLD
+    rec.src = "quiz";
+    ratings[id] = rec;
+@@@NEW
+    rec.src = "quiz";
+    if (a.na && Object.keys(a.na).length) rec.noteAnswers = Object.assign({}, a.na);
+    if (a.un && a.un.length) rec.unnoticed = a.un.slice();
+    ratings[id] = rec;
+@@@END
+@@@OLD
+    if (!ans[id] || ans[id].verdict !== v) ans[id] = { verdict: v, stage: v === "shop" ? "opening" : "drydown", when: null, chips: [] };
+    writeVerdict(id);
+    if (v === "still" || v === "other") advance(); else render();
+  }
+  function advance() {
+    const a = ans[queue[at]];
+    if (a) sendEvent("verdict:" + a.verdict, a.chips.length);
+    at++;
+    if (at < queue.length) { go("verdicts"); return; }
+    if (round === 1) { narrow = narrowCandidates(); narrowPicked = new Set(); if (narrow.length) { go("narrow"); return; } }
+    go("told");
+  }
+@@@NEW
+    if (!ans[id] || ans[id].verdict !== v) ans[id] = { verdict: v, stage: v === "shop" ? "opening" : "drydown", when: null, chips: [], na: {}, un: [] };
+    writeVerdict(id);
+    if (v === "still") toNotes(); else if (v === "other" || v === "unsure") advance(); else render();
+  }
+  /* still, turned and shop go on to the bottle's note rows, unless it has none or the visitor skipped them all */
+  function toNotes() {
+    if (!noNotes && rowsFor(queue[at]).length) go("notes"); else advance();
+  }
+  /* Leave the bottle: its events go out (the verdict, "I don't remember" when, then the notes event), and the
+     next bottle, the narrowing round or the note picker follows. from: the snapshot for Back, when taken earlier. */
+  function advance(from, notesEvent) {
+    from = from || snap();
+    const id = queue[at], a = ans[id];
+    if (a) {
+      sendOnce("verdict:" + id, "verdict:" + a.verdict, a.chips.length);
+      if (a.verdict === "turned" && a.when === "unsure") sendOnce("when:" + id, "when:unsure", 0);
+    }
+    if (notesEvent) sendOnce("notes:" + id, notesEvent[0], notesEvent[1]);
+    at++;
+    if (at < queue.length) { go("verdicts", from); return; }
+    if (round === 1) { narrow = narrowCandidates(); narrowPicked = new Set(); if (narrow.length) { go("narrow", from); return; } }
+    toPicker(from);
+  }
+  /* The note picker. A card is hidden when its word was on a bottle row the visitor answered (here or on the
+     profiler), so no note is asked twice; a screen with no card left is skipped. */
+  function answeredWords() {
+    const out = new Set();
+    for (const id of Object.keys(ratings)) {
+      const r = ratings[id] || {};
+      const done = new Set(Object.keys(r.noteAnswers || {}).concat(Array.isArray(r.unnoticed) ? r.unnoticed : []));
+      if (done.size) for (const row of rowsFor(id)) if (done.has(row.f)) row.words.en.forEach(w => out.add(w.toLowerCase()));
+    }
+    return out;
+  }
+  function pickScreens() {
+    const seen = answeredWords();
+    return QUIZ.notePicker.map((s, i) => ({ i, cards: s.notes.filter(n => !seen.has(n.en.toLowerCase())) })).filter(s => s.cards.length);
+  }
+  /* the next picker screen after `after` (none: the first), or the taste question */
+  function toPicker(from, after) {
+    from = from || snap();
+    const next = pickScreens().find(s => s.i > (after == null ? -1 : after));
+    if (!next) { go("taste", from); return; }
+    pk = next.i; go("picker", from);
+  }
+@@@END
+@@@OLD
+  function go(next) {
+    step = next;
+    if (next === "result" && !doneSent) { doneSent = true; sendEvent("quiz_done", Object.keys(ratings).filter(hasStage).length); }
+    render();
+    try { window.scrollTo(0, 0); } catch (e) { /* not available */ }
+  }
+@@@NEW
+  /* Back: every screen shown pushes a snapshot of the one it left, so round two, narrowing and "Skip notes for
+     the other bottles" go back correctly. Answers already given stay. */
+  const snap = () => ({ step, queue: queue.slice(), at, round, narrow: narrow.slice(), pk, noNotes });
+  function go(next, from) {
+    hist.push(from || snap());
+    step = next; editing = new Set();
+    if (next === "result" && !doneSent) { doneSent = true; sendEvent("quiz_done", Object.keys(ratings).filter(hasStage).length); }
+    render();
+    try { window.scrollTo(0, 0); } catch (e) { /* not available */ }
+  }
+  function back() {
+    const s = hist.pop(); if (!s) return;
+    ({ step, at, round, pk, noNotes } = s); queue = s.queue; narrow = s.narrow; editing = new Set();
+    render();
+    try { window.scrollTo(0, 0); } catch (e) { /* not available */ }
+  }
+  function sendOnce(key, name, n) { if (sent.has(key)) return; sent.add(key); sendEvent(name, n); }
+@@@END
+@@@OLD
+    const open = id => any || (!hasStage(id) && !picked.has(id));
+@@@NEW
+    const open = id => any || (!ratedBefore(id) && !picked.has(id));
+@@@END
+@@@OLD
+    if (hasStage(id)) { toast(t().ratedToast); return; }
+@@@NEW
+    if (ratedBefore(id)) { toast(t().ratedToast); return; }
+@@@END

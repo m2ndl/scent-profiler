@@ -1,0 +1,3607 @@
+{
+ "source": "amazon_sa.json and niceone.json matched to the catalogue by match_popularity.py",
+ "perfumes": {
+  "9pm": {
+   "name": "Afnan 9pm",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 1,
+     "ratings": 28482,
+     "title": "Afnan 9 PM Edition For Men Eau De Parfum, 100 ML (Packaging may vary)",
+     "read": "Afnan 9pm; 'Edition' is the seller's wording, Afnan sells no flanker by that name"
+    },
+    {
+     "list": "all",
+     "rank": 4,
+     "ratings": 28482,
+     "title": "Afnan 9 PM Edition For Men Eau De Parfum, 100 ML (Packaging may vary)",
+     "read": "the same listing as men #1"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "accento": {
+   "name": "Xerjoff Accento",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 155,
+     "reviews": 66,
+     "title": "xerjoff accento eau de parfum"
+    },
+    {
+     "list": "men",
+     "rank": 254,
+     "reviews": 66,
+     "title": "xerjoff accento eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "unisex",
+     "rank": 83,
+     "reviews": 1,
+     "title": "option b b accento inspired by xerjoff accento 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "adgedt": {
+   "name": "Giorgio Armani Acqua di Giò",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 217,
+     "reviews": 42,
+     "title": "giorgio armani acqua di gio for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "alexandriaii": {
+   "name": "Xerjoff Alexandria II",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "unisex",
+     "rank": 195,
+     "reviews": 13,
+     "title": "xerjoff oud stars alexandria ii eau de parfum",
+     "source": "niceone",
+     "extra": "oud stars"
+    }
+   ]
+  },
+  "allurehommesport": {
+   "name": "Chanel Allure Homme Sport",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 88,
+     "reviews": 43,
+     "title": "chanel allure sport for men eau de toilette"
+    }
+   ],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 81,
+     "reviews": 1,
+     "title": "option b homme sport inspired by allure homme sport chanel 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "althair": {
+   "name": "Parfums de Marly Althaïr",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 54,
+     "reviews": 1,
+     "title": "option b thair scent inspired by parfums de marly althair 50ml"
+    }
+   ],
+   "flankers": []
+  },
+  "amaali": {
+   "name": "Swiss Arabian Amaali",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 62,
+     "ratings": 9408,
+     "title": "Swiss Arabian Amaali For Women Perfume Oil 15ml"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "ameeraloudh": {
+   "name": "Lattafa Ameer Al Oudh Intense Oud",
+   "gender": "u",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 51,
+     "ratings": 6729,
+     "title": "Ameer Al Oud Intense Oud For Unisex By Lattafa Eau De Parfum - 100ML"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "arabianstonka": {
+   "name": "Montale Arabians Tonka",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 123,
+     "reviews": 14,
+     "title": "montale arabians tonka eau de parfum"
+    },
+    {
+     "list": "men",
+     "rank": 182,
+     "reviews": 14,
+     "title": "montale arabians tonka eau de parfum"
+    },
+    {
+     "list": "women",
+     "rank": 292,
+     "reviews": 14,
+     "title": "montale arabians tonka eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "armanicode": {
+   "name": "Giorgio Armani Armani Code",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 155,
+     "reviews": 2,
+     "title": "giorgio armani armani code for men 125ml eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "aroubjazal": {
+   "name": "Aroub Jazal",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 1,
+     "reviews": 442,
+     "title": "aroub jazal eau de parfum"
+    },
+    {
+     "list": "unisex",
+     "rank": 2,
+     "reviews": 442,
+     "title": "aroub jazal eau de parfum"
+    },
+    {
+     "list": "women",
+     "rank": 17,
+     "reviews": 442,
+     "title": "aroub jazal eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "aurum": {
+   "name": "Ajmal Aurum",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 190,
+     "reviews": 6,
+     "title": "ajmal aurum for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "aventus": {
+   "name": "Creed Aventus",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 78,
+     "reviews": 78,
+     "title": "creed aventus for men eau de perfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 51,
+     "reviews": 1,
+     "title": "option b white knight inspired by creed aventus"
+    }
+   ],
+   "flankers": []
+  },
+  "badboy": {
+   "name": "Carolina Herrera Bad Boy",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 336,
+     "reviews": 12,
+     "title": "carolina herrera bad boy cobalt for men eau de perfume",
+     "source": "niceone",
+     "extra": "cobalt"
+    }
+   ]
+  },
+  "bitterpeach": {
+   "name": "Tom Ford Bitter Peach",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 342,
+     "reviews": 1,
+     "title": "tom ford bitter peach eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "blackopium": {
+   "name": "Yves Saint Laurent Black Opium",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 39,
+     "reviews": 445,
+     "title": "yves saint laurent black opium for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "blackorchid": {
+   "name": "Tom Ford Black Orchid",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 245,
+     "reviews": 68,
+     "title": "tom ford black orchid for women eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "unisex",
+     "rank": 65,
+     "reviews": 4,
+     "title": "option b orched inspired by tom ford black orchid 50ml"
+    }
+   ],
+   "flankers": []
+  },
+  "blacksaffron": {
+   "name": "Byredo Black Saffron",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 105,
+     "reviews": 16,
+     "title": "byredo black saffron 100ml eau de perfum"
+    },
+    {
+     "list": "women",
+     "rank": 206,
+     "reviews": 16,
+     "title": "byredo black saffron 100ml eau de perfum"
+    },
+    {
+     "list": "women",
+     "rank": 215,
+     "reviews": 16,
+     "title": "byredo black saffron 100ml eau de perfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "unisex",
+     "rank": 80,
+     "reviews": 1,
+     "title": "option b dark saffaron inspired by black saffron byredo 50ml"
+    }
+   ],
+   "flankers": []
+  },
+  "blanche": {
+   "name": "Byredo Blanche",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 3,
+     "reviews": 6,
+     "title": "option b b blanche inspired by blanche byredo"
+    }
+   ],
+   "flankers": []
+  },
+  "bleuedp": {
+   "name": "Chanel Bleu de Chanel Eau de Parfum",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 23,
+     "reviews": 171,
+     "title": "chanel bleu de for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "bleuparfum": {
+   "name": "Chanel Bleu de Chanel Parfum",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 52,
+     "reviews": 48,
+     "title": "chanel bleu de for men parfum"
+    },
+    {
+     "list": "men",
+     "rank": 203,
+     "reviews": 9,
+     "title": "chanel bleu de for men parfum"
+    },
+    {
+     "list": "men",
+     "rank": 226,
+     "reviews": 9,
+     "title": "chanel bleu de for men parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "bossbottled": {
+   "name": "Hugo Boss Boss Bottled",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 45,
+     "reviews": 58,
+     "title": "hugo boss boss bottled for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 34,
+     "reviews": 24,
+     "title": "hugo boss boss bottled night for men eau de toilette",
+     "source": "niceone",
+     "extra": "night"
+    },
+    {
+     "list": "men",
+     "rank": 52,
+     "ratings": 17239,
+     "title": "Hugo Boss Bottled Night Perfume for Men Eau De Toilette 100ML",
+     "source": "amazon",
+     "extra": "night"
+    },
+    {
+     "list": "men",
+     "rank": 62,
+     "ratings": 3,
+     "title": "Hugo Boss Bottled Night Perfume for Men Eau De Toilette 200ML + BOSS Bottled Beyond Phone Card Holder Bundle",
+     "source": "amazon",
+     "extra": "night beyond phone card holder bundle"
+    },
+    {
+     "list": "men",
+     "rank": 159,
+     "reviews": 11,
+     "title": "hugo boss boss bottled unlimited for men 100ml eau de toilette",
+     "source": "niceone",
+     "extra": "unlimited"
+    }
+   ]
+  },
+  "bossbottlednight": {
+   "name": "Hugo Boss Boss Bottled Night",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 52,
+     "ratings": 17239,
+     "title": "Hugo Boss Bottled Night Perfume for Men Eau De Toilette 100ML"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 34,
+     "reviews": 24,
+     "title": "hugo boss boss bottled night for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 62,
+     "ratings": 3,
+     "title": "Hugo Boss Bottled Night Perfume for Men Eau De Toilette 200ML + BOSS Bottled Beyond Phone Card Holder Bundle",
+     "source": "amazon",
+     "extra": "beyond phone card holder bundle"
+    }
+   ]
+  },
+  "br540": {
+   "name": "Maison Francis Kurkdjian Baccarat Rouge 540",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 215,
+     "reviews": 6,
+     "title": "maison francis kurkdjian baccarat rouge 540 eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "burberryher": {
+   "name": "Burberry Her",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 146,
+     "reviews": 89,
+     "title": "burberry burberry her for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "bythefireplace": {
+   "name": "Maison Margiela Replica By the Fireplace",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 138,
+     "reviews": 9,
+     "title": "maison margiela replica by the fireplace eau de toilette"
+    },
+    {
+     "list": "unisex",
+     "rank": 151,
+     "reviews": 9,
+     "title": "maison margiela replica by the fireplace eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "cavalliedp": {
+   "name": "Roberto Cavalli Roberto Cavalli Eau de Parfum",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 4,
+     "reviews": 1219,
+     "title": "roberto cavalli for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 2,
+     "reviews": 3132,
+     "title": "roberto cavalli paradiso for women eau de parfum",
+     "source": "niceone",
+     "extra": "paradiso"
+    },
+    {
+     "list": "women",
+     "rank": 13,
+     "reviews": 1125,
+     "title": "roberto cavalli paradiso azzurro for women eau de parfum",
+     "source": "niceone",
+     "extra": "paradiso azzurro"
+    },
+    {
+     "list": "women",
+     "rank": 183,
+     "reviews": 320,
+     "title": "roberto cavalli nero assoluto for women eau de parfum",
+     "source": "niceone",
+     "extra": "nero assoluto"
+    },
+    {
+     "list": "unisex",
+     "rank": 226,
+     "reviews": 1,
+     "title": "roberto cavalli gold splendid vanilla eau de parfum",
+     "source": "niceone",
+     "extra": "gold splendid vanilla"
+    },
+    {
+     "list": "women",
+     "rank": 243,
+     "reviews": 371,
+     "title": "roberto cavalli paradiso assoluto for women eau de parfum",
+     "source": "niceone",
+     "extra": "paradiso assoluto"
+    },
+    {
+     "list": "women",
+     "rank": 305,
+     "reviews": 1,
+     "title": "roberto cavalli just cavalli wild heart eau de parfum",
+     "source": "niceone",
+     "extra": "just cavalli wild heart"
+    },
+    {
+     "list": "women",
+     "rank": 340,
+     "reviews": 3,
+     "title": "roberto cavalli paradiso rosa for women eau de parfum",
+     "source": "niceone",
+     "extra": "paradiso rosa"
+    }
+   ]
+  },
+  "cdnim": {
+   "name": "Armaf Club de Nuit Intense Man",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 17,
+     "ratings": 74825,
+     "title": "Armaf Club De Nuit Intense Perfume For Men Eau De Toilette Black 105ML",
+     "read": "the Eau de Toilette, sold in a black bottle; 'Black' is the listing's colour field"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "cdnwoman": {
+   "name": "Armaf Club de Nuit Woman",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 22,
+     "ratings": 19230,
+     "title": "Armaf Club De Nuit Perfume for Women Eau De Parfum 105ML"
+    },
+    {
+     "list": "all",
+     "rank": 54,
+     "ratings": 19230,
+     "title": "Armaf Club De Nuit Perfume for Women Eau De Parfum 105ML"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 155,
+     "reviews": 69,
+     "title": "armaf club de nuit for women eau de perfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "cedratboise": {
+   "name": "Mancera Cedrat Boisé",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 145,
+     "reviews": 1,
+     "title": "mancera intense cedrat boise extrait de parfum",
+     "source": "niceone",
+     "extra": "intense"
+    }
+   ]
+  },
+  "chanceeautendre": {
+   "name": "Chanel Chance Eau Tendre",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 165,
+     "reviews": 126,
+     "title": "chanel chance eau tendre for women eau de toilette"
+    }
+   ],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 9,
+     "reviews": 18,
+     "title": "option b chans t inspired by chanel chance eau tendre 50ml"
+    }
+   ],
+   "flankers": []
+  },
+  "chocomusk": {
+   "name": "Al Rehab Choco Musk",
+   "gender": "u",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 73,
+     "ratings": 25045,
+     "title": "Al Rehab Choco Musk Perfume Oil - 6ml"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "ckbeauty": {
+   "name": "Calvin Klein Beauty",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 11,
+     "ratings": 4221,
+     "title": "Calvin Klein Beauty Perfume for Women Eau De Parfum 100ML"
+    },
+    {
+     "list": "all",
+     "rank": 29,
+     "ratings": 4221,
+     "title": "Calvin Klein Beauty Perfume for Women Eau De Parfum 100ML"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 5,
+     "reviews": 1516,
+     "title": "calvin klein beauty for women eau de parfum 100ml"
+    },
+    {
+     "list": "women",
+     "rank": 282,
+     "reviews": 31,
+     "title": "calvin klein beauty for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 15,
+     "reviews": 931,
+     "title": "calvin klein sheer beauty for women eau de toilette",
+     "source": "niceone",
+     "extra": "sheer"
+    }
+   ]
+  },
+  "ckin2uher": {
+   "name": "Calvin Klein CK IN2U Her",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 9,
+     "ratings": 21571,
+     "title": "Calvin Klein Perfume - Ck In2U - Perfumes For Women - Eau De Toilette, 100 Ml"
+    },
+    {
+     "list": "all",
+     "rank": 26,
+     "ratings": 21571,
+     "title": "Calvin Klein Perfume - Ck In2U - Perfumes For Women - Eau De Toilette, 100 Ml"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "coolwater": {
+   "name": "Davidoff Cool Water",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "all",
+     "rank": 8,
+     "ratings": 12370,
+     "title": "Davidoff Cool Water for Men Eau de Toilette 125ml"
+    },
+    {
+     "list": "men",
+     "rank": 12,
+     "ratings": 31243,
+     "title": "Davidoff Cool Water Perfume for Men Eau De Toilette 75ML"
+    },
+    {
+     "list": "all",
+     "rank": 24,
+     "ratings": 31243,
+     "title": "Davidoff Cool Water Perfume for Men Eau De Toilette 75ML"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "crystalnoir": {
+   "name": "Versace Crystal Noir",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 28,
+     "reviews": 370,
+     "title": "versace crystal noir for women eau de parfum"
+    },
+    {
+     "list": "women",
+     "rank": 105,
+     "reviews": 172,
+     "title": "versace crystal noir for women eau de toilette"
+    }
+   ],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 120,
+     "reviews": 2,
+     "title": "option b black crystal inspired by versace crystal noir 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "declaration": {
+   "name": "Cartier Déclaration",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 112,
+     "reviews": 84,
+     "title": "cartier declaration for men 100ml eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 82,
+     "reviews": 69,
+     "title": "cartier declaration for men parfum",
+     "source": "niceone",
+     "extra": "parfum"
+    },
+    {
+     "list": "men",
+     "rank": 246,
+     "reviews": 26,
+     "title": "cartier declaration essence for men 100ml eau de toilette",
+     "source": "niceone",
+     "extra": "essence"
+    }
+   ]
+  },
+  "dgpourfemme": {
+   "name": "Dolce&Gabbana Dolce&Gabbana Pour Femme",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 78,
+     "ratings": 1407,
+     "title": "Pour Femme By Dolce & Gabbana For Women Eau De Parfum 100Ml"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "diorhommeintense": {
+   "name": "Dior Dior Homme Intense",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 46,
+     "reviews": 3,
+     "title": "option b b homme inspired by dior homme intense 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "dylanblue": {
+   "name": "Versace Dylan Blue",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 42,
+     "reviews": 301,
+     "title": "versace dylan blue pour homme for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "dynasty": {
+   "name": "Lattafa Dynasty",
+   "gender": "u",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 58,
+     "ratings": 14022,
+     "title": "Lattafa Dynasty EDP Unisex 3.4 Fl Oz"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "eclaire": {
+   "name": "Lattafa Eclaire",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 15,
+     "ratings": 11202,
+     "title": "Lattafa Eclaire Eau De Parfum 100 ml"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "elieleparfum": {
+   "name": "Elie Saab Le Parfum",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 35,
+     "reviews": 398,
+     "title": "elie saab le parfum for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 94,
+     "reviews": 159,
+     "title": "elie saab le parfum in white for women eau de parfum",
+     "source": "niceone",
+     "extra": "in white"
+    },
+    {
+     "list": "women",
+     "rank": 102,
+     "reviews": 48,
+     "title": "elie saab le parfum for women eau de parfum intense",
+     "source": "niceone",
+     "extra": "intense"
+    },
+    {
+     "list": "women",
+     "rank": 167,
+     "reviews": 116,
+     "title": "elie saab le parfum essentiel for women eau de perfum",
+     "source": "niceone",
+     "extra": "essentiel"
+    }
+   ]
+  },
+  "emblem": {
+   "name": "Montblanc Emblem",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 12,
+     "reviews": 179,
+     "title": "mont blanc emblem for men eau de toilette 100ml"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "eros": {
+   "name": "Versace Eros",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 39,
+     "reviews": 220,
+     "title": "versace eros for men eau de toilette"
+    }
+   ],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 109,
+     "reviews": 1,
+     "title": "option b b eros inspired by eros versace 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "erospourfemme": {
+   "name": "Versace Eros Pour Femme",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 34,
+     "reviews": 539,
+     "title": "versace eros pour femme for women eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 286,
+     "reviews": 1,
+     "title": "option b femme scent inspired by versace eros femme 50ml"
+    },
+    {
+     "list": "women",
+     "rank": 307,
+     "reviews": 1,
+     "title": "option b femme scent inspired by versace eros femme 50ml"
+    }
+   ],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 235,
+     "reviews": 2,
+     "title": "versace eros pour femme for women set eau de parfum 4 pieces",
+     "source": "niceone",
+     "extra": "set pieces"
+    }
+   ]
+  },
+  "eternitymoment": {
+   "name": "Calvin Klein Eternity Moment",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 18,
+     "reviews": 1670,
+     "title": "calvin klein eternity moment for women eau de parfum 100ml"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "euphoriamen": {
+   "name": "Calvin Klein Euphoria Men",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 6,
+     "reviews": 286,
+     "title": "calvin klein euphoria for men eau de toilette 100ml"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 86,
+     "reviews": 296,
+     "title": "calvin klein euphoria intense for men 100ml eau de toilette",
+     "source": "niceone",
+     "extra": "intense"
+    }
+   ]
+  },
+  "euphoriawomen": {
+   "name": "Calvin Klein Euphoria",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 33,
+     "reviews": 749,
+     "title": "calvin klein euphoria for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 290,
+     "reviews": 2,
+     "title": "calvin klein my euphoria for women eau de parfum",
+     "source": "niceone",
+     "extra": "my"
+    },
+    {
+     "list": "women",
+     "rank": 301,
+     "reviews": 2,
+     "title": "calvin klein my euphoria for women eau de parfum",
+     "source": "niceone",
+     "extra": "my"
+    }
+   ]
+  },
+  "explorer": {
+   "name": "Montblanc Explorer",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 7,
+     "reviews": 299,
+     "title": "mont blanc explorer for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "fahrenheit": {
+   "name": "Dior Fahrenheit",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 199,
+     "reviews": 22,
+     "title": "dior fahrenheit le parfum for men eau de perfum",
+     "source": "niceone",
+     "extra": "le parfum"
+    }
+   ]
+  },
+  "floragardenia": {
+   "name": "Gucci Flora Gorgeous Gardenia",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 49,
+     "reviews": 112,
+     "title": "gucci flora gorgeous gardenia for women eau de perfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "flowerbomb": {
+   "name": "Viktor&Rolf Flowerbomb",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 64,
+     "reviews": 180,
+     "title": "viktor and rolf flowerbomb for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "gentlemanedp": {
+   "name": "Givenchy Gentleman Eau de Parfum",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 106,
+     "reviews": 28,
+     "title": "givenchy gentleman for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 58,
+     "reviews": 94,
+     "title": "givenchy gentleman boisee for men eau de parfum",
+     "source": "niceone",
+     "extra": "boisee"
+    },
+    {
+     "list": "men",
+     "rank": 63,
+     "reviews": 94,
+     "title": "givenchy gentleman boisee for men eau de parfum",
+     "source": "niceone",
+     "extra": "boisee"
+    },
+    {
+     "list": "men",
+     "rank": 72,
+     "reviews": 42,
+     "title": "givenchy gentleman reserve privee for men eau de parfum",
+     "source": "niceone",
+     "extra": "reserve privee"
+    }
+   ]
+  },
+  "gentlemanreserve": {
+   "name": "Givenchy Gentleman Réserve Privée",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 72,
+     "reviews": 42,
+     "title": "givenchy gentleman reserve privee for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "git": {
+   "name": "Creed Green Irish Tweed",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 248,
+     "reviews": 19,
+     "title": "creed green irish tweed for men 100ml eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "goodgirl": {
+   "name": "Carolina Herrera Good Girl",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 110,
+     "reviews": 192,
+     "title": "carolina herrera good girl for women eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 96,
+     "reviews": 3,
+     "title": "option b elegant girl inspired by good girl carolina herrera 50 ml"
+    }
+   ],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 103,
+     "reviews": 4,
+     "title": "carolina herrera good girl blush for women eau de parfum",
+     "source": "niceone",
+     "extra": "blush"
+    }
+   ]
+  },
+  "goodgirlblush": {
+   "name": "Carolina Herrera Good Girl Blush",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 103,
+     "reviews": 4,
+     "title": "carolina herrera good girl blush for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "grisdior": {
+   "name": "Dior Gris Dior",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 108,
+     "reviews": 110,
+     "title": "dior gris dior eau de parfum"
+    },
+    {
+     "list": "men",
+     "rank": 173,
+     "reviews": 110,
+     "title": "dior gris dior eau de parfum"
+    },
+    {
+     "list": "men",
+     "rank": 192,
+     "reviews": 110,
+     "title": "dior gris dior eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "unisex",
+     "rank": 7,
+     "reviews": 4,
+     "title": "option b gris scent inspired by gris dior"
+    },
+    {
+     "list": "women",
+     "rank": 36,
+     "reviews": 4,
+     "title": "option b gris scent inspired by gris dior"
+    }
+   ],
+   "flankers": []
+  },
+  "guccibamboo": {
+   "name": "Gucci Bamboo",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 53,
+     "reviews": 176,
+     "title": "gucci bamboo for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "guccibloom": {
+   "name": "Gucci Bloom",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 23,
+     "reviews": 600,
+     "title": "gucci bloom for women eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 99,
+     "reviews": 2,
+     "title": "option b floral bloom inspired by gucci bloom 50 ml"
+    }
+   ],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 325,
+     "reviews": 64,
+     "title": "gucci bloom ambrosia di fiori for women eau de parfum intense",
+     "source": "niceone",
+     "extra": "ambrosia di fiori intense"
+    },
+    {
+     "list": "women",
+     "rank": 337,
+     "reviews": 64,
+     "title": "gucci bloom ambrosia di fiori for women eau de parfum intense",
+     "source": "niceone",
+     "extra": "ambrosia di fiori intense"
+    }
+   ]
+  },
+  "gucciguilty": {
+   "name": "Gucci Guilty",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 90,
+     "reviews": 5,
+     "title": "option b guilty scent inspired by gucci guilty 50 ml"
+    }
+   ],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 31,
+     "reviews": 243,
+     "title": "gucci guilty absolute for women eau de parfum",
+     "source": "niceone",
+     "extra": "absolute"
+    },
+    {
+     "list": "women",
+     "rank": 44,
+     "reviews": 240,
+     "title": "gucci guilty absolute pour femme for women eau de parfum 90ml",
+     "source": "niceone",
+     "extra": "absolute"
+    }
+   ]
+  },
+  "guessseductive": {
+   "name": "Guess Seductive",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 70,
+     "ratings": 8904,
+     "title": "GUESS Seductive For girls - Eau De Parfum, 75Ml",
+     "read": "the Eau de Toilette: the listing's own specifications say so; 'girls' is the seller's wording"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 59,
+     "ratings": 66,
+     "title": "GUESS SEDUCTIVE (W) SET EDT 75ML + EDT 15ML + BL 100ML + POUCH (2023)",
+     "source": "amazon",
+     "extra": "w set bl pouch"
+    }
+   ]
+  },
+  "guidance": {
+   "name": "Amouage Guidance",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 153,
+     "reviews": 2,
+     "title": "amouage guidance eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "unisex",
+     "rank": 20,
+     "reviews": 4,
+     "title": "option b guidness scent inspired by guidance amouage 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "guiltyabsolute": {
+   "name": "Gucci Guilty Absolute pour Homme",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 25,
+     "reviews": 345,
+     "title": "gucci guilty absolute for men eau de perfume"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "hacivat": {
+   "name": "Nishane Hacivat",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 99,
+     "reviews": 21,
+     "title": "nishane hacivat extrait de parfum"
+    },
+    {
+     "list": "men",
+     "rank": 139,
+     "reviews": 21,
+     "title": "nishane hacivat extrait de parfum"
+    },
+    {
+     "list": "women",
+     "rank": 257,
+     "reviews": 21,
+     "title": "nishane hacivat extrait de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 75,
+     "reviews": 1,
+     "title": "option b hacivat scent inspired by nishane hacivat 50ml"
+    }
+   ],
+   "flankers": []
+  },
+  "hawas": {
+   "name": "Rasasi Hawas",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 15,
+     "ratings": 606110,
+     "title": "Rasasi Hawas Ice For Him Perfume for Men Eau De Parfum 100ML",
+     "source": "amazon",
+     "extra": "ice"
+    },
+    {
+     "list": "men",
+     "rank": 60,
+     "ratings": 660,
+     "title": "Hawas Collection - Hawas Black by Rasasi for Men - 3.38 oz EDP Spray",
+     "source": "amazon",
+     "extra": "collection black"
+    }
+   ]
+  },
+  "hawasice": {
+   "name": "Rasasi Hawas Ice",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 15,
+     "ratings": 606110,
+     "title": "Rasasi Hawas Ice For Him Perfume for Men Eau De Parfum 100ML"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "hugoman": {
+   "name": "Hugo Boss Hugo Man",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 18,
+     "ratings": 6050,
+     "title": "Hugo Boss Man Perfume for Men Eau De Toilette 200ML"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "hypnoticpoison": {
+   "name": "Dior Hypnotic Poison",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 20,
+     "reviews": 14,
+     "title": "option b poison scent inspired by hypnotic poison dior 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "idole": {
+   "name": "Lancôme Idôle",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 8,
+     "reviews": 682,
+     "title": "lancome idole for women eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 14,
+     "reviews": 7,
+     "title": "option b idole scent inspired by lancome idole 50ml"
+    }
+   ],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 145,
+     "reviews": 1,
+     "title": "lancome idole power for women eau de parfum intense",
+     "source": "niceone",
+     "extra": "power intense"
+    },
+    {
+     "list": "women",
+     "rank": 289,
+     "reviews": 2,
+     "title": "lancome idole now for women eau de parfum",
+     "source": "niceone",
+     "extra": "now"
+    }
+   ]
+  },
+  "imagination": {
+   "name": "Louis Vuitton Imagination",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 15,
+     "reviews": 2,
+     "title": "option b imagine scent inspired by imagination louis vuitton"
+    }
+   ],
+   "flankers": []
+  },
+  "interditrouge": {
+   "name": "Givenchy L'Interdit Eau de Parfum Rouge",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 26,
+     "reviews": 213,
+     "title": "givenchy l interdit rouge for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 347,
+     "reviews": 1,
+     "title": "givenchy l interdit rouge ultime eau de parfum",
+     "source": "niceone",
+     "extra": "ultime"
+    }
+   ]
+  },
+  "invictus": {
+   "name": "Rabanne Invictus",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 87,
+     "reviews": 57,
+     "title": "paco rabanne invictus for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "irishleather": {
+   "name": "Memo Paris Irish Leather",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 73,
+     "reviews": 70,
+     "title": "memo paris irish leather eau de parfum"
+    },
+    {
+     "list": "men",
+     "rank": 98,
+     "reviews": 70,
+     "title": "memo paris irish leather eau de parfum"
+    },
+    {
+     "list": "women",
+     "rank": 193,
+     "reviews": 70,
+     "title": "memo paris irish leather eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "jadore": {
+   "name": "Dior J'adore",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 293,
+     "reviews": 38,
+     "title": "dior jadore parfum d eau for women eau de parfum",
+     "source": "niceone",
+     "extra": "parfum d"
+    },
+    {
+     "list": "women",
+     "rank": 304,
+     "reviews": 38,
+     "title": "dior jadore parfum d eau for women eau de parfum",
+     "source": "niceone",
+     "extra": "parfum d"
+    }
+   ]
+  },
+  "jazzclub": {
+   "name": "Maison Margiela Replica Jazz Club",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 128,
+     "reviews": 13,
+     "title": "maison margiela replica jazz club for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "jovanmusk": {
+   "name": "Jovan Musk for Women",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 1,
+     "reviews": 2468,
+     "title": "jovan musk for women cologne spray"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 1,
+     "ratings": 2290,
+     "title": "Jovan Musk Cologne Concentrate Spray For Women - 59 ml",
+     "source": "amazon",
+     "extra": "concentrate"
+    },
+    {
+     "list": "all",
+     "rank": 2,
+     "ratings": 2290,
+     "title": "Jovan Musk Cologne Concentrate Spray For Women - 59 ml",
+     "source": "amazon",
+     "extra": "concentrate"
+    }
+   ]
+  },
+  "kdg": {
+   "name": "Dolce&Gabbana K",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 132,
+     "reviews": 50,
+     "title": "dolce gabbana k for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "khamrah": {
+   "name": "Lattafa Khamrah",
+   "gender": "u",
+   "amazon": [
+    {
+     "list": "all",
+     "rank": 1,
+     "ratings": 37889,
+     "title": "Lattafa Khamra Perfume for Unisex Eau De Parfum 100ML | Natural Spray, Long-Lasting Scent, Unisex"
+    },
+    {
+     "list": "women",
+     "rank": 3,
+     "ratings": 37889,
+     "title": "Lattafa Khamra Perfume for Unisex Eau De Parfum 100ML | Natural Spray, Long-Lasting Scent, Unisex"
+    },
+    {
+     "list": "women",
+     "rank": 80,
+     "ratings": 492,
+     "title": "Lattafa Adults Khamrah Perfume - Eau De Parfum 100Ml",
+     "read": "a second Khamrah Eau de Parfum 100 ml listing; 'Adults' is listing noise"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 7,
+     "ratings": 10705,
+     "title": "Lattafa Khamra Qahwa Perfume for Unisex Eau De Parfum 100ML",
+     "source": "amazon",
+     "extra": "qahwa"
+    },
+    {
+     "list": "unisex",
+     "rank": 50,
+     "reviews": 9,
+     "title": "lattafa khamrah qahwa eau de parfum",
+     "source": "niceone",
+     "extra": "qahwa"
+    }
+   ]
+  },
+  "khamrahqahwa": {
+   "name": "Lattafa Khamrah Qahwa",
+   "gender": "u",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 7,
+     "ratings": 10705,
+     "title": "Lattafa Khamra Qahwa Perfume for Unisex Eau De Parfum 100ML"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 50,
+     "reviews": 9,
+     "title": "lattafa khamrah qahwa eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "lanuit": {
+   "name": "Yves Saint Laurent La Nuit de l'Homme",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 95,
+     "reviews": 13,
+     "title": "yves saint laurent la nuit de lhomme for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "lapanthere": {
+   "name": "Cartier La Panthère",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 29,
+     "reviews": 512,
+     "title": "cartier la panthere for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 100,
+     "reviews": 97,
+     "title": "cartier la panthere parfum for women parfum",
+     "source": "niceone",
+     "extra": "parfum parfum"
+    }
+   ]
+  },
+  "lavieestbelle": {
+   "name": "Lancôme La Vie Est Belle",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 87,
+     "reviews": 327,
+     "title": "lancome la vie est belle for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "lazysunday": {
+   "name": "Maison Margiela Replica Lazy Sunday Morning",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 152,
+     "reviews": 2,
+     "title": "perfume unisex perfumes maison margiela replica lazy sunday morning eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "leaudissey": {
+   "name": "Issey Miyake L'Eau d'Issey Pour Homme",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 223,
+     "reviews": 6,
+     "title": "issey miyake leau dissey pour homme for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "legend": {
+   "name": "Montblanc Legend",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 43,
+     "reviews": 133,
+     "title": "mont blanc legend for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "lemale": {
+   "name": "Jean Paul Gaultier Le Male",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 311,
+     "reviews": 27,
+     "title": "jean paul gaultier le male for men eau de toilette"
+    },
+    {
+     "list": "men",
+     "rank": 340,
+     "reviews": 27,
+     "title": "jean paul gaultier le male for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 76,
+     "reviews": 21,
+     "title": "jean paul gaultier le male le parfum for men eau de parfum intense",
+     "source": "niceone",
+     "extra": "parfum intense"
+    },
+    {
+     "list": "men",
+     "rank": 119,
+     "reviews": 2,
+     "title": "jean paul gaultier le male elixir for men",
+     "source": "niceone",
+     "extra": "elixir"
+    }
+   ]
+  },
+  "lemaleelixir": {
+   "name": "Jean Paul Gaultier Le Male Elixir",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 119,
+     "reviews": 2,
+     "title": "jean paul gaultier le male elixir for men"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "lhommeidealedp": {
+   "name": "Guerlain L'Homme Idéal Eau de Parfum",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 16,
+     "reviews": 72,
+     "title": "guerlain l homme idal for men 100ml eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "libre": {
+   "name": "Yves Saint Laurent Libre",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 65,
+     "ratings": 82,
+     "title": "Yves Saint Laurent Libre For Women 90ml - Eau de Parfum"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 7,
+     "reviews": 1227,
+     "title": "yves saint laurent libre for women eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 10,
+     "reviews": 5,
+     "title": "option b libra flower inspired by yves saint laurent libre"
+    }
+   ],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 6,
+     "reviews": 1132,
+     "title": "yves saint laurent libre intense for women eau de parfum",
+     "source": "niceone",
+     "extra": "intense"
+    },
+    {
+     "list": "women",
+     "rank": 284,
+     "reviews": 1,
+     "title": "yves saint laurent libre flowers flames eau de parfum florale",
+     "source": "niceone",
+     "extra": "flowers flames florale"
+    }
+   ]
+  },
+  "libreintense": {
+   "name": "Yves Saint Laurent Libre Intense",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 6,
+     "reviews": 1132,
+     "title": "yves saint laurent libre intense for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "lightbluemen": {
+   "name": "Dolce&Gabbana Light Blue Pour Homme",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 214,
+     "reviews": 1,
+     "title": "dolce gabbana light blue pour homme for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "linterdit": {
+   "name": "Givenchy L'Interdit Eau de Parfum",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 30,
+     "reviews": 284,
+     "title": "givenchy linterdit for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "liquidbrun": {
+   "name": "French Avenue Liquid Brun",
+   "gender": "u",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 6,
+     "ratings": 4690,
+     "title": "French Avenue - Liquid Brun by Fragrance World for Men - 100mlEDP Spray"
+    },
+    {
+     "list": "all",
+     "rank": 12,
+     "ratings": 4690,
+     "title": "French Avenue - Liquid Brun by Fragrance World for Men - 100mlEDP Spray"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "lostcherry": {
+   "name": "Tom Ford Lost Cherry",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 341,
+     "reviews": 7,
+     "title": "tom ford lost cherry eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "maninblack": {
+   "name": "Bvlgari Man in Black",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 113,
+     "reviews": 79,
+     "title": "bvlgari man in black for men 100ml eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "megamare": {
+   "name": "Orto Parisi Megamare",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "unisex",
+     "rank": 189,
+     "reviews": 14,
+     "title": "orto parisi megamare 50ml parfum",
+     "source": "niceone",
+     "extra": "parfum"
+    },
+    {
+     "list": "men",
+     "rank": 322,
+     "reviews": 14,
+     "title": "orto parisi megamare 50ml parfum",
+     "source": "niceone",
+     "extra": "parfum"
+    }
+   ]
+  },
+  "missdior": {
+   "name": "Dior Miss Dior (2021)",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 123,
+     "reviews": 103,
+     "title": "dior miss dior for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 62,
+     "reviews": 349,
+     "title": "dior miss dior blooming bouquet for women eau de toilette",
+     "source": "niceone",
+     "extra": "blooming bouquet"
+    },
+    {
+     "list": "women",
+     "rank": 220,
+     "reviews": 14,
+     "title": "dior miss dior for women parfum",
+     "source": "niceone",
+     "extra": "parfum"
+    },
+    {
+     "list": "women",
+     "rank": 321,
+     "reviews": 90,
+     "title": "dior miss dior rose n roses eau de toilette",
+     "source": "niceone",
+     "extra": "rose n roses"
+    }
+   ]
+  },
+  "monparis": {
+   "name": "Yves Saint Laurent Mon Paris",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 326,
+     "reviews": 69,
+     "title": "yves saint laurent mon paris for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "moonlightpatchouli": {
+   "name": "Van Cleef & Arpels Moonlight Patchouli",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 17,
+     "reviews": 143,
+     "title": "van cleef and arpels moonlight patchouli eau de parfum"
+    },
+    {
+     "list": "men",
+     "rank": 22,
+     "reviews": 143,
+     "title": "van cleef and arpels moonlight patchouli eau de parfum"
+    },
+    {
+     "list": "women",
+     "rank": 73,
+     "reviews": 143,
+     "title": "van cleef and arpels moonlight patchouli eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "mostwantedintense": {
+   "name": "Azzaro The Most Wanted Eau de Parfum Intense",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 146,
+     "reviews": 20,
+     "title": "azzaro the most wanted for men eau de parfum intense"
+    },
+    {
+     "list": "men",
+     "rank": 151,
+     "reviews": 20,
+     "title": "azzaro the most wanted for men eau de parfum intense"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "mostwantedparfum": {
+   "name": "Azzaro The Most Wanted Parfum",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 28,
+     "ratings": 6364,
+     "title": "Azzaro The Most Wanted Parfum — Mens Cologne — Fougere, Oriental & Spicy Fragrance, 3.38 Fl Oz, Black",
+     "read": "listing descriptors: fougere, oriental, spicy, black"
+    },
+    {
+     "list": "all",
+     "rank": 58,
+     "ratings": 6364,
+     "title": "Azzaro The Most Wanted Parfum — Mens Cologne — Fougere, Oriental & Spicy Fragrance, 3.38 Fl Oz, Black",
+     "read": "the same listing as men #28"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 89,
+     "reviews": 21,
+     "title": "azzaro wanted the most for men parfum"
+    },
+    {
+     "list": "men",
+     "rank": 94,
+     "reviews": 21,
+     "title": "azzaro wanted the most for men parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "musamamwhite": {
+   "name": "Lattafa Musamam White Intense",
+   "gender": "u",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 57,
+     "ratings": 2608,
+     "title": "LATTAFA Musamam White Intense Perfumes for women and men"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "musksilk": {
+   "name": "Ajmal Musk Silk",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 13,
+     "reviews": 567,
+     "title": "ajmal musk silk perfume oil 12gm"
+    },
+    {
+     "list": "women",
+     "rank": 52,
+     "reviews": 567,
+     "title": "ajmal musk silk perfume oil 12gm"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 5,
+     "ratings": 498,
+     "title": "Ajmal Musk Silk Perfume Oil (12g) | Premium (Perfumer) for Unisex | Long Lasting White Musk Fragrance Oil",
+     "source": "amazon",
+     "extra": "premium perfumer white"
+    }
+   ]
+  },
+  "myburberry": {
+   "name": "Burberry My Burberry",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 55,
+     "reviews": 298,
+     "title": "burberry my burberry for women 90ml eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 50,
+     "reviews": 227,
+     "title": "burberry my burberry blush for women eau de parfum",
+     "source": "niceone",
+     "extra": "blush"
+    }
+   ]
+  },
+  "myslf": {
+   "name": "Yves Saint Laurent Myslf",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 41,
+     "reviews": 57,
+     "title": "yves saint laurent myslf for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "myway": {
+   "name": "Giorgio Armani My Way",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 131,
+     "reviews": 3,
+     "title": "option b jasmine way inspired by armani my way 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "najdia": {
+   "name": "Lattafa Najdia",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 65,
+     "ratings": 1513,
+     "title": "Lattafa Najdia Eau de Parfum 100ml"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 334,
+     "reviews": 13,
+     "title": "lattafa najdia for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "narcisoforher": {
+   "name": "Narciso Rodriguez For Her Eau de Toilette",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 122,
+     "reviews": 219,
+     "title": "narciso rodriguez for her for women eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "narcisoforheredp": {
+   "name": "Narciso Rodriguez For Her Eau de Parfum",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 48,
+     "reviews": 396,
+     "title": "narciso rodriguez for her for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 174,
+     "reviews": 288,
+     "title": "narciso rodriguez poudree for women eau de parfum",
+     "source": "niceone",
+     "extra": "poudree"
+    },
+    {
+     "list": "women",
+     "rank": 198,
+     "reviews": 52,
+     "title": "narciso rodriguez for her musc noir for women eau de parfum",
+     "source": "niceone",
+     "extra": "musc noir"
+    }
+   ]
+  },
+  "nauticavoyage": {
+   "name": "Nautica Voyage",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 5,
+     "ratings": 141841,
+     "title": "Voyage by Nautica for Men Eau de Toilette 100ml"
+    },
+    {
+     "list": "all",
+     "rank": 11,
+     "ratings": 141841,
+     "title": "Voyage by Nautica for Men Eau de Toilette 100ml"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "noirextreme": {
+   "name": "Tom Ford Noir Extreme",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 255,
+     "reviews": 38,
+     "title": "tom ford noir extreme for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "olympea": {
+   "name": "Rabanne Olympéa",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 196,
+     "reviews": 146,
+     "title": "paco rabanne olympea for women 80ml eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "ombreleather": {
+   "name": "Tom Ford Ombré Leather",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 22,
+     "reviews": 170,
+     "title": "tom ford ombre leather eau de perfum"
+    },
+    {
+     "list": "women",
+     "rank": 82,
+     "reviews": 170,
+     "title": "tom ford ombre leather eau de perfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "unisex",
+     "rank": 64,
+     "reviews": 1,
+     "title": "option b o leather inspired by tom ford ombre leather 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "onemillion": {
+   "name": "Rabanne 1 Million",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 123,
+     "reviews": 92,
+     "title": "paco rabanne 1 million for men 100ml eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "oudmalaki": {
+   "name": "Chopard Oud Malaki",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 10,
+     "reviews": 480,
+     "title": "chopard oud malaki eau de parfum 80ml"
+    },
+    {
+     "list": "unisex",
+     "rank": 11,
+     "reviews": 480,
+     "title": "chopard oud malaki eau de parfum 80ml"
+    },
+    {
+     "list": "women",
+     "rank": 40,
+     "reviews": 480,
+     "title": "chopard oud malaki eau de parfum 80ml"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "oudmood": {
+   "name": "Lattafa Oud Mood",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "unisex",
+     "rank": 221,
+     "reviews": 3,
+     "title": "lattafa oud mood reminiscence eau de parfum",
+     "source": "niceone",
+     "extra": "reminiscence"
+    },
+    {
+     "list": "men",
+     "rank": 332,
+     "reviews": 3,
+     "title": "lattafa oud mood reminiscence eau de parfum",
+     "source": "niceone",
+     "extra": "reminiscence"
+    }
+   ]
+  },
+  "oudwood": {
+   "name": "Tom Ford Oud Wood",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 168,
+     "reviews": 20,
+     "title": "tom ford oud wood eau de parfum"
+    },
+    {
+     "list": "men",
+     "rank": 284,
+     "reviews": 20,
+     "title": "tom ford oud wood eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "unisex",
+     "rank": 67,
+     "reviews": 1,
+     "title": "option b o wood inspired by tom ford oud wood 50ml"
+    }
+   ],
+   "flankers": []
+  },
+  "paradiso": {
+   "name": "Roberto Cavalli Paradiso",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 2,
+     "reviews": 3132,
+     "title": "roberto cavalli paradiso for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 13,
+     "reviews": 1125,
+     "title": "roberto cavalli paradiso azzurro for women eau de parfum",
+     "source": "niceone",
+     "extra": "azzurro"
+    },
+    {
+     "list": "women",
+     "rank": 243,
+     "reviews": 371,
+     "title": "roberto cavalli paradiso assoluto for women eau de parfum",
+     "source": "niceone",
+     "extra": "assoluto"
+    },
+    {
+     "list": "women",
+     "rank": 340,
+     "reviews": 3,
+     "title": "roberto cavalli paradiso rosa for women eau de parfum",
+     "source": "niceone",
+     "extra": "rosa"
+    }
+   ]
+  },
+  "paradisoazzurro": {
+   "name": "Roberto Cavalli Paradiso Azzurro",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 13,
+     "reviews": 1125,
+     "title": "roberto cavalli paradiso azzurro for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "paradoxe": {
+   "name": "Prada Paradoxe",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 52,
+     "ratings": 14218,
+     "title": "Prada - Paradoxe EDP 90 ml/Perfume /"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 16,
+     "reviews": 187,
+     "title": "prada paradoxe for women eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 41,
+     "reviews": 5,
+     "title": "option b paradox b inspired by prada paradoxe prada 50 ml"
+    }
+   ],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 261,
+     "reviews": 2,
+     "title": "prada paradoxe virtual flower for women eau de parfum",
+     "source": "niceone",
+     "extra": "virtual flower"
+    }
+   ]
+  },
+  "percival": {
+   "name": "Parfums de Marly Percival",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 213,
+     "reviews": 9,
+     "title": "parfums de marly percival eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "philosykos": {
+   "name": "Diptyque Philosykos",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 333,
+     "reviews": 2,
+     "title": "diptyque philosykos eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "qaedalfursan": {
+   "name": "Lattafa Qaed Al Fursan",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 78,
+     "ratings": 5564,
+     "title": "Lattafa Qaid Al Fursan for Men Eau de Perfume 90ml,"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 167,
+     "reviews": 2,
+     "title": "lattafa qaed al fursan eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "quatre": {
+   "name": "Boucheron Quatre pour Femme",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 3,
+     "reviews": 3568,
+     "title": "boucheron quatre for women eau de parfum 100ml"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "raghba": {
+   "name": "Lattafa Raghba",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "unisex",
+     "rank": 312,
+     "reviews": 16,
+     "title": "lattafa raghba eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "redtobacco": {
+   "name": "Mancera Red Tobacco",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 116,
+     "reviews": 189,
+     "title": "mancera red tobacco eau de parfum"
+    },
+    {
+     "list": "women",
+     "rank": 233,
+     "reviews": 189,
+     "title": "mancera red tobacco eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "rosesvanille": {
+   "name": "Mancera Roses Vanille",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [],
+   "copies": [
+    {
+     "list": "women",
+     "rank": 63,
+     "reviews": 6,
+     "title": "option b vanille rose inspired by mancera roses vanille 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "santalroyal": {
+   "name": "Guerlain Santal Royal",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 5,
+     "reviews": 371,
+     "title": "guerlain santal royal eau de parfum 125ml"
+    },
+    {
+     "list": "unisex",
+     "rank": 5,
+     "reviews": 371,
+     "title": "guerlain santal royal eau de parfum 125ml"
+    },
+    {
+     "list": "women",
+     "rank": 32,
+     "reviews": 371,
+     "title": "guerlain santal royal eau de parfum 125ml"
+    }
+   ],
+   "copies": [
+    {
+     "list": "unisex",
+     "rank": 85,
+     "reviews": 2,
+     "title": "option b s royal inspired by santal royal guerlain 50ml"
+    }
+   ],
+   "flankers": [
+    {
+     "list": "unisex",
+     "rank": 196,
+     "reviews": 1,
+     "title": "guerlain santal royal gift set eau de parfum 2 pieces",
+     "source": "niceone",
+     "extra": "gift set pieces"
+    }
+   ]
+  },
+  "sauvageedp": {
+   "name": "Dior Sauvage Eau de Parfum",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 32,
+     "reviews": 385,
+     "title": "dior sauvage for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 257,
+     "reviews": 49,
+     "title": "dior sauvage elixir for men eau de parfum",
+     "source": "niceone",
+     "extra": "elixir"
+    },
+    {
+     "list": "men",
+     "rank": 282,
+     "reviews": 49,
+     "title": "dior sauvage elixir for men eau de parfum",
+     "source": "niceone",
+     "extra": "elixir"
+    }
+   ]
+  },
+  "sauvageedt": {
+   "name": "Dior Sauvage Eau de Toilette",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 84,
+     "reviews": 230,
+     "title": "dior sauvage for men eau de toilette"
+    }
+   ],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 19,
+     "reviews": 2,
+     "title": "option b wild spirit inspired by sauvage dior 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "sauvageelixir": {
+   "name": "Dior Sauvage Elixir",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 257,
+     "reviews": 49,
+     "title": "dior sauvage elixir for men eau de parfum"
+    },
+    {
+     "list": "men",
+     "rank": 282,
+     "reviews": 49,
+     "title": "dior sauvage elixir for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "scandal": {
+   "name": "Jean Paul Gaultier Scandal",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 60,
+     "reviews": 472,
+     "title": "jean paul gaultier scandal for women eau de perfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 163,
+     "reviews": 101,
+     "title": "jean paul gaultier scandal by night for women eau de perfum intense",
+     "source": "niceone",
+     "extra": "night intense"
+    }
+   ]
+  },
+  "scandalhomme": {
+   "name": "Jean Paul Gaultier Scandal Pour Homme",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 185,
+     "reviews": 2,
+     "title": "jean paul gaultier scandal le parfum for men eau de parfum intense",
+     "source": "niceone",
+     "extra": "le parfum intense"
+    },
+    {
+     "list": "men",
+     "rank": 289,
+     "reviews": 1,
+     "title": "jean paul gaultier scandal absolu for men parfum",
+     "source": "niceone",
+     "extra": "absolu parfum"
+    }
+   ]
+  },
+  "sheerbeauty": {
+   "name": "Calvin Klein Sheer Beauty",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 15,
+     "reviews": 931,
+     "title": "calvin klein sheer beauty for women eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "shuhrah": {
+   "name": "Rasasi Shuhrah Pour Homme",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 55,
+     "ratings": 6091,
+     "title": "Rasasi Shuhrah for Men EDP 90ML"
+    },
+    {
+     "list": "all",
+     "rank": 66,
+     "ratings": 6091,
+     "title": "Rasasi Shuhrah for Men EDP 90ML"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "si": {
+   "name": "Giorgio Armani Sì",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 136,
+     "reviews": 286,
+     "title": "giorgio armani si for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 56,
+     "reviews": 423,
+     "title": "giorgio armani si passione for women eau de parfum",
+     "source": "niceone",
+     "extra": "passione"
+    },
+    {
+     "list": "women",
+     "rank": 319,
+     "reviews": 13,
+     "title": "giorgio armani si passione eclat for women eau de perfum",
+     "source": "niceone",
+     "extra": "passione eclat"
+    },
+    {
+     "list": "women",
+     "rank": 335,
+     "reviews": 13,
+     "title": "giorgio armani si passione eclat for women eau de perfum",
+     "source": "niceone",
+     "extra": "passione eclat"
+    },
+    {
+     "list": "women",
+     "rank": 345,
+     "reviews": 2,
+     "title": "giorgio armani si passione eclat for women eau de parfum",
+     "source": "niceone",
+     "extra": "passione eclat"
+    }
+   ]
+  },
+  "silvershade": {
+   "name": "Ajmal Silver Shade",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 80,
+     "ratings": 355,
+     "title": "Ajmal Silver Shade - Eau De Parfum Perfume 100 ML, For Men"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "smw": {
+   "name": "Creed Silver Mountain Water",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 136,
+     "reviews": 53,
+     "title": "creed silver mountain water eau de parfum"
+    }
+   ],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 80,
+     "reviews": 1,
+     "title": "option b b silver inspired by creed silver mountain water 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "spicebombextreme": {
+   "name": "Viktor&Rolf Spicebomb Extreme",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 72,
+     "ratings": 3754,
+     "title": "Viktor & Rolf Men's Spicebomb Extreme Eau De Parfum, 90 ml"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 259,
+     "reviews": 36,
+     "title": "viktor rolf spicebomb extreme pour homme for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "supremacycollector": {
+   "name": "Afnan Supremacy Collector's Edition Pour Homme",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 2,
+     "ratings": 5727,
+     "title": "Afnan Supremacy Collector's Edition Eau De Parfum for Men, 100 ML"
+    },
+    {
+     "list": "all",
+     "rank": 5,
+     "ratings": 5727,
+     "title": "Afnan Supremacy Collector's Edition Eau De Parfum for Men, 100 ML"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "swy": {
+   "name": "Giorgio Armani Stronger With You",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 69,
+     "reviews": 134,
+     "title": "emporio armani stronger with you for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 205,
+     "reviews": 9,
+     "title": "emporio armani stronger with you only for men eau de toilette",
+     "source": "niceone",
+     "extra": "only"
+    },
+    {
+     "list": "men",
+     "rank": 212,
+     "reviews": 9,
+     "title": "emporio armani stronger with you only for men eau de toilette",
+     "source": "niceone",
+     "extra": "only"
+    }
+   ]
+  },
+  "swyabsolutely": {
+   "name": "Giorgio Armani Stronger With You Absolutely",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 83,
+     "reviews": 111,
+     "title": "emporio armani stronger with you absolutely for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 64,
+     "ratings": 122715,
+     "title": "Giorgio Armani Stronger with You Absolutely Eau De Parfum, 100 ml - Pack of",
+     "source": "amazon",
+     "extra": "pack of"
+    }
+   ]
+  },
+  "swyintensely": {
+   "name": "Giorgio Armani Stronger With You Intensely",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 10,
+     "ratings": 234512,
+     "title": "Giorgio Armani Stronger With You Intensely for Men Eau de Parfum 100ml"
+    },
+    {
+     "list": "all",
+     "rank": 22,
+     "ratings": 234512,
+     "title": "Giorgio Armani Stronger With You Intensely for Men Eau de Parfum 100ml"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 2,
+     "reviews": 370,
+     "title": "emporio armani stronger with you intensely for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "teriaq": {
+   "name": "Lattafa Teriaq",
+   "gender": "u",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 74,
+     "ratings": 3024,
+     "title": "Lattafa Teriaq Intense Eau de Parfum Spray for Unisex, 3.4 Ounce",
+     "source": "amazon",
+     "extra": "intense ounce"
+    }
+   ]
+  },
+  "theonemen": {
+   "name": "Dolce&Gabbana The One for Men",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 243,
+     "reviews": 1,
+     "title": "dolce gabbana the one pour homme parfum",
+     "source": "niceone",
+     "extra": "parfum"
+    },
+    {
+     "list": "men",
+     "rank": 309,
+     "reviews": 7,
+     "title": "dolce gabbana the one gold intense for men eau de parfum",
+     "source": "niceone",
+     "extra": "gold intense"
+    },
+    {
+     "list": "men",
+     "rank": 338,
+     "reviews": 7,
+     "title": "dolce gabbana the one gold intense for men eau de parfum",
+     "source": "niceone",
+     "extra": "gold intense"
+    }
+   ]
+  },
+  "thescentforher": {
+   "name": "Hugo Boss Boss The Scent For Her",
+   "gender": "f",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 54,
+     "reviews": 374,
+     "title": "hugo boss boss the scent for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "thescentmen": {
+   "name": "Hugo Boss Boss The Scent",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 17,
+     "reviews": 92,
+     "title": "hugo boss boss the scent for men eau de toilette"
+    }
+   ],
+   "copies": [],
+   "flankers": []
+  },
+  "trueinstinct": {
+   "name": "David Beckham True Instinct",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 68,
+     "ratings": 5755,
+     "title": "David Beckham True Instinct Perfume for Men Eau De Parfum 75ML"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "turathiblue": {
+   "name": "Afnan Turathi Blue",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 27,
+     "ratings": 5693,
+     "title": "AFNAN Turathi Blue Eau de Parfum for Men, 90 ML"
+    },
+    {
+     "list": "all",
+     "rank": 57,
+     "ratings": 5693,
+     "title": "AFNAN Turathi Blue Eau de Parfum for Men, 90 ML"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "tygar": {
+   "name": "Bvlgari Tygar",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 61,
+     "reviews": 3,
+     "title": "option b tyger scent inspired by bvlgari tygar 50 ml"
+    }
+   ],
+   "flankers": []
+  },
+  "ultramale": {
+   "name": "Jean Paul Gaultier Ultra Male",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 195,
+     "reviews": 11,
+     "title": "jean paul gaultier ultra male intense for men eau de toilette",
+     "source": "niceone",
+     "extra": "intense"
+    }
+   ]
+  },
+  "wisaldhahab": {
+   "name": "Ajmal Wisal Dhahab",
+   "gender": "u",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 75,
+     "ratings": 907,
+     "title": "Ajmal Wisal Dhahab - Eau De Parfum Perfume 50 ML, For Men"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "yara": {
+   "name": "Lattafa Yara",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 2,
+     "ratings": 46907,
+     "title": "Yara For Women By Lattafa Eau De Parfum - 100ML"
+    },
+    {
+     "list": "all",
+     "rank": 3,
+     "ratings": 46907,
+     "title": "Yara For Women By Lattafa Eau De Parfum - 100ML"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "women",
+     "rank": 92,
+     "reviews": 6,
+     "title": "lattafa yara for women eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "women",
+     "rank": 77,
+     "ratings": 7687,
+     "title": "Yara Moi For Women By Lattafa Eau De Parfum - 100ML",
+     "source": "amazon",
+     "extra": "moi"
+    }
+   ]
+  },
+  "yaramoi": {
+   "name": "Lattafa Yara Moi",
+   "gender": "f",
+   "amazon": [
+    {
+     "list": "women",
+     "rank": 77,
+     "ratings": 7687,
+     "title": "Yara Moi For Women By Lattafa Eau De Parfum - 100ML"
+    }
+   ],
+   "niceone": [],
+   "copies": [],
+   "flankers": []
+  },
+  "yedp": {
+   "name": "Yves Saint Laurent Y Eau de Parfum",
+   "gender": "m",
+   "amazon": [
+    {
+     "list": "men",
+     "rank": 77,
+     "ratings": 70,
+     "title": "Yves Saint Laurent Y for Men Eau de Parfum 100ml"
+    }
+   ],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 8,
+     "reviews": 284,
+     "title": "yves saint laurent y for men eau de parfum"
+    }
+   ],
+   "copies": [],
+   "flankers": [
+    {
+     "list": "men",
+     "rank": 183,
+     "reviews": 45,
+     "title": "yves saint laurent y le parfum for men eau de parfum",
+     "source": "niceone",
+     "extra": "le"
+    },
+    {
+     "list": "men",
+     "rank": 201,
+     "reviews": 26,
+     "title": "yves saint laurent y for men eau de parfum intense",
+     "source": "niceone",
+     "extra": "intense"
+    },
+    {
+     "list": "men",
+     "rank": 241,
+     "reviews": 26,
+     "title": "yves saint laurent y for men eau de parfum intense",
+     "source": "niceone",
+     "extra": "intense"
+    }
+   ]
+  },
+  "yedt": {
+   "name": "Yves Saint Laurent Y Eau de Toilette",
+   "gender": "m",
+   "amazon": [],
+   "niceone": [
+    {
+     "list": "men",
+     "rank": 305,
+     "reviews": 9,
+     "title": "yves saint laurent y for men eau de toilette"
+    },
+    {
+     "list": "men",
+     "rank": 353,
+     "reviews": 9,
+     "title": "yves saint laurent y for men eau de toilette"
+    }
+   ],
+   "copies": [
+    {
+     "list": "men",
+     "rank": 68,
+     "reviews": 2,
+     "title": "option b y scent inspired by yves saint laurent y 50ml"
+    }
+   ],
+   "flankers": []
+  }
+ }
+}

@@ -1,7 +1,9 @@
 /* A minimal stand-in for the browser, enough to run the page scripts under Node: element stubs by id,
    localStorage and sessionStorage, a recorded fetch and sendBeacon with canned answers, page hiding, and
    timers that run only when flushed. Every element the page touches is kept, so a snapshot shows
-   everything the page wrote. Options: localStorage, navLang, endpoint, respond, beacon (false: none). */
+   everything the page wrote. Options: localStorage, navLang, endpoint, respond, beacon (false: none),
+   search (a query string such as "?add=yara", joined with the endpoint's when both are given).
+   history.replaceState is recorded in page.history. */
 "use strict";
 const vm = require("vm");
 
@@ -58,12 +60,15 @@ function createPage(opts) {
     return true;
   };
   const winListeners = {};
+  const history = [];
+  const query = [opts.search ? String(opts.search).replace(/^\?/, "") : "", opts.endpoint ? "endpoint=" + encodeURIComponent(opts.endpoint) : ""].filter(Boolean).join("&");
   const timers = new Map(); let nextTimer = 1;
   const sandbox = {
     document, localStorage, sessionStorage, fetch, console, URLSearchParams,
     navigator: Object.assign({ language: opts.navLang || "en-US", clipboard: { writeText: t => { clipboard.push(t); return Promise.resolve(); } } }, opts.beacon === false ? {} : { sendBeacon }),
     addEventListener(type, fn) { (winListeners[type] = winListeners[type] || []).push(fn); },
-    location: { hostname: opts.endpoint ? "localhost" : "example.org", search: opts.endpoint ? "?endpoint=" + encodeURIComponent(opts.endpoint) : "" },
+    location: { hostname: opts.endpoint ? "localhost" : "example.org", pathname: "/", hash: "", search: query ? "?" + query : "" },
+    history: { replaceState(state, title, url) { history.push({ state, title, url }); } },
     setTimeout: fn => { const id = nextTimer++; timers.set(id, fn); return id; },
     clearTimeout: id => { timers.delete(id); },
     getSelection: () => ({ removeAllRanges() {}, addRange() {} })
@@ -72,7 +77,7 @@ function createPage(opts) {
   vm.runInContext("globalThis.window = globalThis;", ctx);
 
   const page = {
-    ctx, sandbox, calls, clipboard, localStorage,
+    ctx, sandbox, calls, clipboard, localStorage, history,
     load(scripts) { for (const s of scripts) vm.runInContext(s.code, ctx, { filename: s.filename }); },
     /* as in a browser, a timer that throws does not stop the others; the first error is rethrown at the end */
     flushTimers() {

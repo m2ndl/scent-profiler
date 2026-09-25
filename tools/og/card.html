@@ -1,0 +1,53 @@
+<!doctype html>
+<!-- The share card (site/og.png, 1200 x 630): the site's own palette, type, bottles and rose sketch.
+     To rebuild: serve the repo root (launch config repo-root), open tools/og/card.html at 1200 x 630 and save a
+     screenshot over site/og.png. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Noto+Naskh+Arabic:wght@500..700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; overflow: hidden; position: relative; font-family: "IBM Plex Sans Arabic", sans-serif; color: #2A1B11;
+    background:
+      url("../../site/img/botanical/rose.webp") right -40px top 64px / auto 430px no-repeat,
+      radial-gradient(55% 60% at 12% 20%, rgba(240,177,53,.28), transparent 70%),
+      radial-gradient(45% 55% at 100% 40%, rgba(222,109,157,.18), transparent 70%),
+      linear-gradient(180deg, #F6E8D0, #EFDBBD); }
+  .band { position: absolute; inset: 0 0 auto 0; height: 34px; background: linear-gradient(180deg, #2A1B11, #3A2718); }
+  .band::after, .foot::before { content: ""; position: absolute; left: 0; right: 0; height: 4px;
+    background: linear-gradient(115deg, #B8862A 0%, #F2D68A 26%, #D4A94A 44%, #FBECB8 58%, #D9AE4F 74%, #A8781F 100%); }
+  .band::after { bottom: 0; }
+  .foot { position: absolute; inset: auto 0 0 0; height: 70px; background: linear-gradient(180deg, #3A2718, #1E130C); }
+  .foot::before { top: 0; }
+  .text { position: absolute; left: 80px; top: 70px; width: 700px; }
+  .mark { display: inline-block; width: 16px; height: 46px; border-radius: 999px; vertical-align: -6px; margin-right: 18px;
+    background: linear-gradient(115deg, #B8862A 0%, #F2D68A 26%, #D4A94A 44%, #FBECB8 58%, #D9AE4F 74%, #A8781F 100%); }
+  h1 { margin: 0; font-family: "Fraunces", serif; font-weight: 600; font-size: 76px; line-height: 1; letter-spacing: -.02em;
+    background: linear-gradient(115deg, #6E4A0C 0%, #C4922C 30%, #8C5F00 48%, #D6A93F 64%, #7A5210 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .ar { margin: 18px 0 0; font-family: "Noto Naskh Arabic", serif; font-weight: 700; font-size: 44px; line-height: 1.4; color: #2A1B11; direction: rtl; text-align: left; }
+  .tag { margin: 22px 0 0; font-size: 30px; color: #614E3F; }
+  .tag.ar-tag { margin-top: 6px; font-family: "Noto Naskh Arabic", serif; font-weight: 600; direction: rtl; text-align: left; }
+  .rule { width: 110px; height: 5px; border-radius: 999px; margin: 20px 0 0; background: linear-gradient(90deg, #ECAA0B, #D1528B 50%, #CC6600); }
+  .bottles { position: absolute; left: 80px; bottom: 82px; display: flex; gap: 10px; align-items: flex-end; }
+  .bottles img { width: 92px; height: 92px; filter: drop-shadow(0 8px 10px rgba(42,27,17,.25)); }
+</style>
+</head>
+<body>
+  <div class="band"></div>
+  <div class="text">
+    <h1><span class="mark"></span>Scent Profiler</h1>
+    <p class="ar">محلل الذائقة العطرية</p>
+    <p class="tag">Find what you hate before you buy</p>
+    <p class="tag ar-tag">اعرف ما تكرهه قبل أن تشتري</p>
+    <div class="rule"></div>
+  </div>
+  <div class="bottles">
+    <img src="../../site/img/bottles/aventus.webp" alt=""><img src="../../site/img/bottles/khamrah.webp" alt="">
+    <img src="../../site/img/bottles/br540.webp" alt=""><img src="../../site/img/bottles/sauvageedp.webp" alt="">
+    <img src="../../site/img/bottles/hawas.webp" alt=""><img src="../../site/img/bottles/yara.webp" alt="">
+    <img src="../../site/img/bottles/oudwood.webp" alt="">
+  </div>
+  <div class="foot"></div>
+</body>
+</html>

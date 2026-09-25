@@ -18,7 +18,7 @@
    holds: identity, image, vendor id, derived weights. */
 
 const SHEET_ID = "PASTE_YOUR_SHEET_ID";
-const RATING_HEADERS = ["ts", "device", "lang", "perfume", "name", "opening", "heart", "drydown", "again", "chips_opening", "chips_heart", "chips_drydown"];
+const RATING_HEADERS = ["ts", "device", "lang", "perfume", "name", "opening", "heart", "drydown", "again", "chips_opening", "chips_heart", "chips_drydown", "src", "noteAnswers", "unnoticed"];
 const CORRECTION_HEADERS = ["ts", "device", "lang", "family", "perfume", "perfumes"];
 const CATALOGUE_HEADERS = ["ts", "id", "name", "brand", "gender", "oil_type", "image", "vendor_id", "stages_json", "source", "verified"];
 const LABEL_HEADERS = ["ts", "device", "lang", "perfume", "name", "market", "date", "format", "text"];
@@ -28,7 +28,10 @@ const FRAGELLA_BASE = "https://api.fragella.com/api/v1";
 function sheet_(name, headers) {
   const ss = SpreadsheetApp.openById(SHEET_ID);
   let sh = ss.getSheetByName(name);
-  if (!sh) { sh = ss.insertSheet(name); sh.appendRow(headers); }
+  if (!sh) { sh = ss.insertSheet(name); sh.appendRow(headers); return sh; }
+  /* a sheet made before a column was added gets the missing header cells in row 1 */
+  const have = sh.getLastColumn();
+  if (have < headers.length) sh.getRange(1, have + 1, 1, headers.length - have).setValues([headers.slice(have)]);
   return sh;
 }
 function json_(obj) {
@@ -60,12 +63,15 @@ function doPost(e) {
   sheet_("ratings", RATING_HEADERS).appendRow([
     ts, clip_(body.device), clip_(body.lang), clip_(body.perfume), clip_(body.name),
     num_(body.opening), num_(body.heart), num_(body.drydown), num_(body.again),
-    clip_((chips.opening || []).join("|")), clip_((chips.heart || []).join("|")), clip_((chips.drydown || []).join("|"))
+    clip_((chips.opening || []).join("|")), clip_((chips.heart || []).join("|")), clip_((chips.drydown || []).join("|")),
+    clip_(body.src, 20),
+    clip_(JSON.stringify(body.noteAnswers || {}), 500), clip_((Array.isArray(body.unnoticed) ? body.unnoticed : []).join("|"))
   ]);
   return json_({ ok: true });
 }
 
-/* GET ?stats=1      -> { perfumes: { <id>: { n, o, h, d } } }, last row per device+perfume, cached 5 min.
+/* GET ?stats=1      -> { perfumes: { <id>: { n, o, h, d } }, quiz: { n, palates, breakers } }, cached 5 min. perfumes: the
+                        last row per device+perfume unless it is a quiz verdict. quiz: each device's last finished result.
    GET ?catalogue=1  -> { entries: [ {id, name, brand, gender, oilType, image, vendorId, stages, source} ] }, cached 5 min. */
 function doGet(e) {
   const p = (e && e.parameter) || {};
@@ -78,19 +84,22 @@ function stats_() {
   const cache = CacheService.getScriptCache();
   const hit = cache.get("stats");
   if (hit) return ContentService.createTextOutput(hit).setMimeType(ContentService.MimeType.JSON);
-  const rows = sheet_("ratings", RATING_HEADERS).getDataRange().getValues().slice(1);
+  const data = sheet_("ratings", RATING_HEADERS).getDataRange().getValues();
+  const srcCol = data.length ? data[0].indexOf("src") : -1;   /* found by name, so older sheets still work */
+  const rows = data.slice(1);
   const last = {};
   rows.forEach(r => { last[r[1] + "::" + r[3]] = r; });
   const agg = {};
   Object.values(last).forEach(r => {
     const id = r[3]; if (!id) return;
+    if (srcCol >= 0 && r[srcCol] === "quiz") return;             /* quiz verdicts stay out of community averages */
     const a = agg[id] || (agg[id] = { n: 0, so: 0, no: 0, sh: 0, nh: 0, sd: 0, nd: 0 });
     a.n++;
     if (r[5] !== "") { a.so += Number(r[5]); a.no++; }
     if (r[6] !== "") { a.sh += Number(r[6]); a.nh++; }
     if (r[7] !== "") { a.sd += Number(r[7]); a.nd++; }
   });
-  const out = { perfumes: {} };
+  const out = { perfumes: {}, quiz: quizStats_(sheet_("events", EVENT_HEADERS).getDataRange().getValues().slice(1)) };
   Object.keys(agg).forEach(id => {
     const a = agg[id];
     out.perfumes[id] = { n: a.n, o: a.no ? a.so / a.no : null, h: a.nh ? a.sh / a.nh : null, d: a.nd ? a.sd / a.nd : null };
@@ -98,6 +107,58 @@ function stats_() {
   const text = JSON.stringify(out);
   cache.put("stats", text, 300);
   return ContentService.createTextOutput(text).setMimeType(ContentService.MimeType.JSON);
+}
+
+/* The quiz page sends "result:<palate>:<deal-breakers joined by +>" when a visitor reaches the result. Each
+   device counts once, with its last result: n finished devices, how many hold each palate, how many each
+   deal-breaker. rows: the events sheet without its header, [ts, device, lang, name, n], in the order written. */
+function quizStats_(rows) {
+  const last = {};
+  rows.forEach(r => { const name = String(r[3] || ""); if (name.indexOf("result:") === 0 && r[1]) last[r[1]] = name; });
+  const out = { n: 0, palates: {}, breakers: {} };
+  Object.keys(last).forEach(device => {
+    const parts = last[device].split(":"), palate = parts[1] || "none", bad = parts[2] ? parts[2].split("+") : [];
+    out.n++;
+    out.palates[palate] = (out.palates[palate] || 0) + 1;
+    bad.forEach(f => { if (f) out.breakers[f] = (out.breakers[f] || 0) + 1; });
+  });
+  return out;
+}
+
+/* The quiz funnel: how many devices reached each screen ("reach:<screen>" events, one per screen per visit)
+   and how many reached the result (quiz_done), in the order of the quiz, each as a share of those who saw the
+   start screen. The note picker's screens are numbered 1 to 5; a screen whose notes were all answered on a
+   bottle is skipped, and the bottle screens (verdicts, notes, narrow) are skipped by "None of these", so a
+   later row can be larger than an earlier one. */
+const FUNNEL_STEPS_ = ["start", "grid", "verdicts", "notes", "narrow", "picker", "taste", "told", "anosmia", "done"];
+function funnelRows_(rows) {
+  const seen = {};
+  rows.forEach(r => {
+    const name = String(r[3] || ""), device = r[1];
+    if (!device) return;
+    const step = name === "quiz_done" ? "done" : name.indexOf("reach:") === 0 ? name.slice(6) : null;
+    if (!step) return;
+    (seen[step] = seen[step] || {})[device] = true;
+  });
+  const order = step => { const [base, i] = step.split(":"); const k = FUNNEL_STEPS_.indexOf(base); return (k < 0 ? 99 : k) * 100 + (Number(i) || 0); };
+  const steps = Object.keys(seen).sort((a, b) => order(a) - order(b));
+  const count = step => Object.keys(seen[step]).length;
+  const base = seen.start ? count("start") : 0;
+  return steps.map(step => [step === "done" ? "result" : step, count(step), base ? Math.round(1000 * count(step) / base) / 10 : ""]);
+}
+/* Writes the funnel to its own sheet. Run it from the Profiler menu in the sheet, or from the script editor. */
+function buildFunnel() {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  const rows = funnelRows_(sheet_("events", EVENT_HEADERS).getDataRange().getValues().slice(1));
+  let sh = ss.getSheetByName("funnel");
+  if (sh) sh.clear(); else sh = ss.insertSheet("funnel");
+  sh.getRange(1, 1, 1, 3).setValues([["screen", "visitors", "% of start"]]);
+  if (rows.length) sh.getRange(2, 1, rows.length, 3).setValues(rows);
+  sh.getRange(rows.length + 3, 1).setValue("Built " + new Date().toISOString() + ". One visitor is one device; each screen counts once per device.");
+}
+/* the Profiler menu in the sheet this script is bound to */
+function onOpen() {
+  try { SpreadsheetApp.getUi().createMenu("Profiler").addItem("Build the quiz funnel", "buildFunnel").addToUi(); } catch (err) { /* not bound to a sheet */ }
 }
 
 function rowToEntry_(r) {
@@ -211,6 +272,8 @@ const VERIFIED = [
   ["sauvageedp", "Dior Sauvage Eau de Parfum"],
   ["bleuedp", "Chanel Bleu de Chanel Eau de Parfum"],
   ["diorhommeintense", "Dior Dior Homme Intense"],
+  ["diorhomme2020", "Dior Dior Homme (2020)"],
+  ["paradigme", "Prada Paradigme"],
   ["yedp", "Yves Saint Laurent Y Eau de Parfum"],
   ["libre", "Yves Saint Laurent Libre"],
   ["blackopium", "Yves Saint Laurent Black Opium"],
@@ -478,5 +541,50 @@ const VERIFIED = [
   ["liquidbrun", "French Avenue Liquid Brun"],
   ["oud24hours", "Ard Al Zaafaran Oud 24 Hours"],
   ["bhararaking", "Bharara King"],
-  ["safariextreme", "Abdul Samad Al Qurashi Safari Extreme"]
+  ["safariextreme", "Abdul Samad Al Qurashi Safari Extreme"],
+  ["hawasice", "Rasasi Hawas Ice"],
+  ["supremacycollector", "Afnan Supremacy Collector's Edition Pour Homme"],
+  ["najdia", "Lattafa Najdia"],
+  ["nauticavoyage", "Nautica Voyage"],
+  ["swyabsolutely", "Giorgio Armani Stronger With You Absolutely"],
+  ["bossbottlednight", "Hugo Boss Boss Bottled Night"],
+  ["hugoman", "Hugo Boss Hugo Man"],
+  ["mostwantedintense", "Azzaro The Most Wanted Eau de Parfum Intense"],
+  ["trueinstinct", "David Beckham True Instinct"],
+  ["thescentmen", "Hugo Boss Boss The Scent"],
+  ["guiltyabsolute", "Gucci Guilty Absolute pour Homme"],
+  ["emblem", "Montblanc Emblem"],
+  ["lhommeidealedp", "Guerlain L'Homme Idéal Eau de Parfum"],
+  ["euphoriamen", "Calvin Klein Euphoria Men"],
+  ["oudmalaki", "Chopard Oud Malaki"],
+  ["yaramoi", "Lattafa Yara Moi"],
+  ["cdnwoman", "Armaf Club de Nuit Woman"],
+  ["amaali", "Swiss Arabian Amaali"],
+  ["ckin2uher", "Calvin Klein CK IN2U Her"],
+  ["ckbeauty", "Calvin Klein Beauty"],
+  ["eternitymoment", "Calvin Klein Eternity Moment"],
+  ["sheerbeauty", "Calvin Klein Sheer Beauty"],
+  ["euphoriawomen", "Calvin Klein Euphoria"],
+  ["jovanmusk", "Jovan Musk for Women"],
+  ["quatre", "Boucheron Quatre pour Femme"],
+  ["paradiso", "Roberto Cavalli Paradiso"],
+  ["cavalliedp", "Roberto Cavalli Roberto Cavalli Eau de Parfum"],
+  ["paradisoazzurro", "Roberto Cavalli Paradiso Azzurro"],
+  ["guessseductive", "Guess Seductive"],
+  ["dgpourfemme", "Dolce&Gabbana Dolce&Gabbana Pour Femme"],
+  ["erospourfemme", "Versace Eros Pour Femme"],
+  ["lapanthere", "Cartier La Panthère"],
+  ["elieleparfum", "Elie Saab Le Parfum"],
+  ["narcisoforheredp", "Narciso Rodriguez For Her Eau de Parfum"],
+  ["crystalnoir", "Versace Crystal Noir"],
+  ["myburberry", "Burberry My Burberry"],
+  ["thescentforher", "Hugo Boss Boss The Scent For Her"],
+  ["interditrouge", "Givenchy L'Interdit Eau de Parfum Rouge"],
+  ["guccibamboo", "Gucci Bamboo"],
+  ["dynasty", "Lattafa Dynasty"],
+  ["aroubjazal", "Aroub Jazal"],
+  ["chocomusk", "Al Rehab Choco Musk"],
+  ["musksilk", "Ajmal Musk Silk"],
+  ["musamamwhite", "Lattafa Musamam White Intense"],
+  ["moonlightpatchouli", "Van Cleef & Arpels Moonlight Patchouli"]
 ];

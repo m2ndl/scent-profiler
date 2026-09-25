@@ -1,0 +1,130 @@
+@@ tests/quiz.test.js
+  assert.match(h, new RegExp(`${reEsc(esc(sauvage.name))} in four parts\\. Tap what you remember; skip what you don&#39;t\\.`));
+@@>
+  assert.match(h, new RegExp(`Four notes from ${reEsc(esc(sauvage.name))}\\. Tap what you remember; skip what you don&#39;t\\.`));
+@@.
+@@ tests/quiz.test.js
+  /* note answers name the note; the hated citrus disagrees with the lemon enjoyed and the bitter answer */
+  assert.match(block("citrus_fresh"), /Possible deal-breaker/);
+  assert.match(block("citrus_fresh"), new RegExp(`<div class="hint">${reEsc(esc(sauvage.name))}: you hated the bergamot \\(first minutes\\)</div>`));
+  assert.match(block("citrus_fresh"), /<div class="hint qdis">Your bottles and your answer disagree; your bottles count more\.<\/div>/);
+  assert.match(block("lavender_aromatic"), new RegExp(`${reEsc(esc(sauvage.name))}: you loved the lavender \\(first hours\\)`));
+@@>
+  /* note answers name the note; the hated citrus disagrees with the lemon enjoyed, which the line names (the bitter
+     answer is not named), and the soapy chip's 0.3 on lavender is too weak to count */
+  assert.match(block("citrus_fresh"), /Possible deal-breaker/);
+  assert.match(block("citrus_fresh"), new RegExp(`<div class="hint">${reEsc(esc(sauvage.name))}: you hated the bergamot \\(first minutes\\)</div>`));
+  assert.match(block("citrus_fresh"), /<div class="hint qdis">Your bottles and your answer \(lemon\) disagree; your bottles count more\.<\/div>/);
+  assert.match(block("lavender_aromatic"), new RegExp(`${reEsc(esc(sauvage.name))}: you loved the lavender \\(first hours\\)`));
+  assert.doesNotMatch(block("lavender_aromatic"), /qdis/);
+@@.
+@@ tests/quiz.test.js
+  assert.deepEqual(stored(page, "pp_quiz_v1"), { taste: "unsure", told: [], anosmia: "unsure" });
+});
+@@>
+  assert.deepEqual(stored(page, "pp_quiz_v1"), { taste: "unsure", told: [], anosmia: "unsure" });
+});
+
+test("a picker card is hidden by an answered row word of its main family that holds it as a whole word", () => {
+  const row = (id, f) => N.questions(E.byId[id], "worn").find(r => r.f === f).words.en;
+  assert.ok(row("accento", "white_musk").includes("white musk") && row("accento", "fruity_sweet").includes("pineapple"));
+  assert.ok(row("lazysunday", "white_floral").includes("orange blossom"));
+  const rated = { opening: null, heart: 1, drydown: null, again: null, chips: {} };
+  const ratings = {
+    accento: Object.assign({}, rated, { noteAnswers: { white_musk: 1, fruity_sweet: 1 } }),
+    lazysunday: Object.assign({}, rated, { noteAnswers: { white_floral: -1 } })
+  };
+  const page = open({ localStorage: seed({ pp_ratings_v1: JSON.stringify(ratings) }) });
+  page.click({ dataset: { none: "1" } });
+  const asked = [];
+  for (let i = 0; i < 4 && /data-pn=/.test(html(page)); i++) {
+    asked.push(...[...html(page).matchAll(/data-pn="([^"]+)" data-pv="0"/g)].map(m => m[1]));
+    page.click({ dataset: { continue: "1" } });
+  }
+  assert.ok(!asked.includes("musk"), "musk was answered as white musk");
+  /* "pineapple" does not hold "apple" as a whole word; orange blossom sits on a floral row, not the orange card's citrus */
+  for (const id of ["apple", "orange"]) assert.ok(asked.includes(id), `${id} is still asked`);
+});
+@@.
+@@ tests/page.test.js
+  assert.match(els.recs.innerHTML, new RegExp(`Contains ${esc(FAMILIES[risk.f].en).replace(/[()]/g, "\\$&")} in the ${stage}, which you said you avoid\\.`));
+});
+@@>
+  assert.match(els.recs.innerHTML, new RegExp(`Contains ${esc(FAMILIES[risk.f].en).replace(/[()]/g, "\\$&")} in the ${stage}, which you said you avoid\\.`));
+});
+
+test("zero bottles with sweet and an enjoyed lemon: no pick says the visitor said they avoid a family", () => {
+  const answers = { notes: { lemon: 1 }, taste: "sweet" };
+  const page = createPage({ localStorage: quizSeed({ pp_quiz_v1: JSON.stringify(answers) }) });
+  page.load(scripts);
+  const els = page.snapshot().els;
+  assert.equal(els["recs-h"].textContent, "Based only on what you told us");
+  assert.equal(picksOf(els.recs.innerHTML).length, 3);
+  assert.doesNotMatch(els.recs.innerHTML, /which you said you avoid/);
+  /* a family pushed down only by the taste answer leans against, in words that do not claim the visitor said it */
+  const { picks } = E.recommend(E.computeProfile({ ratings: {}, auto: {}, images: {}, told: N.toldItems(answers) }), {});
+  const risk = picks.map(p => p.risks.slice().sort((x, y) => y.sev - x.sev)[0]).find(x => x && x.kind === "told");
+  assert.ok(risk, "a pick's main risk comes from the taste answer");
+  const stage = { opening: "opening", heart: "heart", drydown: "drydown" }[risk.s];
+  assert.match(els.recs.innerHTML, new RegExp(`Contains ${esc(FAMILIES[risk.f].en).replace(/[()]/g, "\\$&")} in the ${stage}, which your quiz answers lean against\\.`));
+});
+@@.
+@@ tests/quiz.test.js
+  assert.match(h, /في خمسة أجزاء\. اختر ما تتذكره، وتجاوز ما لا تتذكره\./);
+@@>
+  assert.match(h, /خمس نوتات من [^<]+\. اختر ما تتذكره، وتجاوز ما لا تتذكره\./);
+@@.
+@@ tests/engine.test.js
+  const bitter = { green_herbal: 0.8, citrus_fresh: 0.6, vetiver: 0.5, incense_resin: 0.4, oakmoss_chypre: 0.3, leather_smoky: 0.3 };
+  const sweet = { vanilla_gourmand: 0.8, fruity_sweet: 0.6, tonka_coumarin: 0.5, amber_resin: 0.4, tobacco_honey: 0.3 };
+  const told = [].concat(
+    ...enjoy.map(w => toldFor(w, 1)), ...avoid.map(w => toldFor(w, -1)),
+    Object.entries(bitter).map(([f, w]) => ({ f, value: 1, w, src: "taste:bitter" })),
+    Object.entries(sweet).map(([f, w]) => ({ f, value: -1, w, src: "taste:bitter" })));
+@@>
+  const told = [].concat(...enjoy.map(w => toldFor(w, 1)), ...avoid.map(w => toldFor(w, -1)), plain(N.toldItems({ taste: "bitter" })));
+@@.
+@@ tests/engine.test.js
+const toldFor = (word, value) => Object.entries(M.famsForNote(word)).map(([f, w]) => ({ f, value, w, src: "note:" + word }));
+@@>
+const toldFor = (word, value) => Object.entries(M.famsForNote(word)).map(([f, w]) => ({ f, value, w, src: "note:" + word }));
+/* the quiz's own told items (QUIZ.taste from the live data; the frozen catalogue has no QUIZ) */
+const live = loadSite("data", "mapper", "notes");
+const N = live.PP_NOTES.create(live.PP_DATA, live.PP_MAP, E);
+@@.
+@@ tests/site.test.js
+  assert.deepEqual(strings.filter(s => wear.test(s.replace(/[ً-ْـ]/g, "")) || s.includes("—")), []);
+@@>
+  assert.deepEqual(strings.filter(s => wear.test(s.replace(/[ً-ْـ]/g, "")) || s.includes(String.fromCharCode(0x2014))), []);
+@@.
+@@ backend/apps-script.gs
+clip_((body.unnoticed || []).join("|"))
+@@>
+clip_((Array.isArray(body.unnoticed) ? body.unnoticed : []).join("|"))
+@@.
+@@ README.md
+("Sauvage: you hated the ambroxan (hours later)"), and a classed family whose told answers point the other way says
+"Your bottles and your answer disagree; your bottles count more." Below it, the visitor's own words are listed
+@@>
+("Sauvage: you hated the ambroxan (hours later)"). When a picker card or complaint chip that gives a classed family
+0.5 or more points the other way, the family names it: "Your bottles and your answer (lemon) disagree; your bottles
+count more." Below it, the visitor's own words are listed
+@@.
+@@ README.md
+heading, and its profile section adds "Also uses <n> answers from the quiz." with a link to the quiz; its risk
+line for a family known only from avoid answers reads "which you said you avoid". "Rate it when you have worn it"
+@@>
+heading, and its profile section adds "Also uses <n> answers from the quiz." with a link to the quiz. Its risk
+line for a family known only from answers against it reads "which you said you avoid" when an avoided picker card
+gives that family 0.5 or more, and "which your quiz answers lean against" otherwise (a taste answer, a complaint
+chip, or a card's lesser family). "Rate it when you have worn it"
+@@.
+@@ README.md
+  default), with a one-line hint on less familiar notes. A card is hidden when its word was on a bottle row the
+  visitor answered, and a screen with no card left is skipped. Stored as `notes: { noteId: 1 | -1 }`.
+@@>
+  default), with a one-line hint on less familiar notes. A card is hidden when its word was on a bottle row the
+  visitor answered, alone or as a whole word inside a longer word on a row of the card's main family ("musk" in
+  "white musk", but not "apple" in "pineapple" or "orange" on an orange blossom row). A screen with no card left
+  is skipped. Stored as `notes: { noteId: 1 | -1 }`.
+@@.

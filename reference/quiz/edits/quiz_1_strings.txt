@@ -1,0 +1,115 @@
+@@@OLD
+   in engine.js. The told complaint and the anosmia answer stay on this page and never enter the profile. */
+@@@NEW
+   in engine.js, the note rows and told items in notes.js. What the visitor says in words (notes enjoyed or avoided,
+   bitter or sweet, complaints) enters the profile as told items, which can reorder picks but never set a class;
+   the anosmia answer stays on this page. */
+@@@END
+@@@OLD
+  if (!D || !M || !window.PP_ENGINE || !window.PP_CONFIG) { document.getElementById("quiz").textContent = "A script in js/ did not load (config, data, mapper or engine). Serve the site folder as it is."; return; }
+  const { FAMILIES, CHIPS, QUIZ } = D;
+  const E = window.PP_ENGINE.create(D, M, window.PP_EVIDENCE);
+@@@NEW
+  if (!D || !M || !window.PP_ENGINE || !window.PP_NOTES || !window.PP_CONFIG) { document.getElementById("quiz").textContent = "A script in js/ did not load (config, data, mapper, engine or notes). Serve the site folder as it is."; return; }
+  const { FAMILIES, CHIPS, QUIZ } = D;
+  const E = window.PP_ENGINE.create(D, M, window.PP_EVIDENCE);
+  const N = window.PP_NOTES.create(D, M, E), normTold = window.PP_NOTES.normTold;
+@@@END
+@@@OLD
+      count: (i, n) => `Bottle ${i} of ${n}`,
+      verdictQ: "How did it end?",
+      verdicts: { still: "I still wear it", turned: "I stopped wearing it: it turned on me", other: "I stopped for another reason", shop: "I tried it in a shop and it put me off" },
+      whenQ: "When did it bother you?",
+      when: { opening: "In the first minutes", heart: "In the first hours", drydown: "Hours later, or on my clothes" },
+      wrongQ: "What was wrong? (optional)", wrongShop: "What put you off? (optional)", next: "Next",
+      narrowQ: "One more would settle it: have you worn any of these?",
+      narrowHint: "Each of these has, in its base, a family that may be a deal-breaker for you. Your verdict on it shows whether that family is the problem.",
+      tests: f => `Tests: ${f}`,
+      toldQ: "Which of these has bothered you most in a perfume?",
+@@@NEW
+      part: (i, name) => `Part ${i} of 4 · ${name}`, parts: ["Your bottles", "Notes you know", "Sweet or bitter", "What bothers you"], back: "Back",
+      count: (i, n) => `Bottle ${i} of ${n}`,
+      verdictQ: "How did it end?",
+      verdicts: { still: "I still wear it", turned: "I stopped wearing it: it turned on me", other: "I stopped for another reason", shop: "I tried it in a shop and it put me off", unsure: "I don't remember how it ended" },
+      whenQ: "When did it bother you?",
+      when: { opening: "In the first minutes", heart: "In the first hours", drydown: "Hours later, or on my clothes", unsure: "I don't remember" },
+      wrongQ: "What was wrong? (optional)", wrongShop: "What put you off? (optional)", next: "Next",
+      notesIntro: (name, n) => `${name} in ${["", "one", "two", "three", "four", "five"][n] || n} part${n === 1 ? "" : "s"}. Tap what you remember; skip what you don't.`,
+      rowStage: { opening: "First minutes", heart: "First hours", drydown: "Hours later" },
+      notListed: "not on its note list", notListedHint: "Some materials are in a perfume without being on its note list.",
+      answers: { "-2": "Hated it", "-1": "Disliked it", 0: "Didn't mind", 1: "Liked it", 2: "Loved it", u: "Didn't notice it" },
+      change: "Change", skipNotes: "Skip the notes for this bottle", skipAllNotes: "Skip notes for the other bottles",
+      narrowQ: "One more would settle it: have you worn any of these?",
+      narrowHint: "Each of these has, in its base, a family that may be a deal-breaker for you. Your verdict on it shows whether that family is the problem.",
+      noneNarrow: "None of these, or I don't know them",
+      tests: f => `Tests: ${f}`,
+      pickerH: { fresh: "Fresh and green", flowers: "Flowers and fruit", spices: "Spices and sweets", woods: "Woods, resins and musks" },
+      pickerQ: "Which of these do you enjoy in a perfume, and which do you avoid? Leave the rest at Not sure.",
+      pick: { 1: "I enjoy it", "-1": "I avoid it", 0: "Not sure" }, pickCount: (i, n) => `${i} of ${n}`,
+      tasteQ: "When a perfume leans one way, which do you prefer?",
+      taste: { bitter: "Bitter and fresh (tea, grapefruit, vetiver)", sweet: "Sweet (vanilla, caramel, ripe fruit)", both: "Both, it depends", unsure: "I don't know" },
+      toldQ: "Which of these have bothered you in a perfume? Pick all that apply.",
+      toldNone: "Nothing has bothered me", toldUnsure: "I don't know",
+@@@END
+@@@OLD
+      told: c => `You told us: ${c}. Unconfirmed until a bottle shows it.`,
+@@@NEW
+      noteLine: (perfume, words, v, stage) => `${perfume}: you ${{ 2: "loved", 1: "liked", 0: "didn't mind", "-1": "disliked", "-2": "hated" }[v]} the ${words} (${stage})`,
+      youEnjoy: w => `You enjoy: ${w}`, youAvoid: w => `You avoid: ${w}`, bothered: w => `Has bothered you: ${w}`,
+      prefer: { bitter: "You prefer bitter to sweet", sweet: "You prefer sweet to bitter" }, fromTold: "from what you told us",
+      disagree: "Your bottles and your answer disagree; your bottles count more.",
+      unnoticed: pairs => `You did not notice ${pairs}.`, unnoticedPair: (f, bottle) => `the ${f} in ${bottle}`,
+      toldOnlyH: "Based only on what you told us",
+      toldOnlyLede: "No bottle yet, so these picks rest on your answers alone. Answers in words are a weaker guide than a bottle you have worn: try a sample first.",
+      confirmH: "Samples that would confirm it",
+      confirmLede: "Each has one family strong in its base: wear a sample for a day and see whether that family bothers you.",
+@@@END
+@@@OLD
+      count: (i, n) => `العطر ${i} من ${n}`,
+      verdictQ: "كيف انتهى معك؟",
+      verdicts: { still: "ما زلت أستخدمه", turned: "توقفت عن استخدامه: انقلب عليّ", other: "توقفت عنه لسبب آخر", shop: "جرّبته في متجر فنفرت منه" },
+      whenQ: "متى أزعجك؟",
+      when: { opening: "في الدقائق الأولى", heart: "في الساعات الأولى", drydown: "بعد ساعات، أو على ملابسي" },
+      wrongQ: "ما الذي أزعجك؟ (اختياري)", wrongShop: "ما الذي نفّرك منه؟ (اختياري)", next: "التالي",
+      narrowQ: "عطر واحد آخر يحسم الأمر: هل جرّبت أياً من هذه على بشرتك؟",
+      narrowHint: "في قاعدة كل واحد منها عائلة قد تكون مُفسدة لك. وجوابك عنه يبيّن إن كانت هذه العائلة هي السبب.",
+      tests: f => `يختبر: ${f}`,
+      toldQ: "أيّ هذه أزعجك أكثر من غيره في عطرٍ ما؟",
+@@@NEW
+      part: (i, name) => `الجزء ${i} من 4 · ${name}`, parts: ["عطورك", "نوتات تعرفها", "حلو أو مرّ", "ما يزعجك"], back: "رجوع",
+      count: (i, n) => `العطر ${i} من ${n}`,
+      verdictQ: "كيف انتهى معك؟",
+      verdicts: { still: "ما زلت أستخدمه", turned: "توقفت عن استخدامه: انقلب عليّ", other: "توقفت عنه لسبب آخر", shop: "جرّبته في متجر فنفرت منه", unsure: "لا أتذكر كيف انتهى معي" },
+      whenQ: "متى أزعجك؟",
+      when: { opening: "في الدقائق الأولى", heart: "في الساعات الأولى", drydown: "بعد ساعات، أو على ثيابي", unsure: "لا أتذكر" },
+      wrongQ: "ما الذي أزعجك؟ (اختياري)", wrongShop: "ما الذي نفّرك منه؟ (اختياري)", next: "التالي",
+      notesIntro: (name, n) => `${name} في ${["", "جزء واحد", "جزأين", "ثلاثة أجزاء", "أربعة أجزاء", "خمسة أجزاء"][n] || n + " أجزاء"}. اختر ما تتذكره، وتجاوز ما لا تتذكره.`,
+      rowStage: { opening: "الدقائق الأولى", heart: "الساعات الأولى", drydown: "بعد ساعات" },
+      notListed: "غير مذكور في قائمة نوتاته", notListedHint: "بعض المواد تكون في العطر من دون أن تُذكر في قائمة نوتاته.",
+      answers: { "-2": "كرهته", "-1": "لم يعجبني", 0: "لا بأس به", 1: "أعجبني", 2: "أعجبني كثيراً", u: "لم ألاحظه" },
+      change: "تغيير", skipNotes: "تجاوز نوتات هذا العطر", skipAllNotes: "تجاوز النوتات لبقية العطور",
+      narrowQ: "عطر واحد آخر يحسم الأمر: هل جرّبت أياً من هذه على بشرتك؟",
+      narrowHint: "في قاعدة كل واحد منها عائلة قد تكون مُفسدة لك. وجوابك عنه يبيّن إن كانت هذه العائلة هي السبب.",
+      noneNarrow: "لا شيء منها، أو لا أعرفها",
+      tests: f => `يختبر: ${f}`,
+      pickerH: { fresh: "منعش وأخضر", flowers: "زهور وفواكه", spices: "توابل وحلويات", woods: "أخشاب وراتنجات ومسك" },
+      pickerQ: "أيّ هذه تحبه في العطر، وأيّها تتجنبه؟ اترك الباقي على «لست متأكداً».",
+      pick: { 1: "أحبه", "-1": "أتجنبه", 0: "لست متأكداً" }, pickCount: (i, n) => `${i} من ${n}`,
+      tasteQ: "حين يميل العطر إلى جهة، أيّهما تفضّل؟",
+      taste: { bitter: "مرّ ومنعش (شاي، جريب فروت، فيتيفر)", sweet: "حلو (فانيلا، كراميل، فاكهة ناضجة)", both: "كلاهما، حسب العطر", unsure: "لا أعرف" },
+      toldQ: "أيّ هذه أزعجك في عطرٍ ما؟ اختر كل ما ينطبق.",
+      toldNone: "لم يزعجني شيء", toldUnsure: "لا أعرف",
+@@@END
+@@@OLD
+      told: c => `أخبرتنا أن ما يزعجك أكثر: «${c}». يبقى هذا غير مؤكد حتى يظهر في عطر جرّبته.`,
+@@@NEW
+      noteLine: (perfume, words, v, stage) => `${perfume}: قلت عن «${words}» (${stage}): ${{ 2: "أعجبني كثيراً", 1: "أعجبني", 0: "لا بأس به", "-1": "لم يعجبني", "-2": "كرهته" }[v]}`,
+      youEnjoy: w => `تحب: ${w}`, youAvoid: w => `تتجنب: ${w}`, bothered: w => `أزعجك من قبل: ${w}`,
+      prefer: { bitter: "تفضّل المرّ على الحلو", sweet: "تفضّل الحلو على المرّ" }, fromTold: "مما أخبرتنا به",
+      disagree: "عطورك وإجابتك لا تتفقان، والعطور تُحتسب أكثر.",
+      unnoticed: pairs => `لم تلاحظ ${pairs}.`, unnoticedPair: (f, bottle) => `${f} في ${bottle}`,
+      toldOnlyH: "مبني فقط على ما أخبرتنا به",
+      toldOnlyLede: "لا عطر بعد، لذلك تعتمد هذه الترشيحات على إجاباتك وحدها. الإجابة بالكلمات دليل أضعف من عطر جرّبته: جرّب عينة أولاً.",
+      confirmH: "عينات تؤكد ذلك",
+      confirmLede: "لكل واحد منها عائلة واحدة قوية في قاعدته: جرّب عينة منه يوماً كاملاً لترى إن كانت تلك العائلة تزعجك.",
+@@@END

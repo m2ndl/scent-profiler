@@ -1,0 +1,13 @@
+@@@OLD
+const RATING_HEADERS = ["ts", "device", "lang", "perfume", "name", "opening", "heart", "drydown", "again", "chips_opening", "chips_heart", "chips_drydown", "src"];
+@@@NEW
+const RATING_HEADERS = ["ts", "device", "lang", "perfume", "name", "opening", "heart", "drydown", "again", "chips_opening", "chips_heart", "chips_drydown", "src", "noteAnswers", "unnoticed"];
+@@@END
+@@@OLD
+    clip_(body.src, 20)
+  ]);
+@@@NEW
+    clip_(body.src, 20),
+    clip_(JSON.stringify(body.noteAnswers || {}), 500), clip_((body.unnoticed || []).join("|"))
+  ]);
+@@@END

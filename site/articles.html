@@ -6,15 +6,16 @@
 <meta name="description" content="Four short pieces on why perfumes disappoint after the first hour: woody ambers, musks some people cannot smell, why notes are not ingredients, and the three kinds of oud.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Why the drydown ruins it · لماذا تفسد القاعدة العطر">
-<meta property="og:image" content="og.png">
+<meta property="og:image" content="https://m2ndl.github.io/scent-profiler/og.png">
 <title>Why the Drydown Ruins It</title>
-<link rel="icon" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='24' y='6' width='16' height='10' rx='2' fill='%235A3E85'/%3E%3Crect x='14' y='18' width='36' height='40' rx='8' fill='%235A3E85'/%3E%3Crect x='21' y='26' width='22' height='24' rx='4' fill='%23E9E2F4'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Naskh+Arabic:wght@500;600&display=swap">
+<link rel="icon" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='24' y='6' width='16' height='10' rx='3' fill='%238C5F00'/%3E%3Crect x='14' y='18' width='36' height='40' rx='9' fill='%238C5F00'/%3E%3Crect x='21' y='27' width='22' height='23' rx='4' fill='%23F9E6BB'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Noto+Naskh+Arabic:wght@500..700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="site.css">
 <style>
   .articles { display: grid; gap: 48px; margin-top: 8px; }
   article { max-width: 68ch; }
-  article h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(24px, 4vw, 32px); line-height: 1.15; margin: 0 0 6px; letter-spacing: -.01em; text-wrap: balance; }
+  article h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(24px, 4vw, 32px); line-height: 1.15; margin: 0 0 6px; letter-spacing: -.01em; text-wrap: balance; }
   article .standfirst { color: var(--ink-2); font-size: 17px; margin: 0 0 16px; }
   article p { margin: 0 0 14px; font-size: 16px; }
   [dir="rtl"] article p { font-size: 17px; }
@@ -26,9 +27,12 @@
   article .sources { font-size: 13px; color: var(--ink-3); margin-top: 10px; }
   article .sources a { color: var(--ink-3); }
   .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; }
-  .toc a { text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 14px; color: var(--ink); background: var(--surface); }
-  .toc a:hover { border-color: var(--accent); }
+  .toc a { text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 14px; color: var(--ink); background: var(--paper); }
+  .toc a:hover { border-color: var(--accent); color: var(--accent); }
+  [dir="rtl"] article h2 { letter-spacing: 0; line-height: 1.5; }
+  [dir="rtl"] article p { line-height: 1.85; }
   .back { display: inline-block; margin-top: 28px; }
+  .back + .back { margin-inline-start: 20px; }
 </style>
 </head>
 <body>
@@ -49,6 +53,7 @@
   </div>
   <div class="articles" id="articles"></div>
   <a class="back" href="index.html" id="back"></a>
+  <a class="back" href="quiz.html" id="nav-quiz"></a>
   <footer class="foot" id="foot"></footer>
 </main>
 
@@ -57,10 +62,10 @@
   "use strict";
   const T = {
     en: {
-      brand: "Drydown Profiler", tagline: "find what you hate before you buy",
+      brand: "Scent Profiler", tagline: "find what you hate before you buy",
       h1: "Why the drydown ruins it",
       lede: "Four short pieces on the part of a perfume nobody tests at the counter: the base that is still on your skin six hours later.",
-      back: "Back to the profiler", foot: "Written for the profiler. No affiliate links on this page.",
+      back: "Back to the profiler", navQuiz: "Try the bottle quiz", foot: "Written for the profiler. No affiliate links on this page.",
       articles: [
         { id: "woody-ambers", title: "The base that turns chemical: woody ambers",
           standfirst: "If a perfume you loved at the counter smelled sharp and synthetic by the afternoon, the culprit is probably one family of materials, and it is in most modern releases.",
@@ -113,10 +118,10 @@
       ]
     },
     ar: {
-      brand: "محلل القاعدة", tagline: "اعرف ما تكرهه قبل أن تشتري",
+      brand: "محلل الذائقة العطرية", tagline: "اعرف ما تكرهه قبل أن تشتري",
       h1: "لماذا تفسد القاعدة العطر",
       lede: "أربع مقالات قصيرة عن الجزء الذي لا يختبره أحد عند الطاولة: القاعدة التي تبقى على جلدك بعد ست ساعات.",
-      back: "العودة إلى المحلل", foot: "كُتبت لأجل المحلل. لا روابط عمولة في هذه الصفحة.",
+      back: "العودة إلى المحلل", navQuiz: "جرّب اختبار العطور", foot: "كُتبت لأجل المحلل. لا روابط عمولة في هذه الصفحة.",
       articles: [
         { id: "woody-ambers", title: "القاعدة التي تتحول إلى كيميائية: الأخشاب العنبرية",
           standfirst: "إذا كان العطر الذي أحببته عند الطاولة قد صار حاداً وصناعياً بعد الظهر، فالسبب على الأرجح عائلة واحدة من المواد، وهي موجودة في معظم الإصدارات الحديثة.",
@@ -124,7 +129,7 @@
 <p>وهي تقسم الناس أكثر من أي مادة أخرى تقريباً. لبعض الأنوف، الخشب العنبري دافئ ونظيف وفاخر. ولأنوف أخرى جاف وخادش ويشبه رائحة مقبس كهربائي ساخن، ويزداد صوته كلما تبخرت المواد الأنعم فوقه. هذه هي الآلية وراء أكثر شكوى نسمعها: «كانت الافتتاحية جميلة، ثم بعد ساعة تحوّل إلى كيميائي». الافتتاحية لم تتحول إلى شيء كيميائي؛ الجزء الكيميائي كان موجوداً طوال الوقت، ينتظر تحت الحمضيات.</p>
 <h3>كيف تعرف أن هذه مشكلتك</h3>
 <p>ابحث عن نمط لا عن عطر واحد. سوفاج أو دو بارفان، وبلو دو شانيل، وباكارات روج 540، وواي أو دو بارفان، وإنفيكتوس، وإيماجينيشن، وهوس، كلها تنتهي على قاعدة من الأخشاب العنبرية. إن خذلك اثنان منها أو أكثر بالطريقة نفسها بعد الساعة الأولى، فقد عرفت الجواب، وصارت مئات العطور الأخرى خارج قائمتك قبل أن تدفع ثمنها.</p>
-<div class="try"><b>جرّب هذا</b>خذ عينة من عطر قاعدته خشب عنبري يكاد يكون وحده: «نوت آ بيرفيوم» من جولييت هاز آ غن (وهو سيتالوكس وحده) أو «موليكيول 01» من إيسنتريك موليكيولز (إيزو إي سوبر وحده). البسه أربع ساعات. إن بقي يعجبك فالأخشاب العنبرية ليست مشكلتك، وعليك أن تبحث عما اشتركت فيه تلك العطور غير ذلك.</div>
+<div class="try"><b>جرّب هذا</b>خذ عينة من عطر قاعدته خشب عنبري يكاد يكون وحده: «نوت آ بيرفيوم» من جولييت هاز آ غن (وهو سيتالوكس وحده) أو «موليكيول 01» من إيسنتريك موليكيولز (إيزو إي سوبر وحده). جرّبه أربع ساعات. إن بقي يعجبك فالأخشاب العنبرية ليست مشكلتك، وعليك أن تبحث عما اشتركت فيه تلك العطور غير ذلك.</div>
 <h3>عمّ تبحث بدلاً منها</h3>
 <p>القواعد المبنية على الراتنجات (اللبنى، البنزوين)، أو على تراكيب الشيبر الطحلبية، أو على الفيتيفر، أو على الصندل الكريمي تشيخ على الجلد بطريقة مختلفة: تنعم بدل أن تحتد. يضع المحلل كل هذه في عائلات منفصلة حتى لا يُحسب تقييمك لواحدة على الأخريات.</p>
 <p class="sources">للاستزادة: موضوع «Amberwood is a curse» في منتدى فراغرانتيكا؛ أولوف وبيكنهاغن وكرافت، <i>Scent and Chemistry</i>، فصل العنبر الرمادي والأخشاب العنبرية.</p>` },
@@ -150,18 +155,18 @@
 <li>تجاهل الافتتاحية في قرار الشراء. هي حقيقية وجميلة، وتذهب خلال عشرين دقيقة.</li>
 </ul>
 <h3>ما الذي يفعله المحلل بشكل مختلف</h3>
-<p>كل عطر في القائمة المراجَعة يدوياً موسوم بعائلات المواد في كل مرحلة من اللبس، لا بكلمات النوتات، وأنت تقيّم كل مرحلة على حدة. وحين تقول إن قاعدةً كانت بغيضة، تسأل الأداة أي عائلة احتوتها، وهل كانت العائلة نفسها في القواعد الأخرى التي كرهتها. هذا سؤال لا يجيب عنه أي هرم نوتات، وهو الوحيد الذي يتنبأ بزجاجتك الضائعة التالية.</p>
+<p>كل عطر في القائمة المراجَعة يدوياً موسوم بعائلات المواد في كل مرحلة من الاستخدام، لا بكلمات النوتات، وأنت تقيّم كل مرحلة على حدة. وحين تقول إن قاعدةً كانت بغيضة، تسأل الأداة أي عائلة احتوتها، وهل كانت العائلة نفسها في القواعد الأخرى التي كرهتها. هذا سؤال لا يجيب عنه أي هرم نوتات، وهو الوحيد الذي يتنبأ بزجاجتك الضائعة التالية.</p>
 <p class="sources">للاستزادة: «The truth about notes» و«Olfactory pyramid or perfumer's nightmare» على فراغرانتيكا؛ جان كلود إيلينا، <i>Perfume: The Alchemy of Scent</i>، عن الأوهام المبنية من المواد.</p>` },
         { id: "three-ouds", title: "العود ليس رائحة واحدة",
           standfirst: "في الخليج، قولك إنك تحب العود أو تكرهه لا يقول شيئاً تقريباً. هناك ثلاثة أشياء مختلفة على الأقل تُباع بهذا الاسم، ومن يحب واحداً منها كثيراً ما يكره الآخر.",
           body: `<p>دهن العود الحقيقي يأتي من راتنج تفرزه أشجار الأكويلاريا حين تصاب بعدوى. ورائحته تعتمد على الشجرة والمنطقة والتقطير، وتتراوح من حلو خشبي إلى شيء قريب من الإسطبل. ولا يكاد شيء منه يوجد في عطور رفوف المتاجر الكبرى.</p>
 <h3>الأعواد الثلاثة</h3>
 <ul>
-<li><b>العود الحيواني.</b> زيوت الهندي والآسامي، ودهن العود التقليدي الذي يُباع في الرياض وجدة. حظيرة، جلد، تخمّر. يُحب لهذا الطابع بعينه؛ ولا يُلبس عند من يقرؤه وسخاً.</li>
+<li><b>العود الحيواني.</b> زيوت الهندي والآسامي، ودهن العود التقليدي الذي يُباع في الرياض وجدة. حظيرة، جلد، تخمّر. يُحب لهذا الطابع بعينه؛ ولا يناسب من يشمّ فيه زفارة.</li>
 <li><b>العود المدخن أو الطبي.</b> الأساليب الكمبودية واللاوسية والتايلندية، ومعظم بخاخات الدور العربية. خشب داكن، دخان، حافة معقّمة قليلاً. هذا ما يعنيه «عود فور غريتنس» و«عود مود» ومعظم إصدارات «العود» من دور الخليج.</li>
 <li><b>تركيب العود الغربي.</b> «عود وود» من توم فورد، «عود أصفهان» من ديور، «بلاك عود» من مونتال. تفسير مصقول، كريمي أو وردي غالباً، فيه القليل من الأغار أو لا شيء، مبني من السيبريول والأخشاب العنبرية والزعفران ومواد الجلد.</li>
 </ul>
-<p>كلٌّ منها يقع على مجموعة مستقبلات مختلفة. من يلبس دهن العود يومياً قد يجد التركيب الغربي رقيقاً وكيميائياً؛ ومن تربّى على «عود وود» قد يجد الحقيقي مخيفاً. لا أحد منهما مخطئ، والملف الذي يسجل «لا يحب العود» قد رمى المعلومة التي كانت مهمة.</p>
+<p>كلٌّ منها يقع على مجموعة مستقبلات مختلفة. من يستخدم دهن العود يومياً قد يجد التركيب الغربي رقيقاً وكيميائياً؛ ومن تربّى على «عود وود» قد يجد الحقيقي مخيفاً. لا أحد منهما مخطئ، والملف الذي يسجل «لا يحب العود» قد رمى المعلومة التي كانت مهمة.</p>
 <div class="try"><b>جرّب هذا</b>خذ عينة من كل مجموعة وقيّم القاعدة وحدها: «بديع العود عود فور غلوري» (مدخن)، و«عود وود» من توم فورد (تركيب غربي)، وأي دهن عود هندي من دار محلية (حيواني). معظم الناس يحبون واحداً أو اثنين من الثلاثة بالضبط.</div>
 <h3>لماذا يهم هذا هنا أكثر من أي مكان</h3>
 <p>تستهلك السعودية معظم عود العالم وتضعه تحت كل شيء آخر. المحلل الذي لا يفرّق بين الثلاثة لا يمكن أن يعمل لجمهوره الأكبر، ولهذا تضعها القائمة في عائلتين منفصلتين، مدخن وحيواني، وتعامل التركيب الغربي على أنه مزيج من العود المدخن مع العائلات التي بُني منها فعلاً.</p>
@@ -183,6 +188,7 @@
     document.getElementById("toc").innerHTML = t.articles.map(a => `<a href="#${a.id}">${esc(a.title)}</a>`).join("");
     document.getElementById("articles").innerHTML = t.articles.map(a => `<article id="${a.id}"><h2>${esc(a.title)}</h2><p class="standfirst">${esc(a.standfirst)}</p>${a.body}</article>`).join("");
     document.getElementById("back").textContent = t.back;
+    document.getElementById("nav-quiz").textContent = t.navQuiz;
     document.getElementById("foot").innerHTML = "<p>" + esc(t.foot) + "</p>";
   }
   document.getElementById("lang-en").addEventListener("click", () => { lang = "en"; store.set("pp_lang", lang); render(); });

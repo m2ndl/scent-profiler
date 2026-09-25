@@ -1,0 +1,637 @@
+{
+ "9pm": {
+  "url": "https://www.fragrantica.com/perfume/Afnan/9pm-65414.html",
+  "fid": 65414,
+  "note": "2020 original"
+ },
+ "adgprofumo": {
+  "url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-Profumo-29727.html",
+  "fid": 29727,
+  "note": "2015; not the 2023 Parfum (81508)"
+ },
+ "afternoonswim": {
+  "url": "https://www.fragrantica.com/perfume/Louis-Vuitton/Afternoon-Swim-53947.html",
+  "fid": 53947,
+  "note": "2019"
+ },
+ "allurehommesport": {
+  "url": "https://www.fragrantica.com/perfume/Chanel/Allure-Homme-Sport-607.html",
+  "fid": 607,
+  "note": "2004 original EDT"
+ },
+ "amberaoud": {
+  "url": "https://www.fragrantica.com/perfume/Roja-Dove/Amber-Aoud-17931.html",
+  "fid": 17931,
+  "note": "2012 Parfum, not Absolue Precieux"
+ },
+ "amberoudgold": {
+  "url": "https://www.fragrantica.com/perfume/Al-Haramain-Perfumes/Amber-Oud-Gold-Edition-51816.html",
+  "fid": 51816,
+  "note": "original, not Extreme or 999.9"
+ },
+ "ambrenuit": {
+  "url": "https://www.fragrantica.com/perfume/Dior/Ambre-Nuit-7092.html",
+  "fid": 7092,
+  "note": "2009 original; the 2018 relaunch is 48395 (near-identical bottle)"
+ },
+ "angham": {
+  "url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Angham-96768.html",
+  "fid": 96768,
+  "note": "2024 original"
+ },
+ "badboy": {
+  "url": "https://www.fragrantica.com/perfume/Carolina-Herrera/Bad-Boy-55449.html",
+  "fid": 55449,
+  "note": "2019 original EDT"
+ },
+ "badeealoud": {
+  "url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Bade-e-Al-Oud-Oud-for-Glory-64948.html",
+  "fid": 64948,
+  "note": "2020"
+ },
+ "baldafrique": {
+  "url": "https://www.fragrantica.com/perfume/Byredo/Bal-d-Afrique-6458.html",
+  "fid": 6458,
+  "note": "2009 original EDP"
+ },
+ "barakkatrouge": {
+  "url": "https://www.fragrantica.com/perfume/Fragrance-World/Barakkat-Rouge-540-Extrait-de-Parfum-107710.html",
+  "fid": 107710,
+  "note": "red Extrait bottle, the only Fragrantica page and the common retail version; it copies BR540 Extrait, our cloneOf is br540"
+ },
+ "blackaoud": {
+  "url": "https://www.fragrantica.com/perfume/Montale/Black-Aoud-1142.html",
+  "fid": 1142,
+  "note": "2006 original, not Intense Black Aoud"
+ },
+ "blacksaffron": {
+  "url": "https://www.fragrantica.com/perfume/Byredo/Black-Saffron-16220.html",
+  "fid": 16220,
+  "note": "2012 original EDP"
+ },
+ "blanche": {
+  "url": "https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html",
+  "fid": 6686,
+  "note": "2009 original EDP"
+ },
+ "bleuedp": {
+  "url": "https://www.fragrantica.com/perfume/Chanel/Bleu-de-Chanel-Eau-de-Parfum-25967.html",
+  "fid": 25967,
+  "note": "2014 EDP"
+ },
+ "bleuparfum": {
+  "url": "https://www.fragrantica.com/perfume/Chanel/Bleu-de-Chanel-Parfum-49912.html",
+  "fid": 49912,
+  "note": "2018 Parfum"
+ },
+ "boisdargent": {
+  "url": "https://www.fragrantica.com/perfume/Dior/Bois-d-Argent-1377.html",
+  "fid": 1377,
+  "note": "2004 original; the 2018 relaunch is 48396 (near-identical bottle)"
+ },
+ "br540extrait": {
+  "url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Extrait-de-Parfum-46066.html",
+  "fid": 46066,
+  "note": "2017 Extrait"
+ },
+ "cdnimwoman": {
+  "url": "https://www.fragrantica.com/perfume/Armaf/Club-de-Nuit-Intense-27656.html",
+  "fid": 27656,
+  "note": "women's Club de Nuit Intense; our notes read like Club de Nuit Woman (27655)"
+ },
+ "chanceeautendre": {
+  "url": "https://www.fragrantica.com/perfume/Chanel/Chance-Eau-Tendre-8069.html",
+  "fid": 8069,
+  "note": "2010 original EDT; our notes match it, not the 2019 EDP (52359)"
+ },
+ "chanelno5": {
+  "url": "https://www.fragrantica.com/perfume/Chanel/Chanel-No-5-Eau-de-Parfum-40069.html",
+  "fid": 40069,
+  "note": "EDP (1986)"
+ },
+ "cheirosa62": {
+  "url": "https://www.fragrantica.com/perfume/Sol-de-Janeiro/Cheirosa-62-56062.html",
+  "fid": 56062,
+  "note": "original perfume mist, the most-sold form; the 2020 EDP is 60095"
+ },
+ "cloud": {
+  "url": "https://www.fragrantica.com/perfume/Ariana-Grande/Cloud-50384.html",
+  "fid": 50384,
+  "note": "2018 original"
+ },
+ "cocomademoiselle": {
+  "url": "https://www.fragrantica.com/perfume/Chanel/Coco-Mademoiselle-611.html",
+  "fid": 611,
+  "note": "2001 EDP; Fragrantica titles the EDP plain 'Coco Mademoiselle' (EDT is 612)"
+ },
+ "cocomademoiselleintense": {
+  "url": "https://www.fragrantica.com/perfume/Chanel/Coco-Mademoiselle-Intense-48310.html",
+  "fid": 48310,
+  "note": "2018"
+ },
+ "coromandel": {
+  "url": "https://www.fragrantica.com/perfume/Chanel/Coromandel-Eau-de-Parfum-41783.html",
+  "fid": 41783,
+  "note": "2016 EDP"
+ },
+ "danger": {
+  "url": "https://www.fragrantica.com/perfume/Roja-Dove/Danger-Pour-Homme-17934.html",
+  "fid": 17934,
+  "note": "2011 original Parfum; our notes match it, not the 2019 Parfum Cologne (57875)"
+ },
+ "diorhomme2020": {
+  "url": "https://www.fragrantica.com/perfume/Dior/Dior-Homme-2020-58714.html",
+  "fid": 58714,
+  "note": "2020 Eau de Toilette"
+ },
+ "elysium": {
+  "url": "https://www.fragrantica.com/perfume/Roja-Dove/Elysium-Pour-Homme-Parfum-Cologne-46296.html",
+  "fid": 46296,
+  "note": "2017 Parfum Cologne (Parfum is 47480)"
+ },
+ "englishpear": {
+  "url": "https://www.fragrantica.com/perfume/Jo-Malone-London/English-Pear-Freesia-10314.html",
+  "fid": 10314,
+  "note": "2010 cologne"
+ },
+ "enigma": {
+  "url": "https://www.fragrantica.com/perfume/Roja-Dove/Enigma-Pour-Homme-20559.html",
+  "fid": 20559,
+  "note": "2013 original Parfum; the 2019 Parfum Cologne is 57876"
+ },
+ "fakharblack": {
+  "url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Fakhar-Black-70465.html",
+  "fid": 70465,
+  "note": "2022"
+ },
+ "goodgirlblush": {
+  "url": "https://www.fragrantica.com/perfume/Carolina-Herrera/Good-Girl-Blush-78576.html",
+  "fid": 78576,
+  "note": "2023 original, not the Elixir"
+ },
+ "grischarnel": {
+  "url": "https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-57038.html",
+  "fid": 57038,
+  "note": "2019 EDP, not the 2022 Extrait"
+ },
+ "grisdior": {
+  "url": "https://www.fragrantica.com/perfume/Dior/Gris-Dior-48387.html",
+  "fid": 48387,
+  "note": "2017 (renamed from Gris Montaigne), not the Esprit de Parfum"
+ },
+ "gypsywater": {
+  "url": "https://www.fragrantica.com/perfume/Byredo/Gypsy-Water-3575.html",
+  "fid": 3575,
+  "note": "2008 original EDP"
+ },
+ "imagination": {
+  "url": "https://www.fragrantica.com/perfume/Louis-Vuitton/Imagination-67370.html",
+  "fid": 67370,
+  "note": "2021"
+ },
+ "kalematblack": {
+  "url": "https://www.fragrantica.com/perfume/Arabian-Oud/Kalemat-Black-21624.html",
+  "fid": 21624,
+  "note": "image shows box beside bottle"
+ },
+ "kdg": {
+  "url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/K-by-Dolce-Gabbana-56358.html",
+  "fid": 56358,
+  "note": "2019 original EDT"
+ },
+ "kismetangel": {
+  "url": "https://www.fragrantica.com/perfume/Maison-Alhambra/Kismet-Angel-79015.html",
+  "fid": 79015,
+  "note": "since renamed Kismet Magic (separate page 95138)"
+ },
+ "lanuit": {
+  "url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/La-Nuit-de-l-Homme-5521.html",
+  "fid": 5521,
+  "note": "2009 original EDT"
+ },
+ "laventure": {
+  "url": "https://www.fragrantica.com/perfume/Al-Haramain-Perfumes/L-Aventure-40405.html",
+  "fid": 40405,
+  "note": "2016 original men's"
+ },
+ "layali": {
+  "url": "https://www.fragrantica.com/perfume/Swiss-Arabian/Layali-56235.html",
+  "fid": 56235,
+  "note": "spray EDP, not Layali CPO oil (20754); Fragrantica notes differ from ours"
+ },
+ "layuqawam": {
+  "url": "https://www.fragrantica.com/perfume/Rasasi/La-Yuqawam-Homme-19668.html",
+  "fid": 19668,
+  "note": "2012"
+ },
+ "leaudissey": {
+  "url": "https://www.fragrantica.com/perfume/Issey-Miyake/L-Eau-d-Issey-Pour-Homme-721.html",
+  "fid": 721,
+  "note": "1994 original EDT"
+ },
+ "lemale": {
+  "url": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-430.html",
+  "fid": 430,
+  "note": "original 1995 EDT"
+ },
+ "lemaleleparfum": {
+  "url": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-Le-Parfum-61856.html",
+  "fid": 61856,
+  "note": "2020"
+ },
+ "liam": {
+  "url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Liam-85097.html",
+  "fid": 85097,
+  "note": "Liam (grey bottle), not Liam Blue Shine"
+ },
+ "libre": {
+  "url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-56077.html",
+  "fid": 56077,
+  "note": "2019 EDP"
+ },
+ "libreintense": {
+  "url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Intense-62318.html",
+  "fid": 62318,
+  "note": "2020"
+ },
+ "lightbluemen": {
+  "url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Light-Blue-pour-Homme-1068.html",
+  "fid": 1068,
+  "note": "2007 original EDT"
+ },
+ "limmensite": {
+  "url": "https://www.fragrantica.com/perfume/Louis-Vuitton/L-Immensite-49751.html",
+  "fid": 49751,
+  "note": "2018"
+ },
+ "lovefestcherry": {
+  "url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Lovefest-Burning-Cherry-48-Eau-de-Parfum-75661.html",
+  "fid": 75661,
+  "note": "2022 EDP"
+ },
+ "meteore": {
+  "url": "https://www.fragrantica.com/perfume/Louis-Vuitton/Meteore-62251.html",
+  "fid": 62251,
+  "note": "2020"
+ },
+ "missdior": {
+  "url": "https://www.fragrantica.com/perfume/Dior/Miss-Dior-Eau-de-Parfum-2021-68905.html",
+  "fid": 68905,
+  "note": "2021 EDP"
+ },
+ "mojaveghost": {
+  "url": "https://www.fragrantica.com/perfume/Byredo/Mojave-Ghost-27040.html",
+  "fid": 27040,
+  "note": "2014 original EDP"
+ },
+ "molecule01": {
+  "url": "https://www.fragrantica.com/perfume/Escentric-Molecules/Molecule-01-845.html",
+  "fid": 845,
+  "note": "2006 original, not the '+' editions"
+ },
+ "monparis": {
+  "url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Mon-Paris-38914.html",
+  "fid": 38914,
+  "note": "2016 original EDP"
+ },
+ "mostwantedparfum": {
+  "url": "https://www.fragrantica.com/perfume/Azzaro/The-Most-Wanted-Parfum-73664.html",
+  "fid": 73664,
+  "note": "Parfum; Fragrantica notes (ginger / woods / bourbon vanilla) differ from ours"
+ },
+ "muscravageur": {
+  "url": "https://www.fragrantica.com/perfume/Frederic-Malle/Musc-Ravageur-1801.html",
+  "fid": 1801,
+  "note": "2000"
+ },
+ "myslf": {
+  "url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/MYSLF-Eau-de-Parfum-84094.html",
+  "fid": 84094,
+  "note": "2023 EDP, the original MYSLF"
+ },
+ "narcisoforher": {
+  "url": "https://www.fragrantica.com/perfume/Narciso-Rodriguez/Narciso-Rodriguez-For-Her-209.html",
+  "fid": 209,
+  "note": "2003 EDT"
+ },
+ "naxos": {
+  "url": "https://www.fragrantica.com/perfume/Xerjoff/XJ-1861-Naxos-30529.html",
+  "fid": 30529,
+  "note": "2015"
+ },
+ "nebras": {
+  "url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Nebras-78560.html",
+  "fid": 78560,
+  "note": "2022 original, not the Elixir"
+ },
+ "nuitdefeu": {
+  "url": "https://www.fragrantica.com/perfume/Louis-Vuitton/Nuit-de-Feu-60031.html",
+  "fid": 60031,
+  "note": "2020"
+ },
+ "paradigme": {
+  "url": "https://www.fragrantica.com/perfume/Prada/Paradigme-110661.html",
+  "fid": 110661,
+  "note": "2025 Eau de Parfum"
+ },
+ "peonysuede": {
+  "url": "https://www.fragrantica.com/perfume/Jo-Malone-London/Peony-Blush-Suede-18767.html",
+  "fid": 18767,
+  "note": "2013 cologne"
+ },
+ "reflection": {
+  "url": "https://www.fragrantica.com/perfume/Amouage/Reflection-Man-920.html",
+  "fid": 920,
+  "note": "2006"
+ },
+ "renaissance": {
+  "url": "https://www.fragrantica.com/perfume/Xerjoff/XJ-1861-Renaissance-12126.html",
+  "fid": 12126,
+  "note": "2011"
+ },
+ "rosesmusk": {
+  "url": "https://www.fragrantica.com/perfume/Montale/Roses-Musk-1148.html",
+  "fid": 1148,
+  "note": "2009 original, not Intense Roses Musk"
+ },
+ "safariextreme": {
+  "url": "https://www.fragrantica.com/perfume/Abdul-Samad-Al-Qurashi/Safari-Extreme-21356.html",
+  "fid": 21356,
+  "note": "name matches; Fragrantica notes (raspberry, saffron, leather, suede) do not match ours (pineapple, birch; cloneOf aventus)"
+ },
+ "spiritueuxdoublevanille": {
+  "url": "https://www.fragrantica.com/perfume/Guerlain/Spiritueuse-Double-Vanille-3345.html",
+  "fid": 3345,
+  "note": "2007 original, shown in the current L'Art et la Matiere bottle; 38809 is a 2016 quadrilobe-bottle edition"
+ },
+ "swy": {
+  "url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-45258.html",
+  "fid": 45258,
+  "note": "2017 original EDT"
+ },
+ "swyintensely": {
+  "url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Intensely-52802.html",
+  "fid": 52802,
+  "note": "2019 EDP"
+ },
+ "sycomore": {
+  "url": "https://www.fragrantica.com/perfume/Chanel/Sycomore-Eau-de-Parfum-41780.html",
+  "fid": 41780,
+  "note": "2016 EDP"
+ },
+ "terreparfum": {
+  "url": "https://www.fragrantica.com/perfume/Hermes/Terre-d-Hermes-Parfum-8282.html",
+  "fid": 8282,
+  "note": "2009 Parfum"
+ },
+ "theonemen": {
+  "url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/The-One-for-Men-2056.html",
+  "fid": 2056,
+  "note": "2008 original EDT"
+ },
+ "tonkaimperiale": {
+  "url": "https://www.fragrantica.com/perfume/Guerlain/Tonka-Imperiale-8705.html",
+  "fid": 8705,
+  "note": "2010"
+ },
+ "torino21": {
+  "url": "https://www.fragrantica.com/perfume/Xerjoff/Torino21-70424.html",
+  "fid": 70424,
+  "note": "2021"
+ },
+ "tygar": {
+  "url": "https://www.fragrantica.com/perfume/Bvlgari/Tygar-41222.html",
+  "fid": 41222,
+  "note": "2016 original (Le Gemme), not the 2025 Extrait"
+ },
+ "woodessence": {
+  "url": "https://www.fragrantica.com/perfume/Bvlgari/Bvlgari-Man-Wood-Essence-50602.html",
+  "fid": 50602,
+  "note": "2018 EDP, not the 2026 Parfum"
+ },
+ "woodsage": {
+  "url": "https://www.fragrantica.com/perfume/Jo-Malone-London/Wood-Sage-Sea-Salt-25529.html",
+  "fid": 25529,
+  "note": "2014 cologne"
+ },
+ "hawasice": {
+  "url": "https://www.fragrantica.com/perfume/Rasasi/Hawas-Ice-89050.html",
+  "fid": 89050,
+  "note": "2023"
+ },
+ "supremacycollector": {
+  "url": "https://www.fragrantica.com/perfume/Afnan/Supremacy-Collector-s-Edition-Pour-Homme-98689.html",
+  "fid": 98689,
+  "note": "2024"
+ },
+ "najdia": {
+  "url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Najdia-66011.html",
+  "fid": 66011,
+  "note": "2020"
+ },
+ "nauticavoyage": {
+  "url": "https://www.fragrantica.com/perfume/Nautica/Nautica-Voyage-913.html",
+  "fid": 913,
+  "note": "2006"
+ },
+ "swyabsolutely": {
+  "url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html",
+  "fid": 64501,
+  "note": "2021"
+ },
+ "bossbottlednight": {
+  "url": "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html",
+  "fid": 8825,
+  "note": "2010"
+ },
+ "hugoman": {
+  "url": "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-Man-64606.html",
+  "fid": 64606,
+  "note": "1995 (the 2021 relaunch, the bottle sold now (Fragrantica 64606, Coty's pyramid))"
+ },
+ "mostwantedintense": {
+  "url": "https://www.fragrantica.com/perfume/Azzaro/The-Most-Wanted-66826.html",
+  "fid": 66826,
+  "note": "2021"
+ },
+ "trueinstinct": {
+  "url": "https://www.fragrantica.com/perfume/David-Beckham/David-Beckham-True-Instinct-97333.html",
+  "fid": 97333,
+  "note": "2023 (the brand's pyramid (Coty and Parfumo agree); Fragrantica's is longer and unsupported)"
+ },
+ "thescentmen": {
+  "url": "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html",
+  "fid": 31445,
+  "note": "2015"
+ },
+ "guiltyabsolute": {
+  "url": "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Absolute-43040.html",
+  "fid": 43040,
+  "note": "2017"
+ },
+ "emblem": {
+  "url": "https://www.fragrantica.com/perfume/Montblanc/Emblem-23711.html",
+  "fid": 23711,
+  "note": "2014"
+ },
+ "lhommeidealedp": {
+  "url": "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html",
+  "fid": 37735,
+  "note": "2016"
+ },
+ "euphoriamen": {
+  "url": "https://www.fragrantica.com/perfume/Calvin-Klein/Euphoria-Men-799.html",
+  "fid": 799,
+  "note": "2006"
+ },
+ "oudmalaki": {
+  "url": "https://www.fragrantica.com/perfume/Chopard/Oud-Malaki-17184.html",
+  "fid": 17184,
+  "note": "2012"
+ },
+ "yaramoi": {
+  "url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Yara-Moi-80722.html",
+  "fid": 80722,
+  "note": "2022 (Lattafa's own pyramid (lattafa.com and lattafa-usa.com agree); Fragrantica's shares two notes with it)"
+ },
+ "cdnwoman": {
+  "url": "https://www.fragrantica.com/perfume/Armaf/Club-de-Nuit-Woman-27655.html",
+  "fid": 27655,
+  "note": ""
+ },
+ "amaali": {
+  "url": "https://www.fragrantica.com/perfume/Swiss-Arabian/Amaali-48222.html",
+  "fid": 48222,
+  "note": ""
+ },
+ "ckin2uher": {
+  "url": "https://www.fragrantica.com/perfume/Calvin-Klein/CK-IN2U-for-Her-934.html",
+  "fid": 934,
+  "note": "2007"
+ },
+ "ckbeauty": {
+  "url": "https://www.fragrantica.com/perfume/Calvin-Klein/Beauty-8840.html",
+  "fid": 8840,
+  "note": "2010"
+ },
+ "eternitymoment": {
+  "url": "https://www.fragrantica.com/perfume/Calvin-Klein/Eternity-Moment-259.html",
+  "fid": 259,
+  "note": "2004"
+ },
+ "sheerbeauty": {
+  "url": "https://www.fragrantica.com/perfume/Calvin-Klein/Sheer-Beauty-13962.html",
+  "fid": 13962,
+  "note": "2012"
+ },
+ "euphoriawomen": {
+  "url": "https://www.fragrantica.com/perfume/Calvin-Klein/Euphoria-253.html",
+  "fid": 253,
+  "note": "2005"
+ },
+ "jovanmusk": {
+  "url": "https://www.fragrantica.com/perfume/Jovan/Musk-7523.html",
+  "fid": 7523,
+  "note": "1972 (Fragrantica gives four notes without a pyramid; placed by volatility)"
+ },
+ "quatre": {
+  "url": "https://www.fragrantica.com/perfume/Boucheron/Boucheron-Quatre-29443.html",
+  "fid": 29443,
+  "note": "2015"
+ },
+ "paradiso": {
+  "url": "https://www.fragrantica.com/perfume/Roberto-Cavalli/Paradiso-28609.html",
+  "fid": 28609,
+  "note": "2015"
+ },
+ "cavalliedp": {
+  "url": "https://www.fragrantica.com/perfume/Roberto-Cavalli/Roberto-Cavalli-Eau-de-Parfum-13675.html",
+  "fid": 13675,
+  "note": "2012"
+ },
+ "paradisoazzurro": {
+  "url": "https://www.fragrantica.com/perfume/Roberto-Cavalli/Paradiso-Azzurro-34207.html",
+  "fid": 34207,
+  "note": "2016"
+ },
+ "guessseductive": {
+  "url": "https://www.fragrantica.com/perfume/Guess/Guess-Seductive-9453.html",
+  "fid": 9453,
+  "note": "2010"
+ },
+ "dgpourfemme": {
+  "url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Dolce-Gabbana-Pour-Femme-15335.html",
+  "fid": 15335,
+  "note": "2012"
+ },
+ "erospourfemme": {
+  "url": "https://www.fragrantica.com/perfume/Versace/Eros-Pour-Femme-28958.html",
+  "fid": 28958,
+  "note": "2014"
+ },
+ "lapanthere": {
+  "url": "https://www.fragrantica.com/perfume/Cartier/La-Panthere-23295.html",
+  "fid": 23295,
+  "note": "2014"
+ },
+ "elieleparfum": {
+  "url": "https://www.fragrantica.com/perfume/Elie-Saab/Le-Parfum-12258.html",
+  "fid": 12258,
+  "note": "2011"
+ },
+ "narcisoforheredp": {
+  "url": "https://www.fragrantica.com/perfume/Narciso-Rodriguez/Narciso-Rodriguez-for-Her-Eau-de-Parfum-14319.html",
+  "fid": 14319,
+  "note": "2006"
+ },
+ "crystalnoir": {
+  "url": "https://www.fragrantica.com/perfume/Versace/Crystal-Noir-631.html",
+  "fid": 631,
+  "note": "2004"
+ },
+ "myburberry": {
+  "url": "https://www.fragrantica.com/perfume/Burberry/My-Burberry-25836.html",
+  "fid": 25836,
+  "note": "2014 (Burberry's own eight notes; Fragrantica adds ten that neither the brand nor its own description names)"
+ },
+ "thescentforher": {
+  "url": "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-For-Her-38998.html",
+  "fid": 38998,
+  "note": "2016"
+ },
+ "interditrouge": {
+  "url": "https://www.fragrantica.com/perfume/Givenchy/L-Interdit-Eau-de-Parfum-Rouge-68404.html",
+  "fid": 68404,
+  "note": "2021"
+ },
+ "guccibamboo": {
+  "url": "https://www.fragrantica.com/perfume/Gucci/Gucci-Bamboo-30815.html",
+  "fid": 30815,
+  "note": "2015"
+ },
+ "dynasty": {
+  "url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Dynasty-112859.html",
+  "fid": 112859,
+  "note": "2025"
+ },
+ "chocomusk": {
+  "url": "https://www.fragrantica.com/perfume/Al-Rehab/Choco-Musk-20139.html",
+  "fid": 20139,
+  "note": "(the house's pyramid for the 6 ml oil (alrehabstore.com); Fragrantica gives a flat list)"
+ },
+ "musksilk": {
+  "url": "https://www.fragrantica.com/perfume/Ajmal/Musk-Silk-58837.html",
+  "fid": 58837,
+  "note": "(Ajmal's Saudi store page for the 12 ml oil; Fragrantica gives a flat list)"
+ },
+ "musamamwhite": {
+  "url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Musamam-White-Intense-85087.html",
+  "fid": 85087,
+  "note": "2023"
+ },
+ "moonlightpatchouli": {
+  "url": "https://www.fragrantica.com/perfume/Van-Cleef-Arpels/Moonlight-Patchouli-38374.html",
+  "fid": 38374,
+  "note": "2016 (the house's pyramid (Van Cleef & Arpels and Parfumo agree); Fragrantica's differs)"
+ }
+}

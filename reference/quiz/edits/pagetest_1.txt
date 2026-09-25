@@ -1,0 +1,15 @@
+@@@OLD
+const scripts = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
+const W = loadSite("data", "mapper", "materials", "evidence", "engine");
+const E = W.PP_ENGINE.create(W.PP_DATA, W.PP_MAP, W.PP_EVIDENCE);
+@@@NEW
+const scriptsOf = src => [...src.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
+const scripts = scriptsOf(html), quizScripts = scriptsOf(fs.readFileSync(path.join(SITE, "quiz.html"), "utf8"));
+const W = loadSite("data", "mapper", "materials", "evidence", "engine", "notes");
+const E = W.PP_ENGINE.create(W.PP_DATA, W.PP_MAP, W.PP_EVIDENCE), N = W.PP_NOTES.create(W.PP_DATA, W.PP_MAP, E);
+@@@END
+@@@OLD
+  assert.deepEqual(scripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/app.js"]);
+@@@NEW
+  assert.deepEqual(scripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/notes.js", "js/app.js"]);
+@@@END

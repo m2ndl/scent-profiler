@@ -60,3 +60,84 @@ test("catalogue, chips, mapper, materials and evidence name only known families 
   for (const layer of ["book", "label"]) for (const id of Object.keys(W.PP_EVIDENCE[layer])) if (!idSet.has(id)) bad.push(`${layer} evidence for unknown ${id}`);
   assert.deepEqual(bad, []);
 });
+
+test("the quiz grid and testers name catalogue perfumes, and each tester's drydown is its family alone", () => {
+  const W = loadSite("data", "mapper", "materials", "evidence", "engine");
+  const D = W.PP_DATA, E = W.PP_ENGINE.create(D, W.PP_MAP, W.PP_EVIDENCE), F = new Set(Object.keys(D.FAMILIES));
+  const bad = [];
+  if (D.QUIZ.grid.length !== 20 || new Set(D.QUIZ.grid).size !== 20) bad.push("the grid needs twenty distinct ids");
+  for (const id of D.QUIZ.grid) if (!E.byId[id]) bad.push(`grid: unknown ${id}`);
+  for (const t of D.QUIZ.testers) {
+    const p = E.byId[t.id];
+    if (!p) { bad.push(`tester: unknown ${t.id}`); continue; }
+    if (!F.has(t.family)) bad.push(`tester ${t.id}: unknown family ${t.family}`);
+    if (p.tier !== "designer") bad.push(`tester ${t.id}: tier ${p.tier}`);
+    const d = p.stages.drydown || {};
+    if (!((d[t.family] || 0) >= 0.8)) bad.push(`tester ${t.id}: ${t.family} at ${d[t.family] || 0} in the drydown`);
+    for (const [f, w] of Object.entries(d)) if (f !== t.family && w >= 0.4) bad.push(`tester ${t.id}: ${f} at ${w} in the drydown`);
+  }
+  assert.deepEqual(bad, []);
+});
+
+test("the note picker: five screens of at most twenty cards, unique ids, every note maps to a family some perfume holds at 0.4 or more, and every such family has a card", () => {
+  const W = loadSite("data", "mapper", "materials", "evidence", "engine");
+  const D = W.PP_DATA, E = W.PP_ENGINE.create(D, W.PP_MAP, W.PP_EVIDENCE);
+  const held = f => E.PERFUMES.some(P => ["opening", "heart", "drydown"].some(s => ((P.stages[s] || {})[f] || 0) >= 0.4));
+  const F = new Set(Object.keys(D.FAMILIES)), notes = D.QUIZ.notePicker.flatMap(s => s.notes), ids = notes.map(n => n.id), bad = [];
+  if (D.QUIZ.notePicker.length !== 5) bad.push("the picker needs five screens");
+  for (const s of D.QUIZ.notePicker) if (s.notes.length > 20) bad.push(`${s.id}: ${s.notes.length} cards, more than twenty`);
+  if (new Set(ids).size !== ids.length) bad.push("duplicate ids: " + ids.filter((x, i) => ids.indexOf(x) !== i).join(", "));
+  for (const n of notes) {
+    if (!n.en || !n.ar) bad.push(`${n.id}: missing en or ar`);
+    if (n.fams) {
+      /* an entry's own families replace the mapper's: each must be known, weighted 0..1 and held by some perfume */
+      for (const [f, w] of Object.entries(n.fams)) if (!F.has(f) || !(w > 0 && w <= 1) || !held(f)) bad.push(`${n.id}: own family ${f} at ${w}`);
+      if (!Object.keys(n.fams).length) bad.push(`${n.id}: empty fams`);
+      continue;
+    }
+    const fams = W.PP_MAP.famsForNote(n.en) || {};
+    if (!Object.keys(fams).some(held)) bad.push(`${n.id}: "${n.en}" maps to ${JSON.stringify(fams)}, which no perfume holds at 0.4`);
+  }
+  for (const n of notes) if (!n.hint_en !== !n.hint_ar) bad.push(`${n.id}: a hint in one language only`);
+  /* every family some perfume holds at 0.4 or more is reached by a card at 0.5 or more */
+  const famsOf = n => n.fams || W.PP_MAP.famsForNote(n.en) || {};
+  for (const f of F) if (held(f) && !notes.some(n => (famsOf(n)[f] || 0) >= 0.5)) bad.push(`${f}: no card gives it 0.5 or more`);
+  for (const id of ["vetiver", "patchouli", "tonka", "iris", "ambergris", "oakmoss"]) {
+    const n = notes.find(x => x.id === id);
+    if (!n || !n.hint_en || !n.hint_ar) bad.push(`${id}: needs a hint in both languages`);
+  }
+  assert.deepEqual(bad, []);
+});
+
+test("QUIZ.taste names only known families, with weights from 0.3 to 0.8", () => {
+  const D = loadSite("data").PP_DATA, F = new Set(Object.keys(D.FAMILIES)), bad = [];
+  assert.deepEqual(Object.keys(D.QUIZ.taste).sort(), ["bitter", "sweet"]);
+  for (const [side, fams] of Object.entries(D.QUIZ.taste)) for (const [f, w] of Object.entries(fams)) {
+    if (!F.has(f)) bad.push(`${side}: unknown family ${f}`);
+    if (!(w >= 0.3 && w <= 0.8)) bad.push(`${side} ${f}: weight ${w}`);
+  }
+  assert.deepEqual(bad, []);
+});
+
+test("no string in QUIZ uses any form of the verb for wearing clothes, or an em dash", () => {
+  const strings = [];
+  const walkValues = v => { if (typeof v === "string") strings.push(v); else if (v && typeof v === "object") Object.values(v).forEach(walkValues); };
+  walkValues(loadSite("data").PP_DATA.QUIZ);
+  /* the root l-b-s with optional long vowels (لبس, يلبس, لابس, ملبوس), diacritics removed first */
+  const wear = /ل[اآ]?ب[وي]?س/;
+  assert.deepEqual(strings.filter(s => wear.test(s.replace(/[ً-ْـ]/g, "")) || s.includes(String.fromCharCode(0x2014))), []);
+  assert.ok(strings.some(s => /[؀-ۿ]/.test(s)), "QUIZ holds Arabic strings to check");
+});
+
+test("site/js/bottles.js and site/img/bottles/ agree, and every entry is a catalogue perfume (run python tools/fetch_bottles.py)", () => {
+  const W = loadSite("data", "bottles");
+  const ids = new Set(W.PP_DATA.PERFUMES.map(p => p.id));
+  const listed = Object.entries(W.PP_BOTTLES);
+  const files = fs.readdirSync(path.join(SITE, "img", "bottles")).filter(f => f.endsWith(".webp"));
+  for (const [id, src] of listed) {
+    assert.ok(ids.has(id), `${id} is not in the catalogue`);
+    assert.equal(src, `img/bottles/${id}.webp`);
+    assert.ok(fs.existsSync(path.join(SITE, src)), `${src} is missing`);
+  }
+  assert.deepEqual(files.map(f => f.slice(0, -5)).sort(), listed.map(([id]) => id).sort(), "a file in img/bottles/ that bottles.js does not list");
+});

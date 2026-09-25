@@ -1,0 +1,89 @@
+@@@OLD
+    if (d.none && step === "grid") { picked.clear(); sendEvent("quiz_grid", 0); go("told"); return; }
+    if (d.skip && step === "narrow") { go("told"); return; }
+    if (d.continue) {
+      if (step === "grid") {
+        queue = QUIZ.grid.concat(extra).filter(id => picked.has(id) && !hasStage(id)); at = 0; round = 1;
+        sendEvent("quiz_grid", queue.length);
+        go(queue.length ? "verdicts" : "told");
+      } else if (step === "verdicts" && ans[queue[at]]) advance();
+      else if (step === "narrow") {
+        queue = narrow.map(c => c.id).filter(id => narrowPicked.has(id)); at = 0; round = 2;
+        go(queue.length ? "verdicts" : "told");
+      }
+      return;
+    }
+    if (d.verdict && step === "verdicts") { giveVerdict(d.verdict); return; }
+    if (d.when && step === "verdicts") {
+      const id = queue[at], a = ans[id]; if (!a || a.verdict !== "turned" || !STAGES.includes(d.when)) return;
+      a.when = d.when; a.stage = d.when; writeVerdict(id); render(); return;
+    }
+@@@NEW
+    if (d.back) { back(); return; }
+    if (d.none && step === "grid") { const from = snap(); picked.clear(); sendOnce("quiz_grid", "quiz_grid", 0); toPicker(from); return; }
+    if (d.skip && step === "narrow") { toPicker(); return; }
+    if (d.continue) {
+      if (step === "grid") {
+        const from = snap();
+        queue = QUIZ.grid.concat(extra).filter(id => picked.has(id) && !ratedBefore(id)); at = 0; round = 1;
+        sendOnce("quiz_grid", "quiz_grid", queue.length);
+        if (queue.length) go("verdicts", from); else toPicker(from);
+      } else if (step === "verdicts" && ans[queue[at]]) { const v = ans[queue[at]].verdict; if (v === "turned" || v === "shop") toNotes(); else advance(); }
+      else if (step === "notes") {
+        const id = queue[at], a = ans[id] || { na: {}, un: [] }, rows = rowsFor(id);
+        advance(null, ["notes:" + rows.filter(r => r.f in a.na || a.un.includes(r.f)).length, rows.length]);
+      }
+      else if (step === "narrow") {
+        const from = snap();
+        queue = narrow.map(c => c.id).filter(id => narrowPicked.has(id)); at = 0; round = 2;
+        if (queue.length) go("verdicts", from); else toPicker(from);
+      }
+      else if (step === "picker") {
+        /* each answered card's event goes out as the visitor leaves the screen */
+        const from = snap(), notes = quiz.notes || {}, s = pickScreens().find(x => x.i === pk);
+        for (const n of s ? s.cards : []) if (notes[n.id] === 1 || notes[n.id] === -1) sendOnce("note:" + n.id, (notes[n.id] === 1 ? "like:" : "avoid:") + n.id, 0);
+        toPicker(from, pk);
+      }
+      else if (step === "told") {
+        const nt = normTold(quiz), names = nt.told.length ? nt.told.map(c => "told:" + c) : nt.toldNone ? ["told:none"] : toldUnsure ? ["told:unsure"] : [];
+        if (names.length && !sent.has("told")) { sent.add("told"); names.forEach(name => sendEvent(name, 0)); }
+        go("anosmia");
+      }
+      return;
+    }
+    if (d.verdict && step === "verdicts") { giveVerdict(d.verdict); return; }
+    if (d.when && step === "verdicts") {
+      const id = queue[at], a = ans[id]; if (!a || a.verdict !== "turned" || !STAGES.concat("unsure").includes(d.when)) return;
+      a.when = d.when; a.stage = d.when === "unsure" ? "drydown" : d.when; writeVerdict(id); render(); return;
+    }
+    /* a note row's answer: -2 to 2, or u (didn't notice it); the answer already chosen clears it */
+    if (d.na && step === "notes") {
+      const id = queue[at], a = ans[id], f = d.na; if (!a || !rowsFor(id).some(r => r.f === f)) return;
+      if (d.v === "u") { if (a.un.includes(f)) a.un = a.un.filter(x => x !== f); else { a.un = a.un.concat(f); delete a.na[f]; } }
+      else { const v = +d.v; if (![-2, -1, 0, 1, 2].includes(v)) return; if (a.na[f] === v) delete a.na[f]; else { a.na[f] = v; a.un = a.un.filter(x => x !== f); } }
+      editing.delete(f); writeVerdict(id); render(); return;
+    }
+    if (d.nedit && step === "notes") { editing.add(d.nedit); render(); return; }
+    if (d.nskip && step === "notes") { advance(null, ["notes:skip", rowsFor(queue[at]).length]); return; }
+    if (d.nskipall && step === "notes") { const from = snap(), n = rowsFor(queue[at]).length; noNotes = true; advance(from, ["notes:skipall", n]); return; }
+    if (d.pn && step === "picker") {
+      if (!QUIZ.notePicker.some(s => s.notes.some(n => n.id === d.pn))) return;
+      const v = +d.pv; quiz.notes = Object.assign({}, quiz.notes);
+      if (v === 1 || v === -1) quiz.notes[d.pn] = v; else delete quiz.notes[d.pn];
+      store.set("pp_quiz_v1", quiz); render(); return;
+    }
+    if (d.taste && step === "taste") { quiz.taste = d.taste; store.set("pp_quiz_v1", quiz); sendOnce("taste", "taste:" + d.taste, 0); go("told"); return; }
+@@@END
+@@@OLD
+    if (d.told && step === "told") { quiz.told = d.told; store.set("pp_quiz_v1", quiz); sendEvent("told:" + d.told, 0); go("anosmia"); return; }
+    if (d.anosmia && step === "anosmia") { quiz.anosmia = d.anosmia; store.set("pp_quiz_v1", quiz); sendEvent("anosmia:" + d.anosmia, 0); go("result"); return; }
+@@@NEW
+    if (d.told && step === "told") {
+      const cur = normTold(quiz);
+      if (d.told === "none") { quiz.told = []; if (cur.toldNone) delete quiz.toldNone; else quiz.toldNone = true; toldUnsure = false; }
+      else if (d.told === "unsure") { quiz.told = []; delete quiz.toldNone; toldUnsure = !toldUnsure; }
+      else if (TOLD.includes(d.told)) { quiz.told = cur.told.includes(d.told) ? cur.told.filter(x => x !== d.told) : cur.told.concat(d.told); delete quiz.toldNone; toldUnsure = false; }
+      store.set("pp_quiz_v1", quiz); render(); return;
+    }
+    if (d.anosmia && step === "anosmia") { quiz.anosmia = d.anosmia; store.set("pp_quiz_v1", quiz); sendOnce("anosmia", "anosmia:" + d.anosmia, 0); go("result"); return; }
+@@@END

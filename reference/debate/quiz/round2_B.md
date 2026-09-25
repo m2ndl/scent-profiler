@@ -1,0 +1,16 @@
+# Round 2, B: stated preference over material descriptions
+
+## The strongest objection
+
+Fable and D put it most sharply (round1_fable.md and round1_D.md, section 5): a forced choice over descriptions measures reactions to words, not to smells. Unfamiliar odours were disliked 83 percent of the time and familiar ones 33 percent (engen_odor_sensation_memory_1991.txt:867-871), and Klutky, testing without fragrances, found "sharp", "dark" and "heavy" go with unpleasant odours (jellinek_psychological_basis_1997.txt:10154-10157). I read both passages. Engen's subjects smelled real odours, so applying his result to unfamiliar names is an extrapolation, but a plausible one. Five of my twelve descriptions carry such words (woody amber "sharp", patchouli "dark" and "dirty", smoky oud "dark" and "medicinal", white florals "heavy", leather "harsh"), and in my own worked example the visitor rejects "Ambroxan-type ... slightly sharp" first. For the descriptions as written, the objection holds.
+
+My answer has three parts. First, the damage is limited: stated answers stay out of the per-perfume count, so they never create a likely deal-breaker and never exclude a perfume (round1_B.md:9). Fable's warning that one stated answer plus one bottle would exclude 97 to 116 perfumes applies to the unmodified engine, not to B's rule. A wrong stated worst reorders picks; it hides nothing. Second, the bias can be reduced where it starts: describe each family by the setting where the smell occurs and one bottle many visitors know, not by a chemical name, since people name odours by their contexts (engen:3506-3509). Gilbert reports that a written description lets a reader "accurately imagine a smell's intensity and character" (gilbert_what_the_nose_knows_2008.txt:1031), though lay imagery is weaker than professionals' (:1017). Third, it can be tested within weeks: if the stated worst follows the count of negative words more than later bottle ratings, falsifier (a) fails and B becomes an optional screen.
+
+A's evidence changed my view. With A's mapping (still wear +1, stopped -2; round1_A.md, section 1), Sauvage EDP stopped plus Khamrah kept already makes woody amber badPossible (-1.00), and all three picks avoid it; I re-ran this through tools/lib/site.js. My evidence item 1 depended on my own +2 mapping, so it does not show that B adds anything for a visitor who has worn bottles. B's remaining value is the zero-bottle visitor and the families no landmark separates; A concedes that no grid bottle separates tonka or white floral from vanilla (round1_A.md, section 4).
+
+## Borda vote
+
+1. A: verdicts on worn bottles are the most direct evidence, need no engine change, and with the +1/-2 mapping resolve the co-occurrence case I used against A.
+2. B: the only path that gives a zero-bottle visitor both a ranked profile and picks, provided it enters under A as a capped source that never excludes, with rewritten descriptions.
+3. D: remembered failures are real experience, but most chips spread over several families (data.js CHIPS) and its zero-bottle output has no picks; its complaint and anosmia questions belong in the amended path.
+4. C: lifestyle questions map to no material, and a type cannot separate vanilla 0.9 from woody amber 0.5 in Khamrah's drydown, the separation this site exists to make.

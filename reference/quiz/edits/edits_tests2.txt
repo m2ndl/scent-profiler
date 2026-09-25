@@ -1,0 +1,37 @@
+@@ tests/page.test.js
+test("zero bottles with sweet and an enjoyed lemon: no pick says the visitor said they avoid a family", () => {
+  const answers = { notes: { lemon: 1 }, taste: "sweet" };
+  const page = createPage({ localStorage: quizSeed({ pp_quiz_v1: JSON.stringify(answers) }) });
+  page.load(scripts);
+  const els = page.snapshot().els;
+  assert.equal(els["recs-h"].textContent, "Based only on what you told us");
+  assert.equal(picksOf(els.recs.innerHTML).length, 3);
+  assert.doesNotMatch(els.recs.innerHTML, /which you said you avoid/);
+  /* a family pushed down only by the taste answer leans against, in words that do not claim the visitor said it */
+  const { picks } = E.recommend(E.computeProfile({ ratings: {}, auto: {}, images: {}, told: N.toldItems(answers) }), {});
+  const risk = picks.map(p => p.risks.slice().sort((x, y) => y.sev - x.sev)[0]).find(x => x && x.kind === "told");
+  assert.ok(risk, "a pick's main risk comes from the taste answer");
+  const stage = { opening: "opening", heart: "heart", drydown: "drydown" }[risk.s];
+  assert.match(els.recs.innerHTML, new RegExp(`Contains ${esc(FAMILIES[risk.f].en).replace(/[()]/g, "\\$&")} in the ${stage}, which your quiz answers lean against\\.`));
+});
+@@>
+test("zero bottles with a taste answer: no pick says the visitor said they avoid a family they never named", () => {
+  const recsOf = answers => {
+    const page = createPage({ localStorage: quizSeed({ pp_quiz_v1: JSON.stringify(answers) }) });
+    page.load(scripts);
+    const els = page.snapshot().els;
+    assert.equal(els["recs-h"].textContent, "Based only on what you told us");
+    assert.equal(picksOf(els.recs.innerHTML).length, 3);
+    return els.recs.innerHTML;
+  };
+  assert.doesNotMatch(recsOf({ notes: { lemon: 1 }, taste: "sweet" }), /which you said you avoid/);
+  /* "sweet" plus "avoid vanilla": citrus is pushed down only by the bitter side of the taste answer */
+  const answers = { notes: { vanilla: -1 }, taste: "sweet" }, h = recsOf(answers);
+  const { picks } = E.recommend(E.computeProfile({ ratings: {}, auto: {}, images: {}, told: N.toldItems(answers) }), {});
+  const risk = picks.map(p => p.risks.slice().sort((x, y) => y.sev - x.sev)[0]).find(x => x && x.kind === "told");
+  assert.ok(risk && risk.f === "citrus_fresh", "a pick's main risk is citrus, from the taste answer alone");
+  const stage = { opening: "opening", heart: "heart", drydown: "drydown" }[risk.s];
+  assert.match(h, new RegExp(`Contains ${esc(FAMILIES.citrus_fresh.en).replace(/[()]/g, "\\$&")} in the ${stage}, which your quiz answers lean against\\.`));
+  assert.doesNotMatch(h, /which you said you avoid/);
+});
+@@.

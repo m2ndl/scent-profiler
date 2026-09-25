@@ -1,0 +1,241 @@
+@@@OLD
+  const opt = (attr, v, label, on) => `<button type="button" class="qopt" data-${attr}="${v}" aria-pressed="${!!on}">${esc(label)}</button>`;
+@@@NEW
+  const opt = (attr, v, label, on) => `<button type="button" class="qopt" data-${attr}="${v}" aria-pressed="${!!on}">${esc(label)}</button>`;
+  const PART = { grid: 1, verdicts: 1, notes: 1, narrow: 1, picker: 2, taste: 3, told: 4, anosmia: 4 };
+  /* Back (on every screen but the first) and "Part i of 4" with the part's name; the picker also counts its screens */
+  function topHtml() {
+    const p = PART[step];
+    let line = p ? t().part(p, t().parts[p - 1]) : "";
+    if (step === "picker") { const list = pickScreens().map(s => s.i); line += " · " + t().pickCount(list.indexOf(pk) + 1, list.length); }
+    const backBtn = hist.length ? `<button type="button" class="qback" data-back="1">${esc(t().back)}</button>` : "";
+    return `<div class="qtop">${backBtn}${line ? `<span class="qpart">${esc(line)}</span>` : ""}</div>`;
+  }
+@@@END
+@@@OLD
+    const rated = hasStage(id);
+@@@NEW
+    const rated = ratedBefore(id);
+@@@END
+@@@OLD
+    return `<div class="hero"><h1>${esc(t().gridQ)}</h1><p>${esc(t().gridHint)}</p></div>
+@@@NEW
+    return topHtml() + `<div class="hero"><h1>${esc(t().gridQ)}</h1><p>${esc(t().gridHint)}</p></div>
+@@@END
+@@@OLD
+      const when = a.verdict === "turned" ? `<p class="ask">${esc(t().whenQ)}</p><div class="qopts qopts-row">${STAGES.map(s => opt("when", s, t().when[s], a.when === s)).join("")}</div>` : "";
+@@@NEW
+      const when = a.verdict === "turned" ? `<p class="ask">${esc(t().whenQ)}</p><div class="qopts qopts-row">${STAGES.concat("unsure").map(s => opt("when", s, t().when[s], a.when === s)).join("")}</div>` : "";
+@@@END
+@@@OLD
+    return `<div class="qcard"><p class="eyebrow">${esc(t().count(at + 1, queue.length))}</p>
+      <div class="with-thumb">${imgTag(P)}<div class="grow"><h1 class="qname">${esc(pname(P))}</h1><div class="notes">${esc(P.house)}</div></div></div>
+      <p class="ask">${esc(t().verdictQ)}</p>
+      <div class="qopts">${["still", "turned", "other", "shop"].map(v => opt("verdict", v, t().verdicts[v], a.verdict === v)).join("")}</div>${follow}</div>` + foot();
+  }
+  function narrowHtml() {
+    return `<div class="hero"><h1>${esc(t().narrowQ)}</h1><p>${esc(t().narrowHint)}</p></div>
+      <div class="qgrid">${narrow.map(c => tileHtml(c.id, narrowPicked.has(c.id), t().tests(fam(c.f)))).join("")}</div>
+      <div class="qactions"><button type="button" class="btn" data-skip="1">${esc(t().none)}</button><button type="button" class="btn primary" data-continue="1">${esc(t().cont(narrowPicked.size))}</button></div>` + foot();
+  }
+  const TOLD = ["sweet", "chemical", "soapy", "heavy", "powdery", "smoky", "none"];
+  function toldHtml() {
+    return `<div class="hero"><h1>${esc(t().toldQ)}</h1></div><div class="qopts">${TOLD.map(v => opt("told", v, v === "none" ? t().none : cap(chipWord(v)), quiz.told === v)).join("")}</div>` + foot();
+  }
+  function anosmiaHtml() {
+    return `<div class="hero"><h1>${esc(t().anosQ)}</h1></div><div class="qopts">${["yes", "no", "unsure"].map(v => opt("anosmia", v, t().anos[v], quiz.anosmia === v)).join("")}</div>` + foot();
+  }
+@@@NEW
+    return topHtml() + `<div class="qcard">${bottleHead(P)}
+      <p class="ask">${esc(t().verdictQ)}</p>
+      <div class="qopts">${["still", "turned", "other", "shop", "unsure"].map(v => opt("verdict", v, t().verdicts[v], a.verdict === v)).join("")}</div>${follow}</div>` + foot();
+  }
+  const bottleHead = P => `<p class="eyebrow">${esc(t().count(at + 1, queue.length))}</p>
+      <div class="with-thumb">${imgTag(P)}<div class="grow"><h1 class="qname">${esc(pname(P))}</h1><div class="notes">${esc(P.house)}</div></div></div>`;
+  /* One note row: the stage in plain words, the note words in the page language and the family in small type.
+     A row with no listed word says so; the family takes the words' place when the perfume has no note list on
+     this page (a looked-up bottle) or when its Arabic list does not match the English one. An answered row
+     collapses to its answer. The profiler's "Rate its notes" block (app.js) draws the same rows. */
+  function noteRowHtml(P, row, rec, open) {
+    const f = row.f, v = rec.noteAnswers && f in rec.noteAnswers ? rec.noteAnswers[f] : null;
+    const un = Array.isArray(rec.unnoticed) && rec.unnoticed.includes(f);
+    const words = lang === "ar" ? row.words.ar : row.words.en;
+    const listed = !!(P.notes && /[a-z]/i.test(P.notes.en || ""));
+    let main = esc(fam(f)), small = "", hint = "";
+    if (words.length) { main = esc(words.join(lang === "ar" ? "، " : ", ")); small = esc(fam(f)); }
+    else if (!row.words.en.length && listed) { main = esc(t().notListed); small = esc(fam(f)); hint = `<div class="nhint">${esc(t().notListedHint)}</div>`; }
+    const head = `<div class="nhead"><span class="nstage">${esc(t().rowStage[row.stage])}</span> · <b>${main}</b>${small ? ` · <span class="nfam">${small}</span>` : ""}</div>`;
+    if ((v != null || un) && !open) return `<div class="nrow done">${head}<div class="ndone"><span class="npick">${esc(t().answers[un ? "u" : v])}</span><button type="button" class="qlink" data-nedit="${f}">${esc(t().change)}</button></div></div>`;
+    const btn = (x, on, cls) => `<button type="button"${cls ? ` class="${cls}"` : ""} data-na="${f}" data-v="${x}" aria-pressed="${on}">${esc(t().answers[x])}</button>`;
+    return `<div class="nrow">${head}${hint}<div class="nopts">${[-2, -1, 0, 1, 2].map(x => btn(x, v === x)).join("")}${btn("u", un, "nun")}</div></div>`;
+  }
+  function notesHtml() {
+    const id = queue[at], P = resolve(id), a = ans[id] || { na: {}, un: [] }, rows = rowsFor(id);
+    const skips = `<button type="button" class="qlink" data-nskip="1">${esc(t().skipNotes)}</button>` + (at > 0 || round === 2 ? `<button type="button" class="qlink" data-nskipall="1">${esc(t().skipAllNotes)}</button>` : "");
+    return topHtml() + `<div class="qcard">${bottleHead(P)}
+      <p class="ask">${esc(t().notesIntro(pname(P), rows.length))}</p><div class="qskips">${skips}</div>
+      <div class="nrows">${rows.map(row => noteRowHtml(P, row, { noteAnswers: a.na, unnoticed: a.un }, editing.has(row.f))).join("")}</div>
+      <div class="qactions"><button type="button" class="btn primary" data-continue="1">${esc(t().next)}</button></div></div>` + foot();
+  }
+  function narrowHtml() {
+    return topHtml() + `<div class="hero"><h1>${esc(t().narrowQ)}</h1><p>${esc(t().narrowHint)}</p></div>
+      <div class="qgrid">${narrow.map(c => tileHtml(c.id, narrowPicked.has(c.id), t().tests(fam(c.f)))).join("")}</div>
+      <div class="qactions"><button type="button" class="btn" data-skip="1">${esc(t().noneNarrow)}</button><button type="button" class="btn primary" data-continue="1">${esc(t().cont(narrowPicked.size))}</button></div>` + foot();
+  }
+  /* four screens of single notes, each card "I enjoy it", "I avoid it" or "Not sure" (the default) */
+  function pickerHtml() {
+    const s = pickScreens().find(x => x.i === pk); if (!s) return "";
+    const notes = quiz.notes || {};
+    const card = n => {
+      const v = notes[n.id] === 1 || notes[n.id] === -1 ? notes[n.id] : 0, hint = n["hint_" + lang];
+      return `<div class="pcard"><div class="pcard-name"><b>${esc(lang === "ar" ? n.ar : n.en)}</b>${hint ? `<span class="pcard-hint">${esc(hint)}</span>` : ""}</div><div class="pcard-opts">${[1, -1, 0].map(x => `<button type="button" data-pn="${n.id}" data-pv="${x}" aria-pressed="${v === x}">${esc(t().pick[x])}</button>`).join("")}</div></div>`;
+    };
+    return topHtml() + `<div class="hero"><h1>${esc(t().pickerH[QUIZ.notePicker[pk].id])}</h1><p>${esc(t().pickerQ)}</p></div>
+      <div class="pcards">${s.cards.map(card).join("")}</div>
+      <div class="qactions"><button type="button" class="btn primary" data-continue="1">${esc(t().next)}</button></div>` + foot();
+  }
+  function tasteHtml() {
+    return topHtml() + `<div class="hero"><h1>${esc(t().tasteQ)}</h1></div><div class="qopts">${["bitter", "sweet", "both", "unsure"].map(v => opt("taste", v, t().taste[v], quiz.taste === v)).join("")}</div>` + foot();
+  }
+  /* complaints, several at once; "Nothing has bothered me" and "I don't know" each clear the others */
+  const TOLD = ["sweet", "chemical", "soapy", "heavy", "powdery", "smoky"];
+  function toldHtml() {
+    const cur = normTold(quiz);
+    return topHtml() + `<div class="hero"><h1>${esc(t().toldQ)}</h1></div><div class="qopts">${TOLD.map(v => opt("told", v, cap(chipWord(v)), cur.told.includes(v))).join("")}</div>
+      <div class="qopts qopts-apart">${opt("told", "none", t().toldNone, cur.toldNone)}${opt("told", "unsure", t().toldUnsure, toldUnsure)}</div>
+      <div class="qactions"><button type="button" class="btn primary" data-continue="1">${esc(t().next)}</button></div>` + foot();
+  }
+  function anosmiaHtml() {
+    return topHtml() + `<div class="hero"><h1>${esc(t().anosQ)}</h1></div><div class="qopts">${["yes", "no", "unsure"].map(v => opt("anosmia", v, t().anos[v], quiz.anosmia === v)).join("")}</div>` + foot();
+  }
+@@@END
+@@@OLD
+  /* Testers for a visitor with no rated bottle: the told complaint puts first the tester whose family weighs
+     most in that chip's family map; otherwise the order in data.js (woody amber, white musk, vanilla). */
+  function orderedTesters() {
+    const list = QUIZ.testers.slice();
+    const chip = CHIPS.find(c => c.id === quiz.told); if (!chip) return list;
+    let best = null, bw = 0;
+    for (const x of list) { const w = chip.fams[x.family] || 0; if (w > bw) { bw = w; best = x; } }
+@@@NEW
+  /* Testers for a visitor with no rated bottle: the told complaints put first the tester whose family weighs
+     most in their family maps, summed; otherwise the order in data.js (woody amber, white musk, vanilla). */
+  function orderedTesters() {
+    const list = QUIZ.testers.slice();
+    const chips = normTold(quiz).told.map(id => CHIPS.find(c => c.id === id)).filter(Boolean); if (!chips.length) return list;
+    let best = null, bw = 0;
+    for (const x of list) { const w = chips.reduce((s, c) => s + (c.fams[x.family] || 0), 0); if (w > bw) { bw = w; best = x; } }
+@@@END
+@@@OLD
+  function anosmiaNote() {
+    const x = QUIZ.testers.find(k => k.family === "white_musk"); const P = x && resolve(x.id); if (!P) return "";
+    const q = encodeURIComponent(P.house + " " + P.name);
+    const tpl = lang === "ar" ? CONFIG.links.sampleSA : CONFIG.links.sampleUS;
+    return `<div class="qnote">${esc(t().anosmiaNote(
+@@@NEW
+  /* lead: the sentence naming the musk or wood rows the visitor did not notice */
+  function anosmiaNote(lead) {
+    const x = QUIZ.testers.find(k => k.family === "white_musk"); const P = x && resolve(x.id); if (!P) return "";
+    const q = encodeURIComponent(P.house + " " + P.name);
+    const tpl = lang === "ar" ? CONFIG.links.sampleSA : CONFIG.links.sampleUS;
+    return `<div class="qnote">${lead ? esc(lead) + " " : ""}${esc(t().anosmiaNote(
+@@@END
+@@@OLD
+  function resultHtml() {
+    shown = { testers: [], picks: [] };
+    const ids = Object.keys(ratings).filter(hasStage);
+    const told = quiz.told && quiz.told !== "none" ? `<div class="qtold">${esc(t().told(chipWord(quiz.told)))}</div>` : "";
+    const anos = quiz.anosmia === "yes" || quiz.anosmia === "unsure" ? anosmiaNote() : "";
+    if (!ids.length) {
+      const testers = orderedTesters();
+      shown.testers = testers.map(x => x.id);
+      return `<div class="qresult"><div class="hero"><h1>${esc(t().noneH)}</h1><p>${esc(t().noneLede)}</p></div>
+        <div class="recs">${testers.map(testerHtml).join("")}</div>${told}${anos}</div>` + foot();
+    }
+    const prof = computeProfile();
+@@@NEW
+  /* What the visitor told us, in their own words, each line with its source word. */
+  function toldBoxHtml() {
+    const notes = quiz.notes || {}, all = QUIZ.notePicker.flatMap(s => s.notes);
+    const word = n => (lang === "ar" ? n.ar : n.en), sep = lang === "ar" ? "، " : ", ";
+    const enjoy = all.filter(n => notes[n.id] === 1).map(word), avoid = all.filter(n => notes[n.id] === -1).map(word);
+    const told = normTold(quiz).told.filter(id => CHIPS.some(c => c.id === id));
+    const lines = [];
+    if (enjoy.length) lines.push(t().youEnjoy(enjoy.join(sep)));
+    if (avoid.length) lines.push(t().youAvoid(avoid.join(sep)));
+    if (quiz.taste === "bitter" || quiz.taste === "sweet") lines.push(t().prefer[quiz.taste]);
+    if (told.length) lines.push(t().bothered(told.map(chipWord).join(sep)));
+    return lines.length ? `<div class="qtold">${lines.map(l => `<div>${esc(l)} <span class="src">(${esc(t().fromTold)})</span></div>`).join("")}</div>` : "";
+  }
+  /* A white musk, woody amber, creamy sandalwood or dry cedar row the visitor did not notice brings the anosmia
+     note, naming the bottle and family, whatever the anosmia answer was. */
+  const QUIET = ["white_musk", "woody_amber", "sandalwood_creamy", "cedar_dry"];
+  function anosHtml() {
+    const pairs = [];
+    for (const id of Object.keys(ratings)) {
+      const r = ratings[id], P = r && Array.isArray(r.unnoticed) ? resolve(id) : null; if (!P) continue;
+      for (const f of r.unnoticed) if (QUIET.includes(f)) pairs.push(t().unnoticedPair(low(fam(f)), pname(P)));
+    }
+    if (pairs.length) return anosmiaNote(t().unnoticed(listJoin(pairs)));
+    return quiz.anosmia === "yes" || quiz.anosmia === "unsure" ? anosmiaNote() : "";
+  }
+  /* the words a note answer names: its row's note words, or the family when the row has none */
+  function noteWords(P, f) {
+    const row = rowsFor(P.id).find(r => r.f === f) || N.questions(P, "worn").find(r => r.f === f);
+    const w = row ? (lang === "ar" ? row.words.ar : row.words.en) : [];
+    return w.length ? listJoin(w) : low(fam(f));
+  }
+  function resultHtml() {
+    shown = { testers: [], picks: [] };
+    const ids = Object.keys(ratings).filter(hasStage);
+    const told = toldBoxHtml(), anos = anosHtml();
+    const prof = computeProfile();
+    /* recommendations from two rated bottles, or from any number once the visitor enjoys something in words */
+    const gate = ids.length >= 2 || N.toldItems(quiz).some(i => i.value > 0);
+    const picksHtml = () => {
+      const { picks } = recommend(prof);
+      shown.picks = picks.map(p => p.P.id);
+      return picks.length ? `<div class="recs">${picks.map(recHtml).join("")}</div>` : "";
+    };
+    if (!ids.length) {
+      const testers = orderedTesters();
+      shown.testers = testers.map(x => x.id);
+      const cards = `<div class="recs">${testers.map(testerHtml).join("")}</div>`;
+      if (gate) return topHtml() + `<div class="qresult"><div class="hero"><h1>${esc(t().toldOnlyH)}</h1><p>${esc(t().toldOnlyLede)}</p></div>
+        ${told}${picksHtml()}<h2 class="qh2">${esc(t().confirmH)}</h2><p class="notes">${esc(t().confirmLede)}</p>${cards}${anos}</div>` + foot();
+      return topHtml() + `<div class="qresult"><div class="hero"><h1>${esc(t().noneH)}</h1><p>${esc(t().noneLede)}</p></div>
+        ${cards}${told}${anos}</div>` + foot();
+    }
+@@@END
+@@@OLD
+      return `<div class="verdict ${vCls[v.cls]}"><div class="v-head"><b>${esc(fam(f))}</b><span class="pill ${pillCls[v.cls]}">${esc(t().cls[v.cls])}</span></div><div class="hint">${src}</div></div>`;
+    }).join("") + `</div>` : `<div class="empty">${esc(t().noFamilies)}</div>`;
+    let recs = "";
+    if (ids.length >= 2) {
+      const { picks } = recommend(prof);
+      shown.picks = picks.map(p => p.P.id);
+      if (picks.length) recs = `<h2 class="qh2">${esc(t().recsH)}</h2><p class="notes">${esc(t().recsLede)}</p><div class="recs">${picks.map(recHtml).join("")}</div>`;
+    } else recs = `<div class="empty">${esc(t().oneMore)}</div>`;
+    return `<div class="qresult"><div class="hero"><h1>${esc(t().resultH)}</h1><p>${esc(t().resultLede)}</p></div>
+@@@NEW
+      /* note answers name the note; a told answer pointing the other way from the bottles says so */
+      const noteLines = v.evidence.filter(e => e.note).map(e => `<div class="hint">${esc(t().noteLine(pname(e.perfume), noteWords(e.perfume, f), e.value, t().rowStage[e.stage]))}</div>`).join("");
+      const against = v.toldScore != null && ((/^bad/.test(v.cls) && v.toldScore > 0) || (/^good/.test(v.cls) && v.toldScore < 0)) ? `<div class="hint qdis">${esc(t().disagree)}</div>` : "";
+      return `<div class="verdict ${vCls[v.cls]}"><div class="v-head"><b>${esc(fam(f))}</b><span class="pill ${pillCls[v.cls]}">${esc(t().cls[v.cls])}</span></div><div class="hint">${src}</div>${noteLines}${against}</div>`;
+    }).join("") + `</div>` : `<div class="empty">${esc(t().noFamilies)}</div>`;
+    let recs = "";
+    if (gate) { const list = picksHtml(); if (list) recs = `<h2 class="qh2">${esc(t().recsH)}</h2><p class="notes">${esc(t().recsLede)}</p>${list}`; }
+    else recs = `<div class="empty">${esc(t().oneMore)}</div>`;
+    return topHtml() + `<div class="qresult"><div class="hero"><h1>${esc(t().resultH)}</h1><p>${esc(t().resultLede)}</p></div>
+@@@END
+@@@OLD
+    host.innerHTML = step === "verdicts" ? verdictHtml() : step === "narrow" ? narrowHtml() : step === "told" ? toldHtml() : step === "anosmia" ? anosmiaHtml() : resultHtml();
+@@@NEW
+    const screens = { verdicts: verdictHtml, notes: notesHtml, narrow: narrowHtml, picker: pickerHtml, taste: tasteHtml, told: toldHtml, anosmia: anosmiaHtml };
+    host.innerHTML = (screens[step] || resultHtml)();
+@@@END
+@@@OLD
+      if (step === "grid" && !hasStage(d.tile)) { if (picked.has(d.tile)) picked.delete(d.tile); else picked.add(d.tile); renderGridParts(); }
+@@@NEW
+      if (step === "grid" && !ratedBefore(d.tile)) { if (picked.has(d.tile)) picked.delete(d.tile); else picked.add(d.tile); renderGridParts(); }
+@@@END

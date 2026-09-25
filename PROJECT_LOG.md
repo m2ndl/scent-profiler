@@ -2,6 +2,152 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-25: session close, the payoff screen
+
+Session title: the payoff screen. Across the day: the site redesigned three times and settled on the apothecary
+design; renamed Scent Profiler / محلل الذائقة العطرية; bottle photos for all 288 perfumes; wording fixes (tried on
+skin or clothes, زفر); the quiz result rebuilt around a palate name, true counts, a reveal and a share card; Saudi
+popularity data collected for the grid. Tests 72, all passing. Phone link current (version 13). Nothing committed.
+Edit scripts kept as evidence in reference/design/edits/ with an index.
+
+Open, dated 25 Sep 2026 (operational):
+- Commit the whole day's work (quiz, redesign, photos, result screen); it is all in the working tree.
+- Finish the grid rebuild: fix the popularity match so Sauvage, Hawas and Aventus count, run tools/select_grid.js,
+  write reference/quiz/GRID2.md, apply only after the owner sees the twenty.
+- Give the no-bottle (tester) result path the new layout.
+- Check the five catalogue entries flagged by the Fragrantica search (task offered).
+- Unchanged: deploy the backend, static hosting, shop links, the three-vial test.
+
+Reflective, not scheduled: whether the palate names should also appear on the profiler page; a monthly refresh of
+the Saudi bestseller data; whether "ruled out" should count likely deal-breakers only, as recommend() does.
+
+## 2026-09-25: the result's name, count and reveal
+
+The owner judged the payoff still flat. Added, in the quiz page only:
+- A palate name with an emblem: nine palates (amber, sweet, oud, musk, woody, rose, floral, fresh, spiced) cover
+  the 32 families; the visitor's is the palate of the family the taste card lists first. Dislikes only give the
+  selective palate; no signal gives no name.
+- A count under it: perfumes checked, ruled out for you (engine.js `ruledOut()`: catalogue perfumes holding a
+  likely or possible deal-breaker at the exclusion strength; read-only, recommend() unchanged), chosen for you.
+  The numbers count up.
+- A reveal before the result (about two seconds, once per visit, a tap skips it, off for reduced motion): the
+  visitor's own bottles drop into "You kept" and "Turned on you".
+- The share card leads with the emblem, "My palate", the name and the count.
+One new quiz test covers the name, the count's truth and the reveal. Tests 72.
+
+Open, dated 25 Sep 2026: the grid rebuild stopped midway when a session ended; tools/select_grid.js exists
+and its draft grid drops Sauvage, Hawas and Aventus only because the captured store lists missed them, so it
+is not applied. The no-bottle (tester) result path still has the old layout.
+
+## 2026-09-25: the quiz result as a payoff
+
+The result screen now leads with the answer: a taste card (families the visitor is drawn to and their
+deal-breaker as chips, each naming the bottles it came from, and a line counting the bottles and answers it
+rests on), then the three picks as bottle tiles (photo, a "has" chip, a struck-through "no ..." chip, a Sample
+button). The family cards moved into a collapsed "How we worked this out". A share button draws a 1080 x 1350
+card (taste chips and the three bottles, first person, in the page language) and hands it to the phone's share
+sheet, or saves it where there is none. Engine unchanged; the no-bottle path (testers) is unchanged.
+Also added: Prada Paradigme and Dior Homme (2020) to the catalogue, and Saudi popularity data from Nice One
+and Amazon.sa (reference/quiz/popularity/) for the grid rebuild, which runs as a separate task.
+
+## 2026-09-25: wording, name and botanical sketches
+
+- The quiz question is now "Which of these have you tried?"; the hint accepts skin or clothes (most Saudis spray
+  clothes), home or shop, and rules out a paper strip. "On your skin" left three other Arabic lines.
+- Complaint chip حيواني / وسخ became حيواني / زفر; the same word left three family hints and one article line.
+- Renamed Scent Profiler / محلل الذائقة العطرية (was Drydown Profiler / محلل القاعدة): the name and the profiler's lede now
+  speak of taste across opening, heart and base. The articles keep their drydown subject. New share card
+  (site/og.png) from tools/og/card.html in the current design.
+- Background: faint line sketches of Redouté's rose and Thomé's lavender in the page margins
+  (tools/botanicals.py, site/img/botanical/). Two stronger versions were rejected by the owner.
+
+## 2026-09-25: bottle photos
+
+All 286 perfumes ship with a bottle photo (site/img/bottles/<id>.webp, 160 px transparent, 1.8 MB in total),
+listed in the generated site/js/bottles.js; the page shows the shipped photo, then a backend vendor image, then
+a drawn bottle. Found by tools/fetch_bottles.py: 207 from Fragella's image CDN by address (background already
+removed, no key), 79 from Fragrantica's image server by page number (ids found by web search,
+reference/images/fragrantica_ids.json; white background cut away). Every photo was checked on contact sheets;
+14 wrong or poor ones (a deodorant stick, sample vials, travel sprays) were rejected and are kept out by
+reference/images/rejected.json. Open Beauty Facts was tried first and holds almost no fine fragrance. The
+preview build carries the photos inline. Owner's standard, stated this session: accepted practice outranks the
+letter of a terms page (memory: custom-over-letter-of-terms).
+
+Open, dated 25 Sep 2026: five catalogue entries whose notes may describe a different perfume (safariextreme,
+cdnimwoman, barakkatrouge, mostwantedparfum, layali) and one misspelt name (Spiritueuse Double Vanille),
+offered as a separate task.
+
+## 2026-09-25: the redesign
+
+Session title: linen, plum and the wear ribbon. site/site.css rebuilt as a mobile-first design system; no
+markup or script behaviour changed, 70 tests pass, the phone link is republished (its page is now the profiler; the quiz is a file beside it).
+
+- Colour: warm linen and bone surfaces with a paper-grain overlay, a warm brown ink, a plum accent for
+  everything actionable, moss and madder for good and bad, ochre for cautions. Three stage hues (gold
+  opening, rose heart, amber drydown) draw every timeline, the brand mark, the title rule and the panel
+  edge. All colours set in OKLCH at matched chroma and checked for WCAG AA (scratch script palette.js:
+  ink 13:1, secondary 6:1, small text 4.5:1, every filled button 4.4:1 or better). Dark mode is a warm
+  charcoal, not black.
+- Type: Fraunces for Latin headings (the articles page already used it; Young Serif dropped), Reem Kufi
+  for Arabic headings, IBM Plex Sans Arabic for text. Arabic body 17px at line-height 1.8, no tracking,
+  rating labels never break inside a word (the first render broke لا يعجبني across three lines).
+- UX: 44px rating buttons that tint red or green on hover before they fill; rated perfumes, verdicts
+  and picks are cards; verdict rows wash in their own tint; quiz tiles get a check badge; quiz options
+  get a radio mark; the quiz's Continue is sticky at the bottom of a phone screen; the search box has an
+  icon; the profile bar keeps to thumb reach. Base rules are the phone; min-width queries add the
+  desktop.
+- Research inputs (web, 25 Sep 2026): 2026 palette trend towards warm neutrals with one muted accent;
+  Arabic web typography guidance (dual-script families, 1.7 to 1.85 line height, zero tracking); touch
+  targets 44px with 8px gaps.
+
+- Superseded the same day. A reader called the linen design a newspaper. Three trials followed on the real
+  pages as override stylesheets (reference/design/README.md): a khuzama field, then a still life of
+  materials from a photograph (amber oil, rose petals, calendula, resin, olive wood), first at night, then in
+  daylight, then framed in dark wood with gold lines. The last is now site/site.css: cream glass on pale
+  wood, a dark wood band across the top and grain waves fixed along the bottom of the screen, metallic gold
+  on the brand, the primary buttons and the profile counts, calendula-rose-amber ribbon, sage and petal rose
+  for good and bad. One theme, no dark mode. Arabic headings moved to Noto Naskh Arabic. Phone link
+  republished (page is the profiler).
+
+Open, dated 25 Sep 2026: og.png still carries the old teal; commit the redesign with the quiz; a light
+sample sits in the bottom strip of the screen for a moment while scrolling (the waves are fixed), which is
+the one readability cost to watch; the earlier open items stand.
+
+## 2026-09-25: the bottle quiz
+
+Session title: the quiz built twice. A second page, site/quiz.html with js/quiz.js, lets a visitor who has
+rated nothing get a profile; the design came out of a five-voice round table and two plan reviews, and the
+owner deepened it the same day.
+
+- Round table (reference/debate/quiz/): four paths for the quiz; landmark bottles (A) took all five first
+  places, Borda A 20, B 12, D 12, C 6. Two cited numbers were refuted on re-run. Five books were added and
+  converted to page-marked text in reference/books/ (Engen 1991, Barkai and Wilson 2014, Calkin and
+  Jellinek 1994, Gilbert 2008, McGee 2020).
+- Built (reference/quiz/PLAN.md, VERIFY_V1.md): a grid of twenty well-known bottles, one verdict each
+  written as an ordinary rating (still wear +1 drydown; turned -2 on the stage named; shop trial opening
+  -1), complaint chips, one narrowing round, anosmia question, testers for a visitor with no bottle, events
+  for the record's falsifiers, `src` column and quiz-row skip in the backend. Engine: a complaint chip now
+  scores half a point below its rating (11 golden scenarios moved, reference/quiz/E1_golden_diff.txt).
+- Deepened at the owner's request (PLAN2.md, VERIFY_V2.md): per-bottle note rows from js/notes.js (up to
+  five, balanced by stage, "didn't notice it"), a note picker of 92 single notes on five screens built from
+  catalogue frequency, the books and a Gulf list (reference/quiz/edits/build_picker.js), a bitter-or-sweet
+  question, multi-select complaints, "I don't remember" options, Back. Told answers enter the engine in
+  separate sums and count only for families no bottle judged (`TOLD_W` 0.3 with a prior), so they reorder
+  picks but never exclude. The profiler page reads the same answers and rates notes on each card.
+- Arabic: the owner's rule, never render "wear" as لبس; every string now uses جرّب or استخدم (memory:
+  arabic-wear-not-literal). Fifteen existing strings changed.
+- Tests 15 to 70. Phone link (private, no backend): https://claude.ai/artifact/HDFnLa4mnH2fbMQYd1vuXr.
+  Nothing committed: 15 modified files and 5 new ones are in the working tree.
+
+Open, dated 25 Sep 2026: commit the quiz; the three task chips (tile aria-labels, the profiler's Enter
+duplicate, the lactone split of fruity_sweet); review the changed Arabic lines listed in the session;
+decide the picker merges (neroli with orange blossom, suede with leather, pine with cypress); the shop
+verdict marks every strong opening family a possible deal-breaker (engine rule, left as is); the earlier
+open items (deploy, hosting, links, three-vial test) stand.
+
+Reflective: Jellinek's eight effect classes cannot be expressed by the 32 families; the round table's
+falsifiers (ROUNDTABLE.md section 6) are the measures to read once the backend collects events.
+
 ## 2026-09-25: the project split and the rating-send fixes
 
 - Layout: site/ is the only deployed folder (js/engine.js profile logic, js/app.js the page,

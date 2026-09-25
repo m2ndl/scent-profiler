@@ -6,6 +6,15 @@ window.PP_ENGINE = (function () {
   "use strict";
   const STAGES = ["opening", "heart", "drydown"];
 
+  /* The stage where a perfume holds family f most strongly; a tie goes to the later stage. null when the
+     perfume does not hold f. Note answers apply in this stage, and the note questions ask about it. */
+  function strongestStage(P, f) {
+    if (!P || !P.stages) return null;
+    let best = null, bw = 0;
+    for (const s of STAGES) { const w = (P.stages[s] || {})[f] || 0; if (w > 0 && w >= bw) { best = s; bw = w; } }
+    return best;
+  }
+
   /* D: PP_DATA (catalogue and chips), M: PP_MAP (note mapper), EV: PP_EVIDENCE (book and label layers).
      Functions that need the wearer's data take it as an argument: state = { ratings, auto, images },
      the ratings by id, lazy-catalogue entries by id and bottle images of verified entries by id. */
@@ -75,7 +84,13 @@ window.PP_ENGINE = (function () {
     }
 
     const PROV_W = { book: 1, label: 1, "label-absent": 1, curated: 0.75, notes: 0.75 };
+    const TOLD_W = 0.3; /* one told item at full weight, against 0.75 for one strong drydown tag on a worn bottle */
+    const TOLD_PRIOR = TOLD_W; /* a family with told items only scores tsum / (twsum + TOLD_PRIOR): one full-weight
+                                  item gives 0.5, two agreeing ones about 0.67, a 0.3-weight side effect about 0.23 */
 
+    /* state.told (optional): what the visitor said in words, [{ f, value: 1 | -1, w: 0..1, src }]. Told items
+       keep their own sums and count only for a family with no strong bottle evidence (n = 0), so they can
+       reorder picks but never set a class or an exclusion. */
     function computeProfile(state) {
       const ratings = state.ratings;
       const F = {};
@@ -89,21 +104,46 @@ window.PP_ENGINE = (function () {
         const P = resolve(id, state); if (!P || !P.stages) continue;
         const cm = P.auto && !(P.evidence && (P.evidence.label || P.evidence.book)) ? 0.5 : 1;   /* vendor-only entries count at half weight */
         const r = ratings[id];
+        /* note answers: an observation of one family in its strongest stage, where it replaces the stage rating;
+           an answer on a family the perfume no longer holds is skipped. An unnoticed family gives no evidence. */
+        const unnoticed = new Set(Array.isArray(r.unnoticed) ? r.unnoticed : []);
+        const answers = [];
+        for (const [f, val] of Object.entries(r.noteAnswers || {})) {
+          if (!Number.isFinite(val) || unnoticed.has(f)) continue;
+          const s = strongestStage(P, f); if (s) answers.push([f, val, s]);
+        }
+        const answered = (f, s) => answers.some(a => a[0] === f && a[2] === s);
         for (const s of STAGES) {
           const v = r[s]; if (v == null) continue;
           const sw = STAGE_W[s] * cm;
           for (const [f, w] of Object.entries(P.stages[s] || {})) {
+            if (unnoticed.has(f) || answered(f, s)) continue;
             const prov = (P.prov && P.prov[s] && P.prov[s][f]) || "curated";
             add(f, v, w * sw * (PROV_W[prov] || 0.75), { perfume: P, stage: s, value: v, strong: w >= STRONG, prov });
           }
+          const cv = Math.min(-1.5, v - 0.5);
           for (const cid of (r.chips && r.chips[s]) || []) {
             const chip = CHIPS.find(c => c.id === cid); if (!chip) continue;
             for (const [f, cw] of Object.entries(chip.fams)) {
+              if (unnoticed.has(f)) continue;
               const present = (P.stages[s] || {})[f] || 0; if (present < 0.2) continue;
-              add(f, -1.5, cw * present * sw * 0.6, { perfume: P, stage: s, chip: cid, value: -1.5, strong: present >= STRONG });
+              add(f, cv, cw * present * sw * 0.6, { perfume: P, stage: s, chip: cid, value: cv, strong: present >= STRONG });
             }
           }
         }
+        for (const [f, val, s] of answers) {
+          const w = P.stages[s][f];
+          const prov = (P.prov && P.prov[s] && P.prov[s][f]) || "curated";
+          add(f, val, w * STAGE_W[s] * cm * (PROV_W[prov] || 0.75), { perfume: P, stage: s, value: val, strong: w >= STRONG, prov, note: true });
+        }
+      }
+      const T = {};
+      for (const it of Array.isArray(state.told) ? state.told : []) {
+        if (!it || !it.f || !Number.isFinite(it.value) || !(it.w > 0)) continue;
+        const t = T[it.f] || (T[it.f] = { tsum: 0, twsum: 0, evidence: [] });
+        const w = TOLD_W * it.w;
+        t.tsum += it.value * w; t.twsum += w;
+        t.evidence.push({ told: true, src: it.src, stage: null, value: it.value, strong: false, prov: "told" });
       }
       const out = {};
       for (const [f, o] of Object.entries(F)) {
@@ -121,7 +161,24 @@ window.PP_ENGINE = (function () {
         else if (score >= 0.35 && n >= 2 && pos >= neg) cls = "goodPossible";
         out[f] = { score, n, cls, evidence: o.evidence.filter(e => e.strong), pos, neg };
       }
+      for (const [f, t] of Object.entries(T)) {
+        if (!out[f]) out[f] = { score: t.tsum / (t.twsum + TOLD_PRIOR), n: 0, cls: "neutral", evidence: [], pos: 0, neg: 0 };
+        else if (out[f].n === 0) out[f].score = (F[f].sum + t.tsum) / (F[f].wsum + t.twsum);
+        out[f].toldScore = t.tsum / t.twsum;
+        out[f].toldNeg = t.evidence.every(e => e.value < 0);
+        out[f].toldEvidence = t.evidence;
+      }
       return out;
+    }
+
+    /* the strength at which a deal-breaker family rules a perfume out: 0.5 in the drydown or 0.7 in the heart */
+    const atStrength = (s, w) => (s === "drydown" && w >= 0.5) || (s === "heart" && w >= 0.7);
+
+    /* Perfumes a profile rules out: those holding a likely or possible deal-breaker at that strength. Read-only;
+       recommend() excludes on likely deal-breakers alone, so this count is the wider, cautious one. */
+    function ruledOut(prof) {
+      const bad = Object.entries(prof).filter(([, v]) => v.cls === "badLikely" || v.cls === "badPossible").map(([f]) => f);
+      return PERFUMES.filter(P => bad.some(f => ["heart", "drydown"].some(s => atStrength(s, P.stages[s][f] || 0)))).map(P => P.id);
     }
 
     function recommend(prof, ratings) {
@@ -136,10 +193,10 @@ window.PP_ENGINE = (function () {
           const sw = STAGE_W[s];
           for (const [f, w] of Object.entries(P.stages[s])) {
             const v = prof[f];
-            if (likely.includes(f) && ((s === "drydown" && w >= 0.5) || (s === "heart" && w >= 0.7))) excluded = true;
+            if (likely.includes(f) && atStrength(s, w)) excluded = true;
             if (!v) { if (w >= 0.5) { unknown += w * sw; risks.push({ f, s, w, kind: "unknown", sev: w * sw }); } continue; }
             if (v.cls === "mixed") { risks.push({ f, s, w, kind: "mixed", sev: w * sw * 0.8 }); penalty += w * sw * 0.3; continue; }
-            if (v.score < 0) { penalty += w * sw * (-v.score) * (v.cls === "badLikely" ? 1.5 : 1); if (w >= 0.3) risks.push({ f, s, w, kind: "neg", sev: w * sw * (-v.score) }); }
+            if (v.score < 0) { penalty += w * sw * (-v.score) * (v.cls === "badLikely" ? 1.5 : 1); if (w >= 0.3) risks.push({ f, s, w, kind: v.n === 0 && v.toldNeg ? "told" : "neg", sev: w * sw * (-v.score) }); }
             else reward += w * sw * v.score;
           }
         }
@@ -170,8 +227,8 @@ window.PP_ENGINE = (function () {
       return null;
     }
 
-    return { STAGES, PERFUMES, byId, applyEvidence, buildAuto, derived, resolve, computeProfile, recommend, settleSuggestion };
+    return { STAGES, PERFUMES, byId, applyEvidence, buildAuto, derived, resolve, strongestStage, computeProfile, recommend, settleSuggestion, ruledOut };
   }
 
-  return { create, STAGES };
+  return { create, STAGES, strongestStage };
 })();

@@ -1,0 +1,171 @@
+@@@OLD
+/* The quiz page (site/quiz.html) under the stub browser (lib/dom.js), loaded exactly as the page loads it:
+   the grid, verdicts written as ordinary ratings, the narrowing round, the told and anosmia answers, the
+   testers, what is sent to a backend, and the profiler reading the quiz's ratings. Assertions read the
+   HTML the page wrote (page.snapshot()). */
+@@@NEW
+/* The quiz page (site/quiz.html) under the stub browser (lib/dom.js), loaded exactly as the page loads it:
+   the grid, verdicts written as ratings, the note rows, the narrowing round, the note picker, taste,
+   complaints and anosmia answers, Back, the result and testers, what is sent to a backend, and the profiler
+   reading the quiz's ratings. Assertions read the HTML the page wrote (page.snapshot()). */
+@@@END
+@@@OLD
+const W = loadSite("data", "mapper", "materials", "evidence", "engine");
+const D = W.PP_DATA, E = W.PP_ENGINE.create(D, W.PP_MAP, W.PP_EVIDENCE);
+@@@NEW
+const W = loadSite("data", "mapper", "materials", "evidence", "engine", "notes");
+const D = W.PP_DATA, E = W.PP_ENGINE.create(D, W.PP_MAP, W.PP_EVIDENCE), N = W.PP_NOTES.create(D, W.PP_MAP, E);
+@@@END
+@@@OLD
+/* Sauvage turned on the wearer hours later, with a chemical complaint; Yara is still worn. */
+function twoBottles(page) {
+  page.click({ dataset: { tile: "sauvageedp" } });
+  page.click({ dataset: { tile: "yara" } });
+  page.click({ dataset: { continue: "1" } });
+  assert.match(html(page), new RegExp(`<h1 class="qname">${reEsc(esc(E.byId.sauvageedp.name))}</h1>`));
+  page.click({ dataset: { verdict: "turned" } });
+  page.click({ dataset: { when: "drydown" } });
+  page.click({ dataset: { chip: "chemical", stage: "drydown" } });
+  page.click({ dataset: { continue: "1" } });
+  assert.match(html(page), new RegExp(`<h1 class="qname">${reEsc(esc(E.byId.yara.name))}</h1>`));
+  page.click({ dataset: { verdict: "still" } });
+}
+@@@NEW
+/* Sauvage turned on the wearer hours later, with a chemical complaint; Yara is still worn. Both note screens
+   are left with Next and nothing answered. */
+function twoBottles(page) {
+  page.click({ dataset: { tile: "sauvageedp" } });
+  page.click({ dataset: { tile: "yara" } });
+  page.click({ dataset: { continue: "1" } });
+  assert.match(html(page), new RegExp(`<h1 class="qname">${reEsc(esc(E.byId.sauvageedp.name))}</h1>`));
+  page.click({ dataset: { verdict: "turned" } });
+  page.click({ dataset: { when: "drydown" } });
+  page.click({ dataset: { chip: "chemical", stage: "drydown" } });
+  page.click({ dataset: { continue: "1" } });
+  assert.match(html(page), /data-nskip="1"/, "Sauvage's note screen");
+  page.click({ dataset: { continue: "1" } });
+  assert.match(html(page), new RegExp(`<h1 class="qname">${reEsc(esc(E.byId.yara.name))}</h1>`));
+  page.click({ dataset: { verdict: "still" } });
+  assert.match(html(page), /data-nskip="1"/, "Yara's note screen");
+  page.click({ dataset: { continue: "1" } });
+}
+/* From the narrowing round or the note picker to the result: the narrowing skipped, every picker card left as it
+   is, then the taste, complaints and anosmia answers. */
+function finish(page, o) {
+  o = Object.assign({ taste: "unsure", told: ["unsure"], anosmia: "no" }, o);
+  if (/data-skip="1"/.test(html(page))) page.click({ dataset: { skip: "1" } });
+  for (let i = 0; i < 4 && /data-pn=/.test(html(page)); i++) page.click({ dataset: { continue: "1" } });
+  assert.match(html(page), /When a perfume leans one way, which do you prefer\?/);
+  page.click({ dataset: { taste: o.taste } });
+  assert.match(html(page), /Which of these have bothered you in a perfume\? Pick all that apply\./);
+  for (const c of o.told) page.click({ dataset: { told: c } });
+  page.click({ dataset: { continue: "1" } });
+  assert.match(html(page), /Do people say a perfume is strong on you when you can barely smell it\?/);
+  page.click({ dataset: { anosmia: o.anosmia } });
+}
+const events = page => page.calls.filter(c => c.body && c.body.type === "event").map(c => [c.body.name, c.body.n]);
+@@@END
+@@@OLD
+  assert.deepEqual(quizScripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/quiz.js"]);
+@@@NEW
+  assert.deepEqual(quizScripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/notes.js", "js/quiz.js"]);
+@@@END
+@@@OLD
+test("two bottles: verdicts written as ratings, a narrowing round, then told, anosmia and the result", () => {
+@@@NEW
+test("two bottles: verdicts written as ratings, a narrowing round, then the told questions and the result", () => {
+@@@END
+@@@OLD
+  page.click({ dataset: { skip: "1" } });
+  assert.match(html(page), /Which of these has bothered you most in a perfume\?/);
+  page.click({ dataset: { told: "chemical" } });
+  assert.match(html(page), /Do people say a perfume is strong on you when you can barely smell it\?/);
+  page.click({ dataset: { anosmia: "no" } });
+
+  const h = html(page);
+  assert.match(h, new RegExp(`<b>${reEsc(esc(D.FAMILIES.woody_amber.en))}</b><span class="pill warn">Possible deal-breaker</span></div><div class="hint">${reEsc(esc(E.byId.sauvageedp.name))} <span class="src">\\(from what you wore\\)</span>`));
+  assert.match(h, /You told us: sharp \/ chemical\. Unconfirmed until a bottle shows it\./);
+  assert.doesNotMatch(h, /class="qnote"/, "no anosmia note when the answer is no");
+  const prof = E.computeProfile({ ratings: r, auto: {}, images: {} });
+@@@NEW
+  assert.match(html(page), /data-skip="1">None of these, or I don&#39;t know them</);
+  finish(page, { told: ["chemical"] });
+
+  const h = html(page);
+  assert.match(h, new RegExp(`<b>${reEsc(esc(D.FAMILIES.woody_amber.en))}</b><span class="pill warn">Possible deal-breaker</span></div><div class="hint">${reEsc(esc(E.byId.sauvageedp.name))} <span class="src">\\(from what you wore\\)</span>`));
+  assert.match(h, /<div>Has bothered you: sharp \/ chemical <span class="src">\(from what you told us\)<\/span><\/div>/);
+  assert.doesNotMatch(h, /class="qnote"/, "no anosmia note when the answer is no");
+  const prof = E.computeProfile({ ratings: r, auto: {}, images: {}, told: N.toldItems(stored(page, "pp_quiz_v1")) });
+@@@END
+@@@OLD
+  page.click({ dataset: { none: "1" } });
+  page.click({ dataset: { told: "sweet" } });
+  page.click({ dataset: { anosmia: "yes" } });
+  const h = html(page);
+  assert.match(h, /Your profile comes from perfumes you have worn, so it cannot be built yet\./);
+@@@NEW
+  page.click({ dataset: { none: "1" } });
+  finish(page, { told: ["sweet"], anosmia: "yes" });
+  const h = html(page);
+  assert.match(h, /Your profile comes from perfumes you have worn, so it cannot be built yet\./);
+@@@END
+@@@OLD
+  assert.deepEqual(stored(page, "pp_quiz_v1"), { told: "sweet", anosmia: "yes" });
+@@@NEW
+  assert.deepEqual(stored(page, "pp_quiz_v1"), { taste: "unsure", told: ["sweet"], anosmia: "yes" });
+@@@END
+@@@OLD
+  page.click({ dataset: { skip: "1" } });
+  page.click({ dataset: { told: "sweet" } });
+  page.click({ dataset: { anosmia: "yes" } });
+  const first = /data-event="sample:([^"]+)"/.exec(html(page))[1];
+  page.click({ dataset: { event: "sample:" + first } });
+  const events = page.calls.filter(c => c.body && c.body.type === "event");
+  assert.deepEqual(events.map(c => [c.body.name, c.body.n]), [["quiz_grid", 2], ["verdict:turned", 1], ["verdict:still", 0], ["told:sweet", 0], ["anosmia:yes", 0], ["quiz_done", 2], ["sample:" + first, 1]]);
+  for (const c of events) assert.deepEqual(Object.keys(c.body).sort(), ["device", "lang", "n", "name", "type"]);
+@@@NEW
+  finish(page, { taste: "both", told: ["sweet"], anosmia: "yes" });
+  const first = /data-event="sample:([^"]+)"/.exec(html(page))[1];
+  page.click({ dataset: { event: "sample:" + first } });
+  const rows = id => N.questions(E.byId[id], "worn").length;
+  assert.deepEqual(events(page), [["quiz_grid", 2], ["verdict:turned", 1], ["notes:0", rows("sauvageedp")], ["verdict:still", 0], ["notes:0", rows("yara")],
+    ["taste:both", 0], ["told:sweet", 0], ["anosmia:yes", 0], ["quiz_done", 2], ["sample:" + first, 1]]);
+  for (const c of page.calls.filter(c => c.body && c.body.type === "event")) assert.deepEqual(Object.keys(c.body).sort(), ["device", "lang", "n", "name", "type"]);
+@@@END
+@@@OLD
+  page.click({ dataset: { verdict: "shop" } });
+  page.click({ dataset: { continue: "1" } });
+  assert.deepEqual(stored(page).hawas, { opening: -1, heart: null, drydown: null, again: null, chips: {}, src: "quiz" });
+  page.click({ dataset: { told: "none" } });
+  page.click({ dataset: { anosmia: "no" } });
+  const h = html(page);
+@@@NEW
+  page.click({ dataset: { verdict: "shop" } });
+  page.click({ dataset: { continue: "1" } });
+  assert.deepEqual(stored(page).hawas, { opening: -1, heart: null, drydown: null, again: null, chips: {}, src: "quiz" });
+  /* a shop trial is asked only about its opening and heart */
+  const shopRows = N.questions(E.byId.hawas, "shop");
+  assert.ok(shopRows.length >= 1 && shopRows.every(r => r.stage !== "drydown"));
+  assert.equal((html(page).match(/<div class="nrow">/g) || []).length, shopRows.length);
+  page.click({ dataset: { continue: "1" } });
+  finish(page, { told: ["none"] });
+  const h = html(page);
+@@@END
+@@@OLD
+  prof.click({ dataset: { none: "1" } });
+  prof.click({ dataset: { told: "none" } });
+  prof.click({ dataset: { anosmia: "no" } });
+@@@NEW
+  prof.click({ dataset: { none: "1" } });
+  finish(prof, { told: ["none"] });
+@@@END
+@@@OLD
+  page.click({ dataset: { none: "1" } });
+  page.click({ dataset: { told: "none" } });
+  page.click({ dataset: { anosmia: "yes" } });
+  const id = D.QUIZ.testers.find(x => x.family === "white_musk").id;
+@@@NEW
+  page.click({ dataset: { none: "1" } });
+  finish(page, { told: ["none"], anosmia: "yes" });
+  const id = D.QUIZ.testers.find(x => x.family === "white_musk").id;
+@@@END

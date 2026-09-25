@@ -1,0 +1,849 @@
+{
+ "source": "niceone.json matched to the catalogue by match_niceone.py",
+ "perfumes": {
+  "accento": {
+   "gender": "u",
+   "best_rank": 155,
+   "list": "unisex",
+   "max_reviews": 66,
+   "copies_sold": 2,
+   "matched": [
+    "men #254 (66): XERJOFFXerjoff Accento - Eau de Parfum 1,323 1,099-17%",
+    "copy unisex #83 (1): Option BOption B B Accento - Inspired by Xerjoff Accento - 50 ml 124 55-56%",
+    "unisex #155 (66): XERJOFFXerjoff Accento - Eau de Parfum 1,323 1,099-17%",
+    "copy unisex #83 (1): Option BOption B B Accento - Inspired by Xerjoff Accento - 50 ml 124 55-56%",
+    "unisex #155 (66): XERJOFFXerjoff Accento - Eau de Parfum 1,323 1,099-17%"
+   ]
+  },
+  "adgedt": {
+   "gender": "m",
+   "best_rank": 217,
+   "list": "men",
+   "max_reviews": 42,
+   "copies_sold": 0,
+   "matched": [
+    "men #217 (42): Giorgio ArmaniGiorgio Armani Acqua Di Gio For Men - Eau De Toilette 575 422.10",
+    "men #290 (1): Giorgio ArmaniGiorgio Armani Acqua Di Gio For Men - Parfum 512"
+   ]
+  },
+  "allurehommesport": {
+   "gender": "m",
+   "best_rank": 88,
+   "list": "men",
+   "max_reviews": 43,
+   "copies_sold": 1,
+   "matched": [
+    "copy men #81 (1): Option BOption B Homme Sport - Inspired by Allure Homme Sport Chanel - 50 ml 12",
+    "men #88 (43): CHANELChanel Allure Sport For Men - Eau de Toilette 479"
+   ]
+  },
+  "althair": {
+   "gender": "m",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy men #54 (1): Option BOption B Thair Scent - Inspired by Parfums de Marly Althair - 50ml 124"
+   ]
+  },
+  "armanicode": {
+   "gender": "m",
+   "best_rank": 155,
+   "list": "men",
+   "max_reviews": 2,
+   "copies_sold": 0,
+   "matched": [
+    "men #155 (2): Giorgio ArmaniGiorgio Armani Armani Code For Men - 125ml - Eau de Toilette 541"
+   ]
+  },
+  "aurum": {
+   "gender": "f",
+   "best_rank": 190,
+   "list": "women",
+   "max_reviews": 6,
+   "copies_sold": 0,
+   "matched": [
+    "women #190 (6): AjmalAjmal Aurum for Women - Eau De Parfum 190 171-10%"
+   ]
+  },
+  "aventus": {
+   "gender": "m",
+   "best_rank": 78,
+   "list": "men",
+   "max_reviews": 78,
+   "copies_sold": 2,
+   "matched": [
+    "copy men #51 (1): Option BOption B White Knight - Inspired by Creed Aventus 79 49-38%",
+    "men #78 (78): CreedCreed Aventus For Men - Eau De Perfum 1,499 1,106.10-26%",
+    "copy men #131 (1): Option BOption B B AB Knight 25 - Inspired by Absolu Aventus Creed 2025 124 55"
+   ]
+  },
+  "aventusforher": {
+   "gender": "f",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 2,
+   "matched": [
+    "copy men #51 (1): Option BOption B White Knight - Inspired by Creed Aventus 79 49-38%",
+    "copy men #131 (1): Option BOption B B AB Knight 25 - Inspired by Absolu Aventus Creed 2025 124 55"
+   ]
+  },
+  "bitterpeach": {
+   "gender": "u",
+   "best_rank": 342,
+   "list": "unisex",
+   "max_reviews": 1,
+   "copies_sold": 0,
+   "matched": [
+    "unisex #342 (1): Tom FordTom Ford Bitter Peach - Eau de Parfum 1,657",
+    "unisex #342 (1): Tom FordTom Ford Bitter Peach - Eau de Parfum 1,657"
+   ]
+  },
+  "blackorchid": {
+   "gender": "f",
+   "best_rank": 245,
+   "list": "women",
+   "max_reviews": 68,
+   "copies_sold": 2,
+   "matched": [
+    "women #245 (68): Tom FordTom Ford Black Orchid For Women - Eau de Parfum 664",
+    "copy unisex #65 (4): Option BOption B Orched - Inspired by Tom Ford Black Orchid - 50ml 124 55-56%",
+    "copy unisex #65 (4): Option BOption B Orched - Inspired by Tom Ford Black Orchid - 50ml 124 55-56%"
+   ]
+  },
+  "blacksaffron": {
+   "gender": "u",
+   "best_rank": 105,
+   "list": "men",
+   "max_reviews": 16,
+   "copies_sold": 2,
+   "matched": [
+    "men #105 (16): ByredoByredo Black Saffron - 100ml - Eau De Perfum 1,200 899.10-25%",
+    "women #206 (16): ByredoByredo Black Saffron - 100ml - Eau De Perfum 1,200 899.10-25%",
+    "women #215 (16): ByredoByredo Black Saffron - 100ml - Eau De Perfum 1,200 899.10-25%",
+    "copy unisex #80 (1): Option BOption B Dark Saffaron - Inspired by Black Saffron Byredo - 50ml 124 5",
+    "copy unisex #80 (1): Option BOption B Dark Saffaron - Inspired by Black Saffron Byredo - 50ml 124 5"
+   ]
+  },
+  "blanche": {
+   "gender": "f",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy men #3 (6): Option BOption B B blanche - Inspired by Blanche byredo 79 49-38%"
+   ]
+  },
+  "bossbottled": {
+   "gender": "m",
+   "best_rank": 45,
+   "list": "men",
+   "max_reviews": 58,
+   "copies_sold": 0,
+   "matched": [
+    "men #45 (58): HUGO BOSSHugo Boss Boss Bottled For Men - Eau De Toilette 460"
+   ]
+  },
+  "bythefireplace": {
+   "gender": "u",
+   "best_rank": 138,
+   "list": "unisex",
+   "max_reviews": 9,
+   "copies_sold": 0,
+   "matched": [
+    "unisex #138 (9): Maison MargielaMaison Margiela Replica By The Fireplace - Eau De Toilette 845",
+    "unisex #151 (9): Maison MargielaMaison Margiela Replica By The Fireplace - Eau De Toilette 845",
+    "unisex #138 (9): Maison MargielaMaison Margiela Replica By The Fireplace - Eau De Toilette 845",
+    "unisex #151 (9): Maison MargielaMaison Margiela Replica By The Fireplace - Eau De Toilette 845"
+   ]
+  },
+  "chanceeautendre": {
+   "gender": "f",
+   "best_rank": 165,
+   "list": "women",
+   "max_reviews": 126,
+   "copies_sold": 1,
+   "matched": [
+    "copy women #9 (18): Option BOption B Chans T - Inspired by Chanel Chance Eau Tendre - 50ml 124 55-",
+    "women #165 (126): CHANELChanel Chance Eau Tendre For Women - Eau De Toilette 555",
+    "women #179 (26): CHANELChanel Chance Eau Tendre For Women - Eau De Parfum 893"
+   ]
+  },
+  "declaration": {
+   "gender": "m",
+   "best_rank": 82,
+   "list": "men",
+   "max_reviews": 84,
+   "copies_sold": 0,
+   "matched": [
+    "men #82 (69): cartierCartier Declaration For Men - Parfum 425 341.10-20%",
+    "men #112 (84): cartierCartier Declaration For Men - 100ml - Eau de Toilette 455 339-25%"
+   ]
+  },
+  "dylanblue": {
+   "gender": "m",
+   "best_rank": 42,
+   "list": "men",
+   "max_reviews": 301,
+   "copies_sold": 0,
+   "matched": [
+    "men #42 (301): VERSACEVersace Dylan Blue Pour Homme For Men - Eau De Toilette 395 249-37%"
+   ]
+  },
+  "eros": {
+   "gender": "m",
+   "best_rank": 39,
+   "list": "men",
+   "max_reviews": 220,
+   "copies_sold": 3,
+   "matched": [
+    "men #39 (220): VERSACEVersace Eros For Men - Eau De Toilette 395.01",
+    "copy men #109 (1): Option BOption B B Eros - Inspired by Eros Versace - 50 ml 124 55-56%",
+    "copy women #286 (1): Option BOption B Femme Scent - Inspired by Versace Eros femme - 50ml 124 55-56",
+    "copy women #307 (1): Option BOption B Femme Scent - Inspired by Versace Eros femme - 50ml 124 55-56"
+   ]
+  },
+  "explorer": {
+   "gender": "m",
+   "best_rank": 7,
+   "list": "men",
+   "max_reviews": 299,
+   "copies_sold": 0,
+   "matched": [
+    "men #7 (299): MONT BLANCMont Blanc Explorer For Men - Eau De Parfum 305 182.02-40%"
+   ]
+  },
+  "floragardenia": {
+   "gender": "f",
+   "best_rank": 49,
+   "list": "women",
+   "max_reviews": 112,
+   "copies_sold": 0,
+   "matched": [
+    "women #49 (112): GucciGucci Flora Gorgeous Gardenia For Women - Eau De Perfum 555 437.15-21%"
+   ]
+  },
+  "flowerbomb": {
+   "gender": "f",
+   "best_rank": 64,
+   "list": "women",
+   "max_reviews": 180,
+   "copies_sold": 0,
+   "matched": [
+    "women #64 (180): VIKTOR & ROLFViktor and Rolf Flowerbomb For Women - Eau de Parfum 529.01 345.5"
+   ]
+  },
+  "gentlemanedp": {
+   "gender": "m",
+   "best_rank": 106,
+   "list": "men",
+   "max_reviews": 28,
+   "copies_sold": 0,
+   "matched": [
+    "men #106 (28): GivenchyGivenchy Gentleman For Men - Eau de Parfum 599 419-30%"
+   ]
+  },
+  "gentlemanreserve": {
+   "gender": "m",
+   "best_rank": 72,
+   "list": "men",
+   "max_reviews": 42,
+   "copies_sold": 0,
+   "matched": [
+    "men #72 (42): GivenchyGivenchy Gentleman Reserve Privee For Men - Eau de Parfum 620 469-24%"
+   ]
+  },
+  "git": {
+   "gender": "m",
+   "best_rank": 248,
+   "list": "men",
+   "max_reviews": 19,
+   "copies_sold": 0,
+   "matched": [
+    "men #248 (19): CreedCreed Green Irish Tweed For Men -100ml- Eau de Parfum 1,615 1,229-24%"
+   ]
+  },
+  "goodgirl": {
+   "gender": "f",
+   "best_rank": 110,
+   "list": "women",
+   "max_reviews": 192,
+   "copies_sold": 1,
+   "matched": [
+    "copy women #96 (3): Option BOption B Elegant Girl - Inspired by Good Girl Carolina Herrera - 50 ml ",
+    "women #110 (192): Carolina HerreraCarolina Herrera Good Girl For Women - Eau de Parfum 535 469-1"
+   ]
+  },
+  "goodgirlblush": {
+   "gender": "f",
+   "best_rank": 103,
+   "list": "women",
+   "max_reviews": 4,
+   "copies_sold": 0,
+   "matched": [
+    "women #103 (4): Carolina HerreraCarolina Herrera Good Girl Blush For Women - Eau de Parfum 590"
+   ]
+  },
+  "greenley": {
+   "gender": "m",
+   "best_rank": 310,
+   "list": "unisex",
+   "max_reviews": 8,
+   "copies_sold": 0,
+   "matched": [
+    "unisex #310 (8): Parfums De Marlyde Marly Greenley - Eau de Parfum 1,311 1,007.10-23%",
+    "unisex #310 (8): Parfums De Marlyde Marly Greenley - Eau de Parfum 1,311 1,007.10-23%"
+   ]
+  },
+  "guccibloom": {
+   "gender": "f",
+   "best_rank": 23,
+   "list": "women",
+   "max_reviews": 600,
+   "copies_sold": 1,
+   "matched": [
+    "women #23 (600): GucciGucci Bloom For Women - Eau De Parfum 555 304.11-45%",
+    "copy women #99 (2): Option BOption B Floral Bloom - Inspired by Gucci Bloom - 50 Ml 124 55-56%"
+   ]
+  },
+  "gucciguilty": {
+   "gender": "f",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy women #90 (5): Option BOption B Guilty Scent - Inspired by Gucci Guilty - 50 ml 124 55-56%"
+   ]
+  },
+  "guidance": {
+   "gender": "f",
+   "best_rank": 153,
+   "list": "unisex",
+   "max_reviews": 2,
+   "copies_sold": 2,
+   "matched": [
+    "copy unisex #20 (4): Option BOption B Guidness Scent - Inspired by Guidance Amouage - 50 ml 124 55-",
+    "unisex #153 (2): AmouageAmouage Guidance - Eau de Parfum 1,550",
+    "copy unisex #20 (4): Option BOption B Guidness Scent - Inspired by Guidance Amouage - 50 ml 124 55-",
+    "unisex #153 (2): AmouageAmouage Guidance - Eau de Parfum 1,550"
+   ]
+  },
+  "hacivat": {
+   "gender": "u",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy men #75 (1): Option BOption B Hacivat Scent - Inspired by Nishane Hacivat - 50ml 124 55-56%"
+   ]
+  },
+  "hypnoticpoison": {
+   "gender": "f",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy women #20 (14): Option BOption B Poison Scent - Inspired by Hypnotic Poison Dior - 50 ml 124 5"
+   ]
+  },
+  "idole": {
+   "gender": "f",
+   "best_rank": 8,
+   "list": "women",
+   "max_reviews": 682,
+   "copies_sold": 1,
+   "matched": [
+    "women #8 (682): LancomeLancome Idole For Women - Eau De Parfum 355 265.43-25%",
+    "copy women #14 (7): Option BOption B IDOLE Scent - Inspired by Lancome Idole - 50ml 124 55-56%"
+   ]
+  },
+  "imagination": {
+   "gender": "m",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy men #15 (2): Option BOption B Imagine Scent - inspired by Imagination Louis Vuitton 79 49-3"
+   ]
+  },
+  "irishleather": {
+   "gender": "u",
+   "best_rank": 73,
+   "list": "unisex",
+   "max_reviews": 70,
+   "copies_sold": 0,
+   "matched": [
+    "men #98 (70): Memo ParisMemo Paris Irish Leather- Eau De Parfum 1,365",
+    "women #193 (70): Memo ParisMemo Paris Irish Leather- Eau De Parfum 1,365",
+    "unisex #73 (70): Memo ParisMemo Paris Irish Leather- Eau De Parfum 1,365",
+    "unisex #73 (70): Memo ParisMemo Paris Irish Leather- Eau De Parfum 1,365"
+   ]
+  },
+  "jadore": {
+   "gender": "f",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy women #12 (18): Option BOption B B Jador - Inspired by Dior J'adore - 50ml 124 55-56%"
+   ]
+  },
+  "jazzclub": {
+   "gender": "m",
+   "best_rank": 128,
+   "list": "men",
+   "max_reviews": 13,
+   "copies_sold": 0,
+   "matched": [
+    "men #128 (13): Maison MargielaMaison Margiela Replica Jazz Club For Men - Eau De Toilette 777"
+   ]
+  },
+  "kdg": {
+   "gender": "m",
+   "best_rank": 132,
+   "list": "men",
+   "max_reviews": 50,
+   "copies_sold": 0,
+   "matched": [
+    "men #132 (50): Dolce and GabbanaDolce & Gabbana K For Men - Eau De Toilette 425.02 305.10-28%"
+   ]
+  },
+  "khamrahqahwa": {
+   "gender": "u",
+   "best_rank": 50,
+   "list": "unisex",
+   "max_reviews": 9,
+   "copies_sold": 0,
+   "matched": [
+    "unisex #50 (9): LattafaLattafa Khamrah Qahwa - Eau de Parfum 140 125-11%",
+    "unisex #50 (9): LattafaLattafa Khamrah Qahwa - Eau de Parfum 140 125-11%"
+   ]
+  },
+  "lavieestbelle": {
+   "gender": "f",
+   "best_rank": 87,
+   "list": "women",
+   "max_reviews": 327,
+   "copies_sold": 0,
+   "matched": [
+    "women #87 (327): LancomeLancome La Vie Est Belle For Women - Eau de Parfum 547 499-9%"
+   ]
+  },
+  "lazysunday": {
+   "gender": "u",
+   "best_rank": 152,
+   "list": "unisex",
+   "max_reviews": 2,
+   "copies_sold": 0,
+   "matched": [
+    "unisex #152 (2): Maison MargielaMaison Margiela Replica Lazy Sunday Morning - Eau De Toilette 77",
+    "unisex #152 (2): Maison MargielaMaison Margiela Replica Lazy Sunday Morning - Eau De Toilette 77"
+   ]
+  },
+  "leaudissey": {
+   "gender": "m",
+   "best_rank": 223,
+   "list": "men",
+   "max_reviews": 6,
+   "copies_sold": 0,
+   "matched": [
+    "men #223 (6): issey miyakeIssey Miyake Leau Dissey Pour Homme For Men - Eau De Toilette 390 "
+   ]
+  },
+  "legend": {
+   "gender": "m",
+   "best_rank": 43,
+   "list": "men",
+   "max_reviews": 133,
+   "copies_sold": 0,
+   "matched": [
+    "men #43 (133): MONT BLANCMont Blanc Legend For Men - Eau de Toilette 404.96 219-46%"
+   ]
+  },
+  "lemale": {
+   "gender": "m",
+   "best_rank": 311,
+   "list": "men",
+   "max_reviews": 27,
+   "copies_sold": 0,
+   "matched": [
+    "men #311 (27): Jean Paul GaultierJean Paul Gaultier Le Male For Men - Eau De Toilette 363 314",
+    "men #340 (27): Jean Paul GaultierJean Paul Gaultier Le Male For Men - Eau De Toilette 363 314"
+   ]
+  },
+  "lemaleelixir": {
+   "gender": "m",
+   "best_rank": 119,
+   "list": "men",
+   "max_reviews": 2,
+   "copies_sold": 0,
+   "matched": [
+    "men #119 (2): Jean Paul GaultierJean Paul Gaultier Le Male Elixir for men 680 609-10%"
+   ]
+  },
+  "lhommeideal": {
+   "gender": "m",
+   "best_rank": 16,
+   "list": "men",
+   "max_reviews": 72,
+   "copies_sold": 0,
+   "matched": [
+    "men #16 (72): GuerlainGuerlain L’Homme Idéal For Men - 100ml - Eau De Parfum 626.98 330-47%"
+   ]
+  },
+  "libre": {
+   "gender": "f",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy women #10 (5): Option BOption B Libra Flower - Inspired by Yves Saint Laurent Libre 79 49-38%"
+   ]
+  },
+  "lightbluemen": {
+   "gender": "m",
+   "best_rank": 214,
+   "list": "men",
+   "max_reviews": 1,
+   "copies_sold": 0,
+   "matched": [
+    "men #214 (1): Dolce and GabbanaDolce & Gabbana Light Blue Pour Homme For Men- Eau De Toilette"
+   ]
+  },
+  "linterdit": {
+   "gender": "f",
+   "best_rank": 30,
+   "list": "women",
+   "max_reviews": 284,
+   "copies_sold": 0,
+   "matched": [
+    "women #30 (284): GivenchyGivenchy Linterdit For Women - Eau de Parfum 547 356.49-35%"
+   ]
+  },
+  "lostcherry": {
+   "gender": "u",
+   "best_rank": 341,
+   "list": "unisex",
+   "max_reviews": 7,
+   "copies_sold": 0,
+   "matched": [
+    "unisex #341 (7): Tom FordTom Ford Lost Cherry - Eau de Parfum 2,266",
+    "unisex #341 (7): Tom FordTom Ford Lost Cherry - Eau de Parfum 2,266"
+   ]
+  },
+  "maninblack": {
+   "gender": "m",
+   "best_rank": 113,
+   "list": "men",
+   "max_reviews": 79,
+   "copies_sold": 0,
+   "matched": [
+    "men #113 (79): BvlgariBvlgari Man in Black For Men - 100ml - Eau de Parfum 610 350.10-43%"
+   ]
+  },
+  "megamare": {
+   "gender": "u",
+   "best_rank": 189,
+   "list": "unisex",
+   "max_reviews": 14,
+   "copies_sold": 0,
+   "matched": [
+    "men #322 (14): Orto ParisiOrto Parisi Megamare - 50ml - Parfum 767",
+    "unisex #189 (14): Orto ParisiOrto Parisi Megamare - 50ml - Parfum 767",
+    "unisex #189 (14): Orto ParisiOrto Parisi Megamare - 50ml - Parfum 767"
+   ]
+  },
+  "mostwantedparfum": {
+   "gender": "m",
+   "best_rank": 89,
+   "list": "men",
+   "max_reviews": 21,
+   "copies_sold": 0,
+   "matched": [
+    "men #89 (21): AzzaroAzzaro Wanted The Most For Men - Parfum 455 359.10-21%",
+    "men #94 (21): AzzaroAzzaro Wanted The Most For Men - Parfum 455 359.10-21%"
+   ]
+  },
+  "myway": {
+   "gender": "f",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy women #131 (3): Option BOption B Jasmine Way - Inspired by Armani My Way - 50 ml 124 55-56%"
+   ]
+  },
+  "noirextreme": {
+   "gender": "m",
+   "best_rank": 255,
+   "list": "men",
+   "max_reviews": 38,
+   "copies_sold": 0,
+   "matched": [
+    "men #255 (38): Tom FordTom Ford Noir Extreme For Men - Eau de Parfum 932"
+   ]
+  },
+  "ombreleather": {
+   "gender": "u",
+   "best_rank": 22,
+   "list": "unisex",
+   "max_reviews": 170,
+   "copies_sold": 2,
+   "matched": [
+    "women #82 (170): Tom FordTom Ford Ombre Leather - Eau De Perfum 664 549-17%",
+    "unisex #22 (170): Tom FordTom Ford Ombre Leather - Eau De Perfum 664 549-17%",
+    "copy unisex #64 (1): Option BOption B O Leather - Inspired by Tom Ford Ombre Leather - 50 ml 124 55",
+    "unisex #22 (170): Tom FordTom Ford Ombre Leather - Eau De Perfum 664 549-17%",
+    "copy unisex #64 (1): Option BOption B O Leather - Inspired by Tom Ford Ombre Leather - 50 ml 124 55"
+   ]
+  },
+  "oudwood": {
+   "gender": "u",
+   "best_rank": 168,
+   "list": "unisex",
+   "max_reviews": 20,
+   "copies_sold": 2,
+   "matched": [
+    "men #284 (20): Tom FordTom Ford Oud Wood - Eau de Parfum 743",
+    "copy unisex #67 (1): Option BOption B O Wood - Inspired by Tom Ford Oud Wood - 50ml 124 55-56%",
+    "unisex #168 (20): Tom FordTom Ford Oud Wood - Eau de Parfum 743",
+    "copy unisex #67 (1): Option BOption B O Wood - Inspired by Tom Ford Oud Wood - 50ml 124 55-56%",
+    "unisex #168 (20): Tom FordTom Ford Oud Wood - Eau de Parfum 743"
+   ]
+  },
+  "paradoxe": {
+   "gender": "f",
+   "best_rank": 16,
+   "list": "women",
+   "max_reviews": 187,
+   "copies_sold": 1,
+   "matched": [
+    "women #16 (187): PradaPrada Paradoxe For Women - Eau De Parfum 589 389-34%",
+    "copy women #41 (5): Option BOption B Paradox B - Inspired By Prada Paradoxe Prada - 50 Ml 124 55-5"
+   ]
+  },
+  "percival": {
+   "gender": "m",
+   "best_rank": 213,
+   "list": "unisex",
+   "max_reviews": 9,
+   "copies_sold": 0,
+   "matched": [
+    "unisex #213 (9): Parfums De MarlyParfums de Marly Percival - Eau de Parfum 1,598 1,223.10-23%",
+    "unisex #213 (9): Parfums De MarlyParfums de Marly Percival - Eau de Parfum 1,598 1,223.10-23%"
+   ]
+  },
+  "philosykos": {
+   "gender": "u",
+   "best_rank": 333,
+   "list": "unisex",
+   "max_reviews": 2,
+   "copies_sold": 0,
+   "matched": [
+    "unisex #333 (2): DiptyqueDiptyque Philosykos - Eau de Toilette 830",
+    "unisex #333 (2): DiptyqueDiptyque Philosykos - Eau de Toilette 830"
+   ]
+  },
+  "qaedalfursan": {
+   "gender": "m",
+   "best_rank": 167,
+   "list": "unisex",
+   "max_reviews": 2,
+   "copies_sold": 0,
+   "matched": [
+    "unisex #167 (2): LattafaLattafa Qaed Al Fursan - Eau de Parfum 67",
+    "unisex #167 (2): LattafaLattafa Qaed Al Fursan - Eau de Parfum 67"
+   ]
+  },
+  "raghba": {
+   "gender": "u",
+   "best_rank": 312,
+   "list": "unisex",
+   "max_reviews": 16,
+   "copies_sold": 0,
+   "matched": [
+    "unisex #312 (16): LattafaLattafa Raghba - Eau De Parfum 67",
+    "unisex #312 (16): LattafaLattafa Raghba - Eau De Parfum 67"
+   ]
+  },
+  "redtobacco": {
+   "gender": "u",
+   "best_rank": 116,
+   "list": "men",
+   "max_reviews": 189,
+   "copies_sold": 0,
+   "matched": [
+    "men #116 (189): manceraMancera Red Tobacco - Eau de Parfum 744 449.10-40%",
+    "women #233 (189): manceraMancera Red Tobacco - Eau de Parfum 744 449.10-40%"
+   ]
+  },
+  "rosesvanille": {
+   "gender": "f",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy women #63 (6): Option BOption B Vanille & Rose - Inspired by Mancera Roses Vanille - 50 ml 124"
+   ]
+  },
+  "santalroyal": {
+   "gender": "u",
+   "best_rank": 5,
+   "list": "men",
+   "max_reviews": 371,
+   "copies_sold": 2,
+   "matched": [
+    "men #5 (371): GuerlainGuerlain Santal Royal - Eau De Parfum - 125ml 945.06 485-49%",
+    "women #32 (371): GuerlainGuerlain Santal Royal - Eau De Parfum - 125ml 945.06 485-49%",
+    "unisex #5 (371): GuerlainGuerlain Santal Royal - Eau De Parfum - 125ml 945.06 485-49%",
+    "copy unisex #85 (2): Option BOption B S Royal - Inspired by Santal Royal Guerlain - 50ml 124 55-56%",
+    "unisex #5 (371): GuerlainGuerlain Santal Royal - Eau De Parfum - 125ml 945.06 485-49%",
+    "copy unisex #85 (2): Option BOption B S Royal - Inspired by Santal Royal Guerlain - 50ml 124 55-56%"
+   ]
+  },
+  "sauvageedp": {
+   "gender": "m",
+   "best_rank": 32,
+   "list": "men",
+   "max_reviews": 385,
+   "copies_sold": 0,
+   "matched": [
+    "men #32 (385): DiorDior Sauvage For Men - Eau de Parfum 535 491.37-8%"
+   ]
+  },
+  "sauvageedt": {
+   "gender": "m",
+   "best_rank": 84,
+   "list": "men",
+   "max_reviews": 230,
+   "copies_sold": 1,
+   "matched": [
+    "copy men #19 (2): Option BOption B Wild Spirit - Inspired by Sauvage Dior - 50 Ml 124 55-56%",
+    "men #84 (230): DiorDior Sauvage For Men - Eau De Toilette 440"
+   ]
+  },
+  "sauvageelixir": {
+   "gender": "m",
+   "best_rank": 257,
+   "list": "men",
+   "max_reviews": 49,
+   "copies_sold": 0,
+   "matched": [
+    "men #257 (49): DiorDior Sauvage Elixir For Men - Eau de Parfum 825",
+    "men #282 (49): DiorDior Sauvage Elixir For Men - Eau de Parfum 825"
+   ]
+  },
+  "scandal": {
+   "gender": "f",
+   "best_rank": 60,
+   "list": "women",
+   "max_reviews": 472,
+   "copies_sold": 0,
+   "matched": [
+    "women #60 (472): Jean Paul GaultierJean Paul Gaultier Scandal For Women - Eau De Perfum 505 396"
+   ]
+  },
+  "si": {
+   "gender": "f",
+   "best_rank": 136,
+   "list": "women",
+   "max_reviews": 286,
+   "copies_sold": 0,
+   "matched": [
+    "women #136 (286): Giorgio ArmaniGiorgio Armani Si For Women - Eau de Parfum 575 469-18%"
+   ]
+  },
+  "smw": {
+   "gender": "u",
+   "best_rank": 136,
+   "list": "men",
+   "max_reviews": 53,
+   "copies_sold": 1,
+   "matched": [
+    "copy men #80 (1): Option BOption B B Silver - Inspired by Creed Silver Mountain Water - 50 ml 124",
+    "men #136 (53): CreedCreed Silver Mountain Water - Eau De Parfum 1,505 1,229-18%"
+   ]
+  },
+  "spicebombextreme": {
+   "gender": "m",
+   "best_rank": 259,
+   "list": "men",
+   "max_reviews": 36,
+   "copies_sold": 0,
+   "matched": [
+    "men #259 (36): VIKTOR & ROLFViktor & Rolf Spicebomb Extreme Pour Homme for Men - Eau De Parfum"
+   ]
+  },
+  "swy": {
+   "gender": "m",
+   "best_rank": 69,
+   "list": "men",
+   "max_reviews": 134,
+   "copies_sold": 0,
+   "matched": [
+    "men #69 (134): Emporio ArmaniEmporio Armani Stronger With You For Men - Eau De Toilette 420 3"
+   ]
+  },
+  "swyintensely": {
+   "gender": "m",
+   "best_rank": 2,
+   "list": "men",
+   "max_reviews": 370,
+   "copies_sold": 0,
+   "matched": [
+    "men #2 (370): Emporio ArmaniEmporio Armani Stronger With You Intensely For Men - Eau De Parfum"
+   ]
+  },
+  "theonemen": {
+   "gender": "m",
+   "best_rank": 243,
+   "list": "men",
+   "max_reviews": 1,
+   "copies_sold": 0,
+   "matched": [
+    "men #243 (1): Dolce and GabbanaDolce & Gabbana The One Pour Homme - Parfum 788 566.10-28%"
+   ]
+  },
+  "tygar": {
+   "gender": "m",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy men #61 (3): Option BOption B Tyger Scent - Inspired by Bvlgari Tygar - 50 Ml 124 55-56%"
+   ]
+  },
+  "yara": {
+   "gender": "f",
+   "best_rank": 92,
+   "list": "women",
+   "max_reviews": 6,
+   "copies_sold": 0,
+   "matched": [
+    "women #92 (6): LattafaLattafa Yara for Women - Eau de Parfum 155 96-38%"
+   ]
+  },
+  "yedt": {
+   "gender": "m",
+   "best_rank": null,
+   "list": "",
+   "max_reviews": 0,
+   "copies_sold": 1,
+   "matched": [
+    "copy men #68 (2): Option BOption B Y Scent - Inspired by Yves Saint Laurent Y - 50ml 124 55-56%"
+   ]
+  }
+ }
+}

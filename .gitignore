@@ -7,3 +7,10 @@ node_modules/
 
 # Local Claude Code settings
 .claude/settings.local.json
+
+# Local browser-driver scripts
+.playwright-mcp/
+
+# Python bytecode and local session files
+__pycache__/
+.claude/scheduled_tasks.lock

@@ -1,0 +1,187 @@
+@@@OLD
+  if (!D || !M || !MAT || !window.PP_ENGINE || !window.PP_CONFIG) { document.getElementById("h1").textContent = "A script in js/ did not load (config, data, mapper, materials or engine). Serve the site folder as it is."; return; }
+  const { FAMILIES, CHIPS } = D;
+  const E = window.PP_ENGINE.create(D, M, window.PP_EVIDENCE);
+@@@NEW
+  if (!D || !M || !MAT || !window.PP_ENGINE || !window.PP_NOTES || !window.PP_CONFIG) { document.getElementById("h1").textContent = "A script in js/ did not load (config, data, mapper, materials, engine or notes). Serve the site folder as it is."; return; }
+  const { FAMILIES, CHIPS } = D;
+  const E = window.PP_ENGINE.create(D, M, window.PP_EVIDENCE);
+  const N = window.PP_NOTES.create(D, M, E);
+@@@END
+@@@OLD
+      riskNeg: (fam, stage) => `Contains a little ${fam} in the ${stage.toLowerCase()}, which you have disliked before.`,
+@@@NEW
+      riskNeg: (fam, stage) => `Contains a little ${fam} in the ${stage.toLowerCase()}, which you have disliked before.`,
+      riskTold: (fam, stage) => `Contains ${fam} in the ${stage.toLowerCase()}, which you said you avoid.`,
+      toldOnlyH: "Based only on what you told us",
+      toldUses: n => `Also uses ${n} ${n === 1 ? "answer" : "answers"} from the quiz.`,
+      noteLine: (perfume, stage, words, v) => `${perfume}, ${stage.toLowerCase()}: you ${{ 2: "loved", 1: "liked", 0: "didn't mind", "-1": "disliked", "-2": "hated" }[v]} the ${words}`,
+      notesS: "Rate its notes", notesHint: "Tap what you remember; skip what you don't.",
+      rowStage: { opening: "First minutes", heart: "First hours", drydown: "Hours later" },
+      notListed: "not on its note list", notListedHint: "Some materials are in a perfume without being on its note list.",
+      answers: { "-2": "Hated it", "-1": "Disliked it", 0: "Didn't mind", 1: "Liked it", 2: "Loved it", u: "Didn't notice it" },
+      change: "Change",
+@@@END
+@@@OLD
+      riskNeg: (fam, stage) => `فيه قليل من ${fam} في ${stage}، وقد أزعجك من قبل.`,
+@@@NEW
+      riskNeg: (fam, stage) => `فيه قليل من ${fam} في ${stage}، وقد أزعجك من قبل.`,
+      riskTold: (fam, stage) => `يحتوي على ${fam} في ${stage}، وقد قلت إنك تتجنبه.`,
+      toldOnlyH: "مبني فقط على ما أخبرتنا به",
+      toldUses: n => `يستخدم أيضاً إجاباتك في الاختبار (${n}).`,
+      noteLine: (perfume, stage, words, v) => `${perfume}، ${stage}: قلت عن «${words}»: ${{ 2: "أعجبني كثيراً", 1: "أعجبني", 0: "لا بأس به", "-1": "لم يعجبني", "-2": "كرهته" }[v]}`,
+      notesS: "قيّم نوتاته", notesHint: "اختر ما تتذكره، وتجاوز ما لا تتذكره.",
+      rowStage: { opening: "الدقائق الأولى", heart: "الساعات الأولى", drydown: "بعد ساعات" },
+      notListed: "غير مذكور في قائمة نوتاته", notListedHint: "بعض المواد تكون في العطر من دون أن تُذكر في قائمة نوتاته.",
+      answers: { "-2": "كرهته", "-1": "لم يعجبني", 0: "لا بأس به", 1: "أعجبني", 2: "أعجبني كثيراً", u: "لم ألاحظه" },
+      change: "تغيير",
+@@@END
+@@@OLD
+  let AUTO = {};        /* id -> catalogue entry from the backend (lazy catalogue) */
+  let images = {};      /* verified id -> image url, from the backend's catalogue */
+
+  const t = () => T[lang];
+@@@NEW
+  let AUTO = {};        /* id -> catalogue entry from the backend (lazy catalogue) */
+  let images = {};      /* verified id -> image url, from the backend's catalogue */
+  /* The quiz's word answers (pp_quiz_v1), as the same told items the quiz passes to computeProfile. */
+  let quiz = store.get("pp_quiz_v1", {});
+  if (!quiz || typeof quiz !== "object") quiz = {};
+  const told = N.toldItems(quiz);
+  const toldAnswers = D.QUIZ.notePicker.flatMap(s => s.notes).filter(n => quiz.notes && (quiz.notes[n.id] === 1 || quiz.notes[n.id] === -1)).length
+    + (quiz.taste === "bitter" || quiz.taste === "sweet" ? 1 : 0) + window.PP_NOTES.normTold(quiz).told.filter(id => CHIPS.some(c => c.id === id)).length;
+  const notesOpen = new Set();   /* cards whose "Rate its notes" block is open */
+  const editing = new Set();     /* "id|family": answered note rows reopened with "Change" */
+
+  const t = () => T[lang];
+@@@END
+@@@OLD
+  const fmt1 = n => (Math.round(n * 10) / 10).toFixed(1).replace("-", "−");
+@@@NEW
+  const fmt1 = n => (Math.round(n * 10) / 10).toFixed(1).replace("-", "−");
+  const low = s => (lang === "en" && s ? s[0].toLowerCase() + s.slice(1) : s);
+@@@END
+@@@OLD
+  const computeProfile = () => E.computeProfile(state());
+@@@NEW
+  const computeProfile = () => E.computeProfile(Object.assign(state(), { told }));
+@@@END
+@@@OLD
+  function renderRated() {
+@@@NEW
+  /* One note row, drawn as on the quiz (quiz.js noteRowHtml): the stage in plain words, the note words and the
+     family; an answered row collapses to its answer. */
+  function noteRowHtml(id, P, row, r) {
+    const f = row.f, v = r.noteAnswers && f in r.noteAnswers ? r.noteAnswers[f] : null;
+    const un = Array.isArray(r.unnoticed) && r.unnoticed.includes(f);
+    const words = lang === "ar" ? row.words.ar : row.words.en;
+    const listed = !!(P.notes && /[a-z]/i.test(P.notes.en || ""));
+    let main = esc(fam(f)), small = "", hint = "";
+    if (words.length) { main = esc(words.join(lang === "ar" ? "، " : ", ")); small = esc(fam(f)); }
+    else if (!row.words.en.length && listed) { main = esc(t().notListed); small = esc(fam(f)); hint = `<div class="nhint">${esc(t().notListedHint)}</div>`; }
+    const head = `<div class="nhead"><span class="nstage">${esc(t().rowStage[row.stage])}</span> · <b>${main}</b>${small ? ` · <span class="nfam">${small}</span>` : ""}</div>`;
+    if ((v != null || un) && !editing.has(id + "|" + f)) return `<div class="nrow done">${head}<div class="ndone"><span class="npick">${esc(t().answers[un ? "u" : v])}</span><button type="button" class="qlink" data-nedit="${f}" data-nid="${esc(id)}">${esc(t().change)}</button></div></div>`;
+    const btn = (x, on, cls) => `<button type="button"${cls ? ` class="${cls}"` : ""} data-na="${f}" data-nid="${esc(id)}" data-v="${x}" aria-pressed="${on}">${esc(t().answers[x])}</button>`;
+    return `<div class="nrow">${head}${hint}<div class="nopts">${[-2, -1, 0, 1, 2].map(x => btn(x, v === x)).join("")}${btn("u", un, "nun")}</div></div>`;
+  }
+  /* "Rate its notes": the quiz's worn-bottle rows for this perfume */
+  function notesBoxHtml(id, P, r) {
+    const rows = N.questions(P, "worn"); if (!rows.length) return "";
+    const done = rows.filter(row => (r.noteAnswers && row.f in r.noteAnswers) || (Array.isArray(r.unnoticed) && r.unnoticed.includes(row.f))).length;
+    return `<details class="nbox" data-nbox="${esc(id)}"${notesOpen.has(id) ? " open" : ""}><summary>${esc(t().notesS)}${done ? ` <span class="ncount">${done}/${rows.length}</span>` : ""}</summary><div class="hint">${esc(t().notesHint)}</div>
+          <div class="nrows">${rows.map(row => noteRowHtml(id, P, row, r)).join("")}</div></details>`;
+  }
+  /* the words an evidence line from a note answer names: the row's note words, or the family */
+  function noteWords(P, f) {
+    const row = N.questions(P, "worn").find(x => x.f === f) || N.questions(P, "shop").find(x => x.f === f);
+    const w = row ? (lang === "ar" ? row.words.ar : row.words.en) : [];
+    return w.length ? listJoin(w) : low(fam(f));
+  }
+
+  function renderRated() {
+@@@END
+@@@OLD
+        <div class="timeline">${stagesHtml}</div>${labelForm}
+@@@NEW
+        <div class="timeline">${stagesHtml}</div>${P.custom ? "" : notesBoxHtml(id, P, r)}${labelForm}
+@@@END
+@@@OLD
+  function renderProfile() {
+    const host = $("profile");
+    const ids = Object.keys(ratings).filter(id => STAGES.some(s => ratings[id][s] != null));
+    if (!ids.length) { host.innerHTML = `<div class="empty">${esc(t().emptyProfile)}</div>`; return { prof: {}, ids }; }
+    const prof = computeProfile();
+    trackProfile(ids.length);
+@@@NEW
+  function renderProfile() {
+    const host = $("profile");
+    const ids = Object.keys(ratings).filter(id => STAGES.some(s => ratings[id][s] != null));
+    /* one line when the quiz's word answers count too, with a link to the quiz */
+    const uses = toldAnswers ? `<p class="hint"><a href="quiz.html">${esc(t().toldUses(toldAnswers))}</a></p>` : "";
+    const prof = computeProfile();
+    if (!ids.length) { host.innerHTML = `<div class="empty">${esc(t().emptyProfile)}</div>` + uses; return { prof, ids }; }
+    trackProfile(ids.length);
+@@@END
+@@@OLD
+    if (!rows.length) { host.innerHTML = `<div class="empty">${esc(t().emptyProfile)}</div>`; return { prof, ids }; }
+@@@NEW
+    if (!rows.length) { host.innerHTML = `<div class="empty">${esc(t().emptyProfile)}</div>` + uses; return { prof, ids }; }
+@@@END
+@@@OLD
+        const line = e.chip ? t().chipLine(who, stageName(e.stage), chipWord(e.chip)) : t().evidenceLine(who, stageName(e.stage), scaleWord(e.value));
+@@@NEW
+        const line = e.chip ? t().chipLine(who, stageName(e.stage), chipWord(e.chip)) : e.note ? t().noteLine(who, stageName(e.stage), noteWords(e.perfume, f), e.value) : t().evidenceLine(who, stageName(e.stage), scaleWord(e.value));
+@@@END
+@@@OLD
+    if (settle) host.insertAdjacentHTML("beforeend", `<div class="settle"><b>${esc(t().settleH)}</b>${esc(t().settle(pname(settle.target), fam(settle.f), listJoin(settle.others.map(fam))))}</div>`);
+    return { prof, ids };
+  }
+
+  function renderRecs(prof, ids) {
+    const host = $("recs");
+    if (ids.length < 2) { host.innerHTML = `<div class="empty">${esc(t().emptyRecs)}</div>`; return; }
+@@@NEW
+    if (settle) host.insertAdjacentHTML("beforeend", `<div class="settle"><b>${esc(t().settleH)}</b>${esc(t().settle(pname(settle.target), fam(settle.f), listJoin(settle.others.map(fam))))}</div>`);
+    if (uses) host.insertAdjacentHTML("beforeend", uses);
+    return { prof, ids };
+  }
+
+  /* The quiz's gate and heading, so both pages show the same picks: two rated perfumes, or any number once the
+     quiz's answers name something enjoyed; with none rated, the heading says the picks rest on those answers. */
+  function renderRecs(prof, ids) {
+    const host = $("recs");
+    const gate = ids.length >= 2 || told.some(i => i.value > 0);
+    $("recs-h").textContent = !ids.length && gate ? t().toldOnlyH : t().recsH;
+    if (!gate) { host.innerHTML = `<div class="empty">${esc(t().emptyRecs)}</div>`; return; }
+@@@END
+@@@OLD
+      const riskLine = risk ? (risk.kind === "unknown" ? t().riskUnknown(fam(risk.f), stageName(risk.s)) : risk.kind === "mixed" ? t().riskMixed(fam(risk.f), stageName(risk.s)) : t().riskNeg(fam(risk.f), stageName(risk.s))) : "";
+@@@NEW
+      const riskLine = risk ? (risk.kind === "unknown" ? t().riskUnknown(fam(risk.f), stageName(risk.s)) : risk.kind === "mixed" ? t().riskMixed(fam(risk.f), stageName(risk.s)) : risk.kind === "told" ? t().riskTold(fam(risk.f), stageName(risk.s)) : t().riskNeg(fam(risk.f), stageName(risk.s))) : "";
+@@@END
+@@@OLD
+    if (b.dataset.remove) { delete ratings[b.dataset.remove]; store.set("pp_ratings_v1", ratings); renderAll(); return; }
+@@@NEW
+    if (b.dataset.remove) { delete ratings[b.dataset.remove]; store.set("pp_ratings_v1", ratings); renderAll(); return; }
+    /* a note row's answer: -2 to 2, or u (didn't notice it); the answer already chosen clears it. The quiz's src
+       stays: the stage ratings, which the community averages read, are unchanged. */
+    if (b.dataset.na && b.dataset.nid) {
+      const id = b.dataset.nid, r = ratings[id], f = b.dataset.na, P = r && resolve(id);
+      if (!P || !N.questions(P, "worn").some(row => row.f === f)) return;
+      const na = Object.assign({}, r.noteAnswers); let un = Array.isArray(r.unnoticed) ? r.unnoticed.slice() : [];
+      if (b.dataset.v === "u") { if (un.includes(f)) un = un.filter(x => x !== f); else { un.push(f); delete na[f]; } }
+      else { const v = +b.dataset.v; if (![-2, -1, 0, 1, 2].includes(v)) return; if (na[f] === v) delete na[f]; else { na[f] = v; un = un.filter(x => x !== f); } }
+      if (Object.keys(na).length) r.noteAnswers = na; else delete r.noteAnswers;
+      if (un.length) r.unnoticed = un; else delete r.unnoticed;
+      editing.delete(id + "|" + f); notesOpen.add(id);
+      persist(id); renderAll(); return;
+    }
+    if (b.dataset.nedit && b.dataset.nid) { editing.add(b.dataset.nid + "|" + b.dataset.nedit); notesOpen.add(b.dataset.nid); renderAll(); return; }
+@@@END
+@@@OLD
+  document.addEventListener("click", e => { if (!e.target.closest(".search")) showResults([]); });
+@@@NEW
+  document.addEventListener("click", e => { if (!e.target.closest(".search")) showResults([]); });
+  /* keep a "Rate its notes" block open or closed across redraws */
+  document.addEventListener("toggle", e => { const d = e.target; if (d && d.dataset && d.dataset.nbox) { if (d.open) notesOpen.add(d.dataset.nbox); else notesOpen.delete(d.dataset.nbox); } }, true);
+@@@END
