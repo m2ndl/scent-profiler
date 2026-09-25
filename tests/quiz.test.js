@@ -105,7 +105,8 @@ test("two bottles: verdicts written as ratings, a narrowing round, then the told
   assert.equal((h.match(/<div class="rec">/g) || []).length, 3);
   let at = -1;
   for (const p of picks) { const i = h.indexOf(`<b>${esc(p.P.name)}</b>`); assert.ok(i > at, `${p.P.id} shown in rank order`); at = i; }
-  assert.match(h, /href="profile\.html#sec-profile">See the full profile</);
+  assert.match(h, /<a class="btn qfull" href="profile\.html#sec-profile">See the full profile</);
+  assert.ok(h.indexOf('class="recs') < h.indexOf('class="btn qfull"') && h.indexOf('class="btn qfull"') < h.indexOf("data-sharecard"), "the full profile comes straight after the picks");
 });
 
 test("zero bottles: three testers ordered by the told complaint, no recommendations, answers kept on the device", () => {

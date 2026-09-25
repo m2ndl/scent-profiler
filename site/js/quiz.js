@@ -1048,9 +1048,10 @@
       ? `<div class="qname-hero" style="--arch:${arch.color}">${emblemSvg(arch, 96)}<div><p class="eyebrow">${esc(t().palate)}</p><h1>${esc(arch[lang])}</h1></div></div><p class="qpal">${esc(palateText(arch, prof).about)}</p>`
       : `<div class="hero"><h1>${esc(t().resultH)}</h1></div>`;
     return topHtml() + `<div class="qresult">${hero}${funnelHtml(prof, nPicks)}
-      ${tasteCardHtml(prof, ids)}<p class="qcompare" id="qcompare">${compareHtml(prof)}</p>${tipHtml}${recs}<div class="qshare"><button type="button" class="btn" data-sharecard="1">${esc(t().share)}</button></div>${anos}
-      <details class="qhow"><summary>${esc(t().how)}</summary><p class="notes">${esc(t().resultLede)}</p>${famHtml}${told}</details>
-      <div class="qactions"><a class="btn primary" href="${esc(profilerHref("", "#sec-profile"))}">${esc(t().full)}</a></div></div>` + foot();
+      ${tasteCardHtml(prof, ids)}<p class="qcompare" id="qcompare">${compareHtml(prof)}</p>${tipHtml}${recs}
+      <a class="btn qfull" href="${esc(profilerHref("", "#sec-profile"))}">${esc(t().full)}</a>
+      <div class="qshare"><button type="button" class="btn" data-sharecard="1">${esc(t().share)}</button></div>${anos}
+      <details class="qhow"><summary>${esc(t().how)}</summary><p class="notes">${esc(t().resultLede)}</p>${famHtml}${told}</details></div>` + foot();
   }
 
   function render() {
