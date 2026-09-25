@@ -2,6 +2,26 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-25: the project split and the rating-send fixes
+
+- Layout: site/ is the only deployed folder (js/engine.js profile logic, js/app.js the page,
+  js/config.js the deploy settings); backend/, evidence/, tools/, tests/, reference/. CLAUDE.md added.
+  The split changed no behaviour: old and new page identical over 800 scripted sessions
+  (reference/restructure/README.md).
+- Tests: `node --test tests/*.test.js` (15). Engine golden captured from the old page on a frozen
+  88-perfume catalogue; page test in a stub browser; deploy-folder, evidence and backend-list checks.
+- Fixed three ways the page lost ratings before they reached the Sheet: a second perfume rated within
+  1.2 s cancelled the first one's send; a perfume removed within 1.2 s threw; a rating made just before
+  leaving the page was never sent (now sent by sendBeacon on hide or close). The old page lost a rating
+  in 95 of 800 sessions with a backend.
+- Git: two commits on master (c729c1d split, 7614ded send fixes). Books and build/ ignored;
+  .gitattributes keeps LF because the machine's core.autocrlf is true. This log entry and
+  reference/restructure/ are not yet committed.
+
+Open, dated 25 Sep 2026, unchanged and all needing Muhammad's accounts: deploy backend/apps-script.gs
+(Sheet id, Fragella key); publish site/ on a static host, then set og:image to the full URL; shop links
+in site/js/config.js; his own three-vial test. Week-six label test as below.
+
 ## 2026-09-25: the profiler's provenance stack
 
 Built the whole site in one session, then audited it, then rebuilt its data model on evidence.

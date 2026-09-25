@@ -1,0 +1,23 @@
+  handler error, seed 1013 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1028 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1072 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1084 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1116 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1139 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1148 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1169 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1176 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1188 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1291 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1295 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1321 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1350 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1385 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1390 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1403 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1428 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1432 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+  handler error, seed 1462 step flush : Cannot destructure property 'auto' of 'ratings[id]' as it is undefined.
+
+old vs new: 500 scenarios identical, 0 different; 9448 page states compared per side, 20 handler errors (same on both sides), 215 clipboard copies, 512 POSTs
+actions: {"escape":461,"enter":214,"click:share":215,"click:flagperf":195,"label":209,"click:flag":218,"click:remove":184,"click:rate":553,"click:again":197,"input":214,"click:lang-en":101,"click:lang-ar":112,"click:reset":362,"click:reset-keep":126,"click:add":195,"click:chip":168}
