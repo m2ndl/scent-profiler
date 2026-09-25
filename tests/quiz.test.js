@@ -164,7 +164,7 @@ test("with a backend: ratings carry src and nothing else of the page's, events c
   page.click({ dataset: { tile: lookedUp.id } });
   page.key("Enter", "Zz no such scent");
   await page.settle();
-  assert.match(page.snapshot().els.toast.textContent, /profiler page/);
+  assert.match(page.snapshot().els.toast.textContent, /on your profile./);
 
   twoBottles(page);
   page.hide();
