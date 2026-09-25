@@ -114,3 +114,48 @@ test("with a backend: lazy catalogue, lookups, and nothing from the vendor's not
   assert.equal(rating.body.drydown, -2);
   for (const k of ["auto", "label"]) assert.equal(k in rating.body, false, `rating must not carry ${k}`);
 });
+
+test("with a backend: every rated perfume's last state is sent, and a removed perfume's pending send is dropped without an error", () => {
+  const blank = { opening: null, heart: null, drydown: null, again: null, chips: {} };
+  const three = { [hated[0]]: blank, [hated[1]]: blank, [loved]: blank };
+  const page = createPage({ localStorage: Object.assign(seed(), { pp_ratings_v1: JSON.stringify(three) }), endpoint: "http://mock.local/api", respond: () => ({ ok: true }) });
+  page.load(scripts);
+  const sent = () => page.calls.filter(c => c.body && c.body.type === "rating").map(c => `${c.body.perfume} ${c.body.heart} ${c.body.drydown}`);
+
+  page.click({ dataset: { rate: hated[0], stage: "drydown", v: "-2" } });
+  page.click({ dataset: { rate: hated[1], stage: "drydown", v: "-1" } });
+  page.click({ dataset: { rate: hated[0], stage: "heart", v: "1" } });
+  page.flushTimers();
+  assert.deepEqual(sent().sort(), [`${hated[0]} 1 -2`, `${hated[1]} null -1`].sort());
+
+  page.click({ dataset: { rate: loved, stage: "drydown", v: "2" } });
+  page.click({ dataset: { remove: loved } });
+  page.flushTimers();
+  page.click({ dataset: { rate: hated[1], stage: "opening", v: "0" } });
+  page.click({ id: "reset" });
+  page.click({ id: "reset" });
+  page.flushTimers();
+  assert.equal(sent().length, 2, "nothing sent for a removed perfume or after a reset");
+});
+
+test("with a backend: pending ratings go out at once when the page is hidden or closed", () => {
+  const blank = { opening: null, heart: null, drydown: null, again: null, chips: {} };
+  const two = { [hated[0]]: blank, [hated[1]]: blank };
+  const open = beacon => { const p = createPage({ localStorage: Object.assign(seed(), { pp_ratings_v1: JSON.stringify(two) }), endpoint: "http://mock.local/api", respond: () => ({ ok: true }), beacon }); p.load(scripts); return p; };
+  const sent = page => page.calls.filter(c => c.body && c.body.type === "rating").map(c => `${c.method}${c.keepalive ? " keepalive" : ""} ${c.body.perfume} ${c.body.drydown}`);
+
+  const page = open();
+  page.click({ dataset: { rate: hated[0], stage: "drydown", v: "-2" } });
+  page.hide();
+  assert.deepEqual(sent(page), [`BEACON ${hated[0]} -2`]);
+  page.flushTimers();
+  assert.equal(sent(page).length, 1, "a flushed rating is not sent again");
+  page.click({ dataset: { rate: hated[1], stage: "drydown", v: "-1" } });
+  page.fire("pagehide");
+  assert.deepEqual(sent(page), [`BEACON ${hated[0]} -2`, `BEACON ${hated[1]} -1`]);
+
+  const old = open(false);
+  old.click({ dataset: { rate: hated[0], stage: "drydown", v: "1" } });
+  old.hide();
+  assert.deepEqual(sent(old), [`POST keepalive ${hated[0]} 1`], "without sendBeacon, a keepalive fetch");
+});

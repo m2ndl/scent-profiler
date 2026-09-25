@@ -1,6 +1,7 @@
 /* A minimal stand-in for the browser, enough to run the page scripts under Node: element stubs by id,
-   localStorage and sessionStorage, a recorded fetch with canned answers, and timers that run only when
-   flushed. Every element the page touches is kept, so a snapshot shows everything the page wrote. */
+   localStorage and sessionStorage, a recorded fetch and sendBeacon with canned answers, page hiding, and
+   timers that run only when flushed. Every element the page touches is kept, so a snapshot shows
+   everything the page wrote. Options: localStorage, navLang, endpoint, respond, beacon (false: none). */
 "use strict";
 const vm = require("vm");
 
@@ -28,6 +29,7 @@ function createPage(opts) {
   const docListeners = {};
   const document = {
     documentElement: { lang: "en", dir: "ltr" },
+    visibilityState: "visible",
     getElementById: byId,
     addEventListener(type, fn) { (docListeners[type] = docListeners[type] || []).push(fn); },
     querySelector() { return null; },
@@ -44,14 +46,23 @@ function createPage(opts) {
   const fetch = (url, o) => {
     const body = o && o.body ? JSON.parse(o.body) : null;
     if (body) delete body.ts;                                  /* the send time differs run to run */
-    calls.push({ url, method: (o && o.method) || "GET", body });
+    const call = { url, method: (o && o.method) || "GET", body };
+    if (o && o.keepalive) call.keepalive = true;
+    calls.push(call);
     const answer = opts.respond ? opts.respond(url, body) : {};
     return Promise.resolve({ json: () => Promise.resolve(JSON.parse(JSON.stringify(answer))) });
   };
+  const sendBeacon = (url, data) => {
+    const body = JSON.parse(data); delete body.ts;
+    calls.push({ url, method: "BEACON", body });
+    return true;
+  };
+  const winListeners = {};
   const timers = new Map(); let nextTimer = 1;
   const sandbox = {
     document, localStorage, sessionStorage, fetch, console, URLSearchParams,
-    navigator: { language: opts.navLang || "en-US", clipboard: { writeText: t => { clipboard.push(t); return Promise.resolve(); } } },
+    navigator: Object.assign({ language: opts.navLang || "en-US", clipboard: { writeText: t => { clipboard.push(t); return Promise.resolve(); } } }, opts.beacon === false ? {} : { sendBeacon }),
+    addEventListener(type, fn) { (winListeners[type] = winListeners[type] || []).push(fn); },
     location: { hostname: opts.endpoint ? "localhost" : "example.org", search: opts.endpoint ? "?endpoint=" + encodeURIComponent(opts.endpoint) : "" },
     setTimeout: fn => { const id = nextTimer++; timers.set(id, fn); return id; },
     clearTimeout: id => { timers.delete(id); },
@@ -63,8 +74,16 @@ function createPage(opts) {
   const page = {
     ctx, sandbox, calls, clipboard, localStorage,
     load(scripts) { for (const s of scripts) vm.runInContext(s.code, ctx, { filename: s.filename }); },
-    flushTimers() { let n = 0; while (timers.size) { const [id, fn] = timers.entries().next().value; timers.delete(id); fn(); if (++n > 1000) throw new Error("timer loop"); } },
+    /* as in a browser, a timer that throws does not stop the others; the first error is rethrown at the end */
+    flushTimers() {
+      const errors = []; let n = 0;
+      while (timers.size) { const [id, fn] = timers.entries().next().value; timers.delete(id); try { fn(); } catch (e) { errors.push(e); } if (++n > 1000) throw new Error("timer loop"); }
+      if (errors.length) throw errors[0];
+    },
     settle() { return new Promise(r => setImmediate(r)); },
+    /* the tab is switched away or closed: visibilitychange to hidden, then (when closing) pagehide */
+    hide() { document.visibilityState = "hidden"; for (const fn of docListeners.visibilitychange || []) fn({ type: "visibilitychange" }); },
+    fire(type) { for (const fn of winListeners[type] || []) fn({ type }); },
     /* a click on a button: an id for the fixed buttons, a dataset for the generated ones */
     click(spec) {
       const b = spec.id ? byId(spec.id) : Object.assign(makeElement(null), { dataset: Object.assign({}, spec.dataset) });

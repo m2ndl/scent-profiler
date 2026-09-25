@@ -182,17 +182,29 @@
   const settleSuggestion = prof => E.settleSuggestion(prof, ratings);
 
   /* ---------- persistence and sharing ---------- */
-  let sendTimer = null;
+  /* One pending send per perfume, so rating another perfume never cancels it; a perfume removed (or reset)
+     before its send fires is not sent; pending sends go out at once when the page is hidden or closed. */
+  const sendTimers = {};
+  function sendRating(id, leaving) {
+    clearTimeout(sendTimers[id]); delete sendTimers[id];
+    if (!ratings[id]) return;
+    const P = resolve(id); const { auto, label, ...rest } = ratings[id];
+    sendRecord({ type: "rating", device, lang, perfume: id, name: P ? P.name : id, ...rest }, leaving);
+  }
   function persist(id) {
     store.set("pp_ratings_v1", ratings);
     if (!CONFIG.endpoint) { toast(t().saved); return; }
-    clearTimeout(sendTimer);
-    sendTimer = setTimeout(() => { const P = resolve(id); const { auto, label, ...rest } = ratings[id]; sendRecord({ type: "rating", device, lang, perfume: id, name: P ? P.name : id, ...rest }); }, 1200);
+    clearTimeout(sendTimers[id]);
+    sendTimers[id] = setTimeout(() => sendRating(id), 1200);
     toast(t().sent);
   }
-  function sendRecord(rec) {
+  function flushSends() { for (const id of Object.keys(sendTimers)) sendRating(id, true); }
+  /* leaving: the page is being hidden or closed, so the request must outlive it */
+  function sendRecord(rec, leaving) {
+    const body = JSON.stringify({ ...rec, ts: new Date().toISOString() });
     try {
-      fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ ...rec, ts: new Date().toISOString() }) }).catch(() => {});
+      if (leaving && navigator.sendBeacon && navigator.sendBeacon(CONFIG.endpoint, body)) return;
+      fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body, keepalive: !!leaving }).catch(() => {});
     } catch (e) { /* offline or blocked */ }
   }
   /* One anonymous event per session once a profile exists, so completions can be counted without analytics. */
@@ -479,6 +491,9 @@
   $("q").addEventListener("focus", e => showResults(search(e.target.value), e.target.value));
   $("q").addEventListener("keydown", e => { if (e.key === "Enter") { const first = $("results").querySelector("[data-add]"); if (first) addPerfume(first.dataset.add); else addCustom(e.target.value); } if (e.key === "Escape") showResults([]); });
   document.addEventListener("click", e => { if (!e.target.closest(".search")) showResults([]); });
+  /* A hidden page may never come back (a closed tab, or a phone that switches apps and later discards it). */
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flushSends(); });
+  window.addEventListener("pagehide", flushSends);
 
   renderAll();
   loadCommunity();
