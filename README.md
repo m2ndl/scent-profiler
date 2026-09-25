@@ -12,10 +12,11 @@ those families. Static files, no build step, no accounts.
 
 | Path | Purpose |
 |---|---|
-| `site/index.html` | The profiler page. Markup only; its scripts are in `site/js/`. |
+| `site/index.html` | The front page: the bottle quiz, a first profile from well-known bottles the visitor has worn (see Quiz). Markup only; its scripts are in `site/js/`. |
 | `site/site.css` | Shared styles for all pages. The design is built on one idea: a perfume is a timeline and the last hours matter most (rating rows are wear timelines, the side panel is a live profile). A still life in daylight: cream glass surfaces with gold rims on pale wood, a dark wood band across the top and grain waves along the bottom, metallic gold on the brand and the primary buttons; the wear ribbon runs calendula, rose petal, amber oil. One theme, no dark mode. Fraunces and Noto Naskh Arabic for headings, IBM Plex Sans Arabic for text; mobile-first. |
 | `site/articles.html` | Four bilingual pieces on why drydowns fail (woody ambers, musk anosmia, notes versus ingredients, the three ouds). The site's reason to be found. |
-| `site/quiz.html` | The bottle quiz: a first profile from well-known bottles the visitor has worn (see Quiz). Markup only. |
+| `site/profile.html` | "Your profile", the profiler: rate any perfume or sample stage by stage, see the full profile, picks and the one sample that would settle a doubt. Markup only. |
+| `site/quiz.html` | The quiz's old address: sends visitors to the front page, query and all. |
 | `site/og.png` | Share image for WhatsApp, Snapchat and X previews. |
 | `site/js/config.js` | Deployment settings: backend URL and shop links. The one file to edit when the site goes live. |
 | `site/js/data.js` | Verified catalogue (333 perfumes: 133 designer, 126 niche, 74 Arab-house including 21 marked clones of an original) and the material-family taxonomy. Only this tier drives recommendations. |
@@ -161,9 +162,10 @@ The rules below are implemented in `site/js/engine.js`.
 
 ## Quiz
 
-`site/quiz.html` is a first run for visitors who do not know where to start. It opens on a start screen
+The quiz is the front page (`site/index.html`). It opens on a start screen
 with the promise ("Find what ruins a perfume for you"), five of the grid's bottles, the four parts as numbered
-cards and a Start button; it states no time. It then shows twenty well-known
+cards, a Start button and, for a returning visitor, a link to rate the samples they tried on their profile
+(`site/profile.html`); it states no time. It then shows twenty well-known
 bottles (`QUIZ.grid` in `site/js/data.js`) and asks which the visitor has worn, or tried on the wrist in a
 shop; its search box adds any other catalogue perfume, with a backend lookup for names outside the
 catalogue. Each tapped bottle gets one verdict, written at once as an ordinary rating into the device store
@@ -251,7 +253,7 @@ heading, and its profile section adds "Also uses <n> answers from the quiz." wit
 line for a family known only from answers against it reads "which you said you avoid" when an avoided picker card
 gives that family 0.5 or more, and "which your quiz answers lean against" otherwise (a taste answer, a complaint
 chip, or a card's lesser family). "Rate it when you have worn it"
-opens `index.html?add=<id>`, which adds that perfume on the profiler (retrying once the lazy catalogue loads, for
+opens `profile.html?add=<id>`, which adds that perfume on the profiler (retrying once the lazy catalogue loads, for
 looked-up ids) and then removes the parameter from the address.
 
 The result opens on the palate name and its emblem. The name follows what the kept bottles show: each kept bottle
@@ -286,8 +288,8 @@ going Back and answering again sends nothing new; only a changed result sends a 
 verdict (over a quarter of the time falsifies the mapping), and whether bottles given "too sweet" hold
 vanilla or tonka at 0.4 or more in the drydown.
 
-Local run: `http://localhost:8765/quiz.html?endpoint=http://localhost:8765/api`. Links from the quiz to
-the profiler carry the `endpoint` parameter.
+Local run: `http://localhost:8765/?endpoint=http://localhost:8765/api` (the quiz); the profile page is
+`profile.html` with the same parameter. Links from the quiz to the profile carry the `endpoint` parameter.
 
 ## Editing the catalogue
 

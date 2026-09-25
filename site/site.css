@@ -594,6 +594,9 @@ details.qhow > summary { cursor: pointer; font-weight: 600; color: var(--gold); 
 .qpal { margin: 12px 2px 0; max-width: 62ch; font-size: 15.5px; line-height: 1.6; color: var(--ink-2); }
 .qcompare { margin: 12px 2px 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); padding-inline-start: 12px; border-inline-start: 3px solid var(--heart); }
 .qcompare:empty { display: none; }
+/* the start screen's link for a returning visitor */
+.qreturn { margin: 18px 2px 0; font-size: 15px; }
+.qreturn a { font-weight: 500; }
 .qtip { margin: 14px 2px 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); padding-inline-start: 12px; border-inline-start: 3px solid var(--oil); }
 .qtip b { display: block; margin-bottom: 2px; font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); }
 [dir="rtl"] .qtip b { letter-spacing: 0; text-transform: none; font-size: 14px; }

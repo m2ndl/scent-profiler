@@ -1,4 +1,4 @@
-/* The page under a stub browser (lib/dom.js), loaded exactly as site/index.html loads it: it must render
+/* The profile page (site/profile.html) under a stub browser (lib/dom.js), loaded exactly as the page loads it: it must render
    what the engine computes, react to clicks, keep ratings on the device and, with a backend, send only
    what the vendor terms allow. */
 "use strict";
@@ -9,9 +9,9 @@ const path = require("path");
 const { SITE, loadSite } = require("../tools/lib/site");
 const { createPage } = require("./lib/dom");
 
-const html = fs.readFileSync(path.join(SITE, "index.html"), "utf8");
+const html = fs.readFileSync(path.join(SITE, "profile.html"), "utf8");
 const scriptsOf = src => [...src.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
-const scripts = scriptsOf(html), quizScripts = scriptsOf(fs.readFileSync(path.join(SITE, "quiz.html"), "utf8"));
+const scripts = scriptsOf(html), quizScripts = scriptsOf(fs.readFileSync(path.join(SITE, "index.html"), "utf8"));
 const W = loadSite("data", "mapper", "materials", "evidence", "engine", "notes");
 const E = W.PP_ENGINE.create(W.PP_DATA, W.PP_MAP, W.PP_EVIDENCE), N = W.PP_NOTES.create(W.PP_DATA, W.PP_MAP, E);
 const FAMILIES = W.PP_DATA.FAMILIES;
@@ -27,7 +27,7 @@ ratings[loved] = { opening: 2, heart: 2, drydown: 2, again: 1, chips: {} };
 const seed = () => ({ pp_device: JSON.stringify("d_test"), pp_lang: JSON.stringify("en"), pp_ratings_v1: JSON.stringify(ratings) });
 const stored = page => JSON.parse(page.localStorage.getItem("pp_ratings_v1"));
 
-test("scripts in index.html load in order and the page renders the engine's profile and picks", () => {
+test("scripts in profile.html load in order and the page renders the engine's profile and picks", () => {
   assert.deepEqual(scripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/notes.js", "js/bottles.js", "js/app.js"]);
   const page = createPage({ localStorage: seed() });
   page.load(scripts);
@@ -203,7 +203,7 @@ test("the profiler, loaded with the quiz's storage, gives the quiz's picks and u
   const els = page.snapshot().els;
   assert.deepEqual(picksOf(els.recs.innerHTML), picksOf(qh));
   assert.equal(els["recs-h"].textContent, "Three to try next");
-  assert.match(els.profile.innerHTML, /<p class="hint"><a href="quiz\.html">Also uses 4 answers from the quiz\.<\/a><\/p>/);
+  assert.match(els.profile.innerHTML, /<p class="hint"><a href="index\.html">Also uses 4 answers from the quiz\.<\/a><\/p>/);
   assert.match(els.profile.innerHTML, new RegExp(`${esc(E.byId.sauvageedp.name)}, opening: you hated the bergamot <span class="src">`), "the evidence line names the note");
 });
 

@@ -21,8 +21,8 @@
     en: {
       brand: "Scent Profiler", tagline: "find what you hate before you buy", navArticles: "Why drydowns fail", navQuiz: "Bottle quiz",
       heroQuiz: "Not sure where to start? Pick from twenty well-known bottles",
-      h1: "Find what ruins a perfume for you.",
-      lede: "Rate perfumes you have tried, stage by stage: the opening, the heart and the base. What you like and dislike across all three adds up to your taste, and shows which materials to avoid before you buy.",
+      h1: "Your scent profile",
+      lede: "Rate the perfumes and samples you have tried, stage by stage: the opening, the heart and the base. Each rating sharpens what you like, what ruins a perfume for you, and the samples picked for you.",
       ask: "Which perfume disappointed you?", qLabel: "Search a perfume or house", q: "Type a perfume or a house, in English or Arabic",
       hint: "Start with one you regret, then add ones you loved. Three give a first reading; six give a reliable one.",
       quick: "Common ones:",
@@ -88,8 +88,8 @@
     ar: {
       brand: "محلل الذائقة العطرية", tagline: "اعرف ما تكرهه قبل أن تشتري", navArticles: "لماذا تفسد القاعدة", navQuiz: "اختبار العطور",
       heroQuiz: "لا تعرف من أين تبدأ؟ اختر من عشرين عطراً معروفاً",
-      h1: "اعرف ما يفسد العطر عليك.",
-      lede: "قيّم عطوراً جرّبتها فعلاً، مرحلة بمرحلة: الافتتاحية والقلب والقاعدة. ما تحبه وما تكرهه في المراحل الثلاث يرسم ذائقتك، ويبيّن لك أي المواد تتجنبها قبل أن تشتري.",
+      h1: "ملفك العطري",
+      lede: "قيّم العطور والعيّنات التي جرّبتها، مرحلة بمرحلة: الافتتاحية والقلب والقاعدة. كل تقييم يوضّح ما تحبه وما يفسد العطر عليك والعيّنات المختارة لك.",
       ask: "أي عطر خذلك؟", qLabel: "ابحث عن عطر أو دار", q: "اكتب اسم عطر أو دار، بالعربية أو الإنجليزية",
       hint: "ابدأ بعطر ندمت عليه، ثم أضف ما أحببته. ثلاثة تعطي قراءة أولى، وستة قراءة موثوقة.",
       quick: "الأكثر شيوعاً:",
@@ -367,7 +367,7 @@
     const host = $("profile");
     const ids = Object.keys(ratings).filter(id => STAGES.some(s => ratings[id][s] != null));
     /* one line when the quiz's word answers count too, with a link to the quiz */
-    const uses = toldAnswers ? `<p class="hint"><a href="quiz.html">${esc(t().toldUses(toldAnswers))}</a></p>` : "";
+    const uses = toldAnswers ? `<p class="hint"><a href="index.html">${esc(t().toldUses(toldAnswers))}</a></p>` : "";
     const prof = computeProfile();
     if (!ids.length) { host.innerHTML = `<div class="empty">${esc(t().emptyProfile)}</div>` + uses; return { prof, ids }; }
     trackProfile(ids.length);

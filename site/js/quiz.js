@@ -1,4 +1,4 @@
-/* The quiz page (quiz.html): which well-known bottles the visitor has worn and how each one ended. Each
+/* The quiz, the site's front page (index.html): which well-known bottles the visitor has worn and how each one ended. Each
    verdict is written as an ordinary rating into the device store the profiler reads, so both pages show
    the same profile. Storage, sending, the lazy catalogue and the lookup follow app.js; profile logic lives
    in engine.js, the note rows and told items in notes.js. What the visitor says in words (notes enjoyed or avoided,
@@ -17,7 +17,7 @@
 
   /* Deployment settings: config.js. */
   const CONFIG = window.PP_CONFIG;
-  /* Local testing only: http://localhost:8765/quiz.html?endpoint=http://localhost:8765/api (see tools/mock_backend.py).
+  /* Local testing only: http://localhost:8765/?endpoint=http://localhost:8765/api (see tools/mock_backend.py).
      Links to the profiler carry the parameter forward. */
   let endpointParam = "";
   if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { try { const e = new URLSearchParams(location.search).get("endpoint"); if (e) { CONFIG.endpoint = e; endpointParam = e; } } catch (err) { /* ignore */ } }
@@ -25,7 +25,7 @@
   /* ---------- i18n ---------- */
   const T = {
     en: {
-      brand: "Scent Profiler", tagline: "find what you hate before you buy", navProfiler: "The profiler", navArticles: "Why drydowns fail",
+      brand: "Scent Profiler", tagline: "find what you hate before you buy", navProfiler: "Your profile", navArticles: "Why drydowns fail",
       gridQ: "Which of these have you tried?",
       gridHint: "On skin or clothes, at home or in a shop; a sniff from a paper strip doesn't count. Next, you say how each one ended for you.",
       qLabel: "Search for another perfume", q: "Not here? Type a perfume or a house",
@@ -66,7 +66,7 @@
       cardPalate: "My palate",
       startH: "Find what ruins a perfume for you",
       startLede: "Tell us how the perfumes you know ended for you. We find the material family behind the ones that turned on you, name your palate and choose three samples to try next.",
-      startParts: "Four parts:", startGo: "Start",
+      startParts: "Four parts:", startGo: "Start", startBack: "Took the quiz before? Rate the samples you tried",
       palOne: side => `Your bottles show a liking for ${side}.`,
       palTwo: (a, b) => `Your bottles show two likings, each with bottles behind it: ${a}, and ${b}.`, tipH: "A tip for your palate",
       pal: {
@@ -112,7 +112,7 @@
       cats: { m: "men", f: "women", u: "unisex" }
     },
     ar: {
-      brand: "محلل الذائقة العطرية", tagline: "اعرف ما تكرهه قبل أن تشتري", navProfiler: "المحلل", navArticles: "لماذا تفسد القاعدة",
+      brand: "محلل الذائقة العطرية", tagline: "اعرف ما تكرهه قبل أن تشتري", navProfiler: "ملفك العطري", navArticles: "لماذا تفسد القاعدة",
       gridQ: "أيّ هذه العطور جرّبتها؟",
       gridHint: "على البشرة أو على الثياب، في البيت أو في المتجر؛ شمّ الورقة لا يُحسب. بعدها تخبرنا كيف انتهى كل عطر منها معك.",
       qLabel: "ابحث عن عطر آخر", q: "ليس هنا؟ اكتب اسم عطر أو دار",
@@ -153,7 +153,7 @@
       cardPalate: "ذائقتي",
       startH: "اعرف ما يفسد العطر عليك",
       startLede: "أخبرنا كيف انتهت معك العطور التي تعرفها. نجد عائلة المواد وراء العطور التي انقلبت عليك، ونسمّي ذائقتك، ونختار لك ثلاث عيّنات تجرّبها بعد ذلك.",
-      startParts: "أربعة أجزاء:", startGo: "ابدأ",
+      startParts: "أربعة أجزاء:", startGo: "ابدأ", startBack: "أنهيت الاختبار من قبل؟ قيّم العيّنات التي جرّبتها",
       palOne: side => `عطورك تكشف ميلك إلى ${side}.`,
       palTwo: (a, b) => `عطورك تكشف ميلين، لكلٍّ منهما عطور تشهد له: إلى ${a}، وإلى ${b}.`, tipH: "نصيحة لذائقتك",
       pal: {
@@ -260,7 +260,7 @@
     const p = [];
     if (add) p.push("add=" + encodeURIComponent(add));
     if (endpointParam) p.push("endpoint=" + encodeURIComponent(endpointParam));
-    return "index.html" + (p.length ? "?" + p.join("&") : "") + (hash || "");
+    return "profile.html" + (p.length ? "?" + p.join("&") : "") + (hash || "");
   };
 
   /* ---------- profile engine (engine.js) ---------- */
@@ -518,7 +518,7 @@
     document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     $("lang-en").setAttribute("aria-pressed", lang === "en"); $("lang-ar").setAttribute("aria-pressed", lang === "ar");
     $("brand").innerHTML = esc(t().brand) + "<small>" + esc(t().tagline) + "</small>";
-    $("brand").setAttribute("href", profilerHref());
+    $("brand").setAttribute("href", "index.html" + (endpointParam ? "?endpoint=" + encodeURIComponent(endpointParam) : ""));
     $("nav-profiler").textContent = t().navProfiler; $("nav-profiler").setAttribute("href", profilerHref());
     $("nav-articles").textContent = t().navArticles;
   }
@@ -534,6 +534,7 @@
     return `<div class="qstart"><div class="qstart-shelf" aria-hidden="true">${shelf}</div>
       <div class="hero"><h1>${esc(t().startH)}</h1><p>${esc(t().startLede)}</p></div>
       <p class="qsteps-h">${esc(t().startParts)}</p><ol class="qsteps">${t().parts.map((name, i) => `<li><b>${i + 1}</b><span>${esc(name)}</span></li>`).join("")}</ol>
+      <p class="qreturn"><a href="${esc(profilerHref())}">${esc(t().startBack)}</a></p>
       <div class="qactions"><button type="button" class="btn primary" data-start="1">${esc(t().startGo)}</button></div></div>` + foot();
   }
   /* The grid screen keeps its search box across tile taps: only the tiles and the buttons are redrawn. */

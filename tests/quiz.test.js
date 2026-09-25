@@ -1,4 +1,4 @@
-/* The quiz page (site/quiz.html) under the stub browser (lib/dom.js), loaded exactly as the page loads it:
+/* The quiz, the front page (site/index.html), under the stub browser (lib/dom.js), loaded exactly as the page loads it:
    the grid, verdicts written as ratings, the note rows, the narrowing round, the note picker, taste,
    complaints and anosmia answers, Back, the result and testers, what is sent to a backend, and the profiler
    reading the quiz's ratings. Assertions read the HTML the page wrote (page.snapshot()). */
@@ -11,7 +11,7 @@ const { SITE, loadSite } = require("../tools/lib/site");
 const { createPage } = require("./lib/dom");
 
 const scriptsOf = file => [...fs.readFileSync(path.join(SITE, file), "utf8").matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
-const quizScripts = scriptsOf("quiz.html"), appScripts = scriptsOf("index.html");
+const quizScripts = scriptsOf("index.html"), appScripts = scriptsOf("profile.html");
 const W = loadSite("data", "mapper", "materials", "evidence", "engine", "notes");
 const D = W.PP_DATA, E = W.PP_ENGINE.create(D, W.PP_MAP, W.PP_EVIDENCE), N = W.PP_NOTES.create(D, W.PP_MAP, E);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -61,7 +61,7 @@ function finish(page, o) {
 const counted = c => c.body && c.body.type === "event" && !/^(reach|result):/.test(c.body.name);
 const events = page => page.calls.filter(counted).map(c => [c.body.name, c.body.n]);
 
-test("quiz.html loads its scripts in order and the grid shows the twenty bottles; rated ones cannot be answered", () => {
+test("the front page (the quiz) loads its scripts in order and the grid shows the twenty bottles; rated ones cannot be answered", () => {
   assert.deepEqual(quizScripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/notes.js", "js/bottles.js", "js/quiz.js"]);
   const src = fs.readFileSync(path.join(SITE, "js", "quiz.js"), "utf8");
   assert.doesNotMatch(src, /querySelector/);
@@ -69,7 +69,7 @@ test("quiz.html loads its scripts in order and the grid shows the twenty bottles
   const page = open();
   const tiles = page.snapshot().els.tiles.innerHTML;
   assert.deepEqual([...tiles.matchAll(/data-tile="([^"]+)"/g)].map(m => m[1]), [...D.QUIZ.grid]);
-  const qs = (fs.readFileSync(path.join(SITE, "quiz.html"), "utf8") + html(page)).match(/id="q"/g) || [];
+  const qs = (fs.readFileSync(path.join(SITE, "index.html"), "utf8") + html(page)).match(/id="q"/g) || [];
   assert.equal(qs.length, 1, "one search box");
 
   /* a record with a stage set is rated; an all-null one (left by a tester link) is not */
@@ -105,7 +105,7 @@ test("two bottles: verdicts written as ratings, a narrowing round, then the told
   assert.equal((h.match(/<div class="rec">/g) || []).length, 3);
   let at = -1;
   for (const p of picks) { const i = h.indexOf(`<b>${esc(p.P.name)}</b>`); assert.ok(i > at, `${p.P.id} shown in rank order`); at = i; }
-  assert.match(h, /href="index\.html#sec-profile">See the full profile</);
+  assert.match(h, /href="profile\.html#sec-profile">See the full profile</);
 });
 
 test("zero bottles: three testers ordered by the told complaint, no recommendations, answers kept on the device", () => {
@@ -128,7 +128,7 @@ test("zero bottles: three testers ordered by the told complaint, no recommendati
     for (const [, href, id] of hrefs) { assert.ok(href.includes(q), `${x.id}: ${href} carries the encoded house and name`); assert.equal(id, x.id); }
     const n = E.PERFUMES.filter(o => o.id !== x.id && ((o.stages.drydown[x.family] || 0) >= 0.5 || (o.stages.heart[x.family] || 0) >= 0.7)).length;
     assert.match(card, new RegExp(`If this bothers you, ${n} other perfumes in our catalogue carry the same family in their base\\.`));
-    assert.match(card, new RegExp(`href="index\\.html\\?add=${x.id}">Rate it when you have worn it<`));
+    assert.match(card, new RegExp(`href="profile\\.html\\?add=${x.id}">Rate it when you have worn it<`));
   });
   assert.deepEqual(stored(page, "pp_quiz_v1"), { taste: "unsure", told: ["sweet"], anosmia: "yes" });
   assert.match(h, new RegExp(`<div class="qnote">[^<]*${reEsc(esc(E.byId[by("white_musk").id].name))}`));
@@ -250,7 +250,7 @@ test("language: the Arabic toggle sets rtl, is stored, and the tiles show Arabic
   assert.equal(snap.html.lang, "ar");
   assert.equal(JSON.parse(page.localStorage.getItem("pp_lang")), "ar");
   for (const id of D.QUIZ.grid) assert.match(snap.els.tiles.innerHTML, new RegExp(`data-tile="${id}"[^>]*>[^]*?<span class="qtile-name">${reEsc(esc(E.byId[id].ar))}</span>`));
-  assert.equal(snap.els["nav-profiler"].textContent, "المحلل");
+  assert.equal(snap.els["nav-profiler"].textContent, "ملفك العطري");
   page.click({ id: "lang-en" });
   assert.equal(page.snapshot().html.dir, "ltr");
 });
@@ -757,6 +757,9 @@ test("the start screen, one reached event per screen, the result event, and the 
   assert.equal((h.match(/<img class="thumb/g) || []).length, 5);
   assert.match(h, /<li><b>1<\/b><span>Your bottles<\/span><\/li><li><b>2<\/b><span>Notes you know<\/span><\/li><li><b>3<\/b><span>Sweet or bitter<\/span><\/li><li><b>4<\/b><span>What bothers you<\/span><\/li>/);
   assert.match(h, /data-start="1">Start</);
+  /* a returning visitor goes to their profile to rate the samples; the old quiz address lands on the front page */
+  assert.match(h, /<p class="qreturn"><a href="profile\.html">Took the quiz before\? Rate the samples you tried<\/a><\/p>/);
+  assert.match(fs.readFileSync(path.join(SITE, "quiz.html"), "utf8"), /location\.replace\("index\.html" \+ location\.search \+ location\.hash\)/);
   first.click({ id: "lang-ar" });
   h = html(first);
   assert.match(h, /<h1>اعرف ما يفسد العطر عليك<\/h1>/);

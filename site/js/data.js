@@ -80,7 +80,7 @@ window.PP_DATA = (function () {
     { id: "faded",    en: "faded fast",      ar: "اختفى بسرعة",    fams: {} }
   ];
 
-  /* The quiz page (quiz.html): the twenty well-known bottles on its first screen, and the three testers
+  /* The quiz (the front page, index.html): the twenty well-known bottles on its first screen, and the three testers
      shown to a visitor who has worn none of them, each chosen because a single family is strong in its drydown. */
   const QUIZ = {
     grid: ["sauvageedp", "bleuedp", "eros", "cdnim", "hawas", "khamrah", "yara", "libre", "blackopium", "goodgirl",
