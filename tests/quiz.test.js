@@ -228,6 +228,20 @@ test("the profiler shows the quiz's ratings, drops src when one is changed there
   assert.doesNotMatch(lazy.history[0].url, /add=/);
 });
 
+test("language: Arabic is the default on an English device; a stored English choice is kept", () => {
+  for (const [scripts, host] of [[quizScripts, "quiz"], [appScripts, "rated"]]) {
+    const fresh = createPage({ localStorage: { pp_device: JSON.stringify("d_test") }, navLang: "en-US" });
+    fresh.load(scripts);
+    const snap = fresh.snapshot();
+    assert.equal(snap.html.lang, "ar", host);
+    assert.equal(snap.html.dir, "rtl", host);
+    assert.match(snap.els.brand.innerHTML, /^محلل الذائقة العطرية<small>/, host);
+  }
+  const chosen = createPage({ localStorage: seed(), navLang: "ar-SA" });
+  chosen.load(quizScripts);
+  assert.equal(chosen.snapshot().html.lang, "en", "a visitor who chose English keeps it");
+});
+
 test("language: the Arabic toggle sets rtl, is stored, and the tiles show Arabic names", () => {
   const page = open();
   page.click({ id: "lang-ar" });

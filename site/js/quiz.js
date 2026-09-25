@@ -205,7 +205,7 @@
     get(k, fb) { try { const v = localStorage.getItem(k); return v == null ? fb : JSON.parse(v); } catch (e) { return fb; } },
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } }
   };
-  let lang = store.get("pp_lang", (navigator.language || "").startsWith("ar") ? "ar" : "en");
+  let lang = store.get("pp_lang", "ar");   /* Arabic first, whatever the device language; a chosen language is kept */
   let ratings = store.get("pp_ratings_v1", {});
   let device = store.get("pp_device", null);
   if (!device) { device = "d_" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36); store.set("pp_device", device); }
