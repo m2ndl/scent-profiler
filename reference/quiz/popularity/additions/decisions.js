@@ -1,0 +1,112 @@
+/* Per-perfume decisions on top of the research files: the catalogue name and Arabic name, gender and tier, and a
+   pyramid override where the brand's own list is preferred to Fragrantica's. */
+module.exports = {
+  /* Arabic for note words the existing entries never used */
+  AR_EXTRA: {
+    "mimosa": "ميموزا", "madagascar vanilla": "فانيلا مدغشقرية", "woodsy notes": "نفحات خشبية", "woody notes": "نفحات خشبية",
+    "pine needle": "إبر الصنوبر", "cedarwood": "خشب الأرز", "mandarin orange": "يوسفي", "maninka": "مانينكا",
+    "tonka bean": "حبوب التونكا", "bulgarian rose": "ورد بلغاري", "black basil": "ريحان أسود", "brazilian redwood": "خشب أحمر برازيلي",
+    "sicilian lemon": "ليمون صقلي", "pomegranate": "رمان", "lemon blossom": "زهر الليمون", "big strawberry": "فراولة",
+    "white honey": "عسل أبيض", "geranium leaf": "ورق إبرة الراعي", "golden quince": "سفرجل ذهبي", "damask rose": "ورد دمشقي",
+    "centifolia rose": "ورد سنتيفوليا", "sweet pea": "زهر البازلاء العطرية", "pimento leaf": "ورق البيمنتو",
+    "casablanca lily": "زنبق كازابلانكا", "tahitian vanilla": "فانيلا تاهيتية", "balsam fir": "تنوب بلسمي", "green apple": "تفاح أخضر",
+    "pine": "صنوبر", "calabrian bergamot": "برغموت كالابري", "jasmine sambac": "ياسمين سامباك", "african orange flower": "زهر البرتقال الأفريقي",
+    "virginia cedar": "أرز فرجينيا", "suede": "شمواه", "cacao": "كاكاو", "marshmallow": "مارشميلو", "heliotrope": "هليوتروب",
+    "rum": "رم", "davana": "دافانا", "chestnut": "كستناء", "toffee": "توفي", "amberwood": "خشب عنبري", "osmanthus": "أوسمانثوس",
+    "dried fruits": "فواكه مجففة", "rhubarb": "راوند", "anise": "يانسون", "ylang-ylang": "يلانغ يلانغ", "gardenia": "غاردينيا",
+    "clary sage": "مريمية", "violet leaf": "ورق البنفسج", "cinnamon": "قرفة", "almond": "لوز", "spices": "توابل", "rosemary": "إكليل الجبل",
+    "thyme": "زعتر", "cherry": "كرز", "incense": "بخور", "cypress": "سرو", "green leaves": "أوراق خضراء", "lotus": "لوتس",
+    "oakmoss": "طحلب البلوط", "birch": "بتولا", "violet": "بنفسج", "maninka fruit": "مانينكا",
+    "pink grapefruit": "جريب فروت وردي", "sicilian bergamot": "برغموت صقلي", "red currant leaf": "ورق الكشمش الأحمر", "cactus": "صبار",
+    "red cedar": "أرز أحمر", "guava": "جوافة", "chinese pink peony": "فاوانيا صينية وردية", "passion flower": "زهرة العاطفة",
+    "brazilian rosewood": "خشب الورد البرازيلي", "bellini": "بيليني", "pink lily": "زنبق وردي", "persimmon": "كاكي",
+    "green accord": "نفحة خضراء", "champaca": "تشامباكا", "mahogany": "ماهوجني", "black violet": "بنفسج أسود",
+    "pine tree": "شجر الصنوبر", "laurels": "غار", "watery notes": "نفحات مائية", "wild jasmine": "ياسمين بري",
+    "black currant": "كشمش أسود", "italian lemon": "ليمون إيطالي", "cardamon": "هيل", "oak moss": "طحلب البلوط",
+    "lemongrass": "عشبة الليمون", "agarwood (oud)": "عود", "dark woodsy notes": "نفحات خشبية داكنة", "rooibos tea": "شاي رويبوس",
+    "chocolate": "شوكولاتة", "oriental woods": "أخشاب شرقية", "ylang ylang": "يلانغ يلانغ", "mahonial": "ماهونيال", "orris root": "جذر السوسن", "vanille": "فانيلا", "citruses": "حمضيات"
+  },
+  /* groups 1 (men's designer) */
+  nauticavoyage: { house: "Nautica", name: "Voyage", ar: "نوتيكا فوياج", gender: "m", tier: "designer" },
+  swyabsolutely: { house: "Giorgio Armani", name: "Stronger With You Absolutely", ar: "سترونجر ويذ يو أبسولوتلي", gender: "m", tier: "designer" },
+  bossbottlednight: { house: "Hugo Boss", name: "Boss Bottled Night", ar: "بوس بوتلد نايت", gender: "m", tier: "designer" },
+  hugoman: { house: "Hugo Boss", name: "Hugo Man", ar: "هوغو مان", gender: "m", tier: "designer",
+    why: "the 2021 relaunch, the bottle sold now (Fragrantica 64606, Coty's pyramid)",
+    top: ["Green Apple"], middle: ["Lavender"], base: ["Pine", "Woody Notes", "Balsam Fir"], fid: 64606,
+    url: "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-Man-64606.html",
+    /* the mapper reads "balsam" fir as resinous amber; fir is a green conifer note */
+    set: { drydown: { green_herbal: .7, cedar_dry: .6, woody_amber: .5, incense_resin: .3 } } },
+  mostwantedintense: { house: "Azzaro", name: "The Most Wanted Eau de Parfum Intense", ar: "ذا موست وانتد أو دو بارفان إنتنس", gender: "m", tier: "designer",
+    /* three notes only: the toffee and the amber accord stay into the base */
+    set: { drydown: { woody_amber: .9, vanilla_gourmand: .5, amber_resin: .4 } } },
+  trueinstinct: { house: "David Beckham", name: "True Instinct", ar: "ترو إنستنكت", gender: "m", tier: "designer",
+    why: "the brand's pyramid (Coty and Parfumo agree); Fragrantica's is longer and unsupported",
+    top: ["Pine Needle"], middle: ["Cedarwood"], base: ["Vetiver"] },
+  thescentmen: { house: "Hugo Boss", name: "Boss The Scent", ar: "بوس ذا سنت", gender: "m", tier: "designer",
+    /* maninka is a sweet stone-fruit note the mapper does not know */
+    set: { heart: { lavender_aromatic: .9, fruity_sweet: .6 } } },
+  guiltyabsolute: { house: "Gucci", name: "Guilty Absolute pour Homme", ar: "غيلتي أبسولوت بور أوم", gender: "m", tier: "designer" },
+  emblem: { house: "Montblanc", name: "Emblem", ar: "إمبلم", gender: "m", tier: "designer" },
+  lhommeideal: { id: "lhommeidealedp", house: "Guerlain", name: "L'Homme Idéal Eau de Parfum", ar: "لوم إيديال أو دو بارفان", gender: "m", tier: "designer" },
+  euphoriamen: { house: "Calvin Klein", name: "Euphoria Men", ar: "يوفوريا مين", gender: "m", tier: "designer",
+    /* Brazilian redwood is a dry wood the mapper does not know */
+    set: { drydown: { patchouli: .77, leather_smoky: .51, amber_resin: .43, woody_amber: .43, cedar_dry: .35 } } },
+
+  /* group 4 (women's designer B) */
+  dgpourfemme: { house: "Dolce&Gabbana", name: "Dolce&Gabbana Pour Femme", ar: "دولتشي آند غابانا بور فيم", gender: "f", tier: "designer" },
+  erospourfemme: { house: "Versace", name: "Eros Pour Femme", ar: "إيروس بور فيم", gender: "f", tier: "designer" },
+  lapanthere: { house: "Cartier", name: "La Panthère", ar: "لا بانتير", gender: "f", tier: "designer" },
+  elliesaab: { id: "elieleparfum", house: "Elie Saab", name: "Le Parfum", ar: "إيلي صعب لو بارفان", gender: "f", tier: "designer" },
+  narcisoforheredp: { house: "Narciso Rodriguez", name: "For Her Eau de Parfum", ar: "نارسيسو رودريغيز فور هير أو دو بارفان", gender: "f", tier: "designer" },
+  crystalnoir: { house: "Versace", name: "Crystal Noir", ar: "كريستال نوار", gender: "f", tier: "designer" },
+  myburberry: { house: "Burberry", name: "My Burberry", ar: "ماي بربري", gender: "f", tier: "designer",
+    why: "Burberry's own eight notes; Fragrantica adds ten that neither the brand nor its own description names",
+    top: ["Sweet Pea", "Bergamot"], middle: ["Geranium Leaf", "Golden Quince", "Freesia"], base: ["Patchouli", "Damask Rose", "Centifolia Rose"] },
+  moonlightpatchouli: { house: "Van Cleef & Arpels", name: "Moonlight Patchouli", ar: "مونلايت باتشولي", gender: "u", tier: "niche",
+    why: "the house's pyramid (Van Cleef & Arpels and Parfumo agree); Fragrantica's differs",
+    top: ["Bergamot", "Pink Pepper"], middle: ["Rose", "Iris"], base: ["Patchouli", "Suede"] },
+  thescentforher: { house: "Hugo Boss", name: "Boss The Scent For Her", ar: "بوس ذا سنت فور هير", gender: "f", tier: "designer" },
+  interditrouge: { house: "Givenchy", name: "L'Interdit Eau de Parfum Rouge", ar: "لانتردي روج", gender: "f", tier: "designer" },
+  guccibamboo: { house: "Gucci", name: "Bamboo", ar: "غوتشي بامبو", gender: "f", tier: "designer" },
+
+  /* group 3 (women's designer A) */
+  ckin2uher: { house: "Calvin Klein", name: "CK IN2U Her", ar: "سي كي إن تو يو هير", gender: "f", tier: "designer" },
+  ckbeauty: { house: "Calvin Klein", name: "Beauty", ar: "كالفن كلاين بيوتي", gender: "f", tier: "designer" },
+  eternitymoment: { house: "Calvin Klein", name: "Eternity Moment", ar: "إترنيتي مومنت", gender: "f", tier: "designer" },
+  sheerbeauty: { house: "Calvin Klein", name: "Sheer Beauty", ar: "شير بيوتي", gender: "f", tier: "designer" },
+  euphoriawomen: { house: "Calvin Klein", name: "Euphoria", ar: "يوفوريا", gender: "f", tier: "designer" },
+  jovanmusk: { house: "Jovan", name: "Musk for Women", ar: "جوفان مسك", gender: "f", tier: "designer",
+    why: "Fragrantica gives four notes without a pyramid; placed by volatility",
+    top: ["Bergamot", "Neroli"], middle: ["Jasmine"], base: ["Musk"] },
+  quatre: { house: "Boucheron", name: "Quatre pour Femme", ar: "بوشرون كاتر", gender: "f", tier: "designer" },
+  paradiso: { house: "Roberto Cavalli", name: "Paradiso", ar: "بارادايسو", gender: "f", tier: "designer" },
+  cavalliedp: { house: "Roberto Cavalli", name: "Roberto Cavalli Eau de Parfum", ar: "روبرتو كافالي أو دو بارفان", gender: "f", tier: "designer" },
+  paradisoazzurro: { house: "Roberto Cavalli", name: "Paradiso Azzurro", ar: "بارادايسو أزورو", gender: "f", tier: "designer" },
+  guessseductive: { house: "Guess", name: "Seductive", ar: "غس سيدكتيف", gender: "f", tier: "designer" },
+
+  /* group 2 (Arab houses, oils) */
+  hawasice: { house: "Rasasi", name: "Hawas Ice", ar: "هوس آيس", gender: "m", tier: "arab" },
+  supremacycollector: { house: "Afnan", name: "Supremacy Collector's Edition Pour Homme", ar: "سوبريماسي كولكتورز إيديشن", gender: "m", tier: "arab" },
+  najdia: { house: "Lattafa", name: "Najdia", ar: "نجدية", gender: "m", tier: "arab" },
+  dynasty: { house: "Lattafa", name: "Dynasty", ar: "داينستي", gender: "u", tier: "arab" },
+  aroubjazal: { house: "Aroub", name: "Jazal", ar: "عروب جزل", gender: "u", tier: "arab",
+    why: "Nice One's product page (no Fragrantica entry)" },
+  yaramoi: { house: "Lattafa", name: "Yara Moi", ar: "يارا موا", gender: "f", tier: "arab",
+    why: "Lattafa's own pyramid (lattafa.com and lattafa-usa.com agree); Fragrantica's shares two notes with it",
+    top: ["Pear", "Pink Pepper", "Black Currant"], middle: ["Tuberose", "Jasmine", "Almond"], base: ["Vanilla", "Cashmeran", "Patchouli"] },
+  cdnwoman: { house: "Armaf", name: "Club de Nuit Woman", ar: "كلوب دي نوي وومان", gender: "f", tier: "arab" },
+  raindrops: { skip: "no reliable pyramid: Fragrantica lists generic notes and Ajmal's own pages contradict each other" },
+  chocomusk: { house: "Al Rehab", name: "Choco Musk", ar: "شوكو مسك", gender: "u", tier: "arab",
+    why: "the house's pyramid for the 6 ml oil (alrehabstore.com); Fragrantica gives a flat list",
+    top: ["Vanilla", "Chocolate"], middle: ["Musk", "Spices", "Cinnamon"], base: ["Sandalwood", "Oriental Woods", "Rose"],
+    /* an oil named for its musk and chocolate: the musk carries the heart, and vanilla and musk last into the base */
+    set: { heart: { white_musk: .8, spicy_warm: .7, vanilla_gourmand: .4 }, drydown: { vanilla_gourmand: .7, sandalwood_creamy: .7, white_musk: .6, rose: .5, woody_amber: .4 } } },
+  amaali: { house: "Swiss Arabian", name: "Amaali", ar: "آمالي", gender: "f", tier: "arab" },
+  musksilk: { house: "Ajmal", name: "Musk Silk", ar: "مسك سيلك", gender: "u", tier: "arab",
+    why: "Ajmal's Saudi store page for the 12 ml oil; Fragrantica gives a flat list",
+    top: ["Lily of the Valley"], middle: ["Musk"], base: ["Musk", "Amber"] },
+  musamamwhite: { house: "Lattafa", name: "Musamam White Intense", ar: "مسمم وايت إنتنس", gender: "u", tier: "arab" },
+  oudmalaki: { house: "Chopard", name: "Oud Malaki", ar: "عود ملكي", gender: "m", tier: "designer",
+    /* "dark woodsy notes" should not outweigh the oud the perfume is named for */
+    set: { drydown: { oud_smoky: .9, woody_amber: .6, oud_animalic: .3, animalic: .2, amber_resin: .2 } } }
+};

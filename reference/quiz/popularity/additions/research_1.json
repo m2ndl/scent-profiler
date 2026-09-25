@@ -1,0 +1,680 @@
+[
+  {
+    "id": "nauticavoyage",
+    "name": "Nautica Voyage",
+    "house": "Nautica",
+    "year": 2006,
+    "concentration": "EDT",
+    "gender": "men",
+    "top": [
+      "Green Leaves",
+      "Apple"
+    ],
+    "middle": [
+      "Lotus",
+      "Mimosa"
+    ],
+    "base": [
+      "Musk",
+      "Cedar",
+      "Oakmoss",
+      "Amber"
+    ],
+    "flat": [],
+    "accords": [
+      "green",
+      "fruity",
+      "floral",
+      "fresh",
+      "powdery",
+      "musky"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/Nautica/Nautica-Voyage-913.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/Nautica/Nautica-Voyage-913.html"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/Nautica/Nautica-Voyage-913.html"
+      ],
+      "year": [
+        "https://www.fragrantica.com/perfume/Nautica/Nautica-Voyage-913.html",
+        "https://www.parfumo.com/Perfumes/Nautica/Voyage_Eau_de_Toilette"
+      ],
+      "concentration": [
+        "https://www.parfumo.com/Perfumes/Nautica/Voyage_Eau_de_Toilette"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/Nautica/Nautica-Voyage-913.html"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/Nautica/Nautica-Voyage-913.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/Nautica/Nautica-Voyage-913.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/Nautica/Nautica-Voyage-913.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "Parfumo agrees on the pyramid (Apple, Leaves / Lotus, Mimosa / Moss, Musk, Cedar, Amber). Fragrantica page does not state the concentration; EDT is from Parfumo."
+  },
+  {
+    "id": "swyabsolutely",
+    "name": "Emporio Armani Stronger With You Absolutely",
+    "house": "Giorgio Armani",
+    "year": 2021,
+    "concentration": "EDP",
+    "gender": "men",
+    "top": [
+      "Rum",
+      "elemi",
+      "Bergamot"
+    ],
+    "middle": [
+      "Lavender",
+      "Davana"
+    ],
+    "base": [
+      "Madagascar Vanilla",
+      "Chestnut",
+      "Cedar",
+      "Patchouli"
+    ],
+    "flat": [],
+    "accords": [
+      "vanilla",
+      "woody",
+      "balsamic",
+      "rum",
+      "aromatic",
+      "warm spicy"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html"
+      ],
+      "year": [
+        "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html",
+        "https://www.fragrantica.com/news/Armani-Emporio-Armani-Stronger-With-You-Absolutely-14485.html"
+      ],
+      "concentration": [
+        "https://www.fragrantica.com/news/Armani-Emporio-Armani-Stronger-With-You-Absolutely-14485.html",
+        "https://www.notino.co.uk/armani/emporio-stronger-with-you-absolutely-perfume-for-men/"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "Launched February 2021 as a 30/50/100 ml Eau de Parfum (Fragrantica news). Concentration naming disagrees across sources: Notino UK lists the concentration as \"perfume\" (Parfum), and Armani Beauty US/UK product pages are titled \"Stronger With You Absolutely Parfum\" (seen only in search-result titles; both official pages returned 403), while Boots, Walmart and Jomashop listings (search-result titles only) say Eau de Parfum. Treat as the same juice; not verified whether the label changed. Parfumo pyramid agrees in substance (Rum, Elemi resin, Bergamot / Davana, Lavender / Marron glace, Bourbon vanilla, Cedarwood, Patchouli): it says Bourbon vanilla where Fragrantica says Madagascar Vanilla, and Marron glace for Chestnut. Fragrantica writes \"elemi\" in lower case."
+  },
+  {
+    "id": "bossbottlednight",
+    "name": "Boss Bottled Night",
+    "house": "Hugo Boss",
+    "year": 2010,
+    "concentration": "EDT",
+    "gender": "men",
+    "top": [
+      "Lavender",
+      "Birch"
+    ],
+    "middle": [
+      "Violet"
+    ],
+    "base": [
+      "Woodsy Notes",
+      "Musk"
+    ],
+    "flat": [],
+    "accords": [
+      "woody",
+      "violet",
+      "powdery",
+      "lavender",
+      "leather",
+      "musky"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html"
+      ],
+      "year": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html"
+      ],
+      "concentration": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html",
+        "https://www.parfumo.com/Perfumes/Hugo_Boss/Boss_Bottled_Night_Eau_de_Toilette"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-Bottled-Night-8825.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "Disagreement: Parfumo lists Top Lavender, Birch leaf; Heart African violet, Cardamom, Jasmine; Base Salmwood, Musky notes, Sandalwood. Fragrantica: Top Lavender, Birch; Middle Violet; Base Woodsy Notes, Musk. Fragrantica description says the base is Louro Amarelo wood and musk, and lists the range as EDT 40/100 ml."
+  },
+  {
+    "id": "hugoman",
+    "name": "Hugo (Hugo Man)",
+    "house": "Hugo Boss",
+    "year": 1995,
+    "concentration": "EDT",
+    "gender": "men",
+    "top": [
+      "Green Apple",
+      "Lavender",
+      "Mint",
+      "Grapefruit",
+      "Basil"
+    ],
+    "middle": [
+      "Sage",
+      "Geranium",
+      "Carnation",
+      "Jasmine"
+    ],
+    "base": [
+      "Fir",
+      "Cedar",
+      "Patchouli"
+    ],
+    "flat": [],
+    "accords": [
+      "aromatic",
+      "fresh spicy",
+      "green",
+      "woody",
+      "fresh",
+      "fruity"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-570.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-570.html",
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-Man-64606.html",
+        "https://www.fragrantica.com/news/Hugo-Boss-HUGO-MAN-Eau-de-Toilette-14517.html"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-570.html"
+      ],
+      "year": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-570.html",
+        "https://www.parfumo.com/Perfumes/Hugo_Boss/Hugo_Eau_de_Toilette"
+      ],
+      "concentration": [
+        "https://www.parfumo.com/Perfumes/Hugo_Boss/Hugo_Eau_de_Toilette"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-570.html"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-570.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-570.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Hugo-570.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "IDENTITY: Fragrantica keeps two pages. \"Hugo\" (1995, Bob Aliano, page 570) is the original, used here. \"Hugo Man\" (2021, page 64606) is a Coty relaunch from January 2021 with an updated flask bottle and a different, shorter pyramid: Top Green Apple; Middle Lavender; Base Pine, Woody Notes, Balsam Fir (accords woody, aromatic, conifer, fresh spicy, fresh, lavender). Bottles now sold as \"HUGO Man\" are likely the 2021 version; which one a given listing is cannot be told from the name. Parfumo pyramid for the 1995 EDT is longer and differs: Top Green apple, Cedar leaf, Pine needle, Grapefruit, Mint, Thyme, Basil, Rum; Heart Cedarwood, Geranium leaf, Lavender, Sage, Carnation, Jasmine; Base Fir balsam, Moss, Vetiver, Sandalwood, Suede. Fragrantica page does not state the concentration; EDT is from Parfumo."
+  },
+  {
+    "id": "mostwantedintense",
+    "name": "The Most Wanted Eau de Parfum Intense",
+    "house": "Azzaro",
+    "year": 2021,
+    "concentration": "EDP (Intense)",
+    "gender": "men",
+    "top": [
+      "Cardamom"
+    ],
+    "middle": [
+      "Toffee"
+    ],
+    "base": [
+      "Amberwood"
+    ],
+    "flat": [],
+    "accords": [
+      "warm spicy",
+      "sweet",
+      "amber",
+      "woody",
+      "caramel",
+      "aromatic"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/Azzaro/The-Most-Wanted-66826.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/Azzaro/The-Most-Wanted-66826.html",
+        "https://www.fragrantica.com/news/Azzaro-The-Most-Wanted-Eau-de-Parfum-Intense-14950.html",
+        "https://www.parfumo.com/Perfumes/Azzaro/the-most-wanted-eau-de-parfum-intense"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/Azzaro/The-Most-Wanted-66826.html"
+      ],
+      "year": [
+        "https://www.fragrantica.com/news/Azzaro-The-Most-Wanted-Eau-de-Parfum-Intense-14950.html",
+        "https://www.parfumo.com/Perfumes/Azzaro/the-most-wanted-eau-de-parfum-intense"
+      ],
+      "concentration": [
+        "https://www.fragrantica.com/news/Azzaro-The-Most-Wanted-Eau-de-Parfum-Intense-14950.html",
+        "https://www.parfumo.com/Perfumes/Azzaro/the-most-wanted-eau-de-parfum-intense"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/Azzaro/The-Most-Wanted-66826.html"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/Azzaro/The-Most-Wanted-66826.html",
+        "https://www.fragrantica.com/news/Azzaro-The-Most-Wanted-Eau-de-Parfum-Intense-14950.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/Azzaro/The-Most-Wanted-66826.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/Azzaro/The-Most-Wanted-66826.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "YEAR: 2021, not 2022. Fragrantica news (23 April 2021) says it was available as a 50 and 100 ml Eau de Parfum Intense from April 2021; Parfumo also gives 2021. The Fragrantica page is titled only \"The Most Wanted\" and shows no year. The 2022 release in the line is The Most Wanted Parfum (Parfumo 2022; Fragrantica page 73664: Ginger / Woodsy Notes / Bourbon Vanilla). EDT INTENSE is a different product: Fragrantica page 90953 \"The Most Wanted Intense\" (2024, Nicolas Bonneville and Honorine Blanc; its description calls it The Most Wanted Eau de Toilette Intense): Top Bergamot; Middle Lavender; Base Liquor, Moss; accords lavender, citrus, fresh spicy, aromatic, mossy, alcohol. Parfumo also dates the EDT Intense to 2024, not 2021. AMAZON.SA \"The Most Wanted Intense EDP 100 ml\": the only product in the line that is both Intense and EDP is this 2021 Eau de Parfum Intense (sold in 100 ml), so the listing should be this one; the listing itself was not read. PYRAMID DISAGREEMENT: Fragrantica page and Fragrantica news (quoting the brand) give Cardamom / Toffee (caramel) / Amberwood; Parfumo gives Guatemala cardamom / Toffee / Bourbon vanilla, Vetiver. Azzaro official page read but it lists no notes."
+  },
+  {
+    "id": "trueinstinct",
+    "name": "David Beckham True Instinct",
+    "house": "David Beckham",
+    "year": 2023,
+    "concentration": "EDP",
+    "gender": "men",
+    "top": [
+      "Pine",
+      "Basil"
+    ],
+    "middle": [
+      "Geranium",
+      "Sandalwood"
+    ],
+    "base": [
+      "Patchouli",
+      "Vetiver",
+      "Musk"
+    ],
+    "flat": [],
+    "accords": [
+      "woody",
+      "aromatic",
+      "fresh spicy",
+      "green",
+      "patchouli",
+      "warm spicy"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/David-Beckham/David-Beckham-True-Instinct-97333.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/David-Beckham/David-Beckham-True-Instinct-97333.html",
+        "https://www.beckham-fragrances.com/en/product/true-instinct"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/David-Beckham/David-Beckham-True-Instinct-97333.html",
+        "https://www.beckham-fragrances.com/en/product/true-instinct"
+      ],
+      "year": [
+        "https://www.parfumo.com/Perfumes/David_Beckham/true-instinct"
+      ],
+      "concentration": [
+        "https://www.beckham-fragrances.com/en/product/true-instinct"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/David-Beckham/David-Beckham-True-Instinct-97333.html",
+        "https://www.beckham-fragrances.com/en/product/true-instinct"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/David-Beckham/David-Beckham-True-Instinct-97333.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/David-Beckham/David-Beckham-True-Instinct-97333.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/David-Beckham/David-Beckham-True-Instinct-97333.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "CONCENTRATION: exists as Eau de Parfum. The official Beckham Fragrances (Coty) page names it \"True Instinct Eau de Parfum\" and lists the range as EDP 75 ml, EDP 50 ml and a 150 ml deodorant body spray; no EDT was found, so the Amazon.sa \"Eau De Parfum 75ML\" listing matches the official range. YEAR: 2023 from Parfumo only; the Fragrantica page shows no year. PYRAMID DISAGREEMENT: Fragrantica lists Top Pine, Basil; Middle Geranium, Sandalwood; Base Patchouli, Vetiver, Musk. The brand page (pine needles in the opening, cedarwood in the heart, vetiver in the dry down) and Parfumo (Pine needle / Cedarwood / Vetiver) agree with each other and not with Fragrantica. A Parfumo user review says it is sold as \"Pulsing Instinct\" in some regions (unverified)."
+  },
+  {
+    "id": "thescentmen",
+    "name": "Boss The Scent",
+    "house": "Hugo Boss",
+    "year": 2015,
+    "concentration": "EDT",
+    "gender": "men",
+    "top": [
+      "Ginger",
+      "Mandarin Orange",
+      "Bergamot"
+    ],
+    "middle": [
+      "Maninka",
+      "Lavender"
+    ],
+    "base": [
+      "Leather",
+      "Woody Notes"
+    ],
+    "flat": [],
+    "accords": [
+      "fresh spicy",
+      "citrus",
+      "leather",
+      "lavender",
+      "woody",
+      "fruity"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html"
+      ],
+      "year": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html"
+      ],
+      "concentration": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html",
+        "https://www.parfumo.com/Perfumes/Hugo_Boss/The_Scent_Eau_de_Toilette"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/Hugo-Boss/Boss-The-Scent-31445.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "Launched end of August 2015 as 50/100 ml EDT (Fragrantica description). Parfumo names it \"The Scent for Him\" and lists a shorter pyramid: Ginger / Maninka fruit / Leather."
+  },
+  {
+    "id": "guiltyabsolute",
+    "name": "Gucci Guilty Absolute pour Homme",
+    "house": "Gucci",
+    "year": 2017,
+    "concentration": "EDP",
+    "gender": "men",
+    "top": [
+      "Leather"
+    ],
+    "middle": [
+      "Cypress",
+      "Patchouli"
+    ],
+    "base": [
+      "Woody Notes",
+      "Vetiver"
+    ],
+    "flat": [],
+    "accords": [
+      "woody",
+      "leather",
+      "aromatic",
+      "animalic",
+      "earthy",
+      "patchouli"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Absolute-43040.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Absolute-43040.html",
+        "https://www.parfumo.com/Perfumes/Gucci/Guilty_Absolute"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Absolute-43040.html"
+      ],
+      "year": [
+        "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Absolute-43040.html"
+      ],
+      "concentration": [
+        "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Absolute-43040.html"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Absolute-43040.html"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Absolute-43040.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Absolute-43040.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Absolute-43040.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "Fragrantica page title is \"Gucci Guilty Absolute\"; Parfumo names it \"Guilty Absolute pour Homme\". Fragrantica description: available as 90 and 150 ml Eau de Parfum. Parfumo gives only a flat list: Woodleather, Goldenwood, Nootka cypress, Patchouli, Vetiver (no pyramid)."
+  },
+  {
+    "id": "emblem",
+    "name": "Emblem",
+    "house": "Montblanc",
+    "year": 2014,
+    "concentration": "EDT",
+    "gender": "men",
+    "top": [
+      "Clary Sage",
+      "Grapefruit",
+      "Cardamom"
+    ],
+    "middle": [
+      "Violet Leaf",
+      "Cinnamon"
+    ],
+    "base": [
+      "Tonka Bean",
+      "Woody Notes"
+    ],
+    "flat": [],
+    "accords": [
+      "warm spicy",
+      "aromatic",
+      "ozonic",
+      "cinnamon",
+      "aquatic",
+      "citrus"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/Montblanc/Emblem-23711.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/Montblanc/Emblem-23711.html"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/Montblanc/Emblem-23711.html"
+      ],
+      "year": [
+        "https://www.fragrantica.com/perfume/Montblanc/Emblem-23711.html",
+        "https://www.parfumo.com/Perfumes/Montblanc/Emblem"
+      ],
+      "concentration": [
+        "https://www.fragrantica.com/perfume/Montblanc/Emblem-23711.html"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/Montblanc/Emblem-23711.html"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/Montblanc/Emblem-23711.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/Montblanc/Emblem-23711.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/Montblanc/Emblem-23711.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "Fragrantica description: launched spring 2014 with Emblem Intense, both as 40/60/100 ml EDT. Parfumo pyramid agrees (Cardamom, Clary sage, Grapefruit / Violet leaf, Cinnamon leaf / Tonka bean, Woody notes)."
+  },
+  {
+    "id": "lhommeideal",
+    "name": "L'Homme Idéal Eau de Parfum",
+    "house": "Guerlain",
+    "year": 2016,
+    "concentration": "EDP",
+    "gender": "men",
+    "top": [
+      "Almond",
+      "Spices",
+      "Lavender",
+      "Bergamot",
+      "Rosemary",
+      "Thyme"
+    ],
+    "middle": [
+      "Cherry",
+      "Vanilla",
+      "Incense",
+      "Bulgarian Rose"
+    ],
+    "base": [
+      "Tonka Bean",
+      "Leather",
+      "Sandalwood"
+    ],
+    "flat": [],
+    "accords": [
+      "sweet",
+      "cherry",
+      "vanilla",
+      "almond",
+      "nutty",
+      "warm spicy"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html"
+      ],
+      "year": [
+        "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html",
+        "https://www.parfumo.com/Perfumes/Guerlain/L_Homme_Ideal_Eau_de_Parfum"
+      ],
+      "concentration": [
+        "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html",
+        "https://www.parfumo.com/Perfumes/Guerlain/L_Homme_Ideal_Eau_de_Parfum"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/Guerlain/L-Homme-Ideal-Eau-de-Parfum-37735.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "Parfumo pyramid is shorter: Almond, Spices, Bergamot / Vanilla, Bulgarian rose, Frankincense / Tonka bean, Leathery notes, Sandalwood (no lavender, rosemary, thyme or cherry). Fragrantica description text names Turkish rose in the heart while its pyramid says Bulgarian Rose."
+  },
+  {
+    "id": "euphoriamen",
+    "name": "Euphoria Men",
+    "house": "Calvin Klein",
+    "year": 2006,
+    "concentration": "EDT",
+    "gender": "men",
+    "top": [
+      "Ginger",
+      "Pepper"
+    ],
+    "middle": [
+      "Black Basil",
+      "Sage",
+      "Cedar"
+    ],
+    "base": [
+      "Amber",
+      "Suede",
+      "Brazilian Redwood",
+      "Patchouli"
+    ],
+    "flat": [],
+    "accords": [
+      "fresh spicy",
+      "aromatic",
+      "woody",
+      "herbal",
+      "fresh",
+      "amber"
+    ],
+    "fragrantica_url": "https://www.fragrantica.com/perfume/Calvin-Klein/Euphoria-Men-799.html",
+    "sources": {
+      "name": [
+        "https://www.fragrantica.com/perfume/Calvin-Klein/Euphoria-Men-799.html"
+      ],
+      "house": [
+        "https://www.fragrantica.com/perfume/Calvin-Klein/Euphoria-Men-799.html"
+      ],
+      "year": [
+        "https://www.fragrantica.com/perfume/Calvin-Klein/Euphoria-Men-799.html",
+        "https://www.parfumo.com/Perfumes/Calvin_Klein/Euphoria_Men_Eau_de_Toilette"
+      ],
+      "concentration": [
+        "https://www.parfumo.com/Perfumes/Calvin_Klein/Euphoria_Men_Eau_de_Toilette"
+      ],
+      "gender": [
+        "https://www.fragrantica.com/perfume/Calvin-Klein/Euphoria-Men-799.html"
+      ],
+      "pyramid": [
+        "https://www.fragrantica.com/perfume/Calvin-Klein/Euphoria-Men-799.html"
+      ],
+      "accords": [
+        "https://www.fragrantica.com/perfume/Calvin-Klein/Euphoria-Men-799.html"
+      ],
+      "fragrantica_url": [
+        "https://www.fragrantica.com/perfume/Calvin-Klein/Euphoria-Men-799.html"
+      ]
+    },
+    "confidence": "verified",
+    "notes": "Parfumo adds notes: Top Pepper, Ginger, Rain accord, Sudachi; Heart Cedar leaf, Sage, Black basil; Base Amber, Patchouli, Redwood, Suede. Fragrantica page does not state the concentration; EDT is from Parfumo."
+  }
+]

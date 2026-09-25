@@ -2,6 +2,40 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-26: session close, the site goes live
+
+Session title: the site goes live. Across 25 and 26 September: the quiz result names the palate by the shape of the
+kept bottles (one group, two named together, wide, selective) with a short text and a tip; a start screen with a big
+Start; one event per screen reached and a result event, with backend counts behind a comparison line (shown from 100
+finishers) and a funnel sheet (Profiler menu > Build the quiz funnel). The catalogue grew from 288 to 333 with 45 Saudi
+bestsellers from the Amazon.sa and Nice One lists, tagged from published pyramids and checked by eye
+(reference/quiz/popularity/additions/). The site went live on GitHub Pages (https://m2ndl.github.io/scent-profiler/,
+public repo m2ndl/scent-profiler; a workflow tests, then publishes site/ only), in Arabic by default, with the quiz as
+the front page (index.html), the profiler as "Your profile" (profile.html) and quiz.html redirecting. Smaller: a wood
+grain header, the search list above the Continue bar, descriptions on 27 note cards, a dark "See the full profile"
+button after the picks, plain Arabic for the name of the articles. Last, after a reported case (rose liked, musk
+avoided, Montale Roses Musk offered): an avoided note card now keeps out of the picks every perfume it leads, unless a
+kept bottle carries it, in which case the result says so; every pick says why it was chosen and names at most one thing
+to watch for. A check of the 30 most-recommended perfumes found no weight to correct. Tests 79, all passing. Phone link
+current (version 22). All work committed and pushed. Edit scripts kept as evidence in reference/quiz/edits/ (indexed).
+
+Open, dated 26 Sep 2026 (operational):
+- Deploy the backend: paste backend/apps-script.gs into Apps Script, deploy a new version, set `endpoint` in
+  site/js/config.js. Until then ratings stay on the device and the events, funnel and comparison line are dormant.
+- Replace the Google-search placeholders in site/js/config.js `links` with partner shop and affiliate links.
+- Finish the grid rebuild with tools/select_grid.js and the refreshed sa_popularity.json (carried from 25 Sep).
+- Give the no-bottle (tester) result path the new layout (carried).
+- Check the five catalogue entries flagged by the Fragrantica search (carried).
+- Tab titles and share previews are still English; Arabic ones were offered, not decided.
+- The three-vial test (carried).
+
+Reflective, not scheduled:
+- Split the musk note card into clean white musk and heavy Arabian musk oil: the most ambiguous word in the picker, and
+  the likely cause of the reported case.
+- Whether the complaint chips (too sweet, chemical) should veto picks the way avoided note cards now do.
+- The research record and this log are public in the repo; move them to a private repo if that matters.
+- Monthly refresh of the Saudi bestseller data; palate names on the profile page (both carried).
+
 ## 2026-09-25: session close, the payoff screen
 
 Session title: the payoff screen. Across the day: the site redesigned three times and settled on the apothecary
