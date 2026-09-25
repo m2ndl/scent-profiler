@@ -1,0 +1,5 @@
+id: pegasus
+market: brand site (global)
+date: 2026-09-25
+url: https://www.parfums-de-marly.com/products/pegasus
+Alcohol Denat., Parfum (Fragrance), Tetramethyl Acetyloctahydronaphthalenes, Aqua (Water/Eau), Hexamethylindanopyran, Acetyl Cedrene, Amyl Salicylate, Vanillin, Pinene, Anethole, Limonene, Bht, Terpinolene, Linalool, Terpineol, Alpha-Terpinene, Beta-Caryophyllene

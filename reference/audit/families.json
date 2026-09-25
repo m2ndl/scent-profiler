@@ -1,0 +1,170 @@
+{
+ "woody_amber": {
+  "en": "Woody ambers (Ambroxan-type)",
+  "ar": "الأخشاب العنبرية الصناعية (نوع أمبروكسان)",
+  "hint_en": "Loud, dry, faintly sharp 'amberwood' base under most modern designer scents. The usual cause of 'it turned chemical after an hour'.",
+  "hint_ar": "قاعدة خشبية عنبرية قوية وجافة وحادة قليلاً تحت معظم العطور الحديثة. السبب المعتاد لجملة «تحوّل كيميائي بعد ساعة»."
+ },
+ "white_musk": {
+  "en": "Clean white musks",
+  "ar": "المسك الأبيض النظيف",
+  "hint_en": "Laundry-clean, soft, slightly soapy skin scent. Some people cannot smell it at all.",
+  "hint_ar": "رائحة نظيفة ناعمة تشبه الغسيل، صابونية قليلاً. بعض الناس لا يشمونها أصلاً."
+ },
+ "vanilla_gourmand": {
+  "en": "Vanilla and sugar",
+  "ar": "الفانيلا والسكر",
+  "hint_en": "Dessert-sweet vanilla, caramel, praline.",
+  "hint_ar": "فانيلا حلوة كالحلويات، كراميل، برالين."
+ },
+ "tonka_coumarin": {
+  "en": "Tonka and hay (coumarin)",
+  "ar": "التونكا والقش (كومارين)",
+  "hint_en": "Warm, almond-hay sweetness; softer than vanilla.",
+  "hint_ar": "دفء حلو يشبه اللوز والقش، أنعم من الفانيلا."
+ },
+ "oud_smoky": {
+  "en": "Oud, smoky or medicinal",
+  "ar": "العود المدخن أو الطبي",
+  "hint_en": "The Western-style oud accord: smoky, slightly medicinal, dark wood.",
+  "hint_ar": "العود بالأسلوب الغربي: مدخن، طبي قليلاً، خشب داكن."
+ },
+ "oud_animalic": {
+  "en": "Oud, animalic",
+  "ar": "العود الحيواني",
+  "hint_en": "Barnyard, leathery, natural-oud character.",
+  "hint_ar": "طابع العود الطبيعي: حيواني وجلدي."
+ },
+ "oakmoss_chypre": {
+  "en": "Oakmoss (mossy chypre base)",
+  "ar": "الطحلب (قاعدة الشيبر)",
+  "hint_en": "Damp forest floor, bitter-green, inky.",
+  "hint_ar": "أرض غابة رطبة، مرارة خضراء، حبرية."
+ },
+ "patchouli": {
+  "en": "Patchouli",
+  "ar": "الباتشولي",
+  "hint_en": "Earthy, dark, slightly camphor-like; the 'dirty' part of many sweet scents.",
+  "hint_ar": "ترابي داكن يشبه الكافور قليلاً؛ الجزء «الوسخ» في كثير من العطور الحلوة."
+ },
+ "vetiver": {
+  "en": "Vetiver",
+  "ar": "الفيتيفر",
+  "hint_en": "Dry grassy-rooty wood, sometimes smoky or earthy.",
+  "hint_ar": "خشب جذري عشبي جاف، أحياناً مدخن أو ترابي."
+ },
+ "sandalwood_creamy": {
+  "en": "Creamy sandalwood",
+  "ar": "خشب الصندل الكريمي",
+  "hint_en": "Milky, soft wood.",
+  "hint_ar": "خشب ناعم حليبي."
+ },
+ "cedar_dry": {
+  "en": "Dry cedar / Iso E Super",
+  "ar": "الأرز الجاف / إيزو إي سوبر",
+  "hint_en": "Pencil-shavings wood, transparent and dry.",
+  "hint_ar": "خشب يشبه برادة القلم، شفاف وجاف."
+ },
+ "leather_smoky": {
+  "en": "Leather and birch smoke",
+  "ar": "الجلد ودخان البتولا",
+  "hint_en": "Tarry, smoky, leathery.",
+  "hint_ar": "قطراني، مدخن، جلدي."
+ },
+ "incense_resin": {
+  "en": "Incense",
+  "ar": "البخور",
+  "hint_en": "Church incense, frankincense, cold smoke.",
+  "hint_ar": "لبان، بخور، دخان بارد."
+ },
+ "amber_resin": {
+  "en": "Resinous amber (labdanum, benzoin)",
+  "ar": "العنبر الراتنجي (اللبنى، البنزوين)",
+  "hint_en": "Warm, sweet-resinous, balsamic; the classic 'amber'.",
+  "hint_ar": "دافئ، حلو راتنجي، بلسمي؛ «العنبر» الكلاسيكي."
+ },
+ "aldehydes": {
+  "en": "Aldehydes",
+  "ar": "الألدهيدات",
+  "hint_en": "Sparkling, waxy, soapy, old-fashioned.",
+  "hint_ar": "فوّار، شمعي، صابوني، كلاسيكي قديم."
+ },
+ "white_floral": {
+  "en": "White florals (jasmine, tuberose, orange blossom)",
+  "ar": "الزهور البيضاء (ياسمين، مسك الروم، زهر البرتقال)",
+  "hint_en": "Heady, creamy, sometimes indolic (a faint 'off' note).",
+  "hint_ar": "قوية، كريمية، أحياناً فيها نفحة «غريبة» خفيفة."
+ },
+ "rose": {
+  "en": "Rose",
+  "ar": "الورد",
+  "hint_en": "Fresh or jammy rose.",
+  "hint_ar": "ورد طازج أو مربّى."
+ },
+ "iris_powdery": {
+  "en": "Iris and powder",
+  "ar": "السوسن والبودرة",
+  "hint_en": "Cosmetic powder, lipstick, violet.",
+  "hint_ar": "بودرة تجميل، أحمر شفاه، بنفسج."
+ },
+ "citrus_fresh": {
+  "en": "Citrus",
+  "ar": "الحمضيات",
+  "hint_en": "Bergamot, lemon, grapefruit; usually gone within the hour.",
+  "hint_ar": "برغموت، ليمون، جريب فروت؛ تختفي غالباً خلال ساعة."
+ },
+ "aquatic_marine": {
+  "en": "Aquatic / marine",
+  "ar": "المائي / البحري",
+  "hint_en": "Sea-breeze, melon-watery (Calone).",
+  "hint_ar": "نسيم بحر، مائي كالشمام."
+ },
+ "fruity_sweet": {
+  "en": "Sweet fruit",
+  "ar": "الفواكه الحلوة",
+  "hint_en": "Pineapple, apple, berries, coconut, almond.",
+  "hint_ar": "أناناس، تفاح، توت، جوز هند، لوز."
+ },
+ "spicy_warm": {
+  "en": "Warm spices",
+  "ar": "التوابل الدافئة",
+  "hint_en": "Cinnamon, cardamom, pepper, nutmeg.",
+  "hint_ar": "قرفة، هيل، فلفل، جوزة الطيب."
+ },
+ "lavender_aromatic": {
+  "en": "Lavender and aromatics",
+  "ar": "اللافندر والأعشاب العطرية",
+  "hint_en": "Barbershop, herbal-clean.",
+  "hint_ar": "رائحة الحلاق، عشبية نظيفة."
+ },
+ "green_herbal": {
+  "en": "Green and herbal",
+  "ar": "الأخضر والأعشاب",
+  "hint_en": "Sage, mint, juniper, crushed leaves.",
+  "hint_ar": "مريمية، نعناع، عرعر، أوراق مهروسة."
+ },
+ "animalic": {
+  "en": "Animalic (civet, castoreum)",
+  "ar": "الحيواني (زباد، قندس)",
+  "hint_en": "Skin, fur, slightly dirty.",
+  "hint_ar": "جلد، فرو، وسخ قليلاً."
+ },
+ "tobacco_honey": {
+  "en": "Tobacco and honey",
+  "ar": "التبغ والعسل",
+  "hint_en": "Sweet dried leaf, honeyed.",
+  "hint_ar": "ورق مجفف حلو، عسلي."
+ },
+ "coffee_gourmand": {
+  "en": "Coffee and cacao",
+  "ar": "القهوة والكاكاو",
+  "hint_en": "Roasted, bitter-sweet.",
+  "hint_ar": "محمّص، حلو مرّ."
+ },
+ "saffron_leathery": {
+  "en": "Saffron",
+  "ar": "الزعفران",
+  "hint_en": "Leathery-metallic, slightly medicinal spice.",
+  "hint_ar": "توابل جلدية معدنية، طبية قليلاً."
+ }
+}

@@ -1,0 +1,5 @@
+id: valaya
+market: brand site (global)
+date: 2026-09-25
+url: https://www.parfums-de-marly.com/products/valaya
+Alcohol Denat., Parfum (Fragrance), Aqua (Water/Eau), Tetramethyl Acetyloctahydronaphthalenes, Citrus Aurantium Bergamia (Bergamot) Peel Oil, Limonene, Linalyl Acetate, Linalool, Pinene, Terpinolene, Citral, Geranyl Acetate, Terpineol, Alpha-Terpinene, Beta-Caryophyllene, Citrus Aurantium Peel Oil, Vanillin

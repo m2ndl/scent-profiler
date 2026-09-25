@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Four short pieces on why perfumes disappoint after the first hour: woody ambers, musks some people cannot smell, why notes are not ingredients, and the three kinds of oud.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why the drydown ruins it · لماذا تفسد القاعدة العطر">
+<meta property="og:image" content="og.png">
+<title>Why the Drydown Ruins It</title>
+<link rel="icon" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='24' y='6' width='16' height='10' rx='2' fill='%235A3E85'/%3E%3Crect x='14' y='18' width='36' height='40' rx='8' fill='%235A3E85'/%3E%3Crect x='21' y='26' width='22' height='24' rx='4' fill='%23E9E2F4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Naskh+Arabic:wght@500;600&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+  .articles { display: grid; gap: 48px; margin-top: 8px; }
+  article { max-width: 68ch; }
+  article h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(24px, 4vw, 32px); line-height: 1.15; margin: 0 0 6px; letter-spacing: -.01em; text-wrap: balance; }
+  article .standfirst { color: var(--ink-2); font-size: 17px; margin: 0 0 16px; }
+  article p { margin: 0 0 14px; font-size: 16px; }
+  [dir="rtl"] article p { font-size: 17px; }
+  article h3 { font-size: 17px; margin: 22px 0 6px; }
+  article ul { margin: 0 0 14px; padding-inline-start: 20px; }
+  article li { margin-bottom: 6px; }
+  article .try { border-inline-start: 4px solid var(--accent); background: var(--accent-soft); padding: 12px 14px; border-radius: var(--radius); margin: 18px 0; }
+  article .try b { display: block; margin-bottom: 4px; }
+  article .sources { font-size: 13px; color: var(--ink-3); margin-top: 10px; }
+  article .sources a { color: var(--ink-3); }
+  .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; }
+  .toc a { text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 14px; color: var(--ink); background: var(--surface); }
+  .toc a:hover { border-color: var(--accent); }
+  .back { display: inline-block; margin-top: 28px; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" id="brand"></a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" aria-pressed="true">English</button>
+      <button type="button" id="lang-ar" aria-pressed="false">العربية</button>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <h1 id="h1"></h1>
+    <p id="lede"></p>
+    <nav class="toc" id="toc"></nav>
+  </div>
+  <div class="articles" id="articles"></div>
+  <a class="back" href="index.html" id="back"></a>
+  <footer class="foot" id="foot"></footer>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  const T = {
+    en: {
+      brand: "Drydown Profiler", tagline: "find what you hate before you buy",
+      h1: "Why the drydown ruins it",
+      lede: "Four short pieces on the part of a perfume nobody tests at the counter: the base that is still on your skin six hours later.",
+      back: "Back to the profiler", foot: "Written for the profiler. No affiliate links on this page.",
+      articles: [
+        { id: "woody-ambers", title: "The base that turns chemical: woody ambers",
+          standfirst: "If a perfume you loved at the counter smelled sharp and synthetic by the afternoon, the culprit is probably one family of materials, and it is in most modern releases.",
+          body: `<p>Perfumers call them woody ambers. The best-known members are Ambroxan (also sold as Ambrox and Ambrofix), Ambrocenide, Norlimbanol, Timbersilk and Karanal, and marketing lists them as "amberwood", "ambergris", "woody notes" or just "amber". They are cheap, powerful, and they last for a day, which is why brands love them: they give a perfume the "performance" that reviews reward.</p>
+<p>They also divide people more sharply than almost any other material. To some noses a woody amber is warm, clean and expensive. To others it is dry, scratchy and faintly like a hot electrical socket, and it gets louder as the softer materials on top evaporate. That is the mechanism behind the most common complaint we hear: "the opening was beautiful, then after an hour it turned chemical". The opening did not change into something chemical; the chemical part was there all along, waiting underneath the citrus.</p>
+<h3>How to tell if this is your problem</h3>
+<p>Look for a pattern, not a single perfume. Sauvage Eau de Parfum, Bleu de Chanel, Baccarat Rouge 540, Y Eau de Parfum, Invictus, Imagination and Hawas all end on a woody amber base. If two or more of these disappointed you in the same way after the first hour, you have your answer, and hundreds of other perfumes are now off your list before you spend on them.</p>
+<div class="try"><b>Try this</b>Sample one perfume whose base is a woody amber with almost nothing else: Juliette Has a Gun Not a Perfume (which is Cetalox alone) or Escentric Molecules Molecule 01 (Iso E Super alone). Wear it for four hours. If you still like it, woody ambers are not your problem and you should look at what else those perfumes had in common.</div>
+<h3>What to look for instead</h3>
+<p>Bases built on resins (labdanum, benzoin), on real mossy chypre structures, on vetiver or on creamy sandalwood age differently on skin: they soften rather than sharpen. The profiler marks all of these as separate families so that a rating against one does not count against the others.</p>
+<p class="sources">Further reading: the "Amberwood is a curse" thread on Fragrantica; Ohloff, Pickenhagen and Kraft, <i>Scent and Chemistry</i>, chapter on ambergris and woody ambers.</p>` },
+        { id: "musk-anosmia", title: "The musk you cannot smell",
+          standfirst: "Roughly one person in twelve cannot smell some of the most common musks at all. If perfumes seem to vanish on you after an hour, this may be why.",
+          body: `<p>Modern perfumes end on musk far more often than on anything else. The word covers a family of synthetic materials (Galaxolide, Habanolide, Exaltolide, muscone and others) that smell clean, soft and slightly like warm skin or fresh laundry. They are the reason a perfume can feel "finished" rather than just faded.</p>
+<p>Here is the part the counter never tells you. Specific anosmia, the inability to smell one class of molecules while smelling everything else normally, is unusually common for musks. Studies put it at about 6 to 9 percent of people for particular macrocyclic musks, and it runs in families: variants in olfactory receptor genes such as OR5AN1 and OR4D6 have been linked directly to whether a person perceives musks like muscone and Galaxolide. Your nose may be working perfectly and still report nothing where the base should be.</p>
+<h3>What it feels like from the inside</h3>
+<p>People with musk anosmia rarely say "I cannot smell musk". They say the perfume "disappears", "has no longevity", or "smells like nothing after lunch", and they buy a stronger perfume, which usually means one with more woody amber, which brings a different problem. The tell is that the same perfume lasts all day on a friend.</p>
+<div class="try"><b>Try this</b>Ask someone whose nose you trust to smell your wrist four hours after you apply a musk-based perfume such as Narciso Rodriguez For Her, Le Labo Another 13 or Initio Musk Therapy. If they smell a clear soft base and you smell nothing, you have found a family to stop paying for.</div>
+<h3>What it means for choosing</h3>
+<p>You are not limited to loud perfumes. Bases on vanilla, tonka, resins, vetiver, patchouli or sandalwood will still be there for you at hour six. In the profiler, rating a musk-heavy drydown as "OK" when everyone else calls it soft and lasting is itself evidence, and the tool treats "faded fast" as a signal about the family, not about your skin.</p>
+<p class="sources">Sources: Genetic variation in OR5AN1 and the perception of musks (<i>Chemical Senses</i>, 2023); "From musk to body odor: decoding olfaction through genetic variation" (<i>PLOS Genetics</i>, 2021).</p>` },
+        { id: "notes-not-ingredients", title: "Notes are not ingredients",
+          standfirst: "The pyramid on the box describes an impression the brand wants you to have. It is not a formula, and two perfumes that list the same note can smell nothing alike.",
+          body: `<p>A note list is written by the marketing team after the perfume is finished. "Pear" means a molecule that suggests pear. "Amber" can mean a warm resin from a shrub, or a synthetic woody amber that smells sharp and dry, and the list will not tell you which. "Musk" can be six different materials. "Oud" is usually an accord built from other things. The pyramid is a story about the perfume, told in words that sell.</p>
+<p>This is why quiz-based recommenders disappoint. They match note words to note words, so a perfume with "vanilla, amber, musk" recommends every other perfume with "vanilla, amber, musk", including the one whose amber you cannot stand. The word is the same; the material is not.</p>
+<h3>How to read a note list anyway</h3>
+<ul>
+<li>Read the base line first. It is what you live with for most of the day.</li>
+<li>Translate the words into materials. "Amberwood", "ambergris" and bare "woody notes" almost always mean woody ambers. "White musk", "cotton" and "clean" mean synthetic musks. "Oud" in a designer perfume means a smoky or medicinal accord, not the wood.</li>
+<li>Count the list. A base with eight notes is a list of aspirations; a base with two is closer to the truth.</li>
+<li>Ignore the opening for buying decisions. It is real, it is lovely, and it is gone in twenty minutes.</li>
+</ul>
+<h3>What the profiler does differently</h3>
+<p>Every perfume in the hand-checked catalogue is tagged with material families per stage of wear, not with note words, and you rate each stage separately. When you say a base was hateful, the tool asks which family it contained, and whether the same family was in the other bases you hated. That is a question no note pyramid can answer, and it is the only one that predicts your next wasted bottle.</p>
+<p class="sources">Further reading: "The truth about notes" and "Olfactory pyramid or perfumer's nightmare" on Fragrantica; Jean-Claude Ellena, <i>Perfume: The Alchemy of Scent</i>, on illusions built from materials.</p>` },
+        { id: "three-ouds", title: "Oud is not one smell",
+          standfirst: "In the Gulf, saying you like or dislike oud says almost nothing. There are at least three different things sold under the name, and people who love one often hate another.",
+          body: `<p>Real agarwood oil comes from a resin that Aquilaria trees produce when infected. Its smell depends on the tree, the region and the distillation, and it ranges from sweet and woody to something close to a stable. Almost none of it is in the perfumes on a department store shelf.</p>
+<h3>The three ouds</h3>
+<ul>
+<li><b>Animalic oud.</b> Hindi and Assam oils, and the traditional dehn al oud sold in Riyadh and Jeddah. Barnyard, leathery, fermented. Loved for exactly that character; unwearable for people who read it as dirty.</li>
+<li><b>Smoky or medicinal oud.</b> Cambodian, Laotian and Thai styles, and most Arab-house sprays. Dark wood, smoke, a slightly antiseptic edge. This is what Oud for Greatness, Oud Mood and most "oud" launches from the Gulf houses mean.</li>
+<li><b>The Western oud accord.</b> Tom Ford Oud Wood, Dior Oud Ispahan, Montale Black Aoud. A polished, often creamy or rosy interpretation with little or no agarwood, built from cypriol, woody ambers, saffron and leather materials.</li>
+</ul>
+<p>Each of these lands on a different receptor set. Someone who wears dehn al oud daily may find the Western accord thin and chemical; someone raised on Oud Wood may find the real thing frightening. Neither is wrong, and a profile that records "dislikes oud" has thrown away the information that mattered.</p>
+<div class="try"><b>Try this</b>Sample one from each group and rate only the drydown: Bade'e Al Oud Oud for Glory (smoky), Tom Ford Oud Wood (Western accord) and any Hindi oud oil from a local house (animalic). Most people like exactly one or two of the three.</div>
+<h3>Why this matters more here than anywhere</h3>
+<p>Saudi Arabia consumes most of the world's oud and layers it under everything else. A profiler that cannot tell the three apart cannot work for its largest audience, so the catalogue tags them as two separate families, smoky and animalic, and treats the Western accord as a mix of smoky oud with the families it is actually built from.</p>
+<p class="sources">Further reading: <i>Agarwood: Science Behind the Fragrance</i> (Springer, 2016) on the chemistry of the oil; the oud pages of the Arab houses' own catalogues for how each describes its styles.</p>` }
+      ]
+    },
+    ar: {
+      brand: "محلل القاعدة", tagline: "اعرف ما تكرهه قبل أن تشتري",
+      h1: "لماذا تفسد القاعدة العطر",
+      lede: "أربع مقالات قصيرة عن الجزء الذي لا يختبره أحد عند الطاولة: القاعدة التي تبقى على جلدك بعد ست ساعات.",
+      back: "العودة إلى المحلل", foot: "كُتبت لأجل المحلل. لا روابط عمولة في هذه الصفحة.",
+      articles: [
+        { id: "woody-ambers", title: "القاعدة التي تتحول إلى كيميائية: الأخشاب العنبرية",
+          standfirst: "إذا كان العطر الذي أحببته عند الطاولة قد صار حاداً وصناعياً بعد الظهر، فالسبب على الأرجح عائلة واحدة من المواد، وهي موجودة في معظم الإصدارات الحديثة.",
+          body: `<p>يسميها العطارون الأخشاب العنبرية. أشهر أفرادها الأمبروكسان (ويباع أيضاً باسم أمبروكس وأمبروفيكس)، والأمبروسينايد، والنورليمبانول، والتيمبرسيلك، والكارانال. وتذكرها قوائم النوتات باسم «خشب عنبري» أو «عنبر رمادي» أو «نفحات خشبية» أو «عنبر» فقط. رخيصة، قوية، وتدوم يوماً كاملاً، ولهذا تحبها الشركات: تمنح العطر «الثبات» الذي تكافئه المراجعات.</p>
+<p>وهي تقسم الناس أكثر من أي مادة أخرى تقريباً. لبعض الأنوف، الخشب العنبري دافئ ونظيف وفاخر. ولأنوف أخرى جاف وخادش ويشبه رائحة مقبس كهربائي ساخن، ويزداد صوته كلما تبخرت المواد الأنعم فوقه. هذه هي الآلية وراء أكثر شكوى نسمعها: «كانت الافتتاحية جميلة، ثم بعد ساعة تحوّل إلى كيميائي». الافتتاحية لم تتحول إلى شيء كيميائي؛ الجزء الكيميائي كان موجوداً طوال الوقت، ينتظر تحت الحمضيات.</p>
+<h3>كيف تعرف أن هذه مشكلتك</h3>
+<p>ابحث عن نمط لا عن عطر واحد. سوفاج أو دو بارفان، وبلو دو شانيل، وباكارات روج 540، وواي أو دو بارفان، وإنفيكتوس، وإيماجينيشن، وهوس، كلها تنتهي على قاعدة من الأخشاب العنبرية. إن خذلك اثنان منها أو أكثر بالطريقة نفسها بعد الساعة الأولى، فقد عرفت الجواب، وصارت مئات العطور الأخرى خارج قائمتك قبل أن تدفع ثمنها.</p>
+<div class="try"><b>جرّب هذا</b>خذ عينة من عطر قاعدته خشب عنبري يكاد يكون وحده: «نوت آ بيرفيوم» من جولييت هاز آ غن (وهو سيتالوكس وحده) أو «موليكيول 01» من إيسنتريك موليكيولز (إيزو إي سوبر وحده). البسه أربع ساعات. إن بقي يعجبك فالأخشاب العنبرية ليست مشكلتك، وعليك أن تبحث عما اشتركت فيه تلك العطور غير ذلك.</div>
+<h3>عمّ تبحث بدلاً منها</h3>
+<p>القواعد المبنية على الراتنجات (اللبنى، البنزوين)، أو على تراكيب الشيبر الطحلبية، أو على الفيتيفر، أو على الصندل الكريمي تشيخ على الجلد بطريقة مختلفة: تنعم بدل أن تحتد. يضع المحلل كل هذه في عائلات منفصلة حتى لا يُحسب تقييمك لواحدة على الأخريات.</p>
+<p class="sources">للاستزادة: موضوع «Amberwood is a curse» في منتدى فراغرانتيكا؛ أولوف وبيكنهاغن وكرافت، <i>Scent and Chemistry</i>، فصل العنبر الرمادي والأخشاب العنبرية.</p>` },
+        { id: "musk-anosmia", title: "المسك الذي لا تستطيع شمّه",
+          standfirst: "نحو واحد من كل اثني عشر شخصاً لا يشم بعض أكثر أنواع المسك شيوعاً إطلاقاً. إن كانت العطور تختفي عليك بعد ساعة، فقد يكون هذا هو السبب.",
+          body: `<p>تنتهي العطور الحديثة على المسك أكثر مما تنتهي على أي شيء آخر. والكلمة تغطي عائلة من المواد الصناعية (غالاكسولايد، هابانولايد، إكسالتولايد، مسكون وغيرها) تشم نظيفة وناعمة وتشبه قليلاً الجلد الدافئ أو الغسيل الطازج. وهي السبب في أن العطر يبدو «مكتملاً» لا باهتاً فحسب.</p>
+<p>وهذا ما لا تخبرك به الطاولة. فقدان الشم النوعي، أي العجز عن شم صنف واحد من الجزيئات مع شم كل شيء آخر بشكل طبيعي، شائع على نحو غير معتاد في المسك. تقدّره الدراسات بنحو 6 إلى 9 بالمئة من الناس لبعض المسكات الحلقية الكبيرة، وهو وراثي: رُبطت تنويعات في جينات مستقبلات الشم مثل OR5AN1 وOR4D6 مباشرة بما إذا كان الشخص يدرك مسكات مثل المسكون والغالاكسولايد. قد يعمل أنفك تماماً ومع ذلك لا يبلّغ عن شيء حيث ينبغي أن تكون القاعدة.</p>
+<h3>كيف يبدو الأمر من الداخل</h3>
+<p>نادراً ما يقول أصحاب فقدان شم المسك «لا أشم المسك». يقولون إن العطر «يختفي» أو «لا ثبات له» أو «لا رائحة له بعد الغداء»، ثم يشترون عطراً أقوى، وهذا يعني غالباً خشباً عنبرياً أكثر، وهذا يجلب مشكلة أخرى. العلامة الفارقة أن العطر نفسه يدوم طوال اليوم على صديق.</p>
+<div class="try"><b>جرّب هذا</b>اطلب من شخص تثق بأنفه أن يشم معصمك بعد أربع ساعات من وضع عطر مسكي مثل «نارسيسو فور هير» أو «أناذر 13» من لو لابو أو «مسك ثيرابي» من إينيتيو. إن شم هو قاعدة ناعمة واضحة وشممت أنت لا شيء، فقد وجدت عائلة تتوقف عن الدفع لها.</div>
+<h3>ماذا يعني ذلك للاختيار</h3>
+<p>لست محصوراً في العطور الصاخبة. القواعد المبنية على الفانيلا أو التونكا أو الراتنجات أو الفيتيفر أو الباتشولي أو الصندل ستبقى لك في الساعة السادسة. وفي المحلل، تقييمك لقاعدة مسكية ثقيلة بأنها «عادية» بينما يصفها الآخرون بالناعمة الثابتة هو دليل بحد ذاته، والأداة تعامل «اختفى بسرعة» بوصفها إشارة عن العائلة لا عن جلدك.</p>
+<p class="sources">المصادر: التنوع الجيني في OR5AN1 وإدراك المسك (<i>Chemical Senses</i>، 2023)؛ «From musk to body odor: decoding olfaction through genetic variation» (<i>PLOS Genetics</i>، 2021).</p>` },
+        { id: "notes-not-ingredients", title: "النوتات ليست مكونات",
+          standfirst: "الهرم المطبوع على العلبة يصف انطباعاً تريد الشركة أن تحصل عليه. ليس تركيبة، وعطران يذكران النوتة نفسها قد لا يتشابهان في شيء.",
+          body: `<p>قائمة النوتات يكتبها فريق التسويق بعد اكتمال العطر. «كمثرى» تعني جزيئاً يوحي بالكمثرى. «عنبر» قد تعني راتنجاً دافئاً من شجيرة، أو خشباً عنبرياً صناعياً حاداً وجافاً، والقائمة لن تخبرك أيهما. «مسك» قد تكون ست مواد مختلفة. و«عود» غالباً تركيب مبني من أشياء أخرى. الهرم قصة عن العطر، تُروى بكلمات تبيع.</p>
+<p>لهذا تخيّب أدوات الترشيح القائمة على الاستبيانات. إنها تطابق كلمات بكلمات، فالعطر الذي فيه «فانيلا، عنبر، مسك» يرشّح كل عطر آخر فيه «فانيلا، عنبر، مسك»، بما فيها ذاك الذي لا تحتمل عنبره. الكلمة واحدة؛ المادة ليست كذلك.</p>
+<h3>كيف تقرأ قائمة النوتات رغم ذلك</h3>
+<ul>
+<li>اقرأ سطر القاعدة أولاً. هو ما تعيش معه معظم اليوم.</li>
+<li>ترجم الكلمات إلى مواد. «خشب عنبري» و«عنبر رمادي» و«نفحات خشبية» وحدها تعني في الغالب أخشاباً عنبرية. «مسك أبيض» و«قطن» و«نظيف» تعني مسكات صناعية. و«عود» في عطر ديزاينر يعني تركيباً مدخناً أو طبياً، لا الخشب نفسه.</li>
+<li>عدّ القائمة. قاعدة فيها ثماني نوتات قائمة أمنيات؛ وقاعدة فيها نوتتان أقرب إلى الحقيقة.</li>
+<li>تجاهل الافتتاحية في قرار الشراء. هي حقيقية وجميلة، وتذهب خلال عشرين دقيقة.</li>
+</ul>
+<h3>ما الذي يفعله المحلل بشكل مختلف</h3>
+<p>كل عطر في القائمة المراجَعة يدوياً موسوم بعائلات المواد في كل مرحلة من اللبس، لا بكلمات النوتات، وأنت تقيّم كل مرحلة على حدة. وحين تقول إن قاعدةً كانت بغيضة، تسأل الأداة أي عائلة احتوتها، وهل كانت العائلة نفسها في القواعد الأخرى التي كرهتها. هذا سؤال لا يجيب عنه أي هرم نوتات، وهو الوحيد الذي يتنبأ بزجاجتك الضائعة التالية.</p>
+<p class="sources">للاستزادة: «The truth about notes» و«Olfactory pyramid or perfumer's nightmare» على فراغرانتيكا؛ جان كلود إيلينا، <i>Perfume: The Alchemy of Scent</i>، عن الأوهام المبنية من المواد.</p>` },
+        { id: "three-ouds", title: "العود ليس رائحة واحدة",
+          standfirst: "في الخليج، قولك إنك تحب العود أو تكرهه لا يقول شيئاً تقريباً. هناك ثلاثة أشياء مختلفة على الأقل تُباع بهذا الاسم، ومن يحب واحداً منها كثيراً ما يكره الآخر.",
+          body: `<p>دهن العود الحقيقي يأتي من راتنج تفرزه أشجار الأكويلاريا حين تصاب بعدوى. ورائحته تعتمد على الشجرة والمنطقة والتقطير، وتتراوح من حلو خشبي إلى شيء قريب من الإسطبل. ولا يكاد شيء منه يوجد في عطور رفوف المتاجر الكبرى.</p>
+<h3>الأعواد الثلاثة</h3>
+<ul>
+<li><b>العود الحيواني.</b> زيوت الهندي والآسامي، ودهن العود التقليدي الذي يُباع في الرياض وجدة. حظيرة، جلد، تخمّر. يُحب لهذا الطابع بعينه؛ ولا يُلبس عند من يقرؤه وسخاً.</li>
+<li><b>العود المدخن أو الطبي.</b> الأساليب الكمبودية واللاوسية والتايلندية، ومعظم بخاخات الدور العربية. خشب داكن، دخان، حافة معقّمة قليلاً. هذا ما يعنيه «عود فور غريتنس» و«عود مود» ومعظم إصدارات «العود» من دور الخليج.</li>
+<li><b>تركيب العود الغربي.</b> «عود وود» من توم فورد، «عود أصفهان» من ديور، «بلاك عود» من مونتال. تفسير مصقول، كريمي أو وردي غالباً، فيه القليل من الأغار أو لا شيء، مبني من السيبريول والأخشاب العنبرية والزعفران ومواد الجلد.</li>
+</ul>
+<p>كلٌّ منها يقع على مجموعة مستقبلات مختلفة. من يلبس دهن العود يومياً قد يجد التركيب الغربي رقيقاً وكيميائياً؛ ومن تربّى على «عود وود» قد يجد الحقيقي مخيفاً. لا أحد منهما مخطئ، والملف الذي يسجل «لا يحب العود» قد رمى المعلومة التي كانت مهمة.</p>
+<div class="try"><b>جرّب هذا</b>خذ عينة من كل مجموعة وقيّم القاعدة وحدها: «بديع العود عود فور غلوري» (مدخن)، و«عود وود» من توم فورد (تركيب غربي)، وأي دهن عود هندي من دار محلية (حيواني). معظم الناس يحبون واحداً أو اثنين من الثلاثة بالضبط.</div>
+<h3>لماذا يهم هذا هنا أكثر من أي مكان</h3>
+<p>تستهلك السعودية معظم عود العالم وتضعه تحت كل شيء آخر. المحلل الذي لا يفرّق بين الثلاثة لا يمكن أن يعمل لجمهوره الأكبر، ولهذا تضعها القائمة في عائلتين منفصلتين، مدخن وحيواني، وتعامل التركيب الغربي على أنه مزيج من العود المدخن مع العائلات التي بُني منها فعلاً.</p>
+<p class="sources">للاستزادة: <i>Agarwood: Science Behind the Fragrance</i> (سبرينغر، 2016) عن كيمياء الزيت؛ وصفحات العود في كتالوجات الدور العربية لكيفية وصف كل دار لأساليبها.</p>` }
+      ]
+    }
+  };
+  const store = { get(k, fb) { try { const v = localStorage.getItem(k); return v == null ? fb : JSON.parse(v); } catch (e) { return fb; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } } };
+  let lang = store.get("pp_lang", (navigator.language || "").startsWith("ar") ? "ar" : "en");
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  function render() {
+    const t = T[lang];
+    document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.getElementById("lang-en").setAttribute("aria-pressed", lang === "en");
+    document.getElementById("lang-ar").setAttribute("aria-pressed", lang === "ar");
+    document.getElementById("brand").innerHTML = esc(t.brand) + "<small>" + esc(t.tagline) + "</small>";
+    document.getElementById("h1").textContent = t.h1;
+    document.getElementById("lede").textContent = t.lede;
+    document.getElementById("toc").innerHTML = t.articles.map(a => `<a href="#${a.id}">${esc(a.title)}</a>`).join("");
+    document.getElementById("articles").innerHTML = t.articles.map(a => `<article id="${a.id}"><h2>${esc(a.title)}</h2><p class="standfirst">${esc(a.standfirst)}</p>${a.body}</article>`).join("");
+    document.getElementById("back").textContent = t.back;
+    document.getElementById("foot").innerHTML = "<p>" + esc(t.foot) + "</p>";
+  }
+  document.getElementById("lang-en").addEventListener("click", () => { lang = "en"; store.set("pp_lang", lang); render(); });
+  document.getElementById("lang-ar").addEventListener("click", () => { lang = "ar"; store.set("pp_lang", lang); render(); });
+  render();
+})();
+</script>
+</body>
+</html>

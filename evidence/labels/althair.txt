@@ -1,0 +1,5 @@
+id: althair
+market: brand site (global)
+date: 2026-09-25
+url: https://www.parfums-de-marly.com/products/althair
+Alcohol Denat., Parfum (Fragrance), Tetramethyl Acetyloctahydronaphthalenes, Vanillin, Aqua (Water/Eau), Hexamethylindanopyran, Linalyl Acetate, Citrus Aurantium Bergamia (Bergamot) Peel Oil, Limonene, Linalool, Pinene, Tocopherol, Rose Ketones, Geranyl Acetate, Citral, Terpineol, Terpinolene, Beta-Caryophyllene, Alpha-Terpinene, Cinnamomum Zeylanicum Bark Oil, Geraniol

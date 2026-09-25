@@ -1,0 +1,1724 @@
+[
+ {
+  "id": "oudsatinmood",
+  "house": "Maison Francis Kurkdjian",
+  "name": "Oud Satin Mood",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "violet, rose / rose, oud / vanilla, benzoin, amber, oud",
+  "opening": {
+   "iris_powdery": 0.4,
+   "rose": 0.7
+  },
+  "heart": {
+   "rose": 0.8,
+   "oud_smoky": 0.7
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.7,
+   "amber_resin": 0.7,
+   "oud_smoky": 0.6
+  }
+ },
+ {
+  "id": "mfk724",
+  "house": "Maison Francis Kurkdjian",
+  "name": "724",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "aldehydes, bergamot / white flowers, jasmine, sweet pea / white musk, sandalwood",
+  "opening": {
+   "aldehydes": 0.8,
+   "citrus_fresh": 0.6
+  },
+  "heart": {
+   "white_floral": 0.8
+  },
+  "drydown": {
+   "white_musk": 1,
+   "sandalwood_creamy": 0.3,
+   "woody_amber": 0.2
+  }
+ },
+ {
+  "id": "gentlefluiditygold",
+  "house": "Maison Francis Kurkdjian",
+  "name": "Gentle Fluidity Gold",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "juniper, nutmeg, coriander / musk, amberwood / vanilla, amberwood, musk",
+  "opening": {
+   "green_herbal": 0.5,
+   "spicy_warm": 0.6
+  },
+  "heart": {
+   "white_musk": 0.7,
+   "woody_amber": 0.6
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "woody_amber": 0.6,
+   "white_musk": 0.5
+  }
+ },
+ {
+  "id": "aquauniversalis",
+  "house": "Maison Francis Kurkdjian",
+  "name": "Aqua Universalis",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, lemon, lily of the valley / lily of the valley / musk, light woods",
+  "opening": {
+   "citrus_fresh": 0.9,
+   "white_floral": 0.3,
+   "aldehydes": 0.3
+  },
+  "heart": {
+   "white_floral": 0.4,
+   "aldehydes": 0.3
+  },
+  "drydown": {
+   "white_musk": 0.9,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "br540extrait",
+  "house": "Maison Francis Kurkdjian",
+  "name": "Baccarat Rouge 540 Extrait",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bitter almond, saffron / Egyptian jasmine, cedar / ambergris, woody notes, amber",
+  "opening": {
+   "fruity_sweet": 0.5,
+   "saffron_leathery": 0.8
+  },
+  "heart": {
+   "white_floral": 0.5,
+   "woody_amber": 0.6
+  },
+  "drydown": {
+   "woody_amber": 1,
+   "amber_resin": 0.5,
+   "vanilla_gourmand": 0.3
+  }
+ },
+ {
+  "id": "pegasus",
+  "house": "Parfums de Marly",
+  "name": "Pegasus",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, cumin, heliotrope / jasmine, bitter almond, lavender / vanilla, sandalwood, amber",
+  "opening": {
+   "citrus_fresh": 0.4,
+   "spicy_warm": 0.4,
+   "iris_powdery": 0.5,
+   "animalic": 0.2
+  },
+  "heart": {
+   "white_floral": 0.4,
+   "fruity_sweet": 0.5,
+   "tonka_coumarin": 0.4,
+   "lavender_aromatic": 0.4
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "sandalwood_creamy": 0.5,
+   "amber_resin": 0.5,
+   "tonka_coumarin": 0.5
+  }
+ },
+ {
+  "id": "percival",
+  "house": "Parfums de Marly",
+  "name": "Percival",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "mandarin, bergamot / lavender, violet leaf, rose / white musk, sandalwood, cashmeran",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "green_herbal": 0.3
+  },
+  "heart": {
+   "lavender_aromatic": 0.7,
+   "green_herbal": 0.4
+  },
+  "drydown": {
+   "white_musk": 0.6,
+   "woody_amber": 0.6,
+   "cedar_dry": 0.3,
+   "tonka_coumarin": 0.3
+  }
+ },
+ {
+  "id": "greenley",
+  "house": "Parfums de Marly",
+  "name": "Greenley",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, lemon, green apple / green leaves, patchouli / musk, ambroxan, cedar",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "fruity_sweet": 0.5,
+   "green_herbal": 0.4
+  },
+  "heart": {
+   "green_herbal": 0.7,
+   "patchouli": 0.3
+  },
+  "drydown": {
+   "white_musk": 0.6,
+   "woody_amber": 0.7,
+   "cedar_dry": 0.3
+  }
+ },
+ {
+  "id": "sedley",
+  "house": "Parfums de Marly",
+  "name": "Sedley",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, mint, geranium / lavender, sea salt / musk, cedar, ambroxan",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "green_herbal": 0.6
+  },
+  "heart": {
+   "lavender_aromatic": 0.5,
+   "aquatic_marine": 0.3
+  },
+  "drydown": {
+   "white_musk": 0.6,
+   "cedar_dry": 0.5,
+   "woody_amber": 0.6
+  }
+ },
+ {
+  "id": "carlisle",
+  "house": "Parfums de Marly",
+  "name": "Carlisle",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "cinnamon, pepper, saffron, orange / vanilla, patchouli, jasmine, rose / vanilla, oud, tonka, amber, sandalwood, musk",
+  "opening": {
+   "spicy_warm": 0.8,
+   "saffron_leathery": 0.5,
+   "citrus_fresh": 0.3
+  },
+  "heart": {
+   "vanilla_gourmand": 0.6,
+   "patchouli": 0.4,
+   "rose": 0.3
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "oud_smoky": 0.3,
+   "tonka_coumarin": 0.6,
+   "amber_resin": 0.5,
+   "sandalwood_creamy": 0.3
+  }
+ },
+ {
+  "id": "kalan",
+  "house": "Parfums de Marly",
+  "name": "Kalan",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 2,
+  "cloneOf": null,
+  "notes": "lemon, pink pepper / lavender, sage, iris / vanilla, tonka, ambroxan, cedar, patchouli",
+  "opening": {
+   "citrus_fresh": 0.7,
+   "spicy_warm": 0.4
+  },
+  "heart": {
+   "iris_powdery": 0.3,
+   "lavender_aromatic": 0.5,
+   "green_herbal": 0.4
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.7,
+   "tonka_coumarin": 0.6,
+   "woody_amber": 0.7,
+   "cedar_dry": 0.3
+  }
+ },
+ {
+  "id": "oriana",
+  "house": "Parfums de Marly",
+  "name": "Oriana",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "mandarin, bergamot, grapefruit / raspberry, blackcurrant, orange blossom, marshmallow / whipped cream, musk, ambrette, patchouli",
+  "opening": {
+   "citrus_fresh": 0.8
+  },
+  "heart": {
+   "fruity_sweet": 0.9,
+   "white_floral": 0.3,
+   "vanilla_gourmand": 0.6
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.8,
+   "white_musk": 0.6,
+   "patchouli": 0.3
+  }
+ },
+ {
+  "id": "valaya",
+  "house": "Parfums de Marly",
+  "name": "Valaya",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear, mandarin, bergamot / white peach, orange blossom / white musk, vanilla, ambrette, cedar",
+  "opening": {
+   "fruity_sweet": 0.6,
+   "citrus_fresh": 0.5,
+   "aldehydes": 0.3
+  },
+  "heart": {
+   "fruity_sweet": 0.6,
+   "white_floral": 0.5
+  },
+  "drydown": {
+   "white_musk": 1,
+   "vanilla_gourmand": 0.4,
+   "cedar_dry": 0.2
+  }
+ },
+ {
+  "id": "alexandriaii",
+  "house": "Xerjoff",
+  "name": "Alexandria II",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "apple, cinnamon, lavender, rosewood / rose, lily of the valley, cedar / oud, amber, sandalwood, vanilla, musk",
+  "opening": {
+   "fruity_sweet": 0.5,
+   "spicy_warm": 0.6,
+   "lavender_aromatic": 0.5
+  },
+  "heart": {
+   "rose": 0.6,
+   "cedar_dry": 0.4
+  },
+  "drydown": {
+   "oud_smoky": 0.5,
+   "amber_resin": 0.7,
+   "sandalwood_creamy": 0.5,
+   "vanilla_gourmand": 0.5
+  }
+ },
+ {
+  "id": "renaissance",
+  "house": "Xerjoff",
+  "name": "XJ 1861 Renaissance",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "lemon, bergamot, blackcurrant, apple / mint, rosemary, lily of the valley / musk, amber, cedar",
+  "opening": {
+   "citrus_fresh": 0.9,
+   "fruity_sweet": 0.5
+  },
+  "heart": {
+   "green_herbal": 0.6,
+   "white_floral": 0.2
+  },
+  "drydown": {
+   "white_musk": 0.7,
+   "woody_amber": 0.4,
+   "cedar_dry": 0.4
+  }
+ },
+ {
+  "id": "accento",
+  "house": "Xerjoff",
+  "name": "Accento",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pineapple, hyacinth, pink pepper / iris, magnolia / white musk, amber, hedione, patchouli",
+  "opening": {
+   "fruity_sweet": 0.8,
+   "green_herbal": 0.3,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "iris_powdery": 0.5,
+   "white_floral": 0.5
+  },
+  "drydown": {
+   "white_musk": 0.8,
+   "amber_resin": 0.4,
+   "patchouli": 0.3,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "torino21",
+  "house": "Xerjoff",
+  "name": "Torino21",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 2,
+  "cloneOf": null,
+  "notes": "bergamot, cardamom / jasmine, violet leaf / musk, ambergris, cedar",
+  "opening": {
+   "citrus_fresh": 0.7,
+   "spicy_warm": 0.5
+  },
+  "heart": {
+   "white_floral": 0.4,
+   "green_herbal": 0.4
+  },
+  "drydown": {
+   "white_musk": 0.7,
+   "woody_amber": 0.5,
+   "cedar_dry": 0.3
+  }
+ },
+ {
+  "id": "lira",
+  "house": "Xerjoff",
+  "name": "Casamorati Lira",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, blood orange, lavender / cinnamon, jasmine / vanilla, caramel, licorice, musk",
+  "opening": {
+   "citrus_fresh": 0.7,
+   "lavender_aromatic": 0.5
+  },
+  "heart": {
+   "spicy_warm": 0.7,
+   "white_floral": 0.3
+  },
+  "drydown": {
+   "vanilla_gourmand": 1,
+   "spicy_warm": 0.3,
+   "white_musk": 0.3
+  }
+ },
+ {
+  "id": "ani",
+  "house": "Nishane",
+  "name": "Ani",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, ginger, pink pepper, cardamom, blackcurrant / Turkish rose, green notes / vanilla, sandalwood, benzoin, cedar, patchouli, ambergris",
+  "opening": {
+   "citrus_fresh": 0.6,
+   "spicy_warm": 0.7,
+   "fruity_sweet": 0.4
+  },
+  "heart": {
+   "rose": 0.6,
+   "green_herbal": 0.3
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "sandalwood_creamy": 0.5,
+   "amber_resin": 0.5,
+   "woody_amber": 0.4
+  }
+ },
+ {
+  "id": "hacivatx",
+  "house": "Nishane",
+  "name": "Hacivat X",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pineapple, grapefruit / jasmine, patchouli, cedar / oakmoss, woods, ambergris",
+  "opening": {
+   "fruity_sweet": 0.9,
+   "citrus_fresh": 0.6
+  },
+  "heart": {
+   "white_floral": 0.3,
+   "patchouli": 0.5,
+   "cedar_dry": 0.5
+  },
+  "drydown": {
+   "oakmoss_chypre": 0.7,
+   "woody_amber": 0.8,
+   "cedar_dry": 0.4
+  }
+ },
+ {
+  "id": "wulongcha",
+  "house": "Nishane",
+  "name": "Wulong Cha",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, mandarin, lemon / oolong tea, jasmine / musk, cedar, tea",
+  "opening": {
+   "citrus_fresh": 0.8
+  },
+  "heart": {
+   "green_herbal": 0.6,
+   "white_floral": 0.3
+  },
+  "drydown": {
+   "white_musk": 0.7,
+   "cedar_dry": 0.4,
+   "green_herbal": 0.3,
+   "aldehydes": 0.2
+  }
+ },
+ {
+  "id": "fanyourflames",
+  "house": "Nishane",
+  "name": "Fan Your Flames",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "rum, coconut / tobacco, benzoin, vanilla / vetiver, tonka, oakmoss",
+  "opening": {
+   "fruity_sweet": 0.6,
+   "vanilla_gourmand": 0.4
+  },
+  "heart": {
+   "tobacco_honey": 0.9,
+   "amber_resin": 0.5,
+   "vanilla_gourmand": 0.6
+  },
+  "drydown": {
+   "vetiver": 0.4,
+   "tonka_coumarin": 0.6,
+   "tobacco_honey": 0.7,
+   "vanilla_gourmand": 0.6
+  }
+ },
+ {
+  "id": "hundredsilentways",
+  "house": "Nishane",
+  "name": "Hundred Silent Ways",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "jasmine, ylang, tuberose / iris, gardenia / vanilla, sandalwood, amber, musk",
+  "opening": {
+   "white_floral": 0.9
+  },
+  "heart": {
+   "iris_powdery": 0.6,
+   "white_floral": 0.6
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.8,
+   "sandalwood_creamy": 0.5,
+   "white_musk": 0.4,
+   "amber_resin": 0.4
+  }
+ },
+ {
+  "id": "rehab",
+  "house": "Initio",
+  "name": "Rehab",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "iris, lavender / vetiver, vanilla / musk, sandalwood, cedar",
+  "opening": {
+   "iris_powdery": 0.6,
+   "lavender_aromatic": 0.6
+  },
+  "heart": {
+   "vetiver": 0.5,
+   "vanilla_gourmand": 0.7
+  },
+  "drydown": {
+   "white_musk": 0.8,
+   "sandalwood_creamy": 0.5,
+   "cedar_dry": 0.3,
+   "vanilla_gourmand": 0.5
+  }
+ },
+ {
+  "id": "atomicrose",
+  "house": "Initio",
+  "name": "Atomic Rose",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, saffron, rose / rose, jasmine / vanilla, ambergris, musk",
+  "opening": {
+   "rose": 0.7,
+   "saffron_leathery": 0.5,
+   "citrus_fresh": 0.3
+  },
+  "heart": {
+   "rose": 0.9
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.8,
+   "woody_amber": 0.5,
+   "white_musk": 0.4
+  }
+ },
+ {
+  "id": "musktherapy",
+  "house": "Initio",
+  "name": "Musk Therapy",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pink pepper, bergamot / musk, ambrette / sandalwood, musk",
+  "opening": {
+   "spicy_warm": 0.3,
+   "citrus_fresh": 0.4
+  },
+  "heart": {
+   "white_musk": 1
+  },
+  "drydown": {
+   "white_musk": 1,
+   "sandalwood_creamy": 0.5,
+   "vanilla_gourmand": 0.2
+  }
+ },
+ {
+  "id": "blessedbaraka",
+  "house": "Initio",
+  "name": "Blessed Baraka",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 2,
+  "cloneOf": null,
+  "notes": "vanilla, cinnamon / musk, sandalwood / musk, sandalwood, cashmeran",
+  "opening": {
+   "vanilla_gourmand": 0.5,
+   "spicy_warm": 0.4
+  },
+  "heart": {
+   "white_musk": 0.7,
+   "sandalwood_creamy": 0.6
+  },
+  "drydown": {
+   "white_musk": 0.8,
+   "sandalwood_creamy": 0.6,
+   "woody_amber": 0.4,
+   "vanilla_gourmand": 0.4
+  }
+ },
+ {
+  "id": "redtobacco",
+  "house": "Mancera",
+  "name": "Red Tobacco",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "cinnamon, saffron, cypress / tobacco, oud, incense / vanilla, amber, benzoin, patchouli, musk",
+  "opening": {
+   "spicy_warm": 0.8,
+   "saffron_leathery": 0.6
+  },
+  "heart": {
+   "tobacco_honey": 0.9,
+   "oud_smoky": 0.5,
+   "incense_resin": 0.5
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.7,
+   "amber_resin": 0.7,
+   "patchouli": 0.4
+  }
+ },
+ {
+  "id": "instantcrush",
+  "house": "Mancera",
+  "name": "Instant Crush",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "cinnamon, saffron, red apple / rose, jasmine / vanilla, sandalwood, amber, musk",
+  "opening": {
+   "spicy_warm": 0.8,
+   "saffron_leathery": 0.5,
+   "fruity_sweet": 0.5
+  },
+  "heart": {
+   "rose": 0.5,
+   "white_floral": 0.4
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "sandalwood_creamy": 0.4,
+   "amber_resin": 0.5
+  }
+ },
+ {
+  "id": "rosesvanille",
+  "house": "Mancera",
+  "name": "Roses Vanille",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "lemon / rose / vanilla, sugar, musk, cedar",
+  "opening": {
+   "citrus_fresh": 0.5
+  },
+  "heart": {
+   "rose": 1
+  },
+  "drydown": {
+   "vanilla_gourmand": 1,
+   "white_musk": 0.4
+  }
+ },
+ {
+  "id": "intensecafe",
+  "house": "Montale",
+  "name": "Intense Café",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "rose / coffee / vanilla, amber, musk",
+  "opening": {
+   "rose": 0.7,
+   "fruity_sweet": 0.3
+  },
+  "heart": {
+   "coffee_gourmand": 0.9,
+   "rose": 0.5
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.8,
+   "amber_resin": 0.5,
+   "white_musk": 0.4,
+   "coffee_gourmand": 0.5
+  }
+ },
+ {
+  "id": "blackaoud",
+  "house": "Montale",
+  "name": "Black Aoud",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "rose / oud, patchouli / musk, mandarin",
+  "opening": {
+   "rose": 0.6,
+   "oud_smoky": 0.6
+  },
+  "heart": {
+   "oud_smoky": 0.9,
+   "patchouli": 0.5
+  },
+  "drydown": {
+   "oud_smoky": 0.8,
+   "white_musk": 0.4,
+   "patchouli": 0.4,
+   "leather_smoky": 0.3
+  }
+ },
+ {
+  "id": "rosesmusk",
+  "house": "Montale",
+  "name": "Roses Musk",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "rose / rose, jasmine / musk",
+  "opening": {
+   "rose": 0.9
+  },
+  "heart": {
+   "rose": 0.9
+  },
+  "drydown": {
+   "white_musk": 1,
+   "rose": 0.6
+  }
+ },
+ {
+  "id": "chocolategreedy",
+  "house": "Montale",
+  "name": "Chocolate Greedy",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bitter orange, coffee / cacao, dried fruits / vanilla, tonka",
+  "opening": {
+   "citrus_fresh": 0.3,
+   "coffee_gourmand": 0.6
+  },
+  "heart": {
+   "coffee_gourmand": 0.9,
+   "fruity_sweet": 0.3
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "tonka_coumarin": 0.6,
+   "coffee_gourmand": 0.6
+  }
+ },
+ {
+  "id": "jubilationxxv",
+  "house": "Amouage",
+  "name": "Jubilation XXV",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "blackberry, davana, tarragon, coriander / honey, rose, labdanum, myrrh, olibanum, cinnamon, clove, guaiac / oud, ambergris, moss, opoponax, musk, patchouli",
+  "opening": {
+   "fruity_sweet": 0.5,
+   "green_herbal": 0.4,
+   "spicy_warm": 0.4
+  },
+  "heart": {
+   "tobacco_honey": 0.5,
+   "rose": 0.4,
+   "amber_resin": 0.6,
+   "incense_resin": 0.7,
+   "spicy_warm": 0.5
+  },
+  "drydown": {
+   "oud_smoky": 0.4,
+   "incense_resin": 0.6,
+   "amber_resin": 0.7,
+   "oakmoss_chypre": 0.3,
+   "patchouli": 0.3
+  }
+ },
+ {
+  "id": "reflection45",
+  "house": "Amouage",
+  "name": "Reflection 45",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "neroli, ginger / jasmine, iris, ylang / sandalwood, vetiver, amber, musk",
+  "opening": {
+   "white_floral": 0.5,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "white_floral": 0.8,
+   "iris_powdery": 0.5
+  },
+  "drydown": {
+   "sandalwood_creamy": 0.8,
+   "vetiver": 0.4,
+   "amber_resin": 0.3,
+   "woody_amber": 0.4
+  }
+ },
+ {
+  "id": "guidance",
+  "house": "Amouage",
+  "name": "Guidance",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear, saffron, magnolia / rose, osmanthus, jasmine / sandalwood, praline, ambergris",
+  "opening": {
+   "fruity_sweet": 0.7,
+   "saffron_leathery": 0.5
+  },
+  "heart": {
+   "rose": 0.6,
+   "white_floral": 0.5,
+   "fruity_sweet": 0.3
+  },
+  "drydown": {
+   "sandalwood_creamy": 0.6,
+   "vanilla_gourmand": 0.6,
+   "woody_amber": 0.4
+  }
+ },
+ {
+  "id": "enclave",
+  "house": "Amouage",
+  "name": "Enclave",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "grapefruit, pink pepper, bergamot / lavender, iris, cardamom / ambroxan, sandalwood, oakmoss, musk",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "lavender_aromatic": 0.5,
+   "iris_powdery": 0.4,
+   "spicy_warm": 0.3
+  },
+  "drydown": {
+   "woody_amber": 0.8,
+   "sandalwood_creamy": 0.4,
+   "oakmoss_chypre": 0.3,
+   "white_musk": 0.3
+  }
+ },
+ {
+  "id": "another13",
+  "house": "Le Labo",
+  "name": "Another 13",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear, ambrette / ambroxan, moss / musk, ambrette, ambroxan",
+  "opening": {
+   "fruity_sweet": 0.4,
+   "white_musk": 0.5
+  },
+  "heart": {
+   "woody_amber": 0.8,
+   "oakmoss_chypre": 0.3
+  },
+  "drydown": {
+   "white_musk": 0.9,
+   "woody_amber": 0.8
+  }
+ },
+ {
+  "id": "thenoir29",
+  "house": "Le Labo",
+  "name": "Thé Noir 29",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, fig, bay leaf / black tea, cedar, vetiver / tobacco, hay, musk",
+  "opening": {
+   "citrus_fresh": 0.5,
+   "green_herbal": 0.5,
+   "fruity_sweet": 0.3
+  },
+  "heart": {
+   "green_herbal": 0.5,
+   "cedar_dry": 0.5,
+   "vetiver": 0.4,
+   "tobacco_honey": 0.3
+  },
+  "drydown": {
+   "tobacco_honey": 0.7,
+   "tonka_coumarin": 0.5,
+   "white_musk": 0.4
+  }
+ },
+ {
+  "id": "baldafrique",
+  "house": "Byredo",
+  "name": "Bal d'Afrique",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, lemon, neroli, African marigold, buchu / violet, jasmine, cyclamen / black amber, musk, vetiver, Moroccan cedar",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "green_herbal": 0.3,
+   "white_floral": 0.3
+  },
+  "heart": {
+   "iris_powdery": 0.4,
+   "white_floral": 0.4
+  },
+  "drydown": {
+   "woody_amber": 0.5,
+   "white_musk": 0.6,
+   "vetiver": 0.5,
+   "cedar_dry": 0.4
+  }
+ },
+ {
+  "id": "mojaveghost",
+  "house": "Byredo",
+  "name": "Mojave Ghost",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "ambrette, sapodilla / magnolia, violet, sandalwood / chantilly musk, cedar, ambergris",
+  "opening": {
+   "white_musk": 0.5,
+   "fruity_sweet": 0.4
+  },
+  "heart": {
+   "white_floral": 0.5,
+   "iris_powdery": 0.4,
+   "sandalwood_creamy": 0.4
+  },
+  "drydown": {
+   "white_musk": 0.8,
+   "cedar_dry": 0.4,
+   "woody_amber": 0.5
+  }
+ },
+ {
+  "id": "blanche",
+  "house": "Byredo",
+  "name": "Blanche",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "aldehydes, pink pepper, rose / violet, peony, neroli / musk, sandalwood, blond woods",
+  "opening": {
+   "aldehydes": 0.8,
+   "rose": 0.3
+  },
+  "heart": {
+   "iris_powdery": 0.4,
+   "white_floral": 0.3,
+   "rose": 0.3
+  },
+  "drydown": {
+   "white_musk": 1,
+   "sandalwood_creamy": 0.3
+  }
+ },
+ {
+  "id": "blacksaffron",
+  "house": "Byredo",
+  "name": "Black Saffron",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "saffron, juniper, pomelo / leather, rose, blackberry / raspberry, vetiver, cristal rose",
+  "opening": {
+   "saffron_leathery": 0.9,
+   "green_herbal": 0.3,
+   "citrus_fresh": 0.3
+  },
+  "heart": {
+   "leather_smoky": 0.7,
+   "rose": 0.4,
+   "fruity_sweet": 0.4
+  },
+  "drydown": {
+   "fruity_sweet": 0.4,
+   "vetiver": 0.5,
+   "woody_amber": 0.4
+  }
+ },
+ {
+  "id": "philosykos",
+  "house": "Diptyque",
+  "name": "Philosykos",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "fig leaf / fig, coconut / fig tree, cedar",
+  "opening": {
+   "green_herbal": 0.9
+  },
+  "heart": {
+   "fruity_sweet": 0.5,
+   "green_herbal": 0.5
+  },
+  "drydown": {
+   "cedar_dry": 0.5,
+   "sandalwood_creamy": 0.3,
+   "green_herbal": 0.5,
+   "fruity_sweet": 0.3
+  }
+ },
+ {
+  "id": "tamdao",
+  "house": "Diptyque",
+  "name": "Tam Dao",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "rosewood, cypress, myrtle / sandalwood, cedar / white musk, amber, spices, Brazilian rosewood",
+  "opening": {
+   "cedar_dry": 0.5,
+   "green_herbal": 0.4
+  },
+  "heart": {
+   "sandalwood_creamy": 0.9,
+   "cedar_dry": 0.5
+  },
+  "drydown": {
+   "sandalwood_creamy": 0.8,
+   "white_musk": 0.4,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "doson",
+  "house": "Diptyque",
+  "name": "Do Son",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "African orange flower, rose, iris / tuberose, pink pepper / musk, benzoin",
+  "opening": {
+   "white_floral": 0.5,
+   "rose": 0.3,
+   "iris_powdery": 0.3
+  },
+  "heart": {
+   "white_floral": 1
+  },
+  "drydown": {
+   "white_musk": 0.6,
+   "amber_resin": 0.3,
+   "white_floral": 0.6
+  }
+ },
+ {
+  "id": "fleurdepeau",
+  "house": "Diptyque",
+  "name": "Fleur de Peau",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "aldehydes, pink pepper, bergamot / iris, Turkish rose / musk, ambrette, ambergris, sandalwood",
+  "opening": {
+   "aldehydes": 0.6,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "iris_powdery": 0.8,
+   "rose": 0.4
+  },
+  "drydown": {
+   "white_musk": 1,
+   "woody_amber": 0.3,
+   "sandalwood_creamy": 0.3
+  }
+ },
+ {
+  "id": "blackphantom",
+  "house": "By Kilian",
+  "name": "Black Phantom",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "rum, coffee, almond / cane sugar, dark chocolate / vetiver, sandalwood, cedar, tonka, vanilla",
+  "opening": {
+   "fruity_sweet": 0.4,
+   "coffee_gourmand": 0.8,
+   "tonka_coumarin": 0.3
+  },
+  "heart": {
+   "vanilla_gourmand": 0.8,
+   "coffee_gourmand": 0.7
+  },
+  "drydown": {
+   "vetiver": 0.4,
+   "sandalwood_creamy": 0.4,
+   "tonka_coumarin": 0.5,
+   "vanilla_gourmand": 0.6,
+   "coffee_gourmand": 0.5
+  }
+ },
+ {
+  "id": "lovedontbeshy",
+  "house": "By Kilian",
+  "name": "Love Don't Be Shy",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "neroli, bergamot, pink pepper, coriander / orange blossom, rose, honeysuckle, iris, jasmine / marshmallow, vanilla, caramel, musk, civet, labdanum, cedar",
+  "opening": {
+   "white_floral": 0.5,
+   "citrus_fresh": 0.5
+  },
+  "heart": {
+   "white_floral": 0.8,
+   "rose": 0.4
+  },
+  "drydown": {
+   "vanilla_gourmand": 1,
+   "white_musk": 0.4,
+   "amber_resin": 0.3,
+   "animalic": 0.1
+  }
+ },
+ {
+  "id": "goodgirlgonebad",
+  "house": "By Kilian",
+  "name": "Good Girl Gone Bad",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "osmanthus, May rose / jasmine, tuberose, narcissus / cedar, amber",
+  "opening": {
+   "white_floral": 0.4,
+   "rose": 0.6,
+   "fruity_sweet": 0.3
+  },
+  "heart": {
+   "white_floral": 1
+  },
+  "drydown": {
+   "cedar_dry": 0.4,
+   "amber_resin": 0.5,
+   "white_floral": 0.5
+  }
+ },
+ {
+  "id": "rollinginlove",
+  "house": "By Kilian",
+  "name": "Rolling in Love",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "iris, almond milk / tuberose / musk, cashmeran",
+  "opening": {
+   "iris_powdery": 0.6,
+   "vanilla_gourmand": 0.4,
+   "fruity_sweet": 0.3
+  },
+  "heart": {
+   "white_floral": 0.6,
+   "iris_powdery": 0.5
+  },
+  "drydown": {
+   "white_musk": 0.8,
+   "woody_amber": 0.4,
+   "iris_powdery": 0.4
+  }
+ },
+ {
+  "id": "portraitofalady",
+  "house": "Frederic Malle",
+  "name": "Portrait of a Lady",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "rose, raspberry, blackcurrant, cinnamon, clove / rose, patchouli / patchouli, sandalwood, incense, benzoin, musk, ambroxan",
+  "opening": {
+   "rose": 0.9,
+   "fruity_sweet": 0.4,
+   "spicy_warm": 0.4
+  },
+  "heart": {
+   "rose": 1,
+   "patchouli": 0.7
+  },
+  "drydown": {
+   "patchouli": 0.9,
+   "incense_resin": 0.5,
+   "amber_resin": 0.5,
+   "white_musk": 0.3,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "muscravageur",
+  "house": "Frederic Malle",
+  "name": "Musc Ravageur",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, lavender, tangerine / cinnamon, clove / musk, vanilla, tonka, sandalwood, amber",
+  "opening": {
+   "citrus_fresh": 0.5,
+   "lavender_aromatic": 0.5
+  },
+  "heart": {
+   "spicy_warm": 0.7
+  },
+  "drydown": {
+   "white_musk": 0.7,
+   "animalic": 0.4,
+   "vanilla_gourmand": 0.7,
+   "tonka_coumarin": 0.5,
+   "amber_resin": 0.4
+  }
+ },
+ {
+  "id": "elysium",
+  "house": "Roja Parfums",
+  "name": "Elysium Pour Homme Parfum Cologne",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, grapefruit, lemon, lime, thyme, artemisia / juniper, pink pepper, lily of the valley, rose, jasmine, apple, blackcurrant / vetiver, cedar, musk, ambergris, labdanum, leather, benzoin",
+  "opening": {
+   "citrus_fresh": 1,
+   "green_herbal": 0.5
+  },
+  "heart": {
+   "green_herbal": 0.5,
+   "fruity_sweet": 0.4,
+   "rose": 0.3
+  },
+  "drydown": {
+   "vetiver": 0.5,
+   "cedar_dry": 0.5,
+   "white_musk": 0.6,
+   "woody_amber": 0.5,
+   "amber_resin": 0.3
+  }
+ },
+ {
+  "id": "enigma",
+  "house": "Roja Parfums",
+  "name": "Enigma Pour Homme",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, neroli / jasmine, rose, geranium, cognac / tobacco, benzoin, vanilla, tonka, cinnamon",
+  "opening": {
+   "citrus_fresh": 0.6,
+   "white_floral": 0.3
+  },
+  "heart": {
+   "white_floral": 0.3,
+   "rose": 0.3,
+   "fruity_sweet": 0.3
+  },
+  "drydown": {
+   "tobacco_honey": 0.9,
+   "amber_resin": 0.6,
+   "vanilla_gourmand": 0.7,
+   "tonka_coumarin": 0.6,
+   "spicy_warm": 0.4
+  }
+ },
+ {
+  "id": "danger",
+  "house": "Roja Parfums",
+  "name": "Danger Pour Homme",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 2,
+  "cloneOf": null,
+  "notes": "bergamot, lemon, lime, orange / rose, jasmine, ylang, cinnamon, clove, cardamom / oakmoss, vetiver, leather, ambergris, sandalwood, birch, benzoin, vanilla",
+  "opening": {
+   "citrus_fresh": 0.8
+  },
+  "heart": {
+   "rose": 0.3,
+   "spicy_warm": 0.6,
+   "white_floral": 0.3
+  },
+  "drydown": {
+   "oakmoss_chypre": 0.5,
+   "vetiver": 0.4,
+   "leather_smoky": 0.6,
+   "woody_amber": 0.4,
+   "amber_resin": 0.4,
+   "vanilla_gourmand": 0.3
+  }
+ },
+ {
+  "id": "amberaoud",
+  "house": "Roja Parfums",
+  "name": "Amber Aoud",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, lemon, lime / rose, jasmine, cinnamon, cardamom, fig / oud, amber, labdanum, benzoin, saffron, patchouli, sandalwood, birch",
+  "opening": {
+   "citrus_fresh": 0.6
+  },
+  "heart": {
+   "rose": 0.5,
+   "spicy_warm": 0.5,
+   "white_floral": 0.3
+  },
+  "drydown": {
+   "oud_smoky": 0.6,
+   "amber_resin": 0.8,
+   "saffron_leathery": 0.4,
+   "patchouli": 0.3,
+   "sandalwood_creamy": 0.3,
+   "leather_smoky": 0.3
+  }
+ },
+ {
+  "id": "imagination",
+  "house": "Louis Vuitton",
+  "name": "Imagination",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "citron, bergamot, Sicilian orange, ginger, neroli / cinnamon, black tea, Tunisian neroli / ambroxan, guaiac",
+  "opening": {
+   "citrus_fresh": 1,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "spicy_warm": 0.4,
+   "green_herbal": 0.5,
+   "white_floral": 0.3
+  },
+  "drydown": {
+   "woody_amber": 1,
+   "green_herbal": 0.3
+  }
+ },
+ {
+  "id": "limmensite",
+  "house": "Louis Vuitton",
+  "name": "L'Immensité",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "grapefruit, ginger, bergamot / sage, water notes, labdanum / ambroxan, amber",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "spicy_warm": 0.5
+  },
+  "heart": {
+   "green_herbal": 0.5,
+   "aquatic_marine": 0.3,
+   "amber_resin": 0.3
+  },
+  "drydown": {
+   "woody_amber": 1,
+   "amber_resin": 0.4
+  }
+ },
+ {
+  "id": "afternoonswim",
+  "house": "Louis Vuitton",
+  "name": "Afternoon Swim",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "orange, mandarin, bergamot, ginger / sea notes / light woods, ambroxan",
+  "opening": {
+   "citrus_fresh": 1,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "aquatic_marine": 0.4,
+   "citrus_fresh": 0.6
+  },
+  "drydown": {
+   "woody_amber": 0.4,
+   "citrus_fresh": 0.4,
+   "white_musk": 0.3
+  }
+ },
+ {
+  "id": "meteore",
+  "house": "Louis Vuitton",
+  "name": "Météore",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 2,
+  "cloneOf": null,
+  "notes": "mandarin, bergamot, Sichuan and pink pepper / nutmeg, juniper, ambrette / vetiver, musk",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "spicy_warm": 0.5
+  },
+  "heart": {
+   "spicy_warm": 0.4,
+   "green_herbal": 0.3,
+   "white_musk": 0.3
+  },
+  "drydown": {
+   "vetiver": 0.5,
+   "white_musk": 0.5,
+   "woody_amber": 0.4
+  }
+ },
+ {
+  "id": "nuitdefeu",
+  "house": "Louis Vuitton",
+  "name": "Nuit de Feu",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "incense / leather, oud / myrrh, incense, amber",
+  "opening": {
+   "incense_resin": 0.9
+  },
+  "heart": {
+   "leather_smoky": 0.6,
+   "oud_smoky": 0.3
+  },
+  "drydown": {
+   "incense_resin": 1,
+   "amber_resin": 0.4,
+   "leather_smoky": 0.5
+  }
+ },
+ {
+  "id": "megamare",
+  "house": "Orto Parisi",
+  "name": "Megamare",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "sea notes, ambergris / seaweed, ambroxan / ambroxan, musk",
+  "opening": {
+   "aquatic_marine": 0.9,
+   "woody_amber": 0.6
+  },
+  "heart": {
+   "aquatic_marine": 0.8,
+   "woody_amber": 0.8
+  },
+  "drydown": {
+   "woody_amber": 1,
+   "aquatic_marine": 0.5,
+   "white_musk": 0.3
+  }
+ },
+ {
+  "id": "blackafgano",
+  "house": "Nasomatto",
+  "name": "Black Afgano",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "cannabis, green notes / oud, tobacco, coffee, incense / woods, resins",
+  "opening": {
+   "green_herbal": 0.5,
+   "incense_resin": 0.3
+  },
+  "heart": {
+   "oud_smoky": 0.8,
+   "tobacco_honey": 0.5,
+   "coffee_gourmand": 0.4,
+   "incense_resin": 0.6
+  },
+  "drydown": {
+   "woody_amber": 0.5,
+   "amber_resin": 0.5,
+   "oud_smoky": 0.7,
+   "leather_smoky": 0.4
+  }
+ },
+ {
+  "id": "molecule01",
+  "house": "Escentric Molecules",
+  "name": "Molecule 01",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "Iso E Super / Iso E Super / Iso E Super",
+  "opening": {
+   "cedar_dry": 0.9,
+   "woody_amber": 0.7
+  },
+  "heart": {
+   "cedar_dry": 0.9,
+   "woody_amber": 0.7
+  },
+  "drydown": {
+   "cedar_dry": 0.9,
+   "woody_amber": 0.8
+  }
+ },
+ {
+  "id": "notaperfume",
+  "house": "Juliette Has a Gun",
+  "name": "Not a Perfume",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "cetalox (ambroxan) / cetalox / cetalox",
+  "opening": {
+   "woody_amber": 1
+  },
+  "heart": {
+   "woody_amber": 1
+  },
+  "drydown": {
+   "woody_amber": 1,
+   "white_musk": 0.3
+  }
+ },
+ {
+  "id": "grischarnel",
+  "house": "BDK Parfums",
+  "name": "Gris Charnel",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "fig, black tea, cardamom / iris, bourbon vetiver / sandalwood, tonka, cashmeran",
+  "opening": {
+   "fruity_sweet": 0.4,
+   "green_herbal": 0.5,
+   "spicy_warm": 0.5
+  },
+  "heart": {
+   "iris_powdery": 0.7,
+   "vetiver": 0.5
+  },
+  "drydown": {
+   "sandalwood_creamy": 0.8,
+   "tonka_coumarin": 0.6,
+   "woody_amber": 0.3,
+   "vanilla_gourmand": 0.4
+  }
+ },
+ {
+  "id": "rougesmoking",
+  "house": "BDK Parfums",
+  "name": "Rouge Smoking",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "cherry, cinnamon, raspberry / heliotrope, tonka / vanilla, cedar, musk",
+  "opening": {
+   "fruity_sweet": 0.9,
+   "spicy_warm": 0.4
+  },
+  "heart": {
+   "iris_powdery": 0.5,
+   "tonka_coumarin": 0.7
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.8,
+   "tonka_coumarin": 0.6,
+   "white_musk": 0.3
+  }
+ },
+ {
+  "id": "ganymede",
+  "house": "Marc-Antoine Barrois",
+  "name": "Ganymede",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "mandarin, saffron, violet / immortelle, mineral notes, suede / mineral notes, suede, akigalawood",
+  "opening": {
+   "citrus_fresh": 0.5,
+   "saffron_leathery": 0.6,
+   "iris_powdery": 0.4,
+   "aldehydes": 0.3
+  },
+  "heart": {
+   "tobacco_honey": 0.3,
+   "woody_amber": 0.5,
+   "leather_smoky": 0.5,
+   "aldehydes": 0.4
+  },
+  "drydown": {
+   "woody_amber": 0.7,
+   "leather_smoky": 0.5,
+   "patchouli": 0.3
+  }
+ },
+ {
+  "id": "irishleather",
+  "house": "Memo Paris",
+  "name": "Irish Leather",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pink pepper, clary sage, juniper / iris, mate, green notes / leather, tonka, amber, birch",
+  "opening": {
+   "spicy_warm": 0.4,
+   "green_herbal": 0.6
+  },
+  "heart": {
+   "iris_powdery": 0.3,
+   "green_herbal": 0.7
+  },
+  "drydown": {
+   "leather_smoky": 0.9,
+   "tonka_coumarin": 0.4,
+   "amber_resin": 0.3
+  }
+ },
+ {
+  "id": "kirke",
+  "house": "Tiziana Terenzi",
+  "name": "Kirke",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "passion fruit, blackcurrant, pear, raspberry / lily of the valley, heliotrope, peach / sandalwood, musk, patchouli, cashmeran",
+  "opening": {
+   "fruity_sweet": 1
+  },
+  "heart": {
+   "white_floral": 0.3,
+   "iris_powdery": 0.4,
+   "fruity_sweet": 0.5
+  },
+  "drydown": {
+   "sandalwood_creamy": 0.4,
+   "white_musk": 0.6,
+   "patchouli": 0.3,
+   "woody_amber": 0.5,
+   "fruity_sweet": 0.3
+  }
+ }
+]

@@ -1,0 +1,5 @@
+id: oriana
+market: brand site (global)
+date: 2026-09-25
+url: https://www.parfums-de-marly.com/products/oriana
+Alcohol Denat., Parfum (Fragrance), Aqua (Water/Eau), Hexamethylindanopyran, Tetramethyl Acetyloctahydronaphthalenes, Limonene, Linalool, Vanillin, Benzyl Salicylate, Citrus Aurantium Peel Oil, Pinene, Citrus Aurantium Flower Oil, Alpha-Isomethyl Ionone, Citrus Limon (Lemon) Peel Oil, Citronellol, Citral, Benzaldehyde, Linalyl Acetate, Geranyl Acetate, Farnesol, Beta-Caryophyllene, Terpineol, Hydroxycitronellal, Coumarin, Geraniol, Terpinolene, Hexadecanolactone, Rose Ketones, Carvone, Bht

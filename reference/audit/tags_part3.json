@@ -1,0 +1,790 @@
+[
+ {
+  "id": "oudsatinmood",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "1 star, rose cookie: an interesting botch",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "oud_smoky",
+    "from": 0.7,
+    "to": 0.2,
+    "reason": "The reviewer smelled no oud at all, so oud should not be a leading heart family.",
+    "quote": "\"And I’m sorry, was there supposed to be oud?\"",
+    "source": "guide",
+    "confidence": "high"
+   },
+   {
+    "stage": "drydown",
+    "family": "oud_smoky",
+    "from": 0.6,
+    "to": 0.2,
+    "reason": "Same review: no perceptible oud, so the drydown should not present oud as a main family.",
+    "quote": "\"And I’m sorry, was there supposed to be oud?\"",
+    "source": "guide",
+    "confidence": "high"
+   },
+   {
+    "stage": "heart",
+    "family": "vanilla_gourmand",
+    "from": 0,
+    "to": 0.5,
+    "reason": "The review names a biscuit gourmand as one of the two halves of the scent, which the heart tags omit.",
+    "quote": "\"an almond biscuit gourmand and a fruity green rose\"",
+    "source": "guide",
+    "confidence": "medium"
+   }
+  ],
+  "note": "The reviewer describes an almond-biscuit gourmand beside a fruity green rose and no oud."
+ },
+ {
+  "id": "mfk724",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "gentlefluiditygold",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "aquauniversalis",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "3 stars, citrus floral: pleasant, unpretentious cologne",
+  "changes": [],
+  "note": "The Guide's comparison to Tide detergent supports the clean white-musk drydown as tagged."
+ },
+ {
+  "id": "br540extrait",
+  "found_in_guide": true,
+  "found_in_chemistry": true,
+  "guide_verdict": "3 stars, fruity cola: much less than it purports to be",
+  "changes": [
+   {
+    "stage": "drydown",
+    "family": "vanilla_gourmand",
+    "from": 0.3,
+    "to": 0.6,
+    "reason": "Ethyl maltol at about 3% is a candy-sugar overdose, so the sugar family belongs among the main drydown families.",
+    "quote": "\"sweetened by an outrageous amount of ca . 3% of ethyl maltol\"",
+    "source": "chemistry",
+    "confidence": "high"
+   },
+   {
+    "stage": "heart",
+    "family": "fruity_sweet",
+    "from": 0,
+    "to": 0.5,
+    "reason": "The Guide describes the whole wear as fruity and syrupy, but fruit is tagged only in the opening.",
+    "quote": "\"count on this oriental being a fruity, syrupy experience\"",
+    "source": "guide",
+    "confidence": "medium"
+   }
+  ],
+  "note": "The Guide says the Extrait is the EDP at higher concentration, the chemistry figures (Ambroxan about 15%, Evernyl about 12%, ethyl maltol about 3%) are for the EDP, and neither source supports the amber_resin 0.5 drydown tag."
+ },
+ {
+  "id": "pegasus",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "percival",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "greenley",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "sedley",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "carlisle",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "kalan",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "oriana",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "valaya",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "alexandriaii",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "renaissance",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "accento",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "torino21",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "lira",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "ani",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "hacivatx",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "The Guide reviews the original Hacivat (2 stars, a pleasant woody floral), not Hacivat X, so no evidence transfers."
+ },
+ {
+  "id": "wulongcha",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "fanyourflames",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "hundredsilentways",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "rehab",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "atomicrose",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "musktherapy",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "blessedbaraka",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "redtobacco",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "instantcrush",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "rosesvanille",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "intensecafe",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "blackaoud",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "rose",
+    "from": 0,
+    "to": 0.6,
+    "reason": "The chemistry book lists it among masculines with a dominant rose theme, but rose is tagged only in the opening.",
+    "quote": "\"a few masculine scents with dominant rose themes\"",
+    "source": "chemistry",
+    "confidence": "high"
+   },
+   {
+    "stage": "drydown",
+    "family": "patchouli",
+    "from": 0.4,
+    "to": 0.7,
+    "reason": "The chemistry book gives 19.5% patchouli oil in Black Aoud, an overdose that makes patchouli a leading base family.",
+    "quote": "\"Exactly the same content of 19.5% patchouli oil is also present\"",
+    "source": "chemistry",
+    "confidence": "high"
+   }
+  ],
+  "note": "The chemistry book describes a patchouli and rose-petal structure and does not discuss the oud."
+ },
+ {
+  "id": "rosesmusk",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "chocolategreedy",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "jubilationxxv",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "reflection45",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "guidance",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "enclave",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "another13",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "thenoir29",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "baldafrique",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "mojaveghost",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars, musk violet: oily violets",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "iris_powdery",
+    "from": 0.4,
+    "to": 0.6,
+    "reason": "The Guide names violet and musk as the whole character, so violet should lead the heart rather than trail white florals.",
+    "quote": "\"Oily violets.\"",
+    "source": "guide",
+    "confidence": "medium"
+   }
+  ],
+  "note": "The review is two words long and does not mention magnolia."
+ },
+ {
+  "id": "blanche",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "3 stars, aldehydic floral: good stuff in great company",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "aldehydes",
+    "from": 0,
+    "to": 0.5,
+    "reason": "The Guide classes it as an aldehydic floral like No. 22 and White Linen, where aldehydes carry past the opening.",
+    "quote": "\"Byredo’s take on the aldehydic floral, somewhere between No.22 (Chanel) and White Linen\"",
+    "source": "guide",
+    "confidence": "medium"
+   }
+  ],
+  "note": ""
+ },
+ {
+  "id": "blacksaffron",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "philosykos",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Not reviewed; the Guide mentions its fruity camphoraceous fig-leaf (oxime) note in passing, which fits the green and fruit tags."
+ },
+ {
+  "id": "tamdao",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [
+   {
+    "stage": "drydown",
+    "family": "cedar_dry",
+    "from": 0,
+    "to": 0.4,
+    "reason": "The chemistry book gives 7.5% Texas cedarwood oil and describes the scent as sandalwood accented with cedar, but cedar vanishes from the drydown tags.",
+    "quote": "\"a dry sandalwood scent accented with cedar\"",
+    "source": "chemistry",
+    "confidence": "medium"
+   }
+  ],
+  "note": "The chemistry book gives 17% natural sandalwood oil, which supports the sandalwood tags."
+ },
+ {
+  "id": "doson",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "fleurdepeau",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "blackphantom",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "lovedontbeshy",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "goodgirlgonebad",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "3 stars, peach fuzz: solid if unexciting peachy floral",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "fruity_sweet",
+    "from": 0,
+    "to": 0.6,
+    "reason": "The Guide hears a peach floral, while the heart is tagged as pure white floral with no fruit.",
+    "quote": "\"This is a solid if unexciting peachy floral\"",
+    "source": "guide",
+    "confidence": "high"
+   },
+   {
+    "stage": "drydown",
+    "family": "sandalwood_creamy",
+    "from": 0,
+    "to": 0.4,
+    "reason": "The Guide describes a lactonic woody drydown, which matches the milky-wood family rather than dry cedar alone.",
+    "quote": "\"some nutty-lactonic-woody blur borrowed from Gucci Rush (1999)\"",
+    "source": "guide",
+    "confidence": "medium"
+   }
+  ],
+  "note": "The pyramid lists no peach; the peach reading most likely comes from osmanthus."
+ },
+ {
+  "id": "rollinginlove",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "portraitofalady",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "muscravageur",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "iris_powdery",
+    "from": 0,
+    "to": 0.4,
+    "reason": "The chemistry book lists orris among the overdosed materials, and the tags have no iris at any stage.",
+    "quote": "\"several intense ingredients in overdose: cinnamon, orris, vanillin\"",
+    "source": "chemistry",
+    "confidence": "medium"
+   },
+   {
+    "stage": "drydown",
+    "family": "animalic",
+    "from": 0.4,
+    "to": 0.6,
+    "reason": "Both sources put animalic notes at the centre of the scent, so animalic should rank with vanilla in the drydown.",
+    "quote": "\"an excessively rich, sweet, and animalic floral oriental\"",
+    "source": "guide",
+    "confidence": "medium"
+   },
+   {
+    "stage": "drydown",
+    "family": "white_musk",
+    "from": 0.7,
+    "to": 0.4,
+    "reason": "The musks are framed as modest and the scent as animalic and sweet, not laundry-clean, so clean musk should not lead the drydown.",
+    "quote": "\"but ‘ only ’ ca . 20% of musks\"",
+    "source": "chemistry",
+    "confidence": "low"
+   }
+  ],
+  "note": "No Guide review of its own; the Guide characterises it in passing in the Night Flower review, and the chemistry book names its overdosed materials."
+ },
+ {
+  "id": "elysium",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars, woody citrus: trivial, cheap-smelling woody lime",
+  "changes": [],
+  "note": "The Guide's woody lime description matches the citrus opening and woody drydown as tagged."
+ },
+ {
+  "id": "enigma",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars, bergamot cardamom: sub-Déclaration mishmash",
+  "changes": [
+   {
+    "stage": "opening",
+    "family": "spicy_warm",
+    "from": 0,
+    "to": 0.5,
+    "reason": "The Guide's label names cardamom beside bergamot and compares it to Cartier Déclaration, a cardamom scent, but the opening has no spice tag.",
+    "quote": "\"bergamot cardamom\"",
+    "source": "guide",
+    "confidence": "low"
+   }
+  ],
+  "note": "Reviewed as Creation-E pour Homme, which I take to be Enigma's earlier name; the Guide does not state the link, so confirm it before applying anything."
+ },
+ {
+  "id": "danger",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars, woody citrus: routine",
+  "changes": [],
+  "note": "The Guide's woody citrus label does not mention the leather and oakmoss that lead the drydown tags, but it is too brief to justify a change."
+ },
+ {
+  "id": "amberaoud",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars, woody rose: routine woody-fruity rose",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "fruity_sweet",
+    "from": 0,
+    "to": 0.4,
+    "reason": "The Guide describes a woody-fruity rose, and the heart has no fruit tag.",
+    "quote": "\"Routine woody-fruity rose.\"",
+    "source": "guide",
+    "confidence": "medium"
+   },
+   {
+    "stage": "drydown",
+    "family": "rose",
+    "from": 0,
+    "to": 0.4,
+    "reason": "The Guide classes the whole scent as a woody rose, but rose disappears from the drydown tags.",
+    "quote": "\"Routine woody-fruity rose.\"",
+    "source": "guide",
+    "confidence": "low"
+   }
+  ],
+  "note": "The Guide does not mention amber or oud, which the drydown tags lead with."
+ },
+ {
+  "id": "imagination",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "limmensite",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "afternoonswim",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "meteore",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "nuitdefeu",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "megamare",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "blackafgano",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [
+   {
+    "stage": "drydown",
+    "family": "cedar_dry",
+    "from": 0,
+    "to": 0.4,
+    "reason": "The chemistry book gives 6% Texas cedarwood oil, a large dose, and cedar is untagged.",
+    "quote": "\"‘ Black Afgano ’ ( Nasomatto , 2009) with 6% of Texas cedarwood oil\"",
+    "source": "chemistry",
+    "confidence": "medium"
+   }
+  ],
+  "note": "The chemistry book also gives 0.5% labdanum absolute, which supports the existing amber_resin tag."
+ },
+ {
+  "id": "molecule01",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "The Guide's FAQ comments on the sister product Escentric 01, not Molecule 01, so there is no usable evidence."
+ },
+ {
+  "id": "notaperfume",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars, cetalox: doubts the single-ingredient claim",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "white_musk",
+    "from": 0,
+    "to": 0.4,
+    "reason": "The reviewer found it muskier than Cetalox alone, but musk is tagged only faintly in the drydown.",
+    "quote": "\"don’t remember Cetalox being this musky\"",
+    "source": "guide",
+    "confidence": "medium"
+   }
+  ],
+  "note": "Woody amber stays the dominant family; the reviewer only questions whether Cetalox is the sole ingredient."
+ },
+ {
+  "id": "grischarnel",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "rougesmoking",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "ganymede",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "irishleather",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "kirke",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ }
+]

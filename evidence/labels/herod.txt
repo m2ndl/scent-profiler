@@ -1,0 +1,5 @@
+id: herod
+market: brand site (global)
+date: 2026-09-25
+url: https://www.parfums-de-marly.com/products/herod
+Alcohol Denat., Parfum (Fragrance), Aqua (Water/Eau), Tetramethyl Acetyloctahydronaphthalenes, Hexamethylindanopyran, Vanillin, Coumarin, Pogostemon Cablin Oil, Linalyl Acetate, Bht, Benzyl Benzoate, Pinene, Rose Ketones, Linalool, Geraniol, Beta-Caryophyllene, Cinnamomum Zeylanicum Bark Oil, Isoeugenyl Acetate, Limonene, Cinnamal, Eugenol, Geranyl Acetate, Terpineol

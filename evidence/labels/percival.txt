@@ -1,0 +1,5 @@
+id: percival
+market: brand site (global)
+date: 2026-09-25
+url: https://www.parfums-de-marly.com/products/percival
+Alcohol Denat., Parfum (Fragrance), Tetramethyl Acetyloctahydronaphthalenes, Linalyl Acetate, Citrus Aurantium Bergamia (Bergamot) Peel Oil, Aqua (Water/Eau), Limonene, Linalool, Citronellol, Pinene, Coumarin, Lavandula Oil/Extract, Geranyl Acetate, Citral, Bht, Terpinolene, Rose Ketones, Beta-Caryophyllene, Alpha-Terpinene, Camphor, Terpineol, Geraniol, Isoeugenol, Cinnamomum Zeylanicum Bark Oil, Cinnamal, Eugenol, Hexadecanolactone

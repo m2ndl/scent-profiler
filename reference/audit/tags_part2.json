@@ -1,0 +1,704 @@
+[
+  {
+    "id": "phantom",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "lemale",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [
+      {
+        "stage": "drydown",
+        "family": "white_musk",
+        "from": 0,
+        "to": 0.6,
+        "reason": "The chemistry book gives the base as 39% musk, the largest share it names, yet the drydown carries no musk tag.",
+        "quote": "\"in front of a musk‐ (39%) and Iso E Super\"",
+        "source": "chemistry",
+        "confidence": "high"
+      },
+      {
+        "stage": "drydown",
+        "family": "cedar_dry",
+        "from": 0,
+        "to": 0.4,
+        "reason": "The same passage gives 15% Iso E Super in the base, which this site files under dry cedar / Iso E Super.",
+        "quote": "\"Iso E Super ( 6.85 , 15%)‐laden fond\"",
+        "source": "chemistry",
+        "confidence": "high"
+      }
+    ],
+    "note": "The Guide mentions Le Mâle only as a comparison point in other reviews; the chemistry formula shares apply to the original and may differ in current batches."
+  },
+  {
+    "id": "lemaleleparfum",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "A flanker, not a clone, so the Le Mâle formula data were not carried over."
+  },
+  {
+    "id": "ultramale",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "A flanker, not a clone, so the Le Mâle formula data were not carried over."
+  },
+  {
+    "id": "scandalhomme",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "The Guide's Scandal pour Homme is by Roja Dove, a different perfume."
+  },
+  {
+    "id": "uomobornroma",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "uomointense",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "gentlemanedp",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "The chemistry book's Gentleman is the 1974 original with 35% patchouli oil, a different composition from this 2018 EDP."
+  },
+  {
+    "id": "gentlemanreserve",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "explorer",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "legend",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry says it centres on Pomarose (dried fruit) and Evernyl (oakmoss, ink), which the fruity and oakmoss tags already show."
+  },
+  {
+    "id": "bossbottled",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry names Amberketal with Karanal (woody-amber materials) in 'Boss' (1998), which by launch year is Boss Bottled; this supports the woody_amber tag but gives no dose, and the Guide reviews only the Bottled Tonic flanker."
+  },
+  {
+    "id": "wantedbynight",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "The Guide reviews only the parent Wanted (1 star, with a strong woody-amber); this is a flanker with a different formula, so nothing was carried over."
+  },
+  {
+    "id": "mostwantedparfum",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "badboy",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "burberryhero",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "noirextreme",
+    "found_in_guide": true,
+    "found_in_chemistry": false,
+    "guide_verdict": "2 stars; dull cedar-vanilla that smells like a drydown from the start",
+    "changes": [
+      {
+        "stage": "drydown",
+        "family": "cedar_dry",
+        "from": 0,
+        "to": 0.5,
+        "reason": "The Guide names cedarwood as one of the two main materials, but the drydown has no cedar tag.",
+        "quote": "\"a limp, lackluster cedarwood-vanilla confection\"",
+        "source": "guide",
+        "confidence": "medium"
+      },
+      {
+        "stage": "opening",
+        "family": "vanilla_gourmand",
+        "from": 0,
+        "to": 0.5,
+        "reason": "The Guide says the vanilla drydown character is there from the first spray, while the opening is tagged only citrus, saffron and spice.",
+        "quote": "\"feels, right from the start, like an old drydown\"",
+        "source": "guide",
+        "confidence": "medium"
+      }
+    ],
+    "note": "The Guide's two-word summary is pistachio and vanilla; the saffron-citrus opening and floral heart rest on the pyramid only."
+  },
+  {
+    "id": "lostcherry",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "bitterpeach",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "tuscanleather",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "fabulous",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "neroliportofino",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry lists it among neroli and orange-blossom soliflores, consistent with the white_floral heart."
+  },
+  {
+    "id": "h24",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "terreparfum",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Both books cover only Terre d'Hermès EDT (Guide: a nutty note; chemistry: about 50% Iso E Super with cedar, vetiver and patchouli); the existing cedar and vetiver tags agree."
+  },
+  {
+    "id": "maninblack",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "tygar",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "woodessence",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "leaudissey",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry places it in the Calone marine trend, consistent with the aquatic heart tag."
+  },
+  {
+    "id": "coolwater",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [
+      {
+        "stage": "opening",
+        "family": "citrus_fresh",
+        "from": 0,
+        "to": 0.4,
+        "reason": "Chemistry says Bourdon doubled the dose of dihydromyrcenol in Cool Water and describes that material as citrusy and lime-like; the Guide calls this style not-quite-citrus.",
+        "quote": "\"fresh citrusy‐floral, lime‐ and lavender‐like‐smelling dihydromyrcenol\"",
+        "source": "chemistry",
+        "confidence": "medium"
+      },
+      {
+        "stage": "heart",
+        "family": "lavender_aromatic",
+        "from": 0,
+        "to": 0.5,
+        "reason": "The formula has a large lavender complex (lavandin, linalyl acetate, linalool) that carries past the top, but lavender is tagged only in the opening.",
+        "quote": "\"with 3.5% lavandin oil, 9.5% synthetic linalyl acetate\"",
+        "source": "chemistry",
+        "confidence": "low"
+      },
+      {
+        "stage": "drydown",
+        "family": "tonka_coumarin",
+        "from": 0,
+        "to": 0.3,
+        "reason": "Chemistry calls it the archetype modern fougère and defines that accord with tonka (coumarin), which the drydown lacks.",
+        "quote": "\"the archetype modern fougère ‘ Cool Water ’\"",
+        "source": "chemistry",
+        "confidence": "low"
+      }
+    ],
+    "note": "Neither book mentions Calone or any marine material in Cool Water; both describe a fresh fougère built on dihydromyrcenol and lavender, so the aquatic 0.9 opening rests on the pyramid."
+  },
+  {
+    "id": "lhommeideal",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "The Guide reviews only the Cologne flanker and says the original has an unusually long-lasting fresh drydown, which does not map to a single family."
+  },
+  {
+    "id": "theonemen",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "lightbluemen",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry lists it as a classic citrus fragrance, consistent with the citrus opening; the Guide's Light Blue mentions refer to the 2001 feminine."
+  },
+  {
+    "id": "kdg",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "declaration",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [
+      {
+        "stage": "heart",
+        "family": "cedar_dry",
+        "from": 0,
+        "to": 0.5,
+        "reason": "Chemistry gives about 35% Iso E Super, a dose that is present from the heart onward, yet the heart has no cedar tag.",
+        "quote": "\"declaring his love for Iso E Super ( 1.45 , ca . 35%)\"",
+        "source": "chemistry",
+        "confidence": "medium"
+      },
+      {
+        "stage": "drydown",
+        "family": "cedar_dry",
+        "from": 0.5,
+        "to": 0.8,
+        "reason": "With 35% Iso E Super plus 5% cedarwood oil, cedar should lead the drydown rather than sit below vetiver.",
+        "quote": "\"5% of Texas cedarwood oil in the Jean‐Claude Ellena 's woody milestone\"",
+        "source": "chemistry",
+        "confidence": "medium"
+      }
+    ],
+    "note": "The Guide reviews only Déclaration Parfum (4 stars) and describes the original as spare and lean."
+  },
+  {
+    "id": "spicebombextreme",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "cocomademoiselleintense",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Both books describe only the original Coco Mademoiselle (Guide: floral oriental joined to a Héritage-type masculine; chemistry: a classic chypre); this Intense flanker is not covered."
+  },
+  {
+    "id": "chanelno5",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry gives the 1921 formula (aldehyde overdose, jasmine-rose, 15% civet and 15% Tonquin musk tinctures); the modern EDP is a different formula, so animalic 0.3 was left alone. The Guide reviews only No. 5 L'Eau."
+  },
+  {
+    "id": "chanceeautendre",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Only Chance Eau Vive (Guide) and Chance Eau Fraîche (chemistry) appear; neither is this flanker."
+  },
+  {
+    "id": "jadore",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry lists it as a classic floral and the Guide calls it an abstract floral in passing; the Guide reviews only two flankers. Tags agree."
+  },
+  {
+    "id": "missdior",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "The chemistry book's Miss Dior is the 1947 chypre, a different perfume from the 2021 version."
+  },
+  {
+    "id": "idole",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "The Guide's Idole is Lubin's, a different perfume."
+  },
+  {
+    "id": "monparis",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "The Guide's Mon Paris Secret is by Jean-Michel Duriez, a different perfume."
+  },
+  {
+    "id": "libreintense",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "si",
+    "found_in_guide": true,
+    "found_in_chemistry": false,
+    "guide_verdict": "4 stars; lovely fruity-powdery pastry accord with a balanced drydown",
+    "changes": [
+      {
+        "stage": "drydown",
+        "family": "tobacco_honey",
+        "from": 0,
+        "to": 0.3,
+        "reason": "The Guide hears tobacco with the woods in the background of the development; no stage carries a tobacco tag.",
+        "quote": "\"with tobacco and woody notes letting us know that Sì has suave male company\"",
+        "source": "guide",
+        "confidence": "medium"
+      },
+      {
+        "stage": "heart",
+        "family": "iris_powdery",
+        "from": 0,
+        "to": 0.4,
+        "reason": "The Guide's two-word summary names powder as one of the two main characters, but no stage has a powder tag; the stage is our inference.",
+        "quote": "\"fruity powdery\"",
+        "source": "guide",
+        "confidence": "low"
+      }
+    ],
+    "note": "The Guide describes strawberry-like fruit over vanilla custard and a sweet pastry base; the rose heart comes from the pyramid and is not mentioned."
+  },
+  {
+    "id": "myway",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "guccibloom",
+    "found_in_guide": true,
+    "found_in_chemistry": false,
+    "guide_verdict": "3 stars; natural-smelling sweet white floral, pleasant",
+    "changes": [],
+    "note": "The Guide confirms a white floral with honeysuckle (the Rangoon creeper); tags agree."
+  },
+  {
+    "id": "gucciguilty",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "floragardenia",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "paradoxe",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "pradacandy",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "burberryher",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "cloud",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "cheirosa62",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "lovefestcherry",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "scandal",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "daisy",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "The Guide reviews only Daisy flankers, which say nothing about the original's materials."
+  },
+  {
+    "id": "flowerbomb",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry lists it among classic orientals; the Guide names it only as a model for later imitations. Tags agree."
+  },
+  {
+    "id": "narcisoforher",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry gives 66% Galaxolide for 'Narcisso Rodriguez Musk For Her' (2003), which supports the white_musk 1.0 tags; the Guide mentions For Her only for its radiance."
+  },
+  {
+    "id": "chloe",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry describes a metallic rose (rose oxide) with a cedarwood accord, matching the tags; the Guide reviews only the later EDT, a different formula."
+  },
+  {
+    "id": "angel",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Both books agree with the tags: patchouli about 20% with vanillin, coumarin and ethyl maltol (chemistry), and a cocoa-patchouli base with a blackcurrant top (Guide). The Guide calls the floral accord intense while the heart has white_floral 0.3."
+  },
+  {
+    "id": "linterdit",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "olympea",
+    "found_in_guide": true,
+    "found_in_chemistry": false,
+    "guide_verdict": "2 stars; big amber-toffee start that fades within minutes",
+    "changes": [
+      {
+        "stage": "opening",
+        "family": "vanilla_gourmand",
+        "from": 0,
+        "to": 0.6,
+        "reason": "The Guide says the first minutes are a large amber-toffee chord, while the opening is tagged citrus, white floral and aquatic only.",
+        "quote": "\"an unearthly large amber-toffee chord, then dissolves in coughing fits\"",
+        "source": "guide",
+        "confidence": "medium"
+      }
+    ],
+    "note": "The Guide says little follows the opening; the pyramid's mandarin and water-jasmine top is not mentioned."
+  },
+  {
+    "id": "ladymillion",
+    "found_in_guide": true,
+    "found_in_chemistry": true,
+    "guide_verdict": "2 stars; air-freshener style peony-grapefruit",
+    "changes": [],
+    "note": "The Guide gives only a two-line dismissal; chemistry names 0.35% Operanide, a woody-mossy amber material, too small a dose to justify a new tag."
+  },
+  {
+    "id": "goodgirlblush",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "woodsage",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "englishpear",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "peonysuede",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "git",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "smw",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "millesimeimperial",
+    "found_in_guide": false,
+    "found_in_chemistry": true,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "Chemistry cites it as the example of damascone-damascenone synergy (fruity-rosy materials), which the heart tags (aquatic, iris) do not show; no dose is given, so this is flagged rather than changed."
+  },
+  {
+    "id": "viking",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": ""
+  },
+  {
+    "id": "aventusforher",
+    "found_in_guide": false,
+    "found_in_chemistry": false,
+    "guide_verdict": "",
+    "changes": [],
+    "note": "The Guide reviews only the masculine Aventus (dry citrus-fruity), a different composition, so nothing was carried over."
+  }
+]

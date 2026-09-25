@@ -1,0 +1,5 @@
+id: carlisle
+market: brand site (global)
+date: 2026-09-25
+url: https://www.parfums-de-marly.com/products/carlisle
+Alcohol Denat., Parfum (Fragrance), Aqua (Water/Eau), Pogostemon Cablin Oil, Tetramethyl Acetyloctahydronaphthalenes, Benzyl Salicylate, Vanillin, Coumarin, Pinene, Beta-Caryophyllene, Bht, Limonene, Rose Ketones, Alpha-Terpinene, Isoeugenol, Terpinolene, Cinnamal, Terpineol, Eugenol, Linalool, Citral, Geranyl Acetate

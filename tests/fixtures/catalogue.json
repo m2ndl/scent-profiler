@@ -1,0 +1,4983 @@
+{
+ "data": {
+  "STAGE_W": {
+   "opening": 0.6,
+   "heart": 0.8,
+   "drydown": 1
+  },
+  "CHIPS": [
+   {
+    "id": "sweet",
+    "en": "too sweet",
+    "ar": "حلو زيادة",
+    "fams": {
+     "vanilla_gourmand": 0.8,
+     "tonka_coumarin": 0.5,
+     "fruity_sweet": 0.5,
+     "amber_resin": 0.3
+    }
+   },
+   {
+    "id": "powdery",
+    "en": "powdery",
+    "ar": "بودري",
+    "fams": {
+     "iris_powdery": 0.9,
+     "white_musk": 0.4
+    }
+   },
+   {
+    "id": "chemical",
+    "en": "sharp / chemical",
+    "ar": "حاد / كيميائي",
+    "fams": {
+     "woody_amber": 0.9,
+     "aldehydes": 0.3,
+     "cedar_dry": 0.3
+    }
+   },
+   {
+    "id": "soapy",
+    "en": "soapy",
+    "ar": "صابوني",
+    "fams": {
+     "white_musk": 0.7,
+     "aldehydes": 0.5,
+     "lavender_aromatic": 0.3
+    }
+   },
+   {
+    "id": "heavy",
+    "en": "heavy / cloying",
+    "ar": "ثقيل / خانق",
+    "fams": {
+     "amber_resin": 0.6,
+     "oud_smoky": 0.5,
+     "patchouli": 0.4,
+     "vanilla_gourmand": 0.3
+    }
+   },
+   {
+    "id": "smoky",
+    "en": "smoky",
+    "ar": "مدخن",
+    "fams": {
+     "incense_resin": 0.7,
+     "leather_smoky": 0.6,
+     "oud_smoky": 0.5
+    }
+   },
+   {
+    "id": "animalic",
+    "en": "animalic / dirty",
+    "ar": "حيواني / وسخ",
+    "fams": {
+     "animalic": 0.9,
+     "oud_animalic": 0.6,
+     "white_floral": 0.2
+    }
+   },
+   {
+    "id": "sour",
+    "en": "sour",
+    "ar": "حامض",
+    "fams": {
+     "citrus_fresh": 0.4,
+     "patchouli": 0.3,
+     "oakmoss_chypre": 0.3
+    }
+   },
+   {
+    "id": "loud",
+    "en": "too loud",
+    "ar": "فواح زيادة",
+    "fams": {}
+   },
+   {
+    "id": "faded",
+    "en": "faded fast",
+    "ar": "اختفى بسرعة",
+    "fams": {}
+   }
+  ],
+  "PERFUMES": [
+   {
+    "id": "aventus",
+    "house": "Creed",
+    "name": "Aventus",
+    "ar": "أفينتوس",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.9,
+      "citrus_fresh": 0.5,
+      "leather_smoky": 0.4
+     },
+     "heart": {
+      "leather_smoky": 0.6,
+      "patchouli": 0.5,
+      "white_floral": 0.2
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "oakmoss_chypre": 0.4,
+      "woody_amber": 0.5,
+      "vanilla_gourmand": 0.2
+     }
+    },
+    "notes": {
+     "en": "pineapple, bergamot, blackcurrant / birch, patchouli, jasmine / musk, oakmoss, ambergris",
+     "ar": "أناناس، برغموت، كشمش / بتولا، باتشولي، ياسمين / مسك، طحلب، عنبر"
+    }
+   },
+   {
+    "id": "hacivat",
+    "house": "Nishane",
+    "name": "Hacivat",
+    "ar": "هاسيفات",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.9,
+      "citrus_fresh": 0.7
+     },
+     "heart": {
+      "cedar_dry": 0.6,
+      "patchouli": 0.5,
+      "white_floral": 0.3
+     },
+     "drydown": {
+      "oakmoss_chypre": 0.7,
+      "woody_amber": 0.7,
+      "cedar_dry": 0.4
+     }
+    },
+    "notes": {
+     "en": "pineapple, grapefruit, bergamot / cedar, patchouli, jasmine / oakmoss, woods",
+     "ar": "أناناس، جريب فروت، برغموت / أرز، باتشولي، ياسمين / طحلب، أخشاب"
+    }
+   },
+   {
+    "id": "erbapura",
+    "house": "Xerjoff",
+    "name": "Erba Pura",
+    "ar": "إيربا بورا",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.8,
+      "fruity_sweet": 0.6
+     },
+     "heart": {
+      "fruity_sweet": 1
+     },
+     "drydown": {
+      "white_musk": 0.8,
+      "vanilla_gourmand": 0.7,
+      "amber_resin": 0.5,
+      "woody_amber": 0.3
+     }
+    },
+    "notes": {
+     "en": "Sicilian citrus / fruit basket / white musk, vanilla, amber",
+     "ar": "حمضيات صقلية / سلة فواكه / مسك أبيض، فانيلا، عنبر"
+    }
+   },
+   {
+    "id": "layton",
+    "house": "Parfums de Marly",
+    "name": "Layton",
+    "ar": "لايتون",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.6,
+      "citrus_fresh": 0.5,
+      "lavender_aromatic": 0.5
+     },
+     "heart": {
+      "white_floral": 0.4,
+      "iris_powdery": 0.2,
+      "spice_fresh": 0.4
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.7,
+      "woody_amber": 0.6,
+      "sandalwood_creamy": 0.4,
+      "spice_fresh": 0.5
+     }
+    },
+    "notes": {
+     "en": "apple, bergamot, lavender / jasmine, geranium, violet, pepper / vanilla, cardamom, sandalwood, guaiac",
+     "ar": "تفاح، برغموت، لافندر / ياسمين، إبرة الراعي، بنفسج، فلفل / فانيلا، هيل، صندل، غاياك"
+    }
+   },
+   {
+    "id": "herod",
+    "house": "Parfums de Marly",
+    "name": "Herod",
+    "ar": "هيرود",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "spicy_warm": 0.8,
+      "spice_fresh": 0.64
+     },
+     "heart": {
+      "tobacco_honey": 0.9,
+      "incense_resin": 0.4,
+      "amber_resin": 0.5
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.7,
+      "vetiver": 0.4,
+      "woody_amber": 0.5,
+      "cedar_dry": 0.3
+     }
+    },
+    "notes": {
+     "en": "cinnamon, pepper / tobacco, osmanthus, labdanum, incense / vanilla, vetiver, cedar, musk",
+     "ar": "قرفة، فلفل / تبغ، أوسمانثوس، لبنى، بخور / فانيلا، فيتيفر، أرز، مسك"
+    }
+   },
+   {
+    "id": "althair",
+    "house": "Parfums de Marly",
+    "name": "Althaïr",
+    "ar": "الطائر",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "spicy_warm": 0.8,
+      "citrus_fresh": 0.3,
+      "spice_fresh": 0.64
+     },
+     "heart": {
+      "vanilla_gourmand": 0.8,
+      "white_floral": 0.3
+     },
+     "drydown": {
+      "vanilla_gourmand": 1,
+      "tonka_coumarin": 0.6,
+      "woody_amber": 0.6,
+      "white_musk": 0.3
+     }
+    },
+    "notes": {
+     "en": "cinnamon, cardamom, bergamot / vanilla, elemi, orange blossom, praline / vanilla, tonka, ambroxan, musk",
+     "ar": "قرفة، هيل، برغموت / فانيلا، إليمي، زهر البرتقال، برالين / فانيلا، تونكا، أمبروكسان، مسك"
+    }
+   },
+   {
+    "id": "delina",
+    "house": "Parfums de Marly",
+    "name": "Delina",
+    "ar": "ديلينا",
+    "gender": "f",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.8,
+      "citrus_fresh": 0.3
+     },
+     "heart": {
+      "rose": 0.9
+     },
+     "drydown": {
+      "white_musk": 0.7,
+      "woody_amber": 0.5,
+      "vanilla_gourmand": 0.4,
+      "incense_resin": 0.2
+     }
+    },
+    "notes": {
+     "en": "lychee, rhubarb, bergamot / Turkish rose, peony / musk, cashmeran, vanilla, incense",
+     "ar": "ليتشي، راوند، برغموت / ورد تركي، فاوانيا / مسك، كاشميران، فانيلا، بخور"
+    }
+   },
+   {
+    "id": "br540",
+    "house": "Maison Francis Kurkdjian",
+    "name": "Baccarat Rouge 540",
+    "ar": "باكارات روج 540",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "saffron_leathery": 0.8,
+      "white_floral": 0.5
+     },
+     "heart": {
+      "woody_amber": 0.9,
+      "amber_resin": 0.4
+     },
+     "drydown": {
+      "woody_amber": 1,
+      "cedar_dry": 0.4,
+      "white_musk": 0.3
+     }
+    },
+    "notes": {
+     "en": "saffron, jasmine / amberwood, ambergris / fir resin, cedar",
+     "ar": "زعفران، ياسمين / خشب عنبري، عنبر / راتنج التنوب، أرز"
+    }
+   },
+   {
+    "id": "grandsoir",
+    "house": "Maison Francis Kurkdjian",
+    "name": "Grand Soir",
+    "ar": "غراند سوار",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "amber_resin": 0.9
+     },
+     "heart": {
+      "amber_resin": 0.8,
+      "tonka_coumarin": 0.6,
+      "vanilla_gourmand": 0.4
+     },
+     "drydown": {
+      "amber_resin": 0.9,
+      "vanilla_gourmand": 0.6,
+      "woody_amber": 0.3
+     }
+    },
+    "notes": {
+     "en": "amber, labdanum / benzoin, tonka / vanilla, cistus",
+     "ar": "عنبر، لبنى / بنزوين، تونكا / فانيلا، قسط"
+    }
+   },
+   {
+    "id": "blackorchid",
+    "house": "Tom Ford",
+    "name": "Black Orchid",
+    "ar": "بلاك أوركيد",
+    "gender": "f",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.5,
+      "white_floral": 0.5,
+      "patchouli": 0.3
+     },
+     "heart": {
+      "white_floral": 0.6,
+      "spicy_warm": 0.5
+     },
+     "drydown": {
+      "patchouli": 0.8,
+      "vanilla_gourmand": 0.6,
+      "incense_resin": 0.4,
+      "sandalwood_creamy": 0.3
+     }
+    },
+    "notes": {
+     "en": "truffle, ylang, blackcurrant / black orchid, spices, lotus / patchouli, vanilla, incense, sandalwood",
+     "ar": "كمأة، إيلنغ، كشمش / أوركيد أسود، توابل، لوتس / باتشولي، فانيلا، بخور، صندل"
+    }
+   },
+   {
+    "id": "sauvageedp",
+    "house": "Dior",
+    "name": "Sauvage Eau de Parfum",
+    "ar": "سوفاج",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.8,
+      "spice_fresh": 0.5
+     },
+     "heart": {
+      "lavender_aromatic": 0.6,
+      "spicy_warm": 0.6
+     },
+     "drydown": {
+      "woody_amber": 1,
+      "vanilla_gourmand": 0.3
+     }
+    },
+    "notes": {
+     "en": "bergamot, pepper / lavender, star anise, nutmeg / ambroxan, vanilla",
+     "ar": "برغموت، فلفل / لافندر، ينسون نجمي، جوزة الطيب / أمبروكسان، فانيلا"
+    }
+   },
+   {
+    "id": "bleuedp",
+    "house": "Chanel",
+    "name": "Bleu de Chanel Eau de Parfum",
+    "ar": "بلو دو شانيل",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.9,
+      "spice_fresh": 0.3,
+      "lavender_aromatic": 0.3
+     },
+     "heart": {
+      "spicy_warm": 0.5,
+      "cedar_dry": 0.6,
+      "white_floral": 0.2,
+      "spice_fresh": 0.4
+     },
+     "drydown": {
+      "cedar_dry": 0.7,
+      "woody_amber": 0.7,
+      "incense_resin": 0.4,
+      "patchouli": 0.3
+     }
+    },
+    "notes": {
+     "en": "grapefruit, lemon, mint, pink pepper / ginger, nutmeg, jasmine, Iso E Super / incense, amber, cedar, sandalwood, patchouli",
+     "ar": "جريب فروت، ليمون، نعناع، فلفل وردي / زنجبيل، جوزة الطيب، ياسمين / بخور، عنبر، أرز، صندل، باتشولي"
+    }
+   },
+   {
+    "id": "libre",
+    "house": "Yves Saint Laurent",
+    "name": "Libre",
+    "ar": "ليبر",
+    "gender": "f",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "lavender_aromatic": 0.8,
+      "citrus_fresh": 0.4,
+      "fruity_sweet": 0.3
+     },
+     "heart": {
+      "white_floral": 0.9
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.8,
+      "white_musk": 0.6,
+      "woody_amber": 0.5
+     }
+    },
+    "notes": {
+     "en": "lavender, mandarin, blackcurrant / orange blossom, jasmine / vanilla, musk, cedar, ambergris",
+     "ar": "لافندر، يوسفي، كشمش / زهر البرتقال، ياسمين / فانيلا، مسك، أرز، عنبر"
+    }
+   },
+   {
+    "id": "adgprofumo",
+    "house": "Giorgio Armani",
+    "name": "Acqua di Giò Profumo",
+    "ar": "أكوا دي جيو بروفومو",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.7,
+      "aquatic_marine": 0.9
+     },
+     "heart": {
+      "lavender_aromatic": 0.7
+     },
+     "drydown": {
+      "incense_resin": 0.8,
+      "patchouli": 0.5,
+      "woody_amber": 0.5
+     }
+    },
+    "notes": {
+     "en": "bergamot, sea notes / rosemary, sage, geranium / incense, patchouli",
+     "ar": "برغموت، نفحات بحرية / إكليل الجبل، مريمية، إبرة الراعي / بخور، باتشولي"
+    }
+   },
+   {
+    "id": "onemillion",
+    "house": "Rabanne",
+    "name": "1 Million",
+    "ar": "ون مليون",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.8,
+      "lavender_aromatic": 0.3
+     },
+     "heart": {
+      "spicy_warm": 0.9,
+      "rose": 0.5
+     },
+     "drydown": {
+      "leather_smoky": 0.6,
+      "amber_resin": 0.7,
+      "patchouli": 0.4,
+      "woody_amber": 0.5
+     }
+    },
+    "notes": {
+     "en": "grapefruit, mint, blood mandarin / cinnamon, rose, spices / leather, amber, patchouli, white woods",
+     "ar": "جريب فروت، نعناع، يوسفي أحمر / قرفة، ورد، توابل / جلد، عنبر، باتشولي، أخشاب بيضاء"
+    }
+   },
+   {
+    "id": "bythefireplace",
+    "house": "Maison Margiela",
+    "name": "Replica By the Fireplace",
+    "ar": "باي ذا فايربليس",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "spicy_warm": 0.6,
+      "white_floral": 0.3,
+      "spice_fresh": 0.48
+     },
+     "heart": {
+      "incense_resin": 0.4,
+      "cedar_dry": 0.4,
+      "vanilla_gourmand": 0.4
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.8,
+      "amber_resin": 0.6,
+      "woody_amber": 0.4,
+      "incense_resin": 0.4
+     }
+    },
+    "notes": {
+     "en": "pink pepper, orange blossom, clove / chestnut, guaiac wood, juniper / vanilla, cashmeran, Peru balsam",
+     "ar": "فلفل وردي، زهر البرتقال، قرنفل / كستناء، خشب الغاياك، عرعر / فانيلا، كاشميران، بلسم بيرو"
+    }
+   },
+   {
+    "id": "khamrah",
+    "house": "Lattafa",
+    "name": "Khamrah",
+    "ar": "خمرة",
+    "gender": "u",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "spicy_warm": 0.9,
+      "citrus_fresh": 0.3
+     },
+     "heart": {
+      "fruity_sweet": 0.7,
+      "vanilla_gourmand": 0.5,
+      "white_floral": 0.3
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.9,
+      "tonka_coumarin": 0.7,
+      "amber_resin": 0.6,
+      "woody_amber": 0.5
+     }
+    },
+    "notes": {
+     "en": "cinnamon, nutmeg, bergamot / dates, praline, tuberose / vanilla, tonka, benzoin, amberwood, myrrh",
+     "ar": "قرفة، جوزة الطيب، برغموت / تمر، برالين، مسك الروم / فانيلا، تونكا، بنزوين، خشب عنبري، مر"
+    }
+   },
+   {
+    "id": "yara",
+    "house": "Lattafa",
+    "name": "Yara",
+    "ar": "يارا",
+    "gender": "f",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "iris_powdery": 0.5,
+      "white_floral": 0.3,
+      "citrus_fresh": 0.3
+     },
+     "heart": {
+      "vanilla_gourmand": 0.6,
+      "fruity_sweet": 0.7
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.9,
+      "white_musk": 0.7,
+      "sandalwood_creamy": 0.4
+     }
+    },
+    "notes": {
+     "en": "orchid, heliotrope, tangerine / gourmand accord, tropical fruit / vanilla, musk, sandalwood",
+     "ar": "أوركيد، هيليوتروب، يوسفي / حلويات، فواكه استوائية / فانيلا، مسك، صندل"
+    }
+   },
+   {
+    "id": "cdnim",
+    "house": "Armaf",
+    "name": "Club de Nuit Intense Man",
+    "ar": "كلوب دي نوي إنتنس",
+    "gender": "m",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.8,
+      "fruity_sweet": 0.8,
+      "leather_smoky": 0.4
+     },
+     "heart": {
+      "leather_smoky": 0.7,
+      "white_floral": 0.3,
+      "rose": 0.2
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "woody_amber": 0.6,
+      "patchouli": 0.3,
+      "leather_smoky": 0.4,
+      "vanilla_gourmand": 0.2
+     }
+    },
+    "notes": {
+     "en": "lemon, pineapple, bergamot, blackcurrant, apple / birch, jasmine, rose / musk, ambergris, vanilla, patchouli",
+     "ar": "ليمون، أناناس، برغموت، كشمش، تفاح / بتولا، ياسمين، ورد / مسك، عنبر، فانيلا، باتشولي"
+    },
+    "cloneOf": "aventus"
+   },
+   {
+    "id": "lavieestbelle",
+    "house": "Lancôme",
+    "name": "La Vie Est Belle",
+    "ar": "لا في إي بيل",
+    "gender": "f",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.8
+     },
+     "heart": {
+      "iris_powdery": 0.7,
+      "white_floral": 0.6
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.9,
+      "patchouli": 0.6,
+      "tonka_coumarin": 0.5,
+      "coffee_gourmand": 0.2
+     }
+    },
+    "notes": {
+     "en": "blackcurrant, pear / iris, jasmine, orange blossom / praline, vanilla, patchouli, tonka",
+     "ar": "كشمش، كمثرى / سوسن، ياسمين، زهر البرتقال / برالين، فانيلا، باتشولي، تونكا"
+    }
+   },
+   {
+    "id": "vanilla28",
+    "house": "Kayali",
+    "name": "Vanilla 28",
+    "ar": "فانيلا 28",
+    "gender": "u",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "white_floral": 0.3,
+      "vanilla_gourmand": 0.6
+     },
+     "heart": {
+      "vanilla_gourmand": 1,
+      "tonka_coumarin": 0.6,
+      "patchouli": 0.3
+     },
+     "drydown": {
+      "vanilla_gourmand": 1,
+      "amber_resin": 0.6,
+      "white_musk": 0.5
+     }
+    },
+    "notes": {
+     "en": "jasmine, brown sugar / vanilla orchid, tonka, patchouli / amber, musk, brown sugar",
+     "ar": "ياسمين، سكر بني / أوركيد الفانيلا، تونكا، باتشولي / عنبر، مسك، سكر بني"
+    }
+   },
+   {
+    "id": "fahrenheit",
+    "house": "Dior",
+    "name": "Fahrenheit",
+    "ar": "فهرنهايت",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.6,
+      "lavender_aromatic": 0.5,
+      "spicy_warm": 0.3
+     },
+     "heart": {
+      "green_herbal": 0.8,
+      "iris_powdery": 0.3,
+      "white_floral": 0.3,
+      "cedar_dry": 0.3
+     },
+     "drydown": {
+      "leather_smoky": 0.8,
+      "vetiver": 0.5,
+      "white_musk": 0.4,
+      "amber_resin": 0.3,
+      "tonka_coumarin": 0.3
+     }
+    },
+    "notes": {
+     "en": "nutmeg, lavender, mandarin, bergamot / violet leaf, carnation, jasmine, cedar, sandalwood / leather, vetiver, musk, amber, tonka",
+     "ar": "جوزة الطيب، لافندر، يوسفي، برغموت / ورق البنفسج، قرنفل، ياسمين، أرز / جلد، فيتيفر، مسك، عنبر، تونكا"
+    }
+   },
+   {
+    "id": "swy",
+    "house": "Giorgio Armani",
+    "name": "Stronger With You",
+    "ar": "سترونجر ويذ يو",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "green_herbal": 0.3,
+      "spice_fresh": 0.6
+     },
+     "heart": {
+      "spicy_warm": 0.5,
+      "lavender_aromatic": 0.4,
+      "fruity_sweet": 0.3
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.8,
+      "woody_amber": 0.6,
+      "tonka_coumarin": 0.3,
+      "cedar_dry": 0.3
+     }
+    },
+    "notes": {
+     "en": "pink pepper, cardamom, violet leaf / sage, cinnamon, lavender, melon / chestnut, vanilla, amberwood, cedar, sugar",
+     "ar": "فلفل وردي، هيل، ورق البنفسج / مريمية، قرفة، لافندر، شمام / كستناء، فانيلا، خشب عنبري، أرز، سكر"
+    }
+   },
+   {
+    "id": "onemillionelixir",
+    "house": "Rabanne",
+    "name": "1 Million Elixir",
+    "ar": "ون مليون إليكسير",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "cedar_dry": 0.5,
+      "citrus_fresh": 0.6
+     },
+     "heart": {
+      "leather_smoky": 0.7,
+      "spicy_warm": 0.6,
+      "sandalwood_creamy": 0.4
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.8,
+      "tonka_coumarin": 0.6,
+      "patchouli": 0.4,
+      "amber_resin": 0.5
+     }
+    },
+    "notes": {
+     "en": "cedar, grapefruit, mandarin / leather, cinnamon, sandalwood / vanilla, tonka, patchouli, moss, amber",
+     "ar": "أرز، جريب فروت، يوسفي / جلد، قرفة، صندل / فانيلا، تونكا، باتشولي، طحلب، عنبر"
+    }
+   },
+   {
+    "id": "lemale",
+    "house": "Jean Paul Gaultier",
+    "name": "Le Male",
+    "ar": "لو مال",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "lavender_aromatic": 1,
+      "citrus_fresh": 0.3
+     },
+     "heart": {
+      "spicy_warm": 0.7,
+      "white_floral": 0.4
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.9,
+      "tonka_coumarin": 0.7,
+      "sandalwood_creamy": 0.4,
+      "amber_resin": 0.3
+     }
+    },
+    "notes": {
+     "en": "lavender, mint, bergamot, cardamom, artemisia / cinnamon, orange blossom, caraway / vanilla, tonka, sandalwood, cedar, amber",
+     "ar": "لافندر، نعناع، برغموت، هيل، شيح / قرفة، زهر البرتقال، كراوية / فانيلا، تونكا، صندل، أرز، عنبر"
+    }
+   },
+   {
+    "id": "explorer",
+    "house": "Montblanc",
+    "name": "Explorer",
+    "ar": "مونت بلان إكسبلورر",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.8,
+      "spice_fresh": 0.3,
+      "lavender_aromatic": 0.4
+     },
+     "heart": {
+      "vetiver": 0.7,
+      "leather_smoky": 0.5
+     },
+     "drydown": {
+      "patchouli": 0.8,
+      "woody_amber": 0.8,
+      "coffee_gourmand": 0.2
+     }
+    },
+    "notes": {
+     "en": "bergamot, pink pepper, clary sage / vetiver, leather / patchouli, akigalawood, ambroxan, cacao",
+     "ar": "برغموت، فلفل وردي، مريمية / فيتيفر، جلد / باتشولي، أكيغالاوود، أمبروكسان، كاكاو"
+    }
+   },
+   {
+    "id": "noirextreme",
+    "house": "Tom Ford",
+    "name": "Noir Extreme",
+    "ar": "نوار إكستريم",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.5,
+      "saffron_leathery": 0.5,
+      "spicy_warm": 0.6,
+      "white_floral": 0.3,
+      "spice_fresh": 0.48
+     },
+     "heart": {
+      "vanilla_gourmand": 0.6,
+      "rose": 0.4,
+      "white_floral": 0.5,
+      "spicy_warm": 0.3
+     },
+     "drydown": {
+      "amber_resin": 0.6,
+      "vanilla_gourmand": 0.7,
+      "sandalwood_creamy": 0.4,
+      "woody_amber": 0.4
+     }
+    },
+    "notes": {
+     "en": "mandarin, neroli, saffron, cardamom, nutmeg / kulfi, rose, jasmine, orange blossom / amber, sandalwood, vanilla, woods",
+     "ar": "يوسفي، نيرولي، زعفران، هيل، جوزة الطيب / قلفي، ورد، ياسمين، زهر البرتقال / عنبر، صندل، فانيلا، أخشاب"
+    }
+   },
+   {
+    "id": "bitterpeach",
+    "house": "Tom Ford",
+    "name": "Bitter Peach",
+    "ar": "بيتر بيتش",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.9,
+      "citrus_fresh": 0.4,
+      "spice_fresh": 0.3
+     },
+     "heart": {
+      "fruity_sweet": 0.5,
+      "iris_powdery": 0.3,
+      "white_floral": 0.3
+     },
+     "drydown": {
+      "patchouli": 0.5,
+      "vanilla_gourmand": 0.6,
+      "amber_resin": 0.5,
+      "woody_amber": 0.4
+     }
+    },
+    "notes": {
+     "en": "peach, blood orange, cardamom / rum, davana, heliotrope, jasmine / patchouli, sandalwood, vanilla, benzoin, cashmeran",
+     "ar": "خوخ، برتقال أحمر، هيل / رم، دافانا، هيليوتروب، ياسمين / باتشولي، صندل، فانيلا، بنزوين، كاشميران"
+    }
+   },
+   {
+    "id": "fabulous",
+    "house": "Tom Ford",
+    "name": "Fucking Fabulous",
+    "ar": "فاكينغ فابيولس",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "lavender_aromatic": 0.7
+     },
+     "heart": {
+      "leather_smoky": 0.8,
+      "tonka_coumarin": 0.4,
+      "iris_powdery": 0.4,
+      "vanilla_gourmand": 0.4
+     },
+     "drydown": {
+      "tonka_coumarin": 0.7,
+      "amber_resin": 0.5,
+      "woody_amber": 0.5,
+      "leather_smoky": 0.6
+     }
+    },
+    "notes": {
+     "en": "clary sage, lavender / leather, bitter almond, orris, vanilla / tonka, amber, cashmeran, leather",
+     "ar": "مريمية، لافندر / جلد، لوز مر، سوسن، فانيلا / تونكا، عنبر، كاشميران، جلد"
+    }
+   },
+   {
+    "id": "coolwater",
+    "house": "Davidoff",
+    "name": "Cool Water",
+    "ar": "كول ووتر",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "aquatic_marine": 0.9,
+      "green_herbal": 0.5,
+      "lavender_aromatic": 0.5
+     },
+     "heart": {
+      "rose": 0.3,
+      "white_floral": 0.4,
+      "sandalwood_creamy": 0.3
+     },
+     "drydown": {
+      "white_musk": 0.7,
+      "oakmoss_chypre": 0.4,
+      "cedar_dry": 0.3,
+      "tobacco_honey": 0.2,
+      "woody_amber": 0.3
+     }
+    },
+    "notes": {
+     "en": "sea water, mint, green notes, lavender, coriander, rosemary, calone / geranium, neroli, jasmine, sandalwood / musk, oakmoss, cedar, tobacco, amber",
+     "ar": "ماء البحر، نعناع، أخضر، لافندر، كزبرة، إكليل الجبل / إبرة الراعي، نيرولي، ياسمين، صندل / مسك، طحلب، أرز، تبغ، عنبر"
+    }
+   },
+   {
+    "id": "declaration",
+    "house": "Cartier",
+    "name": "Déclaration",
+    "ar": "ديكلاراسيون",
+    "gender": "m",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.6,
+      "leather_smoky": 0.3,
+      "spice_fresh": 0.5,
+      "lavender_aromatic": 0.5
+     },
+     "heart": {
+      "spicy_warm": 0.8,
+      "green_herbal": 0.3,
+      "iris_powdery": 0.2,
+      "spice_fresh": 0.64
+     },
+     "drydown": {
+      "vetiver": 0.6,
+      "oakmoss_chypre": 0.4,
+      "cedar_dry": 0.5,
+      "leather_smoky": 0.3,
+      "spicy_warm": 0.3
+     }
+    },
+    "notes": {
+     "en": "artemisia, caraway, coriander, birch, bergamot, bitter orange / ginger, pepper, cinnamon, juniper, cardamom, tea / vetiver, oakmoss, cedar, leather, amber",
+     "ar": "شيح، كراوية، كزبرة، بتولا، برغموت، برتقال مر / زنجبيل، فلفل، قرفة، عرعر، هيل، شاي / فيتيفر، طحلب، أرز، جلد، عنبر"
+    }
+   },
+   {
+    "id": "si",
+    "house": "Giorgio Armani",
+    "name": "Sì",
+    "ar": "سي",
+    "gender": "f",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.8,
+      "citrus_fresh": 0.3
+     },
+     "heart": {
+      "rose": 0.7,
+      "white_floral": 0.4
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.7,
+      "patchouli": 0.5,
+      "woody_amber": 0.6,
+      "white_musk": 0.4
+     }
+    },
+    "notes": {
+     "en": "blackcurrant, mandarin, bergamot / rose, freesia, neroli / vanilla, patchouli, ambroxan, woods, musk",
+     "ar": "كشمش، يوسفي، برغموت / ورد، فريزيا، نيرولي / فانيلا، باتشولي، أمبروكسان، أخشاب، مسك"
+    }
+   },
+   {
+    "id": "scandal",
+    "house": "Jean Paul Gaultier",
+    "name": "Scandal",
+    "ar": "سكاندال",
+    "gender": "f",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.7
+     },
+     "heart": {
+      "tobacco_honey": 0.9,
+      "white_floral": 0.5,
+      "fruity_sweet": 0.3
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.7,
+      "patchouli": 0.5,
+      "tobacco_honey": 0.6
+     }
+    },
+    "notes": {
+     "en": "blood orange, mandarin / honey, gardenia, jasmine, peach / caramel, patchouli, licorice, beeswax",
+     "ar": "برتقال أحمر، يوسفي / عسل، غاردينيا، ياسمين، خوخ / كراميل، باتشولي، عرقسوس، شمع العسل"
+    }
+   },
+   {
+    "id": "olympea",
+    "house": "Rabanne",
+    "name": "Olympéa",
+    "ar": "أولمبيا",
+    "gender": "f",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.5,
+      "white_floral": 0.5,
+      "aquatic_marine": 0.3
+     },
+     "heart": {
+      "vanilla_gourmand": 0.8,
+      "aquatic_marine": 0.3
+     },
+     "drydown": {
+      "woody_amber": 0.8,
+      "sandalwood_creamy": 0.4,
+      "vanilla_gourmand": 0.5
+     }
+    },
+    "notes": {
+     "en": "green mandarin, water jasmine, ginger flower / salty vanilla / cashmere wood, sandalwood, ambergris",
+     "ar": "يوسفي أخضر، ياسمين مائي، زهرة الزنجبيل / فانيلا مملحة / خشب الكشمير، صندل، عنبر"
+    }
+   },
+   {
+    "id": "git",
+    "house": "Creed",
+    "name": "Green Irish Tweed",
+    "ar": "غرين آيريش تويد",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.6,
+      "green_herbal": 0.5,
+      "iris_powdery": 0.5
+     },
+     "heart": {
+      "green_herbal": 0.9,
+      "iris_powdery": 0.3
+     },
+     "drydown": {
+      "woody_amber": 0.7,
+      "sandalwood_creamy": 0.5,
+      "white_musk": 0.3
+     }
+    },
+    "notes": {
+     "en": "lemon verbena, iris / violet leaf / ambergris, sandalwood",
+     "ar": "لويزة، سوسن / ورق البنفسج / عنبر، صندل"
+    }
+   },
+   {
+    "id": "oudsatinmood",
+    "house": "Maison Francis Kurkdjian",
+    "name": "Oud Satin Mood",
+    "ar": "عود ساتان مود",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "iris_powdery": 0.4,
+      "rose": 0.7
+     },
+     "heart": {
+      "rose": 0.8,
+      "oud_smoky": 0.7
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.7,
+      "amber_resin": 0.7,
+      "oud_smoky": 0.6
+     }
+    },
+    "notes": {
+     "en": "violet, rose / rose, oud / vanilla, benzoin, amber, oud",
+     "ar": "بنفسج، ورد / ورد، عود / فانيلا، بنزوين، عنبر، عود"
+    }
+   },
+   {
+    "id": "gentlefluiditygold",
+    "house": "Maison Francis Kurkdjian",
+    "name": "Gentle Fluidity Gold",
+    "ar": "جنتل فلويديتي غولد",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "green_herbal": 0.5,
+      "spicy_warm": 0.6,
+      "spice_fresh": 0.48
+     },
+     "heart": {
+      "white_musk": 0.7,
+      "woody_amber": 0.6
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.9,
+      "woody_amber": 0.6,
+      "white_musk": 0.5
+     }
+    },
+    "notes": {
+     "en": "juniper, nutmeg, coriander / musk, amberwood / vanilla, amberwood, musk",
+     "ar": "عرعر، جوزة الطيب، كزبرة / مسك، خشب عنبري / فانيلا، خشب عنبري، مسك"
+    }
+   },
+   {
+    "id": "br540extrait",
+    "house": "Maison Francis Kurkdjian",
+    "name": "Baccarat Rouge 540 Extrait",
+    "ar": "باكارات روج 540 إكستريه",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.5,
+      "saffron_leathery": 0.8
+     },
+     "heart": {
+      "white_floral": 0.5,
+      "woody_amber": 0.6
+     },
+     "drydown": {
+      "woody_amber": 1,
+      "amber_resin": 0.5,
+      "vanilla_gourmand": 0.3
+     }
+    },
+    "notes": {
+     "en": "bitter almond, saffron / Egyptian jasmine, cedar / ambergris, woody notes, amber",
+     "ar": "لوز مر، زعفران / ياسمين مصري، أرز / عنبر، أخشاب"
+    }
+   },
+   {
+    "id": "pegasus",
+    "house": "Parfums de Marly",
+    "name": "Pegasus",
+    "ar": "بيغاسوس",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.4,
+      "spicy_warm": 0.4,
+      "iris_powdery": 0.5,
+      "animalic": 0.2
+     },
+     "heart": {
+      "white_floral": 0.4,
+      "fruity_sweet": 0.5,
+      "tonka_coumarin": 0.4,
+      "lavender_aromatic": 0.4
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.9,
+      "sandalwood_creamy": 0.5,
+      "amber_resin": 0.5,
+      "tonka_coumarin": 0.5
+     }
+    },
+    "notes": {
+     "en": "bergamot, cumin, heliotrope / jasmine, bitter almond, lavender / vanilla, sandalwood, amber",
+     "ar": "برغموت، كمون، هيليوتروب / ياسمين، لوز مر، لافندر / فانيلا، صندل، عنبر"
+    }
+   },
+   {
+    "id": "percival",
+    "house": "Parfums de Marly",
+    "name": "Percival",
+    "ar": "بيرسيفال",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.8,
+      "green_herbal": 0.3
+     },
+     "heart": {
+      "lavender_aromatic": 0.7,
+      "green_herbal": 0.4
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "woody_amber": 0.6,
+      "cedar_dry": 0.3,
+      "tonka_coumarin": 0.3
+     }
+    },
+    "notes": {
+     "en": "mandarin, bergamot / lavender, violet leaf, rose / white musk, sandalwood, cashmeran",
+     "ar": "يوسفي، برغموت / لافندر، ورق البنفسج، ورد / مسك أبيض، صندل، كاشميران"
+    }
+   },
+   {
+    "id": "greenley",
+    "house": "Parfums de Marly",
+    "name": "Greenley",
+    "ar": "غرينلي",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.8,
+      "fruity_sweet": 0.5,
+      "green_herbal": 0.4
+     },
+     "heart": {
+      "green_herbal": 0.7,
+      "patchouli": 0.3
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "woody_amber": 0.7,
+      "cedar_dry": 0.3
+     }
+    },
+    "notes": {
+     "en": "bergamot, lemon, green apple / green leaves, patchouli / musk, ambroxan, cedar",
+     "ar": "برغموت، ليمون، تفاح أخضر / أوراق خضراء، باتشولي / مسك، أمبروكسان، أرز"
+    }
+   },
+   {
+    "id": "sedley",
+    "house": "Parfums de Marly",
+    "name": "Sedley",
+    "ar": "سيدلي",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.8,
+      "lavender_aromatic": 0.6
+     },
+     "heart": {
+      "lavender_aromatic": 0.5,
+      "aquatic_marine": 0.3
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "cedar_dry": 0.5,
+      "woody_amber": 0.6
+     }
+    },
+    "notes": {
+     "en": "bergamot, mint, geranium / lavender, sea salt / musk, cedar, ambroxan",
+     "ar": "برغموت، نعناع، إبرة الراعي / لافندر، ملح البحر / مسك، أرز، أمبروكسان"
+    }
+   },
+   {
+    "id": "carlisle",
+    "house": "Parfums de Marly",
+    "name": "Carlisle",
+    "ar": "كارلايل",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "spicy_warm": 0.8,
+      "saffron_leathery": 0.5,
+      "citrus_fresh": 0.3,
+      "spice_fresh": 0.64
+     },
+     "heart": {
+      "vanilla_gourmand": 0.6,
+      "patchouli": 0.4,
+      "rose": 0.3
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.9,
+      "oud_smoky": 0.3,
+      "tonka_coumarin": 0.6,
+      "amber_resin": 0.5,
+      "sandalwood_creamy": 0.3
+     }
+    },
+    "notes": {
+     "en": "cinnamon, pepper, saffron, orange / vanilla, patchouli, jasmine, rose / vanilla, oud, tonka, amber, sandalwood, musk",
+     "ar": "قرفة، فلفل، زعفران، برتقال / فانيلا، باتشولي، ياسمين، ورد / فانيلا، عود، تونكا، عنبر، صندل، مسك"
+    }
+   },
+   {
+    "id": "kalan",
+    "house": "Parfums de Marly",
+    "name": "Kalan",
+    "ar": "كالان",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 2,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.7,
+      "spice_fresh": 0.4
+     },
+     "heart": {
+      "iris_powdery": 0.3,
+      "lavender_aromatic": 0.5
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.7,
+      "tonka_coumarin": 0.6,
+      "woody_amber": 0.7,
+      "cedar_dry": 0.3
+     }
+    },
+    "notes": {
+     "en": "lemon, pink pepper / lavender, sage, iris / vanilla, tonka, ambroxan, cedar, patchouli",
+     "ar": "ليمون، فلفل وردي / لافندر، مريمية، سوسن / فانيلا، تونكا، أمبروكسان، أرز، باتشولي"
+    }
+   },
+   {
+    "id": "oriana",
+    "house": "Parfums de Marly",
+    "name": "Oriana",
+    "ar": "أوريانا",
+    "gender": "f",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.8
+     },
+     "heart": {
+      "fruity_sweet": 0.9,
+      "white_floral": 0.3,
+      "vanilla_gourmand": 0.6
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.8,
+      "white_musk": 0.6,
+      "patchouli": 0.3
+     }
+    },
+    "notes": {
+     "en": "mandarin, bergamot, grapefruit / raspberry, blackcurrant, orange blossom, marshmallow / whipped cream, musk, ambrette, patchouli",
+     "ar": "يوسفي، برغموت، جريب فروت / توت العليق، كشمش، زهر البرتقال، مارشميلو / كريمة مخفوقة، مسك، أمبريت، باتشولي"
+    }
+   },
+   {
+    "id": "valaya",
+    "house": "Parfums de Marly",
+    "name": "Valaya",
+    "ar": "فالايا",
+    "gender": "f",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.6,
+      "citrus_fresh": 0.5,
+      "aldehydes": 0.3
+     },
+     "heart": {
+      "fruity_sweet": 0.6,
+      "white_floral": 0.5
+     },
+     "drydown": {
+      "white_musk": 1,
+      "vanilla_gourmand": 0.4,
+      "cedar_dry": 0.2
+     }
+    },
+    "notes": {
+     "en": "pear, mandarin, bergamot / white peach, orange blossom / white musk, vanilla, ambrette, cedar",
+     "ar": "كمثرى، يوسفي، برغموت / خوخ أبيض، زهر البرتقال / مسك أبيض، فانيلا، أمبريت، أرز"
+    }
+   },
+   {
+    "id": "alexandriaii",
+    "house": "Xerjoff",
+    "name": "Alexandria II",
+    "ar": "ألكسندريا 2",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.5,
+      "spicy_warm": 0.6,
+      "lavender_aromatic": 0.5
+     },
+     "heart": {
+      "rose": 0.6,
+      "cedar_dry": 0.4,
+      "muguet_floral": 0.5
+     },
+     "drydown": {
+      "oud_smoky": 0.5,
+      "amber_resin": 0.7,
+      "sandalwood_creamy": 0.5,
+      "vanilla_gourmand": 0.5
+     }
+    },
+    "notes": {
+     "en": "apple, cinnamon, lavender, rosewood / rose, lily of the valley, cedar / oud, amber, sandalwood, vanilla, musk",
+     "ar": "تفاح، قرفة، لافندر، خشب الورد / ورد، زنبق الوادي، أرز / عود، عنبر، صندل، فانيلا، مسك"
+    }
+   },
+   {
+    "id": "fanyourflames",
+    "house": "Nishane",
+    "name": "Fan Your Flames",
+    "ar": "فان يور فليمز",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.6,
+      "vanilla_gourmand": 0.4
+     },
+     "heart": {
+      "tobacco_honey": 0.9,
+      "amber_resin": 0.5,
+      "vanilla_gourmand": 0.6
+     },
+     "drydown": {
+      "vetiver": 0.4,
+      "tonka_coumarin": 0.6,
+      "tobacco_honey": 0.7,
+      "vanilla_gourmand": 0.6
+     }
+    },
+    "notes": {
+     "en": "rum, coconut / tobacco, benzoin, vanilla / vetiver, tonka, oakmoss",
+     "ar": "رم، جوز هند / تبغ، بنزوين، فانيلا / فيتيفر، تونكا، طحلب"
+    }
+   },
+   {
+    "id": "hundredsilentways",
+    "house": "Nishane",
+    "name": "Hundred Silent Ways",
+    "ar": "هندرد سايلنت ويز",
+    "gender": "f",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "white_floral": 0.9
+     },
+     "heart": {
+      "iris_powdery": 0.6,
+      "white_floral": 0.6
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.8,
+      "sandalwood_creamy": 0.5,
+      "white_musk": 0.4,
+      "amber_resin": 0.4
+     }
+    },
+    "notes": {
+     "en": "jasmine, ylang, tuberose / iris, gardenia / vanilla, sandalwood, amber, musk",
+     "ar": "ياسمين، إيلنغ، مسك الروم / سوسن، غاردينيا / فانيلا، صندل، عنبر، مسك"
+    }
+   },
+   {
+    "id": "blackaoud",
+    "house": "Montale",
+    "name": "Black Aoud",
+    "ar": "بلاك عود",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "rose": 0.6,
+      "oud_smoky": 0.6
+     },
+     "heart": {
+      "oud_smoky": 0.9,
+      "patchouli": 0.5
+     },
+     "drydown": {
+      "oud_smoky": 0.8,
+      "white_musk": 0.4,
+      "patchouli": 0.4,
+      "leather_smoky": 0.3
+     }
+    },
+    "notes": {
+     "en": "rose / oud, patchouli / musk, mandarin",
+     "ar": "ورد / عود، باتشولي / مسك، يوسفي"
+    }
+   },
+   {
+    "id": "rosesmusk",
+    "house": "Montale",
+    "name": "Roses Musk",
+    "ar": "روزز مسك",
+    "gender": "f",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "rose": 0.9
+     },
+     "heart": {
+      "rose": 0.9
+     },
+     "drydown": {
+      "white_musk": 1,
+      "rose": 0.6
+     }
+    },
+    "notes": {
+     "en": "rose / rose, jasmine / musk",
+     "ar": "ورد / ورد، ياسمين / مسك"
+    }
+   },
+   {
+    "id": "mojaveghost",
+    "house": "Byredo",
+    "name": "Mojave Ghost",
+    "ar": "موهافي غوست",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "white_musk": 0.5,
+      "fruity_sweet": 0.4
+     },
+     "heart": {
+      "white_floral": 0.5,
+      "iris_powdery": 0.4,
+      "sandalwood_creamy": 0.4
+     },
+     "drydown": {
+      "white_musk": 0.8,
+      "cedar_dry": 0.4,
+      "woody_amber": 0.5
+     }
+    },
+    "notes": {
+     "en": "ambrette, sapodilla / magnolia, violet, sandalwood / chantilly musk, cedar, ambergris",
+     "ar": "أمبريت، سابوديلا / ماغنوليا، بنفسج، صندل / مسك شانتيلي، أرز، عنبر"
+    }
+   },
+   {
+    "id": "blanche",
+    "house": "Byredo",
+    "name": "Blanche",
+    "ar": "بلانش",
+    "gender": "f",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "aldehydes": 0.8,
+      "rose": 0.3
+     },
+     "heart": {
+      "iris_powdery": 0.4,
+      "white_floral": 0.3,
+      "rose": 0.3
+     },
+     "drydown": {
+      "white_musk": 1,
+      "sandalwood_creamy": 0.3
+     }
+    },
+    "notes": {
+     "en": "aldehydes, pink pepper, rose / violet, peony, neroli / musk, sandalwood, blond woods",
+     "ar": "ألدهيدات، فلفل وردي، ورد / بنفسج، فاوانيا، نيرولي / مسك، صندل، أخشاب فاتحة"
+    }
+   },
+   {
+    "id": "philosykos",
+    "house": "Diptyque",
+    "name": "Philosykos",
+    "ar": "فيلوسيكوس",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "green_herbal": 0.9
+     },
+     "heart": {
+      "fruity_sweet": 0.5,
+      "green_herbal": 0.5
+     },
+     "drydown": {
+      "cedar_dry": 0.5,
+      "sandalwood_creamy": 0.3,
+      "green_herbal": 0.5,
+      "fruity_sweet": 0.3
+     }
+    },
+    "notes": {
+     "en": "fig leaf / fig, coconut / fig tree, cedar",
+     "ar": "ورق التين / تين، جوز هند / شجرة التين، أرز"
+    }
+   },
+   {
+    "id": "tamdao",
+    "house": "Diptyque",
+    "name": "Tam Dao",
+    "ar": "تام داو",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "cedar_dry": 0.5,
+      "green_herbal": 0.4
+     },
+     "heart": {
+      "sandalwood_creamy": 0.9,
+      "cedar_dry": 0.5
+     },
+     "drydown": {
+      "sandalwood_creamy": 0.8,
+      "white_musk": 0.4,
+      "woody_amber": 0.3
+     }
+    },
+    "notes": {
+     "en": "rosewood, cypress, myrtle / sandalwood, cedar / white musk, amber, spices, Brazilian rosewood",
+     "ar": "خشب الورد، سرو، آس / صندل، أرز / مسك أبيض، عنبر، توابل"
+    }
+   },
+   {
+    "id": "blackphantom",
+    "house": "By Kilian",
+    "name": "Black Phantom",
+    "ar": "بلاك فانتوم",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.4,
+      "coffee_gourmand": 0.8,
+      "tonka_coumarin": 0.3
+     },
+     "heart": {
+      "vanilla_gourmand": 0.8,
+      "coffee_gourmand": 0.7
+     },
+     "drydown": {
+      "vetiver": 0.4,
+      "sandalwood_creamy": 0.4,
+      "tonka_coumarin": 0.5,
+      "vanilla_gourmand": 0.6,
+      "coffee_gourmand": 0.5
+     }
+    },
+    "notes": {
+     "en": "rum, coffee, almond / cane sugar, dark chocolate / vetiver, sandalwood, cedar, tonka, vanilla",
+     "ar": "رم، قهوة، لوز / سكر القصب، شوكولاتة داكنة / فيتيفر، صندل، أرز، تونكا، فانيلا"
+    }
+   },
+   {
+    "id": "goodgirlgonebad",
+    "house": "By Kilian",
+    "name": "Good Girl Gone Bad",
+    "ar": "غود غيرل غون باد",
+    "gender": "f",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "white_floral": 0.4,
+      "rose": 0.6,
+      "fruity_sweet": 0.3
+     },
+     "heart": {
+      "white_floral": 1
+     },
+     "drydown": {
+      "cedar_dry": 0.4,
+      "amber_resin": 0.5,
+      "white_floral": 0.5
+     }
+    },
+    "notes": {
+     "en": "osmanthus, May rose / jasmine, tuberose, narcissus / cedar, amber",
+     "ar": "أوسمانثوس، ورد مايو / ياسمين، مسك الروم، نرجس / أرز، عنبر"
+    }
+   },
+   {
+    "id": "muscravageur",
+    "house": "Frederic Malle",
+    "name": "Musc Ravageur",
+    "ar": "مسك رافاجور",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.5,
+      "lavender_aromatic": 0.5
+     },
+     "heart": {
+      "spicy_warm": 0.7
+     },
+     "drydown": {
+      "white_musk": 0.7,
+      "animalic": 0.4,
+      "vanilla_gourmand": 0.7,
+      "tonka_coumarin": 0.5,
+      "amber_resin": 0.4
+     }
+    },
+    "notes": {
+     "en": "bergamot, lavender, tangerine / cinnamon, clove / musk, vanilla, tonka, sandalwood, amber",
+     "ar": "برغموت، لافندر، يوسفي / قرفة، قرنفل / مسك، فانيلا، تونكا، صندل، عنبر"
+    }
+   },
+   {
+    "id": "amberaoud",
+    "house": "Roja Parfums",
+    "name": "Amber Aoud",
+    "ar": "أمبر عود",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.6
+     },
+     "heart": {
+      "rose": 0.5,
+      "spicy_warm": 0.5,
+      "white_floral": 0.3,
+      "spice_fresh": 0.4
+     },
+     "drydown": {
+      "oud_smoky": 0.6,
+      "amber_resin": 0.8,
+      "saffron_leathery": 0.4,
+      "patchouli": 0.3,
+      "sandalwood_creamy": 0.3,
+      "leather_smoky": 0.3
+     }
+    },
+    "notes": {
+     "en": "bergamot, lemon, lime / rose, jasmine, cinnamon, cardamom, fig / oud, amber, labdanum, benzoin, saffron, patchouli, sandalwood, birch",
+     "ar": "برغموت، ليمون، ليم / ورد، ياسمين، قرفة، هيل، تين / عود، عنبر، لبنى، بنزوين، زعفران، باتشولي، صندل، بتولا"
+    }
+   },
+   {
+    "id": "limmensite",
+    "house": "Louis Vuitton",
+    "name": "L'Immensité",
+    "ar": "ليمنسيتيه",
+    "gender": "m",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.8,
+      "spice_fresh": 0.5
+     },
+     "heart": {
+      "aquatic_marine": 0.3,
+      "amber_resin": 0.3,
+      "lavender_aromatic": 0.5
+     },
+     "drydown": {
+      "woody_amber": 1,
+      "amber_resin": 0.4
+     }
+    },
+    "notes": {
+     "en": "grapefruit, ginger, bergamot / sage, water notes, labdanum / ambroxan, amber",
+     "ar": "جريب فروت، زنجبيل، برغموت / مريمية، نفحات مائية، لبنى / أمبروكسان، عنبر"
+    }
+   },
+   {
+    "id": "blackafgano",
+    "house": "Nasomatto",
+    "name": "Black Afgano",
+    "ar": "بلاك أفغانو",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "green_herbal": 0.5,
+      "incense_resin": 0.3
+     },
+     "heart": {
+      "oud_smoky": 0.8,
+      "tobacco_honey": 0.5,
+      "coffee_gourmand": 0.4,
+      "incense_resin": 0.6
+     },
+     "drydown": {
+      "woody_amber": 0.5,
+      "amber_resin": 0.5,
+      "oud_smoky": 0.7,
+      "leather_smoky": 0.4
+     }
+    },
+    "notes": {
+     "en": "cannabis, green notes / oud, tobacco, coffee, incense / woods, resins",
+     "ar": "قنب، أخضر / عود، تبغ، قهوة، بخور / أخشاب، راتنجات"
+    }
+   },
+   {
+    "id": "notaperfume",
+    "house": "Juliette Has a Gun",
+    "name": "Not a Perfume",
+    "ar": "نوت آ بيرفيوم",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "woody_amber": 1
+     },
+     "heart": {
+      "woody_amber": 1
+     },
+     "drydown": {
+      "woody_amber": 1,
+      "white_musk": 0.3
+     }
+    },
+    "notes": {
+     "en": "cetalox (ambroxan) / cetalox / cetalox",
+     "ar": "سيتالوكس (أمبروكسان) / سيتالوكس / سيتالوكس"
+    }
+   },
+   {
+    "id": "rougesmoking",
+    "house": "BDK Parfums",
+    "name": "Rouge Smoking",
+    "ar": "روج سموكينغ",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.9,
+      "spicy_warm": 0.4
+     },
+     "heart": {
+      "iris_powdery": 0.5,
+      "tonka_coumarin": 0.7
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.8,
+      "tonka_coumarin": 0.6,
+      "white_musk": 0.3
+     }
+    },
+    "notes": {
+     "en": "cherry, cinnamon, raspberry / heliotrope, tonka / vanilla, cedar, musk",
+     "ar": "كرز، قرفة، توت العليق / هيليوتروب، تونكا / فانيلا، أرز، مسك"
+    }
+   },
+   {
+    "id": "ganymede",
+    "house": "Marc-Antoine Barrois",
+    "name": "Ganymede",
+    "ar": "غانيميد",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.5,
+      "saffron_leathery": 0.6,
+      "iris_powdery": 0.4,
+      "aldehydes": 0.3
+     },
+     "heart": {
+      "tobacco_honey": 0.3,
+      "woody_amber": 0.5,
+      "leather_smoky": 0.5,
+      "aldehydes": 0.4
+     },
+     "drydown": {
+      "woody_amber": 0.7,
+      "leather_smoky": 0.5,
+      "patchouli": 0.3
+     }
+    },
+    "notes": {
+     "en": "mandarin, saffron, violet / immortelle, mineral notes, suede / mineral notes, suede, akigalawood",
+     "ar": "يوسفي، زعفران، بنفسج / خالدة، نفحات معدنية، شمواه / نفحات معدنية، شمواه، أكيغالاوود"
+    }
+   },
+   {
+    "id": "ambresultan",
+    "house": "Serge Lutens",
+    "name": "Ambre Sultan",
+    "ar": "أمبر سلطان",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "green_herbal": 0.6,
+      "spice_fresh": 0.5,
+      "lavender_aromatic": 0.42
+     },
+     "heart": {
+      "amber_resin": 0.7,
+      "sandalwood_creamy": 0.3,
+      "patchouli": 0.3
+     },
+     "drydown": {
+      "amber_resin": 1,
+      "vanilla_gourmand": 0.5,
+      "incense_resin": 0.3
+     }
+    },
+    "notes": {
+     "en": "coriander, oregano, bay leaf, myrtle / amber, sandalwood, patchouli / labdanum, benzoin, vanilla, tolu, myrrh, resins",
+     "ar": "كزبرة، أوريغانو، ورق الغار، آس / عنبر، صندل، باتشولي / لبنى، بنزوين، فانيلا، تولو، مر، راتنجات"
+    }
+   },
+   {
+    "id": "santalroyal",
+    "house": "Guerlain",
+    "name": "Santal Royal",
+    "ar": "سانتال رويال",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "white_floral": 0.4,
+      "citrus_fresh": 0.3
+     },
+     "heart": {
+      "sandalwood_creamy": 0.7,
+      "spicy_warm": 0.5,
+      "rose": 0.4
+     },
+     "drydown": {
+      "oud_smoky": 0.5,
+      "amber_resin": 0.5,
+      "white_musk": 0.3,
+      "leather_smoky": 0.3,
+      "sandalwood_creamy": 0.6
+     }
+    },
+    "notes": {
+     "en": "neroli, jasmine / sandalwood, cinnamon, rose / oud, amber, musk, leather",
+     "ar": "نيرولي، ياسمين / صندل، قرفة، ورد / عود، عنبر، مسك، جلد"
+    }
+   },
+   {
+    "id": "tonkaimperiale",
+    "house": "Guerlain",
+    "name": "Tonka Impériale",
+    "ar": "تونكا إمبريال",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.4,
+      "lavender_aromatic": 0.4
+     },
+     "heart": {
+      "tonka_coumarin": 1,
+      "tobacco_honey": 0.5,
+      "fruity_sweet": 0.3
+     },
+     "drydown": {
+      "tonka_coumarin": 0.9,
+      "amber_resin": 0.5,
+      "vanilla_gourmand": 0.3
+     }
+    },
+    "notes": {
+     "en": "bergamot, rosemary / tonka, tobacco, almond, honey / tonka, amber, resins",
+     "ar": "برغموت، إكليل الجبل / تونكا، تبغ، لوز، عسل / تونكا، عنبر، راتنجات"
+    }
+   },
+   {
+    "id": "coromandel",
+    "house": "Chanel",
+    "name": "Coromandel Eau de Parfum",
+    "ar": "كوروماندل",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.5,
+      "white_floral": 0.3
+     },
+     "heart": {
+      "patchouli": 0.8,
+      "white_floral": 0.2
+     },
+     "drydown": {
+      "patchouli": 0.8,
+      "amber_resin": 0.7,
+      "incense_resin": 0.4,
+      "vanilla_gourmand": 0.5,
+      "coffee_gourmand": 0.3
+     }
+    },
+    "notes": {
+     "en": "bergamot, orange, neroli / patchouli, rose, jasmine / patchouli, benzoin, frankincense, white chocolate, amber, vanilla",
+     "ar": "برغموت، برتقال، نيرولي / باتشولي، ورد، ياسمين / باتشولي، بنزوين، لبان، شوكولاتة بيضاء، عنبر، فانيلا"
+    }
+   },
+   {
+    "id": "boisdargent",
+    "house": "Dior",
+    "name": "Bois d'Argent",
+    "ar": "بوا دارجان",
+    "gender": "u",
+    "tier": "niche",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "iris_powdery": 0.8,
+      "green_herbal": 0.3
+     },
+     "heart": {
+      "incense_resin": 0.6,
+      "leather_smoky": 0.3,
+      "iris_powdery": 0.5
+     },
+     "drydown": {
+      "tobacco_honey": 0.5,
+      "vanilla_gourmand": 0.5,
+      "white_musk": 0.5,
+      "amber_resin": 0.4
+     }
+    },
+    "notes": {
+     "en": "iris, juniper / myrrh, incense, leather / honey, vanilla, musk, amber",
+     "ar": "سوسن، عرعر / مر، بخور، جلد / عسل، فانيلا، مسك، عنبر"
+    }
+   },
+   {
+    "id": "twilly",
+    "house": "Hermès",
+    "name": "Twilly d'Hermès",
+    "ar": "تويلي",
+    "gender": "f",
+    "tier": "designer",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "spice_fresh": 0.8
+     },
+     "heart": {
+      "white_floral": 0.9
+     },
+     "drydown": {
+      "sandalwood_creamy": 0.8,
+      "white_floral": 0.4
+     }
+    },
+    "notes": {
+     "en": "ginger / tuberose / sandalwood",
+     "ar": "زنجبيل / مسك الروم / صندل"
+    }
+   },
+   {
+    "id": "anaabiyedhrouge",
+    "house": "Lattafa",
+    "name": "Ana Abiyedh Rouge",
+    "ar": "أنا أبيض روج",
+    "gender": "u",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "saffron_leathery": 0.8,
+      "white_floral": 0.5
+     },
+     "heart": {
+      "woody_amber": 0.9,
+      "amber_resin": 0.4,
+      "vanilla_gourmand": 0.5
+     },
+     "drydown": {
+      "woody_amber": 1,
+      "cedar_dry": 0.4,
+      "white_musk": 0.3
+     }
+    },
+    "notes": {
+     "en": "saffron, jasmine / amberwood, ambergris / fir resin, cedar",
+     "ar": "زعفران، ياسمين / خشب عنبري، عنبر / راتنج التنوب، أرز"
+    },
+    "cloneOf": "br540"
+   },
+   {
+    "id": "angham",
+    "house": "Lattafa",
+    "name": "Angham",
+    "ar": "أنغام",
+    "gender": "f",
+    "tier": "arab",
+    "conf": 2,
+    "stages": {
+     "opening": {
+      "spicy_warm": 0.7,
+      "saffron_leathery": 0.5,
+      "spice_fresh": 0.56
+     },
+     "heart": {
+      "fruity_sweet": 0.6,
+      "rose": 0.4
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.8,
+      "patchouli": 0.4,
+      "white_musk": 0.4
+     }
+    },
+    "notes": {
+     "en": "cinnamon, saffron, juniper / red fruit, rose / vanilla, patchouli, musk, oakmoss",
+     "ar": "قرفة، زعفران، عرعر / فواكه حمراء، ورد / فانيلا، باتشولي، مسك، طحلب"
+    }
+   },
+   {
+    "id": "cdnmilestone",
+    "house": "Armaf",
+    "name": "Club de Nuit Milestone",
+    "ar": "كلوب دي نوي مايلستون",
+    "gender": "m",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.9,
+      "citrus_fresh": 0.6,
+      "leather_smoky": 0.4
+     },
+     "heart": {
+      "leather_smoky": 0.6,
+      "patchouli": 0.4
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "oakmoss_chypre": 0.4,
+      "woody_amber": 0.5,
+      "vanilla_gourmand": 0.3
+     }
+    },
+    "notes": {
+     "en": "pineapple, bergamot, blackcurrant, apple, lemon / birch, jasmine, patchouli, rose / musk, oakmoss, ambergris, vanilla",
+     "ar": "أناناس، برغموت، كشمش، تفاح، ليمون / بتولا، ياسمين، باتشولي، ورد / مسك، طحلب، عنبر، فانيلا"
+    },
+    "cloneOf": "aventus"
+   },
+   {
+    "id": "supremacynotonly",
+    "house": "Afnan",
+    "name": "Supremacy Not Only Intense",
+    "ar": "سوبريماسي نوت أونلي إنتنس",
+    "gender": "m",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.9,
+      "citrus_fresh": 0.5,
+      "leather_smoky": 0.4
+     },
+     "heart": {
+      "leather_smoky": 0.6,
+      "patchouli": 0.5
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "oakmoss_chypre": 0.4,
+      "woody_amber": 0.5,
+      "vanilla_gourmand": 0.2
+     }
+    },
+    "notes": {
+     "en": "pineapple, bergamot, blackcurrant, apple / birch, patchouli, jasmine / musk, oakmoss, ambergris, vanilla",
+     "ar": "أناناس، برغموت، كشمش، تفاح / بتولا، باتشولي، ياسمين / مسك، طحلب، عنبر، فانيلا"
+    },
+    "cloneOf": "aventus"
+   },
+   {
+    "id": "turathiblue",
+    "house": "Afnan",
+    "name": "Turathi Blue",
+    "ar": "تراثي بلو",
+    "gender": "m",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.9
+     },
+     "heart": {
+      "white_floral": 0.3,
+      "spice_fresh": 0.4
+     },
+     "drydown": {
+      "woody_amber": 0.8,
+      "white_musk": 0.5,
+      "cedar_dry": 0.3
+     }
+    },
+    "notes": {
+     "en": "bergamot, grapefruit, lemon / ginger, jasmine / ambroxan, musk, cedar",
+     "ar": "برغموت، جريب فروت، ليمون / زنجبيل، ياسمين / أمبروكسان، مسك، أرز"
+    }
+   },
+   {
+    "id": "fattan",
+    "house": "Rasasi",
+    "name": "Fattan",
+    "ar": "فتان",
+    "gender": "m",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.6,
+      "fruity_sweet": 0.7,
+      "leather_smoky": 0.4
+     },
+     "heart": {
+      "leather_smoky": 0.5,
+      "patchouli": 0.4
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "oakmoss_chypre": 0.4,
+      "woody_amber": 0.5
+     }
+    },
+    "notes": {
+     "en": "bergamot, blackcurrant, pineapple / birch, jasmine, patchouli / musk, oakmoss, ambergris",
+     "ar": "برغموت، كشمش، أناناس / بتولا، ياسمين، باتشولي / مسك، طحلب، عنبر"
+    },
+    "cloneOf": "aventus"
+   },
+   {
+    "id": "wisaldhahab",
+    "house": "Ajmal",
+    "name": "Wisal Dhahab",
+    "ar": "وصال ذهب",
+    "gender": "u",
+    "tier": "arab",
+    "conf": 2,
+    "stages": {
+     "opening": {
+      "saffron_leathery": 0.5,
+      "citrus_fresh": 0.4
+     },
+     "heart": {
+      "rose": 0.6,
+      "oud_smoky": 0.6
+     },
+     "drydown": {
+      "amber_resin": 0.7,
+      "white_musk": 0.4,
+      "sandalwood_creamy": 0.4,
+      "vanilla_gourmand": 0.4
+     }
+    },
+    "notes": {
+     "en": "saffron, bergamot / rose, oud / amber, musk, sandalwood, vanilla",
+     "ar": "زعفران، برغموت / ورد، عود / عنبر، مسك، صندل، فانيلا"
+    }
+   },
+   {
+    "id": "amberoudgold",
+    "house": "Al Haramain",
+    "name": "Amber Oud Gold Edition",
+    "ar": "أمبر عود غولد إديشن",
+    "gender": "u",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.6,
+      "green_herbal": 0.3
+     },
+     "heart": {
+      "fruity_sweet": 0.5,
+      "vanilla_gourmand": 0.4
+     },
+     "drydown": {
+      "amber_resin": 0.6,
+      "vanilla_gourmand": 0.8,
+      "white_musk": 0.5,
+      "woody_amber": 0.3
+     }
+    },
+    "notes": {
+     "en": "bergamot, green notes / melon, sweet notes / amber, vanilla, musk",
+     "ar": "برغموت، أخضر / شمام، حلو / عنبر، فانيلا، مسك"
+    },
+    "cloneOf": "erbapura"
+   },
+   {
+    "id": "amberoudruby",
+    "house": "Al Haramain",
+    "name": "Amber Oud Ruby",
+    "ar": "أمبر عود روبي",
+    "gender": "u",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "saffron_leathery": 0.8,
+      "white_floral": 0.5
+     },
+     "heart": {
+      "woody_amber": 0.9,
+      "vanilla_gourmand": 0.5
+     },
+     "drydown": {
+      "woody_amber": 1,
+      "cedar_dry": 0.4
+     }
+    },
+    "notes": {
+     "en": "saffron, jasmine / amberwood, ambergris / fir resin, cedar",
+     "ar": "زعفران، ياسمين / خشب عنبري، عنبر / راتنج التنوب، أرز"
+    },
+    "cloneOf": "br540"
+   },
+   {
+    "id": "laventure",
+    "house": "Al Haramain",
+    "name": "L'Aventure",
+    "ar": "لافنتور",
+    "gender": "m",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.7,
+      "fruity_sweet": 0.9,
+      "leather_smoky": 0.4
+     },
+     "heart": {
+      "leather_smoky": 0.6,
+      "white_floral": 0.3
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "woody_amber": 0.6,
+      "patchouli": 0.3
+     }
+    },
+    "notes": {
+     "en": "lemon, pineapple, bergamot, blackcurrant, apple / birch, jasmine, rose / musk, ambergris, vanilla, patchouli",
+     "ar": "ليمون، أناناس، برغموت، كشمش، تفاح / بتولا، ياسمين، ورد / مسك، عنبر، فانيلا، باتشولي"
+    },
+    "cloneOf": "aventus"
+   },
+   {
+    "id": "jeanloweimmortel",
+    "house": "Maison Alhambra",
+    "name": "Jean Lowe Immortel",
+    "ar": "جان لو إيمورتيل",
+    "gender": "u",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "amber_resin": 0.9
+     },
+     "heart": {
+      "amber_resin": 0.8,
+      "tonka_coumarin": 0.6,
+      "vanilla_gourmand": 0.4
+     },
+     "drydown": {
+      "amber_resin": 0.9,
+      "vanilla_gourmand": 0.6,
+      "woody_amber": 0.8
+     }
+    },
+    "notes": {
+     "en": "amber, labdanum / benzoin, tonka / vanilla, cistus",
+     "ar": "عنبر، لبنى / بنزوين، تونكا / فانيلا، قسط"
+    },
+    "cloneOf": "grandsoir"
+   },
+   {
+    "id": "avant",
+    "house": "Maison Alhambra",
+    "name": "Avant",
+    "ar": "أفانت",
+    "gender": "m",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.9,
+      "citrus_fresh": 0.5,
+      "leather_smoky": 0.4
+     },
+     "heart": {
+      "leather_smoky": 0.6,
+      "patchouli": 0.5
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "oakmoss_chypre": 0.4,
+      "woody_amber": 0.5
+     }
+    },
+    "notes": {
+     "en": "pineapple, bergamot, blackcurrant, apple / birch, patchouli, jasmine / musk, oakmoss, ambergris, vanilla",
+     "ar": "أناناس، برغموت، كشمش، تفاح / بتولا، باتشولي، ياسمين / مسك، طحلب، عنبر، فانيلا"
+    },
+    "cloneOf": "aventus"
+   },
+   {
+    "id": "toscanoleather",
+    "house": "Maison Alhambra",
+    "name": "Toscano Leather",
+    "ar": "توسكانو ليذر",
+    "gender": "u",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "saffron_leathery": 0.7,
+      "fruity_sweet": 0.5
+     },
+     "heart": {
+      "incense_resin": 0.5,
+      "white_floral": 0.3
+     },
+     "drydown": {
+      "leather_smoky": 1,
+      "amber_resin": 0.4,
+      "woody_amber": 0.4
+     }
+    },
+    "notes": {
+     "en": "saffron, raspberry, thyme / olibanum, jasmine / leather, suede, amber",
+     "ar": "زعفران، توت العليق، زعتر / لبان، ياسمين / جلد، شمواه، عنبر"
+    },
+    "cloneOf": "tuscanleather"
+   },
+   {
+    "id": "glacierbold",
+    "house": "Maison Alhambra",
+    "name": "Glacier Bold",
+    "ar": "غلاسيير بولد",
+    "gender": "m",
+    "tier": "arab",
+    "conf": 2,
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.9,
+      "aquatic_marine": 0.3
+     },
+     "heart": {
+      "green_herbal": 0.3,
+      "white_floral": 0.2
+     },
+     "drydown": {
+      "woody_amber": 0.8,
+      "white_musk": 0.4
+     }
+    },
+    "notes": {
+     "en": "bergamot, lemon, mandarin / green notes / ambroxan, musk",
+     "ar": "برغموت، ليمون، يوسفي / أخضر / أمبروكسان، مسك"
+    }
+   },
+   {
+    "id": "barakkatrouge",
+    "house": "Fragrance World",
+    "name": "Barakkat Rouge 540",
+    "ar": "بركات روج 540",
+    "gender": "u",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "saffron_leathery": 0.8,
+      "white_floral": 0.5
+     },
+     "heart": {
+      "woody_amber": 0.9,
+      "vanilla_gourmand": 0.5
+     },
+     "drydown": {
+      "woody_amber": 1,
+      "cedar_dry": 0.4
+     }
+    },
+    "notes": {
+     "en": "saffron, jasmine / amberwood, ambergris / fir resin, cedar",
+     "ar": "زعفران، ياسمين / خشب عنبري، عنبر / راتنج التنوب، أرز"
+    },
+    "cloneOf": "br540"
+   },
+   {
+    "id": "barakkatsatinoud",
+    "house": "Fragrance World",
+    "name": "Barakkat Satin Oud",
+    "ar": "بركات ساتان عود",
+    "gender": "u",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "iris_powdery": 0.4,
+      "rose": 0.7
+     },
+     "heart": {
+      "rose": 0.8,
+      "oud_smoky": 0.7
+     },
+     "drydown": {
+      "vanilla_gourmand": 0.7,
+      "amber_resin": 0.7,
+      "oud_smoky": 0.6
+     }
+    },
+    "notes": {
+     "en": "violet, rose / rose, oud / vanilla, benzoin, amber, oud",
+     "ar": "بنفسج، ورد / ورد، عود / فانيلا، بنزوين، عنبر، عود"
+    },
+    "cloneOf": "oudsatinmood"
+   },
+   {
+    "id": "bhararaking",
+    "house": "Bharara",
+    "name": "King",
+    "ar": "بهارارا كينغ",
+    "gender": "m",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.9,
+      "citrus_fresh": 0.6,
+      "leather_smoky": 0.4
+     },
+     "heart": {
+      "leather_smoky": 0.6,
+      "patchouli": 0.4
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "oakmoss_chypre": 0.4,
+      "woody_amber": 0.5
+     }
+    },
+    "notes": {
+     "en": "pineapple, bergamot, lemon / birch, jasmine, patchouli / musk, oakmoss, ambergris, vanilla",
+     "ar": "أناناس، برغموت، ليمون / بتولا، ياسمين، باتشولي / مسك، طحلب، عنبر، فانيلا"
+    },
+    "cloneOf": "aventus"
+   },
+   {
+    "id": "safariextreme",
+    "house": "Abdul Samad Al Qurashi",
+    "name": "Safari Extreme",
+    "ar": "سفاري إكستريم",
+    "gender": "m",
+    "tier": "arab",
+    "conf": 3,
+    "stages": {
+     "opening": {
+      "fruity_sweet": 0.9,
+      "citrus_fresh": 0.5,
+      "leather_smoky": 0.4
+     },
+     "heart": {
+      "leather_smoky": 0.6,
+      "patchouli": 0.4
+     },
+     "drydown": {
+      "white_musk": 0.6,
+      "oakmoss_chypre": 0.4,
+      "woody_amber": 0.5
+     }
+    },
+    "notes": {
+     "en": "pineapple, blackcurrant, bergamot / birch, patchouli, jasmine / musk, oakmoss, ambergris",
+     "ar": "أناناس، كشمش، برغموت / بتولا، باتشولي، ياسمين / مسك، طحلب، عنبر"
+    },
+    "cloneOf": "aventus"
+   }
+  ]
+ },
+ "evidence": {
+  "book": {
+   "br540": {
+    "opening": {
+     "fruity_sweet": {
+      "w": 0.5,
+      "quote": "\"count on this oriental being a fruity, syrupy experience\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide's whole description is of a fruit-punch, syrupy smell, while the opening is tagged only saffron and jasmine."
+     }
+    },
+    "heart": {
+     "vanilla_gourmand": {
+      "w": 0.5,
+      "quote": "\"sweetened by an outrageous amount of ca. 3% of ethyl maltol\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "high",
+      "reason": "Scent and Chemistry says the Ambroxan core is sweetened with about 3% ethyl maltol (cooked sugar) and the Guide calls it syrupy, yet no stage carries the sugar family."
+     }
+    },
+    "drydown": {
+     "vanilla_gourmand": {
+      "w": 0.5,
+      "quote": "\"counterbalanced by an even more extreme amount of ethyl maltol\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "medium",
+      "reason": "The ethyl maltol dose is described as a structural part of the main accord, so the sugar should persist beside the Ambroxan in the drydown."
+     }
+    }
+   },
+   "grandsoir": {
+    "opening": {},
+    "heart": {
+     "woody_amber": {
+      "w": 0.7,
+      "quote": "\"the kind that smells like rubbing alcohol played at heavy metal concert volume\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "high",
+      "reason": "The Guide describes the woody-amber as loud enough to cover the rest of the composition, so it belongs in the heart as well."
+     }
+    },
+    "drydown": {
+     "woody_amber": {
+      "w": 0.8,
+      "quote": "\"a huge dose of some vile woody-amber material\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "high",
+      "reason": "The Guide says a very large dose of a woody-amber aromachemical dominates the scent, but the drydown tags it at 0.3 under resinous amber."
+     }
+    }
+   },
+   "blackorchid": {
+    "opening": {},
+    "heart": {
+     "coffee_gourmand": {
+      "w": 0.5,
+      "quote": "\"The huge chocolate-mothballs-cucumber accord of Black Orchid was a clever idea\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide names chocolate as the first element of Black Orchid's defining accord, but no stage carries the cacao family."
+     }
+    },
+    "drydown": {}
+   },
+   "lavieestbelle": {
+    "opening": {},
+    "heart": {},
+    "drydown": {
+     "iris_powdery": {
+      "w": 0.4,
+      "quote": "\"the inclusion of an iris note\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide makes iris the note that defines the scent and calls it a linear wall-of-sound perfume, but the entry drops iris entirely after the heart."
+     }
+    }
+   },
+   "fahrenheit": {
+    "opening": {},
+    "heart": {},
+    "drydown": {
+     "cedar_dry": {
+      "w": 0.5,
+      "quote": "\"25% of 6.92 / 6.93 already in the earlier woody-violet-leaves creation 'Fahrenheit'\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "high",
+      "reason": "Scent and Chemistry reports 25% Iso E Super (compound 6.92/6.93), a long-lasting material the drydown does not carry at all."
+     }
+    }
+   },
+   "swy": {
+    "opening": {},
+    "heart": {
+     "vanilla_gourmand": {
+      "w": 0.3,
+      "quote": "\"one in the heart (some sort of gourmand accord)\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide places a gourmand accord in the heart, where the entry has none (sweetness starts only in the drydown)."
+     }
+    },
+    "drydown": {}
+   },
+   "lemale": {
+    "opening": {},
+    "heart": {},
+    "drydown": {
+     "white_musk": {
+      "w": 0.6,
+      "quote": "\"in front of a musk‐ (39%) and Iso E Super\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "high",
+      "reason": "The chemistry book gives the base as 39% musk, the largest share it names, yet the drydown carries no musk tag."
+     },
+     "cedar_dry": {
+      "w": 0.4,
+      "quote": "\"Iso E Super ( 6.85 , 15%)‐laden fond\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "high",
+      "reason": "The same passage gives 15% Iso E Super in the base, which this site files under dry cedar / Iso E Super."
+     }
+    }
+   },
+   "noirextreme": {
+    "opening": {
+     "vanilla_gourmand": {
+      "w": 0.5,
+      "quote": "\"feels, right from the start, like an old drydown\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide says the vanilla drydown character is there from the first spray, while the opening is tagged only citrus, saffron and spice."
+     }
+    },
+    "heart": {},
+    "drydown": {
+     "cedar_dry": {
+      "w": 0.5,
+      "quote": "\"a limp, lackluster cedarwood-vanilla confection\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide names cedarwood as one of the two main materials, but the drydown has no cedar tag."
+     }
+    }
+   },
+   "coolwater": {
+    "opening": {
+     "citrus_fresh": {
+      "w": 0.4,
+      "quote": "\"fresh citrusy‐floral, lime‐ and lavender‐like‐smelling dihydromyrcenol\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "medium",
+      "reason": "Chemistry says Bourdon doubled the dose of dihydromyrcenol in Cool Water and describes that material as citrusy and lime-like; the Guide calls this style not-quite-citrus."
+     }
+    },
+    "heart": {},
+    "drydown": {}
+   },
+   "declaration": {
+    "opening": {},
+    "heart": {
+     "cedar_dry": {
+      "w": 0.5,
+      "quote": "\"declaring his love for Iso E Super ( 1.45 , ca . 35%)\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "medium",
+      "reason": "Chemistry gives about 35% Iso E Super, a dose that is present from the heart onward, yet the heart has no cedar tag."
+     }
+    },
+    "drydown": {
+     "cedar_dry": {
+      "w": 0.8,
+      "quote": "\"5% of Texas cedarwood oil in the Jean‐Claude Ellena 's woody milestone\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "medium",
+      "reason": "With 35% Iso E Super plus 5% cedarwood oil, cedar should lead the drydown rather than sit below vetiver."
+     }
+    }
+   },
+   "si": {
+    "opening": {},
+    "heart": {},
+    "drydown": {
+     "tobacco_honey": {
+      "w": 0.3,
+      "quote": "\"with tobacco and woody notes letting us know that Sì has suave male company\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide hears tobacco with the woods in the background of the development; no stage carries a tobacco tag."
+     }
+    }
+   },
+   "olympea": {
+    "opening": {
+     "vanilla_gourmand": {
+      "w": 0.6,
+      "quote": "\"an unearthly large amber-toffee chord, then dissolves in coughing fits\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide says the first minutes are a large amber-toffee chord, while the opening is tagged citrus, white floral and aquatic only."
+     }
+    },
+    "heart": {},
+    "drydown": {}
+   },
+   "oudsatinmood": {
+    "opening": {},
+    "heart": {
+     "oud_smoky": {
+      "w": 0.2,
+      "quote": "\"And I’m sorry, was there supposed to be oud?\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "high",
+      "reason": "The reviewer smelled no oud at all, so oud should not be a leading heart family."
+     },
+     "vanilla_gourmand": {
+      "w": 0.5,
+      "quote": "\"an almond biscuit gourmand and a fruity green rose\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The review names a biscuit gourmand as one of the two halves of the scent, which the heart tags omit."
+     }
+    },
+    "drydown": {
+     "oud_smoky": {
+      "w": 0.2,
+      "quote": "\"And I’m sorry, was there supposed to be oud?\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "high",
+      "reason": "Same review: no perceptible oud, so the drydown should not present oud as a main family."
+     }
+    }
+   },
+   "br540extrait": {
+    "opening": {},
+    "heart": {
+     "fruity_sweet": {
+      "w": 0.5,
+      "quote": "\"count on this oriental being a fruity, syrupy experience\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide describes the whole wear as fruity and syrupy, but fruit is tagged only in the opening."
+     }
+    },
+    "drydown": {
+     "vanilla_gourmand": {
+      "w": 0.6,
+      "quote": "\"sweetened by an outrageous amount of ca . 3% of ethyl maltol\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "high",
+      "reason": "Ethyl maltol at about 3% is a candy-sugar overdose, so the sugar family belongs among the main drydown families."
+     }
+    }
+   },
+   "blackaoud": {
+    "opening": {},
+    "heart": {
+     "rose": {
+      "w": 0.6,
+      "quote": "\"a few masculine scents with dominant rose themes\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "high",
+      "reason": "The chemistry book lists it among masculines with a dominant rose theme, but rose is tagged only in the opening."
+     }
+    },
+    "drydown": {
+     "patchouli": {
+      "w": 0.7,
+      "quote": "\"Exactly the same content of 19.5% patchouli oil is also present\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "high",
+      "reason": "The chemistry book gives 19.5% patchouli oil in Black Aoud, an overdose that makes patchouli a leading base family."
+     }
+    }
+   },
+   "mojaveghost": {
+    "opening": {},
+    "heart": {
+     "iris_powdery": {
+      "w": 0.6,
+      "quote": "\"Oily violets.\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide names violet and musk as the whole character, so violet should lead the heart rather than trail white florals."
+     }
+    },
+    "drydown": {}
+   },
+   "blanche": {
+    "opening": {},
+    "heart": {
+     "aldehydes": {
+      "w": 0.5,
+      "quote": "\"Byredo’s take on the aldehydic floral, somewhere between No.22 (Chanel) and White Linen\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide classes it as an aldehydic floral like No. 22 and White Linen, where aldehydes carry past the opening."
+     }
+    },
+    "drydown": {}
+   },
+   "tamdao": {
+    "opening": {},
+    "heart": {},
+    "drydown": {
+     "cedar_dry": {
+      "w": 0.4,
+      "quote": "\"a dry sandalwood scent accented with cedar\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "medium",
+      "reason": "The chemistry book gives 7.5% Texas cedarwood oil and describes the scent as sandalwood accented with cedar, but cedar vanishes from the drydown tags."
+     }
+    }
+   },
+   "goodgirlgonebad": {
+    "opening": {},
+    "heart": {
+     "fruity_sweet": {
+      "w": 0.6,
+      "quote": "\"This is a solid if unexciting peachy floral\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "high",
+      "reason": "The Guide hears a peach floral, while the heart is tagged as pure white floral with no fruit."
+     }
+    },
+    "drydown": {
+     "sandalwood_creamy": {
+      "w": 0.4,
+      "quote": "\"some nutty-lactonic-woody blur borrowed from Gucci Rush (1999)\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide describes a lactonic woody drydown, which matches the milky-wood family rather than dry cedar alone."
+     }
+    }
+   },
+   "muscravageur": {
+    "opening": {},
+    "heart": {
+     "iris_powdery": {
+      "w": 0.4,
+      "quote": "\"several intense ingredients in overdose: cinnamon, orris, vanillin\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "medium",
+      "reason": "The chemistry book lists orris among the overdosed materials, and the tags have no iris at any stage."
+     }
+    },
+    "drydown": {
+     "animalic": {
+      "w": 0.6,
+      "quote": "\"an excessively rich, sweet, and animalic floral oriental\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "Both sources put animalic notes at the centre of the scent, so animalic should rank with vanilla in the drydown."
+     }
+    }
+   },
+   "amberaoud": {
+    "opening": {},
+    "heart": {
+     "fruity_sweet": {
+      "w": 0.4,
+      "quote": "\"Routine woody-fruity rose.\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide describes a woody-fruity rose, and the heart has no fruit tag."
+     }
+    },
+    "drydown": {}
+   },
+   "blackafgano": {
+    "opening": {},
+    "heart": {},
+    "drydown": {
+     "cedar_dry": {
+      "w": 0.4,
+      "quote": "\"‘ Black Afgano ’ ( Nasomatto , 2009) with 6% of Texas cedarwood oil\"",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "medium",
+      "reason": "The chemistry book gives 6% Texas cedarwood oil, a large dose, and cedar is untagged."
+     }
+    }
+   },
+   "notaperfume": {
+    "opening": {},
+    "heart": {
+     "white_musk": {
+      "w": 0.4,
+      "quote": "\"don’t remember Cetalox being this musky\"",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The reviewer found it muskier than Cetalox alone, but musk is tagged only faintly in the drydown."
+     }
+    },
+    "drydown": {}
+   },
+   "ambresultan": {
+    "opening": {},
+    "heart": {},
+    "drydown": {
+     "sandalwood_creamy": {
+      "w": 0.4,
+      "quote": "features already 3.7% of natural sandalwood oil",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "medium",
+      "reason": "The Chemistry book reports 3.7% natural sandalwood oil, a base material that lasts into the drydown, where the entry has no sandalwood."
+     }
+    }
+   },
+   "santalroyal": {
+    "opening": {},
+    "heart": {
+     "sandalwood_creamy": {
+      "w": 0.4,
+      "quote": "not sandalwood",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide labels it \"not sandalwood\" and finds only one synthetic sandalwood molecule, so sandalwood should not read as the lead heart family."
+     },
+     "oud_smoky": {
+      "w": 0.5,
+      "quote": "equal parts of Cool Water and any one of the lamentable so-called ouds",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The review describes half the scent as a Western-style synthetic oud accord, but the heart carries no oud."
+     }
+    },
+    "drydown": {}
+   },
+   "tonkaimperiale": {
+    "opening": {},
+    "heart": {},
+    "drydown": {
+     "tobacco_honey": {
+      "w": 0.5,
+      "quote": "it ends up merely like a not very interesting pipe tobacco",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The review says the scent ends as pipe tobacco, but the drydown has no tobacco tag."
+     }
+    }
+   },
+   "coromandel": {
+    "opening": {},
+    "heart": {},
+    "drydown": {
+     "coffee_gourmand": {
+      "w": 0.5,
+      "quote": "chocolate-patchouli was memorably achieved by Chris Sheldrake twice",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide names Coromandel (with Lutens Borneo 1834) as one of two landmark chocolate-patchouli scents, so cacao is a co-lead with patchouli rather than a minor accent."
+     }
+    }
+   },
+   "boisdargent": {
+    "opening": {},
+    "heart": {
+     "woody_amber": {
+      "w": 0.5,
+      "quote": "We find previously unimaginable levels of 13.6% of 8.127 in 'Bois d'Argent'",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "medium",
+      "reason": "At 13.6% Ambrox is a high-impact, radiant material that is already evident by the heart, not only in the base."
+     }
+    },
+    "drydown": {
+     "woody_amber": {
+      "w": 0.7,
+      "quote": "We find previously unimaginable levels of 13.6% of 8.127 in 'Bois d'Argent'",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "high",
+      "reason": "Compound 8.127 is (-)-Ambrox; the book calls 13.6% an unprecedented dose, yet the entry has no woody amber at any stage."
+     },
+     "patchouli": {
+      "w": 0.4,
+      "quote": "The subtle and gentle orris-honey-patchouli-incense theme of 'Bois d'Argent Cologne'",
+      "source": "Ohloff, Pickenhagen, Kraft and Grau, Scent and Chemistry (2022)",
+      "confidence": "medium",
+      "reason": "The book names patchouli as one of the four themes of the scent; the entry has no patchouli."
+     }
+    }
+   },
+   "twilly": {
+    "opening": {},
+    "heart": {
+     "green_herbal": {
+      "w": 0.4,
+      "quote": "turn tuberose into a herbal note",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The review says the ginger and aromatics turn the tuberose herbal, but the heart is tagged as white floral only."
+     },
+     "spicy_warm": {
+      "w": 0.4,
+      "quote": "Sharp, medicinal ginger",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "medium",
+      "reason": "The Guide classes the scent as \"ginger tuberose\", so ginger runs through the heart rather than only the opening."
+     }
+    },
+    "drydown": {
+     "tonka_coumarin": {
+      "w": 0.5,
+      "quote": "sweet notes of hay",
+      "source": "Turin and Sanchez, Perfumes: The Guide 2018",
+      "confidence": "high",
+      "reason": "The review describes sweet hay and calls the result a fougere, and a second review describes Twilly as tuberose in a \"coumarin context\"; the entry has no tonka."
+     }
+    }
+   }
+  },
+  "label": {
+   "althair": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/althair",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "lavender_aromatic": 0.48,
+      "citrus_fresh": 0.45
+     },
+     "heart": {},
+     "drydown": {
+      "cedar_dry": 0.72,
+      "woody_amber": 0.27,
+      "vanilla_gourmand": 0.72,
+      "white_musk": 0.63
+     }
+    },
+    "presence": [
+     "cedar_dry",
+     "woody_amber",
+     "vanilla_gourmand",
+     "white_musk",
+     "lavender_aromatic",
+     "citrus_fresh",
+     "white_floral",
+     "green_herbal",
+     "damascone_fruit",
+     "rose",
+     "spice_fresh",
+     "spicy_warm"
+    ],
+    "absent": [
+     "tonka_coumarin",
+     "oakmoss_chypre",
+     "patchouli",
+     "sandalwood_creamy"
+    ],
+    "materials": [
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 0
+     },
+     {
+      "raw": "Vanillin",
+      "material": "vanillin",
+      "index": 1
+     },
+     {
+      "raw": "Hexamethylindanopyran",
+      "material": "hexamethylindanopyran",
+      "index": 2
+     },
+     {
+      "raw": "Linalyl Acetate",
+      "material": "linalyl acetate",
+      "index": 3
+     },
+     {
+      "raw": "Citrus Aurantium Bergamia (Bergamot) Peel Oil",
+      "material": "citrus aurantium bergamia peel oil",
+      "index": 4
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 5
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 6
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 7
+     },
+     {
+      "raw": "Rose Ketones",
+      "material": "rose ketones",
+      "index": 8
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 9
+     },
+     {
+      "raw": "Citral",
+      "material": "citral",
+      "index": 10
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 11
+     },
+     {
+      "raw": "Terpinolene",
+      "material": "terpinolene",
+      "index": 12
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 13
+     },
+     {
+      "raw": "Alpha-Terpinene",
+      "material": "alpha-terpinene",
+      "index": 14
+     },
+     {
+      "raw": "Cinnamomum Zeylanicum Bark Oil",
+      "material": "cinnamomum zeylanicum bark oil",
+      "index": 15
+     },
+     {
+      "raw": "Geraniol",
+      "material": "geraniol",
+      "index": 16
+     }
+    ],
+    "unmatched": []
+   },
+   "carlisle": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/carlisle",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "green_herbal": 0.24
+     },
+     "heart": {},
+     "drydown": {
+      "patchouli": 0.9,
+      "cedar_dry": 0.64,
+      "woody_amber": 0.24,
+      "white_floral": 0.21,
+      "amber_resin": 0.21,
+      "vanilla_gourmand": 0.54,
+      "tonka_coumarin": 0.5
+     }
+    },
+    "presence": [
+     "patchouli",
+     "cedar_dry",
+     "woody_amber",
+     "white_floral",
+     "amber_resin",
+     "vanilla_gourmand",
+     "tonka_coumarin",
+     "green_herbal",
+     "spice_fresh",
+     "citrus_fresh",
+     "damascone_fruit",
+     "rose",
+     "spicy_warm",
+     "lavender_aromatic"
+    ],
+    "absent": [
+     "oakmoss_chypre",
+     "sandalwood_creamy"
+    ],
+    "materials": [
+     {
+      "raw": "Pogostemon Cablin Oil",
+      "material": "pogostemon cablin oil",
+      "index": 0
+     },
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 1
+     },
+     {
+      "raw": "Benzyl Salicylate",
+      "material": "benzyl salicylate",
+      "index": 2
+     },
+     {
+      "raw": "Vanillin",
+      "material": "vanillin",
+      "index": 3
+     },
+     {
+      "raw": "Coumarin",
+      "material": "coumarin",
+      "index": 4
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 5
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 6
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 7
+     },
+     {
+      "raw": "Rose Ketones",
+      "material": "rose ketones",
+      "index": 8
+     },
+     {
+      "raw": "Alpha-Terpinene",
+      "material": "alpha-terpinene",
+      "index": 9
+     },
+     {
+      "raw": "Isoeugenol",
+      "material": "isoeugenol",
+      "index": 10
+     },
+     {
+      "raw": "Terpinolene",
+      "material": "terpinolene",
+      "index": 11
+     },
+     {
+      "raw": "Cinnamal",
+      "material": "cinnamal",
+      "index": 12
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 13
+     },
+     {
+      "raw": "Eugenol",
+      "material": "eugenol",
+      "index": 14
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 15
+     },
+     {
+      "raw": "Citral",
+      "material": "citral",
+      "index": 16
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 17
+     }
+    ],
+    "unmatched": []
+   },
+   "delina": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/delina",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.72,
+      "lavender_aromatic": 0.48,
+      "green_herbal": 0.3
+     },
+     "heart": {},
+     "drydown": {
+      "cedar_dry": 0.72,
+      "woody_amber": 0.27
+     }
+    },
+    "presence": [
+     "cedar_dry",
+     "woody_amber",
+     "citrus_fresh",
+     "lavender_aromatic",
+     "green_herbal",
+     "white_floral",
+     "vanilla_gourmand",
+     "damascone_fruit",
+     "rose",
+     "spice_fresh",
+     "spicy_warm",
+     "white_musk",
+     "skin_musk"
+    ],
+    "absent": [
+     "tonka_coumarin",
+     "oakmoss_chypre",
+     "patchouli",
+     "sandalwood_creamy"
+    ],
+    "materials": [
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 0
+     },
+     {
+      "raw": "Citrus Aurantium Bergamia (Bergamot) Peel Oil",
+      "material": "citrus aurantium bergamia peel oil",
+      "index": 1
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 2
+     },
+     {
+      "raw": "Linalyl Acetate",
+      "material": "linalyl acetate",
+      "index": 3
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 4
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 5
+     },
+     {
+      "raw": "Vanillin",
+      "material": "vanillin",
+      "index": 6
+     },
+     {
+      "raw": "Rose Ketones",
+      "material": "rose ketones",
+      "index": 7
+     },
+     {
+      "raw": "Alpha-Terpinene",
+      "material": "alpha-terpinene",
+      "index": 8
+     },
+     {
+      "raw": "Citral",
+      "material": "citral",
+      "index": 9
+     },
+     {
+      "raw": "Terpinolene",
+      "material": "terpinolene",
+      "index": 10
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 11
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 12
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 13
+     },
+     {
+      "raw": "Rose Flower Oil/Extract",
+      "material": "rose flower oil",
+      "index": 14
+     },
+     {
+      "raw": "Isoeugenol",
+      "material": "isoeugenol",
+      "index": 15
+     },
+     {
+      "raw": "Citronellol",
+      "material": "citronellol",
+      "index": 16
+     },
+     {
+      "raw": "Geraniol",
+      "material": "geraniol",
+      "index": 17
+     },
+     {
+      "raw": "Eugenol",
+      "material": "eugenol",
+      "index": 18
+     },
+     {
+      "raw": "Hexadecanolactone",
+      "material": "hexadecanolactone",
+      "index": 19
+     }
+    ],
+    "unmatched": []
+   },
+   "greenley": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/greenley",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.72,
+      "lavender_aromatic": 0.48
+     },
+     "heart": {},
+     "drydown": {
+      "cedar_dry": 0.72,
+      "woody_amber": 0.27,
+      "white_musk": 0.45
+     }
+    },
+    "presence": [
+     "cedar_dry",
+     "woody_amber",
+     "citrus_fresh",
+     "lavender_aromatic",
+     "white_musk",
+     "white_floral",
+     "green_herbal",
+     "iris_powdery",
+     "spice_fresh",
+     "rose",
+     "damascone_fruit"
+    ],
+    "absent": [
+     "tonka_coumarin",
+     "oakmoss_chypre",
+     "patchouli",
+     "sandalwood_creamy"
+    ],
+    "materials": [
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 0
+     },
+     {
+      "raw": "Citrus Aurantium Bergamia (Bergamot) Peel Oil",
+      "material": "citrus aurantium bergamia peel oil",
+      "index": 1
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 2
+     },
+     {
+      "raw": "Linalyl Acetate",
+      "material": "linalyl acetate",
+      "index": 3
+     },
+     {
+      "raw": "Hexamethylindanopyran",
+      "material": "hexamethylindanopyran",
+      "index": 4
+     },
+     {
+      "raw": "Juniperus Virginiana Oil",
+      "material": "juniperus virginiana oil",
+      "index": 5
+     },
+     {
+      "raw": "Cedrus Atlantica Oil/Extract",
+      "material": "cedrus atlantica oil",
+      "index": 6
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 7
+     },
+     {
+      "raw": "Citrus Limon (Lemon) Peel Oil",
+      "material": "citrus limon peel oil",
+      "index": 8
+     },
+     {
+      "raw": "Citrus Aurantium Peel Oil",
+      "material": "citrus aurantium peel oil",
+      "index": 9
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 10
+     },
+     {
+      "raw": "Alpha-Isomethyl Ionone",
+      "material": "alpha-isomethyl ionone",
+      "index": 11
+     },
+     {
+      "raw": "Citral",
+      "material": "citral",
+      "index": 12
+     },
+     {
+      "raw": "Terpinolene",
+      "material": "terpinolene",
+      "index": 13
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 14
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 15
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 16
+     },
+     {
+      "raw": "Rose Ketones",
+      "material": "rose ketones",
+      "index": 17
+     },
+     {
+      "raw": "Geraniol",
+      "material": "geraniol",
+      "index": 18
+     },
+     {
+      "raw": "Alpha-Terpinene",
+      "material": "alpha-terpinene",
+      "index": 19
+     },
+     {
+      "raw": "Citronellol",
+      "material": "citronellol",
+      "index": 20
+     }
+    ],
+    "unmatched": []
+   },
+   "herod": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/herod",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "lavender_aromatic": 0.32
+     },
+     "heart": {},
+     "drydown": {
+      "cedar_dry": 0.72,
+      "woody_amber": 0.27,
+      "white_musk": 0.72,
+      "vanilla_gourmand": 0.63,
+      "tonka_coumarin": 0.6,
+      "patchouli": 0.5
+     }
+    },
+    "presence": [
+     "cedar_dry",
+     "woody_amber",
+     "white_musk",
+     "vanilla_gourmand",
+     "tonka_coumarin",
+     "patchouli",
+     "lavender_aromatic",
+     "amber_resin",
+     "green_herbal",
+     "damascone_fruit",
+     "rose",
+     "white_floral",
+     "spice_fresh",
+     "spicy_warm",
+     "citrus_fresh"
+    ],
+    "absent": [
+     "oakmoss_chypre",
+     "sandalwood_creamy"
+    ],
+    "materials": [
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 0
+     },
+     {
+      "raw": "Hexamethylindanopyran",
+      "material": "hexamethylindanopyran",
+      "index": 1
+     },
+     {
+      "raw": "Vanillin",
+      "material": "vanillin",
+      "index": 2
+     },
+     {
+      "raw": "Coumarin",
+      "material": "coumarin",
+      "index": 3
+     },
+     {
+      "raw": "Pogostemon Cablin Oil",
+      "material": "pogostemon cablin oil",
+      "index": 4
+     },
+     {
+      "raw": "Linalyl Acetate",
+      "material": "linalyl acetate",
+      "index": 5
+     },
+     {
+      "raw": "Benzyl Benzoate",
+      "material": "benzyl benzoate",
+      "index": 6
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 7
+     },
+     {
+      "raw": "Rose Ketones",
+      "material": "rose ketones",
+      "index": 8
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 9
+     },
+     {
+      "raw": "Geraniol",
+      "material": "geraniol",
+      "index": 10
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 11
+     },
+     {
+      "raw": "Cinnamomum Zeylanicum Bark Oil",
+      "material": "cinnamomum zeylanicum bark oil",
+      "index": 12
+     },
+     {
+      "raw": "Isoeugenyl Acetate",
+      "material": "isoeugenyl acetate",
+      "index": 13
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 14
+     },
+     {
+      "raw": "Cinnamal",
+      "material": "cinnamal",
+      "index": 15
+     },
+     {
+      "raw": "Eugenol",
+      "material": "eugenol",
+      "index": 16
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 17
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 18
+     }
+    ],
+    "unmatched": []
+   },
+   "kalan": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/kalan",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.56,
+      "lavender_aromatic": 0.45,
+      "green_herbal": 0.24
+     },
+     "heart": {},
+     "drydown": {
+      "tonka_coumarin": 0.9,
+      "cedar_dry": 0.64
+     }
+    },
+    "presence": [
+     "tonka_coumarin",
+     "cedar_dry",
+     "citrus_fresh",
+     "lavender_aromatic",
+     "green_herbal",
+     "white_floral",
+     "spice_fresh",
+     "rose",
+     "sandalwood_creamy"
+    ],
+    "absent": [
+     "oakmoss_chypre",
+     "patchouli"
+    ],
+    "materials": [
+     {
+      "raw": "Coumarin",
+      "material": "coumarin",
+      "index": 0
+     },
+     {
+      "raw": "Juniperus Virginiana Oil",
+      "material": "juniperus virginiana oil",
+      "index": 1
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 2
+     },
+     {
+      "raw": "Citrus Aurantium Peel Oil",
+      "material": "citrus aurantium peel oil",
+      "index": 3
+     },
+     {
+      "raw": "Lavandula Oil/Extract",
+      "material": "lavandula oil",
+      "index": 4
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 5
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 6
+     },
+     {
+      "raw": "Linalyl Acetate",
+      "material": "linalyl acetate",
+      "index": 7
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 8
+     },
+     {
+      "raw": "Citrus Aurantium Flower Oil",
+      "material": "citrus aurantium flower oil",
+      "index": 9
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 10
+     },
+     {
+      "raw": "Santalol",
+      "material": "santalol",
+      "index": 11
+     },
+     {
+      "raw": "Geraniol",
+      "material": "geraniol",
+      "index": 12
+     }
+    ],
+    "unmatched": []
+   },
+   "layton": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/layton",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.72,
+      "lavender_aromatic": 0.56
+     },
+     "heart": {},
+     "drydown": {
+      "cedar_dry": 0.72,
+      "woody_amber": 0.27,
+      "patchouli": 0.5,
+      "vanilla_gourmand": 0.36
+     }
+    },
+    "presence": [
+     "cedar_dry",
+     "woody_amber",
+     "citrus_fresh",
+     "lavender_aromatic",
+     "patchouli",
+     "vanilla_gourmand",
+     "white_floral",
+     "tonka_coumarin",
+     "green_herbal",
+     "rose",
+     "spice_fresh",
+     "damascone_fruit"
+    ],
+    "absent": [
+     "oakmoss_chypre",
+     "sandalwood_creamy"
+    ],
+    "materials": [
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 0
+     },
+     {
+      "raw": "Citrus Aurantium Bergamia (Bergamot) Peel Oil",
+      "material": "citrus aurantium bergamia peel oil",
+      "index": 1
+     },
+     {
+      "raw": "Linalyl Acetate",
+      "material": "linalyl acetate",
+      "index": 2
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 3
+     },
+     {
+      "raw": "Pogostemon Cablin Oil",
+      "material": "pogostemon cablin oil",
+      "index": 4
+     },
+     {
+      "raw": "Vanillin",
+      "material": "vanillin",
+      "index": 5
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 6
+     },
+     {
+      "raw": "Coumarin",
+      "material": "coumarin",
+      "index": 7
+     },
+     {
+      "raw": "Lavandula Oil/Extract",
+      "material": "lavandula oil",
+      "index": 8
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 9
+     },
+     {
+      "raw": "Citronellol",
+      "material": "citronellol",
+      "index": 10
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 11
+     },
+     {
+      "raw": "Pelargonium Graveolens Flower Oil",
+      "material": "pelargonium graveolens flower oil",
+      "index": 12
+     },
+     {
+      "raw": "Terpinolene",
+      "material": "terpinolene",
+      "index": 13
+     },
+     {
+      "raw": "Rose Ketones",
+      "material": "rose ketones",
+      "index": 14
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 15
+     },
+     {
+      "raw": "Camphor",
+      "material": "camphor",
+      "index": 16
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 17
+     },
+     {
+      "raw": "Citral",
+      "material": "citral",
+      "index": 18
+     },
+     {
+      "raw": "Geraniol",
+      "material": "geraniol",
+      "index": 19
+     },
+     {
+      "raw": "Citrus Aurantium Peel Oil",
+      "material": "citrus aurantium peel oil",
+      "index": 20
+     },
+     {
+      "raw": "Alpha-Terpinene",
+      "material": "alpha-terpinene",
+      "index": 21
+     },
+     {
+      "raw": "Menthol",
+      "material": "menthol",
+      "index": 22
+     }
+    ],
+    "unmatched": []
+   },
+   "oriana": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/oriana",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.56,
+      "lavender_aromatic": 0.3
+     },
+     "heart": {},
+     "drydown": {
+      "white_musk": 0.81,
+      "cedar_dry": 0.64,
+      "woody_amber": 0.24,
+      "vanilla_gourmand": 0.45
+     }
+    },
+    "presence": [
+     "white_musk",
+     "cedar_dry",
+     "woody_amber",
+     "citrus_fresh",
+     "lavender_aromatic",
+     "white_floral",
+     "vanilla_gourmand",
+     "amber_resin",
+     "green_herbal",
+     "iris_powdery",
+     "rose",
+     "fruity_sweet",
+     "muguet_floral",
+     "spice_fresh",
+     "tonka_coumarin",
+     "skin_musk",
+     "damascone_fruit"
+    ],
+    "absent": [
+     "oakmoss_chypre",
+     "patchouli",
+     "sandalwood_creamy"
+    ],
+    "materials": [
+     {
+      "raw": "Hexamethylindanopyran",
+      "material": "hexamethylindanopyran",
+      "index": 0
+     },
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 1
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 2
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 3
+     },
+     {
+      "raw": "Vanillin",
+      "material": "vanillin",
+      "index": 4
+     },
+     {
+      "raw": "Benzyl Salicylate",
+      "material": "benzyl salicylate",
+      "index": 5
+     },
+     {
+      "raw": "Citrus Aurantium Peel Oil",
+      "material": "citrus aurantium peel oil",
+      "index": 6
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 7
+     },
+     {
+      "raw": "Citrus Aurantium Flower Oil",
+      "material": "citrus aurantium flower oil",
+      "index": 8
+     },
+     {
+      "raw": "Alpha-Isomethyl Ionone",
+      "material": "alpha-isomethyl ionone",
+      "index": 9
+     },
+     {
+      "raw": "Citrus Limon (Lemon) Peel Oil",
+      "material": "citrus limon peel oil",
+      "index": 10
+     },
+     {
+      "raw": "Citronellol",
+      "material": "citronellol",
+      "index": 11
+     },
+     {
+      "raw": "Citral",
+      "material": "citral",
+      "index": 12
+     },
+     {
+      "raw": "Benzaldehyde",
+      "material": "benzaldehyde",
+      "index": 13
+     },
+     {
+      "raw": "Linalyl Acetate",
+      "material": "linalyl acetate",
+      "index": 14
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 15
+     },
+     {
+      "raw": "Farnesol",
+      "material": "farnesol",
+      "index": 16
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 17
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 18
+     },
+     {
+      "raw": "Hydroxycitronellal",
+      "material": "hydroxycitronellal",
+      "index": 19
+     },
+     {
+      "raw": "Coumarin",
+      "material": "coumarin",
+      "index": 20
+     },
+     {
+      "raw": "Geraniol",
+      "material": "geraniol",
+      "index": 21
+     },
+     {
+      "raw": "Terpinolene",
+      "material": "terpinolene",
+      "index": 22
+     },
+     {
+      "raw": "Hexadecanolactone",
+      "material": "hexadecanolactone",
+      "index": 23
+     },
+     {
+      "raw": "Rose Ketones",
+      "material": "rose ketones",
+      "index": 24
+     },
+     {
+      "raw": "Carvone",
+      "material": "carvone",
+      "index": 25
+     }
+    ],
+    "unmatched": []
+   },
+   "pegasus": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/pegasus",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "green_herbal": 0.24
+     },
+     "heart": {
+      "green_herbal": 0.18,
+      "white_floral": 0.18
+     },
+     "drydown": {
+      "cedar_dry": 0.72,
+      "woody_amber": 0.27,
+      "white_musk": 0.72,
+      "vanilla_gourmand": 0.45
+     }
+    },
+    "presence": [
+     "cedar_dry",
+     "woody_amber",
+     "white_musk",
+     "green_herbal",
+     "white_floral",
+     "vanilla_gourmand",
+     "spicy_warm",
+     "lavender_aromatic",
+     "citrus_fresh",
+     "spice_fresh"
+    ],
+    "absent": [
+     "tonka_coumarin",
+     "oakmoss_chypre",
+     "patchouli",
+     "sandalwood_creamy"
+    ],
+    "materials": [
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 0
+     },
+     {
+      "raw": "Hexamethylindanopyran",
+      "material": "hexamethylindanopyran",
+      "index": 1
+     },
+     {
+      "raw": "Acetyl Cedrene",
+      "material": "acetyl cedrene",
+      "index": 2
+     },
+     {
+      "raw": "Amyl Salicylate",
+      "material": "amyl salicylate",
+      "index": 3
+     },
+     {
+      "raw": "Vanillin",
+      "material": "vanillin",
+      "index": 4
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 5
+     },
+     {
+      "raw": "Anethole",
+      "material": "anethole",
+      "index": 6
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 7
+     },
+     {
+      "raw": "Terpinolene",
+      "material": "terpinolene",
+      "index": 8
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 9
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 10
+     },
+     {
+      "raw": "Alpha-Terpinene",
+      "material": "alpha-terpinene",
+      "index": 11
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 12
+     }
+    ],
+    "unmatched": []
+   },
+   "percival": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/percival",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "lavender_aromatic": 0.64,
+      "citrus_fresh": 0.63
+     },
+     "heart": {
+      "rose": 0.28
+     },
+     "drydown": {
+      "cedar_dry": 0.72,
+      "woody_amber": 0.27
+     }
+    },
+    "presence": [
+     "cedar_dry",
+     "woody_amber",
+     "lavender_aromatic",
+     "citrus_fresh",
+     "white_floral",
+     "rose",
+     "green_herbal",
+     "tonka_coumarin",
+     "damascone_fruit",
+     "spice_fresh",
+     "spicy_warm",
+     "white_musk",
+     "skin_musk"
+    ],
+    "absent": [
+     "oakmoss_chypre",
+     "patchouli",
+     "sandalwood_creamy"
+    ],
+    "materials": [
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 0
+     },
+     {
+      "raw": "Linalyl Acetate",
+      "material": "linalyl acetate",
+      "index": 1
+     },
+     {
+      "raw": "Citrus Aurantium Bergamia (Bergamot) Peel Oil",
+      "material": "citrus aurantium bergamia peel oil",
+      "index": 2
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 3
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 4
+     },
+     {
+      "raw": "Citronellol",
+      "material": "citronellol",
+      "index": 5
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 6
+     },
+     {
+      "raw": "Coumarin",
+      "material": "coumarin",
+      "index": 7
+     },
+     {
+      "raw": "Lavandula Oil/Extract",
+      "material": "lavandula oil",
+      "index": 8
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 9
+     },
+     {
+      "raw": "Citral",
+      "material": "citral",
+      "index": 10
+     },
+     {
+      "raw": "Terpinolene",
+      "material": "terpinolene",
+      "index": 11
+     },
+     {
+      "raw": "Rose Ketones",
+      "material": "rose ketones",
+      "index": 12
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 13
+     },
+     {
+      "raw": "Alpha-Terpinene",
+      "material": "alpha-terpinene",
+      "index": 14
+     },
+     {
+      "raw": "Camphor",
+      "material": "camphor",
+      "index": 15
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 16
+     },
+     {
+      "raw": "Geraniol",
+      "material": "geraniol",
+      "index": 17
+     },
+     {
+      "raw": "Isoeugenol",
+      "material": "isoeugenol",
+      "index": 18
+     },
+     {
+      "raw": "Cinnamomum Zeylanicum Bark Oil",
+      "material": "cinnamomum zeylanicum bark oil",
+      "index": 19
+     },
+     {
+      "raw": "Cinnamal",
+      "material": "cinnamal",
+      "index": 20
+     },
+     {
+      "raw": "Eugenol",
+      "material": "eugenol",
+      "index": 21
+     },
+     {
+      "raw": "Hexadecanolactone",
+      "material": "hexadecanolactone",
+      "index": 22
+     }
+    ],
+    "unmatched": []
+   },
+   "sedley": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/sedley",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.64,
+      "lavender_aromatic": 0.48
+     },
+     "heart": {},
+     "drydown": {
+      "cedar_dry": 0.72,
+      "woody_amber": 0.27,
+      "white_musk": 0.45
+     }
+    },
+    "presence": [
+     "cedar_dry",
+     "woody_amber",
+     "citrus_fresh",
+     "lavender_aromatic",
+     "white_musk",
+     "white_floral",
+     "green_herbal",
+     "iris_powdery",
+     "tonka_coumarin",
+     "rose",
+     "spicy_warm",
+     "spice_fresh",
+     "damascone_fruit",
+     "sandalwood_creamy",
+     "muguet_floral"
+    ],
+    "absent": [
+     "oakmoss_chypre",
+     "patchouli"
+    ],
+    "materials": [
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 0
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 1
+     },
+     {
+      "raw": "Citrus Aurantium Bergamia (Bergamot) Peel Oil",
+      "material": "citrus aurantium bergamia peel oil",
+      "index": 2
+     },
+     {
+      "raw": "Linalyl Acetate",
+      "material": "linalyl acetate",
+      "index": 3
+     },
+     {
+      "raw": "Hexamethylindanopyran",
+      "material": "hexamethylindanopyran",
+      "index": 4
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 5
+     },
+     {
+      "raw": "Citrus Aurantium Peel Oil",
+      "material": "citrus aurantium peel oil",
+      "index": 6
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 7
+     },
+     {
+      "raw": "Citrus Limon (Lemon) Peel Oil",
+      "material": "citrus limon peel oil",
+      "index": 8
+     },
+     {
+      "raw": "Alpha-Isomethyl Ionone",
+      "material": "alpha-isomethyl ionone",
+      "index": 9
+     },
+     {
+      "raw": "Coumarin",
+      "material": "coumarin",
+      "index": 10
+     },
+     {
+      "raw": "Lavandula Oil/Extract",
+      "material": "lavandula oil",
+      "index": 11
+     },
+     {
+      "raw": "Citral",
+      "material": "citral",
+      "index": 12
+     },
+     {
+      "raw": "Geraniol",
+      "material": "geraniol",
+      "index": 13
+     },
+     {
+      "raw": "Eugenol",
+      "material": "eugenol",
+      "index": 14
+     },
+     {
+      "raw": "Pelargonium Graveolens Flower Oil",
+      "material": "pelargonium graveolens flower oil",
+      "index": 15
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 16
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 17
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 18
+     },
+     {
+      "raw": "Rose Ketones",
+      "material": "rose ketones",
+      "index": 19
+     },
+     {
+      "raw": "Camphor",
+      "material": "camphor",
+      "index": 20
+     },
+     {
+      "raw": "Citronellol",
+      "material": "citronellol",
+      "index": 21
+     },
+     {
+      "raw": "Terpinolene",
+      "material": "terpinolene",
+      "index": 22
+     },
+     {
+      "raw": "Santalol",
+      "material": "santalol",
+      "index": 23
+     },
+     {
+      "raw": "Alpha-Terpinene",
+      "material": "alpha-terpinene",
+      "index": 24
+     },
+     {
+      "raw": "Carvone",
+      "material": "carvone",
+      "index": 25
+     },
+     {
+      "raw": "Farnesol",
+      "material": "farnesol",
+      "index": 26
+     },
+     {
+      "raw": "Mentha Viridis Leaf Oil",
+      "material": "mentha viridis leaf oil",
+      "index": 27
+     }
+    ],
+    "unmatched": []
+   },
+   "valaya": {
+    "market": "brand site (global)",
+    "date": "2026-09-25",
+    "code": "",
+    "url": "https://www.parfums-de-marly.com/products/valaya",
+    "format": "new",
+    "stages": {
+     "opening": {
+      "citrus_fresh": 0.72,
+      "lavender_aromatic": 0.48,
+      "green_herbal": 0.24
+     },
+     "heart": {},
+     "drydown": {
+      "cedar_dry": 0.72,
+      "woody_amber": 0.27
+     }
+    },
+    "presence": [
+     "cedar_dry",
+     "woody_amber",
+     "citrus_fresh",
+     "lavender_aromatic",
+     "white_floral",
+     "green_herbal",
+     "rose",
+     "spice_fresh",
+     "vanilla_gourmand"
+    ],
+    "absent": [
+     "tonka_coumarin",
+     "oakmoss_chypre",
+     "patchouli",
+     "sandalwood_creamy"
+    ],
+    "materials": [
+     {
+      "raw": "Tetramethyl Acetyloctahydronaphthalenes",
+      "material": "tetramethyl acetyloctahydronaphthalenes",
+      "index": 0
+     },
+     {
+      "raw": "Citrus Aurantium Bergamia (Bergamot) Peel Oil",
+      "material": "citrus aurantium bergamia peel oil",
+      "index": 1
+     },
+     {
+      "raw": "Limonene",
+      "material": "limonene",
+      "index": 2
+     },
+     {
+      "raw": "Linalyl Acetate",
+      "material": "linalyl acetate",
+      "index": 3
+     },
+     {
+      "raw": "Linalool",
+      "material": "linalool",
+      "index": 4
+     },
+     {
+      "raw": "Pinene",
+      "material": "pinene",
+      "index": 5
+     },
+     {
+      "raw": "Terpinolene",
+      "material": "terpinolene",
+      "index": 6
+     },
+     {
+      "raw": "Citral",
+      "material": "citral",
+      "index": 7
+     },
+     {
+      "raw": "Geranyl Acetate",
+      "material": "geranyl acetate",
+      "index": 8
+     },
+     {
+      "raw": "Terpineol",
+      "material": "terpineol",
+      "index": 9
+     },
+     {
+      "raw": "Alpha-Terpinene",
+      "material": "alpha-terpinene",
+      "index": 10
+     },
+     {
+      "raw": "Beta-Caryophyllene",
+      "material": "beta-caryophyllene",
+      "index": 11
+     },
+     {
+      "raw": "Citrus Aurantium Peel Oil",
+      "material": "citrus aurantium peel oil",
+      "index": 12
+     },
+     {
+      "raw": "Vanillin",
+      "material": "vanillin",
+      "index": 13
+     }
+    ],
+    "unmatched": []
+   }
+  }
+ },
+ "notesEntries": [
+  {
+   "id": "f_creed-green-irish-tweed",
+   "name": "Green Irish Tweed",
+   "brand": "Creed",
+   "gender": "men",
+   "oilType": "Eau de Parfum",
+   "notes": {
+    "top": [
+     "Lemon Verbena",
+     "Iris"
+    ],
+    "middle": [
+     "Violet Leaf"
+    ],
+    "base": [
+     "Ambergris",
+     "Sandalwood"
+    ]
+   },
+   "accords": [
+    "green",
+    "fresh",
+    "woody",
+    "aromatic"
+   ],
+   "image": "",
+   "vendorId": "GreenIrishTweed",
+   "source": "fixture"
+  },
+  {
+   "id": "f_miller-harris-tea-tonique",
+   "name": "Tea Tonique",
+   "brand": "Miller Harris",
+   "gender": "unisex",
+   "oilType": "Eau de Toilette",
+   "notes": {
+    "top": [
+     "Bergamot",
+     "Lemon",
+     "Nutmeg"
+    ],
+    "middle": [
+     "Black Tea",
+     "Birch",
+     "Mate"
+    ],
+    "base": [
+     "Musk",
+     "Iso E Super",
+     "Smoke"
+    ]
+   },
+   "accords": [
+    "citrus",
+    "aromatic",
+    "smoky",
+    "woody"
+   ],
+   "image": "",
+   "vendorId": "TeaTonique",
+   "source": "fixture"
+  },
+  {
+   "id": "f_x-oud-rose",
+   "name": "Oud Rose Test",
+   "brand": "House X",
+   "gender": "women",
+   "oilType": "Parfum",
+   "notes": {
+    "top": [
+     "Saffron",
+     "Pink Pepper"
+    ],
+    "middle": [
+     "Turkish Rose",
+     "Oud"
+    ],
+    "base": [
+     "Vanilla",
+     "Patchouli",
+     "Cashmeran"
+    ]
+   },
+   "accords": [],
+   "image": "",
+   "vendorId": "x",
+   "source": "fixture"
+  }
+ ]
+}

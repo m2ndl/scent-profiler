@@ -1,0 +1,9 @@
+# Copyrighted book texts: research use only, never committed or deployed
+reference/books/
+
+# Generated output
+build/
+node_modules/
+
+# Local Claude Code settings
+.claude/settings.local.json

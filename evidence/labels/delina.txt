@@ -1,0 +1,5 @@
+id: delina
+market: brand site (global)
+date: 2026-09-25
+url: https://www.parfums-de-marly.com/products/delina
+Alcohol Denat., Parfum (Fragrance), Aqua (Water/Eau), Tetramethyl Acetyloctahydronaphthalenes, Citrus Aurantium Bergamia (Bergamot) Peel Oil, Limonene, Linalyl Acetate, Ethylhexyl Methoxycinnamate, Pinene, Linalool, Vanillin, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Bht, Rose Ketones, Alpha-Terpinene, Citral, Terpinolene, Geranyl Acetate, Beta-Caryophyllene, Terpineol, Rose Flower Oil/Extract, Isoeugenol, Citronellol, Geraniol, Eugenol, Hexadecanolactone

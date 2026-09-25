@@ -1,0 +1,5 @@
+id: kalan
+market: brand site (global)
+date: 2026-09-25
+url: https://www.parfums-de-marly.com/products/kalan
+Alcohol Denat., Parfum (Fragrance), Coumarin, Juniperus Virginiana Oil, Limonene, Citrus Aurantium Peel Oil, Lavandula Oil/Extract, Pinene, Linalool, Linalyl Acetate, Beta-Caryophyllene, Citrus Aurantium Flower Oil, Bht, Geranyl Acetate, Santalol, Geraniol

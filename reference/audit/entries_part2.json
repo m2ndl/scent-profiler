@@ -1,0 +1,1731 @@
+[
+ {
+  "id": "phantom",
+  "house": "Rabanne",
+  "name": "Phantom",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "lemon, lavender, apple / lavender, cardamom, patchouli / vanilla, vetiver, cedar, ambrox",
+  "opening": {
+   "citrus_fresh": 0.6,
+   "lavender_aromatic": 0.8,
+   "fruity_sweet": 0.4
+  },
+  "heart": {
+   "lavender_aromatic": 0.8,
+   "spicy_warm": 0.4,
+   "patchouli": 0.3
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.8,
+   "vetiver": 0.3,
+   "woody_amber": 0.6
+  }
+ },
+ {
+  "id": "lemale",
+  "house": "Jean Paul Gaultier",
+  "name": "Le Male",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "lavender, mint, bergamot, cardamom, artemisia / cinnamon, orange blossom, caraway / vanilla, tonka, sandalwood, cedar, amber",
+  "opening": {
+   "lavender_aromatic": 1,
+   "green_herbal": 0.5,
+   "citrus_fresh": 0.3
+  },
+  "heart": {
+   "spicy_warm": 0.7,
+   "white_floral": 0.4
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "tonka_coumarin": 0.7,
+   "sandalwood_creamy": 0.4,
+   "amber_resin": 0.3
+  }
+ },
+ {
+  "id": "lemaleleparfum",
+  "house": "Jean Paul Gaultier",
+  "name": "Le Male Le Parfum",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "cardamom, lavender / iris, sage / vanilla, cedar",
+  "opening": {
+   "spicy_warm": 0.6,
+   "lavender_aromatic": 0.7
+  },
+  "heart": {
+   "iris_powdery": 0.7,
+   "green_herbal": 0.4
+  },
+  "drydown": {
+   "vanilla_gourmand": 1,
+   "cedar_dry": 0.4,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "ultramale",
+  "house": "Jean Paul Gaultier",
+  "name": "Ultra Male",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear, lavender, bergamot, mint / cinnamon, clary sage, caraway / vanilla, amber, cedar, patchouli",
+  "opening": {
+   "fruity_sweet": 0.8,
+   "lavender_aromatic": 0.6,
+   "green_herbal": 0.3
+  },
+  "heart": {
+   "spicy_warm": 0.7,
+   "green_herbal": 0.3
+  },
+  "drydown": {
+   "vanilla_gourmand": 1,
+   "amber_resin": 0.4,
+   "woody_amber": 0.3,
+   "patchouli": 0.3
+  }
+ },
+ {
+  "id": "scandalhomme",
+  "house": "Jean Paul Gaultier",
+  "name": "Scandal Pour Homme",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "mandarin, clary sage / tonka, caramel / vetiver",
+  "opening": {
+   "citrus_fresh": 0.6,
+   "green_herbal": 0.5
+  },
+  "heart": {
+   "tonka_coumarin": 0.8,
+   "vanilla_gourmand": 0.8
+  },
+  "drydown": {
+   "vetiver": 0.7,
+   "tonka_coumarin": 0.6,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "uomobornroma",
+  "house": "Valentino",
+  "name": "Uomo Born in Roma",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "violet leaf, ginger, sage, mint / vetiver / bourbon vanilla",
+  "opening": {
+   "green_herbal": 0.8,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "vetiver": 0.8
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "uomointense",
+  "house": "Valentino",
+  "name": "Uomo Intense",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "mandarin, clary sage / iris, tonka / leather, vanilla, benzoin, musk",
+  "opening": {
+   "citrus_fresh": 0.5,
+   "green_herbal": 0.4
+  },
+  "heart": {
+   "iris_powdery": 0.8,
+   "tonka_coumarin": 0.6
+  },
+  "drydown": {
+   "leather_smoky": 0.7,
+   "vanilla_gourmand": 0.8,
+   "amber_resin": 0.5,
+   "white_musk": 0.3
+  }
+ },
+ {
+  "id": "gentlemanedp",
+  "house": "Givenchy",
+  "name": "Gentleman Eau de Parfum",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear, cardamom, bergamot / iris, lavender / patchouli, black vanilla, leather, tonka",
+  "opening": {
+   "fruity_sweet": 0.5,
+   "spicy_warm": 0.5,
+   "citrus_fresh": 0.4
+  },
+  "heart": {
+   "iris_powdery": 0.9,
+   "lavender_aromatic": 0.5
+  },
+  "drydown": {
+   "patchouli": 0.6,
+   "vanilla_gourmand": 0.7,
+   "leather_smoky": 0.4,
+   "tonka_coumarin": 0.5
+  }
+ },
+ {
+  "id": "gentlemanreserve",
+  "house": "Givenchy",
+  "name": "Gentleman Réserve Privée",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 2,
+  "cloneOf": null,
+  "notes": "bergamot, whiskey, chestnut / iris / oak, sandalwood, cashmeran",
+  "opening": {
+   "citrus_fresh": 0.5,
+   "fruity_sweet": 0.5,
+   "tonka_coumarin": 0.3
+  },
+  "heart": {
+   "iris_powdery": 0.8
+  },
+  "drydown": {
+   "cedar_dry": 0.5,
+   "sandalwood_creamy": 0.6,
+   "woody_amber": 0.6
+  }
+ },
+ {
+  "id": "explorer",
+  "house": "Montblanc",
+  "name": "Explorer",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, pink pepper, clary sage / vetiver, leather / patchouli, akigalawood, ambroxan, cacao",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "spicy_warm": 0.3,
+   "green_herbal": 0.4
+  },
+  "heart": {
+   "vetiver": 0.7,
+   "leather_smoky": 0.5
+  },
+  "drydown": {
+   "patchouli": 0.8,
+   "woody_amber": 0.8,
+   "coffee_gourmand": 0.2
+  }
+ },
+ {
+  "id": "legend",
+  "house": "Montblanc",
+  "name": "Legend",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, lavender, pineapple, verbena / apple, rose, dried fruits, geranium, coumarin, oakmoss / tonka, sandalwood, evernyl",
+  "opening": {
+   "citrus_fresh": 0.7,
+   "lavender_aromatic": 0.7,
+   "fruity_sweet": 0.5
+  },
+  "heart": {
+   "fruity_sweet": 0.5,
+   "rose": 0.3,
+   "tonka_coumarin": 0.5,
+   "oakmoss_chypre": 0.3
+  },
+  "drydown": {
+   "tonka_coumarin": 0.8,
+   "sandalwood_creamy": 0.4,
+   "oakmoss_chypre": 0.5,
+   "white_musk": 0.3
+  }
+ },
+ {
+  "id": "bossbottled",
+  "house": "Hugo Boss",
+  "name": "Boss Bottled",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "apple, plum, bergamot, lemon, geranium / cinnamon, mahogany, carnation / vanilla, sandalwood, cedar, vetiver, olive tree",
+  "opening": {
+   "fruity_sweet": 0.8,
+   "citrus_fresh": 0.5
+  },
+  "heart": {
+   "spicy_warm": 0.7,
+   "cedar_dry": 0.3
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.6,
+   "sandalwood_creamy": 0.5,
+   "cedar_dry": 0.4,
+   "vetiver": 0.3,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "wantedbynight",
+  "house": "Azzaro",
+  "name": "Wanted by Night",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "cinnamon, lavender, mandarin, red cedar / tobacco, incense, honey / tonka, leather, sandalwood, cypriol, benzoin",
+  "opening": {
+   "spicy_warm": 0.8,
+   "lavender_aromatic": 0.4,
+   "citrus_fresh": 0.4
+  },
+  "heart": {
+   "tobacco_honey": 0.8,
+   "incense_resin": 0.4,
+   "cedar_dry": 0.3
+  },
+  "drydown": {
+   "tonka_coumarin": 0.7,
+   "leather_smoky": 0.4,
+   "sandalwood_creamy": 0.3,
+   "amber_resin": 0.5,
+   "oud_smoky": 0.2
+  }
+ },
+ {
+  "id": "mostwantedparfum",
+  "house": "Azzaro",
+  "name": "The Most Wanted Parfum",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 2,
+  "cloneOf": null,
+  "notes": "bergamot, cardamom / red vetiver / vanilla, tonka, amberwood",
+  "opening": {
+   "citrus_fresh": 0.5,
+   "spicy_warm": 0.6
+  },
+  "heart": {
+   "vetiver": 0.5,
+   "spicy_warm": 0.3
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "tonka_coumarin": 0.6,
+   "woody_amber": 0.6
+  }
+ },
+ {
+  "id": "badboy",
+  "house": "Carolina Herrera",
+  "name": "Bad Boy",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "black and white pepper, bergamot / cedar, sage / tonka, cacao, amberwood",
+  "opening": {
+   "spicy_warm": 0.8,
+   "citrus_fresh": 0.4
+  },
+  "heart": {
+   "cedar_dry": 0.6,
+   "green_herbal": 0.4
+  },
+  "drydown": {
+   "tonka_coumarin": 0.8,
+   "coffee_gourmand": 0.5,
+   "woody_amber": 0.6,
+   "vanilla_gourmand": 0.3
+  }
+ },
+ {
+  "id": "burberryhero",
+  "house": "Burberry",
+  "name": "Hero",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, juniper, black pepper / cedar trio / cedar",
+  "opening": {
+   "citrus_fresh": 0.6,
+   "green_herbal": 0.5,
+   "spicy_warm": 0.4
+  },
+  "heart": {
+   "cedar_dry": 0.8
+  },
+  "drydown": {
+   "cedar_dry": 0.9,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "noirextreme",
+  "house": "Tom Ford",
+  "name": "Noir Extreme",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "mandarin, neroli, saffron, cardamom, nutmeg / kulfi, rose, jasmine, orange blossom / amber, sandalwood, vanilla, woods",
+  "opening": {
+   "citrus_fresh": 0.5,
+   "saffron_leathery": 0.5,
+   "spicy_warm": 0.6,
+   "white_floral": 0.3
+  },
+  "heart": {
+   "vanilla_gourmand": 0.6,
+   "rose": 0.4,
+   "white_floral": 0.5,
+   "spicy_warm": 0.3
+  },
+  "drydown": {
+   "amber_resin": 0.6,
+   "vanilla_gourmand": 0.7,
+   "sandalwood_creamy": 0.4,
+   "woody_amber": 0.4
+  }
+ },
+ {
+  "id": "lostcherry",
+  "house": "Tom Ford",
+  "name": "Lost Cherry",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "black cherry, cherry liqueur, bitter almond / Turkish rose, jasmine sambac, griotte / Peru balsam, roasted tonka, sandalwood, vetiver, cinnamon, cloves",
+  "opening": {
+   "fruity_sweet": 1,
+   "tonka_coumarin": 0.3
+  },
+  "heart": {
+   "rose": 0.6,
+   "white_floral": 0.4,
+   "fruity_sweet": 0.6
+  },
+  "drydown": {
+   "amber_resin": 0.6,
+   "tonka_coumarin": 0.7,
+   "sandalwood_creamy": 0.3,
+   "spicy_warm": 0.4,
+   "vanilla_gourmand": 0.4
+  }
+ },
+ {
+  "id": "bitterpeach",
+  "house": "Tom Ford",
+  "name": "Bitter Peach",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "peach, blood orange, cardamom / rum, davana, heliotrope, jasmine / patchouli, sandalwood, vanilla, benzoin, cashmeran",
+  "opening": {
+   "fruity_sweet": 0.9,
+   "citrus_fresh": 0.4,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "fruity_sweet": 0.5,
+   "iris_powdery": 0.3,
+   "white_floral": 0.3
+  },
+  "drydown": {
+   "patchouli": 0.5,
+   "vanilla_gourmand": 0.6,
+   "amber_resin": 0.5,
+   "woody_amber": 0.4
+  }
+ },
+ {
+  "id": "tuscanleather",
+  "house": "Tom Ford",
+  "name": "Tuscan Leather",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "saffron, raspberry, thyme / olibanum, jasmine / leather, suede, amber, woods",
+  "opening": {
+   "saffron_leathery": 0.7,
+   "fruity_sweet": 0.5,
+   "green_herbal": 0.2
+  },
+  "heart": {
+   "incense_resin": 0.5,
+   "white_floral": 0.3
+  },
+  "drydown": {
+   "leather_smoky": 1,
+   "amber_resin": 0.4,
+   "woody_amber": 0.4
+  }
+ },
+ {
+  "id": "fabulous",
+  "house": "Tom Ford",
+  "name": "Fucking Fabulous",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "clary sage, lavender / leather, bitter almond, orris, vanilla / tonka, amber, cashmeran, leather",
+  "opening": {
+   "green_herbal": 0.5,
+   "lavender_aromatic": 0.7
+  },
+  "heart": {
+   "leather_smoky": 0.8,
+   "tonka_coumarin": 0.4,
+   "iris_powdery": 0.4,
+   "vanilla_gourmand": 0.4
+  },
+  "drydown": {
+   "tonka_coumarin": 0.7,
+   "amber_resin": 0.5,
+   "woody_amber": 0.5,
+   "leather_smoky": 0.6
+  }
+ },
+ {
+  "id": "neroliportofino",
+  "house": "Tom Ford",
+  "name": "Neroli Portofino",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, mandarin, lemon, lavender, bitter orange, myrtle / neroli, orange blossom, jasmine / amber, ambrette, angelica",
+  "opening": {
+   "citrus_fresh": 1,
+   "lavender_aromatic": 0.3
+  },
+  "heart": {
+   "white_floral": 0.8,
+   "citrus_fresh": 0.3
+  },
+  "drydown": {
+   "white_musk": 0.5,
+   "amber_resin": 0.4,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "h24",
+  "house": "Hermès",
+  "name": "H24",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "clary sage / narcissus, rosewood / sclarene (metallic), woods",
+  "opening": {
+   "green_herbal": 0.8
+  },
+  "heart": {
+   "white_floral": 0.3,
+   "green_herbal": 0.4,
+   "iris_powdery": 0.2,
+   "cedar_dry": 0.2
+  },
+  "drydown": {
+   "aldehydes": 0.5,
+   "woody_amber": 0.4,
+   "green_herbal": 0.4
+  }
+ },
+ {
+  "id": "terreparfum",
+  "house": "Hermès",
+  "name": "Terre d'Hermès Parfum",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "grapefruit, orange / flint, geranium / benzoin, oakmoss, vetiver, cedar, patchouli",
+  "opening": {
+   "citrus_fresh": 0.9
+  },
+  "heart": {
+   "cedar_dry": 0.6,
+   "green_herbal": 0.2
+  },
+  "drydown": {
+   "amber_resin": 0.5,
+   "oakmoss_chypre": 0.4,
+   "vetiver": 0.8,
+   "cedar_dry": 0.6,
+   "woody_amber": 0.4
+  }
+ },
+ {
+  "id": "maninblack",
+  "house": "Bvlgari",
+  "name": "Man in Black",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "rum, spices, cardamom / leather, iris, tuberose / benzoin, tonka, guaiac wood",
+  "opening": {
+   "fruity_sweet": 0.4,
+   "spicy_warm": 0.8
+  },
+  "heart": {
+   "leather_smoky": 0.7,
+   "iris_powdery": 0.5,
+   "white_floral": 0.4
+  },
+  "drydown": {
+   "amber_resin": 0.8,
+   "tonka_coumarin": 0.7,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "tygar",
+  "house": "Bvlgari",
+  "name": "Tygar",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "grapefruit / ambroxan / woody notes",
+  "opening": {
+   "citrus_fresh": 1
+  },
+  "heart": {
+   "woody_amber": 0.8
+  },
+  "drydown": {
+   "woody_amber": 0.9,
+   "citrus_fresh": 0.2
+  }
+ },
+ {
+  "id": "woodessence",
+  "house": "Bvlgari",
+  "name": "Wood Essence",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 2,
+  "cloneOf": null,
+  "notes": "citrus, coriander / cypress, vetiver, cedar / benzoin, cypriol",
+  "opening": {
+   "citrus_fresh": 0.6,
+   "spicy_warm": 0.4
+  },
+  "heart": {
+   "cedar_dry": 0.7,
+   "vetiver": 0.5,
+   "green_herbal": 0.3
+  },
+  "drydown": {
+   "amber_resin": 0.5,
+   "woody_amber": 0.5,
+   "cedar_dry": 0.5
+  }
+ },
+ {
+  "id": "leaudissey",
+  "house": "Issey Miyake",
+  "name": "L'Eau d'Issey Pour Homme",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "yuzu, lemon, bergamot, tarragon, cypress, verbena / nutmeg, water lily, saffron, blue lotus, cinnamon / musk, cedar, amber, sandalwood, vetiver, tobacco",
+  "opening": {
+   "citrus_fresh": 1,
+   "green_herbal": 0.5
+  },
+  "heart": {
+   "aquatic_marine": 0.6,
+   "spicy_warm": 0.4,
+   "white_floral": 0.2
+  },
+  "drydown": {
+   "white_musk": 0.6,
+   "cedar_dry": 0.5,
+   "vetiver": 0.4,
+   "woody_amber": 0.4,
+   "sandalwood_creamy": 0.3
+  }
+ },
+ {
+  "id": "coolwater",
+  "house": "Davidoff",
+  "name": "Cool Water",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "sea water, mint, green notes, lavender, coriander, rosemary, calone / geranium, neroli, jasmine, sandalwood / musk, oakmoss, cedar, tobacco, amber",
+  "opening": {
+   "aquatic_marine": 0.9,
+   "green_herbal": 0.5,
+   "lavender_aromatic": 0.5
+  },
+  "heart": {
+   "rose": 0.3,
+   "white_floral": 0.4,
+   "sandalwood_creamy": 0.3
+  },
+  "drydown": {
+   "white_musk": 0.7,
+   "oakmoss_chypre": 0.4,
+   "cedar_dry": 0.3,
+   "tobacco_honey": 0.2,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "lhommeideal",
+  "house": "Guerlain",
+  "name": "L'Homme Idéal",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "citrus, rosemary / almond, tonka / leather, tonka, cedar",
+  "opening": {
+   "citrus_fresh": 0.7,
+   "green_herbal": 0.4
+  },
+  "heart": {
+   "fruity_sweet": 0.6,
+   "tonka_coumarin": 0.6
+  },
+  "drydown": {
+   "leather_smoky": 0.5,
+   "tonka_coumarin": 0.8,
+   "cedar_dry": 0.3,
+   "vanilla_gourmand": 0.3
+  }
+ },
+ {
+  "id": "theonemen",
+  "house": "Dolce&Gabbana",
+  "name": "The One for Men",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "grapefruit, coriander, basil / cardamom, ginger, orange blossom / tobacco, amber, cedar",
+  "opening": {
+   "citrus_fresh": 0.7,
+   "green_herbal": 0.5
+  },
+  "heart": {
+   "spicy_warm": 0.7,
+   "white_floral": 0.3
+  },
+  "drydown": {
+   "tobacco_honey": 0.8,
+   "amber_resin": 0.6,
+   "cedar_dry": 0.3,
+   "vanilla_gourmand": 0.3
+  }
+ },
+ {
+  "id": "lightbluemen",
+  "house": "Dolce&Gabbana",
+  "name": "Light Blue Pour Homme",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "grapefruit, mandarin, bergamot, juniper / rosemary, pepper, rosewood / incense, musk, oakmoss",
+  "opening": {
+   "citrus_fresh": 1,
+   "green_herbal": 0.4
+  },
+  "heart": {
+   "green_herbal": 0.6,
+   "spicy_warm": 0.4,
+   "cedar_dry": 0.2
+  },
+  "drydown": {
+   "incense_resin": 0.5,
+   "white_musk": 0.6,
+   "oakmoss_chypre": 0.3,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "kdg",
+  "house": "Dolce&Gabbana",
+  "name": "K",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "blood orange, lemon, juniper / clary sage, geranium, lavender, pimento / cedar, vetiver, patchouli",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "green_herbal": 0.4
+  },
+  "heart": {
+   "green_herbal": 0.5,
+   "lavender_aromatic": 0.5,
+   "spicy_warm": 0.4
+  },
+  "drydown": {
+   "cedar_dry": 0.6,
+   "vetiver": 0.5,
+   "patchouli": 0.4,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "declaration",
+  "house": "Cartier",
+  "name": "Déclaration",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "artemisia, caraway, coriander, birch, bergamot, bitter orange / ginger, pepper, cinnamon, juniper, cardamom, tea / vetiver, oakmoss, cedar, leather, amber",
+  "opening": {
+   "citrus_fresh": 0.6,
+   "green_herbal": 0.5,
+   "spicy_warm": 0.5,
+   "leather_smoky": 0.3
+  },
+  "heart": {
+   "spicy_warm": 0.8,
+   "green_herbal": 0.3,
+   "iris_powdery": 0.2
+  },
+  "drydown": {
+   "vetiver": 0.6,
+   "oakmoss_chypre": 0.4,
+   "cedar_dry": 0.5,
+   "leather_smoky": 0.3,
+   "spicy_warm": 0.3
+  }
+ },
+ {
+  "id": "spicebombextreme",
+  "house": "Viktor&Rolf",
+  "name": "Spicebomb Extreme",
+  "gender": "m",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "black pepper, lavender, cumin, caraway / cinnamon, saffron / tobacco, vanilla, amber",
+  "opening": {
+   "spicy_warm": 0.8,
+   "lavender_aromatic": 0.4,
+   "animalic": 0.2
+  },
+  "heart": {
+   "spicy_warm": 0.9,
+   "saffron_leathery": 0.5
+  },
+  "drydown": {
+   "tobacco_honey": 0.8,
+   "vanilla_gourmand": 0.8,
+   "amber_resin": 0.5
+  }
+ },
+ {
+  "id": "cocomademoiselleintense",
+  "house": "Chanel",
+  "name": "Coco Mademoiselle Intense",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "Sicilian orange, bergamot / rose, jasmine / patchouli, tonka, vanilla, musk, labdanum",
+  "opening": {
+   "citrus_fresh": 0.8
+  },
+  "heart": {
+   "rose": 0.7,
+   "white_floral": 0.5
+  },
+  "drydown": {
+   "patchouli": 0.9,
+   "tonka_coumarin": 0.6,
+   "vanilla_gourmand": 0.6,
+   "white_musk": 0.4,
+   "amber_resin": 0.4
+  }
+ },
+ {
+  "id": "chanelno5",
+  "house": "Chanel",
+  "name": "No 5 Eau de Parfum",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "aldehydes, ylang, neroli, bergamot, lemon / iris, jasmine, rose, lily of the valley / civet, musk, sandalwood, oakmoss, vetiver, vanilla, amber",
+  "opening": {
+   "aldehydes": 1,
+   "white_floral": 0.5,
+   "citrus_fresh": 0.3
+  },
+  "heart": {
+   "iris_powdery": 0.6,
+   "white_floral": 0.6,
+   "rose": 0.6
+  },
+  "drydown": {
+   "animalic": 0.3,
+   "white_musk": 0.5,
+   "sandalwood_creamy": 0.5,
+   "vetiver": 0.3,
+   "vanilla_gourmand": 0.4,
+   "oakmoss_chypre": 0.3
+  }
+ },
+ {
+  "id": "chanceeautendre",
+  "house": "Chanel",
+  "name": "Chance Eau Tendre",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "grapefruit, quince / jasmine, hyacinth / white musk, iris, amber, cedar",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "fruity_sweet": 0.6
+  },
+  "heart": {
+   "white_floral": 0.7
+  },
+  "drydown": {
+   "white_musk": 0.9,
+   "iris_powdery": 0.4,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "jadore",
+  "house": "Dior",
+  "name": "J'adore",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear, melon, magnolia, peach, mandarin, bergamot / jasmine, lily of the valley, tuberose, freesia, rose, orchid, plum, violet / musk, vanilla, blackberry, cedar",
+  "opening": {
+   "fruity_sweet": 0.7,
+   "white_floral": 0.4,
+   "citrus_fresh": 0.3
+  },
+  "heart": {
+   "white_floral": 0.9,
+   "rose": 0.5
+  },
+  "drydown": {
+   "white_musk": 0.7,
+   "vanilla_gourmand": 0.4,
+   "fruity_sweet": 0.3,
+   "cedar_dry": 0.2
+  }
+ },
+ {
+  "id": "missdior",
+  "house": "Dior",
+  "name": "Miss Dior (2021)",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "peony, lily of the valley / rose, iris / musk, vanilla, sandalwood",
+  "opening": {
+   "white_floral": 0.5,
+   "rose": 0.5,
+   "aldehydes": 0.2
+  },
+  "heart": {
+   "rose": 0.8,
+   "iris_powdery": 0.5
+  },
+  "drydown": {
+   "white_musk": 0.7,
+   "vanilla_gourmand": 0.4,
+   "sandalwood_creamy": 0.3
+  }
+ },
+ {
+  "id": "idole",
+  "house": "Lancôme",
+  "name": "Idôle",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear, bergamot, pink pepper / rose, jasmine / white musk, vanilla, cedar",
+  "opening": {
+   "fruity_sweet": 0.6,
+   "citrus_fresh": 0.5,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "rose": 0.9,
+   "white_floral": 0.4
+  },
+  "drydown": {
+   "white_musk": 0.9,
+   "vanilla_gourmand": 0.4,
+   "cedar_dry": 0.2
+  }
+ },
+ {
+  "id": "monparis",
+  "house": "Yves Saint Laurent",
+  "name": "Mon Paris",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "strawberry, raspberry, pear, bergamot, orange / peony, datura, jasmine, orange blossom / patchouli, white musk, ambroxan, cedar",
+  "opening": {
+   "fruity_sweet": 0.9,
+   "citrus_fresh": 0.3
+  },
+  "heart": {
+   "white_floral": 0.6,
+   "rose": 0.3
+  },
+  "drydown": {
+   "patchouli": 0.8,
+   "white_musk": 0.5,
+   "woody_amber": 0.5
+  }
+ },
+ {
+  "id": "libreintense",
+  "house": "Yves Saint Laurent",
+  "name": "Libre Intense",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "mandarin, bergamot, lavender / orange blossom, lavender, jasmine, tuberose / vanilla, tonka, ambergris, vetiver",
+  "opening": {
+   "lavender_aromatic": 0.8,
+   "citrus_fresh": 0.4
+  },
+  "heart": {
+   "white_floral": 1,
+   "lavender_aromatic": 0.4
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "tonka_coumarin": 0.6,
+   "woody_amber": 0.5,
+   "vetiver": 0.2
+  }
+ },
+ {
+  "id": "si",
+  "house": "Giorgio Armani",
+  "name": "Sì",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "blackcurrant, mandarin, bergamot / rose, freesia, neroli / vanilla, patchouli, ambroxan, woods, musk",
+  "opening": {
+   "fruity_sweet": 0.8,
+   "citrus_fresh": 0.3
+  },
+  "heart": {
+   "rose": 0.7,
+   "white_floral": 0.4
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.7,
+   "patchouli": 0.5,
+   "woody_amber": 0.6,
+   "white_musk": 0.4
+  }
+ },
+ {
+  "id": "myway",
+  "house": "Giorgio Armani",
+  "name": "My Way",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "orange blossom, bergamot / tuberose, jasmine / vanilla, white musk, cedar",
+  "opening": {
+   "white_floral": 0.7,
+   "citrus_fresh": 0.4
+  },
+  "heart": {
+   "white_floral": 1
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.8,
+   "white_musk": 0.7,
+   "cedar_dry": 0.3
+  }
+ },
+ {
+  "id": "guccibloom",
+  "house": "Gucci",
+  "name": "Bloom",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "rangoon creeper / tuberose, jasmine / sandalwood, orris",
+  "opening": {
+   "white_floral": 0.5
+  },
+  "heart": {
+   "white_floral": 1
+  },
+  "drydown": {
+   "sandalwood_creamy": 0.5,
+   "white_musk": 0.4,
+   "iris_powdery": 0.3
+  }
+ },
+ {
+  "id": "gucciguilty",
+  "house": "Gucci",
+  "name": "Guilty",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "mandarin, pink pepper / lilac, peach, geranium / amber, patchouli",
+  "opening": {
+   "citrus_fresh": 0.6,
+   "spicy_warm": 0.4
+  },
+  "heart": {
+   "white_floral": 0.5,
+   "fruity_sweet": 0.4,
+   "rose": 0.3
+  },
+  "drydown": {
+   "amber_resin": 0.6,
+   "patchouli": 0.5,
+   "woody_amber": 0.4
+  }
+ },
+ {
+  "id": "floragardenia",
+  "house": "Gucci",
+  "name": "Flora Gorgeous Gardenia",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear, red berries / gardenia, jasmine, frangipani / brown sugar, patchouli, musk",
+  "opening": {
+   "fruity_sweet": 0.8
+  },
+  "heart": {
+   "white_floral": 1
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.6,
+   "patchouli": 0.4,
+   "white_musk": 0.4
+  }
+ },
+ {
+  "id": "paradoxe",
+  "house": "Prada",
+  "name": "Paradoxe",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear, tangerine, bergamot / neroli, jasmine, orange blossom / amber, musk, bourbon vanilla",
+  "opening": {
+   "fruity_sweet": 0.6,
+   "citrus_fresh": 0.4
+  },
+  "heart": {
+   "white_floral": 0.8
+  },
+  "drydown": {
+   "amber_resin": 0.5,
+   "white_musk": 0.7,
+   "vanilla_gourmand": 0.6,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "pradacandy",
+  "house": "Prada",
+  "name": "Candy",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "caramel / musk / benzoin, vanilla",
+  "opening": {
+   "vanilla_gourmand": 0.9
+  },
+  "heart": {
+   "white_musk": 0.8
+  },
+  "drydown": {
+   "amber_resin": 0.8,
+   "vanilla_gourmand": 0.8,
+   "white_musk": 0.5
+  }
+ },
+ {
+  "id": "burberryher",
+  "house": "Burberry",
+  "name": "Her",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "strawberry, raspberry, blackberry, blackcurrant / violet, jasmine / musk, amber, oakmoss",
+  "opening": {
+   "fruity_sweet": 1
+  },
+  "heart": {
+   "iris_powdery": 0.4,
+   "white_floral": 0.4
+  },
+  "drydown": {
+   "white_musk": 0.8,
+   "woody_amber": 0.5,
+   "oakmoss_chypre": 0.2
+  }
+ },
+ {
+  "id": "cloud",
+  "house": "Ariana Grande",
+  "name": "Cloud",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "lavender, pear, bergamot / coconut, praline, vanilla orchid / musk, woods",
+  "opening": {
+   "lavender_aromatic": 0.5,
+   "fruity_sweet": 0.6,
+   "citrus_fresh": 0.3
+  },
+  "heart": {
+   "fruity_sweet": 0.5,
+   "vanilla_gourmand": 0.8
+  },
+  "drydown": {
+   "white_musk": 0.9,
+   "woody_amber": 0.3,
+   "vanilla_gourmand": 0.5
+  }
+ },
+ {
+  "id": "cheirosa62",
+  "house": "Sol de Janeiro",
+  "name": "Cheirosa '62",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pistachio, almond / salted caramel, jasmine / vanilla, sandalwood",
+  "opening": {
+   "fruity_sweet": 0.5,
+   "tonka_coumarin": 0.5
+  },
+  "heart": {
+   "vanilla_gourmand": 0.9,
+   "white_floral": 0.2
+  },
+  "drydown": {
+   "vanilla_gourmand": 1,
+   "sandalwood_creamy": 0.4,
+   "white_musk": 0.3
+  }
+ },
+ {
+  "id": "lovefestcherry",
+  "house": "Kayali",
+  "name": "Lovefest Burning Cherry",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "cherry, pink pepper / rose, raspberry / tonka, ambrette, amber",
+  "opening": {
+   "fruity_sweet": 0.9,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "rose": 0.5,
+   "fruity_sweet": 0.6
+  },
+  "drydown": {
+   "tonka_coumarin": 0.7,
+   "white_musk": 0.4,
+   "amber_resin": 0.5,
+   "vanilla_gourmand": 0.4
+  }
+ },
+ {
+  "id": "scandal",
+  "house": "Jean Paul Gaultier",
+  "name": "Scandal",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "blood orange, mandarin / honey, gardenia, jasmine, peach / caramel, patchouli, licorice, beeswax",
+  "opening": {
+   "citrus_fresh": 0.7
+  },
+  "heart": {
+   "tobacco_honey": 0.9,
+   "white_floral": 0.5,
+   "fruity_sweet": 0.3
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.7,
+   "patchouli": 0.5,
+   "tobacco_honey": 0.6
+  }
+ },
+ {
+  "id": "daisy",
+  "house": "Marc Jacobs",
+  "name": "Daisy",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "strawberry, violet leaf, grapefruit / violet, gardenia, jasmine / musk, vanilla, white woods",
+  "opening": {
+   "fruity_sweet": 0.6,
+   "green_herbal": 0.5,
+   "citrus_fresh": 0.4
+  },
+  "heart": {
+   "iris_powdery": 0.5,
+   "white_floral": 0.6
+  },
+  "drydown": {
+   "white_musk": 0.8,
+   "vanilla_gourmand": 0.3,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "flowerbomb",
+  "house": "Viktor&Rolf",
+  "name": "Flowerbomb",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "tea, bergamot, osmanthus / jasmine, orchid, freesia, rose, orange blossom / patchouli, musk, vanilla",
+  "opening": {
+   "green_herbal": 0.3,
+   "citrus_fresh": 0.3,
+   "white_floral": 0.3
+  },
+  "heart": {
+   "white_floral": 0.8,
+   "rose": 0.5
+  },
+  "drydown": {
+   "patchouli": 0.8,
+   "white_musk": 0.5,
+   "vanilla_gourmand": 0.6
+  }
+ },
+ {
+  "id": "narcisoforher",
+  "house": "Narciso Rodriguez",
+  "name": "For Her Eau de Toilette",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "rose, peach / musk, amber / vetiver, vanilla, musk",
+  "opening": {
+   "rose": 0.5,
+   "fruity_sweet": 0.4
+  },
+  "heart": {
+   "white_musk": 1,
+   "amber_resin": 0.3
+  },
+  "drydown": {
+   "white_musk": 1,
+   "vetiver": 0.3,
+   "vanilla_gourmand": 0.3
+  }
+ },
+ {
+  "id": "chloe",
+  "house": "Chloé",
+  "name": "Chloé Eau de Parfum",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "peony, lychee, freesia / rose, lily of the valley, magnolia / Virginia cedar, amber, honey",
+  "opening": {
+   "rose": 0.4,
+   "fruity_sweet": 0.4,
+   "white_floral": 0.3
+  },
+  "heart": {
+   "rose": 0.9,
+   "white_floral": 0.4
+  },
+  "drydown": {
+   "cedar_dry": 0.5,
+   "amber_resin": 0.4,
+   "white_musk": 0.4,
+   "rose": 0.5
+  }
+ },
+ {
+  "id": "angel",
+  "house": "Mugler",
+  "name": "Angel",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "melon, coconut, mandarin, cassis, cotton candy / honey, apricot, blackberry, plum, orchid, peach, red berries / patchouli, chocolate, caramel, vanilla, tonka, sandalwood, amber, musk",
+  "opening": {
+   "fruity_sweet": 0.7,
+   "vanilla_gourmand": 0.5
+  },
+  "heart": {
+   "tobacco_honey": 0.5,
+   "fruity_sweet": 0.6,
+   "white_floral": 0.3
+  },
+  "drydown": {
+   "patchouli": 1,
+   "coffee_gourmand": 0.6,
+   "vanilla_gourmand": 0.8,
+   "tonka_coumarin": 0.5,
+   "amber_resin": 0.3
+  }
+ },
+ {
+  "id": "linterdit",
+  "house": "Givenchy",
+  "name": "L'Interdit Eau de Parfum",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear, bergamot / tuberose, orange blossom, jasmine / vetiver, patchouli, ambroxan, vanilla",
+  "opening": {
+   "fruity_sweet": 0.5,
+   "citrus_fresh": 0.4
+  },
+  "heart": {
+   "white_floral": 1
+  },
+  "drydown": {
+   "vetiver": 0.5,
+   "patchouli": 0.5,
+   "woody_amber": 0.6,
+   "vanilla_gourmand": 0.4
+  }
+ },
+ {
+  "id": "olympea",
+  "house": "Rabanne",
+  "name": "Olympéa",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "green mandarin, water jasmine, ginger flower / salty vanilla / cashmere wood, sandalwood, ambergris",
+  "opening": {
+   "citrus_fresh": 0.5,
+   "white_floral": 0.5,
+   "aquatic_marine": 0.3
+  },
+  "heart": {
+   "vanilla_gourmand": 0.8,
+   "aquatic_marine": 0.3
+  },
+  "drydown": {
+   "woody_amber": 0.8,
+   "sandalwood_creamy": 0.4,
+   "vanilla_gourmand": 0.5
+  }
+ },
+ {
+  "id": "ladymillion",
+  "house": "Rabanne",
+  "name": "Lady Million",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "raspberry, neroli, bitter orange / orange blossom, jasmine, gardenia / honey, patchouli, amber",
+  "opening": {
+   "fruity_sweet": 0.6,
+   "white_floral": 0.4,
+   "citrus_fresh": 0.4
+  },
+  "heart": {
+   "white_floral": 0.9
+  },
+  "drydown": {
+   "tobacco_honey": 0.8,
+   "patchouli": 0.5,
+   "amber_resin": 0.5
+  }
+ },
+ {
+  "id": "goodgirlblush",
+  "house": "Carolina Herrera",
+  "name": "Good Girl Blush",
+  "gender": "f",
+  "tier": "designer",
+  "conf": 2,
+  "cloneOf": null,
+  "notes": "peony, bergamot / ylang-ylang, jasmine / vanilla, sandalwood, musk",
+  "opening": {
+   "rose": 0.5,
+   "citrus_fresh": 0.3
+  },
+  "heart": {
+   "white_floral": 0.6
+  },
+  "drydown": {
+   "vanilla_gourmand": 0.9,
+   "sandalwood_creamy": 0.4,
+   "white_musk": 0.5
+  }
+ },
+ {
+  "id": "woodsage",
+  "house": "Jo Malone",
+  "name": "Wood Sage & Sea Salt",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "ambrette seeds / sea salt / sage, driftwood",
+  "opening": {
+   "white_musk": 0.5,
+   "animalic": 0.1
+  },
+  "heart": {
+   "aquatic_marine": 0.8,
+   "woody_amber": 0.3
+  },
+  "drydown": {
+   "green_herbal": 0.7,
+   "woody_amber": 0.7,
+   "aquatic_marine": 0.4
+  }
+ },
+ {
+  "id": "englishpear",
+  "house": "Jo Malone",
+  "name": "English Pear & Freesia",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pear / freesia / patchouli, amber, rhubarb, musk",
+  "opening": {
+   "fruity_sweet": 0.9
+  },
+  "heart": {
+   "white_floral": 0.5,
+   "green_herbal": 0.2
+  },
+  "drydown": {
+   "patchouli": 0.5,
+   "amber_resin": 0.4,
+   "white_musk": 0.5,
+   "fruity_sweet": 0.3
+  }
+ },
+ {
+  "id": "peonysuede",
+  "house": "Jo Malone",
+  "name": "Peony & Blush Suede",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "red apple / peony, jasmine, rose, carnation / suede",
+  "opening": {
+   "fruity_sweet": 0.8
+  },
+  "heart": {
+   "rose": 0.6,
+   "white_floral": 0.5
+  },
+  "drydown": {
+   "leather_smoky": 0.6,
+   "white_musk": 0.4,
+   "iris_powdery": 0.2
+  }
+ },
+ {
+  "id": "git",
+  "house": "Creed",
+  "name": "Green Irish Tweed",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "lemon verbena, iris / violet leaf / ambergris, sandalwood",
+  "opening": {
+   "citrus_fresh": 0.6,
+   "green_herbal": 0.5,
+   "iris_powdery": 0.5
+  },
+  "heart": {
+   "green_herbal": 0.9,
+   "iris_powdery": 0.3
+  },
+  "drydown": {
+   "woody_amber": 0.7,
+   "sandalwood_creamy": 0.5,
+   "white_musk": 0.3
+  }
+ },
+ {
+  "id": "smw",
+  "house": "Creed",
+  "name": "Silver Mountain Water",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "bergamot, mandarin / green tea, blackcurrant / musk, sandalwood, petitgrain",
+  "opening": {
+   "citrus_fresh": 0.8,
+   "aquatic_marine": 0.4,
+   "aldehydes": 0.3
+  },
+  "heart": {
+   "green_herbal": 0.6,
+   "fruity_sweet": 0.5
+  },
+  "drydown": {
+   "white_musk": 0.8,
+   "sandalwood_creamy": 0.3,
+   "woody_amber": 0.3
+  }
+ },
+ {
+  "id": "millesimeimperial",
+  "house": "Creed",
+  "name": "Millésime Impérial",
+  "gender": "u",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "lemon, bergamot, mandarin, fruits, sea salt / iris, sea water / musk, sandalwood, ambergris",
+  "opening": {
+   "citrus_fresh": 0.9,
+   "fruity_sweet": 0.5,
+   "aquatic_marine": 0.5
+  },
+  "heart": {
+   "iris_powdery": 0.4,
+   "aquatic_marine": 0.6
+  },
+  "drydown": {
+   "white_musk": 0.7,
+   "woody_amber": 0.5,
+   "sandalwood_creamy": 0.3
+  }
+ },
+ {
+  "id": "viking",
+  "house": "Creed",
+  "name": "Viking",
+  "gender": "m",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "pink pepper, bergamot, lemon / rose, lavender, peppermint / sandalwood, vetiver, patchouli, ambergris",
+  "opening": {
+   "spicy_warm": 0.5,
+   "citrus_fresh": 0.7
+  },
+  "heart": {
+   "rose": 0.5,
+   "lavender_aromatic": 0.4,
+   "green_herbal": 0.4
+  },
+  "drydown": {
+   "sandalwood_creamy": 0.5,
+   "vetiver": 0.5,
+   "patchouli": 0.4,
+   "woody_amber": 0.5
+  }
+ },
+ {
+  "id": "aventusforher",
+  "house": "Creed",
+  "name": "Aventus for Her",
+  "gender": "f",
+  "tier": "niche",
+  "conf": 3,
+  "cloneOf": null,
+  "notes": "apple, pink pepper, bergamot, lemon / rose, musk, sandalwood, peach, blackcurrant / amber, styrax, ylang, lilac, musk",
+  "opening": {
+   "fruity_sweet": 0.7,
+   "citrus_fresh": 0.6,
+   "spicy_warm": 0.3
+  },
+  "heart": {
+   "rose": 0.8,
+   "fruity_sweet": 0.4,
+   "white_musk": 0.3
+  },
+  "drydown": {
+   "amber_resin": 0.5,
+   "white_musk": 0.6,
+   "woody_amber": 0.4,
+   "fruity_sweet": 0.3
+  }
+ }
+]

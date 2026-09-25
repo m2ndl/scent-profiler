@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Rate perfumes you have worn stage by stage and find out which material families ruin them for you. Arabic and English.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Drydown Profiler · محلل القاعدة">
+<meta property="og:description" content="Find what ruins a perfume for you before you buy. اعرف ما يفسد العطر عليك قبل أن تشتري.">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='24' y='6' width='16' height='10' rx='2' fill='%231F6F6B'/%3E%3Crect x='14' y='18' width='36' height='40' rx='6' fill='%231F6F6B'/%3E%3Crect x='21' y='26' width='22' height='24' rx='3' fill='%23DCEBE9'/%3E%3C/svg%3E">
+<!--ARTIFACT:START-->
+<title>Drydown Profiler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Reem+Kufi:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="site.css">
+<!--ARTIFACT:END-->
+</head>
+<body>
+<!--ARTIFACT:START-->
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" id="brand"></a>
+    <nav class="topnav">
+      <a href="articles.html" id="nav-articles"></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="lang-en" aria-pressed="true">English</button>
+        <button type="button" id="lang-ar" aria-pressed="false">العربية</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1 id="h1"></h1>
+    <p id="lede"></p>
+  </div>
+
+  <div class="layout">
+    <div class="work">
+      <section class="block" id="sec-rate">
+        <p class="ask" id="ask"></p>
+        <div class="search">
+          <label class="sr" for="q" id="q-label"></label>
+          <input type="search" id="q" autocomplete="off" spellcheck="false">
+          <div class="results" id="results" hidden></div>
+        </div>
+        <p class="hint" id="hint"></p>
+        <div class="quick" id="quick"></div>
+        <div id="rated"></div>
+      </section>
+
+      <section class="block" id="sec-profile">
+        <h2 id="profile-h"></h2>
+        <p class="lede" id="profile-lede"></p>
+        <div id="profile"></div>
+      </section>
+
+      <section class="block" id="sec-recs">
+        <h2 id="recs-h"></h2>
+        <p class="lede" id="recs-lede"></p>
+        <div id="recs"></div>
+        <div class="actions">
+          <button type="button" class="btn primary" id="share"></button>
+          <button type="button" class="btn" id="reset"></button>
+        </div>
+      </section>
+
+      <details class="method">
+        <summary id="method-s"></summary>
+        <div id="method"></div>
+      </details>
+
+      <footer class="foot" id="foot"></footer>
+    </div>
+
+    <aside class="side">
+      <div class="panel" id="panel"></div>
+    </aside>
+  </div>
+</main>
+<div class="bottombar" id="bottombar" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/mapper.js"></script>
+<script src="js/materials.js"></script>
+<script src="js/evidence.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/app.js"></script>
+<!--ARTIFACT:END-->
+</body>
+</html>

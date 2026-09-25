@@ -1,0 +1,5 @@
+id: sedley
+market: brand site (global)
+date: 2026-09-25
+url: https://www.parfums-de-marly.com/products/sedley
+Alcohol Denat., Parfum (Fragrance), Tetramethyl Acetyloctahydronaphthalenes, Limonene, Citrus Aurantium Bergamia (Bergamot) Peel Oil, Linalyl Acetate, Hexamethylindanopyran, Aqua (Water/Eau), Linalool, Ethylhexyl Methoxycinnamate, Citrus Aurantium Peel Oil, Pinene, Citrus Limon (Lemon) Peel Oil, Alpha-Isomethyl Ionone, Butyl Methoxydibenzoylmethane, Ethylhexyl Salicylate, Coumarin, Lavandula Oil/Extract, Citral, Geraniol, Eugenol, Pelargonium Graveolens Flower Oil, Terpineol, Geranyl Acetate, Beta-Caryophyllene, Rose Ketones, Camphor, Citronellol, Terpinolene, Santalol, Alpha-Terpinene, BHT, Carvone, Farnesol, Mentha Viridis Leaf Oil, CI 60730 (Ext. Violet 2)

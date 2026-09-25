@@ -1,0 +1,716 @@
+[
+ {
+  "id": "aventus",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "4 stars, citrus fougère: good dry citrus-fruity with a warm, spreading aura",
+  "changes": [
+   {
+    "stage": "drydown",
+    "family": "spicy_warm",
+    "from": 0,
+    "to": 0.3,
+    "reason": "The Guide describes a warm, spicy radiance as the scent's main trait, while no stage carries any spice.",
+    "quote": "\"an impressive ability to radiate a warm, spicy aura all around\"",
+    "source": "guide",
+    "confidence": "low"
+   }
+  ],
+  "note": "The Guide calls it a dry citrus-fruity and a citrus fougère, and a second review cites 'Aventus-type dry citrus'; it says nothing about birch smoke, so the leather tags rest on the pyramid alone."
+ },
+ {
+  "id": "hacivat",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars, woody floral: pleasant but holds little interest",
+  "changes": [],
+  "note": "The Guide files it as a woody floral and does not mention the pineapple or the mossy base, so it neither confirms nor contradicts the fruity-chypre tags."
+ },
+ {
+  "id": "erbapura",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "naxos",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "layton",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "herod",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "althair",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "delina",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "br540",
+  "found_in_guide": true,
+  "found_in_chemistry": true,
+  "guide_verdict": "3 stars, fruity cola: a fruity, syrupy oriental, less grand than it claims",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "vanilla_gourmand",
+    "from": 0,
+    "to": 0.5,
+    "reason": "Scent and Chemistry says the Ambroxan core is sweetened with about 3% ethyl maltol (cooked sugar) and the Guide calls it syrupy, yet no stage carries the sugar family.",
+    "quote": "\"sweetened by an outrageous amount of ca. 3% of ethyl maltol\"",
+    "source": "chemistry",
+    "confidence": "high"
+   },
+   {
+    "stage": "drydown",
+    "family": "vanilla_gourmand",
+    "from": 0,
+    "to": 0.5,
+    "reason": "The ethyl maltol dose is described as a structural part of the main accord, so the sugar should persist beside the Ambroxan in the drydown.",
+    "quote": "\"counterbalanced by an even more extreme amount of ethyl maltol\"",
+    "source": "chemistry",
+    "confidence": "medium"
+   },
+   {
+    "stage": "opening",
+    "family": "fruity_sweet",
+    "from": 0,
+    "to": 0.5,
+    "reason": "The Guide's whole description is of a fruit-punch, syrupy smell, while the opening is tagged only saffron and jasmine.",
+    "quote": "\"count on this oriental being a fruity, syrupy experience\"",
+    "source": "guide",
+    "confidence": "medium"
+   }
+  ],
+  "note": "Scent and Chemistry also reports about 12% Evernyl, a synthetic oakmoss material, which would put oakmoss_chypre in the drydown on composition alone; not proposed because neither source describes a mossy smell."
+ },
+ {
+  "id": "grandsoir",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars, woody-amber amber: amber dominated by a harsh woody-amber material",
+  "changes": [
+   {
+    "stage": "drydown",
+    "family": "woody_amber",
+    "from": 0.3,
+    "to": 0.8,
+    "reason": "The Guide says a very large dose of a woody-amber aromachemical dominates the scent, but the drydown tags it at 0.3 under resinous amber.",
+    "quote": "\"a huge dose of some vile woody-amber material\"",
+    "source": "guide",
+    "confidence": "high"
+   },
+   {
+    "stage": "heart",
+    "family": "woody_amber",
+    "from": 0,
+    "to": 0.7,
+    "reason": "The Guide describes the woody-amber as loud enough to cover the rest of the composition, so it belongs in the heart as well.",
+    "quote": "\"the kind that smells like rubbing alcohol played at heavy metal concert volume\"",
+    "source": "guide",
+    "confidence": "high"
+   }
+  ],
+  "note": "The pyramid lists only resinous amber, benzoin, tonka and vanilla; the Guide's category label names woody-amber first."
+ },
+ {
+  "id": "oudwood",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "tobaccovanille",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "ombreleather",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "blackorchid",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars (EDT review), chocolate cucumber: the original accord now feels dated",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "coffee_gourmand",
+    "from": 0,
+    "to": 0.5,
+    "reason": "The Guide names chocolate as the first element of Black Orchid's defining accord, but no stage carries the cacao family.",
+    "quote": "\"The huge chocolate-mothballs-cucumber accord of Black Orchid was a clever idea\"",
+    "source": "guide",
+    "confidence": "medium"
+   }
+  ],
+  "note": "The review is filed under the eau de toilette but describes the 2006 original's accord; the 'mothballs' facet fits the patchouli tags and the 'cucumber' facet has no clear family."
+ },
+ {
+  "id": "sauvageelixir",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "The Guide reviews only the Sauvage EDT and EDP; the Elixir postdates it."
+ },
+ {
+  "id": "sauvageedp",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars, aromatic fougère: a pushy Cool Water imitation",
+  "changes": [],
+  "note": "The Guide's aromatic fougère label fits the lavender and woody-amber tags."
+ },
+ {
+  "id": "bleuedp",
+  "found_in_guide": true,
+  "found_in_chemistry": true,
+  "guide_verdict": "3 stars, citrus fougère: Cool Water and Light Blue clichés made refined",
+  "changes": [],
+  "note": "Both sources class it as a fougère (Scent and Chemistry lists 'Bleu' 2014 among fougères to study) yet no stage carries lavender, tonka or moss; not proposed because neither names those materials in it."
+ },
+ {
+  "id": "diorhommeintense",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Both books discuss only the 2005 Dior Homme (orris, incense, myrrh, cocoa-accented base), not the Intense, so nothing was transferred."
+ },
+ {
+  "id": "yedp",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Scent and Chemistry reports 3% Operanide, a woody-mossy ambergris material, which fits the dominant woody_amber drydown."
+ },
+ {
+  "id": "libre",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "blackopium",
+  "found_in_guide": true,
+  "found_in_chemistry": true,
+  "guide_verdict": "1 star, fruity floral: a derivative linear clone",
+  "changes": [],
+  "note": "The Guide files it as a linear fruity floral and never mentions coffee, while the entry makes coffee the whole heart; Scent and Chemistry only lists it as an oriental to study."
+ },
+ {
+  "id": "cocomademoiselle",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Scent and Chemistry lists it among classic chypres to study without naming its materials; the Guide mentions it only as founder of a school of intersex orientals."
+ },
+ {
+  "id": "lemaleelixir",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Scent and Chemistry analyses the 1995 Le Male (lavender over musk and Iso E Super), not the Elixir, so nothing was transferred."
+ },
+ {
+  "id": "lebeauleparfum",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "swyintensely",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "The Guide reviews only the original Stronger With You; this flanker is not a clone, so nothing was transferred."
+ },
+ {
+  "id": "adgprofumo",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "pradalhomme",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "onemillion",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Scent and Chemistry reports 0.18% Pomarose (apple-rose-dried fruit) set against a blond leather theme, plus Serenolide musk, which fits the rose, spice and leather tags."
+ },
+ {
+  "id": "eros",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "cedratboise",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "arabianstonka",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "oudforgreatness",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "sideeffect",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "interlude",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "reflection",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "angelsshare",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "ombrenomade",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "santal33",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "bythefireplace",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "1 star, clove balsam: a giant scented candle",
+  "changes": [],
+  "note": "The Guide's clove-balsam label fits the spicy opening and balsamic drydown."
+ },
+ {
+  "id": "khamrah",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "yara",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "asad",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "badeealoud",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Notes and tags are identical to Initio Oud for Greatness, but cloneOf is null; check whether the clone link is missing."
+ },
+ {
+  "id": "cdnim",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "The notes mirror Creed Aventus but cloneOf is null; if linked, it would inherit the Guide's Aventus evidence."
+ },
+ {
+  "id": "amberwood",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "kalemat",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "shaghafoud",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "hawas",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "9pm",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "lavieestbelle",
+  "found_in_guide": true,
+  "found_in_chemistry": true,
+  "guide_verdict": "3 stars, peach iris: sugary fruity floral with a cheap, sour iris",
+  "changes": [
+   {
+    "stage": "drydown",
+    "family": "iris_powdery",
+    "from": 0,
+    "to": 0.4,
+    "reason": "The Guide makes iris the note that defines the scent and calls it a linear wall-of-sound perfume, but the entry drops iris entirely after the heart.",
+    "quote": "\"the inclusion of an iris note\"",
+    "source": "guide",
+    "confidence": "medium"
+   },
+   {
+    "stage": "heart",
+    "family": "white_floral",
+    "from": 0.6,
+    "to": 0.3,
+    "reason": "The Guide says jasmine and orange flower are added only in small amounts, while the heart tags white florals at 0.6.",
+    "quote": "\"adds just enough jasmine and orange flower to distinguish it\"",
+    "source": "guide",
+    "confidence": "low"
+   }
+  ],
+  "note": "Scent and Chemistry lists it among classic chypres to study but names no materials; the Guide's 'sugary maltol' supports the high vanilla_gourmand drydown."
+ },
+ {
+  "id": "goodgirl",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "alien",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Scent and Chemistry reports 5.1% Ambrox, which fits the woody_amber heart and drydown; the Guide reviews only the Eau Extraordinaire flanker."
+ },
+ {
+  "id": "hypnoticpoison",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "The Guide only mentions it in passing as 'great', with no description of materials."
+ },
+ {
+  "id": "terredhermes",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [
+   {
+    "stage": "drydown",
+    "family": "oakmoss_chypre",
+    "from": 0,
+    "to": 0.3,
+    "reason": "Scent and Chemistry reports 0.5% tree moss, an oakmoss-type material, which no stage carries.",
+    "quote": "\"more recently 0.5% by Jean-Claude Ellena in 'Terre d'Hermès'\"",
+    "source": "chemistry",
+    "confidence": "medium"
+   },
+   {
+    "stage": "drydown",
+    "family": "woody_amber",
+    "from": 0.5,
+    "to": 0.2,
+    "reason": "Scent and Chemistry gives the full structure as Iso E Super with cedar, vetiver, patchouli, pink pepper and citrus, and names no Ambroxan-type amber.",
+    "quote": "\"a woody concoction of cedarwood, vetiver, and patchouli with a spicy (pink pepper), citrus\"",
+    "source": "chemistry",
+    "confidence": "low"
+   }
+  ],
+  "note": "Scent and Chemistry puts Iso E Super at about 50 to 55% of the formula, so cedar_dry rather than vetiver should probably lead the drydown."
+ },
+ {
+  "id": "gypsywater",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "vanilla28",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "sauvageedt",
+  "found_in_guide": true,
+  "found_in_chemistry": true,
+  "guide_verdict": "3 stars, citrus fruity: brisk and subdued, better than the EDP",
+  "changes": [],
+  "note": "Scent and Chemistry lists 'Sauvage' (2015) among fougères to study, which fits the lavender heart."
+ },
+ {
+  "id": "fahrenheit",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [
+   {
+    "stage": "drydown",
+    "family": "cedar_dry",
+    "from": 0,
+    "to": 0.5,
+    "reason": "Scent and Chemistry reports 25% Iso E Super (compound 6.92/6.93), a long-lasting material the drydown does not carry at all.",
+    "quote": "\"25% of 6.92 / 6.93 already in the earlier woody-violet-leaves creation 'Fahrenheit'\"",
+    "source": "chemistry",
+    "confidence": "high"
+   }
+  ],
+  "note": "Scent and Chemistry also confirms the massive violet-leaf (methyl heptine carbonate) dose and the leathery accord, both already tagged."
+ },
+ {
+  "id": "bleuparfum",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "The Guide reviews only the Bleu de Chanel EDP (3 stars, citrus fougère)."
+ },
+ {
+  "id": "allurehommesport",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Scent and Chemistry reports only 0.11% galbanum in the top, too small to justify a green tag."
+ },
+ {
+  "id": "armanicode",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "adgedt",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Scent and Chemistry names 'Aqua di Giò' (1995), which by date is the women's version, and gives only a trace damascone dose."
+ },
+ {
+  "id": "swy",
+  "found_in_guide": true,
+  "found_in_chemistry": false,
+  "guide_verdict": "2 stars, green woody: clichéd masculine with a faint gourmand heart",
+  "changes": [
+   {
+    "stage": "heart",
+    "family": "vanilla_gourmand",
+    "from": 0,
+    "to": 0.3,
+    "reason": "The Guide places a gourmand accord in the heart, where the entry has none (sweetness starts only in the drydown).",
+    "quote": "\"one in the heart (some sort of gourmand accord)\"",
+    "source": "guide",
+    "confidence": "medium"
+   }
+  ],
+  "note": "The Guide also confirms the sage and violet-leaf top, matching the green opening."
+ },
+ {
+  "id": "lanuit",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "yedt",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "myslf",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "lunarossacarbon",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "lunarossaocean",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "erosflame",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "dylanblue",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ },
+ {
+  "id": "invictus",
+  "found_in_guide": false,
+  "found_in_chemistry": true,
+  "guide_verdict": "",
+  "changes": [],
+  "note": "Scent and Chemistry describes it as marine woody ambery with an extreme dose of Amber Xtreme, which fits the woody_amber drydown and aquatic opening."
+ },
+ {
+  "id": "onemillionelixir",
+  "found_in_guide": false,
+  "found_in_chemistry": false,
+  "guide_verdict": "",
+  "changes": [],
+  "note": ""
+ }
+]

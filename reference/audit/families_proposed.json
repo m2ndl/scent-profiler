@@ -1,0 +1,910 @@
+{
+ "woody_amber": {
+  "en": "Woody ambers (Ambroxan-type)",
+  "ar": "الأخشاب العنبرية الصناعية (نوع أمبروكسان)",
+  "hint_en": "Dry, radiant, slightly sharp 'amberwood' base (Ambroxan and related, stronger synthetics) found in many modern scents; it lasts for hours, and some people can barely smell it.",
+  "hint_ar": "قاعدة خشبية عنبرية قوية وجافة وحادة قليلاً تحت معظم العطور الحديثة. السبب المعتاد لجملة «تحوّل كيميائي بعد ساعة».",
+  "materials": [
+   "(-)-Ambrox / Ambroxan",
+   "Ambrox Super",
+   "Ambrofix",
+   "Cetalox",
+   "Isoambrox",
+   "(-)-alpha-ambrinol",
+   "ambra aldehyde",
+   "Ambrinal",
+   "Amberketal",
+   "Superambrox",
+   "Fixateur 404",
+   "Grisambrol",
+   "Ambropur",
+   "Ambrocenide",
+   "Ambrostar",
+   "Ysamber K",
+   "Karanal",
+   "Spirambrene",
+   "Okoumal",
+   "Ambermax",
+   "Symroxane",
+   "Ambramone",
+   "Acetarolle",
+   "Belambre",
+   "Trisamber",
+   "Amber Xtreme",
+   "Ambertonic",
+   "Timberol",
+   "Dextro Norlimbanol"
+  ]
+ },
+ "white_musk": {
+  "en": "Clean white musks",
+  "ar": "المسك الأبيض النظيف",
+  "hint_en": "Clean-laundry musk: soft, slightly soapy, like freshly ironed cotton; many people cannot smell one or more of these musks.",
+  "hint_ar": "رائحة نظيفة ناعمة تشبه الغسيل، صابونية قليلاً. بعض الناس لا يشمونها أصلاً.",
+  "materials": [
+   "Galaxolide",
+   "Tonalide / Fixolide",
+   "Celestolide",
+   "Phantolide",
+   "Habanolide / Globalide",
+   "ethylene brassylate",
+   "Helvetolide",
+   "Romandolide",
+   "Serenolide",
+   "Sylkolide",
+   "Edenolide",
+   "Musk xylene"
+  ]
+ },
+ "vanilla_gourmand": {
+  "en": "Vanilla and sugar",
+  "ar": "الفانيلا والسكر",
+  "hint_en": "Dessert-sweet vanilla, caramel, praline.",
+  "hint_ar": "فانيلا حلوة كالحلويات، كراميل، برالين.",
+  "materials": [
+   "vanilla abs. Bourbon",
+   "vanillin",
+   "ethyl vanillin",
+   "ethyl maltol",
+   "maltol",
+   "Furaneol",
+   "Cyclotene",
+   "Sotolone"
+  ]
+ },
+ "tonka_coumarin": {
+  "en": "Tonka and hay (coumarin)",
+  "ar": "التونكا والقش (كومارين)",
+  "hint_en": "Warm, almond-hay sweetness; softer than vanilla.",
+  "hint_ar": "دفء حلو يشبه اللوز والقش، أنعم من الفانيلا.",
+  "materials": [
+   "coumarin",
+   "tonka bean abs."
+  ]
+ },
+ "oud_smoky": {
+  "en": "Oud, smoky or medicinal",
+  "ar": "العود المدخن أو الطبي",
+  "hint_en": "The Western-style oud accord: smoky, slightly medicinal, dark wood.",
+  "hint_ar": "العود بالأسلوب الغربي: مدخن، طبي قليلاً، خشب داكن.",
+  "materials": [
+   "cedarwood oil",
+   "rotundone",
+   "Akigalawood"
+  ]
+ },
+ "oud_animalic": {
+  "en": "Oud, animalic",
+  "ar": "العود الحيواني",
+  "hint_en": "Barnyard, leathery, natural-oud character.",
+  "hint_ar": "طابع العود الطبيعي: حيواني وجلدي.",
+  "materials": [
+   "oud oil",
+   "castoreum"
+  ]
+ },
+ "oakmoss_chypre": {
+  "en": "Oakmoss (mossy chypre base)",
+  "ar": "الطحلب (قاعدة الشيبر)",
+  "hint_en": "Damp, earthy tree moss with a faintly bitter, inky note; the base of classic chypre and fougère scents.",
+  "hint_ar": "أرض غابة رطبة، مرارة خضراء، حبرية.",
+  "materials": [
+   "oak moss abs.",
+   "tree moss",
+   "Evernyl (Veramoss)",
+   "Orcinyl 3",
+   "methyl everninate",
+   "ethyl everninate",
+   "3-methoxy-2,5-dimethylphenol"
+  ]
+ },
+ "patchouli": {
+  "en": "Patchouli",
+  "ar": "الباتشولي",
+  "hint_en": "Earthy, dark, slightly camphor-like; the 'dirty' part of many sweet scents.",
+  "hint_ar": "ترابي داكن يشبه الكافور قليلاً؛ الجزء «الوسخ» في كثير من العطور الحلوة.",
+  "materials": [
+   "patchouli oil",
+   "(-)-patchoulol",
+   "nor-patchoulenol",
+   "cypriol oil"
+  ]
+ },
+ "vetiver": {
+  "en": "Vetiver",
+  "ar": "الفيتيفر",
+  "hint_en": "Earthy, rooty wood with a grapefruit-like freshness; some grades smell smoky.",
+  "hint_ar": "خشب جذري عشبي جاف، أحياناً مدخن أو ترابي.",
+  "materials": [
+   "vetiver Haiti oil",
+   "vetiver oil",
+   "vetiveryl acetate",
+   "khusimone",
+   "3-epi-zizaen-2-one"
+  ]
+ },
+ "sandalwood_creamy": {
+  "en": "Creamy sandalwood",
+  "ar": "خشب الصندل الكريمي",
+  "hint_en": "Soft, milky-creamy wood with a faint skin-like note; mostly synthetic today, and some people barely smell it.",
+  "hint_ar": "خشب ناعم حليبي.",
+  "materials": [
+   "sandalwood oil",
+   "(Z)-alpha-santalol",
+   "(Z)-beta-santalol",
+   "Javanol",
+   "Polysantol",
+   "Ebanol",
+   "Sandalore",
+   "Sandranol",
+   "Sandolen"
+  ]
+ },
+ "cedar_dry": {
+  "en": "Dry cedar / Iso E Super",
+  "ar": "الأرز الجاف / إيزو إي سوبر",
+  "hint_en": "Pencil-shavings wood, transparent and dry.",
+  "hint_ar": "خشب يشبه برادة القلم، شفاف وجاف.",
+  "materials": [
+   "cedarwood Virginia oil",
+   "cedarwood Texas oil",
+   "cedarwood Atlas oil",
+   "(+)-alpha-cedrol",
+   "cedryl acetate",
+   "Vertofix Coeur (Lignofix, methyl cedryl ketone)",
+   "Cedramber",
+   "Iso E Super",
+   "arborone",
+   "Georgywood",
+   "guaiac wood oil"
+  ]
+ },
+ "leather_smoky": {
+  "en": "Leather and birch smoke",
+  "ar": "الجلد ودخان البتولا",
+  "hint_en": "Tanned leather and birch-tar smoke: smoky, tarry and sometimes harsh or animal-like.",
+  "hint_ar": "قطراني، مدخن، جلدي.",
+  "materials": [
+   "6-isobutylquinoline",
+   "birch-tar oil",
+   "cade oil",
+   "castoreum",
+   "labdanum",
+   "styrax oil"
+  ]
+ },
+ "incense_resin": {
+  "en": "Incense",
+  "ar": "البخور",
+  "hint_en": "Church incense, frankincense, cold smoke.",
+  "hint_ar": "لبان، بخور، دخان بارد.",
+  "materials": [
+   "olibanum oil",
+   "olibanum resin",
+   "trans-olibanic acids",
+   "Mystikal",
+   "myrrh oil",
+   "opoponax resinoid"
+  ]
+ },
+ "amber_resin": {
+  "en": "Resinous amber (labdanum, benzoin)",
+  "ar": "العنبر الراتنجي (اللبنى، البنزوين)",
+  "hint_en": "Warm, sweet-resinous, balsamic; the classic 'amber'.",
+  "hint_ar": "دافئ، حلو راتنجي، بلسمي؛ «العنبر» الكلاسيكي.",
+  "materials": [
+   "labdanum res.",
+   "labdanum abs.",
+   "labdanum oil",
+   "benzoin res."
+  ]
+ },
+ "aldehydes": {
+  "en": "Aldehydes",
+  "ar": "الألدهيدات",
+  "hint_en": "Waxy, soapy, slightly metallic sparkle at the start of classic floral perfumes (the Chanel No. 5 style), often compared to hot-ironed laundry.",
+  "hint_ar": "فوّار، شمعي، صابوني، كلاسيكي قديم.",
+  "materials": [
+   "aldehyde C-10 (decanal)",
+   "aldehyde C-11",
+   "aldehyde C-12 lauric (dodecanal)",
+   "aldehyde C-12 MNA",
+   "octanal"
+  ]
+ },
+ "white_floral": {
+  "en": "White florals (jasmine, tuberose, orange blossom)",
+  "ar": "الزهور البيضاء (ياسمين، مسك الروم، زهر البرتقال)",
+  "hint_en": "Heavy, sweet jasmine, tuberose and orange-blossom scent; some versions have a faint animal-like note from indole.",
+  "hint_ar": "قوية، كريمية، أحياناً فيها نفحة «غريبة» خفيفة.",
+  "materials": [
+   "jasmin abs. (grandiflorum)",
+   "jasmin Sambac abs.",
+   "benzyl acetate",
+   "1H-indole",
+   "cis-jasmone",
+   "methyl jasmonate",
+   "Hedione",
+   "Hedione HC",
+   "Paradisone",
+   "Jasmolactone",
+   "tuberose abs.",
+   "benzyl salicylate",
+   "delta-decalactone",
+   "methyl anthranilate",
+   "neroli oil",
+   "orange flower abs.",
+   "ylang-ylang oil"
+  ]
+ },
+ "rose": {
+  "en": "Rose",
+  "ar": "الورد",
+  "hint_en": "Rose petals, from fresh, green and lemony to deep, honeyed and jammy; geranium, a greener rose, belongs here too.",
+  "hint_ar": "ورد طازج أو مربّى.",
+  "materials": [
+   "rose oil",
+   "rose abs.",
+   "2-phenylethanol",
+   "citronellol",
+   "geraniol",
+   "nerol",
+   "rose oxide",
+   "nerol oxide",
+   "rose furan",
+   "geranium oil"
+  ]
+ },
+ "iris_powdery": {
+  "en": "Iris and powder",
+  "ar": "السوسن والبودرة",
+  "hint_en": "Cosmetic powder, lipstick, violet.",
+  "hint_ar": "بودرة تجميل، أحمر شفاه، بنفسج.",
+  "materials": [
+   "orris butter",
+   "orris root absolute",
+   "orris resinoid",
+   "alpha-irone",
+   "alpha-ionone",
+   "beta-ionone",
+   "Isoraldeine (gamma-methyl ionone)",
+   "Raldeine (beta-isomethyl ionone)",
+   "heliotropin",
+   "anisaldehyde"
+  ]
+ },
+ "citrus_fresh": {
+  "en": "Citrus",
+  "ar": "الحمضيات",
+  "hint_en": "Bergamot, lemon, grapefruit; usually gone within the hour.",
+  "hint_ar": "برغموت، ليمون، جريب فروت؛ تختفي غالباً خلال ساعة.",
+  "materials": [
+   "bergamot oil",
+   "lemon oil",
+   "orange oil",
+   "bitter orange oil",
+   "mandarin oil",
+   "grapefruit oil",
+   "lime oil",
+   "citral",
+   "limonene",
+   "linalyl acetate",
+   "petitgrain oil"
+  ]
+ },
+ "aquatic_marine": {
+  "en": "Aquatic / marine",
+  "ar": "المائي / البحري",
+  "hint_en": "Salty sea air and watery freshness (Calone); unlike citrus, it does not fade quickly.",
+  "hint_ar": "نسيم بحر، مائي كالشمام.",
+  "materials": [
+   "Calone 1951",
+   "seaweed abs.",
+   "Helional (Tropional)",
+   "Azurone"
+  ]
+ },
+ "fruity_sweet": {
+  "en": "Sweet fruit",
+  "ar": "الفواكه الحلوة",
+  "hint_en": "Ripe or candied fruit: peach, pear, apple, berries, pineapple, cherry-almond and coconut.",
+  "hint_ar": "أناناس، تفاح، توت، جوز هند، لوز.",
+  "materials": [
+   "gamma-undecalactone (aldehyde C-14)",
+   "gamma-octalactone",
+   "aldehyde C-16",
+   "aldehyde C-18",
+   "raspberry ketone",
+   "ethyl methyl butyrate",
+   "hexyl acetate",
+   "amyl acetate",
+   "Agrumex",
+   "benzaldehyde",
+   "Oxane",
+   "Cassis base 345",
+   "cassis bud abs.",
+   "davana oil"
+  ]
+ },
+ "spicy_warm": {
+  "en": "Warm spices",
+  "ar": "التوابل الدافئة",
+  "hint_en": "Sweet, warm kitchen spices: cinnamon, clove, nutmeg.",
+  "hint_ar": "قرفة، هيل، فلفل، جوزة الطيب.",
+  "materials": [
+   "cinnamon bark oil",
+   "cinnamaldehyde",
+   "cinnamic alcohol",
+   "clove bud oil",
+   "eugenol",
+   "nutmeg oil",
+   "cumin oil"
+  ]
+ },
+ "lavender_aromatic": {
+  "en": "Lavender and aromatics",
+  "ar": "اللافندر والأعشاب العطرية",
+  "hint_en": "Lavender and dry herbs such as rosemary, sage, thyme and mint: fresh and slightly camphor-like, the smell of classic men's fougère and lavender soap.",
+  "hint_ar": "رائحة الحلاق، عشبية نظيفة.",
+  "materials": [
+   "lavender oil",
+   "lavandin oil",
+   "spike oil",
+   "linalool",
+   "linalyl acetate",
+   "lavandulyl acetate",
+   "clary sage oil",
+   "rosemary oil",
+   "thyme oil",
+   "eucalyptus oil",
+   "camphor",
+   "peppermint oil",
+   "spearmint oil",
+   "(-)-menthol",
+   "(-)-(R)-carvone",
+   "basil oil",
+   "laurel leaf oil",
+   "artemisia oil",
+   "cedar leaf oil",
+   "coriander oil",
+   "anise seed oil",
+   "anethol",
+   "tarragon oil",
+   "estragol"
+  ]
+ },
+ "green_herbal": {
+  "en": "Green and herbal",
+  "ar": "الأخضر والأعشاب",
+  "hint_en": "Sharp green smell of cut grass, crushed leaves and stems, and galbanum; can be slightly bitter.",
+  "hint_ar": "مريمية، نعناع، عرعر، أوراق مهروسة.",
+  "materials": [
+   "galbanum oil",
+   "(3Z)-hex-3-en-1-ol (leaf alcohol)",
+   "cis-3-hexenyl acetate",
+   "Cyclal C (Ligustral)",
+   "styralyl acetate",
+   "violet leaf abs.",
+   "Undecavertol",
+   "Dynascone",
+   "(2E,6Z)-nona-2,6-dienal",
+   "2-isobutyl-3-methoxypyrazine",
+   "Magnolan",
+   "phenylacetaldehyde"
+  ]
+ },
+ "animalic": {
+  "en": "Animalic (civet, castoreum)",
+  "ar": "الحيواني (زباد، قندس)",
+  "hint_en": "Animal-gland smells (civet, castoreum, now made synthetically): warm fur with a slightly dirty, fecal or leathery note.",
+  "hint_ar": "جلد، فرو، وسخ قليلاً.",
+  "materials": [
+   "civet",
+   "civetone",
+   "castoreum",
+   "musk tincture",
+   "muscopyridine",
+   "1H-indole",
+   "beeswax abs."
+  ]
+ },
+ "tobacco_honey": {
+  "en": "Tobacco and honey",
+  "ar": "التبغ والعسل",
+  "hint_en": "Sweet pipe or cigar tobacco leaf, often with dried-fruit, hay or honey tones.",
+  "hint_ar": "ورق مجفف حلو، عسلي.",
+  "materials": [
+   "megastigmatrienones",
+   "beta-damascenone"
+  ]
+ },
+ "coffee_gourmand": {
+  "en": "Coffee and cacao",
+  "ar": "القهوة والكاكاو",
+  "hint_en": "Roasted coffee and dark cocoa: toasty and bitter-sweet rather than sugary.",
+  "hint_ar": "محمّص، حلو مرّ.",
+  "materials": [
+   "2-furfurylthiol",
+   "guaiacol",
+   "tetramethylpyrazine",
+   "3-ethyl-2,5-dimethylpyrazine",
+   "2-ethyl-3,5-dimethylpyrazine",
+   "2,3,5-trimethylpyrazine (Chocovan base)"
+  ]
+ },
+ "saffron_leathery": {
+  "en": "Saffron",
+  "ar": "الزعفران",
+  "hint_en": "Leathery-metallic, slightly medicinal spice.",
+  "hint_ar": "توابل جلدية معدنية، طبية قليلاً.",
+  "materials": [
+   "saffron oil"
+  ]
+ },
+ "new_muguet_floral": {
+  "en": "Lily of the valley (muguet)",
+  "ar": "",
+  "hint_en": "Fresh, sweet lily-of-the-valley floral, light and clean rather than heavy.",
+  "hint_ar": "",
+  "materials": [
+   "hydroxycitronellal",
+   "Hydroxycitral",
+   "Lyral",
+   "Lilial",
+   "Bourgeonal",
+   "Cyclamen aldehyde",
+   "Florhydral",
+   "Florol",
+   "cis-Mayol",
+   "Super Muguet"
+  ]
+ },
+ "new_damascone_dried_fruit": {
+  "en": "Rose ketones (damascones: dried fruit)",
+  "ar": "",
+  "hint_en": "Jammy dried-fruit smell of plum, raisin and apple with a rosy note, common in Poison-style florals and many modern men's scents.",
+  "hint_ar": "",
+  "materials": [
+   "beta-damascenone",
+   "alpha-damascone",
+   "beta-damascone",
+   "delta-damascone",
+   "isodamascone",
+   "Pomarose"
+  ]
+ },
+ "new_fresh_spice": {
+  "en": "Fresh spices (pepper, cardamom)",
+  "ar": "",
+  "hint_en": "Dry, peppery spices: black and pink pepper, cardamom, ginger; sharp and fresh rather than sweet.",
+  "hint_ar": "",
+  "materials": [
+   "black pepper oil",
+   "pink pepper oil",
+   "rotundone",
+   "rotundol",
+   "Akigalawood",
+   "cardamom oil",
+   "ginger oil",
+   "juniper berry oil"
+  ]
+ },
+ "new_skin_musk": {
+  "en": "Warm skin musks",
+  "ar": "",
+  "hint_en": "Warm, soft, powdery musk that smells like skin, sometimes faintly animal-like.",
+  "hint_ar": "",
+  "materials": [
+   "(-)-(R)-muscone",
+   "muscenone",
+   "Nirvanolide",
+   "Polvolide",
+   "Exaltolide",
+   "Exaltone",
+   "ambrettolide",
+   "Ambrettolide",
+   "Velvione / Ambrettone",
+   "Globanone",
+   "Aurelione",
+   "Cosmone",
+   "Moxalone",
+   "Nebulone",
+   "Cashmeran",
+   "Musk ketone",
+   "Musk ambrette"
+  ]
+ },
+ "_note_to_families": {
+  "amber": [
+   "amber_resin",
+   "woody_amber"
+  ],
+  "ambergris": [
+   "woody_amber"
+  ],
+  "ambroxan": [
+   "woody_amber"
+  ],
+  "amberwood": [
+   "woody_amber"
+  ],
+  "woody amber": [
+   "woody_amber"
+  ],
+  "cashmere wood": [
+   "new_skin_musk",
+   "woody_amber"
+  ],
+  "musk": [
+   "white_musk",
+   "new_skin_musk"
+  ],
+  "white musk": [
+   "white_musk"
+  ],
+  "clean linen": [
+   "white_musk",
+   "aldehydes"
+  ],
+  "ambrette": [
+   "new_skin_musk"
+  ],
+  "vanilla": [
+   "vanilla_gourmand"
+  ],
+  "caramel": [
+   "vanilla_gourmand"
+  ],
+  "cotton candy": [
+   "vanilla_gourmand"
+  ],
+  "praline": [
+   "vanilla_gourmand"
+  ],
+  "tonka bean": [
+   "tonka_coumarin"
+  ],
+  "hay": [
+   "tonka_coumarin"
+  ],
+  "almond": [
+   "tonka_coumarin",
+   "fruity_sweet"
+  ],
+  "heliotrope": [
+   "iris_powdery",
+   "tonka_coumarin"
+  ],
+  "oud": [
+   "oud_smoky",
+   "oud_animalic"
+  ],
+  "agarwood": [
+   "oud_smoky",
+   "oud_animalic"
+  ],
+  "oakmoss": [
+   "oakmoss_chypre"
+  ],
+  "moss": [
+   "oakmoss_chypre"
+  ],
+  "chypre": [
+   "oakmoss_chypre",
+   "patchouli"
+  ],
+  "fougere": [
+   "lavender_aromatic",
+   "tonka_coumarin",
+   "oakmoss_chypre"
+  ],
+  "patchouli": [
+   "patchouli"
+  ],
+  "vetiver": [
+   "vetiver"
+  ],
+  "sandalwood": [
+   "sandalwood_creamy"
+  ],
+  "cedar": [
+   "cedar_dry"
+  ],
+  "woody notes": [
+   "cedar_dry",
+   "woody_amber",
+   "sandalwood_creamy",
+   "vetiver",
+   "patchouli"
+  ],
+  "leather": [
+   "leather_smoky",
+   "saffron_leathery"
+  ],
+  "suede": [
+   "leather_smoky",
+   "iris_powdery"
+  ],
+  "birch": [
+   "leather_smoky"
+  ],
+  "incense": [
+   "incense_resin"
+  ],
+  "frankincense": [
+   "incense_resin"
+  ],
+  "olibanum": [
+   "incense_resin"
+  ],
+  "myrrh": [
+   "incense_resin"
+  ],
+  "labdanum": [
+   "amber_resin",
+   "leather_smoky"
+  ],
+  "cistus": [
+   "amber_resin",
+   "leather_smoky"
+  ],
+  "benzoin": [
+   "amber_resin"
+  ],
+  "balsamic": [
+   "amber_resin",
+   "vanilla_gourmand",
+   "tonka_coumarin"
+  ],
+  "oriental": [
+   "amber_resin",
+   "vanilla_gourmand",
+   "tonka_coumarin"
+  ],
+  "aldehydes": [
+   "aldehydes"
+  ],
+  "jasmine": [
+   "white_floral"
+  ],
+  "tuberose": [
+   "white_floral"
+  ],
+  "orange blossom": [
+   "white_floral",
+   "citrus_fresh"
+  ],
+  "neroli": [
+   "white_floral",
+   "citrus_fresh"
+  ],
+  "ylang-ylang": [
+   "white_floral"
+  ],
+  "lily of the valley": [
+   "new_muguet_floral"
+  ],
+  "muguet": [
+   "new_muguet_floral"
+  ],
+  "rose": [
+   "rose",
+   "new_damascone_dried_fruit"
+  ],
+  "geranium": [
+   "rose"
+  ],
+  "violet": [
+   "iris_powdery"
+  ],
+  "iris": [
+   "iris_powdery"
+  ],
+  "orris": [
+   "iris_powdery"
+  ],
+  "powdery notes": [
+   "iris_powdery",
+   "tonka_coumarin",
+   "new_skin_musk"
+  ],
+  "violet leaf": [
+   "green_herbal"
+  ],
+  "bergamot": [
+   "citrus_fresh"
+  ],
+  "lemon": [
+   "citrus_fresh"
+  ],
+  "orange": [
+   "citrus_fresh"
+  ],
+  "mandarin": [
+   "citrus_fresh"
+  ],
+  "grapefruit": [
+   "citrus_fresh"
+  ],
+  "lime": [
+   "citrus_fresh"
+  ],
+  "yuzu": [
+   "citrus_fresh"
+  ],
+  "petitgrain": [
+   "citrus_fresh"
+  ],
+  "sea notes": [
+   "aquatic_marine"
+  ],
+  "marine": [
+   "aquatic_marine"
+  ],
+  "ozonic": [
+   "aquatic_marine"
+  ],
+  "cucumber": [
+   "green_herbal",
+   "aquatic_marine"
+  ],
+  "melon": [
+   "fruity_sweet",
+   "aquatic_marine"
+  ],
+  "peach": [
+   "fruity_sweet"
+  ],
+  "pear": [
+   "fruity_sweet",
+   "white_musk"
+  ],
+  "apple": [
+   "fruity_sweet",
+   "new_damascone_dried_fruit"
+  ],
+  "plum": [
+   "new_damascone_dried_fruit",
+   "fruity_sweet"
+  ],
+  "dried fruits": [
+   "new_damascone_dried_fruit"
+  ],
+  "raspberry": [
+   "fruity_sweet",
+   "iris_powdery"
+  ],
+  "strawberry": [
+   "fruity_sweet",
+   "vanilla_gourmand"
+  ],
+  "cherry": [
+   "fruity_sweet",
+   "vanilla_gourmand"
+  ],
+  "blackcurrant": [
+   "fruity_sweet"
+  ],
+  "cassis": [
+   "fruity_sweet"
+  ],
+  "pineapple": [
+   "fruity_sweet"
+  ],
+  "coconut": [
+   "fruity_sweet"
+  ],
+  "cinnamon": [
+   "spicy_warm"
+  ],
+  "clove": [
+   "spicy_warm"
+  ],
+  "nutmeg": [
+   "spicy_warm"
+  ],
+  "cardamom": [
+   "new_fresh_spice"
+  ],
+  "pepper": [
+   "new_fresh_spice"
+  ],
+  "pink pepper": [
+   "new_fresh_spice"
+  ],
+  "ginger": [
+   "new_fresh_spice"
+  ],
+  "juniper": [
+   "new_fresh_spice",
+   "lavender_aromatic"
+  ],
+  "saffron": [
+   "saffron_leathery",
+   "leather_smoky"
+  ],
+  "lavender": [
+   "lavender_aromatic"
+  ],
+  "rosemary": [
+   "lavender_aromatic"
+  ],
+  "sage": [
+   "lavender_aromatic"
+  ],
+  "clary sage": [
+   "lavender_aromatic"
+  ],
+  "thyme": [
+   "lavender_aromatic"
+  ],
+  "mint": [
+   "lavender_aromatic"
+  ],
+  "anise": [
+   "lavender_aromatic"
+  ],
+  "galbanum": [
+   "green_herbal"
+  ],
+  "green notes": [
+   "green_herbal"
+  ],
+  "civet": [
+   "animalic"
+  ],
+  "castoreum": [
+   "animalic",
+   "leather_smoky"
+  ],
+  "animalic": [
+   "animalic",
+   "oud_animalic"
+  ],
+  "tobacco": [
+   "tobacco_honey"
+  ],
+  "honey": [
+   "tobacco_honey",
+   "rose"
+  ],
+  "beeswax": [
+   "animalic"
+  ],
+  "coffee": [
+   "coffee_gourmand"
+  ],
+  "cacao": [
+   "coffee_gourmand",
+   "vanilla_gourmand"
+  ],
+  "chocolate": [
+   "coffee_gourmand",
+   "vanilla_gourmand"
+  ],
+  "gourmand": [
+   "vanilla_gourmand",
+   "coffee_gourmand"
+  ]
+ }
+}
