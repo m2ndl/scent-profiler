@@ -17,6 +17,17 @@ test("site/ holds only web files (no notes, sources, books or backend code)", ()
   assert.deepEqual(extra.map(f => path.relative(SITE, f)), []);
 });
 
+test("no file in site/ is empty, and every WebP and PNG ends where its header says (a cut-off write shows as a missing image)", () => {
+  const bad = [];
+  for (const f of walk(SITE)) {
+    const b = fs.readFileSync(f), rel = path.relative(SITE, f), ext = path.extname(f).toLowerCase();
+    if (!b.length) { bad.push(`${rel}: empty`); continue; }
+    if (ext === ".webp" && !(b.toString("latin1", 0, 4) === "RIFF" && b.toString("latin1", 8, 12) === "WEBP" && b.readUInt32LE(4) + 8 === b.length)) bad.push(`${rel}: not a whole WebP`);
+    if (ext === ".png" && !(b.subarray(0, 8).equals(Buffer.from("89504e470d0a1a0a", "hex")) && b.subarray(-12).equals(Buffer.from("0000000049454e44ae426082", "hex")))) bad.push(`${rel}: not a whole PNG`);
+  }
+  assert.deepEqual(bad, []);
+});
+
 test("every local link and script in site/*.html points to a file inside site/", () => {
   for (const page of fs.readdirSync(SITE).filter(f => f.endsWith(".html"))) {
     const html = fs.readFileSync(path.join(SITE, page), "utf8");
