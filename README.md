@@ -99,7 +99,7 @@ node --test tests/*.test.js
 ```
 - `engine.test.js`: 60 seeded rating sets on a frozen 88-perfume catalogue (`tests/fixtures/`) must give the stored profiles, recommendations and one-sample suggestions, and the recommendation rules below must hold. Catalogue edits do not affect it. After an intended engine change, run `node tests/engine.test.js --update` and review the diff of `tests/fixtures/engine_golden.json`.
 - `page.test.js`: the page, run in a stub browser, shows what the engine computes, handles clicks, and with a backend never sends the vendor's note lists back; its "Rate its notes" block writes `noteAnswers`, and loaded after the quiz on the same device it gives the quiz's picks.
-- `quiz.test.js`: the quiz page in the stub browser: the start screen, the grid, verdicts written as ratings, the note rows, the narrowing round, the note picker, taste, complaints and anosmia answers, Back, the result and testers, the events and ratings sent to a backend, the palate name and its text, the comparison line, and the profiler reading the quiz's ratings and `?add=`.
+- `quiz.test.js`: the quiz page in the stub browser: the start screen, the grid and More perfumes, verdicts written as ratings, the note rows, the narrowing round, the note picker, taste, complaints and anosmia answers, Back, the result and testers, the events and ratings sent to a backend, the palate name and its text, the comparison line, and the profiler reading the quiz's ratings and `?add=`.
 - `backend.test.js`: the backend's quiz counts (each device's last result, by palate and deal-breaker) and the funnel built from the screen-reached events.
 - `notes.test.js`: the note rows (cap, order, shop limit, tie rule, note words and their Arabic) and the told items built from the quiz's answers.
 - `site.test.js`: `site/` holds only web files and every link in it resolves inside it; `evidence.js` and the backend's `VERIFIED` list are current; every family and perfume reference resolves.
@@ -188,8 +188,11 @@ with the promise ("Find what ruins a perfume for you"), five of the grid's bottl
 cards, a Start button and, for a returning visitor, a link to rate the samples they tried on their profile
 (`site/profile.html`); it states no time. It then shows twenty well-known
 bottles (`QUIZ.grid` in `site/js/data.js`) and asks which the visitor has worn, or tried on the wrist in a
-shop; its search box adds any other catalogue perfume, with a backend lookup for names outside the
-catalogue. Each tapped bottle gets one verdict, written at once as an ordinary rating into the device store
+shop. "More perfumes" (المزيد من العطور) under the tiles adds the next twenty of `QUIZ.more`, forty bottles in
+all: the best-known perfumes in the Saudi stores' lists that the grid lacks, six of each twenty from the Arab
+houses, one bottle per perfume line, chosen by `tools/select_more.js` (reference/quiz/MORE.md). The narrowing round
+still draws on the grid alone. The search box adds any other catalogue perfume, with a backend lookup for names
+outside the catalogue. Each tapped bottle gets one verdict, written at once as an ordinary rating into the device store
 the profiler reads (`pp_ratings_v1`), so the profiler shows the same bottles as rated cards.
 
 | Verdict | Rating written | `again` | Chips |
@@ -292,6 +295,7 @@ Events (`events` sheet) and the falsifier each one measures (reference/debate/qu
 | Event | n | Measures |
 |---|---|---|
 | `quiz_grid` | bottles tapped, 0 for "None of these" | over half of starters tap no bottle; median taps below two |
+| `grid_more` | the extra bottles now shown (20, then 40) | how far visitors look past the twenty (no falsifier) |
 | `verdict:still`, `verdict:turned`, `verdict:other`, `verdict:shop`, `verdict:unsure` | chips attached; the event goes out when the visitor leaves the bottle, after its note screen | "another reason" under 10 percent of stops; median visitor ticks four or more chips; "I don't remember" over a quarter of verdicts |
 | `when:unsure` | 0 | over half of "turned" verdicts cannot name the stage, so most −2s rest on the drydown default |
 | `notes:<rows answered>`, `notes:skip`, `notes:skipall` | rows on the screen | median answered rows under one per note screen, or skip and skip-all together over half of note screens; with the ratings rows, a note answer's sign contradicts a later profiler rating of that stage over a quarter of the time |

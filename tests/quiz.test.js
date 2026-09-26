@@ -84,6 +84,46 @@ test("the front page (the quiz) loads its scripts in order and the grid shows th
   assert.match(t2, /data-tile="yara" aria-pressed="true">/);
 });
 
+test("More perfumes adds the QUIZ.more bottles after the grid, twenty at a time, and a picked one is asked about in tile order", () => {
+  const page = open({ endpoint: ENDPOINT });
+  const tiles = p => [...p.snapshot().els.tiles.innerHTML.matchAll(/data-tile="([^"]+)"/g)].map(m => m[1]);
+  const button = p => p.snapshot().els["grid-more"].innerHTML;
+  assert.ok(D.QUIZ.more.length > 20, "more than one press of bottles");
+  let shown = 0;
+  while (shown < D.QUIZ.more.length) {
+    const n = Math.min(20, D.QUIZ.more.length - shown);
+    assert.match(button(page), new RegExp(`<button type="button" class="btn" data-gmore="1">More perfumes \\(${n}\\)</button>`));
+    page.click({ dataset: { gmore: "1" } }); shown += n;
+    assert.deepEqual(tiles(page), [...D.QUIZ.grid, ...D.QUIZ.more.slice(0, shown)]);
+  }
+  assert.equal(button(page), "", "no button once every bottle is shown");
+  page.click({ dataset: { gmore: "1" } });
+  assert.deepEqual(tiles(page), [...D.QUIZ.grid, ...D.QUIZ.more], "a late press adds nothing");
+  assert.deepEqual(events(page), [20, 40].filter(k => k <= D.QUIZ.more.length).map(k => ["grid_more", k]), "one event per press");
+
+  const ar = open({ localStorage: seed({ pp_lang: JSON.stringify("ar") }) });
+  assert.match(button(ar), /data-gmore="1">المزيد من العطور \(20\)</);
+
+  /* a bottle picked through the search sits after the tiles until More shows it in its own place, once */
+  const later = D.QUIZ.more[D.QUIZ.more.length - 1], p2 = open();
+  p2.click({ dataset: { add: later } });
+  assert.deepEqual(tiles(p2), [...D.QUIZ.grid, later]);
+  while (button(p2)) p2.click({ dataset: { gmore: "1" } });
+  assert.deepEqual(tiles(p2), [...D.QUIZ.grid, ...D.QUIZ.more]);
+  assert.match(p2.snapshot().els.tiles.innerHTML, new RegExp(`data-tile="${later}" aria-pressed="true"`));
+
+  /* the verdicts follow the tiles' order: the grid's pick, then the added one */
+  const p3 = open(), first = D.QUIZ.more[0];
+  p3.click({ dataset: { gmore: "1" } });
+  p3.click({ dataset: { tile: first } });
+  p3.click({ dataset: { tile: "yara" } });
+  p3.click({ dataset: { continue: "1" } });
+  assert.match(html(p3), new RegExp(`<h1 class="qname">${reEsc(esc(E.byId.yara.name))}</h1>`));
+  p3.click({ dataset: { verdict: "still" } });
+  p3.click({ dataset: { continue: "1" } });
+  assert.match(html(p3), new RegExp(`<h1 class="qname">${reEsc(esc(E.byId[first].name))}</h1>`));
+});
+
 test("two bottles: verdicts written as ratings, a narrowing round, then the told questions and the result", () => {
   const page = open();
   twoBottles(page);

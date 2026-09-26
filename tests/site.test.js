@@ -90,6 +90,20 @@ test("the quiz grid and testers name catalogue perfumes, and each tester's drydo
   assert.deepEqual(bad, []);
 });
 
+test("QUIZ.more names distinct catalogue perfumes the grid lacks, each with a bottle photo, never a clone beside its original", () => {
+  const W = loadSite("data", "bottles");
+  const D = W.PP_DATA, byId = Object.fromEntries(D.PERFUMES.map(p => [p.id, p])), shown = D.QUIZ.grid.concat(D.QUIZ.more), bad = [];
+  if (!D.QUIZ.more.length || new Set(D.QUIZ.more).size !== D.QUIZ.more.length) bad.push("QUIZ.more needs distinct ids");
+  for (const id of D.QUIZ.more) {
+    if (!byId[id]) { bad.push(`unknown ${id}`); continue; }
+    if (D.QUIZ.grid.includes(id)) bad.push(`${id} is in the grid already`);
+    if (!W.PP_BOTTLES[id]) bad.push(`${id} has no bottle photo`);
+    if (byId[id].cloneOf && shown.includes(byId[id].cloneOf)) bad.push(`${id} is shown beside its original ${byId[id].cloneOf}`);
+    for (const o of shown) if (byId[o] && byId[o].cloneOf === id) bad.push(`${id} is shown beside its clone ${o}`);
+  }
+  assert.deepEqual(bad, []);
+});
+
 test("the note picker: five screens of at most twenty cards, unique ids, every note maps to a family some perfume holds at 0.4 or more, and every such family has a card", () => {
   const W = loadSite("data", "mapper", "materials", "evidence", "engine");
   const D = W.PP_DATA, E = W.PP_ENGINE.create(D, W.PP_MAP, W.PP_EVIDENCE);

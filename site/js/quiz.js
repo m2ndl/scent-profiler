@@ -19,11 +19,11 @@
   /* ---------- i18n: this page's words; page.js holds the ones both pages show ---------- */
   const T = PAGE.words({
     en: {
-      navProfiler: "Your profile", 
+      navProfiler: "Your profile",
       gridQ: "Which of these have you tried?",
       gridHint: "On skin or clothes, at home or in a shop; a sniff from a paper strip doesn't count. Next, you say how each one ended for you.",
       qLabel: "Search for another perfume", q: "Not here? Type a perfume or a house",
-      none: "None of these", cont: n => (n ? `Continue with ${n}` : "Continue"),
+      none: "None of these", cont: n => (n ? `Continue with ${n}` : "Continue"), more: n => `More perfumes (${n})`,
       rated: "already rated", ratedToast: "Already rated on your profile.",
       notFound: "Not found. You can add it by name on your profile.",
       part: (i, name) => `Part ${i} of 4 · ${name}`, parts: ["Your bottles", "Notes you know", "Sweet or bitter", "What bothers you"], back: "Back",
@@ -108,11 +108,11 @@
       anosmiaNote: name => `Musks and woody ambers may be hard for you to judge: some people barely smell them even when others can. A sample of ${name}, whose base is mostly white musk, shows whether you can.`,
     },
     ar: {
-      navProfiler: "ملفك العطري", 
+      navProfiler: "ملفك العطري",
       gridQ: "أيّ هذه العطور جرّبتها؟",
       gridHint: "على البشرة أو على الثياب، في البيت أو في المتجر؛ شمّ الورقة لا يُحسب. بعدها تخبرنا كيف انتهى كل عطر منها معك.",
       qLabel: "ابحث عن عطر آخر", q: "ليس هنا؟ اكتب اسم عطر أو دار",
-      none: "لا شيء منها", cont: n => (n ? `تابع (${n})` : "تابع"),
+      none: "لا شيء منها", cont: n => (n ? `تابع (${n})` : "تابع"), more: n => `المزيد من العطور (${n})`,
       rated: "قيّمته من قبل", ratedToast: "قيّمته من قبل في ملفك العطري.",
       notFound: "لم نجده. يمكنك إضافته باسمه في ملفك العطري.",
       part: (i, name) => `الجزء ${i} من 4 · ${name}`, parts: ["عطورك", "نوتات تعرفها", "حلو أو مرّ", "ما يزعجك"], back: "رجوع",
@@ -218,7 +218,8 @@
      (notes you know); taste (sweet or bitter); told and anosmia (what bothers you); then the result */
   let step = "start";
   const picked = new Set();     /* grid and search bottles tapped on the first screen */
-  const extra = [];             /* bottles added through the search, shown after the twenty */
+  const extra = [];             /* bottles added through the search, shown after the grid's */
+  let moreShown = 0;            /* QUIZ.more bottles shown after the twenty: "More perfumes" adds twenty at a time */
   let queue = [], at = 0, round = 1;
   const ans = {};               /* id -> { verdict, stage, when, chips, na, un } for bottles answered on this visit (na, un: note answers) */
   const prior = {};             /* id -> the record before this visit's first verdict, restored by "another reason" */
@@ -434,7 +435,7 @@
     if (!byId[id] && !AUTO[id]) return;
     const q = $("q"); if (q) q.value = ""; showResults([]);
     if (ratedBefore(id)) { toast(t().ratedToast); return; }
-    if (!QUIZ.grid.includes(id) && !extra.includes(id)) extra.push(id);
+    if (!gridIds().includes(id) && !extra.includes(id)) extra.push(id);
     picked.add(id);
     renderGridParts();
   }
@@ -482,16 +483,24 @@
       <p class="qsteps-h">${esc(t().startParts)}</p><ol class="qsteps">${t().parts.map((name, i) => `<li><b>${i + 1}</b><span>${esc(name)}</span></li>`).join("")}</ol>
       <p class="qreturn"><a href="${esc(profilerHref())}">${esc(t().startBack)}</a></p></div>` + foot();
   }
+  /* The grid's bottles on screen: the twenty, the QUIZ.more bottles "More perfumes" has added, then the ones picked
+     through the search that neither holds. */
+  const MORE_STEP = 20;
+  const gridIds = () => QUIZ.grid.concat(QUIZ.more.slice(0, moreShown));
+  const tileIds = () => { const ids = gridIds(); return ids.concat(extra.filter(id => !ids.includes(id))); };
   /* The grid screen keeps its search box across tile taps: only the tiles and the buttons are redrawn. */
   function gridHtml() {
     return topHtml() + `<div class="hero"><h1>${esc(t().gridQ)}</h1><p>${esc(t().gridHint)}</p></div>
       <div class="qgrid" id="tiles"></div>
+      <div class="qmore" id="grid-more"></div>
       <div class="search qsearch"><label class="sr" for="q">${esc(t().qLabel)}</label><input type="search" id="q" autocomplete="off" spellcheck="false" placeholder="${esc(t().q)}"><div class="results" id="results" hidden></div></div>
       <div class="qactions" id="grid-actions"></div>` + foot();
   }
   function renderGridParts() {
-    const tiles = $("tiles"), actions = $("grid-actions"); if (!tiles || !actions) return;
-    tiles.innerHTML = QUIZ.grid.concat(extra).map(id => tileHtml(id, picked.has(id))).join("");
+    const tiles = $("tiles"), more = $("grid-more"), actions = $("grid-actions"); if (!tiles || !actions) return;
+    tiles.innerHTML = tileIds().map(id => tileHtml(id, picked.has(id))).join("");
+    const left = QUIZ.more.length - moreShown;
+    if (more) more.innerHTML = left > 0 ? `<button type="button" class="btn" data-gmore="1">${esc(t().more(Math.min(MORE_STEP, left)))}</button>` : "";
     actions.innerHTML = `<button type="button" class="btn" data-none="1">${esc(t().none)}</button><button type="button" class="btn primary" data-continue="1">${esc(t().cont(picked.size))}</button>`;
   }
   let boundQ = null;
@@ -1025,6 +1034,11 @@
     if (d.sharecard) { shareCard(); return; }
     if (d.event) { const [kind, id] = d.event.split(":"); sendEvent(d.event, d.note ? 0 : (kind === "tester" ? shown.testers : shown.picks).indexOf(id) + 1); return; }
     if (d.add) { if (step === "grid") addPick(d.add); return; }
+    /* "More perfumes": the next twenty of QUIZ.more join the grid; the event counts how far visitors look */
+    if (d.gmore && step === "grid") {
+      const n = Math.min(MORE_STEP, QUIZ.more.length - moreShown); if (n <= 0) return;
+      moreShown += n; sendOnce("grid_more:" + moreShown, "grid_more", moreShown); renderGridParts(); return;
+    }
     if (d.tile) {
       if (step === "grid" && !ratedBefore(d.tile)) { if (picked.has(d.tile)) picked.delete(d.tile); else picked.add(d.tile); renderGridParts(); }
       if (step === "narrow" && narrow.some(c => c.id === d.tile)) { if (narrowPicked.has(d.tile)) narrowPicked.delete(d.tile); else narrowPicked.add(d.tile); render(); }
@@ -1037,7 +1051,7 @@
     if (d.continue) {
       if (step === "grid") {
         const from = snap();
-        queue = QUIZ.grid.concat(extra).filter(id => picked.has(id) && !ratedBefore(id)); at = 0; round = 1;
+        queue = tileIds().filter(id => picked.has(id) && !ratedBefore(id)); at = 0; round = 1;
         sendOnce("quiz_grid", "quiz_grid", queue.length);
         if (queue.length) go("verdicts", from); else toPicker(from);
       } else if (step === "verdicts" && ans[queue[at]]) { const v = ans[queue[at]].verdict; if (v === "turned" || v === "shop") toNotes(); else advance(); }

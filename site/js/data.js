@@ -85,6 +85,14 @@ window.PP_DATA = (function () {
   const QUIZ = {
     grid: ["sauvageedp", "bleuedp", "eros", "cdnim", "hawas", "khamrah", "yara", "libre", "blackopium", "goodgirl",
       "cocomademoiselle", "lavieestbelle", "br540", "interlude", "santal33", "oudwood", "badeealoud", "adgedt", "aventus", "invictus"],
+    /* "More perfumes" on the grid screen adds these after the grid, twenty at a time: the best-known perfumes in the
+       Saudi stores' lists that the grid lacks, chosen by tools/select_more.js (reference/quiz/MORE.md). */
+    more: ["swyintensely", "missdiorbloomingbouquet", "jovanmusk", "ckbeauty", "yedp", "interditrouge", "idole", "paradoxe",
+      "lemaleleparfum", "onemillion", "bossbottlednight", "explorer", "ombreleather", "guccibloom", "9pm", "reef33",
+      "sacrificeforher", "evokeforher", "supremacycollector", "qaedalfursan",
+      "dylanblue", "noirextreme", "allurehommesport", "floragardenia", "valentinodonnaborninroma", "crystalnoir", "paradiso",
+      "quatre", "gentlemanedpboisee", "hypnoticpoison", "spicebombextreme", "narcisoforher", "chanceeautendreedp", "legend",
+      "najdia", "shuhrah", "onlywhite", "jannetelfirdauswhite", "puremusk", "emotion"],
     testers: [
       { id: "sauvageedp", family: "woody_amber" },
       { id: "narcisoforher", family: "white_musk" },

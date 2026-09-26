@@ -1,0 +1,420 @@
+{
+ "source": "reference/expansion/resolved.json unresolved rows, matched to the catalogue by match_popularity.py's matcher",
+ "perfumes": {
+  "9pm": [
+   {
+    "source": "goldenscent",
+    "list": "best",
+    "rank": 808,
+    "count": null,
+    "signal": null,
+    "text": "Afnan 9:00 PM Eau de Parfum For Men"
+   },
+   {
+    "source": "noon",
+    "list": "ep",
+    "rank": 10,
+    "count": 4000,
+    "signal": {
+     "best_in_category": 6,
+     "sold_recently": 1100
+    },
+    "text": "AFNAN 9 PM Edition For Men Eau De Parfum 100ml",
+    "read": "'Edition' is the seller's wording, as on the Amazon.sa rows match_popularity.py reads"
+   }
+  ],
+  "ameeraloudh": [
+   {
+    "source": "amazon",
+    "list": "men",
+    "rank": 51,
+    "count": 6729,
+    "signal": null,
+    "text": "Ameer Al Oud Intense Oud For Unisex By Lattafa Eau De Parfum - 100ML"
+   }
+  ],
+  "aroubjazal": [
+   {
+    "source": "niceone",
+    "list": "men",
+    "rank": 1,
+    "count": 442,
+    "signal": null,
+    "text": "aroub jazal eau de parfum"
+   },
+   {
+    "source": "niceone",
+    "list": "unisex",
+    "rank": 2,
+    "count": 442,
+    "signal": null,
+    "text": "aroub jazal eau de parfum"
+   },
+   {
+    "source": "niceone",
+    "list": "women",
+    "rank": 17,
+    "count": 442,
+    "signal": null,
+    "text": "aroub jazal eau de parfum"
+   }
+  ],
+  "bossinmotion": [
+   {
+    "source": "niceone",
+    "list": "men",
+    "rank": 171,
+    "count": 3,
+    "signal": null,
+    "text": "hugo boss in motion for men eue de toilette",
+    "read": "'eue' is a typo for eau"
+   }
+  ],
+  "bythefireplace": [
+   {
+    "source": "niceone",
+    "list": "unisex",
+    "rank": 138,
+    "count": 9,
+    "signal": null,
+    "text": "maison margiela replica by the fireplace eau de toilette"
+   },
+   {
+    "source": "niceone",
+    "list": "unisex",
+    "rank": 151,
+    "count": 9,
+    "signal": null,
+    "text": "maison margiela replica by the fireplace eau de toilette"
+   }
+  ],
+  "diorhommeintense": [
+   {
+    "source": "faces",
+    "list": "best",
+    "rank": 6,
+    "count": 463,
+    "signal": null,
+    "text": "Dior Homme Intense Eau de Parfum Men Perfume"
+   }
+  ],
+  "elizarde5thavenue": [
+   {
+    "source": "noon",
+    "list": "ep",
+    "rank": 186,
+    "count": 1100,
+    "signal": {
+     "best_in_category": 43,
+     "sold_recently": null
+    },
+    "text": "Elizabeth Arden 5Th Avenue Edp Spray Lilial Free 125ml",
+    "read": "'Lilial Free' marks the reformulated bottle of the same perfume"
+   }
+  ],
+  "floragorgeousorchid": [
+   {
+    "source": "niceone",
+    "list": "women",
+    "rank": 144,
+    "count": 1,
+    "signal": null,
+    "text": "gucci flora gorgeous orchid eau de pafrum",
+    "read": "'pafrum' is a typo for parfum"
+   }
+  ],
+  "jazzclub": [
+   {
+    "source": "niceone",
+    "list": "men",
+    "rank": 128,
+    "count": 13,
+    "signal": null,
+    "text": "maison margiela replica jazz club for men eau de toilette"
+   },
+   {
+    "source": "noon",
+    "list": "et",
+    "rank": 91,
+    "count": 479,
+    "signal": {
+     "best_in_category": 36,
+     "sold_recently": 20
+    },
+    "text": "Maison Margiela Replica Jazz Club Perfume EDT 100ml"
+   }
+  ],
+  "jovanmusk": [
+   {
+    "source": "amazon",
+    "list": "women",
+    "rank": 1,
+    "count": 2290,
+    "signal": null,
+    "text": "Jovan Musk Cologne Concentrate Spray For Women - 59 ml",
+    "read": "Jovan Musk for Women is sold as a cologne concentrate"
+   },
+   {
+    "source": "amazon",
+    "list": "all",
+    "rank": 2,
+    "count": 2290,
+    "signal": null,
+    "text": "Jovan Musk Cologne Concentrate Spray For Women - 59 ml",
+    "read": "the same listing as women #1"
+   }
+  ],
+  "justcavalli": [
+   {
+    "source": "niceone",
+    "list": "women",
+    "rank": 223,
+    "count": 47,
+    "signal": null,
+    "text": "roberto cavalli just cavalli just for women eau detoilette",
+    "read": "'detoilette' is a typo for de toilette"
+   }
+  ],
+  "khamrah": [
+   {
+    "source": "amazon",
+    "list": "all",
+    "rank": 1,
+    "count": 37889,
+    "signal": null,
+    "text": "Lattafa Khamra Perfume for Unisex Eau De Parfum 100ML | Natural Spray, Long-Lasting Scent, Unisex"
+   },
+   {
+    "source": "amazon",
+    "list": "women",
+    "rank": 3,
+    "count": 37889,
+    "signal": null,
+    "text": "Lattafa Khamra Perfume for Unisex Eau De Parfum 100ML | Natural Spray, Long-Lasting Scent, Unisex"
+   }
+  ],
+  "khamrahqahwa": [
+   {
+    "source": "amazon",
+    "list": "men",
+    "rank": 7,
+    "count": 10705,
+    "signal": null,
+    "text": "Lattafa Khamra Qahwa Perfume for Unisex Eau De Parfum 100ML"
+   }
+  ],
+  "lazysunday": [
+   {
+    "source": "niceone",
+    "list": "unisex",
+    "rank": 152,
+    "count": 2,
+    "signal": null,
+    "text": "perfume unisex perfumes maison margiela replica lazy sunday morning eau de toilette"
+   }
+  ],
+  "lhommeidealedp": [
+   {
+    "source": "niceone",
+    "list": "men",
+    "rank": 16,
+    "count": 72,
+    "signal": null,
+    "text": "guerlain l homme idal for men 100ml eau de parfum"
+   }
+  ],
+  "libreedt": [
+   {
+    "source": "niceone",
+    "list": "women",
+    "rank": 266,
+    "count": 115,
+    "signal": null,
+    "text": "yves saint libre for women eau de toilette"
+   },
+   {
+    "source": "niceone",
+    "list": "women",
+    "rank": 275,
+    "count": 115,
+    "signal": null,
+    "text": "yves saint libre for women eau de toilette"
+   }
+  ],
+  "liquidbrun": [
+   {
+    "source": "amazon",
+    "list": "men",
+    "rank": 6,
+    "count": 4690,
+    "signal": null,
+    "text": "French Avenue - Liquid Brun by Fragrance World for Men - 100mlEDP Spray"
+   },
+   {
+    "source": "amazon",
+    "list": "all",
+    "rank": 12,
+    "count": 4690,
+    "signal": null,
+    "text": "French Avenue - Liquid Brun by Fragrance World for Men - 100mlEDP Spray"
+   }
+  ],
+  "mexicantobacco": [
+   {
+    "source": "niceone",
+    "list": "men",
+    "rank": 187,
+    "count": 5,
+    "signal": null,
+    "text": "ibraheem al qurashi mexican tobacco extriat de parfum 100 ml",
+    "read": "'extriat' is a typo for extrait"
+   }
+  ],
+  "missdiorbloomingbouquet": [
+   {
+    "source": "sephora",
+    "list": "best",
+    "rank": 12,
+    "count": 3185,
+    "signal": null,
+    "text": "Miss Dior Blooming Bouquet - Limited Edition",
+    "read": "the same perfume in a limited-edition bottle"
+   }
+  ],
+  "monguerlainsparklingbouquet": [
+   {
+    "source": "niceone",
+    "list": "women",
+    "rank": 267,
+    "count": 27,
+    "signal": null,
+    "text": "mon guerlain sparkling bouquet for women eau de parfum"
+   }
+  ],
+  "ombreleather": [
+   {
+    "source": "goldenscent",
+    "list": "best",
+    "rank": 452,
+    "count": null,
+    "signal": null,
+    "text": "Tom Ford Ombre Leather EDP Eau de Parfum For Men and Women"
+   },
+   {
+    "source": "goldenscent",
+    "list": "best",
+    "rank": 792,
+    "count": null,
+    "signal": null,
+    "text": "Tom Ford Ombre Leather EDP - 50 ml Eau De Parfum For Men and Women"
+   },
+   {
+    "source": "goldenscent",
+    "list": "best",
+    "rank": 865,
+    "count": null,
+    "signal": null,
+    "text": "Tom Ford Ombre Leather EDP - 100 ml Eau de Parfum For Men and Women"
+   },
+   {
+    "source": "niceone",
+    "list": "unisex",
+    "rank": 22,
+    "count": 170,
+    "signal": null,
+    "text": "tom ford ombre leather eau de perfum"
+   },
+   {
+    "source": "niceone",
+    "list": "women",
+    "rank": 82,
+    "count": 170,
+    "signal": null,
+    "text": "tom ford ombre leather eau de perfum"
+   },
+   {
+    "source": "noon",
+    "list": "ep",
+    "rank": 408,
+    "count": 388,
+    "signal": {
+     "best_in_category": null,
+     "sold_recently": null
+    },
+    "text": "TOM FORD Ombre Leather EDP 100ml"
+   }
+  ],
+  "qaedalfursan": [
+   {
+    "source": "amazon",
+    "list": "men",
+    "rank": 78,
+    "count": 5564,
+    "signal": null,
+    "text": "Lattafa Qaid Al Fursan for Men Eau de Perfume 90ml,"
+   }
+  ],
+  "ramzlattafagold": [
+   {
+    "source": "noon",
+    "list": "ep",
+    "rank": 257,
+    "count": 754,
+    "signal": {
+     "best_in_category": null,
+     "sold_recently": null
+    },
+    "text": "Lattafa Ramz EDP 100ml"
+   }
+  ],
+  "reef33": [
+   {
+    "source": "amazon",
+    "list": "all",
+    "rank": 21,
+    "count": 278,
+    "signal": null,
+    "text": "REEF 33 Eau de Parfum unisex,100 ml – Oriental Luxury Fragrance",
+    "read": "'Oriental Luxury Fragrance' is the listing's description"
+   }
+  ],
+  "sacrificeforher": [
+   {
+    "source": "amazon",
+    "list": "women",
+    "rank": 16,
+    "count": 851,
+    "signal": null,
+    "text": "Ajmal Sacrifice Perfume for Women - Eau de Parfum 50ml - Floral Perfume",
+    "read": "'Floral Perfume' is the listing's description"
+   }
+  ],
+  "sculpturehomme": [
+   {
+    "source": "noon",
+    "list": "et",
+    "rank": 199,
+    "count": 71,
+    "signal": {
+     "best_in_category": null,
+     "sold_recently": 10
+    },
+    "text": "Nikos Sculpture Edt For Men Eau Toilette 100ml"
+   }
+  ],
+  "shaghafoudaswad": [
+   {
+    "source": "noon",
+    "list": "ep",
+    "rank": 263,
+    "count": 295,
+    "signal": {
+     "best_in_category": null,
+     "sold_recently": null
+    },
+    "text": "SWISS ARABIAN Shaghaf Oud Aswad Unisex, Eue De Parfum 75ml",
+    "read": "'Eue' is a typo for eau"
+   }
+  ]
+ }
+}
