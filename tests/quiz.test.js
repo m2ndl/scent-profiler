@@ -834,3 +834,42 @@ test("an avoided note keeps perfumes it leads out of the picks, unless a kept bo
   assert.ok(E.ruledOut(prof, N.avoidedNotes({ notes: { musk: -1 } })).includes("rosesmusk"));
   assert.ok(!E.ruledOut(prof).includes("rosesmusk"), "without the avoided note, nothing is ruled out");
 });
+
+test("a partner statement set in config.js closes the footer of both pages in the page language; none when it is empty", () => {
+  const withStatement = (list, d) => list.map(s => s.filename === "js/config.js" ? Object.assign({}, s, { code: s.code + `\nwindow.PP_CONFIG.disclosure = ${JSON.stringify(d)};` }) : s);
+  const d = { en: "As a partner I earn from qualifying purchases.", ar: "بصفتي شريكًا أكسب من عمليات الشراء المؤهلة." };
+  const footOf = h => /<footer class="foot">([\s\S]*?)<\/footer>/.exec(h)[1];
+  for (const l of ["en", "ar"]) {
+    const quiz = createPage({ localStorage: seed({ pp_lang: JSON.stringify(l) }) });
+    quiz.load(withStatement(quizScripts, d)); start(quiz);
+    assert.ok(footOf(html(quiz)).endsWith(`<p>${esc(d[l])}</p>`), `quiz footer (${l})`);
+    const prof = createPage({ localStorage: seed({ pp_lang: JSON.stringify(l) }) });
+    prof.load(withStatement(appScripts, d));
+    assert.ok(prof.snapshot().els.foot.innerHTML.endsWith(`<p>${esc(d[l])}</p>`), `profile footer (${l})`);
+  }
+  const none = createPage({ localStorage: seed() });
+  none.load(withStatement(appScripts, { en: "", ar: "" }));
+  assert.equal((none.snapshot().els.foot.innerHTML.match(/<p>/g) || []).length, 1, "profile footer without a statement");
+  const q2 = createPage({ localStorage: seed() }); q2.load(withStatement(quizScripts, { en: "", ar: "" })); start(q2);
+  assert.equal((footOf(html(q2)).match(/<p>/g) || []).length, 1, "quiz footer without a statement");
+});
+
+test("shop links fill {q} with the perfume's house and name and {lang} with the page language, on both pages", () => {
+  const tpl = "https://shop.example/{lang}/search?q={q}&ref=x";
+  const withLinks = list => list.map(s => s.filename === "js/config.js" ? Object.assign({}, s, { code: s.code + `\nwindow.PP_CONFIG.links.bottle = ${JSON.stringify(tpl)};` }) : s);
+  const want = (P, l) => `https://shop.example/${l}/search?q=${encodeURIComponent(P.house + " " + P.name)}&ref=x`;
+  const quiz = createPage({ localStorage: seed() });
+  quiz.load(withLinks(quizScripts)); start(quiz);
+  twoBottles(quiz); finish(quiz);
+  for (const l of ["en", "ar"]) {
+    if (l === "ar") quiz.click({ id: "lang-ar" });
+    const bottles = [...html(quiz).matchAll(/class="qbottle" href="([^"]+)" [^>]*data-event="sample:([^"]+)"/g)];
+    assert.equal(bottles.length, 3, `three picks (${l})`);
+    for (const [, href, id] of bottles) assert.equal(href, want(E.byId[id], l));
+  }
+  const prof = createPage({ localStorage: seed({ pp_lang: JSON.stringify("ar"), pp_ratings_v1: JSON.stringify({ sauvageedp: Object.assign({}, blank, { drydown: -2, again: 0 }), yara: Object.assign({}, blank, { drydown: 2, again: 1 }) }) }) });
+  prof.load(withLinks(appScripts));
+  const hrefs = [...prof.snapshot().els.recs.innerHTML.matchAll(/href="(https:\/\/shop\.example\/[^"]+)"/g)].map(m => m[1]);
+  assert.equal(hrefs.length, 3, "one bottle link per pick on the profile page");
+  for (const h of hrefs) assert.match(h, /^https:\/\/shop\.example\/ar\/search\?q=[^&]+&ref=x$/);
+});

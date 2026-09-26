@@ -536,7 +536,11 @@
   /* ---------- rendering ---------- */
   const $ = id => document.getElementById(id);
   function toast(msg) { const el = $("toast"); el.textContent = msg; el.classList.add("show"); clearTimeout(toast.h); toast.h = setTimeout(() => el.classList.remove("show"), 1600); }
-  const foot = () => `<footer class="foot">${t().foot}</footer>`;
+  /* the partner program's required statement from config.js, in the page language */
+  /* a shop link for a perfume: {q} becomes its house and name, {lang} the page language (ar or en) */
+  const shopUrl = (tpl, P) => tpl.replace("{q}", encodeURIComponent(P.house + " " + P.name)).replace("{lang}", lang);
+  const partnerLine = () => { const d = CONFIG.disclosure && CONFIG.disclosure[lang]; return d ? `<p>${esc(d)}</p>` : ""; };
+  const foot = () => `<footer class="foot">${t().foot}${partnerLine()}</footer>`;
   const opt = (attr, v, label, on) => `<button type="button" class="qopt" data-${attr}="${v}" aria-pressed="${!!on}">${esc(label)}</button>`;
   const PART = { grid: 1, verdicts: 1, notes: 1, narrow: 1, picker: 2, taste: 3, told: 4, anosmia: 4 };
   /* Back (on every screen but the first) and "Part i of 4" with the part's name; the picker also counts its screens */
@@ -674,8 +678,7 @@
 
   /* The profiler's three shop links for a perfume, each sending an event when opened. */
   function linksHtml(P, event) {
-    const q = encodeURIComponent(P.house + " " + P.name);
-    const link = (tpl, label, primary) => `<a class="${primary ? "primary" : ""}" href="${tpl.replace("{q}", q)}" target="_blank" rel="noopener sponsored" data-event="${esc(event)}">${esc(label)}</a>`;
+    const link = (tpl, label, primary) => `<a class="${primary ? "primary" : ""}" href="${shopUrl(tpl, P)}" target="_blank" rel="noopener sponsored" data-event="${esc(event)}">${esc(label)}</a>`;
     return `<div class="links">${link(CONFIG.links.sampleSA, t().sampleSA, lang === "ar")}${link(CONFIG.links.sampleUS, t().sampleUS, lang !== "ar")}${link(CONFIG.links.bottle, t().bottle, false)}</div>`;
   }
   /* Testers for a visitor with no rated bottle: the told complaints put first the tester whose family weighs
@@ -703,9 +706,8 @@
   /* lead: the sentence naming the musk or wood rows the visitor did not notice */
   function anosmiaNote(lead) {
     const x = QUIZ.testers.find(k => k.family === "white_musk"); const P = x && resolve(x.id); if (!P) return "";
-    const q = encodeURIComponent(P.house + " " + P.name);
     const tpl = lang === "ar" ? CONFIG.links.sampleSA : CONFIG.links.sampleUS;
-    return `<div class="qnote">${lead ? esc(lead) + " " : ""}${esc(t().anosmiaNote(lang === "ar" && P.ar ? P.ar : P.house + " " + P.name))} <a href="${tpl.replace("{q}", q)}" target="_blank" rel="noopener sponsored" data-note="1" data-event="tester:${esc(P.id)}">${esc(lang === "ar" ? t().sampleSA : t().sampleUS)}</a></div>`;
+    return `<div class="qnote">${lead ? esc(lead) + " " : ""}${esc(t().anosmiaNote(lang === "ar" && P.ar ? P.ar : P.house + " " + P.name))} <a href="${shopUrl(tpl, P)}" target="_blank" rel="noopener sponsored" data-note="1" data-event="tester:${esc(P.id)}">${esc(lang === "ar" ? t().sampleSA : t().sampleUS)}</a></div>`;
   }
   /* What the visitor told us, in their own words, each line with its source word. */
   function toldBoxHtml() {
@@ -801,12 +803,11 @@
       const text = w.kind === "avoid" ? W.avoid(famIn(w.f), s, w.top ? famIn(w.top) : famIn(w.f)) : w.kind === "avoidOpening" ? W.avoidOpening(famIn(w.f)) : W[w.kind](famIn(w.f), s);
       lines.push(`<div class="risk">${esc(text)}</div>`);
     }
-    const q = encodeURIComponent(P.house + " " + P.name);
-    const sample = (lang === "ar" ? CONFIG.links.sampleSA : CONFIG.links.sampleUS).replace("{q}", q);
+    const sample = shopUrl(lang === "ar" ? CONFIG.links.sampleSA : CONFIG.links.sampleUS, P);
     return `<div class="rec qpick"><div class="qpick-head">${imgTag(PP)}<div class="grow"><b>${esc(pname(P))}</b><span class="qtile-house">${esc(P.house)}</span></div></div>
       ${lines.join("")}
       <div class="qpick-links"><a class="btn primary qsample" href="${sample}" target="_blank" rel="noopener sponsored" data-event="${esc("sample:" + P.id)}">${esc(t().getSample)}</a>
-      <a class="qbottle" href="${CONFIG.links.bottle.replace("{q}", q)}" target="_blank" rel="noopener sponsored" data-event="${esc("sample:" + P.id)}">${esc(t().bottle)}</a></div></div>`;
+      <a class="qbottle" href="${shopUrl(CONFIG.links.bottle, P)}" target="_blank" rel="noopener sponsored" data-event="${esc("sample:" + P.id)}">${esc(t().bottle)}</a></div></div>`;
   }
   /* When a kept bottle carries a note the visitor said they avoid, the picks follow the bottle; this says so. */
   function contradictHtml(list) {

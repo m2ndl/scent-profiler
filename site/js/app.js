@@ -188,6 +188,10 @@
   const scaleWord = v => t().scale[v + 2];
   const chipWord = id => { const c = CHIPS.find(x => x.id === id); return c ? c[lang] : id; };
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  /* the partner program's required statement from config.js, in the page language */
+  /* a shop link for a perfume: {q} becomes its house and name, {lang} the page language (ar or en) */
+  const shopUrl = (tpl, P) => tpl.replace("{q}", encodeURIComponent(P.house + " " + P.name)).replace("{lang}", lang);
+  const partnerLine = () => { const d = CONFIG.disclosure && CONFIG.disclosure[lang]; return d ? `<p>${esc(d)}</p>` : ""; };
   const listJoin = arr => lang === "ar" ? arr.join("، ") : arr.length > 1 ? arr.slice(0, -1).join(", ") + " and " + arr[arr.length - 1] : arr[0] || "";
   const fmt1 = n => (Math.round(n * 10) / 10).toFixed(1).replace("-", "−");
   const low = s => (lang === "en" && s ? s[0].toLowerCase() + s.slice(1) : s);
@@ -284,7 +288,7 @@
     $("profile-h").textContent = t().profileH; $("profile-lede").textContent = t().profileLede;
     $("recs-h").textContent = t().recsH; $("recs-lede").textContent = t().recsLede;
     $("share").textContent = t().share; $("reset").textContent = pendingReset ? t().resetYes : t().reset;
-    $("method-s").textContent = t().methodS; $("method").innerHTML = t().method; $("foot").innerHTML = t().foot;
+    $("method-s").textContent = t().methodS; $("method").innerHTML = t().method; $("foot").innerHTML = t().foot + partnerLine();
     const quickIds = ["sauvageedp", "bleuedp", "aventus", "hacivat", "br540", "khamrah", "yara", "erbapura", "libre", "cdnim"];
     $("quick").innerHTML = "<span class='eyebrow'>" + esc(t().quick) + "</span>" + quickIds.filter(id => !ratings[id]).map(id => `<button type="button" data-add="${id}">${esc(pname(byId[id]))}</button>`).join("");
   }
@@ -425,8 +429,7 @@
          family their bottles split on, an untried family that leads) */
       const risk = reason && reason.watch;
       const riskLine = risk ? ((risk.kind === "avoid" || risk.kind === "avoidOpening" || risk.kind === "lean") ? (saidAvoid(risk.f) ? t().riskTold : t().riskLean)(fam(risk.f), stageName(risk.s)) : risk.kind === "unknown" ? t().riskUnknown(fam(risk.f), stageName(risk.s)) : risk.kind === "mixed" ? t().riskMixed(fam(risk.f), stageName(risk.s)) : t().riskNeg(fam(risk.f), stageName(risk.s))) : "";
-      const q = encodeURIComponent(P.house + " " + P.name);
-      const link = (tpl, label, primary) => `<a class="${primary ? "primary" : ""}" href="${tpl.replace("{q}", q)}" target="_blank" rel="noopener sponsored">${esc(label)}</a>`;
+      const link = (tpl, label, primary) => `<a class="${primary ? "primary" : ""}" href="${shopUrl(tpl, P)}" target="_blank" rel="noopener sponsored">${esc(label)}</a>`;
       const PP = resolve(P.id) || P;
       return `<div class="rec">
         <div class="with-thumb">${imgTag(PP)}<div class="grow">

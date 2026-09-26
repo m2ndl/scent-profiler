@@ -126,8 +126,17 @@ version is deployed; its older rows stay empty there.
 ## Affiliate and sample links
 
 `links` in `site/js/config.js` holds three URL templates with `{q}` for the perfume name. Replace them with a
-partner shop's search URL plus your coupon or affiliate parameter. Links carry
-`rel="sponsored"`; the footer discloses commissions in both languages.
+partner shop's search URL plus your coupon or affiliate parameter; `{lang}` becomes `ar` or `en`, for shops
+whose addresses carry the language. Links carry `rel="sponsored"`; the footer discloses commissions in both
+languages. A program that requires its own statement goes in `disclosure` beside the links, one string per
+language, and closes the footer of both pages; change the two together.
+
+noon, checked 26 Sep 2026: its affiliate program (affiliates.noon.com) signs up with
+an email and a phone number, and its links carry the affiliate's UTM parameters, so the bottle template is
+`https://www.noon.com/saudi-{lang}/search/?q={q}` plus those parameters. A purchase counts within 24 hours of the
+click; commission depends on the category, up to 10%; payout is by bank transfer once commissions reach AED 200,
+about 45 days after the month ends. A noon search found 8 of the 10 perfumes the quiz shows most (Dior Homme 2020
+was not found; Serge Lutens Un Bois Vanille was not checked). TOOIJ, the Saudi perfume shop, found about 6 of 40.
 
 ## How the profile is computed
 
