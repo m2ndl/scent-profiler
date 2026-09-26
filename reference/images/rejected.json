@@ -33,6 +33,9 @@
  "burberrybritsheer": [
   "https://cdn.fragella.com/images/burberry-brit-sheer.webp"
  ],
+ "burberryhero": [
+  "https://cdn.fragella.com/images/burberry-hero.webp"
+ ],
  "byzance": [
   "https://cdn.fragella.com/images/byzance.webp"
  ],
@@ -54,6 +57,9 @@
  "chanceeautendreedp": [
   "https://cdn.fragella.com/images/chanel-chance-eau-tendre.webp"
  ],
+ "chanceedp": [
+  "https://cdn.fragella.com/images/chanel-chance.webp"
+ ],
  "cliniquehappyfw": [
   "https://fimgs.net/mdimg/perfume/375x500.372.jpg"
  ],
@@ -69,6 +75,13 @@
  ],
  "coconoir": [
   "https://cdn.fragella.com/images/chanel-coco-noir.webp"
+ ],
+ "declaration": [
+  "https://cdn.fragella.com/images/cartier-declaration.webp"
+ ],
+ "declarationedp": [
+  "https://cdn.fragella.com/images/cartier-declaration.webp",
+  "https://cdn.fragella.com/images/declaration.webp"
  ],
  "declarationessence": [
   "https://cdn.fragella.com/images/declaration-essence.webp"
@@ -113,6 +126,11 @@
  "gucciguiltyblackph": [
   "https://cdn.fragella.com/images/gucci-guilty-black-pour-homme.webp"
  ],
+ "gucciguiltyedp": [
+  "https://cdn.fragella.com/images/gucci-guilty.webp",
+  "https://cdn.fragella.com/images/gucci-guilty-pour-homme.webp",
+  "https://cdn.fragella.com/images/gucci-guilty-pour-femme.webp"
+ ],
  "gucciguiltyloveeditionph": [
   "https://fimgs.net/mdimg/perfume/375x500.58768.jpg"
  ],
@@ -122,6 +140,9 @@
  ],
  "hugospray": [
   "https://fimgs.net/mdimg/perfume/375x500.2404.jpg"
+ ],
+ "hypnoticpoisonedp": [
+  "https://cdn.fragella.com/images/hypnotic-poison.webp"
  ],
  "imagination": [
   "https://cdn.fragella.com/images/louis-vuitton-imagination.webp"
@@ -150,11 +171,24 @@
  "lanuittresor": [
   "https://fimgs.net/mdimg/perfume/375x500.29157.jpg"
  ],
+ "lapetiterobenoireedt": [
+  "https://cdn.fragella.com/images/la-petite-robe-noire.webp"
+ ],
+ "legendedp": [
+  "https://cdn.fragella.com/images/mont-blanc-legend.webp",
+  "https://cdn.fragella.com/images/mont-blanc-legend-pour-femme.webp"
+ ],
  "lhommeedp": [
   "https://cdn.fragella.com/images/yves-saint-laurent-lhomme-eau-de-toilette.webp"
  ],
+ "lhommeidealedp": [
+  "https://cdn.fragella.com/images/guerlain-lhomme-ideal.webp"
+ ],
  "limmensite": [
   "https://cdn.fragella.com/images/louis-vuitton-limmensite.webp"
+ ],
+ "linterditedt": [
+  "https://cdn.fragella.com/images/linterdit.webp"
  ],
  "littleblackdressedp": [
   "https://fimgs.net/mdimg/perfume/375x500.96265.jpg"

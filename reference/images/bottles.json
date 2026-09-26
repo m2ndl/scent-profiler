@@ -644,8 +644,8 @@
   "source": "https://cdn.fragella.com/images/burberry-her-london-dream.webp"
  },
  "burberryhero": {
-  "kind": "exact",
-  "source": "https://cdn.fragella.com/images/burberry-hero.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.68627.jpg"
  },
  "burberrywomen": {
   "kind": "fragrantica",
@@ -772,8 +772,8 @@
   "source": "https://cdn.fragella.com/images/chanel-chance-eau-vive.webp"
  },
  "chanceedp": {
-  "kind": "no-concentration",
-  "source": "https://cdn.fragella.com/images/chanel-chance.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.31351.jpg"
  },
  "chanceedt": {
   "kind": "no-concentration",
@@ -1004,12 +1004,12 @@
   "source": "https://cdn.fragella.com/images/aigner-debut.webp"
  },
  "declaration": {
-  "kind": "exact",
-  "source": "https://cdn.fragella.com/images/cartier-declaration.webp"
+  "kind": "no-concentration",
+  "source": "https://cdn.fragella.com/images/declaration.webp"
  },
  "declarationedp": {
-  "kind": "no-concentration",
-  "source": "https://cdn.fragella.com/images/cartier-declaration.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.101278.jpg"
  },
  "declarationessence": {
   "kind": "fragrantica",
@@ -1608,8 +1608,8 @@
   "source": "https://fimgs.net/mdimg/perfume/375x500.17322.jpg"
  },
  "gucciguiltyedp": {
-  "kind": "no-concentration",
-  "source": "https://cdn.fragella.com/images/gucci-guilty.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.52481.jpg"
  },
  "gucciguiltyedpintensepf": {
   "kind": "fragrantica",
@@ -1792,8 +1792,8 @@
   "source": "https://cdn.fragella.com/images/hypnotic-poison.webp"
  },
  "hypnoticpoisonedp": {
-  "kind": "no-concentration",
-  "source": "https://cdn.fragella.com/images/hypnotic-poison.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.23098.jpg"
  },
  "ibraalqurablueoud": {
   "kind": "fragrantica",
@@ -2160,8 +2160,8 @@
   "source": "https://cdn.fragella.com/images/la-petite-robe-noire-intense.webp"
  },
  "lapetiterobenoireedt": {
-  "kind": "no-concentration",
-  "source": "https://cdn.fragella.com/images/la-petite-robe-noire.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.17387.jpg"
  },
  "lapidusph": {
   "kind": "fragrantica",
@@ -2232,8 +2232,8 @@
   "source": "https://cdn.fragella.com/images/mont-blanc-legend-blue.webp"
  },
  "legendedp": {
-  "kind": "no-concentration",
-  "source": "https://cdn.fragella.com/images/mont-blanc-legend.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.62583.jpg"
  },
  "legendnight": {
   "kind": "exact",
@@ -2296,8 +2296,8 @@
   "source": "https://cdn.fragella.com/images/guerlain-lhomme-ideal.webp"
  },
  "lhommeidealedp": {
-  "kind": "no-concentration",
-  "source": "https://cdn.fragella.com/images/guerlain-lhomme-ideal.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.37735.jpg"
  },
  "lhommeidealextreme": {
   "kind": "exact",
@@ -2376,8 +2376,8 @@
   "source": "https://cdn.fragella.com/images/linterdit-rouge-ultime.webp"
  },
  "linterditedt": {
-  "kind": "no-concentration",
-  "source": "https://cdn.fragella.com/images/linterdit.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.56144.jpg"
  },
  "liquidbrun": {
   "kind": "exact",
