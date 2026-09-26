@@ -207,7 +207,7 @@
   /* the helpers both pages share (page.js), reading this page's language and ratings; endpointParam: the local
      test backend (see page.js), which links to the profiler carry forward */
   const page = PAGE.create({ D, E, CONFIG, words: T, lang: () => lang, ratings: () => ratings });
-  const { AUTO, endpointParam, t, fam, pname, chipWord, low, esc, listJoin, shopUrl, partnerLine, PLACEHOLDER, bottleSrc, imgTag, matches, state, resolve, sendEvent, $, toast, verdictRows, PILL, CARD } = page;
+  const { AUTO, endpointParam, t, fam, pname, chipWord, low, esc, listJoin, shopUrl, partnerLine, PLACEHOLDER, bottleSrc, imgTag, searchHits, state, resolve, sendEvent, $, toast, verdictRows, PILL, CARD } = page;
   /* { notes: { noteId: 1 | -1 }, taste: "bitter" | "sweet" | "both" | "unsure", told: [chipId], toldNone: true when
      nothing has bothered the visitor, anosmia: "yes" | "no" | "unsure" }. An old string told is read through normTold. */
   let quiz = store.get("pp_quiz_v1", {});
@@ -413,9 +413,9 @@
   function search(q, any) {
     q = q.trim().toLowerCase(); if (!q) return [];
     const open = id => any || (!ratedBefore(id) && !picked.has(id));
-    const verified = PERFUMES.filter(P => open(P.id) && matches(P, q)).map(P => resolve(P.id));
-    const auto = Object.keys(AUTO).filter(id => open(id) && !byId[id]).map(id => resolve(id)).filter(P => P && matches(P, q));
-    return verified.concat(auto).slice(0, 12);
+    const verified = PERFUMES.filter(P => open(P.id));
+    const auto = Object.keys(AUTO).filter(id => open(id) && !byId[id]).map(id => resolve(id)).filter(Boolean);
+    return searchHits([verified, auto], q).slice(0, 12).map(P => resolve(P.id));
   }
   /* While the list is open the page gets room below it (the search box sits near the end of the grid screen), and on a
      phone the box scrolls to the top of the screen, so the keyboard does not cover the list. */

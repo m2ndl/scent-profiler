@@ -80,7 +80,7 @@ const STORES = {}, SCORE = {};
 for (const P of E.PERFUMES) { STORES[P.id] = stores(P.id); SCORE[P.id] = Object.values(STORES[P.id]).reduce((a, b) => a + b, 0); }
 
 /* ---------- lines ---------- */
-const fold = s => String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[’`]/g, "'");
+const fold = s => String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[’`]/g, "'");
 const GENERIC = new Set(["le", "la", "les", "l", "the", "eau", "pour", "for", "my", "miss", "mon", "de", "du", "el", "al"]);
 const HOUSE_WORDS = { "giorgio armani": ["giorgio", "armani", "emporio"] };
 /* A perfume's line: its house and the first word of its name (two when the first is an article or the like), after

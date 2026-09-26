@@ -50,6 +50,22 @@ window.PP_PAGE = (function () {
   const imgTag = (P, cls) => { const src = bottleSrc(P); return `<img class="thumb${src ? " photo" : ""} ${cls || ""}" src="${src ? esc(src) : PLACEHOLDER}" alt="" loading="lazy" onerror="this.onerror=null;this.classList.remove('photo');this.src='${PLACEHOLDER}'">`; };
   /* a search hit: q (trimmed, lower case) in the perfume's name, house, Arabic name or id */
   const matches = (P, q) => (P.name.toLowerCase().includes(q) || (P.house || "").toLowerCase().includes(q) || (P.ar && P.ar.includes(q)) || P.id.includes(q));
+  /* A looser hit, listed after those: every word of q somewhere in the house, name, Arabic name or id, accents
+     ignored, with EDT and EDP read as the concentrations ("cartier declaration edt" finds Déclaration Eau de Toilette). */
+  const fold = s => String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  const hays = new Map();
+  const hayOf = P => {
+    const key = P.id + "|" + P.name;
+    if (!hays.has(key)) {
+      const h = fold([P.house, P.name, P.ar, P.id].join(" "));
+      hays.set(key, h + (h.includes("eau de toilette") ? " edt" : "") + (h.includes("eau de parfum") ? " edp" : ""));
+    }
+    return hays.get(key);
+  };
+  const matchesWords = (P, q) => { const hay = hayOf(P), words = fold(q).split(/\s+/).filter(Boolean); return words.length > 0 && words.every(w => hay.includes(w)); };
+  /* Search results over lists of perfumes (the catalogue's, then the backend's): each list's plain hits first, then
+     each list's word hits, so a search that found something before finds it in the same order. */
+  const searchHits = (lists, q) => lists.map(l => l.filter(P => matches(P, q))).concat(lists.map(l => l.filter(P => !matches(P, q) && matchesWords(P, q)))).flat();
   /* a profile's verdicts in reading order: deal-breakers, mixed, then liked, the strongest first in each */
   const ORDER = { badLikely: 0, badPossible: 1, mixed: 2, goodLikely: 3, goodPossible: 4 };
   const verdictRows = prof => Object.entries(prof).filter(([, v]) => v.cls !== "neutral").sort((a, b) => (ORDER[a[1].cls] - ORDER[b[1].cls]) || (Math.abs(b[1].score) - Math.abs(a[1].score)));
@@ -178,7 +194,7 @@ window.PP_PAGE = (function () {
 
     return { t, fam, pname, chipWord, low, listJoin, shopUrl, partnerLine, state, resolve, AUTO, device, endpointParam,
       sendRecord, sendEvent, queueSend, dropSend, getJSON, loadCatalogue, lookup, $, toast, chrome, noteRowHtml, linksHtml,
-      esc, PLACEHOLDER, bottleSrc, imgTag, matches, verdictRows, PILL, CARD };
+      esc, PLACEHOLDER, bottleSrc, imgTag, searchHits, verdictRows, PILL, CARD };
   }
 
   return { words, store, create };

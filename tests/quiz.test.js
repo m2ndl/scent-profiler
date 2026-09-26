@@ -329,6 +329,29 @@ test("search: Enter on a picked or rated name keeps the catalogue bottle and loo
   assert.match(page.snapshot().els.toast.textContent, /Already rated/);
 });
 
+test("search: every typed word counts, accents ignored and EDT read as Eau de Toilette, after the hits holding the whole phrase, on both pages", () => {
+  const found = p => [...p.snapshot().els.results.innerHTML.matchAll(/data-add="([^"]+)"/g)].map(m => m[1]);
+  const plain = q => [...E.PERFUMES.filter(P => P.name.toLowerCase().includes(q) || (P.house || "").toLowerCase().includes(q) || (P.ar && P.ar.includes(q)) || P.id.includes(q)).map(P => P.id)];
+  const quiz = open();
+  quiz.input("Cartier Declaration");
+  assert.equal(found(quiz)[0], "declaration", "the house and name words together");
+  quiz.input("declaration edt");
+  assert.deepEqual(found(quiz), ["declaration"]);
+  quiz.input("lancome idole");
+  assert.ok(found(quiz).includes("idole"), "Lancôme and Idôle without their accents");
+  quiz.input("sauvage");
+  assert.deepEqual(found(quiz).slice(0, Math.min(12, plain("sauvage").length)), plain("sauvage").slice(0, 12), "a phrase found before keeps its results first, in order");
+  quiz.key("Enter", "cartier declaration");
+  assert.match(quiz.snapshot().els.tiles.innerHTML, /data-tile="declaration" aria-pressed="true"/);
+
+  const prof = createPage({ localStorage: seed() });
+  prof.load(appScripts);
+  prof.input("cartier declaration");
+  assert.equal(found(prof)[0], "declaration");
+  prof.key("Enter", "cartier declaration");
+  assert.ok(stored(prof).declaration, "Enter rates the first result");
+});
+
 test("shop verdict: opening -1, and the result names the bottle as a shop trial in both languages", () => {
   const page = open();
   page.click({ dataset: { tile: "hawas" } });

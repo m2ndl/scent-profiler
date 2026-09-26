@@ -138,7 +138,7 @@
   let flags = store.get("pp_flags_v1", {});
   /* the helpers both pages share (page.js), reading this page's language and ratings */
   const page = PAGE.create({ D, E, CONFIG, words: T, lang: () => lang, ratings: () => ratings });
-  const { device, AUTO, t, fam, pname, chipWord, esc, listJoin, low, partnerLine, imgTag, matches, state, resolve, sendRecord, $, toast, verdictRows, PILL, CARD } = page;
+  const { device, AUTO, t, fam, pname, chipWord, esc, listJoin, low, partnerLine, imgTag, searchHits, state, resolve, sendRecord, $, toast, verdictRows, PILL, CARD } = page;
   let community = null;
   let pendingReset = false;
   /* The quiz's word answers (pp_quiz_v1), as the same told items the quiz passes to computeProfile. */
@@ -364,9 +364,9 @@
   /* ---------- search ---------- */
   function search(q) {
     q = q.trim().toLowerCase(); if (!q) return [];
-    const verified = PERFUMES.filter(P => !ratings[P.id] && matches(P, q)).map(P => resolve(P.id));
-    const auto = Object.keys(AUTO).filter(id => !ratings[id] && !byId[id]).map(id => resolve(id)).filter(P => P && matches(P, q));
-    return verified.concat(auto).slice(0, 12);
+    const verified = PERFUMES.filter(P => !ratings[P.id]);
+    const auto = Object.keys(AUTO).filter(id => !ratings[id] && !byId[id]).map(id => resolve(id)).filter(Boolean);
+    return searchHits([verified, auto], q).slice(0, 12).map(P => resolve(P.id));
   }
   function showResults(list, q) {
     const box = $("results");
