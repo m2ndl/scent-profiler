@@ -744,8 +744,8 @@
   "source": "https://cdn.fragella.com/images/cerruti-1881.webp"
  },
  "cerr1881men": {
-  "kind": "no-gender-word",
-  "source": "https://cdn.fragella.com/images/cerruti-1881.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.329.jpg"
  },
  "champion": {
   "kind": "exact",
@@ -2400,8 +2400,8 @@
   "source": "https://cdn.fragella.com/images/burberry-london.webp"
  },
  "londonfm": {
-  "kind": "no-gender-word",
-  "source": "https://cdn.fragella.com/images/burberry-london.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.804.jpg"
  },
  "lostcherry": {
   "kind": "exact",
