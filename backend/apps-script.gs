@@ -361,7 +361,7 @@ const VERIFIED = [
   ["theonemen", "Dolce&Gabbana The One for Men"],
   ["lightbluemen", "Dolce&Gabbana Light Blue Pour Homme"],
   ["kdg", "Dolce&Gabbana K"],
-  ["declaration", "Cartier Déclaration"],
+  ["declaration", "Cartier Déclaration Eau de Toilette"],
   ["spicebombextreme", "Viktor&Rolf Spicebomb Extreme"],
   ["cocomademoiselleintense", "Chanel Coco Mademoiselle Intense"],
   ["chanelno5", "Chanel No 5 Eau de Parfum"],

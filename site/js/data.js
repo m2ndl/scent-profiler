@@ -729,7 +729,7 @@ window.PP_DATA = (function () {
     p("kdg","Dolce&Gabbana","K","كي","m","designer",3,
       { citrus_fresh:.8, green_herbal:.4 }, { lavender_aromatic:.5, spice_fresh:.4 }, { cedar_dry:.6, vetiver:.5, patchouli:.4, woody_amber:.3 },
       { en:"blood orange, lemon, juniper / clary sage, geranium, lavender, pimento / cedar, vetiver, patchouli", ar:"برتقال أحمر، ليمون، عرعر / مريمية، إبرة الراعي، لافندر، بهار حلو / أرز، فيتيفر، باتشولي" }),
-    p("declaration","Cartier","Déclaration","ديكلاراسيون","m","designer",3,
+    p("declaration","Cartier","Déclaration Eau de Toilette","ديكلاراسيون أو دو تواليت","m","designer",3,
       { citrus_fresh:.6, leather_smoky:.3, spice_fresh:.5, lavender_aromatic:.5 }, { spicy_warm:.8, green_herbal:.3, iris_powdery:.2, spice_fresh:.64 }, { vetiver:.6, oakmoss_chypre:.4, cedar_dry:.5, leather_smoky:.3, spicy_warm:.3 },
       { en:"artemisia, caraway, coriander, birch, bergamot, bitter orange / ginger, pepper, cinnamon, juniper, cardamom, tea / vetiver, oakmoss, cedar, leather, amber", ar:"شيح، كراوية، كزبرة، بتولا، برغموت، برتقال مر / زنجبيل، فلفل، قرفة، عرعر، هيل، شاي / فيتيفر، طحلب، أرز، جلد، عنبر" }),
     p("spicebombextreme","Viktor&Rolf","Spicebomb Extreme","سبايس بومب إكستريم","m","designer",3,
