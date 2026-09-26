@@ -65,3 +65,7 @@ naming the Parfum are left out of its score.
 The captured lists still miss some bottles well known in the Gulf (Lattafa Asad, Arabian Oud Kalemat, Ajmal Amber
 Wood score low or nothing), so they are not among the forty; the search finds them. The narrowing round ("One more
 would settle it") still draws on the grid alone.
+
+`reference/quiz/more_equiv.js` is the lockstep harness of `reference/restructure/shared_page/run_equiv.js` with the
+new button's block set aside: over 400 seeded visits, the quiz and profiler before and after this change matched at
+every step apart from that block. Evidence, not a tool.

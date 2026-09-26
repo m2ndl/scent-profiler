@@ -2,6 +2,42 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-26: session close, the shared page script and More perfumes
+
+Session title: the shared page script and More perfumes. All live (last commit 74a3ad7; the deploy's tests and publish
+passed, and the live pages were checked with no console errors).
+
+- The pending partner-link work (`{lang}` in shop links, `disclosure` in config.js, noon notes in README) was committed
+  as it was. `reference/launch/` (the first-sale plan and the TOOIJ message) stays uncommitted: the repo is public.
+- `site/img/botanical/rose-rtl.webp` had been committed empty, so the Arabic pages showed no rose; rebuilt as the mirror
+  of rose.webp. A site test now fails on any empty file in site/ or any WebP or PNG cut short.
+- `site/js/page.js`: the words, device store, helpers, rating sender, backend calls, note rows and shop links that
+  app.js and quiz.js both carried. Old and new pages matched over 800 seeded visits in lockstep
+  (reference/restructure/shared_page/).
+- More perfumes: "المزيد من العطور (20)" under the grid adds `QUIZ.more`, forty bottles, twenty per press; chosen by
+  `tools/select_more.js` (six Arab-house per twenty, men's never ahead of women's, one bottle per line, two per house);
+  reasoning in reference/quiz/MORE.md. A fresh bounded Opus verifier found one real error (Ombré Leather scored with
+  its Parfum's listings, fixed) and one false alarm. A `grid_more` event counts presses.
+- The owner asked to add Cartier Déclaration Eau de Toilette: it was already the entry `declaration`; renamed
+  "Déclaration Eau de Toilette" in both languages. The search now lists whole-phrase hits first, then perfumes holding
+  every typed word (accents ignored, EDT and EDP read as concentrations); no earlier result lost or moved.
+- Nine EDT/EDP pairs shared one bottle photo (Déclaration's EDT showed the EDP bottle); each settled against its
+  Fragrantica page and the wrong one refetched (reference/images/shared_photo_pairs/).
+- Tests 79 to 85.
+
+Open, dated 26 Sep 2026 (operational):
+- Decide whether `reference/launch/` goes into the public repo, or into .gitignore.
+- Lattafa Asad, Arabian Oud Kalemat and Ajmal Amber Wood are missing from More perfumes because the captured store lists
+  barely show them; add by hand if wanted.
+- Qaed Al Fursan is men's in the catalogue, unisex on Nice One (verifier note); `cdnim` sits in the grid beside its
+  original `aventus`; "Lattafa Ramz EDP" (Noon) was assigned to Ramz Gold without saying Gold. Owner's calls.
+- Earlier open items stand (backend deployment, partner links, the grid rebuild, the tester layout, the five flagged
+  entries, the three-vial test).
+
+Reflective, not scheduled:
+- The phone's first load is about 620 KB (fonts 263 KB, scripts 200 KB, lavender sketch 142 KB); the two sketches can
+  lose about 60 KB each without visible change. The build/ folder holds 22 MB of regenerable output.
+
 ## 2026-09-26: session close, the catalogue reaches 1,000
 
 At the owner's request the catalogue grew from 333 to 1,000 perfumes (block "added 26 Sep 2026 (the expansion to 1,000)"

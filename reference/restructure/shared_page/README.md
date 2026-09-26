@@ -24,3 +24,5 @@ In the order they ran:
    visits (all identical, 29,390 page states, every quiz screen reached), and four one-line changes planted
    in page.js (a missing attribute, a reordered request field, one Arabic word, a wrong query separator),
    each caught on the first visits.
+4. `search_check.js`: for the later search change in page.js (whole-phrase hits first, then every typed word):
+   over 6,010 queries built from the catalogue's own words, no result the old search gave is lost or moved.
