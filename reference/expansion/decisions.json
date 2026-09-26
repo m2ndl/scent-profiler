@@ -1,0 +1,431 @@
+{
+ "note": "Hand decisions for the expansion. mapalias: note words the mapper does not know, read as a word it does (the published word is still shown). perfumes: per Fragrantica page number, overrides (skip, name, gender, tier, set, why). Arabic perfume names live in ar_names_*.json, Arabic note words in ar_notes.json plus ar_notes here.",
+ "mapalias": {
+  "cassia": "cinnamon",
+  "mace": "nutmeg",
+  "mirabelle": "plum",
+  "mandora": "mandarin orange",
+  "dewberry": "blackberry",
+  "cranberry": "red berries",
+  "pitahaya": "fruity notes",
+  "carambola (star fruit)": "fruity notes",
+  "fig nectar": "fig",
+  "peppertree": "pink pepper",
+  "paprika": "pepper",
+  "marjoram": "thyme",
+  "shiso": "basil",
+  "watercress": "green notes",
+  "clover": "green notes",
+  "mignonette": "green notes",
+  "absinthe": "wormwood",
+  "liquor": "rum",
+  "vodka": "rum",
+  "cashmirwood": "cashmere wood",
+  "aquozone": "sea notes",
+  "serenolide": "musk",
+  "hibiscus seed": "ambrette",
+  "flax": "linen",
+  "mastic or lentisque": "elemi",
+  "nard himalayan (jatamansi)": "vetiver",
+  "mahonial": "lily of the valley",
+  "sunflower": "floral notes",
+  "hibiscus": "floral notes",
+  "amaryllis": "floral notes",
+  "forget me not": "floral notes",
+  "petalia": "white flowers",
+  "tiare flower": "white flowers",
+  "karo karounde": "white flowers",
+  "silkwood blossom": "white flowers",
+  "night blooming cereus": "white flowers",
+  "camelia": "white flowers",
+  "black locust": "mimosa",
+  "lydia broom": "mimosa",
+  "hiacynth": "hyacinth",
+  "sandalowood": "sandalwood",
+  "panacotta": "milk",
+  "lilybelle®": "lily",
+  "cashalox": "cashmere wood",
+  "solar notes": "white flowers",
+  "palm tree": "green notes",
+  "calypsone": "sea notes",
+  "fern": "green notes",
+  "broom": "mimosa",
+  "rosyfolia": "rose",
+  "pomarose": "rose",
+  "tulip": "floral notes",
+  "poppy": "floral notes",
+  "white currant": "red berries",
+  "gooseberry": "red berries",
+  "pinwheel flower": "white flowers",
+  "west indian bay": "bay leaf",
+  "bellflower": "floral notes",
+  "tahitian tiare flower": "white flowers",
+  "hortensia": "floral notes",
+  "leatherwood": "leather",
+  "cherry blossom": "floral notes",
+  "peach blossom": "floral notes",
+  "almond blossom": "floral notes",
+  "apple blossom": "floral notes",
+  "plum blossom": "floral notes",
+  "apricot blossom": "floral notes",
+  "cactus flower": "floral notes",
+  "maltol": "caramel",
+  "gaiac wood": "guaiac wood",
+  "timur": "pink pepper",
+  "boysenberry": "blackberry",
+  "sylkolide": "musk",
+  "myrhh": "myrrh",
+  "rhuburb": "rhubarb",
+  "red currant": "red berries",
+  "red currant blossom": "floral notes",
+  "mulberry": "blackberry",
+  "litsea cubeba": "lemongrass",
+  "seagrass": "sea notes",
+  "sequoia": "cedar",
+  "boxwood": "green notes",
+  "floral bouquet": "floral notes",
+  "oriental notes": "amber",
+  "cappuccino": "coffee",
+  "blue lilies": "lily",
+  "mahonia": "floral notes",
+  "pitosporum": "white flowers",
+  "wallflower": "floral notes",
+  "sumac": "pink pepper",
+  "white wood": "white woods",
+  "vervain": "verbena",
+  "allspice": "pimento",
+  "rice flower": "white flowers",
+  "rock rose": "labdanum",
+  "bourbon pepper": "pepper",
+  "birch leaf": "green notes",
+  "japanese cherry blossom": "floral notes",
+  "baie rose": "pink pepper",
+  "balsam fir": "fir balsam",
+  "kashmir wood": "cashmere wood",
+  "lime (linden blossom)": "floral notes",
+  "white ginger lily": "white flowers",
+  "apple tree blossom": "floral notes",
+  "pear blossom": "floral notes",
+  "raspberry blossom": "floral notes",
+  "papaya flower": "floral notes",
+  "wild strawberry leaf": "green notes",
+  "lilybelle": "lily",
+  "prunol": "plum",
+  "plumeria": "frangipani",
+  "suntan lotion": "coconut",
+  "tea leaf": "tea"
+ },
+ "ar_notes": {
+  "rock rose": "لاذن",
+  "cistus": "لاذن",
+  "cistus incanus": "لاذن",
+  "labdanum": "لاذن",
+  "pimento": "بهار حلو",
+  "hibiscus seed": "بذور الأمبريت",
+  "french labdanum": "لاذن فرنسي",
+  "leatherwood": "جلد",
+  "raspberry leaf": "ورق توت العليق",
+  "plumeria": "فرانجيباني",
+  "suntan lotion": "كريم الشمس",
+  "tea leaf": "ورق الشاي",
+  "wild strawberry": "فراولة برية",
+  "mandarin leaf": "ورق اليوسفي"
+ },
+ "perfumes": {
+  "570": {
+   "skip": "older version of the catalogue's hugoman"
+  },
+  "20541": {
+   "skip": "Replica Jazz Club, the catalogue's jazzclub (its title reads Maison Martin Margiela, which the name matcher misses)"
+  },
+  "101596": {
+   "skip": "the 2025 relaunch of Dior Homme Intense, the catalogue's diorhommeintense"
+  },
+  "523": {
+   "ar": "ألور هوم",
+   "ar_why": "Allure Homme is ألور هوم on the site (ألور هوم سبورت)"
+  },
+  "28942": {
+   "ar": "ألور هوم إديسيون بلانش أو دو بارفان",
+   "ar_why": "Allure Homme is ألور هوم on the site (ألور هوم سبورت)"
+  },
+  "484": {
+   "skip": "B1: its only listing is D&G Dolce, already the entry dolce"
+  },
+  "671": {
+   "skip": "B2: the listing 'Lacoste EDP 90ml' is Lacoste Pour Femme, already lacostepf"
+  },
+  "2404": {
+   "skip": "B3: the listing is the regular Hugo EDT, the catalogue's hugoman"
+  },
+  "5942": {
+   "skip": "B4: the listing names Lapidus Pour Homme, already lapidusph"
+  },
+  "41888": {
+   "skip": "B5: the listing 'Herrera EDT' is Herrera for Men, not this 2016 unisex"
+  },
+  "877": {
+   "skip": "B6: the listing 'Black EDT 100ml' is Kenneth Cole Black for Men, not the women's EDP"
+  },
+  "48517": {
+   "skip": "B7: the only listing names the men's The Scent EDT, the catalogue's thescentmen"
+  },
+  "27417": {
+   "skip": "B8: the 2014 Dior Homme Parfum; the stores sell the 2025 one (fid 101016)"
+  },
+  "46273": {
+   "skip": "S2: the listing 'The One EDT 150ml' is the men's The One, the catalogue's theonemen"
+  },
+  "624": {
+   "skip": "S12: the only listing names the house and no perfume"
+  },
+  "287": {
+   "skip": "its listings 'Carolina Herrera for Women EDP' name the 1988 Carolina Herrera, not Carolina (2003)"
+  },
+  "21581": {
+   "skip": "the only listing ('Arabian Oud 360° Perfume') does not say men's or women's"
+  },
+  "99951": {
+   "skip": "the only listing ('Just Cavalli Wild Heart eau de parfum') does not say Him or Her; For Her stays"
+  },
+  "4033": {
+   "repoint": {
+    "fid": 71326,
+    "url": "https://www.fragrantica.com/perfume/Dior/Dior-Homme-Sport-2021-71326.html",
+    "title": "Dior Dior Homme Sport 2021"
+   },
+   "name": "Dior Homme Sport",
+   "why": "B9: the 2021 Dior Homme Sport, the bottle on sale (the 2008 page was matched first)",
+   "ar": "ديور هوم سبورت"
+  },
+  "942": {
+   "repoint": {
+    "fid": 38855,
+    "url": "https://www.fragrantica.com/perfume/Coach/Coach-the-Fragrance-38855.html",
+    "title": "Coach Coach the Fragrance"
+   },
+   "name": "Coach Eau de Parfum",
+   "ar": "كوتش أو دو بارفان",
+   "why": "B10: the 2016 Coach Eau de Parfum, the 90 ml bottle on sale (the 2007 page was matched first)"
+  },
+  "101016": {
+   "name": "Dior Homme Parfum",
+   "ar": "ديور هوم بارفان",
+   "why": "B8: the current Dior Homme Parfum (2025)"
+  },
+  "90953": {
+   "name": "The Most Wanted Eau de Toilette Intense",
+   "ar": "ذا موست وانتد أو دو تواليت إنتنس",
+   "drop_rows": [
+    "EDP",
+    "Eau de Parfum",
+    "eau de parfum",
+    "Eau De Parfum"
+   ],
+   "why": "S1: the Eau de Toilette Intense; its EDP rows name the catalogue's mostwantedintense"
+  },
+  "9099": {
+   "name": "Bleu de Chanel Eau de Toilette"
+  },
+  "315": {
+   "name": "Pasha de Cartier",
+   "ar": "باشا دو كارتييه",
+   "drop_rows": [
+    "Pasha Parfum EDP"
+   ]
+  },
+  "520": {
+   "ar": "بريمييه جور"
+  },
+  "64718": {
+   "repoint": {
+    "fid": 102208,
+    "url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Y-Le-Parfum-2025-102208.html",
+    "title": "Yves Saint Laurent Y Le Parfum 2025"
+   },
+   "name": "Y Le Parfum",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2025 page of the same name (178 reviews), not the 2021 one"
+  },
+  "19558": {
+   "repoint": {
+    "fid": 84716,
+    "url": "https://www.fragrantica.com/perfume/Valentino/Valentino-Uomo-2021-84716.html",
+    "title": "Valentino Valentino Uomo 2021"
+   },
+   "name": "Valentino Uomo",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2021 page of the same name (96 reviews), not the 2014 one"
+  },
+  "58768": {
+   "repoint": {
+    "fid": 100234,
+    "url": "https://www.fragrantica.com/perfume/Gucci/Gucci-Guilty-Love-Edition-Pour-Homme-2024-100234.html",
+    "title": "Gucci Gucci Guilty Love Edition Pour Homme 2024"
+   },
+   "name": "Guilty Love Edition Pour Homme",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2024 page of the same name (168 reviews), not the 2020 one"
+  },
+  "514": {
+   "repoint": {
+    "fid": 49961,
+    "url": "https://www.fragrantica.com/perfume/Rabanne/Black-XS-2018-49961.html",
+    "title": "Rabanne Black XS (2018)"
+   },
+   "name": "Rabanne Black XS",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2018 page of the same name (94 reviews), not the 2005 one"
+  },
+  "23280": {
+   "repoint": {
+    "fid": 78945,
+    "url": "https://www.fragrantica.com/perfume/Dior/Miss-Dior-Blooming-Bouquet-2023-78945.html",
+    "title": "Dior Miss Dior Blooming Bouquet (2023)"
+   },
+   "name": "Miss Dior Blooming Bouquet",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2023 page of the same name (189 reviews), not the 2014 one"
+  },
+  "11400": {
+   "repoint": {
+    "fid": 89584,
+    "url": "https://www.fragrantica.com/perfume/Dior/Miss-Dior-Parfum-2024-89584.html",
+    "title": "Dior Miss Dior Parfum (2024)"
+   },
+   "name": "Miss Dior Parfum",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2024 page of the same name (427 reviews), not the 1947 one"
+  },
+  "4566": {
+   "repoint": {
+    "fid": 67537,
+    "url": "https://www.fragrantica.com/perfume/Guerlain/Insolence-Eau-de-Parfum-67537.html",
+    "title": "Guerlain Insolence Eau de Parfum"
+   },
+   "name": "Insolence Eau de Parfum",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2021 page of the same name (257 reviews), not the 2008 one"
+  },
+  "15270": {
+   "repoint": {
+    "fid": 28201,
+    "url": "https://www.fragrantica.com/perfume/Dior/Dior-Addict-Eau-de-Parfum-2014-28201.html",
+    "title": "Dior Dior Addict Eau de Parfum (2014)"
+   },
+   "name": "Dior Addict Eau de Parfum",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2014 page of the same name (565 reviews), not the 2012 one"
+  },
+  "6529": {
+   "repoint": {
+    "fid": 23362,
+    "url": "https://www.fragrantica.com/perfume/Givenchy/Ange-Ou-Demon-Le-Secret-2014-23362.html",
+    "title": "Givenchy Ange Ou Demon Le Secret (2014)"
+   },
+   "name": "Ange Ou Demon Le Secret",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2014 page of the same name (142 reviews), not the 2009 one"
+  },
+  "1793": {
+   "repoint": {
+    "fid": 31444,
+    "url": "https://www.fragrantica.com/perfume/Burberry/Burberry-Brit-Sheer-2015-31444.html",
+    "title": "Burberry Burberry Brit Sheer (2015)"
+   },
+   "name": "Burberry Brit Sheer",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2015 page of the same name (187 reviews), not the 2007 one"
+  },
+  "65175": {
+   "repoint": {
+    "fid": 93892,
+    "url": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/La-Belle-Le-Parfum-2024-93892.html",
+    "title": "Jean Paul Gaultier La Belle Le Parfum (2024)"
+   },
+   "name": "La Belle Le Parfum",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2024 page of the same name (92 reviews), not the 2021 one"
+  },
+  "29157": {
+   "repoint": {
+    "fid": 75278,
+    "url": "https://www.fragrantica.com/perfume/Lancome/La-Nuit-Tresor-2019-75278.html",
+    "title": "Lancôme La Nuit Trésor 2019"
+   },
+   "name": "La Nuit Trésor",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2019 page of the same name (100 reviews), not the 2015 one"
+  },
+  "55": {
+   "repoint": {
+    "fid": 67313,
+    "url": "https://www.fragrantica.com/perfume/Guerlain/Samsara-Eau-de-Parfum-67313.html",
+    "title": "Guerlain Samsara Eau de Parfum"
+   },
+   "name": "Samsara Eau de Parfum",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2021 page of the same name (107 reviews), not the 1989 one"
+  },
+  "12748": {
+   "repoint": {
+    "fid": 55460,
+    "url": "https://www.fragrantica.com/perfume/Mugler/Angel-Eau-de-Toilette-2019-55460.html",
+    "title": "Mugler Angel Eau de Toilette (2019)"
+   },
+   "name": "Angel Eau de Toilette",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2019 page of the same name (280 reviews), not the 2011 one"
+  },
+  "1423": {
+   "repoint": {
+    "fid": 57842,
+    "url": "https://www.fragrantica.com/perfume/Rochas/Byzance-2019-57842.html",
+    "title": "Rochas Byzance (2019)"
+   },
+   "name": "Byzance",
+   "why": "the store listings name the bottle on sale: Fragrantica's 2019 page of the same name (115 reviews), not the 1987 one"
+  },
+  "11915": {
+   "skip": "second check: the listing 'Coach EDT 100ml' is Coach for Men, already coachfm"
+  },
+  "30864": {
+   "skip": "second check: the listings say only 'Fakhar'; the best seller is the older catalogue's fakharblack"
+  },
+  "372": {
+   "skip": "third check: the listing 'CLINIQUE Happy EDT 100ml' is Happy For Men, already cliniquehappyfm"
+  },
+  "96265": {
+   "skip": "third check: the listing fits the 2001 Little Black Dress as well as this 2024 page (10 reviews)"
+  }
+ },
+ "keep_despite_catalogue_match": {
+  "62311": "K Eau de Parfum (2020) is its own perfume beside the catalogue's K (EDT); notes overlap 0.57",
+  "52481": "the 2019 Eau de Parfum, beside the catalogue's 2010 Guilty; notes overlap 0.58",
+  "23098": "the 2014 Eau de Parfum, beside the catalogue's Hypnotic Poison; notes overlap 0.19",
+  "75182": "the 2022 Eau de Parfum, beside the catalogue's Hero (EDT); notes overlap 0.07",
+  "101278": "the 2024 Eau de Parfum, beside the catalogue's Déclaration (EDT); notes overlap 0.20",
+  "39355": "the 2016 Eau de Toilette, beside the catalogue's Eros Pour Femme EDP; notes overlap 0.26",
+  "22860": "Dior Homme Eau (2014), a flanker beside the catalogue's Dior Homme (2020); notes overlap 0.09",
+  "12748": "Angel Eau de Toilette (2011), its own formula beside the catalogue's Angel; notes overlap 0.14",
+  "48517": "The Scent for Her Eau de Toilette (2018), beside the catalogue's Eau de Parfum; notes overlap 0.36"
+ },
+ "held_back": {
+  "67502": "Crystal Noir EDT: notes overlap 0.91 with the catalogue's crystalnoir",
+  "13015": "the 2011 Dior Homme; the store rows name the 2020 version, the catalogue's diorhomme2020",
+  "31909": "The One EDP: the same note list as the catalogue's theonemen",
+  "223": "the 1947 Miss Dior; the store rows name the current one, the catalogue's missdior",
+  "79263": "the 2023 relaunch of Armani Code, the catalogue's armanicode",
+  "142502": "Boss Man: the same note list as the catalogue's hugoman (Fragrantica's second page for the 2021 Hugo Man)",
+  "65553": "the 2021 relaunch of Guilty Eau de Toilette, the catalogue's gucciguilty",
+  "570": "Hugo (1995); the store rows name the current bottle, the catalogue's hugoman (2021 relaunch)",
+  "20541": "Replica Jazz Club, the catalogue's jazzclub (its title reads Maison Martin Margiela, which the name matcher misses)",
+  "101596": "the 2025 relaunch of Dior Homme Intense, the catalogue's diorhommeintense",
+  "104984": "the 2025 relaunch of Light Blue Pour Homme, the catalogue's lightbluemen",
+  "72040": "Philosykos Eau de Toilette (1996), the catalogue's philosykos"
+ },
+ "show": {
+  "hiacynth": "hyacinth",
+  "sandalowood": "sandalwood",
+  "myrhh": "myrrh",
+  "rhuburb": "rhubarb",
+  "gaiac wood": "guaiac wood",
+  "lilybelle": "lilybelle"
+ },
+ "houses": {
+  "BDK-Parfums": "BDK Parfums",
+  "Lacoste-Fragrances": "Lacoste",
+  "CoSTUME-NATIONAL": "Costume National",
+  "Osma-Perfumes": "Osma"
+ },
+ "ar_notes_why": "The site's dictionary has cistus -> قسط (costus), labdanum -> لبنى (storax) and pimento -> فلفل حلو (bell pepper); the new entries use لاذن and بهار حلو. The older entries are left for the owner to decide.",
+ "verification": "reference/expansion/verify_report.md: blocking B1-B10 and should-fix S1-S15 applied here; notes N1-N17 left for the owner except N10 (Premier Jour) and N11 (Sapil arab, Fahrenheit Le Parfum designer)",
+ "verification_2": "reference/expansion/verify_report_2.md: 4 wrong and 2 unsure of 50; fixed by re-pointing every entry with a newer same-name page of 90+ reviews (15) and removing coachedt and fakharlattafa",
+ "verification_3": "reference/expansion/verify_report_3.md: 48 right, 1 wrong, 1 unsure of 50; both removed"
+}

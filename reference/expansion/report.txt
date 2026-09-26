@@ -1,0 +1,337 @@
+673 entries ready, 0 with an empty stage
+
+unmatched notes (count):
+  2  rice
+  1  asafoetida
+  1  lilybelle
+  1  balsamic vinegar
+  1  rice basmati
+  1  sake
+  1  moepel accord
+  1  bran
+  1  asphalt
+  1  coca-cola
+  1  belambra tree
+  1  prunol
+  1  kashmir wood
+
+no Arabic yet (count):
+  17  galbanum
+  15  amalfi lemon
+  14  juniper berries
+  10  cassia
+  10  marigold
+  8  teak wood
+  8  powdery notes
+  8  fruity notes
+  7  indonesian patchouli leaf
+  6  palisander rosewood
+  6  elemi resin
+  6  coumarin
+  6  tolu balsam
+  6  granny smith apple
+  6  chamomile
+  6  smoke
+  5  almond blossom
+  5  marjoram
+  5  clementine
+  5  passionfruit
+  5  ivy
+  5  cranberry
+  5  cypriol oil or nagarmotha
+  5  italian mandarin
+  5  fir
+  5  vanilla absolute
+  5  salt
+  5  spicy notes
+  4  sicilian mandarin
+  4  cacao pod
+  4  agarwood
+  4  white pepper
+  4  mirabelle
+  4  ozonic notes
+  3  jasmine tea
+  3  ebony
+  3  tiare flower
+  3  wisteria
+  3  sweet orange
+  3  amaryllis
+  3  australian sandalwood
+  3  hazelnut
+  3  black locust
+  3  herbal notes
+  3  black rose
+  3  indian tuberose
+  3  rose hip
+  3  chili pepper
+  3  cherry blossom
+  3  solar notes
+  3  pomarose
+  3  kumquat
+  3  angelica
+  3  tuscan iris
+  3  bamboo
+  3  grass
+  3  cambodian oud
+  3  violet leaves
+  2  pink peony
+  2  wormwood
+  2  paprika
+  2  african geranium
+  2  red lily
+  2  flowers
+  2  cotton flower
+  2  finger lime
+  2  pitahaya
+  2  night blooming cereus
+  2  grasse rose
+  2  rose petals
+  2  mandora
+  2  kiwi
+  2  almond tree
+  2  karo karounde
+  2  pineapple leaf
+  2  peach blossom
+  2  sunflower
+  2  watermelon
+  2  rose de mai
+  2  stephanotis
+  2  cashmirwood
+  2  rice
+  2  white rose
+  2  hibiscus
+  2  sour cherry
+  2  sesame
+  2  absinthe
+  2  black vanilla husk
+  2  gurjan balsam
+  2  white lily
+  2  birch leaf
+  2  mace
+  2  tunisian orange blossom
+  2  cinnamon leaf
+  2  flax
+  2  carambola (star fruit)
+  2  clover
+  2  shiso
+  2  rose oil
+  2  pine tree needles
+  2  castoreum
+  2  red fruits
+  2  white cedar extract
+  2  bourbon pepper
+  2  chinese jasmine
+  2  chinese orange
+  2  madagascar vetiver
+  2  vanilla pod
+  2  pine needles
+  2  fern
+  2  calone
+  2  italian orange
+  2  red chilli pepper
+  2  precious woods
+  2  cactus flower
+  2  pink freesia
+  2  cucumber
+  2  green grass
+  2  exotic woods
+  2  vanilla bean
+  2  papaya
+  2  maltol
+  2  timur
+  2  boysenberry
+  2  animal notes
+  2  cypriol
+  2  aquatic notes
+  2  sylkolide
+  2  vanilla flower
+  2  yellow freesia
+  1  liquor
+  1  neroli essence
+  1  serenolide
+  1  ice
+  1  indian patchouli
+  1  apple tree blossom
+  1  camelia
+  1  candy apple
+  1  olive tree
+  1  californian gardenia
+  1  african freesia petals
+  1  natural vanilla
+  1  vodka
+  1  gin
+  1  roasted coffee beans
+  1  silkwood blossom
+  1  fig nectar
+  1  indian saffron
+  1  watercress
+  1  hibiscus seed
+  1  grapefruit blossom
+  1  tahitian vetiver
+  1  lavender extract
+  1  berries
+  1  asafoetida
+  1  madagascar ylang-ylang
+  1  lydia broom
+  1  indian vanilla
+  1  pear ice cream
+  1  peppertree
+  1  wild berries
+  1  earl grey tea
+  1  taif rose
+  1  bergamot leaf
+  1  fennel
+  1  dewberry
+  1  blonde woods
+  1  vanilla caviar
+  1  aquozone
+  1  mastic or lentisque
+  1  cade oil
+  1  mignonette
+  1  nectarine
+  1  blue hyacinth
+  1  red cyclamen
+  1  violet root
+  1  tobacco blossom
+  1  sycamore
+  1  forget me not
+  1  petalia
+  1  lemon tree
+  1  cedar essence
+  1  nard himalayan (jatamansi)
+  1  cypress leaf
+  1  candied lemon
+  1  panacotta
+  1  dry wood
+  1  raspberry blossom
+  1  leatherwood
+  1  tincture of rose
+  1  pimento seeds
+  1  apple blossom
+  1  blue lavender
+  1  ebony tree
+  1  lilybelle
+  1  eucalyptus
+  1  cashalox
+  1  blackcurrant syrup
+  1  palm tree
+  1  evernyl
+  1  calypsone
+  1  meringue
+  1  orange oil
+  1  french narcissus
+  1  palo santo
+  1  baie rose
+  1  himalayan cedar
+  1  rock rose
+  1  pear blossom
+  1  wild rose
+  1  bergamot blossom
+  1  broom
+  1  yellow mandarin
+  1  red peony
+  1  rosyfolia
+  1  white ginger lily
+  1  green pepper
+  1  tulip
+  1  indian jasmine
+  1  poppy
+  1  white currant
+  1  plum blossom
+  1  pinwheel flower
+  1  west indian bay
+  1  lime (linden blossom)
+  1  bellflower
+  1  balsamic vinegar
+  1  gooseberry
+  1  tahitian tiare flower
+  1  pink violet
+  1  hortensia
+  1  white magnolia
+  1  sicilian citruses
+  1  white sandalwood
+  1  patchouli leaf
+  1  white tea
+  1  white iris
+  1  green lily
+  1  wallflower
+  1  blue sage
+  1  moroccan jasmine
+  1  rice basmati
+  1  guatemalan cardamom
+  1  sake
+  1  moepel accord
+  1  bran
+  1  pitosporum
+  1  virginian cedar
+  1  coconut nectar
+  1  ebony wood
+  1  sumac
+  1  brazilian mandarin
+  1  sichuan pepper
+  1  seagrass
+  1  asphalt
+  1  black cardamom
+  1  mahonia
+  1  moroccan rose
+  1  jasmine leaf
+  1  black leather
+  1  iris butter
+  1  red currant
+  1  coconut water
+  1  green coriander
+  1  blood grapefruit
+  1  indian mandarin
+  1  floral bouquet
+  1  coca-cola
+  1  wild strawberry leaf
+  1  forest fruits
+  1  banana
+  1  turkey red rose
+  1  oriental notes
+  1  cappuccino
+  1  blue lilies
+  1  cistus incanus
+  1  night blooming jasmine
+  1  cocoa
+  1  indonesian nutmeg
+  1  nigerian ginger
+  1  chinese black tea
+  1  papaya flower
+  1  japanese cherry blossom
+  1  red currant blossom
+  1  mulberry
+  1  litsea cubeba
+  1  exotic fruits
+  1  desert rose
+  1  laotian oud
+  1  carrot seeds
+  1  white grapefruit
+  1  salted caramel fudge
+  1  indian oud
+  1  black musk
+  1  water hyacinth
+  1  belambra tree
+  1  white violet
+  1  sequoia
+  1  aromatic notes
+  1  damask plum
+  1  boxwood
+  1  rice flower
+  1  french labdanum
+  1  vetyver
+  1  red pepper
+  1  green almond
+  1  white wood
+  1  juniper berry
+  1  ceylon cinnamon
+  1  vervain
+  1  allspice
+  1  prunol
+  1  kashmir wood
+
+empty stages:
+
+Arabic names met twice:
+
+314 entries without an Arabic name; tiers: { designer: 491, arab: 128, niche: 54 }

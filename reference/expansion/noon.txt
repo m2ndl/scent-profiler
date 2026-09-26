@@ -1,0 +1,594 @@
+# Noon (noon.com/saudi-en), fragrance categories sorted by the store's "popularity" order (sort[by]=popularity), read
+# 26 September 2026 in the browser: Eau de Parfum pages 1-14, Eau de Toilette 1-8, Attar & Perfume Oils 1-6, Eau de
+# Cologne 1-2, 50 listings a page. Kept: listings with at least 100 ratings, a "#N in <category>" badge or a
+# "N+ sold recently" figure; repeated listings merged (best rank, highest counts). From the oils and cologne lists,
+# home fragrances, bakhoor, multi-packs, unbranded musk oils and colognes under 100 ratings were left out when copied.
+# Fields, "|"-separated: category (ep=EDP, et=EDT, ol=oils, ec=cologne) | rank in the store's order | listing title |
+# rating count | N of the "#N in <category>" badge | N of "N+ sold recently". The title may itself contain "|".
+ep|1|ZAREEN SAVAGE EAU DE PARFUM100ML|603|35|
+ep|2|ZAREEN Monsieur Coco Vanille EDP Spray 100ml|2600|46|
+ep|4|Lattafa Khamrah Unisex Eau De Parfum by Lattafa 100ml|8600|1|1900
+ep|5|Reef 33 Eau De Parfum For Unisex 100ml|839|2|470
+ep|6|Ajmal Raindrops EDP 50ml|4200|13|860
+ep|7|Osma Amber S Perfume by OSMA for Unisex 75ml|619|30|140
+ep|8|AFNAN Supremacy Collector's Edition Eau De Parfum for Men, 100 ML|1200|3|1300
+ep|9|Ahmed Al Maghribi Marj Unisex Extrait De Parfum by Ahmed Al Maghribi - 60ML|1400|5|720
+ep|10|AFNAN 9 PM Edition For Men Eau De Parfum 100ml|4000|6|1100
+ep|11|Lattafa Yara EDP For Women 100ml|4700|4|1800
+ep|12|Rasasi Hawas Ice Perfume For Men Edp 100ml|1600|10|750
+ep|13|STREET ORIGINS Love Daze, Santorini (Mars) Extrait For Him, 75Ml|36||10
+ep|14|Osma Cotton C Perfume by OSMA for Unisex 75ml|233||100
+ep|15|Arabian Oud Velvet Touch Perfume 100ml|141|11|
+ep|16|AFNAN 9PM NIGHT OUT EXTRAIT DE PARFUM 100ML|602|7|640
+ep|17|CALVIN KLEIN Beauty Eau De Parfum 100ml|6100|3|1000
+ep|18|Lattafa KHAMRAH QAHWA Unisex Eau De Parfum by Lattafa 100ml|3000|8|680
+ep|19|Al Majed Oud Black Secret From Classic Collection 100Ml EDP|1900|12|700
+ep|20|BOUCHERON Quatre EDP 100ml|2900|24|
+ep|21|Arabian Oud Arabian Knight Silver 100 ml – Arabian Oud 100ml|144||
+ep|22|Osma White F Perfume by OSMA for Unisex 75ml|153||70
+ep|23|Lattafa Ameerat Al Arab EDP 100ml|5300|39|1300
+ep|24|Osma BONSOIR Perfume by OSMA for Unisex 150ml|116||40
+ep|25|HERSH Al Ezz Oud Hersh Lahab Eau De Parfum for Men – Fresh Aromatic Fragrance wi|985|14|
+ep|26|roberto cavalli Paradiso EDP 75ml|6000|6|1100
+ep|27|Laverne L'Dor Bakhoor Classic EDP 200 ml|136||
+ep|28|Arabian Oud Only Pink EDP 100ml|101|21|
+ep|29|aldakheeloud Oscar Silver EDP 100ml|408|32|270
+ep|30|VILLAIN Voltage EDP for Men, Perfume for Men 100 ml|123||
+ep|31|AFNAN 9 PM Rebel Unisex Eau De Parfum, 100ML|647|18|
+ep|32|BENTLEY Intense EDP 100ml|1600||
+ep|33|roberto cavalli Paradiso Azzuro EDP 75ml|2700|8|
+ep|34|Reef 19 Eau De Parfum For Unisex 100ml|246|22|150
+ep|35|Al Majed Oud Rannan Vip 100Ml EDP|469|20|580
+ep|36|Laverne Miss Laverne Bloom EDP 100ml|80|25|
+ep|38|Ajmal Sacred Love EDP 50ml|1100||
+ep|39|Osma Flowers W Perfume by OSMA for Unisex 75ml|53||80
+ep|40|Ahmed Al Maghribi Kaaf Unisex Extrait de parfum 100Ml|458|26|320
+ep|41|Al Majed Oud Ruby From Prestige Collection 100Ml EDP|1300|23|1000
+ep|42|Lattafa Fakhar EDP 100ml|1500|19|
+ep|43|roberto cavalli Florence EDP 75ml|2500|29|
+ep|44|Al Majed Oud Elbrince From Classic Collection 100Ml EDP|441|28|650
+ep|45|Ajmal Wisal EDP 50ml|975||
+ep|46|Al Majed Oud Serious 100Ml EDP|139|27|10
+ep|47|Roberto Cavalli For Women - Eau de Parfum, 75ml|2600|33|
+ep|48|MONTBLANC Explorer EDP 100ml|3400||
+ep|49|Dolce & Gabbana The One EDP For Men 100ml|2200|14|
+ep|50|Al Majed Oud Pure Musk From Classic Collection 100Ml EDP|337|37|
+ep|52|Jawaher Crystal Al Oud Al Malaki Eau De Parfum - 100ml|2000|49|
+ep|53|Rasasi Hawas Black Eau De Parfum 100ml|1100|31|
+ep|54|Laverne Blue Laverne EDP 100ml|62|34|
+ep|55|Narciso Rodriguez EDP 100ml|573|12|
+ep|56|VILLAIN Oud EDP, Long Lasting Perfume for Men, 100ml|1200||
+ep|57|Arabian Oud Knight EDP 100ml|153||
+ep|58|Laverne The One EDP 100ml|103||
+ep|62|Rasasi Hawas Perfume for Men EDP 100ml|3800|10|
+ep|63|VILLAIN Snake EDP, Long Lasting Perfume for Men, 100ml|444||
+ep|65|Ajmal Evoke EDP 75ml|865||
+ep|66|Ajmal Sacrifice EDP 50ml|1900|43|
+ep|67|Osma Woody W Perfume by OSMA for Unisex 75ml|56||50
+ep|68|Arabian Oud Kalemat EDP 100ml|100||
+ep|69|AFNAN 9 PM Elixir Unisex Extrait De Parfum,100ML|360|44|
+ep|71|EMPORIO ARMANI Stronger With You Intensely Eau de Parfum - 100ml|343||
+ep|72|Tous Les Jours Perfume Day 332 - Tous Les Jours Sheikh|1400||
+ep|73|Osma Ambry' A Perfume by OSMA for Unisex 75ml|95||90
+ep|76|Franck Olivier Paris EDP 75ml|1500|19|630
+ep|77|Estelle Vendome Infinite Pleasure Just Girl EDP 100ml|1400||
+ep|78|noir Elixir EDP Fresh Spicy Perfume for Men with Lemon, Lavender & Amber Notes, |1200||
+ep|79|Arabian Oud Adore 80ml|87|36|
+ep|80|Lattafa Eclaire Eau de Parfum 100ml|288|38|
+ep|84|Lattafa Angham EDP 100 ml|422||
+ep|87|Arabian Oud Tarteel Silver 75ml|150|9|
+ep|88|Reef Lady Perfume by Reef Eau de Parfum - 150 ml|86|42|80
+ep|91|VILLAIN Smoked Oud Eau de Parfum for Men 100ml|213||
+ep|92|Reef Arab Obaiah Eau De Parfum For Unisex 100ml|194|40|90
+ep|94|Arabian Oud 360° Perfume 100ml|131||
+ep|95|ZAREEN Savage Zareen Eau de Parfum for men 100 ml|106||
+ep|96|Ahmed Al Maghribi Oud And Roses Extrait De Parfum 60Ml|205|45|
+ep|97|EMPORIO ARMANI Stronger With You Absolutely Parfum - 100ml|410||70
+ep|98|Reef Princess by Reef Eau De Parfum -100 ML|60||80
+ep|99|AVON Rare Pearls EDP 50ml|708||
+ep|101|VERSACE Eros Pour Femme Eau De Parfum 100ml 100ml|1100|42|
+ep|102|Al Majed Oud Noir From Classic Collection 150Ml Perfum|766|50|490
+ep|103|AVON Incandessence Lotus EDP 50ml|791||
+ep|105|Al Majed Oud Retaj From Classic Collection 100Ml EDP|595|48|760
+ep|106|Ahmed Al Maghribi Rose Noir Unisex Extrait de parfum 75Ml|207||190
+ep|110|Yves Saint Laurent LIBRE EAU DE PARFUM INTENSE 90ml|831||
+ep|111|Al Majed Oud Royal From Classic Collection 100Ml EDP|342||
+ep|113|Osma Paudree F Perfume by OSMA for Unisex 75ml|301||20
+ep|114|VILLAIN Classic EDP, Long Lasting Perfume for Men, 100 ml|1100||
+ep|116|Lattafa Najdia EDP 100ml|1700||
+ep|117|Lattafa Khamrah Dukhan 100 ml|381||
+ep|118|BURBERRY London EDP 100ml|1100|31|
+ep|119|Armaf Club De Nuit Intense EDP 200ml|858||
+ep|120|VERSACE Eros EDP 100ml|1200||
+ep|121|Lattafa Fakhar Lattafa EDP 100ml|837||
+ep|122|Al Majed Oud Jawharat Al Oud From Classic Collection 100Ml EDP|149||
+ep|123|GUCCI Bamboo EDP 75ml|1300|28|
+ep|124|Rasasi Shuhrah Perfume for Men EDP 90ml|7900|20|
+ep|125|Asaaf perfume set 200 ml|114||
+ep|126|ARABIYAT Oud Al Layl EDP 100ml|1100||
+ep|127|Rasasi Al Wisam Day Perfume for Men EDP 100ml|1900||
+ep|129|Jean Paul GAULTIER Le Male Elixir Parfum 125ml|773||
+ep|132|Al Majed Oud Gold Stone From Classic Collection 100Ml EDP|400||
+ep|134|aldakheeloud Noir EDP 100ml|265||
+ep|135|Lattafa Ameer Al Oudh Intense Oud | Eau De Parfum 100ml|1800||170
+ep|136|Al Majed Oud Aris From Classic Collection 100Ml EDP|359||
+ep|137|Arabian Oud Code EDP 90ml|41|47|
+ep|138|AFNAN 9 AM Edition Unisex Eau De Parfum, 100 ML 100ml|4000||
+ep|142|AFNAN Rare Carbon Eau de Parfum for Men, 100 ML 100ml|109||
+ep|144|Reef 33 White Eau De Parfum For Unisex 100ml|200||130
+ep|146|Al Majed Oud Wood Gray From Wood Collection 75Ml EDP|131||
+ep|149|AFNAN Dehn Al Oud Abiyadh Unisex Concentrated Perfume Oil, 20 ML 20ml|1300||130
+ep|152|Sunset Cafe Powder Blue EDP 100ml|2100||
+ep|155|Rasasi Daarej Perfume for Men EDP 100ml|3100||
+ep|156|Yves Saint Laurent Libre Eau De Parfum 90ml|5800||
+ep|157|Arabian Oud Asrar EDP 100ml|218|15|
+ep|160|roberto cavalli Paradiso Assoluto EDP 75ml|575||
+ep|162|VILLAIN Desire EDP, Long Lasting Perfume for Men 100 ml|348||
+ep|165|AVON Incandessence EDP 50ml|725||
+ep|166|ASAAF MISS SAKURA+GRIS ERIK+WILD COLT+NOBLE 200ML*4|146||
+ep|167|Jean Paul GAULTIER Le Male Le Parfum EDP Intense 125ml|1300||
+ep|168|Al Majed Oud Ice From Wood Collection 75Ml EDP|324||
+ep|169|Rasasi Emotion EDP Perfume for Women 50ml|1300||
+ep|171|Lattafa Asad Bourbon EDP 100 ml|345||
+ep|173|Tous Les Jours - Day 419 Perfume Tous Les Jours Stellar Times|1400||
+ep|175|Yves Saint Laurent Y EAU DE PARFUM 100ml|2400||
+ep|176|Al Majed Oud Ebaraat Samiya Eau De Parfum 75 ML|171||
+ep|177|Ajmal Bakhour Al-Musk EDP 100ml|234||
+ep|178|AZZARO The Most Wanted Perfume 100ml|515||30
+ep|179|Al Majed Oud Wood White From Wood Collection 75Ml EDP|163||
+ep|186|Elizabeth Arden 5Th Avenue Edp Spray Lilial Free 125ml|1100|43|
+ep|187|Franck Olivier Women Hair Mist 50 ML|274||
+ep|190|Reef 31 Eau De Parfum For Unisex 100ml|138||100
+ep|191|noir Nectar of Oud EDP Perfume for Men, Luxury Fragrance with Musk, Patchouli & |1200||
+ep|192|VILLAIN Revolver EDP Perfume For Men, Woody Oriental Scent, Special Pack, 100 Ml|114||
+ep|194|Mancera Roses Vanille EDP 120ml|1500||
+ep|195|French Avenue Liquid Brun Eau de Parfum - Perfume for Men 100 ml|120||
+ep|199|Reef Summer Yellow Eau De Parfum For Unisex 100ml|116||60
+ep|200|noir Essential Aqua EDP Perfume – Fresh Citrus & Aquatic Summer Perfume for Men,|284||
+ep|201|Abdul Samad Al Qurashi Musk Abdul Samad - Body Musk 80ML|17||30
+ep|202|PRADA Paradoxe Intense EDP 90ml|2700||
+ep|209|dunhill Icon Absolute EDP 100ml|659||
+ep|210|ALezz Oud Al Ezz Oud Klikat Blue Eau De Parfum for Unisex – Fresh Summer Fragran|125||
+ep|220|Al Majed Oud Viola From Lady Collection 100Ml EDP|203||
+ep|221|Rasasi BLUE LADY Eau De Parfum 40ML with free deo spray 40mlml|1200||
+ep|227|roberto cavalli Natural Spray Vaporisateur for Women EDP 50ml|493||
+ep|228|AFNAN Rare Reef Unisex Extrait De Parfum, 100ML|186||
+ep|229|Arabian Oud Only White 100ml|163|16|
+ep|232|Elie Saab EDP 90ml|145||
+ep|233|Lattafa Ana Abiyedh EDP 60ml|1200||
+ep|234|AVON Wish Of Love Perfume EDT 50ml|320||
+ep|236|ESCADA Magnetism EDP 75ml|1200||
+ep|237|Rasasi Shuhrah Perfume for Women EDP 90ml|1500|26|
+ep|242|Elizabeth Arden Green Tea Snt Sp 100ml|340||
+ep|244|VIKTOR & ROLF Spice Bomb Extreme EDP 90ml|253||
+ep|246|Abdul Samad Al Qurashi Body Oud Satin Perfume for Her & Him 100ML|22||10
+ep|247|GUCCI Bloom EDP 100ml|2100||
+ep|248|Laura Mars Splandid EDP 100ml|782||
+ep|252|Dior Sauvage EDP For Men 100ml|2500||
+ep|254|VALENTINO BORN IN ROMA INTENSE EAU DE PARFUM SPRAY 100ml|352||
+ep|255|Lattafa Bade'E Aloud Amethyst EDP 100ml|419||
+ep|256|Reef Coral 1 Eau De Parfum For Unisex 150ml|54||50
+ep|257|Lattafa Ramz EDP 100ml|754||
+ep|258|VERSACE Crystal Noir EDP 90ml|646||
+ep|263|SWISS ARABIAN Shaghaf Oud Aswad Unisex, Eue De Parfum 75ml|295||
+ep|266|Yves Saint Laurent MYSLF EAU DE PARFUM 100ml|2600||
+ep|269|noir Essentials Pour Femme EDP Perfume for Women Fragrance with Gourmand Notes, |362||
+ep|271|LANCOME LA VIE EST BELLE Eau De Parfum 100ml|5500||
+ep|273|RAYAN Fuego Leather Perfume for Men – Long Lasting Arabian Eau De Parfum, 100mL |102||
+ep|274|CHANEL Bleu De Chanel Paris EDP Pour Homme Vaporisateur Spray For Men 100ml|343||
+ep|276|aldakheeloud Oscar Gold EDP 100ml|134||
+ep|279|Hersh 2 by Al Ezz Oud Eau De Parfum for Unisex – Fresh Citrus Woody Summer Fragr|985||
+ep|280|Rasasi Hawas Kobra For Him EDP 100ml|338||
+ep|281|Remy Marquis Remy EDP 100ml|205||
+ep|286|AVON Celebre Eau De Toilette 50ml|321||100
+ep|287|Guerlain Insolence EDP 75ml|270||
+ep|288|BURBERRY My Burberry Black 90ml|505||
+ep|299|Reef 11 Eau De Parfum For Men 100ml|174||70
+ep|304|GIVENCHY L'Interdit Rouge For Her EDP 80ml|206||
+ep|305|Chloe Love Story EDP 75ml|391||
+ep|310|GUCCI Flora Gorgeous Gardenia EDP 100ml|296||
+ep|312|Tesori d'Oriente Lotus Flower Aromatic Parfum 100ml|636||50
+ep|314|aldakheeloud Exclamation Golden EDP 100ml|112||
+ep|315|RAYAN BACO Perfume, Long Lasting Perfume for Men, 100 ML Eau De Parfum for Men, |195||
+ep|325|GUCCI Guilty Absolute EDP 90ml|642||
+ep|328|aldakheeloud Crown Red EDP 100ml|93||20
+ep|330|GIORGIO ARMANI MY WAY EAU DE PARFUM 90ml|7300||
+ep|331|Al Majed Oud Rose De Mai From Garden Flower Collection 100Ml EDP|169||
+ep|333|Abdul Samad Al Qurashi Musk Abdul Samad - Khitam Musk 80ML|19||30
+ep|335|DERAAH Suave Paris EDP 100ml|227||
+ep|340|Al Majed Oud Cuir From Classic Collection 150Ml Perfum|484||
+ep|342|Ahmed Al Maghribi Oud Couture Unisex Extrait De Parfum 100Ml|39||60
+ep|344|MONTALE Black Aoud EDP 100ml|191||
+ep|346|Eternal love Xlouis EDP Spray 100ml|242||
+ep|347|Ajmal 1001 Nights Alf Laila O Laila EDP 60ml|359||
+ep|348|GIORGIO ARMANI Sì eau de parfum 100ml|2500||
+ep|349|ESTEE LAUDER Beautiful EDP 75ml|325||
+ep|351|HUGO BOSS Boss EDP 50ml|598||
+ep|354|Lattafa Ejaazi By for Men , Eau De Parfum, 100Ml 100ml|505||
+ep|356|Ajmal Mukhallat Al Shams EDP 50ml|397||
+ep|358|Armaf Club De Nuit Sillage EDP 105ml|755||
+ep|360|Rasasi Royale Blue EDP Perfume for Men 75ml|1700|44|
+ep|366|AVON Tomorrow EDP 50ml|311||
+ep|375|Juicy Couture Viva La Juicy EDP 100ml|582||
+ep|380|Arabian Oud Ehsas 100ml|152|41|20
+ep|384|COACH New York Coach Dreams EDP 90ml|1300||
+ep|387|COLOUR ME Pink Perfume For Women 100ml|211||
+ep|388|GUCCI Guilty Pour Femme EDP 50ml|765||
+ep|389|GUCCI Guilty Absolute Pour Femme EDP 90ml|329||
+ep|391|Ahmed Al Maghribi Oud Classic Unisex Edp 50Ml|105||
+ep|399|Lattafa Asad Bourbon For Men - Eau De Parfum - 100ML|256||
+ep|400|Colour Me Purple EDP 100 ml|332||
+ep|402|Ahmed Al Maghribi Summer Oud Unisex Extrait de parfum 60Ml|46||40
+ep|404|Lattafa Qaed Al Fursan EDP 90ml|2200||
+ep|408|TOM FORD Ombre Leather EDP 100ml|388||
+ep|410|Al Majed Oud Hakem From Classic Collection 100Ml EDP|161||
+ep|413|J.CASANOVA Pandora EDP 100ml|265||
+ep|418|Alina Corel Monsieur Intense Vanille EDP 100ml|1200||
+ep|419|BVLGARI Man in Black EDP 100ml|466||
+ep|420|Yves Saint Laurent LIBRE LE PARFUM 90ml|2700||10
+ep|421|AFNAN Historic Sahara Unisex Extrait De Parfum, 100ML|104||
+ep|423|Remy Marquis Shalis Remi Marquis Edp For Woman 100ml|355||
+ep|427|Ajmal Vision EDP 100ml|300||
+ep|428|Sorelle If EDP 100ml|198||
+ep|429|CLINIQUE Happy Heart Perfume Spray 100ml|64||10
+ep|432|Yves Saint Laurent Black Opium Eau De Parfum 90ml|10400||
+ep|433|VILLAIN Bukhoor Oud Eau De Parfum for Men 100ml|213||
+ep|437|Lacoste EDP Packaging May Vary 90ml|302||
+ep|443|Coach EDP 90ml|623||
+ep|450|ALezz Oud Klkat Blue 200 Ml+ Klkat 200Ml EDP|12||20
+ep|454|Al Majed Oud Sun From Wood Collection 75Ml EDP|193||
+ep|458|BENTLEY Silverlake EDP 100ml|161||
+ep|460|ALMAS PERFUMES Ashek Al Oud Perfume by Almas Perfumes 100ml|18||30
+ep|461|Guerlain Instant Magic Eau De Parfum 75ml|130||
+ep|462|GIVENCHY Gentleman EDP 100ml|156||
+ep|465|AZZARO The Most Wanted EDP Intense 100ml|338||
+ep|466|Osma Vanilla S Perfume by OSMA for Unisex 75ml|85||50
+ep|470|LANCOME La Vie Est Belle EDP 75ml|5500||
+ep|471|Al Majed Oud Sekoon From Lady Collection 100Ml EDP|38||20
+ep|475|MONTALE Arabians Tonka EDP 100ml|100||
+ep|480|Dolce & Gabbana K EDP For Men 100ml|607||
+ep|483|GIVENCHY Organza EDP 100ml|130||
+ep|485|Bn Parfum BN Black EDP 100ml|585||
+ep|486|Ajmal Kuro EDP 90ml|152||
+ep|487|Al Maas Ameer Al Oud EDP 100ml|212||
+ep|489|AFNAN Mystique Bouquet Eau de Parfum for women, 80 ML|128||
+ep|490|Lattafa Maahir Black Edition EDP 100ml|504||
+ep|495|NINA RICCI Premier Jour EDP 100ml|272||
+ep|496|Ajmal Aurum EDP 75ml|334||
+ep|498|Tous Les Jours - Perfume Day 94 - Tous Les Jours Silver Mountain|1400||
+ep|499|Lattafa Ramz Gold EDP 100ml|273||
+ep|502|Abdul Samad Al Qurashi Musk Abdul Samad - Golden Musk 80ML|5||10
+ep|504|My Way by Giorgio Armani 90ml|667||
+ep|505|Lattafa Pure Oudi EDP With Perfumed Spray 100ml|550|46|
+ep|510|Al Fakhr Shiyoukh Al Oud EDP 100ml|471||
+ep|513|LANCOME IDÔLE EAU DE PARFUM 50ml|3900||
+ep|519|Lattafa Hayaati Al Maleky EDP 100ml|122||
+ep|536|Johan.B Paris Sensual EDP 85ml|207||
+ep|549|Van Cleef & Arpels Moonlight Patchouli EDP 75ml|107||
+ep|557|ELIE SAAB Le Parfum In White EDP 90ml|182||
+ep|558|ZAREEN Monsieur Coco Vanille EDP 100ml|2600||
+ep|560|BURBERRY My Burberry EDP 90ml|424||
+ep|563|Lattafa Asdaaf Lattafa Ameer Al Arab EDP 100ml|437||40
+ep|566|Lolita Lempicka EDP 100ml|122||
+ep|569|ALMAS Asheq Al Oud Perfume Almas 100ml|508||
+ep|577|Rasasi Daarej Perfume For Women Eau De Parfum 100ml|468||
+ep|583|CREED Aventus EDP 100ml|203||
+ep|588|LANVIN PARIS Eclat D'Arpege EDP 100ml|262||
+ep|589|Al Majed Oud Sun All Over Spray From Wood Collection 70Ml|193||
+ep|591|GIORGIO ARMANI Acqua Di Gio Profondo for Men - Parfum 100ml|418||
+ep|614|Hersh Rouge EDP 100 ML|985||
+ep|615|Reef Titan Eau De Parfum For Unisex 200ml|43||10
+ep|616|CALVIN KLEIN Defy Parfum 200ml|377||10
+ep|622|Rasasi Romance EDP Perfume 45ml|1300||
+ep|623|CHANEL Chance Eau Tendre EDP For Women 100ml|120||
+ep|625|Mugler Alien EDP 90ml|160||
+ep|633|noir Essentials Pour Homme – EDP|284||
+ep|636|GUCCI Oud Intense EDP 90ml|217||
+ep|637|GUCCI Guilty Elixir De Parfum 60ml|1400||10
+ep|638|GIVENCHY Hot Couture EDP 100ml|221||
+ep|639|Lattafa Yara EDP 100ml|888||
+ep|641|ELIE SAAB Le Parfum EDP 90ml|254||
+ep|642|Ajmal Danat Al Duniya EDP 60ml|269||
+ep|643|Ajmal Bakhoor Khas Oud 3ml|425||70
+ep|646|Lattafa Asad Perfume for Men by Lattafa Eau de Parfum 100ml|105||
+ep|655|VILLAIN White Oud Eau de Parfume for Men 100ml|213||
+ep|657|TOM FORD Black Orchid EDP For Unisex 100ml|245||
+ep|661|Estee Lauder Eau de Private Collection Spray 50ml 50ml|161||
+ep|671|AVON Far Away EDP 50ml|1300||
+ep|675|CHANEL Coco Mademoiselle Intense EDP For Women 100ml|111||
+ep|688|VILLAIN Golden Oud Eau De Parfum for Men 100ml|213||
+ep|693|Cartier Pasha Parfum EDP 100ml|220||
+ep|694|Dolce & Gabbana Pour Femme EDP For Women 100ml|468||
+ep|696|roberto cavalli Nero Assoluto EDP 75ml|708||
+ep|699|CHANEL No. 5 EDP For Women 100ml|133||
+ep|713|Al Majed Oud Layal From Lady Collection 100Ml EDP|30||40
+ep|714|CAROLINA HERRERA 212 S*xy EDP For Women 100ml|346||
+ep|715|LANCOME MIRACLE EAU DE PARFUM 100ml|497||
+ep|717|CHANEL Coco Mademoiselle EDP For Women 100ml|167||
+ep|722|Mancera Roses Greedy EDP 120ml|175||
+ep|723|Osma Citrus F Perfume by OSMA for Unisex 75ml|65||20
+ep|724|Al Rehab Officer EDP 100ml|267||
+ep|729|narciso rodriguez Pure Musc EDP 100ml|192||
+ep|730|ROCHAS Moustache EDP 125ml|205||
+ep|731|CAROLINA HERRERA Good Girl Edp For Women Eau De Parfum 80ml|4100||
+ep|733|TOM FORD Noir Extreme EDP For Men 100ml|106||
+ep|738|Parisis Perfumes Bella By Lucas Stendhal EDP 75ml|168||
+ep|740|Jean Paul GAULTIER Scandal By Night EDP 80ml|121||
+ep|741|Havoc EDP 75ml|170||
+ep|743|Lalique EDP 100ml|109||
+ep|744|Guerlain Santal Royal EDP For Unisex 125ml|340||
+ep|745|AVON Rare Gold EDP 50ml|288||
+ep|748|AVON Little Black Dress EDP 50ml|486||
+ep|749|MAISON ALHAMBRA Salvo Intense EDP 100ml|151||
+ep|960|French Avenue Azzure Aoud – EDP|131||
+et|1|Davidoff Hot Water Eau De Toilette 110ml|1300|22|120
+et|2|Davidoff Cool Water EDT For Men 75ml|717|29|90
+et|3|Davidoff Cool Water Eau De Toilette 100ml|5100|9|440
+et|4|JAGUAR Classic Black EDT For Men 100ml|15500|1|2900
+et|5|Al Majed Oud Candy Musk From Classic Collection 150Ml Edt|419|1|810
+et|7|Davidoff Champion Eau De Toilette 90ml|663|5|160
+et|8|Armaf Club De Nuit Intense EDT 105ml|2700|2|60
+et|9|JAGUAR Classic EDT For Men 100ml|2400|4|450
+et|10|Armaf Club De Nuit Intense Man EDT 105ml|2100|3|290
+et|11|CALVIN KLEIN In2U Eau De Toilette 100ml|991||100
+et|12|AVON Perceive Eau De Toilette For Him|32||10
+et|13|Youmar Collection White Musk 25Ml|326||210
+et|14|Remy Marquis EDT 100ml|236|10|240
+et|15|LACOSTE L.12.12 Blanc-Pure EDT For Men 100ml|1200||100
+et|17|GUCCI Rush EDT 75ml|327|47|30
+et|18|Marbert Man Pure Eau de Toilette SPRAY 125ml|251|4|40
+et|19|Hugo Boss EDT 75ml|1700|20|100
+et|20|CALVIN KLEIN Obsession Eau De Toilette 75ml|405||20
+et|23|BRUT Prestige Paris 1965 EDT 100ml|719|8|190
+et|25|paco rabanne 1 Million EDT For Men 100ml|4300|35|50
+et|26|TED LAPIDUS Pour Homme EDT 100ml|453|7|250
+et|27|Dior Sauvage EDT 100ml|2200|19|40
+et|28|TRI Flower Pink EDT 100ml|2800|11|110
+et|29|Jacques Bogart One Man Show Eau De Toilette 100ml|1200||90
+et|30|Jacques Bogart One Man Show EDT 100ml|466|6|20
+et|31|VERSACE Eros EDT For Men 100ml|2400|50|20
+et|32|Remy Marquis Shalis Man EDT 100ml|949|9|60
+et|33|ISSEY MIYAKE Leau Dissey Pour Homme EDT 75ml|262||20
+et|34|Hugo EDT For Men 200ml|1700||50
+et|35|VERSACE Dylan Blue EDT For Men 100ml|1800|49|80
+et|36|dunhill Desire EDT 100ml|746||40
+et|37|HUGO BOSS Bottled Night EDT For Men 200ml|557||30
+et|38|Nikos Sculpture Homme EDT 100ml|1300||160
+et|39|Carrera Classic EDT 100ml|614||60
+et|40|paco rabanne Invictus EDT 100ml|724||20
+et|41|Boss EDT For Men 100ml|1200||30
+et|42|ARMAND BASI In Red EDT 100ml|919|32|20
+et|43|VERSACE Blue Jeans EDT For Men 75ml|553||60
+et|44|VERSACE Crystal Noir EDT For Women 90ml|1700||20
+et|45|Dolce & Gabbana Light Blue EDT 100ml|409||10
+et|46|GIORGIO ARMANI Acqua Di Gio EDT 100ml|745|17|10
+et|47|roberto cavalli Uomo EDT 100ml|1100|33|130
+et|48|CAROLINA HERRERA 212 NYC EDT For Men 100ml|375|12|70
+et|49|VERSACE Pour Homme EDT 100ml|606||30
+et|50|UNITED COLORS OF BENETTON Cold EDT 100ml|555||70
+et|51|TRI Shine Women EDT 100ml|314|14|150
+et|52|TED LAPIDUS Paris Rumba EDT 100ml|292|15|50
+et|53|Tesori d'Oriente White Musk EDT 100ml|175|16|20
+et|54|GIVENCHY Pi EDT 100ml|225|22|30
+et|55|Morena Noir EDT 100ml|174|24|50
+et|56|Rasasi Blue For Men Eau De Toilette Perfume 100ml|1200|13|140
+et|57|ISSEY MIYAKE L'Eau D'Issey Intense Pour Homme EDT 125ml|135||
+et|61|Ferrari Scuderia Black EDT 125ml|543||40
+et|62|Mercedes-Benz Club Black EDT 100ml|117|49|10
+et|66|joop Homme EDT 200ml|267|28|20
+et|67|LALIQUE Encre Noire Eau De Toilette 100ml|858|29|80
+et|69|CHANEL Bleu De Chanel EDT 100ml|400||20
+et|74|JAGUAR Classic Gold EDT For Men 100ml|2800|40|610
+et|75|Mercedes Benz Intense EDT 120ml|86|26|20
+et|77|MONTBLANC Emblem EDT For Men 100ml|1200||90
+et|78|HUGO BOSS XX EDT 100ml|198||20
+et|79|UNITED COLORS OF BENETTON Hot EDT 100ml|273||120
+et|83|MONTBLANC Legend by Mont Blanc For Men EDT 100ml|1600||90
+et|85|DORALL COLLECTION Lancy EDT 100ml|167|30|50
+et|86|CAROLINA HERRERA CH EDT 100ml|159|25|20
+et|87|VERSACE Red Jeans EDT 75ml|325||20
+et|88|Parfums Lively Lively EDT 100ml|397||50
+et|89|Cartier Declaration EDT 100ml|294||20
+et|90|HUGO BOSS Bottled Night EDT 100ml|882||40
+et|91|Maison Margiela Replica Jazz Club Perfume EDT 100ml|479|36|20
+et|93|Aramis Man EDT 110ml|220||10
+et|94|HERMES Terre D'Hermes EDT 100ml|466||
+et|95|Benetton Hot Gold EDT 100ml|226||90
+et|96|Yacht Man Red EDT 100ml|248||50
+et|97|Dior Miss Dior Blooming Bouquet EDT 100ml|2200|41|30
+et|98|Shalis Remy Marquis For Women EDP 100ml|93||10
+et|99|GIVENCHY Eau De Toilette 100ml|297||10
+et|100|EMPORIO ARMANI Stronger With You EDT - 100ml|284|34|30
+et|101|J.CASANOVA Monsieur Casanova EDT 150ml|97||30
+et|103|VERSACE Bright Crystal EDT 90ml|931||40
+et|104|Remy Latour Cigar EDT 100ml|253||20
+et|105|Jean Louis Scherrer Scherrer 2 EDT 100ml|220|43|10
+et|106|sapil Solid EDT 100ml|403||30
+et|107|Boss The Scent EDT For Men 100ml|639||60
+et|108|L.V BEETHOVEN ICQ EDT 100ml|182||
+et|109|TRI Royal Grand EDT 100ml|217||30
+et|110|CAROLINA HERRERA Chic EDT For Men 100ml|302||10
+et|111|Narciso Rodriguez For Her EDT 100ml|261||10
+et|112|Reyane Tradition Insurrection For Men Eau De Toilette 100ml|80|44|30
+et|113|Tommy Girl EDT 100ml|61|47|
+et|115|ROGER & GALLET Open EDT 100ml|378||50
+et|116|AZZARO Chrome EDT 100ml|316||20
+et|118|Ferrari Scuderia Red EDT 125ml|191||20
+et|119|BENTLEY Azure EDT 100ml|557||30
+et|120|HUGO BOSS In Motion EDT 100ml|77|45|20
+et|124|Dolce & Gabbana The One EDT 150ml|944||10
+et|125|PRADA L'Homme Milano EDT 100ml|248||
+et|129|Regine's Perfume Paris EDT 100ml|201||10
+et|132|ISSEY MIYAKE L'eau D'issey Pour Homme EDT 125ml|351||20
+et|133|MONTBLANC Individuel EDT For Men 75ml|399||30
+et|136|GUESS Seductive Women/Femme EDT 75ml|484|41|30
+et|137|paco rabanne Pour Homme EDT 100ml|171||10
+et|138|Geparlys Idole La Nuit EDT 90ml|205||10
+et|141|Jacques Bogart Silver Scent EDT 100ml|248||10
+et|146|Jaguar EDT For Men 100ml|1300||100
+et|148|Tommy Hilfiger EDT 100ml|166||30
+et|149|CHANEL Allure Homme Sport EDT For Men 100ml|225||
+et|150|Parfums Gres Cabotine EDT 100ml|107|46|
+et|151|jil sander EDT 125ml|154||10
+et|152|TOMMY HILFIGER Tommy Girl EDT 100ml|368|48|30
+et|153|CAROLINA HERRERA 212 S*** EDT For Men 100ml|223||10
+et|154|dunhill Custom EDT 100ml|209||50
+et|156|Geparlys Yes I Am The King EDT 100ml|174||10
+et|157|Just Cavalli EDT 75ml|105||10
+et|158|PRADA Luna Rossa Carbon EDT 100ml|494|39|
+et|159|Jean Paul GAULTIER Ultra Male Intense EDT 125ml|217|40|10
+et|160|GIORGIO ARMANI Stronger With You Edt 100ml|2500|37|
+et|161|VERSACE Eau Fraiche EDT 100ml|427||20
+et|162|NAUTICA Voyage EDT 100ml|705||40
+et|163|Juicy Couture Dirty English Pour Homme For Men Edt 100ml|137|50|
+et|164|cacharel Noa EDT 100ml|247||10
+et|165|VERSACE Crystal Noir EDT 50ml|1700||10
+et|166|CLINIQUE Happy EDT 100ml|65||10
+et|168|CALVIN KLEIN Sheer Beauty EDT 100ml|2200||150
+et|169|HUGO BOSS No.1 EDT 100ml|163||20
+et|170|Yves Saint Laurent Libre EDT 90ml|1400||
+et|174|Cristiano Ronaldo CR7 EDT 100ml|198||10
+et|175|Guy Laroche Drakkar Noir EDT 100ml|488||
+et|176|GIVENCHY Gentleman Boisee EDP 100ml|201|31|
+et|177|dunhill Desire Blue EDT 100ml|261||20
+et|178|dunhill Edition EDT 100ml|244||20
+et|180|Cerruti 1881 EDT 200ml|120||
+et|181|LALIQUE Encre Noire Sport For Men EDT 100ml|282||20
+et|182|Jacomo De EDT 100ml|98||20
+et|183|Dolce & Gabbana L'imperatrice 3 EDT 100ml|812||
+et|187|GIVENCHY Gentleman Intense EDT 100ml|87||10
+et|188|PERRY ELLIS 360 Perry Ellis EDT 100ml|35||10
+et|192|Dolce & Gabbana L'Imperatrice EDT 100ml|382||30
+et|194|Jacques Bogart Silver Scent Intense EDT 100ml|302||10
+et|195|GUCCI Guilty Pour Homme EDT 90ml|152||20
+et|199|Nikos Sculpture Edt For Men Eau Toilette 100ml|71||10
+et|200|HUGO BOSS Boss Man EDT 100ml|257||20
+et|203|CAROLINA HERRERA Herrera EDT 100ml|680||20
+et|204|JAGUAR Classic Red EDT For Men 100ml|817||170
+et|205|GIORGIO ARMANI Armani Code Eau de Toilette 125ml|112||
+et|209|Guess 1981 Los Angeles L EDT 100ml|144||
+et|211|cacharel Anais EDT 100ml|204||10
+et|212|Shalis EDT 100ml|20||10
+et|214|JAGUAR Classic Black EDT 100ml|185|38|10
+et|215|RALPH LAUREN Polo Sport EDT 125ml|152||10
+et|216|AZZARO Wanted EDT 100ml|192||
+et|217|Dior Miss Dior Rose N Roses EDT 100ml|957|21|10
+et|219|Dior Homme Sport EDT 125ml|1200|23|
+et|221|Elizabeth Arden White Tea EDT 100ml|245||10
+et|226|HUGO BOSS Energise EDT 75ml|126||
+et|228|Iscents premium Change Iscents Perfume 100ml|72||20
+et|229|CERRUTI 1881 1881 EDT 100ml|120||
+et|230|CAROLINA HERRERA 212 Vip EDT For Men 100ml|188||10
+et|231|TRI Shine Men EDT 100ml|98||40
+et|234|Elizabeth Arden Red Door Edt Spray Lillial Free 100ml|174||10
+et|235|GIVENCHY Blue Lable EDT 100ml|117||20
+et|236|Coach EDT 100ml|388||20
+et|239|Perfume Gifts Euphoria Men's Perfume 100ml|132||
+et|242|BVLGARI Petits Et Mamans EDT 100ml|471||
+et|243|Just Cavalli EDT Packaging May Vary 90ml|131||
+et|244|TED LAPIDUS Creation EDT 100ml|317||20
+et|252|Jaguar Gold In Black EDT 100ml|31|27|
+et|256|Cabotine de Gres Cabotine EDT 100ml|142||10
+et|258|HUGO BOSS Hugo EDT For Men Spray 125ml|435||
+et|259|HUGO BOSS Bottled Unlimited EDT For Men 100ml|226||10
+et|265|Creation Lamis Pure Black EDT 100ml|163||
+et|267|Adidas Ice Dive Eau De Toilette 100ml|389||60
+et|269|VERSACE The Dreamer EDT 100ml|334||10
+et|273|BURBERRY Brit Sheer For Her EDT Natural Spray 100ml|296||10
+et|276|cacharel Anais Anais EDT 50ml|149||10
+et|281|DERAAH Link Black Woods EDT 150ml|103||
+et|283|BOSS Bottled EDT 50ml|1200||10
+et|285|LACOSTE EDTTouch Of Pink For Women 90ml|208||
+et|290|Marc Jacobs Daisy Eau So Fresh EDT 125ml|8800||
+et|291|HUGO BOSS Dark Blue EDT 75ml|148||10
+et|294|John Varvatos Artisan Pure EDT 125ml|47||10
+et|295|Marc Jacobs Daisy EDT 100ml|199||
+et|299|paco rabanne One Million EDT 200ml|489||
+et|302|CHANEL Chance Eau Tendre EDT 100ml|177||
+et|303|GIORGIO ARMANI Armani Code EDT 125ml|927||
+et|306|Laura Biagiotti Roma Per Uomo Eau De Toilette 125ml|117||
+et|315|HUGO BOSS Just Different EDT 75ml|448||10
+et|316|Remy Marquis Marcquis EDP 100ml|47||20
+et|321|Dior Fahrenheit EDT 100ml|193||
+et|324|HUGO BOSS The Scent EDT 100ml|147||
+et|327|ISSEY MIYAKE Tester Le Sel D'Issey EDT 100ml|17||10
+et|328|Nautica Voyage Heritage EDT Spray 100ml|37||10
+et|331|BURBERRY London EDT 100ml|328||
+et|333|TRI Tiger Black EDT 100ml|199||20
+et|342|GIVENCHY Amarige EDT 100ml|87||10
+et|343|TED LAPIDUS Lapidus EDT 100ml|43||10
+et|344|Kenneth Cole Black EDT 100ml|112||
+et|345|Antonio Banderas Blue Seduction EDT 200ml|42||10
+et|348|VERSACE Yellow Diamond EDT Natural Spray 90ml|145||
+et|350|GUCCI Guilty EDT 50ml|500||20
+et|357|HUGO BOSS Boss Orange Women EDT 75 ml 75ml|115||
+et|358|cacharel Amor EDT 100ml|210||
+et|362|Dior Homme Eau EDT 100ml|174||
+et|364|JAGUAR Classic Chromite EDT 100ml|108||40
+et|366|Iscents premium Excess Perfume For Men 100ml EDT|12||20
+et|372|paco rabanne 1 Million Lucky EDT 100ml|415||
+et|374|CALVIN KLEIN Defy Eau De Toilette 200ml|740||
+et|378|Adidas UEFA Champions League Arena Edition Perfume Spray for Men - Eau De Toilet|153||30
+et|379|HUGO BOSS Hugo Iced EDT 125ml|110||
+et|386|VERSACE Lhomme EDT 100ml|124||10
+et|387|Thierry Mugler Angel EDT 50ml|162||
+et|391|ISSEY MIYAKE Le Sel D'Issey For Men EDT 100ml|41||10
+et|396|BURBERRY Weekend EDT 100ml|134||
+et|400|LACOSTE Eau De lacoste L.12.12 Blanc Pure EDT For Men 100ml|302||
+et|403|LANVIN PARIS L'Homme EDT 100ml|89||10
+et|405|HUGO BOSS Tonic EDT 100ml|278||
+et|408|TRI Absolute EDT 100ml|962||10
+et|413|Cartier Pasha Noir EDT 100ml|149||
+et|418|Dior Dune EDT Spray 100ml|236||
+et|419|BURBERRY Mr. Burberry EDT 100ml|289||
+et|424|BURBERRY Touch EDT 100ml|338||
+et|428|paco rabanne Black XS EDT 100ml|138||
+et|430|RALPH LAUREN Polo Blue EDT 125ml|264||
+et|437|CAROLINA HERRERA Bad Boy EDT 100ml|2300||
+et|458|LACOSTE Essential EDT For Men 125ml|329||10
+et|460|Davidoff Zino Eau De Toilette 125ml|226||10
+et|471|Dior Hypnotic Poison EDT 50ml|497||
+et|475|CAROLINA HERRERA 212 VIP Eau De Toilette for Men - 100ml 100ml|680||10
+et|476|BVLGARI Aqva EDT 100ml|133||
+et|478|LACOSTE L'Homme EDT 100ml|282||20
+et|479|MONTBLANC Legend Spirit EDT 100ml|477||10
+et|480|HUGO BOSS Boss EDT 100ml|171||
+et|482|Jean Paul GAULTIER Le Male EDT 125ml|352||
+et|488|CALVIN KLEIN Everyone Eau De Toilette 100ml|1700||
+et|491|HUGO BOSS Hugo EDT 125ml|122||
+et|493|AZZARO Pour Homme EDT 100ml|157||10
+et|494|TRI Galore EDT 100ml|256||30
+et|497|LACOSTE Eau De Lacoste L.12.12 White EDT 100ml|302||
+et|498|dunhill Desire Extreme EDT 100ml|125||10
+et|501|LACOSTE Eau de Lacoste L. 12.12 Noir Intense EDT 100ml|307||10
+ol|1|Ajmal Muskrose 12 Grams Pack|787|1|560
+ol|4|SWISS ARABIAN Givaudan Jannet El Firdaus Attar Perfume 9ml|998|2|140
+ol|6|Ajmal Extra Pure|126|38|40
+ol|9|MARAHIB Musk Altaharah White Musk – Concentrated Alcohol-Free Perfume Oil | Body|1900|3|220
+ol|12|AFNAN Musk Abiyad Unisex Concentrated Perfume Oil, 20 ML 20ml|1300|6|180
+ol|15|MARAHIB Ameer Al oud – Perfume Oil | Strong Oriental Long-Lasting Scent|1900|7|60
+ol|17|Ajmal Musk Silk 12 Ml Pack|53|8|70
+ol|19|Al Rehab Choco Musk Perfume Oil 6ml|576|27|160
+ol|21|Ajmal Mizyaan Concentrated Perfume 14ml|264|48|40
+ol|22|Misk Perfumes Original White Musk Perfume Oil 6ml|3900|40|120
+ol|23|SWISS ARABIAN Noora Cpo Attar 20ml|176|36|20
+ol|35|AFNAN Mukhallat Abiyadh Unisex Concentrated Perfume Oil, 20 ML 20ml|1300|16|40
+ol|79|SWISS ARABIAN Sandalia Concentrated Perfume Oil 95ml|144|33|
+ol|84|AFNAN Sandal Abiyadh Unisex Concentrated Perfume Oil, 20 ML 20ml|1300||50
+ol|85|MAKKAJ Dahn Al Oudh Haneen Perfume Oil 3ml|347||30
+ol|93|SWISS ARABIAN Zahra Perfume Oil 30ml|81||60
+ol|100|SWISS ARABIAN Attar Mubakhar Perfume Oil 20ml|155||20
+ol|117|Afnan Fakhr Al Jamaal Concentrated Perfume Oil For Men 20ml|1300||30
+ol|129|SWISS ARABIAN Jannet El Firdaus White Perfume Oil 9ml|719|13|130
+ol|136|Rasasi Attar Mubakhar Concentrated Perfume Oil 20ml|102||40
+ol|176|SWISS ARABIAN Rose Perfume Oil 9ml|100||
+ol|179|SWISS ARABIAN Secret Musk Perfume Oil 12ml|106||
+ol|182|SWISS ARABIAN Rasheeqa Perfume Oil 20ml|177||20
+ol|241|SWISS ARABIAN Dehn El Oud Mubarak Pefume Oil 6ml|124||
+ol|306|SWISS ARABIAN Mukhalat Malaki Perfume Oil, Unisex, Travel Size 25ml|100||30
+ec|4|JOVAN Musk For Women 59ml|5300|2|2900
+ec|6|Royal Mirage EDC 120ml|457|2|140
+ec|8|JOVAN White Musk EDC 59ml|1200|3|220
+ec|14|ANTONIO PUIG Agua Brava EDC 100ml|244|22|30
+ec|16|JOVAN Musk Cologne Spray 88ml|484||270
+ec|77|Acqua Di Parma Colonia EDC 100ml|151|28|

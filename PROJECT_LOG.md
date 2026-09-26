@@ -2,6 +2,27 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-26: the catalogue reaches 1,000
+
+At the owner's request the catalogue grew from 333 to 1,000 perfumes (block "added 26 Sep 2026 (the expansion to 1,000)"
+in site/js/data.js; record, scripts and README in reference/expansion/). The 667 are the perfumes the Saudi stores list
+as best sellers or popular that the catalogue lacked (Golden Scent's Best Sellers, Faces' bestsellers page and badge,
+Noon's popularity lists, Sephora's bestsellers, and the earlier Amazon.sa and Nice One lists), 28 of them the best-known
+perfumes of the Saudi houses (the owner's added request), each with a full top, heart and base breakdown on Fragrantica,
+tagged by mapper.js from the notes, named in Arabic by agents, and given a bottle photo (999 of 1,000 have one; 31 wrong
+photos found on the contact sheets were replaced). Three independent checks sampled the store-to-page matching; the
+first found 10 blocking errors, the second 4 wrong of 50, the third 1 wrong of 50; all were fixed or removed and the
+gaps refilled. The site's older Arabic had cistus as قسط, labdanum as لبنى and pimento as فلفل حلو; corrected to لاذن and
+بهار حلو everywhere, on the owner's word. Page speed unchanged (a profile and picks take about 2 ms). Tests 79, all passing.
+
+Open, dated 26 Sep 2026:
+- 25 older entries have fewer Arabic than English notes in a stage (Bleu de Chanel EDP, Sauvage EDT, Cool Water and
+  others), so their Arabic note words likely do not show; offered as a separate task.
+- The pyramids are Fragrantica's; the 26 Sep additions preferred the house's own list where they differed, which was
+  not practical for 667. Verify_report.md notes N1 to N17 (thin pages, a few doubtful tiers and spellings) are
+  the owner's calls.
+- The quiz grid still comes from the earlier popularity lists (tools/select_grid.js not re-run).
+
 ## 2026-09-26: session close, the site goes live
 
 Session title: the site goes live. Across 25 and 26 September: the quiz result names the palate by the shape of the

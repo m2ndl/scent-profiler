@@ -1,0 +1,37 @@
+# Sephora Saudi (sephora.me/sa-en), Best sellers > Fragrance (/sa-en/shop/bestsellers/bestseller-fragrance), all 34
+# items in the store's order, read 26 September 2026 in the browser. Fields: rank | brand | name | review count ("" when
+# the card says "Be the first to review").
+1|PRADA|Paradoxe Intense Eau de Parfum|7594
+2|CHANEL|COCO MADEMOISELLE - Eau De Parfum Intense Spray|
+3|DIOR|Hypnotic Poison Eau de Toilette|1272
+4|YVES SAINT LAURENT|LIBRE Eau De Parfum Intense|5603
+5|GUERLAIN|Les Légendaires Insolence – Eau de Parfum|102
+6|MATIERE PREMIERE|Vanilla Powder|4
+7|PARFUMS DE MARLY|Delina Exclusif - Parfum|19
+8|CAROLINA HERRERA|Good Girl Blush Eau de Parfum|1997
+9|NARCISO RODRIGUEZ|For Her Pure Musc Blanc – Eau de Parfum Intense|6
+10|CAROLINA HERRERA|La Bomba Eau de Parfum|1450
+11|MIU MIU|Miutine Eau de Parfum|2843
+12|DIOR|Miss Dior Blooming Bouquet - Limited Edition|3185
+13|DIOR|Miss Dior Parfum|2686
+14|VALENTINO|Born In Roma Donna - Eau De Parfum|6805
+15|CHANEL|BLEU DE CHANEL - Eau De Parfum Spray|
+16|CHANEL|CHANCE EAU TENDRE - Eau De Parfum Spray|
+17|GIVENCHY|L'Interdit Eau de Parfum Rouge|338
+18|DIOR|J’adore Eau de Parfum|4174
+19|GUERLAIN|Absolus Allegoria Florabloom - Eau de Parfum|27
+20|TOM FORD|ROSE PRICK All Over Body Spray|2
+21|PARFUMS DE MARLY|Valaya Exclusif - Eau de Parfum|1
+22|PRADA|Paradoxe Eau de Parfum|9652
+23|YVES SAINT LAURENT|Libre - Eau de Parfum|22525
+24|MAISON FRANCIS KURKDJIAN|Baccarat Rouge 540 - Eau de Parfum|889
+25|CHANEL|N°5 - Eau De Parfum Spray|
+26|CHANEL|COCO MADEMOISELLE - Eau De Parfum Spray|
+27|CHANEL|GABRIELLE CHANEL - Essence|
+28|HUDA BEAUTY|Easy Bake Intense Eau de Parfum|541
+29|LANCÔME|Idôle - Eau de Parfum|21704
+30|ARMANI|Armani Privé Vert Malachite - Eau de Parfum|39
+31|PARFUMS DE MARLY|Valaya - Eau de Parfum|8
+32|GUERLAIN|Absolus Allegoria Rose Amira - Eau de Parfum|53
+33|CHANEL|COCO MADEMOISELLE - Eau de Parfum Refillable Purse Spray|
+34|KAYALI|VANILLA | 28|3300
