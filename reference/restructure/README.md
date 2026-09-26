@@ -24,3 +24,6 @@ In the order they ran:
 Pre-restructure files not kept here are identical to their committed versions (data.js, mapper.js,
 materials.js, articles.html, site.css, og.png) or differ only in paths (tools, apps-script.gs,
 evidence.js header).
+
+Later: `shared_page/` holds the scripts and log from moving the code both pages shared into
+`site/js/page.js` (26 September 2026).

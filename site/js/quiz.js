@@ -1,37 +1,31 @@
 /* The quiz, the site's front page (index.html): which well-known bottles the visitor has worn and how each one ended. Each
    verdict is written as an ordinary rating into the device store the profiler reads, so both pages show
-   the same profile. Storage, sending, the lazy catalogue and the lookup follow app.js; profile logic lives
-   in engine.js, the note rows and told items in notes.js. What the visitor says in words (notes enjoyed or avoided,
-   bitter or sweet, complaints) enters the profile as told items, which can reorder picks but never set a class;
-   the anosmia answer stays on this page. */
+   the same profile. Storage, sending, the lazy catalogue and the lookup are in page.js, shared with app.js;
+   profile logic lives in engine.js, the note rows and told items in notes.js. What the visitor says in words (notes
+   enjoyed or avoided, bitter or sweet, complaints) enters the profile as told items, which can reorder picks but
+   never set a class; the anosmia answer stays on this page. */
 (function () {
   "use strict";
-  const D = window.PP_DATA, M = window.PP_MAP;
-  if (!D || !M || !window.PP_ENGINE || !window.PP_NOTES || !window.PP_CONFIG) { document.getElementById("quiz").textContent = "A script in js/ did not load (config, data, mapper, engine or notes). Serve the site folder as it is."; return; }
-  const { FAMILIES, CHIPS, QUIZ } = D;
+  const D = window.PP_DATA, M = window.PP_MAP, PAGE = window.PP_PAGE;
+  if (!D || !M || !window.PP_ENGINE || !window.PP_NOTES || !window.PP_CONFIG || !PAGE) { document.getElementById("quiz").textContent = "A script in js/ did not load (config, data, mapper, engine, notes or page). Serve the site folder as it is."; return; }
+  const { CHIPS, QUIZ } = D;
   const E = window.PP_ENGINE.create(D, M, window.PP_EVIDENCE);
   const N = window.PP_NOTES.create(D, M, E), normTold = window.PP_NOTES.normTold;
   const { STAGES, PERFUMES, byId } = E;
-  /* the drawn bottle, for a perfume with no photo: cream glass, amber juice, a gold cap */
-  const PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><rect x="22" y="5" width="12" height="9" rx="2" fill="#C99C43"/><rect x="25" y="14" width="6" height="4" fill="#B8862A"/><rect x="14" y="18" width="28" height="33" rx="7" fill="#FCF8F0" stroke="#C1AA8B" stroke-width="1.5"/><path d="M15.5 33h25v10.5a6 6 0 0 1-6 6h-13a6 6 0 0 1-6-6z" fill="#F0B135" opacity=".55"/><rect x="18" y="21" width="3" height="20" rx="1.5" fill="#fff" opacity=".8"/></svg>');
 
   /* Deployment settings: config.js. */
   const CONFIG = window.PP_CONFIG;
-  /* Local testing only: http://localhost:8765/?endpoint=http://localhost:8765/api (see tools/mock_backend.py).
-     Links to the profiler carry the parameter forward. */
-  let endpointParam = "";
-  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { try { const e = new URLSearchParams(location.search).get("endpoint"); if (e) { CONFIG.endpoint = e; endpointParam = e; } } catch (err) { /* ignore */ } }
 
-  /* ---------- i18n ---------- */
-  const T = {
+  /* ---------- i18n: this page's words; page.js holds the ones both pages show ---------- */
+  const T = PAGE.words({
     en: {
-      brand: "Scent Profiler", tagline: "find what you hate before you buy", navProfiler: "Your profile", navArticles: "Why drydowns fail",
+      navProfiler: "Your profile", 
       gridQ: "Which of these have you tried?",
       gridHint: "On skin or clothes, at home or in a shop; a sniff from a paper strip doesn't count. Next, you say how each one ended for you.",
       qLabel: "Search for another perfume", q: "Not here? Type a perfume or a house",
       none: "None of these", cont: n => (n ? `Continue with ${n}` : "Continue"),
       rated: "already rated", ratedToast: "Already rated on your profile.",
-      lookingUp: "Looking it up…", notFound: "Not found. You can add it by name on your profile.",
+      notFound: "Not found. You can add it by name on your profile.",
       part: (i, name) => `Part ${i} of 4 · ${name}`, parts: ["Your bottles", "Notes you know", "Sweet or bitter", "What bothers you"], back: "Back",
       count: (i, n) => `Bottle ${i} of ${n}`,
       verdictQ: "How did it end?",
@@ -40,10 +34,7 @@
       when: { opening: "In the first minutes", heart: "In the first hours", drydown: "Hours later, or on my clothes", unsure: "I don't remember" },
       wrongQ: "What was wrong? (optional)", wrongShop: "What put you off? (optional)", next: "Next",
       notesIntro: (name, n) => `${cap(["", "one", "two", "three", "four", "five"][n] || String(n))} ${n === 1 ? "note" : "notes"} from ${name}. Tap what you remember; skip what you don't.`,
-      rowStage: { opening: "First minutes", heart: "First hours", drydown: "Hours later" },
-      notListed: "not on its note list", notListedHint: "Some materials are in a perfume without being on its note list.",
-      answers: { "-2": "Hated it", "-1": "Disliked it", 0: "Didn't mind", 1: "Liked it", 2: "Loved it", u: "Didn't notice it" },
-      change: "Change", skipNotes: "Skip the notes for this bottle", skipAllNotes: "Skip notes for the other bottles",
+      skipNotes: "Skip the notes for this bottle", skipAllNotes: "Skip notes for the other bottles",
       narrowQ: "One more would settle it: have you worn any of these?",
       narrowHint: "Each of these has, in its base, a family that may be a deal-breaker for you. Your verdict on it shows whether that family is the problem.",
       noneNarrow: "None of these, or I don't know them",
@@ -99,9 +90,7 @@
       how: "How we worked this out", picksLede: { avoid: "Chosen to steer clear of your deal-breakers.", like: "Chosen from what you like." },
       resultLede: "Material families, not marketing notes. Each line names the bottles it rests on.",
       worn: "from what you wore", shopTrial: "from a shop trial",
-      cls: { badLikely: "Likely deal-breaker", badPossible: "Possible deal-breaker", goodLikely: "Reliably liked", goodPossible: "Probably liked", mixed: "Depends on the perfume" },
       noFamilies: "No family stands out yet. More bottles on your profile will show one.",
-      recsH: "Three to try next", recsLede: "Ranked by what they avoid first, and what they share with your likes second. Samples, never blind bottles.",
       oneMore: "One more bottle gives you three recommendations. Add it on your profile.",
       full: "See the full profile",
       noneH: "Start with a sample",
@@ -113,23 +102,19 @@
       prefer: { bitter: "You prefer bitter to sweet", sweet: "You prefer sweet to bitter" }, fromTold: "from what you told us",
       disagree: w => `Your bottles and your answer (${w}) disagree; your bottles count more.`,
       unnoticed: pairs => `You did not notice ${pairs}.`, unnoticedPair: (f, bottle) => `the ${f} in ${bottle}`,
-      toldOnlyH: "Based only on what you told us",
       toldOnlyLede: "No bottle yet, so these picks rest on your answers alone. Answers in words are a weaker guide than a bottle you have worn: try a sample first.",
       confirmH: "Samples that would confirm it",
       confirmLede: "Each has one family strong in its base: wear a sample for a day and see whether that family bothers you.",
       anosmiaNote: name => `Musks and woody ambers may be hard for you to judge: some people barely smell them even when others can. A sample of ${name}, whose base is mostly white musk, shows whether you can.`,
-      sampleSA: "Sample (Saudi shops)", sampleUS: "Sample (US)", bottle: "Full bottle",
-      foot: `<p>Sample and bottle links may earn a commission; ranking never depends on it. Ratings are stored on this device. If sharing is switched on, they are sent anonymously with a random device id and nothing else.</p>`,
-      cats: { m: "men", f: "women", u: "unisex" }
     },
     ar: {
-      brand: "محلل الذائقة العطرية", tagline: "اعرف ما تكرهه قبل أن تشتري", navProfiler: "ملفك العطري", navArticles: "لماذا يتغيّر العطر بعد ساعات",
+      navProfiler: "ملفك العطري", 
       gridQ: "أيّ هذه العطور جرّبتها؟",
       gridHint: "على البشرة أو على الثياب، في البيت أو في المتجر؛ شمّ الورقة لا يُحسب. بعدها تخبرنا كيف انتهى كل عطر منها معك.",
       qLabel: "ابحث عن عطر آخر", q: "ليس هنا؟ اكتب اسم عطر أو دار",
       none: "لا شيء منها", cont: n => (n ? `تابع (${n})` : "تابع"),
       rated: "قيّمته من قبل", ratedToast: "قيّمته من قبل في ملفك العطري.",
-      lookingUp: "جارٍ البحث عنه…", notFound: "لم نجده. يمكنك إضافته باسمه في ملفك العطري.",
+      notFound: "لم نجده. يمكنك إضافته باسمه في ملفك العطري.",
       part: (i, name) => `الجزء ${i} من 4 · ${name}`, parts: ["عطورك", "نوتات تعرفها", "حلو أو مرّ", "ما يزعجك"], back: "رجوع",
       count: (i, n) => `العطر ${i} من ${n}`,
       verdictQ: "كيف انتهى معك؟",
@@ -138,10 +123,7 @@
       when: { opening: "في الدقائق الأولى", heart: "في الساعات الأولى", drydown: "بعد ساعات، أو على ثيابي", unsure: "لا أتذكر" },
       wrongQ: "ما الذي أزعجك؟ (اختياري)", wrongShop: "ما الذي نفّرك منه؟ (اختياري)", next: "التالي",
       notesIntro: (name, n) => `${["", "نوتة واحدة", "نوتتان", "ثلاث نوتات", "أربع نوتات", "خمس نوتات"][n] || n + " نوتات"} من ${name}. اختر ما تتذكره، وتجاوز ما لا تتذكره.`,
-      rowStage: { opening: "الدقائق الأولى", heart: "الساعات الأولى", drydown: "بعد ساعات" },
-      notListed: "غير مذكور في قائمة نوتاته", notListedHint: "بعض المواد تكون في العطر من دون أن تُذكر في قائمة نوتاته.",
-      answers: { "-2": "كرهته", "-1": "لم يعجبني", 0: "لا بأس به", 1: "أعجبني", 2: "أعجبني كثيراً", u: "لم ألاحظه" },
-      change: "تغيير", skipNotes: "تجاوز نوتات هذا العطر", skipAllNotes: "تجاوز النوتات لبقية العطور",
+      skipNotes: "تجاوز نوتات هذا العطر", skipAllNotes: "تجاوز النوتات لبقية العطور",
       narrowQ: "عطر واحد آخر يحسم الأمر: هل جرّبت أياً من هذه؟",
       narrowHint: "في قاعدة كل واحد منها عائلة قد تكون مُفسدة لك. وجوابك عنه يبيّن إن كانت هذه العائلة هي السبب.",
       noneNarrow: "لا شيء منها، أو لا أعرفها",
@@ -199,9 +181,7 @@
       how: "كيف توصّلنا إلى هذا", picksLede: { avoid: "اختيرت لتبتعد عمّا يفسد العطر عليك.", like: "اختيرت مما تحبه." },
       resultLede: "عائلات المواد، لا النوتات التسويقية. كل سطر يذكر العطور التي بُني عليها.",
       worn: "مما استخدمته", shopTrial: "من تجربة في متجر",
-      cls: { badLikely: "مُفسد مرجّح", badPossible: "مُفسد محتمل", goodLikely: "تحبه باستمرار", goodPossible: "تحبه على الأرجح", mixed: "يعتمد على العطر" },
       noFamilies: "لا تبرز أي عائلة بعد. قيّم عطوراً أخرى في ملفك العطري لتظهر.",
-      recsH: "ثلاثة لتجربتها", recsLede: "مرتّبة بحسب ما تتجنبه أولاً، وما تشترك فيه مع ما أحببته ثانياً. عينات، لا زجاجات على العمياني.",
       oneMore: "عطر واحد آخر يعطيك ثلاثة ترشيحات. أضفه في ملفك العطري.",
       full: "اعرض الملف الكامل",
       noneH: "ابدأ بعينة",
@@ -213,33 +193,26 @@
       prefer: { bitter: "تفضّل المرّ على الحلو", sweet: "تفضّل الحلو على المرّ" }, fromTold: "مما أخبرتنا به",
       disagree: w => `عطورك وإجابتك (${w}) لا تتفقان، ولعطورك الوزن الأكبر.`,
       unnoticed: pairs => `لم تلاحظ ${pairs}.`, unnoticedPair: (f, bottle) => `${f} في ${bottle}`,
-      toldOnlyH: "بناءً على ما أخبرتنا به فقط",
       toldOnlyLede: "لم تقيّم أي عطر بعد، لذلك تعتمد هذه الترشيحات على إجاباتك وحدها. وإجاباتك دليل أضعف من عطر جرّبته: جرّب عينة أولاً.",
       confirmH: "عينات تؤكد ذلك",
       confirmLede: "لكل واحد منها عائلة واحدة قوية في قاعدته: جرّب عينة منه يوماً كاملاً لترى إن كانت تلك العائلة تزعجك.",
       anosmiaNote: name => `قد يصعب عليك الحكم على المسك والأخشاب العنبرية: بعض الناس لا يكادون يشمّونها وإن شمّها غيرهم. عينة من ${name}، وقاعدته مسك أبيض في معظمها، تبيّن لك إن كنت تشمّه.`,
-      sampleSA: "عينة (متاجر سعودية)", sampleUS: "عينة (أمريكا)", bottle: "زجاجة كاملة",
-      foot: `<p>روابط العينات والزجاجات قد تكسب عمولة، والترتيب لا يعتمد عليها أبداً. التقييمات محفوظة على هذا الجهاز. إن كانت المشاركة مفعّلة تُرسل بلا اسم مع معرّف جهاز عشوائي ولا شيء غيره.</p>`,
-      cats: { m: "رجالي", f: "نسائي", u: "للجنسين" }
     }
-  };
+  });
 
   /* ---------- state ---------- */
-  const store = {
-    get(k, fb) { try { const v = localStorage.getItem(k); return v == null ? fb : JSON.parse(v); } catch (e) { return fb; } },
-    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } }
-  };
+  const store = PAGE.store;
   let lang = store.get("pp_lang", "ar");   /* Arabic first, whatever the device language; a chosen language is kept */
   let ratings = store.get("pp_ratings_v1", {});
-  let device = store.get("pp_device", null);
-  if (!device) { device = "d_" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36); store.set("pp_device", device); }
+  /* the helpers both pages share (page.js), reading this page's language and ratings; endpointParam: the local
+     test backend (see page.js), which links to the profiler carry forward */
+  const page = PAGE.create({ D, E, CONFIG, words: T, lang: () => lang, ratings: () => ratings });
+  const { AUTO, endpointParam, t, fam, pname, chipWord, low, esc, listJoin, shopUrl, partnerLine, PLACEHOLDER, bottleSrc, imgTag, matches, state, resolve, sendEvent, $, toast, verdictRows, PILL, CARD } = page;
   /* { notes: { noteId: 1 | -1 }, taste: "bitter" | "sweet" | "both" | "unsure", told: [chipId], toldNone: true when
      nothing has bothered the visitor, anosmia: "yes" | "no" | "unsure" }. An old string told is read through normTold. */
   let quiz = store.get("pp_quiz_v1", {});
   if (!quiz || typeof quiz !== "object") quiz = {};
   if ("told" in quiz || "toldNone" in quiz) { const nt = normTold(quiz); quiz.told = nt.told; if (nt.toldNone) quiz.toldNone = true; else delete quiz.toldNone; }
-  let AUTO = {};        /* id -> catalogue entry from the backend (lazy catalogue) */
-  let images = {};      /* verified id -> image url, from the backend's catalogue */
 
   /* the step machine: a start screen, then four parts: grid, verdicts, notes and narrow (your bottles); picker
      (notes you know); taste (sweet or bitter); told and anosmia (what bothers you); then the result */
@@ -260,17 +233,7 @@
   let doneSent = false;
   let shown = { testers: [], picks: [] };   /* ids in the order the result shows them, for the link events' n */
 
-  const t = () => T[lang];
-  const fam = k => (FAMILIES[k] ? FAMILIES[k][lang] : k);
-  const pname = p => (lang === "ar" && p.ar ? p.ar : p.name);
-  const chipWord = id => { const c = CHIPS.find(x => x.id === id); return c ? c[lang] : id; };
   const cap = s => (lang === "en" && s ? s[0].toUpperCase() + s.slice(1) : s);
-  const low = s => (lang === "en" && s ? s[0].toLowerCase() + s.slice(1) : s);
-  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const listJoin = arr => lang === "ar" ? arr.join("، ") : arr.length > 1 ? arr.slice(0, -1).join(", ") + " and " + arr[arr.length - 1] : arr[0] || "";
-  /* a shipped bottle photo first (js/bottles.js), then the backend's vendor image, then the drawn bottle */
-  const bottleSrc = P => (P && window.PP_BOTTLES && window.PP_BOTTLES[P.id]) || (P && P.image) || "";
-  const imgTag = (P, cls) => { const src = bottleSrc(P); return `<img class="thumb${src ? " photo" : ""} ${cls || ""}" src="${src ? esc(src) : PLACEHOLDER}" alt="" loading="lazy" onerror="this.onerror=null;this.classList.remove('photo');this.src='${PLACEHOLDER}'">`; };
   /* A rating counts only when a stage is set; an all-null record (for example one left by a tester link) is unrated. */
   const hasStage = id => { const r = ratings[id]; return !!r && STAGES.some(s => r[s] != null); };
   /* A quiz rating whose only set stage is opening at -1 is a shop trial (the shop verdict writes it). */
@@ -288,49 +251,17 @@
   };
 
   /* ---------- profile engine (engine.js) ---------- */
-  const state = () => ({ ratings, auto: AUTO, images });
-  const resolve = id => E.resolve(id, state());
-  const derived = entry => E.derived(entry);
   /* the visitor's word answers as told items (notes.js), so both pages build the same list */
   const computeProfile = () => E.computeProfile(Object.assign(state(), { told: N.toldItems(quiz) }));
   /* the note cards the visitor avoided (notes.js): a veto on the picks unless a kept bottle says otherwise */
   const avoided = () => N.avoidedNotes(quiz);
   const recommend = prof => E.recommend(prof, ratings, avoided());
 
-  /* ---------- persistence and sharing (as app.js) ---------- */
-  /* One pending send per perfume, so answering another bottle never cancels it; pending sends go out at once
-     when the page is hidden or closed. */
-  const sendTimers = {};
-  function sendRating(id, leaving) {
-    clearTimeout(sendTimers[id]); delete sendTimers[id];
-    if (!ratings[id]) return;
-    const P = resolve(id); const { auto, label, ...rest } = ratings[id];
-    sendRecord({ type: "rating", device, lang, perfume: id, name: P ? P.name : id, ...rest }, leaving);
-  }
+  /* ---------- persistence (the sender is in page.js) ---------- */
   function persist(id) {
     store.set("pp_ratings_v1", ratings);
     if (!CONFIG.endpoint) return;
-    clearTimeout(sendTimers[id]);
-    sendTimers[id] = setTimeout(() => sendRating(id), 1200);
-  }
-  function flushSends() { for (const id of Object.keys(sendTimers)) sendRating(id, true); }
-  /* leaving: the page is being hidden or closed, so the request must outlive it */
-  function sendRecord(rec, leaving) {
-    const body = JSON.stringify({ ...rec, ts: new Date().toISOString() });
-    try {
-      if (leaving && navigator.sendBeacon && navigator.sendBeacon(CONFIG.endpoint, body)) return;
-      fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body, keepalive: !!leaving }).catch(() => {});
-    } catch (e) { /* offline or blocked */ }
-  }
-  function sendEvent(name, n) { if (CONFIG.endpoint) sendRecord({ type: "event", name, n, device, lang }); }
-  function loadCatalogue() {
-    if (!CONFIG.endpoint) return;
-    try {
-      fetch(CONFIG.endpoint + (CONFIG.endpoint.includes("?") ? "&" : "?") + "catalogue=1").then(r => r.json()).then(j => {
-        for (const e of (j && j.entries) || []) { if (!e || !e.id) continue; if (byId[e.id]) { if (e.image) images[e.id] = e.image; } else AUTO[e.id] = e; }
-        if (step === "grid") renderGridParts(); else render();
-      }).catch(() => {});
-    } catch (e) { /* ignore */ }
+    page.queueSend(id);
   }
 
   /* ---------- verdicts written as ratings ---------- */
@@ -343,7 +274,7 @@
     const before = prior[id];
     if (a.verdict === "other" || a.verdict === "unsure") {
       if (before) ratings[id] = before; else delete ratings[id];
-      clearTimeout(sendTimers[id]); delete sendTimers[id];
+      page.dropSend(id);
       store.set("pp_ratings_v1", ratings);
       return;
     }
@@ -469,23 +400,20 @@
   function loadQuizStats() {
     if (statsAsked || !CONFIG.endpoint) return;
     statsAsked = true;
-    try {
-      fetch(CONFIG.endpoint + (CONFIG.endpoint.includes("?") ? "&" : "?") + "stats=1").then(r => r.json()).then(j => {
-        if (!j || !j.quiz) return;
-        quizStats = j.quiz;
-        const el = $("qcompare"); if (el && step === "result") el.innerHTML = compareHtml(computeProfile());
-      }).catch(() => {});
-    } catch (e) { /* offline or blocked */ }
+    page.getJSON("stats=1").then(j => {
+      if (!j || !j.quiz) return;
+      quizStats = j.quiz;
+      const el = $("qcompare"); if (el && step === "result") el.innerHTML = compareHtml(computeProfile());
+    }).catch(() => {});
   }
 
   /* ---------- search and lookup (grid screen) ---------- */
   /* any: also match picked and rated bottles (the Enter key's check before a lookup) */
   function search(q, any) {
     q = q.trim().toLowerCase(); if (!q) return [];
-    const hit = P => (P.name.toLowerCase().includes(q) || (P.house || "").toLowerCase().includes(q) || (P.ar && P.ar.includes(q)) || P.id.includes(q));
     const open = id => any || (!ratedBefore(id) && !picked.has(id));
-    const verified = PERFUMES.filter(P => open(P.id) && hit(P)).map(P => resolve(P.id));
-    const auto = Object.keys(AUTO).filter(id => open(id) && !byId[id]).map(id => resolve(id)).filter(P => P && hit(P));
+    const verified = PERFUMES.filter(P => open(P.id) && matches(P, q)).map(P => resolve(P.id));
+    const auto = Object.keys(AUTO).filter(id => open(id) && !byId[id]).map(id => resolve(id)).filter(P => P && matches(P, q));
     return verified.concat(auto).slice(0, 12);
   }
   /* While the list is open the page gets room below it (the search box sits near the end of the grid screen), and on a
@@ -510,36 +438,17 @@
     picked.add(id);
     renderGridParts();
   }
-  /* A name that is in neither catalogue: the backend looks it up; the page keeps only derived weights (as app.js). */
+  /* A name that is in neither catalogue: the backend looks it up (page.js keeps only derived weights). */
   let lookingUp = false;
   function lookup(name) {
     name = String(name || "").trim().slice(0, 80); if (!name) return;
     if (!CONFIG.endpoint || name.length < 3) { toast(t().notFound); return; }
     if (lookingUp) return;
     lookingUp = true; toast(t().lookingUp); $("q").value = ""; showResults([]);
-    const done = (found, entry) => {
-      lookingUp = false;
-      if (found && entry && entry.id) {
-        /* reduce the vendor payload to identity plus derived weights; that is all we keep or send back */
-        const d = entry.stages ? entry : derived(entry);
-        AUTO[d.id] = d;
-        if (!entry.stages) sendRecord({ type: "tagcache", ...d });
-        addPick(d.id);
-      } else toast(t().notFound);
-    };
-    try {
-      fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type: "lookup", q: name, lang, device }) })
-        .then(r => r.json()).then(j => done(!!(j && j.found), j && j.entry)).catch(() => done(false));
-    } catch (e) { done(false); }
+    page.lookup(name, d => { lookingUp = false; if (d) addPick(d.id); else toast(t().notFound); });
   }
 
   /* ---------- rendering ---------- */
-  const $ = id => document.getElementById(id);
-  function toast(msg) { const el = $("toast"); el.textContent = msg; el.classList.add("show"); clearTimeout(toast.h); toast.h = setTimeout(() => el.classList.remove("show"), 1600); }
-  /* the partner program's required statement from config.js, in the page language */
-  /* a shop link for a perfume: {q} becomes its house and name, {lang} the page language (ar or en) */
-  const shopUrl = (tpl, P) => tpl.replace("{q}", encodeURIComponent(P.house + " " + P.name)).replace("{lang}", lang);
-  const partnerLine = () => { const d = CONFIG.disclosure && CONFIG.disclosure[lang]; return d ? `<p>${esc(d)}</p>` : ""; };
   const foot = () => `<footer class="foot">${t().foot}${partnerLine()}</footer>`;
   const opt = (attr, v, label, on) => `<button type="button" class="qopt" data-${attr}="${v}" aria-pressed="${!!on}">${esc(label)}</button>`;
   const PART = { grid: 1, verdicts: 1, notes: 1, narrow: 1, picker: 2, taste: 3, told: 4, anosmia: 4 };
@@ -553,9 +462,7 @@
   }
 
   function renderChrome() {
-    document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-    $("lang-en").setAttribute("aria-pressed", lang === "en"); $("lang-ar").setAttribute("aria-pressed", lang === "ar");
-    $("brand").innerHTML = esc(t().brand) + "<small>" + esc(t().tagline) + "</small>";
+    page.chrome();
     $("brand").setAttribute("href", "index.html" + (endpointParam ? "?endpoint=" + encodeURIComponent(endpointParam) : ""));
     $("nav-profiler").textContent = t().navProfiler; $("nav-profiler").setAttribute("href", profilerHref());
     $("nav-articles").textContent = t().navArticles;
@@ -613,29 +520,13 @@
   }
   const bottleHead = P => `<p class="eyebrow">${esc(t().count(at + 1, queue.length))}</p>
       <div class="with-thumb">${imgTag(P)}<div class="grow"><h1 class="qname">${esc(pname(P))}</h1><div class="notes">${esc(P.house)}</div></div></div>`;
-  /* One note row: the stage in plain words, the note words in the page language and the family in small type.
-     A row with no listed word says so; the family takes the words' place when the perfume has no note list on
-     this page (a looked-up bottle) or when its Arabic list does not match the English one. An answered row
-     collapses to its answer. The profiler's "Rate its notes" block (app.js) draws the same rows. */
-  function noteRowHtml(P, row, rec, open) {
-    const f = row.f, v = rec.noteAnswers && f in rec.noteAnswers ? rec.noteAnswers[f] : null;
-    const un = Array.isArray(rec.unnoticed) && rec.unnoticed.includes(f);
-    const words = lang === "ar" ? row.words.ar : row.words.en;
-    const listed = !!(P.notes && /[a-z]/i.test(P.notes.en || ""));
-    let main = esc(fam(f)), small = "", hint = "";
-    if (words.length) { main = esc(words.join(lang === "ar" ? "، " : ", ")); small = esc(fam(f)); }
-    else if (!row.words.en.length && listed) { main = esc(t().notListed); small = esc(fam(f)); hint = `<div class="nhint">${esc(t().notListedHint)}</div>`; }
-    const head = `<div class="nhead"><span class="nstage">${esc(t().rowStage[row.stage])}</span> · <b>${main}</b>${small ? ` · <span class="nfam">${small}</span>` : ""}</div>`;
-    if ((v != null || un) && !open) return `<div class="nrow done">${head}<div class="ndone"><span class="npick">${esc(t().answers[un ? "u" : v])}</span><button type="button" class="qlink" data-nedit="${f}">${esc(t().change)}</button></div></div>`;
-    const btn = (x, on, cls) => `<button type="button"${cls ? ` class="${cls}"` : ""} data-na="${f}" data-v="${x}" aria-pressed="${on}">${esc(t().answers[x])}</button>`;
-    return `<div class="nrow">${head}${hint}<div class="nopts">${[-2, -1, 0, 1, 2].map(x => btn(x, v === x)).join("")}${btn("u", un, "nun")}</div></div>`;
-  }
+  /* a bottle's note rows, drawn by page.js noteRowHtml as on the profiler's "Rate its notes" block */
   function notesHtml() {
     const id = queue[at], P = resolve(id), a = ans[id] || { na: {}, un: [] }, rows = rowsFor(id);
     const skips = `<button type="button" class="qlink" data-nskip="1">${esc(t().skipNotes)}</button>` + (at > 0 || round === 2 ? `<button type="button" class="qlink" data-nskipall="1">${esc(t().skipAllNotes)}</button>` : "");
     return topHtml() + `<div class="qcard">${bottleHead(P)}
       <p class="ask">${esc(t().notesIntro(pname(P), rows.length))}</p><div class="qskips">${skips}</div>
-      <div class="nrows">${rows.map(row => noteRowHtml(P, row, { noteAnswers: a.na, unnoticed: a.un }, editing.has(row.f))).join("")}</div>
+      <div class="nrows">${rows.map(row => page.noteRowHtml(P, row, { noteAnswers: a.na, unnoticed: a.un }, editing.has(row.f))).join("")}</div>
       <div class="qactions"><button type="button" class="btn primary" data-continue="1">${esc(t().next)}</button></div></div>` + foot();
   }
   function narrowHtml() {
@@ -676,11 +567,6 @@
     return topHtml() + `<div class="hero"><h1>${esc(t().anosQ)}</h1></div><div class="qopts">${["yes", "no", "unsure"].map(v => opt("anosmia", v, t().anos[v], quiz.anosmia === v)).join("")}</div>` + foot();
   }
 
-  /* The profiler's three shop links for a perfume, each sending an event when opened. */
-  function linksHtml(P, event) {
-    const link = (tpl, label, primary) => `<a class="${primary ? "primary" : ""}" href="${shopUrl(tpl, P)}" target="_blank" rel="noopener sponsored" data-event="${esc(event)}">${esc(label)}</a>`;
-    return `<div class="links">${link(CONFIG.links.sampleSA, t().sampleSA, lang === "ar")}${link(CONFIG.links.sampleUS, t().sampleUS, lang !== "ar")}${link(CONFIG.links.bottle, t().bottle, false)}</div>`;
-  }
   /* Testers for a visitor with no rated bottle: the told complaints put first the tester whose family weighs
      most in their family maps, summed; otherwise the order in data.js (woody amber, white musk, vanilla). */
   function orderedTesters() {
@@ -699,7 +585,7 @@
       <div class="r-head"><b>${esc(pname(P))}</b><span class="pill">${esc(P.house)} · ${esc(t().cats[P.gender])}</span></div>
       <div class="tests">${esc(t().tests(fam(x.family)))}</div></div></div>
       <p class="carry">${esc(t().carry(carryCount(x)))}</p>
-      ${linksHtml(P, "tester:" + x.id)}
+      ${page.linksHtml(P, "tester:" + x.id)}
       <a class="rate-later" href="${esc(profilerHref(x.id))}">${esc(t().rateLater)}</a>
     </div>`;
   }
@@ -1073,10 +959,7 @@
       return topHtml() + `<div class="qresult"><div class="hero"><h1>${esc(t().noneH)}</h1><p>${esc(t().noneLede)}</p></div>
         ${cards}${told}${anos}</div>` + foot();
     }
-    const order = { badLikely: 0, badPossible: 1, mixed: 2, goodLikely: 3, goodPossible: 4 };
-    const pillCls = { badLikely: "bad", badPossible: "warn", goodLikely: "good", goodPossible: "good", mixed: "" };
-    const vCls = { badLikely: "bad-likely", badPossible: "bad-possible", goodLikely: "good-likely", goodPossible: "good-possible", mixed: "mixed" };
-    const rows = Object.entries(prof).filter(([, v]) => v.cls !== "neutral").sort((a, b) => (order[a[1].cls] - order[b[1].cls]) || (Math.abs(b[1].score) - Math.abs(a[1].score)));
+    const rows = verdictRows(prof);
     const famHtml = rows.length ? `<div class="verdicts">` + rows.map(([f, v]) => {
       /* the bottles grouped by source word: worn, or only tried in a shop */
       const groups = {};
@@ -1086,7 +969,7 @@
       const noteLines = v.evidence.filter(e => e.note).map(e => `<div class="hint">${esc(t().noteLine(pname(e.perfume), noteWords(e.perfume, f), e.value, low(t().rowStage[e.stage])))}</div>`).join("");
       const dis = disagreeWords(f, v.cls);
       const against = dis.length ? `<div class="hint qdis">${esc(t().disagree(listJoin(dis)))}</div>` : "";
-      return `<div class="verdict ${vCls[v.cls]}"><div class="v-head"><b>${esc(fam(f))}</b><span class="pill ${pillCls[v.cls]}">${esc(t().cls[v.cls])}</span></div><div class="hint">${src}</div>${noteLines}${against}</div>`;
+      return `<div class="verdict ${CARD[v.cls]}"><div class="v-head"><b>${esc(fam(f))}</b><span class="pill ${PILL[v.cls]}">${esc(t().cls[v.cls])}</span></div><div class="hint">${src}</div>${noteLines}${against}</div>`;
     }).join("") + `</div>` : `<div class="empty">${esc(t().noFamilies)}</div>`;
     let recs = "";
     const anyBad = Object.values(prof).some(v => v.cls === "badLikely" || v.cls === "badPossible");
@@ -1218,10 +1101,7 @@
     if (d.anosmia && step === "anosmia") { quiz.anosmia = d.anosmia; store.set("pp_quiz_v1", quiz); sendOnce("anosmia", "anosmia:" + d.anosmia, 0); go("result"); return; }
   });
   document.addEventListener("click", e => { if (!e.target.closest(".search")) showResults([]); });
-  /* A hidden page may never come back (a closed tab, or a phone that switches apps and later discards it). */
-  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flushSends(); });
-  window.addEventListener("pagehide", flushSends);
 
   render();
-  loadCatalogue();
+  page.loadCatalogue(() => { if (step === "grid") renderGridParts(); else render(); });
 })();

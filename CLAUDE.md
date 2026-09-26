@@ -6,9 +6,10 @@ backend. README.md is the full reference; PROJECT_LOG.md is the continuity recor
 ## Layout
 
 - `site/`: the website and the only folder that is deployed. `js/config.js` holds the deployment settings,
-  `js/engine.js` the profile logic, `js/notes.js` the note rows and told items both pages share, `js/app.js` the
-  profile page (`profile.html`), `js/quiz.js` the quiz, which is the front page (`index.html`); `js/evidence.js` and `js/bottles.js` are generated, and `img/bottles/`
-  holds the bottle photos.
+  `js/engine.js` the profile logic, `js/notes.js` the note rows and told items both pages share, `js/page.js` the
+  words, storage, sending and backend calls both pages share, `js/app.js` the profile page (`profile.html`),
+  `js/quiz.js` the quiz, which is the front page (`index.html`); `js/evidence.js` and `js/bottles.js` are generated,
+  and `img/bottles/` holds the bottle photos.
 - `backend/apps-script.gs`: the Sheets backend. Its `VERIFIED` list is generated.
 - `evidence/`: label lists and the tag changelog, the inputs to `site/js/evidence.js`.
 - `tools/`: build and maintenance scripts. `tools/lib/site.js` loads the site scripts into Node; use it
@@ -23,7 +24,8 @@ backend. README.md is the full reference; PROJECT_LOG.md is the continuity recor
   sheets, `--drop` a wrong photo).
 - Never hand-edit `site/js/evidence.js` (run `node tools/build_evidence.js`) or the `VERIFIED` list in
   `backend/apps-script.gs` (run `node tools/sync_backend.js`).
-- `engine.js` holds no DOM, storage or language; page concerns go in `app.js`. A change in engine
+- `engine.js` holds no DOM, storage or language; page concerns go in `app.js` or `quiz.js`, and in `page.js`
+  when both pages need them. A change in engine
   behaviour needs `node tests/engine.test.js --update` and a reviewed diff of
   `tests/fixtures/engine_golden.json`.
 - Nothing outside `site/` is deployed. The book texts in `reference/books/` are copyrighted: keep them out

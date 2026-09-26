@@ -62,10 +62,13 @@ const counted = c => c.body && c.body.type === "event" && !/^(reach|result):/.te
 const events = page => page.calls.filter(counted).map(c => [c.body.name, c.body.n]);
 
 test("the front page (the quiz) loads its scripts in order and the grid shows the twenty bottles; rated ones cannot be answered", () => {
-  assert.deepEqual(quizScripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/notes.js", "js/bottles.js", "js/quiz.js"]);
-  const src = fs.readFileSync(path.join(SITE, "js", "quiz.js"), "utf8");
-  assert.doesNotMatch(src, /querySelector/);
-  assert.doesNotMatch(src, /<button(?![^>]*type="button")/, "every button is type=button");
+  assert.deepEqual(quizScripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/notes.js", "js/bottles.js", "js/page.js", "js/quiz.js"]);
+  /* the quiz's own script and the one it shares with the profiler */
+  for (const f of ["quiz.js", "page.js"]) {
+    const src = fs.readFileSync(path.join(SITE, "js", f), "utf8");
+    assert.doesNotMatch(src, /querySelector/, f);
+    assert.doesNotMatch(src, /<button(?![^>]*type="button")/, `${f}: every button is type=button`);
+  }
   const page = open();
   const tiles = page.snapshot().els.tiles.innerHTML;
   assert.deepEqual([...tiles.matchAll(/data-tile="([^"]+)"/g)].map(m => m[1]), [...D.QUIZ.grid]);
@@ -633,7 +636,7 @@ test("a row with no listed note says so, with its hint, in both languages", () =
 test("the page strings use no form of the Arabic verb for wearing clothes, and no em dash", () => {
   /* the root l-b-s with optional long vowels (the verb, its present tense, clothes, worn), diacritics removed first */
   const wear = /ل[اآ]?ب[وي]?س/;
-  for (const f of ["quiz.js", "app.js", "notes.js"]) {
+  for (const f of ["quiz.js", "app.js", "notes.js", "page.js"]) {
     const src = fs.readFileSync(path.join(SITE, "js", f), "utf8");
     assert.equal(wear.test(src.replace(/[ً-ْـ]/g, "")), false, `${f} uses the verb for wearing clothes`);
     assert.equal(src.includes(String.fromCharCode(0x2014)), false, `${f} has an em dash`);

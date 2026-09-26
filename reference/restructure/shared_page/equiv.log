@@ -1,0 +1,27 @@
+## old against old (determinism), 80 quiz visits
+80 visits identical, 0 different; 2828 page states compared; 0 handler errors (identical on both sides); 655 POSTs and 3 beacons sent by the old page
+quiz screens reached: anosmia grid narrow notes palate picker result result-picks result-testers start taste told verdicts
+actions: {"click:tile":600,"click:continue":494,"click:pn+pv":410,"input":163,"click:lang-en":152,"click:lang-ar":141,"click:verdict":116,"flush":97,"click:start":92,"enter":89,"click:none":50,"click:event":31,"click:taste":30,"click:back":29,"hide":26,"click:add":26,"escape":26,"click:anosmia":24,"click:pmore":24,"click:told":17,"click:na+v":15,"click:chip+stage":6,"click:sharecard":4,"click:nskipall":2,"click:note+event":2,"click:nskip":1,"click:skip":1}
+
+## old (commit ca6fb8c) against new, 800 visits
+800 visits identical, 0 different; 29390 page states compared; 0 handler errors (identical on both sides); 4859 POSTs and 145 beacons sent by the old page
+quiz screens reached: anosmia grid narrow notes palate picker result result-picks result-testers start taste told verdicts
+actions: {"click:na+nid+v":3238,"click:tile":3016,"click:continue":2789,"click:rate+stage+v":2562,"click:pn+pv":1970,"input":1607,"click:chip+rate+stage":1433,"flush":1149,"click:lang-ar":1134,"click:lang-en":1082,"click:add":1060,"enter":859,"click:again+v":647,"click:verdict":609,"click:flag":546,"click:start":435,"click:remove":338,"click:nedit+nid":321,"click:readlabel":305,"click:none":287,"hide":267,"escape":262,"click:reset-keep":220,"click:share":197,"click:taste":196,"click:event":194,"click:reset":184,"click:told":160,"click:anosmia":158,"click:back":147,"click:na+v":145,"click:pmore":112,"click:sharecard":43,"click:chip+stage":33,"click:note+event":25,"click:flagperf":18,"click:nskip":13,"click:nedit":11,"click:nskipall":8,"click:skip":4,"click:when":3,"click:addcustom":3}
+
+## planted one-line changes in page.js, 200 visits each (each must differ)
+### a_nid
+seed 1 (profile) differs after {"click":{"dataset":{"na":"white_musk","nid":"tamdao","v":"-2"}}}:
+seed 2 (profile) differs after {"click":{"dataset":{"na":"lavender_aromatic","nid":"swy","v":"u"}}}:
+seed 3 (profile) differs after {"click":{"dataset":{"na":"spice_fresh","nid":"givenchyphbluelabel","v":"-1"}}}:
+### b_order
+seed 1 (profile) differs after {"flush":true}:
+seed 2 (profile) differs after {"flush":true}:
+seed 3 (profile) differs after end:
+### c_word
+seed 1 (profile) differs after load:
+seed 2 (profile) differs after {"click":{"id":"lang-ar"}}:
+seed 3 (profile) differs after load:
+### d_query
+seed 1 (profile) differs after load:
+seed 2 (profile) differs after load:
+seed 3 (profile) differs after load:

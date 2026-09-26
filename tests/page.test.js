@@ -28,7 +28,7 @@ const seed = () => ({ pp_device: JSON.stringify("d_test"), pp_lang: JSON.stringi
 const stored = page => JSON.parse(page.localStorage.getItem("pp_ratings_v1"));
 
 test("scripts in profile.html load in order and the page renders the engine's profile and picks", () => {
-  assert.deepEqual(scripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/notes.js", "js/bottles.js", "js/app.js"]);
+  assert.deepEqual(scripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/notes.js", "js/bottles.js", "js/page.js", "js/app.js"]);
   const page = createPage({ localStorage: seed() });
   page.load(scripts);
   const els = page.snapshot().els;

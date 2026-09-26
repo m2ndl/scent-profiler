@@ -1,25 +1,22 @@
-/* The page: language, rendering, storage on this device, backend calls and event handlers.
-   Profile logic lives in engine.js, deployment settings in config.js. */
+/* The profiler page (profile.html): its words, rendering and event handlers. The words, storage, sending and
+   backend calls it shares with the quiz are in page.js; profile logic lives in engine.js, deployment settings
+   in config.js. */
 (function () {
   "use strict";
-  const D = window.PP_DATA, M = window.PP_MAP, MAT = window.PP_MATERIALS;
-  if (!D || !M || !MAT || !window.PP_ENGINE || !window.PP_NOTES || !window.PP_CONFIG) { document.getElementById("h1").textContent = "A script in js/ did not load (config, data, mapper, materials, engine or notes). Serve the site folder as it is."; return; }
+  const D = window.PP_DATA, M = window.PP_MAP, MAT = window.PP_MATERIALS, PAGE = window.PP_PAGE;
+  if (!D || !M || !MAT || !window.PP_ENGINE || !window.PP_NOTES || !window.PP_CONFIG || !PAGE) { document.getElementById("h1").textContent = "A script in js/ did not load (config, data, mapper, materials, engine, notes or page). Serve the site folder as it is."; return; }
   const { FAMILIES, CHIPS } = D;
   const E = window.PP_ENGINE.create(D, M, window.PP_EVIDENCE);
   const N = window.PP_NOTES.create(D, M, E);
   const { STAGES, PERFUMES, byId } = E;
-  /* the drawn bottle, for a perfume with no photo: cream glass, amber juice, a gold cap */
-  const PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><rect x="22" y="5" width="12" height="9" rx="2" fill="#C99C43"/><rect x="25" y="14" width="6" height="4" fill="#B8862A"/><rect x="14" y="18" width="28" height="33" rx="7" fill="#FCF8F0" stroke="#C1AA8B" stroke-width="1.5"/><path d="M15.5 33h25v10.5a6 6 0 0 1-6 6h-13a6 6 0 0 1-6-6z" fill="#F0B135" opacity=".55"/><rect x="18" y="21" width="3" height="20" rx="1.5" fill="#fff" opacity=".8"/></svg>');
 
   /* Deployment settings: config.js. */
   const CONFIG = window.PP_CONFIG;
-  /* Local testing only: http://localhost:8765/?endpoint=http://localhost:8765/api (see tools/mock_backend.py). */
-  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { try { const e = new URLSearchParams(location.search).get("endpoint"); if (e) CONFIG.endpoint = e; } catch (err) { /* ignore */ } }
 
-  /* ---------- i18n ---------- */
-  const T = {
+  /* ---------- i18n: this page's words; page.js holds the ones both pages show ---------- */
+  const T = PAGE.words({
     en: {
-      brand: "Scent Profiler", tagline: "find what you hate before you buy", navArticles: "Why drydowns fail", navQuiz: "Bottle quiz",
+      navQuiz: "Bottle quiz",
       heroQuiz: "Not sure where to start? Pick from twenty well-known bottles",
       h1: "Your scent profile",
       lede: "Rate the perfumes and samples you have tried, stage by stage: the opening, the heart and the base. Each rating sharpens what you like, what ruins a perfume for you, and the samples picked for you.",
@@ -34,14 +31,12 @@
       emptyRate: "Nothing rated yet. One perfume you regret buying teaches the profiler more than three you loved.",
       profileH: "Your deal-breakers", profileLede: "Material families, not marketing notes. Each verdict lists the ratings it rests on, so you can see how much weight it deserves.",
       emptyProfile: "Rate at least one perfume to see a profile.",
-      cls: { badLikely: "Likely deal-breaker", badPossible: "Possible deal-breaker", goodLikely: "Reliably liked", goodPossible: "Probably liked", mixed: "Depends on the perfume" },
       seenIn: "seen in", once: "one perfume so far", n: n => `${n} perfumes`,
       evidenceLine: (perfume, stage, val) => `${perfume}, ${stage.toLowerCase()}: ${val}`,
       chipLine: (perfume, stage, chip) => `${perfume}, ${stage.toLowerCase()}: you said "${chip}"`,
       avoid: "Also has this in the base:", flag: "This tag looks wrong", flagged: "Noted, thank you",
       settleH: "One sample would settle it",
       settle: (target, fam, others) => `Try ${target}. Its base is ${fam} without ${others}. If that drydown bothers you too, ${fam} is the culprit; if not, look at the others.`,
-      recsH: "Three to try next", recsLede: "Ranked by what they avoid first, and what they share with your likes second. Samples, never blind bottles.",
       emptyRecs: "Recommendations appear once you have rated at least two perfumes.",
       whyClear: fams => `Clear of ${fams} in the base.`,
       whyShares: (fam, perfume) => `Shares ${fam} with ${perfume}, which you liked.`,
@@ -50,22 +45,16 @@
       riskNeg: (fam, stage) => `Contains a little ${fam} in the ${stage.toLowerCase()}, which you have disliked before.`,
       riskTold: (fam, stage) => `Contains ${fam} in the ${stage.toLowerCase()}, which you said you avoid.`,
       riskLean: (fam, stage) => `Contains ${fam} in the ${stage.toLowerCase()}, which your quiz answers lean against.`,
-      toldOnlyH: "Based only on what you told us",
       toldUses: n => `Also uses ${n} ${n === 1 ? "answer" : "answers"} from the quiz.`,
       noteLine: (perfume, stage, words, v) => `${perfume}, ${stage.toLowerCase()}: you ${{ 2: "loved", 1: "liked", 0: "didn't mind", "-1": "disliked", "-2": "hated" }[v]} the ${words}`,
       notesS: "Rate its notes", notesHint: "Tap what you remember; skip what you don't.",
-      rowStage: { opening: "First minutes", heart: "First hours", drydown: "Hours later" },
-      notListed: "not on its note list", notListedHint: "Some materials are in a perfume without being on its note list.",
-      answers: { "-2": "Hated it", "-1": "Disliked it", 0: "Didn't mind", 1: "Liked it", 2: "Loved it", u: "Didn't notice it" },
-      change: "Change",
-      sampleSA: "Sample (Saudi shops)", sampleUS: "Sample (US)", bottle: "Full bottle",
       share: "Copy my profile", reset: "Start over", copied: "Copied to clipboard", copyFail: "Select and copy the text below",
       resetConfirm: "Delete all ratings on this device?", resetYes: "Yes, delete", resetNo: "Keep them",
       saved: "Saved on this device", sent: "Saved and shared anonymously",
       community: (n, d) => `Community: ${n} ratings, drydown average ${d}`,
       addCustom: q => `Add "${q}" (not in the list yet)`,
       untagged: "Not in the catalogue yet. Your rating is saved and will count once this perfume is tagged.",
-      lookingUp: "Looking it up…", notFound: "Not found in the reference database; saved as untagged.",
+      notFound: "Not found in the reference database; saved as untagged.",
       autoBadge: "Auto-tagged from its note list", autoNote: "Tags were inferred from the published notes, not checked by a person. They count at half weight and never drive recommendations.",
       autoFams: "Inferred:", tagsWrong: "These tags look wrong", verifiedOnly: "Recommendations come only from the hand-checked catalogue.",
       cloneOf: "Often compared to",
@@ -82,11 +71,9 @@
       method: `<p>Perfume "notes" are marketing descriptions, not ingredients. Two perfumes listing "amber" can smell nothing alike. This tool tags each perfume, at each stage, with the <b>material families</b> people actually react to: woody ambers, white musks, oakmoss, oud accords and so on. The tags are hand-made and sometimes wrong; use the "looks wrong" link.</p>
 <p>Your drydown ratings count more than your opening ratings, because the drydown is what you live with for six hours and what makes a bottle unwearable. A family is a <b>likely deal-breaker</b> only when two or more perfumes point the same way. One perfume gives a <b>possible</b> deal-breaker and a suggestion for the single sample that would settle it.</p>
 <p>What it cannot do: name the exact molecule, account for your skin, or be right about someone with specific anosmia to musks (roughly one person in twelve). Treat every verdict as a hypothesis to test with a 2 ml sample, never a reason to buy blind.</p>`,
-      foot: `<p>Sample and bottle links may earn a commission; ranking never depends on it. Ratings are stored on this device. If sharing is switched on, they are sent anonymously with a random device id and nothing else.</p>`,
-      cats: { m: "men", f: "women", u: "unisex" }
     },
     ar: {
-      brand: "محلل الذائقة العطرية", tagline: "اعرف ما تكرهه قبل أن تشتري", navArticles: "لماذا يتغيّر العطر بعد ساعات", navQuiz: "اختبار العطور",
+      navQuiz: "اختبار العطور",
       heroQuiz: "لا تعرف من أين تبدأ؟ اختر من عشرين عطراً معروفاً",
       h1: "ملفك العطري",
       lede: "قيّم العطور والعيّنات التي جرّبتها، مرحلة بمرحلة: الافتتاحية والقلب والقاعدة. كل تقييم يوضّح ما تحبه وما يفسد العطر عليك والعيّنات المختارة لك.",
@@ -101,14 +88,12 @@
       emptyRate: "لم تقيّم شيئاً بعد. عطر واحد ندمت على شرائه يعلّم المحلل أكثر من ثلاثة أحببتها.",
       profileH: "ما يفسد العطر عليك", profileLede: "عائلات المواد، لا النوتات التسويقية. كل حكم يعرض التقييمات التي بُني عليها، لتعرف كم يستحق من الثقة.",
       emptyProfile: "قيّم عطراً واحداً على الأقل لترى ملفك.",
-      cls: { badLikely: "مُفسد مرجّح", badPossible: "مُفسد محتمل", goodLikely: "تحبه باستمرار", goodPossible: "تحبه على الأرجح", mixed: "يعتمد على العطر" },
       seenIn: "ظهر في", once: "عطر واحد حتى الآن", n: n => (n === 2 ? "عطرين" : n <= 10 ? `${n} عطور` : `${n} عطراً`),
       evidenceLine: (perfume, stage, val) => `${perfume}، ${stage}: ${val}`,
       chipLine: (perfume, stage, chip) => `${perfume}، ${stage}: قلت «${chip}»`,
       avoid: "موجود أيضاً في قاعدة:", flag: "هذا الوسم يبدو خاطئاً", flagged: "سُجّل، شكراً",
       settleH: "عينة واحدة تحسم الأمر",
       settle: (target, fam, others) => `جرّب ${target}. قاعدته ${fam} من دون ${others}. إن أزعجتك قاعدته أيضاً فالسبب ${fam}؛ وإن لم تزعجك فانظر إلى البقية.`,
-      recsH: "ثلاثة لتجربتها", recsLede: "مرتّبة بحسب ما تتجنبه أولاً، وما تشترك فيه مع ما أحببته ثانياً. عينات، لا زجاجات على العمياني.",
       emptyRecs: "تظهر الترشيحات بعد تقييم عطرين على الأقل.",
       whyClear: fams => `قاعدته خالية من ${fams}.`,
       whyShares: (fam, perfume) => `يشترك في ${fam} مع ${perfume} الذي أعجبك.`,
@@ -117,22 +102,16 @@
       riskNeg: (fam, stage) => `فيه قليل من ${fam} في ${stage}، وقد أزعجك من قبل.`,
       riskTold: (fam, stage) => `يحتوي على ${fam} في ${stage}، وقد قلت إنك تتجنبه.`,
       riskLean: (fam, stage) => `يحتوي على ${fam} في ${stage}، وإجاباتك في الاختبار تميل ضده.`,
-      toldOnlyH: "بناءً على ما أخبرتنا به فقط",
       toldUses: n => `يعتمد الملف أيضاً على إجاباتك في الاختبار (${n}).`,
       noteLine: (perfume, stage, words, v) => `${perfume}: «${words}» (${stage}): إجابتك «${{ 2: "أعجبني كثيراً", 1: "أعجبني", 0: "لا بأس به", "-1": "لم يعجبني", "-2": "كرهته" }[v]}»`,
       notesS: "قيّم نوتاته", notesHint: "اختر ما تتذكره، وتجاوز ما لا تتذكره.",
-      rowStage: { opening: "الدقائق الأولى", heart: "الساعات الأولى", drydown: "بعد ساعات" },
-      notListed: "غير مذكور في قائمة نوتاته", notListedHint: "بعض المواد تكون في العطر من دون أن تُذكر في قائمة نوتاته.",
-      answers: { "-2": "كرهته", "-1": "لم يعجبني", 0: "لا بأس به", 1: "أعجبني", 2: "أعجبني كثيراً", u: "لم ألاحظه" },
-      change: "تغيير",
-      sampleSA: "عينة (متاجر سعودية)", sampleUS: "عينة (أمريكا)", bottle: "زجاجة كاملة",
       share: "انسخ ملفي", reset: "ابدأ من جديد", copied: "نُسخ", copyFail: "حدّد النص وانسخه",
       resetConfirm: "حذف كل التقييمات على هذا الجهاز؟", resetYes: "نعم، احذف", resetNo: "أبقها",
       saved: "محفوظ على هذا الجهاز", sent: "محفوظ ومشارَك بلا اسم",
       community: (n, d) => `المجتمع: ${n} تقييم، متوسط القاعدة ${d}`,
       addCustom: q => `أضف «${q}» (ليس في القائمة بعد)`,
       untagged: "ليس في القائمة بعد. تقييمك محفوظ وسيُحتسب بعد وسم هذا العطر.",
-      lookingUp: "جارٍ البحث عنه…", notFound: "لم يوجد في قاعدة البيانات المرجعية؛ حُفظ من دون وسوم.",
+      notFound: "لم يوجد في قاعدة البيانات المرجعية؛ حُفظ من دون وسوم.",
       autoBadge: "وُسم آلياً من قائمة نوتاته", autoNote: "استُنتجت الوسوم من النوتات المنشورة ولم يراجعها أحد. تُحتسب بنصف الوزن ولا تؤثر في الترشيحات.",
       autoFams: "المستنتج:", tagsWrong: "هذه الوسوم تبدو خاطئة", verifiedOnly: "الترشيحات تأتي فقط من القائمة المراجَعة يدوياً.",
       cloneOf: "يُقارن غالباً بـ",
@@ -149,25 +128,19 @@
       method: `<p>«النوتات» أوصاف تسويقية لا مكونات. عطران يذكران «العنبر» قد لا يتشابهان في شيء. تضع هذه الأداة على كل عطر، في كل مرحلة، وسوماً <b>لعائلات المواد</b> التي يتفاعل معها الناس فعلاً: الأخشاب العنبرية الصناعية، المسك الأبيض، الطحلب، تراكيب العود، وغيرها. الوسوم يدوية وقد تخطئ؛ استخدم رابط «يبدو خاطئاً».</p>
 <p>تقييمك للقاعدة يزن أكثر من تقييمك للافتتاحية، لأن القاعدة هي ما تعيش معه ست ساعات وما يجعل الزجاجة لا تصلح للاستخدام. تصبح العائلة <b>مُفسداً مرجّحاً</b> فقط عندما يشير عطران أو أكثر إلى الاتجاه نفسه. عطر واحد يعطي مُفسداً <b>محتملاً</b> واقتراحاً بالعينة الواحدة التي تحسم الأمر.</p>
 <p>ما لا تستطيعه: تسمية الجزيء بعينه، أو مراعاة بشرتك، أو الصواب مع من لديه فقدان شم خاص بالمسك (نحو واحد من كل اثني عشر شخصاً). تعامل مع كل حكم بوصفه فرضية تختبرها بعينة ٢ مل، لا سبباً للشراء على العمياني.</p>`,
-      foot: `<p>روابط العينات والزجاجات قد تكسب عمولة، والترتيب لا يعتمد عليها أبداً. التقييمات محفوظة على هذا الجهاز. إن كانت المشاركة مفعّلة تُرسل بلا اسم مع معرّف جهاز عشوائي ولا شيء غيره.</p>`,
-      cats: { m: "رجالي", f: "نسائي", u: "للجنسين" }
     }
-  };
+  });
 
   /* ---------- state ---------- */
-  const store = {
-    get(k, fb) { try { const v = localStorage.getItem(k); return v == null ? fb : JSON.parse(v); } catch (e) { return fb; } },
-    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } }
-  };
+  const store = PAGE.store;
   let lang = store.get("pp_lang", "ar");   /* Arabic first, whatever the device language; a chosen language is kept */
   let ratings = store.get("pp_ratings_v1", {});
   let flags = store.get("pp_flags_v1", {});
-  let device = store.get("pp_device", null);
-  if (!device) { device = "d_" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36); store.set("pp_device", device); }
+  /* the helpers both pages share (page.js), reading this page's language and ratings */
+  const page = PAGE.create({ D, E, CONFIG, words: T, lang: () => lang, ratings: () => ratings });
+  const { device, AUTO, t, fam, pname, chipWord, esc, listJoin, low, partnerLine, imgTag, matches, state, resolve, sendRecord, $, toast, verdictRows, PILL, CARD } = page;
   let community = null;
   let pendingReset = false;
-  let AUTO = {};        /* id -> catalogue entry from the backend (lazy catalogue) */
-  let images = {};      /* verified id -> image url, from the backend's catalogue */
   /* The quiz's word answers (pp_quiz_v1), as the same told items the quiz passes to computeProfile. */
   let quiz = store.get("pp_quiz_v1", {});
   if (!quiz || typeof quiz !== "object") quiz = {};
@@ -180,30 +153,11 @@
   const notesOpen = new Set();   /* cards whose "Rate its notes" block is open */
   const editing = new Set();     /* "id|family": answered note rows reopened with "Change" */
 
-  const t = () => T[lang];
-  const fam = k => (FAMILIES[k] ? FAMILIES[k][lang] : k);
   const famHint = k => (FAMILIES[k] ? FAMILIES[k]["hint_" + lang] : "");
-  const pname = p => (lang === "ar" && p.ar ? p.ar : p.name);
   const stageName = s => t().stages[s][0];
   const scaleWord = v => t().scale[v + 2];
-  const chipWord = id => { const c = CHIPS.find(x => x.id === id); return c ? c[lang] : id; };
-  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  /* the partner program's required statement from config.js, in the page language */
-  /* a shop link for a perfume: {q} becomes its house and name, {lang} the page language (ar or en) */
-  const shopUrl = (tpl, P) => tpl.replace("{q}", encodeURIComponent(P.house + " " + P.name)).replace("{lang}", lang);
-  const partnerLine = () => { const d = CONFIG.disclosure && CONFIG.disclosure[lang]; return d ? `<p>${esc(d)}</p>` : ""; };
-  const listJoin = arr => lang === "ar" ? arr.join("، ") : arr.length > 1 ? arr.slice(0, -1).join(", ") + " and " + arr[arr.length - 1] : arr[0] || "";
   const fmt1 = n => (Math.round(n * 10) / 10).toFixed(1).replace("-", "−");
-  const low = s => (lang === "en" && s ? s[0].toLowerCase() + s.slice(1) : s);
-
-  /* The engine keeps no state: each call gets the page's current ratings, lazy catalogue and images. */
-  const state = () => ({ ratings, auto: AUTO, images });
-  const resolve = id => E.resolve(id, state());
-  const derived = entry => E.derived(entry);
   const srcWord = p => ({ curated: t().srcCurated, label: t().srcLabel, "label-absent": t().srcLabelAbsent, book: t().srcBook, notes: t().srcNotes })[p] || "";
-  /* a shipped bottle photo first (js/bottles.js), then the backend's vendor image, then the drawn bottle */
-  const bottleSrc = P => (P && window.PP_BOTTLES && window.PP_BOTTLES[P.id]) || (P && P.image) || "";
-  const imgTag = (P, cls) => { const src = bottleSrc(P); return `<img class="thumb${src ? " photo" : ""} ${cls || ""}" src="${src ? esc(src) : PLACEHOLDER}" alt="" loading="lazy" onerror="this.onerror=null;this.classList.remove('photo');this.src='${PLACEHOLDER}'">`; };
   const uniqFams = stages => [...new Set(STAGES.flatMap(s => Object.keys((stages && stages[s]) || {})))];
   /* Wearer pastes an ingredient list: parse it here, keep it on this device, send the text for the evidence queue. */
   function readLabel(id) {
@@ -224,31 +178,12 @@
   const recommend = prof => E.recommend(prof, ratings, N.avoidedNotes(quiz));
   const settleSuggestion = prof => E.settleSuggestion(prof, ratings);
 
-  /* ---------- persistence and sharing ---------- */
-  /* One pending send per perfume, so rating another perfume never cancels it; a perfume removed (or reset)
-     before its send fires is not sent; pending sends go out at once when the page is hidden or closed. */
-  const sendTimers = {};
-  function sendRating(id, leaving) {
-    clearTimeout(sendTimers[id]); delete sendTimers[id];
-    if (!ratings[id]) return;
-    const P = resolve(id); const { auto, label, ...rest } = ratings[id];
-    sendRecord({ type: "rating", device, lang, perfume: id, name: P ? P.name : id, ...rest }, leaving);
-  }
+  /* ---------- persistence and sharing (the sender is in page.js) ---------- */
   function persist(id) {
     store.set("pp_ratings_v1", ratings);
     if (!CONFIG.endpoint) { toast(t().saved); return; }
-    clearTimeout(sendTimers[id]);
-    sendTimers[id] = setTimeout(() => sendRating(id), 1200);
+    page.queueSend(id);
     toast(t().sent);
-  }
-  function flushSends() { for (const id of Object.keys(sendTimers)) sendRating(id, true); }
-  /* leaving: the page is being hidden or closed, so the request must outlive it */
-  function sendRecord(rec, leaving) {
-    const body = JSON.stringify({ ...rec, ts: new Date().toISOString() });
-    try {
-      if (leaving && navigator.sendBeacon && navigator.sendBeacon(CONFIG.endpoint, body)) return;
-      fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body, keepalive: !!leaving }).catch(() => {});
-    } catch (e) { /* offline or blocked */ }
   }
   /* One anonymous event per session once a profile exists, so completions can be counted without analytics. */
   function trackProfile(n) {
@@ -256,32 +191,16 @@
     let seen = false; try { seen = sessionStorage.getItem("pp_evt") === "1"; } catch (e) { /* ignore */ }
     if (seen) return;
     try { sessionStorage.setItem("pp_evt", "1"); } catch (e) { /* ignore */ }
-    sendRecord({ type: "event", name: "profile_viewed", n, device, lang });
+    page.sendEvent("profile_viewed", n);
   }
   function loadCommunity() {
     if (!CONFIG.endpoint) return;
-    try {
-      fetch(CONFIG.endpoint + (CONFIG.endpoint.includes("?") ? "&" : "?") + "stats=1").then(r => r.json()).then(j => { community = j && j.perfumes ? j.perfumes : null; renderRated(); }).catch(() => {});
-    } catch (e) { /* ignore */ }
-  }
-  function loadCatalogue() {
-    if (!CONFIG.endpoint) return Promise.resolve();
-    try {
-      return fetch(CONFIG.endpoint + (CONFIG.endpoint.includes("?") ? "&" : "?") + "catalogue=1").then(r => r.json()).then(j => {
-        for (const e of (j && j.entries) || []) { if (!e || !e.id) continue; if (byId[e.id]) { if (e.image) images[e.id] = e.image; } else AUTO[e.id] = e; }
-        renderAll();
-      }).catch(() => {});
-    } catch (e) { return Promise.resolve(); }
+    page.getJSON("stats=1").then(j => { community = j && j.perfumes ? j.perfumes : null; renderRated(); }).catch(() => {});
   }
 
   /* ---------- rendering ---------- */
-  const $ = id => document.getElementById(id);
-  function toast(msg) { const el = $("toast"); el.textContent = msg; el.classList.add("show"); clearTimeout(toast.h); toast.h = setTimeout(() => el.classList.remove("show"), 1600); }
-
   function renderChrome() {
-    document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-    $("lang-en").setAttribute("aria-pressed", lang === "en"); $("lang-ar").setAttribute("aria-pressed", lang === "ar");
-    $("brand").innerHTML = esc(t().brand) + "<small>" + esc(t().tagline) + "</small>";
+    page.chrome();
     $("nav-articles").textContent = t().navArticles; $("nav-quiz").textContent = t().navQuiz;
     $("h1").textContent = t().h1; $("lede").textContent = t().lede; $("hero-quiz").textContent = t().heroQuiz;
     $("ask").textContent = t().ask; $("q-label").textContent = t().qLabel; $("q").placeholder = t().q; $("hint").textContent = t().hint;
@@ -293,27 +212,12 @@
     $("quick").innerHTML = "<span class='eyebrow'>" + esc(t().quick) + "</span>" + quickIds.filter(id => !ratings[id]).map(id => `<button type="button" data-add="${id}">${esc(pname(byId[id]))}</button>`).join("");
   }
 
-  /* One note row, drawn as on the quiz (quiz.js noteRowHtml): the stage in plain words, the note words and the
-     family; an answered row collapses to its answer. */
-  function noteRowHtml(id, P, row, r) {
-    const f = row.f, v = r.noteAnswers && f in r.noteAnswers ? r.noteAnswers[f] : null;
-    const un = Array.isArray(r.unnoticed) && r.unnoticed.includes(f);
-    const words = lang === "ar" ? row.words.ar : row.words.en;
-    const listed = !!(P.notes && /[a-z]/i.test(P.notes.en || ""));
-    let main = esc(fam(f)), small = "", hint = "";
-    if (words.length) { main = esc(words.join(lang === "ar" ? "، " : ", ")); small = esc(fam(f)); }
-    else if (!row.words.en.length && listed) { main = esc(t().notListed); small = esc(fam(f)); hint = `<div class="nhint">${esc(t().notListedHint)}</div>`; }
-    const head = `<div class="nhead"><span class="nstage">${esc(t().rowStage[row.stage])}</span> · <b>${main}</b>${small ? ` · <span class="nfam">${small}</span>` : ""}</div>`;
-    if ((v != null || un) && !editing.has(id + "|" + f)) return `<div class="nrow done">${head}<div class="ndone"><span class="npick">${esc(t().answers[un ? "u" : v])}</span><button type="button" class="qlink" data-nedit="${f}" data-nid="${esc(id)}">${esc(t().change)}</button></div></div>`;
-    const btn = (x, on, cls) => `<button type="button"${cls ? ` class="${cls}"` : ""} data-na="${f}" data-nid="${esc(id)}" data-v="${x}" aria-pressed="${on}">${esc(t().answers[x])}</button>`;
-    return `<div class="nrow">${head}${hint}<div class="nopts">${[-2, -1, 0, 1, 2].map(x => btn(x, v === x)).join("")}${btn("u", un, "nun")}</div></div>`;
-  }
-  /* "Rate its notes": the quiz's worn-bottle rows for this perfume */
+  /* "Rate its notes": the quiz's worn-bottle rows for this perfume, drawn as on the quiz (page.js noteRowHtml) */
   function notesBoxHtml(id, P, r) {
     const rows = N.questions(P, "worn"); if (!rows.length) return "";
     const done = rows.filter(row => (r.noteAnswers && row.f in r.noteAnswers) || (Array.isArray(r.unnoticed) && r.unnoticed.includes(row.f))).length;
     return `<details class="nbox" data-nbox="${esc(id)}"${notesOpen.has(id) ? " open" : ""}><summary>${esc(t().notesS)}${done ? ` <span class="ncount">${done}/${rows.length}</span>` : ""}</summary><div class="hint">${esc(t().notesHint)}</div>
-          <div class="nrows">${rows.map(row => noteRowHtml(id, P, row, r)).join("")}</div></details>`;
+          <div class="nrows">${rows.map(row => page.noteRowHtml(P, row, r, editing.has(id + "|" + row.f), id)).join("")}</div></details>`;
   }
   /* the words an evidence line from a note answer names: the row's note words, or the family */
   function noteWords(P, f) {
@@ -376,11 +280,8 @@
     const prof = computeProfile();
     if (!ids.length) { host.innerHTML = `<div class="empty">${esc(t().emptyProfile)}</div>` + uses; return { prof, ids }; }
     trackProfile(ids.length);
-    const order = { badLikely: 0, badPossible: 1, mixed: 2, goodLikely: 3, goodPossible: 4 };
-    const rows = Object.entries(prof).filter(([, v]) => v.cls !== "neutral").sort((a, b) => (order[a[1].cls] - order[b[1].cls]) || (Math.abs(b[1].score) - Math.abs(a[1].score)));
+    const rows = verdictRows(prof);
     if (!rows.length) { host.innerHTML = `<div class="empty">${esc(t().emptyProfile)}</div>` + uses; return { prof, ids }; }
-    const pillCls = { badLikely: "bad", badPossible: "warn", goodLikely: "good", goodPossible: "good", mixed: "" };
-    const vCls = { badLikely: "bad-likely", badPossible: "bad-possible", goodLikely: "good-likely", goodPossible: "good-possible", mixed: "mixed" };
     host.innerHTML = `<div class="verdicts">` + rows.map(([f, v]) => {
       const evid = v.evidence.slice().sort((a, b) => STAGES.indexOf(b.stage) - STAGES.indexOf(a.stage)).slice(0, 6).map(e => {
         const who = pname(e.perfume);
@@ -396,8 +297,8 @@
       }
       const pos = Math.min(100, Math.max(0, ((v.score + 2) / 4) * 100));
       const flagged = !!flags[f];
-      return `<div class="verdict ${vCls[v.cls]}">
-        <div class="v-head"><b>${esc(fam(f))}</b><span class="pill ${pillCls[v.cls]}">${esc(t().cls[v.cls])} · ${esc(v.n === 1 ? t().once : t().seenIn + " " + t().n(v.n))}</span></div>
+      return `<div class="verdict ${CARD[v.cls]}">
+        <div class="v-head"><b>${esc(fam(f))}</b><span class="pill ${PILL[v.cls]}">${esc(t().cls[v.cls])} · ${esc(v.n === 1 ? t().once : t().seenIn + " " + t().n(v.n))}</span></div>
         <div class="hint">${esc(famHint(f))}</div>
         <div class="bar" aria-hidden="true"><i style="left:${lang === "ar" ? "auto" : pos + "%"};right:${lang === "ar" ? pos + "%" : "auto"}"></i></div>
         <ul class="evidence">${evid}</ul>${neverNote}${avoid}
@@ -429,7 +330,6 @@
          family their bottles split on, an untried family that leads) */
       const risk = reason && reason.watch;
       const riskLine = risk ? ((risk.kind === "avoid" || risk.kind === "avoidOpening" || risk.kind === "lean") ? (saidAvoid(risk.f) ? t().riskTold : t().riskLean)(fam(risk.f), stageName(risk.s)) : risk.kind === "unknown" ? t().riskUnknown(fam(risk.f), stageName(risk.s)) : risk.kind === "mixed" ? t().riskMixed(fam(risk.f), stageName(risk.s)) : t().riskNeg(fam(risk.f), stageName(risk.s))) : "";
-      const link = (tpl, label, primary) => `<a class="${primary ? "primary" : ""}" href="${shopUrl(tpl, P)}" target="_blank" rel="noopener sponsored">${esc(label)}</a>`;
       const PP = resolve(P.id) || P;
       return `<div class="rec">
         <div class="with-thumb">${imgTag(PP)}<div class="grow">
@@ -437,7 +337,7 @@
         <div class="notes">${esc(P.notes[lang])}</div>${P.cloneOf && byId[P.cloneOf] ? `<div class="auto-fams">${esc(t().cloneOf)} <b>${esc(pname(byId[P.cloneOf]))}</b></div>` : ""}</div></div>
         ${whys.map(w => `<div class="why">${esc(w)}</div>`).join("")}
         ${riskLine ? `<div class="risk">${esc(riskLine)}</div>` : ""}
-        <div class="links">${link(CONFIG.links.sampleSA, t().sampleSA, lang === "ar")}${link(CONFIG.links.sampleUS, t().sampleUS, lang !== "ar")}${link(CONFIG.links.bottle, t().bottle, false)}</div>
+        ${page.linksHtml(P)}
       </div>`;
     }).join("") + `</div>` + (Object.keys(ratings).some(id => { const P = resolve(id); return P && P.auto; }) ? `<div class="notes" style="margin-top:8px">${esc(t().verifiedOnly)}</div>` : "");
   }
@@ -451,10 +351,9 @@
     if (!ids.length) { panel.innerHTML = `<h3>${esc(t().panelH)}</h3><div class="quiet">${esc(t().pQuiet)}</div>`; bar.hidden = true; return; }
     const order = { badLikely: 0, badPossible: 1, goodLikely: 2, goodPossible: 3, mixed: 4 };
     const top = rows.sort((a, b) => order[a[1].cls] - order[b[1].cls] || Math.abs(b[1].score) - Math.abs(a[1].score)).slice(0, 5);
-    const dotCls = { badLikely: "bad", badPossible: "warn", goodLikely: "good", goodPossible: "good", mixed: "" };
     panel.innerHTML = `<h3>${esc(t().panelH)}</h3>
       <div class="counts"><div><b>${ids.length}</b><span>${esc(t().pRated)}</span></div><div><b>${bad.length}</b><span>${esc(t().pBad)}</span></div><div><b>${good.length}</b><span>${esc(t().pGood)}</span></div></div>
-      <ul>${top.map(([f, v]) => `<li><i class="${dotCls[v.cls]}"></i><span>${esc(fam(f))}</span></li>`).join("")}</ul>
+      <ul>${top.map(([f, v]) => `<li><i class="${PILL[v.cls]}"></i><span>${esc(fam(f))}</span></li>`).join("")}</ul>
       <a class="go" href="#sec-profile">${esc(t().pGo)}</a>`;
     bar.innerHTML = `<span>${esc(t().bottom(ids.length, bad.length))}</span><a href="#sec-profile">${esc(t().bottomGo)}</a>`;
     bar.hidden = false;
@@ -465,9 +364,8 @@
   /* ---------- search ---------- */
   function search(q) {
     q = q.trim().toLowerCase(); if (!q) return [];
-    const hit = P => (P.name.toLowerCase().includes(q) || (P.house || "").toLowerCase().includes(q) || (P.ar && P.ar.includes(q)) || P.id.includes(q));
-    const verified = PERFUMES.filter(P => !ratings[P.id] && hit(P)).map(P => resolve(P.id));
-    const auto = Object.keys(AUTO).filter(id => !ratings[id] && !byId[id]).map(id => resolve(id)).filter(P => P && hit(P));
+    const verified = PERFUMES.filter(P => !ratings[P.id] && matches(P, q)).map(P => resolve(P.id));
+    const auto = Object.keys(AUTO).filter(id => !ratings[id] && !byId[id]).map(id => resolve(id)).filter(P => P && matches(P, q));
     return verified.concat(auto).slice(0, 12);
   }
   function showResults(list, q) {
@@ -493,22 +391,11 @@
     const customId = "x_" + name.toLowerCase().replace(/[^a-z0-9؀-ۿ]+/g, "-").replace(/^-|-$/g, "");
     if (!CONFIG.endpoint) { addEntry(customId, { custom: name }); return; }
     lookingUp = true; toast(t().lookingUp); $("q").value = ""; showResults([]);
-    const done = (found, entry) => {
+    page.lookup(name, d => {
       lookingUp = false;
-      if (found && entry && entry.id) {
-        /* reduce the vendor payload to identity plus derived weights; that is all we keep or send back */
-        const d = entry.stages ? entry : derived(entry);
-        AUTO[d.id] = d;
-        if (!entry.stages && CONFIG.endpoint) sendRecord({ type: "tagcache", ...d });
-        if (ratings[d.id]) { renderAll(); return; }
-        addEntry(d.id, { auto: d });
-      }
+      if (d) { if (ratings[d.id]) { renderAll(); return; } addEntry(d.id, { auto: d }); }
       else { toast(t().notFound); addEntry(customId, { custom: name }); }
-    };
-    try {
-      fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type: "lookup", q: name, lang, device }) })
-        .then(r => r.json()).then(j => done(!!(j && j.found), j && j.entry)).catch(() => done(false));
-    } catch (e) { done(false); }
+    });
   }
 
   /* ---------- share text ---------- */
@@ -587,9 +474,6 @@
   document.addEventListener("click", e => { if (!e.target.closest(".search")) showResults([]); });
   /* keep a "Rate its notes" block open or closed across redraws */
   document.addEventListener("toggle", e => { const d = e.target; if (d && d.dataset && d.dataset.nbox) { if (d.open) notesOpen.add(d.dataset.nbox); else notesOpen.delete(d.dataset.nbox); } }, true);
-  /* A hidden page may never come back (a closed tab, or a phone that switches apps and later discards it). */
-  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flushSends(); });
-  window.addEventListener("pagehide", flushSends);
 
   renderAll();
   loadCommunity();
@@ -598,7 +482,7 @@
   let linkAdd = null; try { linkAdd = new URLSearchParams(location.search).get("add"); } catch (e) { /* ignore */ }
   const addLinked = () => { if (linkAdd && !ratings[linkAdd]) addPerfume(linkAdd); };
   addLinked();
-  loadCatalogue().then(() => {
+  page.loadCatalogue(renderAll).then(() => {
     if (!linkAdd) return;
     addLinked();
     try { const p = new URLSearchParams(location.search); p.delete("add"); const q = p.toString(); history.replaceState(null, "", location.pathname + (q ? "?" + q : "") + location.hash); } catch (e) { /* ignore */ }

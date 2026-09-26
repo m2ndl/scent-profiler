@@ -25,8 +25,9 @@ those families. Static files, no build step, no accounts.
 | `site/js/evidence.js` | Generated from `evidence/` by `tools/build_evidence.js`: the book and label layers. Never edited by hand. |
 | `site/js/engine.js` | Profile engine: evidence merge, profile, recommendations, the one-sample suggestion. No page code, so tests and tools run the same engine under Node. |
 | `site/js/notes.js` | Note questions shared by both pages: which of a perfume's families to ask a wearer about, in which stage and with which of its listed note words, and the quiz's word answers turned into the engine's told items. No page, storage or language. |
-| `site/js/app.js` | The profiler page: language, rendering, storage on the device, backend calls, clicks. |
-| `site/js/quiz.js` | The quiz page: grid, verdicts, note rows, narrowing round, note picker, taste and complaints, Back, result. Writes ordinary ratings into the profiler's device store; storage, sending and lookups work as in app.js. |
+| `site/js/page.js` | What both pages share: the words both show, the device store, the photo and escape helpers, the rating sender (one pending send per perfume, sent at once when the page is hidden), the backend calls (lazy catalogue, lookup, stats) and the note rows and shop links both draw. |
+| `site/js/app.js` | The profiler page: its own words, rendering and clicks. |
+| `site/js/quiz.js` | The quiz page: grid, verdicts, note rows, narrowing round, note picker, taste and complaints, Back, result. Writes ordinary ratings into the profiler's device store through page.js. |
 | `backend/apps-script.gs` | Google Sheets backend: anonymous ratings, tag corrections, community stats, and the lazy catalogue (on-demand lookups through the Fragella API, cached for everyone). Includes `enrichVerified()` for bottle images; its `VERIFIED` list is written by `tools/sync_backend.js`. |
 | `evidence/` | Inputs to `site/js/evidence.js`: `labels/<id>.txt` (ingredient lists) and `applied_changes.jsonl` (every tag change, with its quote and source). |
 | `tools/tag_queue.js` | Reads the ratings and catalogue CSV exports and prints the unverified perfumes people rated, by demand, with a data.js stub for each. |
