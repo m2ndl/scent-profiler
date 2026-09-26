@@ -88,11 +88,11 @@ window.PP_DATA = (function () {
     /* "More perfumes" on the grid screen adds these after the grid, twenty at a time: the best-known perfumes in the
        Saudi stores' lists that the grid lacks, chosen by tools/select_more.js (reference/quiz/MORE.md). */
     more: ["swyintensely", "missdiorbloomingbouquet", "jovanmusk", "ckbeauty", "yedp", "interditrouge", "idole", "paradoxe",
-      "lemaleleparfum", "onemillion", "bossbottlednight", "explorer", "ombreleather", "guccibloom", "9pm", "reef33",
-      "sacrificeforher", "evokeforher", "supremacycollector", "qaedalfursan",
-      "dylanblue", "noirextreme", "allurehommesport", "floragardenia", "valentinodonnaborninroma", "crystalnoir", "paradiso",
-      "quatre", "gentlemanedpboisee", "hypnoticpoison", "spicebombextreme", "narcisoforher", "chanceeautendreedp", "legend",
-      "najdia", "shuhrah", "onlywhite", "jannetelfirdauswhite", "puremusk", "emotion"],
+      "lemaleleparfum", "onemillion", "bossbottlednight", "explorer", "guccibloom", "dylanblue", "9pm", "reef33",
+      "sacrificeforher", "evokeforher", "supremacycollector", "onlywhite",
+      "noirextreme", "allurehommesport", "floragardenia", "valentinodonnaborninroma", "crystalnoir", "paradiso", "quatre",
+      "ombreleather", "gentlemanedpboisee", "hypnoticpoison", "spicebombextreme", "narcisoforher", "legend", "thescentmen",
+      "qaedalfursan", "shuhrah", "jannetelfirdauswhite", "eclaire", "puremusk", "emotion"],
     testers: [
       { id: "sauvageedp", family: "woody_amber" },
       { id: "narcisoforher", family: "white_musk" },

@@ -104,6 +104,11 @@ test("More perfumes adds the QUIZ.more bottles after the grid, twenty at a time,
   const ar = open({ localStorage: seed({ pp_lang: JSON.stringify("ar") }) });
   assert.match(button(ar), /data-gmore="1">المزيد من العطور \(20\)</);
 
+  /* an added bottle rated before this visit is shown but cannot be answered, like a grid one */
+  const ratedOne = D.QUIZ.more[1], p1 = open({ localStorage: seed({ pp_ratings_v1: JSON.stringify({ [ratedOne]: Object.assign({}, blank, { drydown: 1 }) }) }) });
+  p1.click({ dataset: { gmore: "1" } });
+  assert.match(p1.snapshot().els.tiles.innerHTML, new RegExp(`data-tile="${ratedOne}" aria-pressed="false" disabled>[\\s\\S]*?already rated`));
+
   /* a bottle picked through the search sits after the tiles until More shows it in its own place, once */
   const later = D.QUIZ.more[D.QUIZ.more.length - 1], p2 = open();
   p2.click({ dataset: { add: later } });

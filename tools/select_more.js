@@ -7,7 +7,8 @@
    Popularity is the score reference/expansion/choose.py gave the 667 additions, here for the whole catalogue: each Saudi
    store that lists a perfume as a best seller or popular adds 0.5, plus up to 0.5 for its place in that list (Golden
    Scent's best sellers, Nice One's most popular, Amazon.sa's best sellers, Sephora's best sellers, Faces' bestsellers
-   page or 0.1 for its badge, Noon by rating count and its "best in category" badge). Store rows reach a catalogue
+   page or 0.1 for its badge); Noon adds up to 1.0 above its 0.5, up to 0.5 for its rating count and up to 0.5 for a
+   "best in category" badge. Store rows reach a catalogue
    perfume through its Fragrantica page (reference/expansion/resolved.json and record.json), through the catalogue's
    name matcher for the rows the Fragrantica resolver left (reference/quiz/popularity/unresolved_sales.json, made by
    match_unresolved.py there) and, for Amazon.sa and Nice One, through reference/quiz/popularity/sa_popularity.json;
@@ -64,10 +65,15 @@ for (const [id, fid] of Object.entries(RES.catalogue)) fids[id] = [fid];
 for (const [id, e] of Object.entries(REC)) if (e && e.fid) fids[id] = [e.fid].concat(e.repointed_from ? [].concat(e.repointed_from).map(x => (x && typeof x === "object" ? x.fid : x)) : []);
 const rowsByFid = {};
 for (const r of RES.rows) (rowsByFid[r.fid] = rowsByFid[r.fid] || []).push(r);
+/* Entries resolved.json placed on another product's page, and the rows there that name that other product; the
+   entry's own rows come through unresolved_sales.json. The catalogue's Ombré Leather is the 2018 Eau de Parfum, and
+   page 68716 is the 2021 Ombré Leather Parfum. */
+const WRONG_PAGE = { ombreleather: { fid: 68716, other: /leather parfum/i } };
 function stores(id) {
   const s = {};
   const add = (source, p) => { if (p != null) s[source] = Math.max(s[source] || 0, 0.5 + p); };
-  for (const fid of fids[id] || []) for (const r of rowsByFid[fid] || []) add(r.source, place(r));
+  const wrong = WRONG_PAGE[id];
+  for (const fid of fids[id] || []) for (const r of rowsByFid[fid] || []) if (!(wrong && wrong.fid === fid && wrong.other.test(r.text))) add(r.source, place(r));
   for (const r of UNRES[id] || []) add(r.source, place(r));
   const sa = SA[id];
   if (sa) {

@@ -10,8 +10,9 @@ The forty best-known perfumes in the Saudi stores' lists that the grid lacks, on
 
 - **Popularity.** Each store that lists a perfume as a best seller or popular adds 0.5, plus up to 0.5 for its place
   in that list: Golden Scent's best sellers, Nice One's most popular, Amazon.sa's best sellers, Sephora's best
-  sellers, Faces' bestsellers page (0.1 for its badge), and Noon by rating count and its "best in category" badge.
-  This is the score `reference/expansion/choose.py` gave the 667 additions, now for all 1,000.
+  sellers, Faces' bestsellers page (0.1 for its badge). Noon adds up to 1.0 above its 0.5: up to 0.5 for its rating
+  count and up to 0.5 for a "best in category" badge. This is the score `reference/expansion/choose.py` gave the
+  667 additions, now for all 1,000.
 - **Arab houses.** Six of each twenty. Their bottles sell mostly on Noon and Amazon.sa, and the other stores' lists
   leave them out, so a single ranking would have crowded them out.
 - **Men's and women's.** Never more men's than women's in a set, and at most two more women's. The grid leans to
@@ -29,26 +30,26 @@ Each place in a set goes to the most popular bottle that fits; each set is liste
 
 | | First twenty | | Second twenty |
 |---|---|---|---|
-| 1 | Giorgio Armani Stronger With You Intensely | 21 | Versace Dylan Blue |
-| 2 | Dior Miss Dior Blooming Bouquet | 22 | Tom Ford Noir Extreme |
-| 3 | Jovan Musk for Women | 23 | Chanel Allure Homme Sport |
-| 4 | Calvin Klein Beauty | 24 | Gucci Flora Gorgeous Gardenia |
-| 5 | Yves Saint Laurent Y Eau de Parfum | 25 | Valentino Donna Born In Roma |
-| 6 | Givenchy L'Interdit Eau de Parfum Rouge | 26 | Versace Crystal Noir |
-| 7 | Lancôme Idôle | 27 | Roberto Cavalli Paradiso |
-| 8 | Prada Paradoxe | 28 | Boucheron Quatre pour Femme |
+| 1 | Giorgio Armani Stronger With You Intensely | 21 | Tom Ford Noir Extreme |
+| 2 | Dior Miss Dior Blooming Bouquet | 22 | Chanel Allure Homme Sport |
+| 3 | Jovan Musk for Women | 23 | Gucci Flora Gorgeous Gardenia |
+| 4 | Calvin Klein Beauty | 24 | Valentino Donna Born In Roma |
+| 5 | Yves Saint Laurent Y Eau de Parfum | 25 | Versace Crystal Noir |
+| 6 | Givenchy L'Interdit Eau de Parfum Rouge | 26 | Roberto Cavalli Paradiso |
+| 7 | Lancôme Idôle | 27 | Boucheron Quatre pour Femme |
+| 8 | Prada Paradoxe | 28 | Tom Ford Ombré Leather |
 | 9 | Jean Paul Gaultier Le Male Le Parfum | 29 | Givenchy Gentleman Eau de Parfum Boisée |
 | 10 | Rabanne 1 Million | 30 | Dior Hypnotic Poison |
 | 11 | Hugo Boss Boss Bottled Night | 31 | Viktor&Rolf Spicebomb Extreme |
 | 12 | Montblanc Explorer | 32 | Narciso Rodriguez For Her Eau de Toilette |
-| 13 | Tom Ford Ombré Leather | 33 | Chanel Chance Eau Tendre Eau de Parfum |
-| 14 | Gucci Bloom | 34 | Montblanc Legend |
-| 15 | Afnan 9pm | 35 | Lattafa Najdia |
+| 13 | Gucci Bloom | 33 | Montblanc Legend |
+| 14 | Versace Dylan Blue | 34 | Hugo Boss Boss The Scent |
+| 15 | Afnan 9pm | 35 | Lattafa Qaed Al Fursan |
 | 16 | Reef 33 | 36 | Rasasi Shuhrah Pour Homme |
-| 17 | Ajmal Sacrifice for Her | 37 | Arabian Oud Only White |
-| 18 | Ajmal Evoke for Her | 38 | Swiss Arabian Jannet El Firdaus White |
+| 17 | Ajmal Sacrifice for Her | 37 | Swiss Arabian Jannet El Firdaus White |
+| 18 | Ajmal Evoke for Her | 38 | Lattafa Eclaire |
 | 19 | Afnan Supremacy Collector's Edition Pour Homme | 39 | Al Majed Oud Pure Musk |
-| 20 | Lattafa Qaed Al Fursan | 40 | Rasasi Emotion |
+| 20 | Arabian Oud Only White | 40 | Rasasi Emotion |
 
 ## Sources and limits
 
@@ -57,7 +58,9 @@ Store rows reach a catalogue perfume three ways: through its Fragrantica page (`
 `reference/quiz/popularity/unresolved_sales.json` for the rows the Fragrantica resolver could not place. That third
 file (`match_unresolved.py`) runs the catalogue's own name matcher over those rows; twelve were accepted by hand
 where the leftover word is the seller's or a typo, each with its reason. Without it Afnan 9pm (Amazon.sa men's
-number 1) lost its place to its flanker 9 PM Night Out.
+number 1) lost its place to its flanker 9 PM Night Out. One placement is corrected in the tool: resolved.json
+put the catalogue's Ombré Leather (the 2018 Eau de Parfum) on the 2021 Ombré Leather Parfum's page, so the rows
+naming the Parfum are left out of its score.
 
 The captured lists still miss some bottles well known in the Gulf (Lattafa Asad, Arabian Oud Kalemat, Ajmal Amber
 Wood score low or nothing), so they are not among the forty; the search finds them. The narrowing round ("One more
