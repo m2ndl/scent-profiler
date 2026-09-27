@@ -246,6 +246,57 @@ test("a lean is the wearer's word on its family in that bottle: the bottle's sta
   assert.equal(profileOf({ aventus: { opening: 2 } }).fruity_sweet.cls, "goodPossible");
 });
 
+/* Every note answer, not only a lean, is the wearer's word on its family in that bottle (reference/algorithm/stress,
+   REPORT.md defect 1): a rating in another stage of that bottle that contradicts it counts as neutral for the family,
+   and a complaint chip that contradicts it drops out. Black Aoud holds oud at 0.9 in the heart and 0.8 in the base, so
+   the answer belongs to the heart. */
+test("a note answer is the wearer's word on its family in that bottle: another stage that contradicts it counts as neutral for it", () => {
+  assert.equal(E.strongestStage(E.byId.blackaoud, "oud_smoky"), "heart");
+  const fromBottle = (v, id) => v.evidence.filter(e => e.perfume.id === id).map(e => e.value);
+  /* oud liked in Black Aoud, whose base turned, and Amber Aoud turned: the base's -2 counts as 0 for the liked oud */
+  let prof = profileOf({ blackaoud: { drydown: -2, again: 0, noteAnswers: { oud_smoky: 1 } }, amberaoud: { drydown: -2, again: 0 } });
+  assert.deepEqual(plain(fromBottle(prof.oud_smoky, "blackaoud")), [0, 1]);
+  assert.ok(!["badLikely", "badPossible"].includes(prof.oud_smoky.cls), "a liked note is not a deal-breaker: " + prof.oud_smoky.cls);
+  /* the base that turned still counts for its other families */
+  assert.ok(fromBottle(prof.patchouli, "blackaoud").includes(-2));
+  /* the other direction: oud hated in Black Aoud, a profiler record whose heart was disliked and base loved, and
+     Black Afgano still worn; the loved base does not count for the hated oud */
+  prof = profileOf({ blackaoud: { heart: -1, drydown: 2, noteAnswers: { oud_smoky: -2 } }, blackafgano: { drydown: 1, again: 1 } });
+  assert.deepEqual(plain(fromBottle(prof.oud_smoky, "blackaoud")), [0, -2]);
+  assert.ok(!["goodLikely", "goodPossible"].includes(prof.oud_smoky.cls), "a hated note is not a like: " + prof.oud_smoky.cls);
+  assert.ok(fromBottle(prof.patchouli, "blackaoud").includes(2), "the loved base still counts for its other families");
+  /* a complaint chip gives way the same way: Olympea's vanilla loved (heart), its base turned "too sweet" and "sharp" */
+  assert.equal(E.strongestStage(E.byId.olympea, "vanilla_gourmand"), "heart");
+  prof = profileOf({ olympea: { drydown: -2, again: 0, chips: { drydown: ["sweet", "chemical"] }, noteAnswers: { vanilla_gourmand: 2 } } });
+  assert.deepEqual(plain(prof.vanilla_gourmand.evidence.filter(e => e.chip).map(e => e.chip)), []);
+  assert.deepEqual(plain(prof.woody_amber.evidence.filter(e => e.chip).map(e => e.chip)), ["chemical"]);
+  /* "Didn't mind" contradicts a stage that turned, so that stage counts as neutral for the family too */
+  prof = profileOf({ blackaoud: { drydown: -2, again: 0, noteAnswers: { oud_smoky: 0 } } });
+  assert.deepEqual(plain(fromBottle(prof.oud_smoky, "blackaoud")), [0, 0]);
+  /* and a better rating of that stage never lowers the family: oud disliked in Black Aoud, whose heart turned (so it is
+     never a kept bottle, where the answer would be a lean), with the base at -2 to 2 */
+  const score = v => profileOf({ blackaoud: { heart: -1, drydown: v, again: 0, noteAnswers: { oud_smoky: -1 } }, amberaoud: { drydown: -2, again: 0 } }).oud_smoky.score;
+  for (const [lo, hi] of [[-2, -1], [-1, 0], [0, 1], [1, 2]]) assert.ok(score(hi) >= score(lo), `base ${lo} gives ${score(lo)}, base ${hi} gives ${score(hi)}`);
+});
+
+test("a family one bottle counts for and another against is mixed, however far the sum leans (the README's rule)", () => {
+  /* vanilla loved in Yara, still worn; Khamrah and Vanilla 28 turned too sweet */
+  const ratings = { yara: { drydown: 1, again: 1, noteAnswers: { vanilla_gourmand: 2 } }, khamrah: { drydown: -2, again: 0, chips: { drydown: ["sweet"] } }, vanilla28: { drydown: -2, again: 0, chips: { drydown: ["sweet"] } } };
+  let prof = profileOf(ratings);
+  assert.ok(prof.vanilla_gourmand.score <= -0.7, "the sum leans well against vanilla: " + prof.vanilla_gourmand.score);
+  assert.equal(prof.vanilla_gourmand.cls, "mixed");
+  const rec = E.recommend(prof, ratings);
+  assert.ok(!rec.badAny.includes("vanilla_gourmand") && !rec.likely.includes("vanilla_gourmand"));
+  /* without any note answer: Sauvage still worn, BR540 Extrait turned sharp */
+  prof = profileOf({ sauvageedp: { drydown: 1, again: 1 }, br540extrait: { drydown: -2, again: 0, chips: { drydown: ["chemical"] } } });
+  assert.ok(prof.woody_amber.score <= -0.7);
+  assert.equal(prof.woody_amber.cls, "mixed");
+  /* and the other way: liked twice, disliked once */
+  prof = profileOf({ yara: { drydown: 2, again: 1 }, vanilla28: { drydown: 2, again: 1 }, khamrah: { drydown: -1, again: 0 } });
+  assert.ok(prof.vanilla_gourmand.score >= 0.7);
+  assert.equal(prof.vanilla_gourmand.cls, "mixed");
+});
+
 test("a kept bottle: bought again, or its heart and base 0 or above with one above 0; the opening never decides", () => {
   assert.equal(E.kept, W.PP_ENGINE.kept);
   for (const [r, want] of [
@@ -342,4 +393,92 @@ test("risk kind told appears only with told input, and only when every told item
   /* a small enjoy and a larger avoid: the score is below zero, but the answers are mixed */
   const mixed = kinds([{ f: "oud_smoky", value: 1, w: 0.2, src: "note:oud" }, { f: "oud_smoky", value: -1, w: 0.8, src: "chip:heavy" }]);
   assert.ok(mixed.length && mixed.every(k => k === "neg"));
+});
+
+test("a pick is free of a deal-breaker only when it holds that family under 0.2 in every stage, not just the base", () => {
+  /* Fabulous turned in the heart, so its leather is a possible deal-breaker; Aventus holds leather in its opening (0.4)
+     and heart (0.6) but not its base */
+  const ratings = { fabulous: { heart: -2, again: 0 } };
+  const prof = profileOf(ratings), rec = E.recommend(prof, Object.assign(onlyTwo("aventus", "blackorchid"), ratings));
+  assert.ok(rec.badAny.includes("leather_smoky"));
+  const aventus = rec.picks.find(p => p.P.id === "aventus");
+  assert.ok(aventus, "Aventus is picked");
+  assert.ok(!aventus.reason.clear.includes("leather_smoky"), "not free of leather: " + aventus.reason.clear);
+  assert.equal(aventus.reason.watch.f, "leather_smoky", "the leather in its heart is the thing to watch for");
+  /* the promise on every golden scenario */
+  for (const sc of scenarios) for (const p of run(sc).rec.picks) for (const f of p.reason.clear) for (const s of E.STAGES) assert.ok((p.P.stages[s][f] || 0) < 0.2, `seed ${sc.seed}: ${p.P.id} is not free of ${f}`);
+});
+
+test("the order of the ratings never moves a family across a class line (sums that differ in the last digit)", () => {
+  /* four bottles whose weighted mean for one family is exactly 0.7: summed in one order it comes to 0.6999999999999998 */
+  const P = [["a", 0.6], ["b", 0.6], ["c", 0.5], ["d", 0.3]].map(([id, w]) => ({ id, house: id, name: id, ar: "", gender: "u", tier: "designer", conf: 3,
+    stages: { opening: {}, heart: {}, drydown: { x: w } }, notes: { en: "", ar: "" } }));
+  const mini = W.PP_ENGINE.create({ CHIPS: [], STAGE_W: catalogue.data.STAGE_W, PERFUMES: P }, W.PP_MAP, { book: {}, label: {} });
+  const ratings = { a: { drydown: 1 }, b: { drydown: 0 }, c: { drydown: 1 }, d: { drydown: 1 } };
+  const reversed = Object.fromEntries(Object.entries(ratings).reverse());
+  const x = r => mini.computeProfile(stateOf(r)).x;
+  assert.notEqual(x(ratings).score, x(reversed).score, "the two sums differ in the last digit");
+  assert.equal(x(ratings).cls, x(reversed).cls);
+  assert.equal(x(ratings).cls, "goodLikely");
+});
+
+test("stored values are held to the scale: a hand-edited 99 counts as 2, a note answer of a million as 2, text that is not a number as unanswered", () => {
+  const sum = ratings => { const p = profileOf(ratings); return plain(summarize(p, E.recommend(p, ratings), E.settleSuggestion(p, ratings), [])); };
+  const two = { sauvageedp: { drydown: 2, chips: {} }, yara: { drydown: -2, chips: {} } };
+  assert.deepEqual(sum({ sauvageedp: { drydown: 99, chips: {} }, yara: { drydown: -2, chips: {} } }), sum(two));
+  assert.deepEqual(sum({ sauvageedp: { drydown: "2", chips: {} }, yara: { drydown: "-2", chips: {} } }), sum(two));
+  assert.deepEqual(sum({ sauvageedp: { drydown: 2, heart: "much", chips: {} }, yara: { drydown: -2, opening: NaN, chips: {} } }), sum(two));
+  const answered = v => ({ sauvageedp: { drydown: 1, again: 0, chips: {}, noteAnswers: { woody_amber: v } }, yara: { drydown: -2, chips: {} } });
+  assert.deepEqual(sum(answered(1e6)), sum(answered(2)));
+  assert.equal(E.kept({ heart: -99, drydown: 5 }), E.kept({ heart: -2, drydown: 2 }));
+  /* only a number, or text that is only a number, is read, and a fraction is rounded; true, a list or blank text counts as unanswered */
+  for (const odd of [true, false, [2], [], " ", "0x1"]) assert.deepEqual(sum({ sauvageedp: { drydown: 2, heart: odd, chips: {} }, yara: { drydown: -2, chips: {} } }), sum(two), JSON.stringify(odd));
+  assert.deepEqual(sum({ sauvageedp: { drydown: 1.6, chips: {} }, yara: { drydown: -2.2, chips: {} } }), sum(two));
+  /* halves round away from zero, so a half on either side mirrors the other */
+  assert.deepEqual(sum({ sauvageedp: { drydown: 1.5, chips: {} }, yara: { drydown: -1.5, chips: {} } }), sum(two));
+  assert.deepEqual(sum(answered(true)), sum({ sauvageedp: { drydown: 1, again: 0, chips: {} }, yara: { drydown: -2, chips: {} } }));
+});
+
+test("an avoided note gives way only to a bottle the visitor kept: a liking in a bottle that turned never lifts it", () => {
+  const avoid = plain(N.avoidedNotes({ notes: { vanilla: -1 } }));
+  assert.ok(avoid.length === 1 && avoid[0].fams.vanilla_gourmand >= 0.5);
+  /* Olympea turned in its base with its vanilla (heart) liked; Sauvage, still worn, holds vanilla only as a trace */
+  let ratings = { olympea: { drydown: -2, again: 0, noteAnswers: { vanilla_gourmand: 1 } }, sauvageedp: { drydown: 1, again: 1 } };
+  assert.equal(E.kept(ratings.olympea), false);
+  let rec = E.recommend(profileOf(ratings), ratings, avoid);
+  assert.deepEqual(plain(rec.contradicted), []);
+  /* Yara, still worn, holds vanilla strongly: the bottles win, and only Yara is named */
+  ratings = Object.assign({ yara: { drydown: 1, again: 1 } }, ratings);
+  rec = E.recommend(profileOf(ratings), ratings, avoid);
+  assert.deepEqual(plain(rec.contradicted.map(c => c.perfumes)), [["yara"]]);
+});
+
+test("\"Didn't mind\" is the wearer's word too: a loved or a turned stage of that bottle counts as neutral for the family, and its chips do not count", () => {
+  /* Black Aoud loved throughout and bought again, its oud "Didn't mind" */
+  let prof = profileOf({ blackaoud: { opening: 2, heart: 2, drydown: 2, again: 1, noteAnswers: { oud_smoky: 0 } } });
+  assert.ok(prof.oud_smoky.evidence.every(e => e.value === 0), JSON.stringify(plain(prof.oud_smoky.evidence.map(e => e.value))));
+  assert.equal(prof.oud_smoky.cls, "neutral");
+  assert.equal(prof.patchouli.cls, "goodPossible", "the loved stages still count for its other families");
+  /* its base turned smoky and heavy: no chip counts against the oud, and the chips still count for patchouli */
+  prof = profileOf({ blackaoud: { drydown: -2, again: 0, chips: { drydown: ["smoky", "heavy"] }, noteAnswers: { oud_smoky: 0 } } });
+  assert.deepEqual(plain(prof.oud_smoky.evidence.filter(e => e.chip)), []);
+  assert.ok(prof.patchouli.evidence.some(e => e.chip === "heavy"));
+});
+
+test("a loved top note is not made a deal-breaker by a complaint chip on a later stage", () => {
+  /* Bitter Peach: sweet fruit at 0.9 in the opening and 0.5 in the heart; the heart turned "too sweet" */
+  assert.equal(E.strongestStage(E.byId.bitterpeach, "fruity_sweet"), "opening");
+  const prof = profileOf({ bitterpeach: { heart: -2, again: 0, chips: { heart: ["sweet"] }, noteAnswers: { fruity_sweet: 2 } } });
+  assert.equal(prof.fruity_sweet.n, 0);
+  assert.equal(prof.fruity_sweet.cls, "neutral");
+  assert.ok(prof.fruity_sweet.score > 0, "the lean still leans toward sweet fruit");
+});
+
+test("in the picks a mixed family is weighed by its mean once the mean leans clearly, and costs a flat 0.3 while balanced", () => {
+  const rated = onlyTwo("vanilla28", "aventus");
+  const penaltyOf = v => E.recommend({ vanilla_gourmand: Object.assign({ n: 3, evidence: [] }, v) }, rated).picks.find(p => p.P.id === "vanilla28").penalty;
+  /* disliked in two bottles and liked in one: labelled mixed, weighed as the possible deal-breaker it was */
+  assert.equal(penaltyOf({ cls: "mixed", score: -1.2, pos: 1, neg: 2 }), penaltyOf({ cls: "badPossible", score: -1.2, pos: 0, neg: 2 }));
+  const P = E.byId.vanilla28, flat = E.STAGES.reduce((t, s) => t + (P.stages[s].vanilla_gourmand || 0) * catalogue.data.STAGE_W[s] * 0.3, 0);
+  assert.ok(Math.abs(penaltyOf({ cls: "mixed", score: -0.5, pos: 1, neg: 1 }) - flat) < 1e-12);
 });

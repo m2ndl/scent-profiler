@@ -1029,7 +1029,9 @@ test("a bottle screen: the bottle on its plinth, one dot per bottle coloured by 
 
 test("the result's wheel: nine kinds around the emblem, the lead kind's petal full, deal-breakers washed, a tapped kind names its families", () => {
   const page = open();
-  keep(page, ["yara", "khamrah"], ["sauvageedp"]);
+  /* two sweet bottles kept that hold no woody ambers in the base (Khamrah's would make woody ambers mixed, not a
+     deal-breaker), and Sauvage turned */
+  keep(page, ["yara", "lavieestbelle"], ["sauvageedp"]);
   finish(page);
   const h = () => html(page);
   const keys = [...h().matchAll(/<button type="button" class="qrose-k([^"]*)" data-rose="([a-z]+)" aria-pressed="(true|false)"/g)];
@@ -1062,6 +1064,17 @@ test("the result's wheel: nine kinds around the emblem, the lead kind's petal fu
   page.click({ id: "lang-ar" });
   assert.match(h(), /<b class="qrose-name">عودي<\/b><span class="qrose-hint">لم تكشف عطورك شيئاً عن هذا النوع بعد\.<\/span>/);
   assert.match(h(), /aria-label="ذائقتك على عجلة من تسعة أنواع من العطور"/);
+});
+
+test("a family a kept bottle holds and a turned bottle holds is mixed on the page: not washed on the wheel, shown as depending on the perfume", () => {
+  /* Khamrah, still worn, holds woody ambers at 0.5 in its base; Sauvage turned on them */
+  const page = open();
+  keep(page, ["yara", "khamrah"], ["sauvageedp"]);
+  finish(page);
+  const h = html(page);
+  const woody = /<button type="button" class="qrose-k([^"]*)" data-rose="woody"/.exec(h);
+  assert.ok(woody && !/ bad/.test(woody[1]), "woody is not washed: " + (woody && woody[1]));
+  assert.match(h, /<b>Woody ambers[^<]*<\/b><span class="pill[^"]*">Depends on the perfume<\/span>/);
 });
 
 test("sweet or bitter sets each side's examples small under its name", () => {

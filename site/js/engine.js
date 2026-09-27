@@ -15,13 +15,24 @@ window.PP_ENGINE = (function () {
     return best;
   }
 
+  /* A stored rating or note answer is a whole number from -2 to 2: a number, or text that is only a number, is rounded
+     (halves away from zero, so 1.5 and -1.5 mirror each other) and held to that scale, and anything else (true, a list,
+     blank text) counts as unanswered. The pages write only the scale, so this matters only for a store edited by hand
+     or corrupted, where a 99 would otherwise outweigh every other rating. */
+  const onScale = v => {
+    const x = typeof v === "number" ? v : typeof v === "string" && /^\s*[-+]?\d+(\.\d+)?\s*$/.test(v) ? Number(v) : NaN;
+    return Number.isFinite(x) ? Math.max(-2, Math.min(2, Math.sign(x) * Math.round(Math.abs(x)))) : null;
+  };
+  /* a score read to nine decimal places, so sums of the same ratings in another order fall on the same side of a line */
+  const r9 = x => Math.round(x * 1e9) / 1e9;
+
   /* A bottle the wearer kept: they would buy it again, or its heart and base (those rated) are 0 or above with one
      above 0. The opening lasts minutes, so it never decides: a detail never outranks a verdict. The quiz's "I still
      wear it" writes drydown +1 and buy again yes; "it turned on me" and the shop trial write a stage below 0. */
   function kept(r) {
     if (!r) return false;
     if (r.again === 1) return true;
-    const later = ["heart", "drydown"].map(s => r[s]).filter(v => v != null);
+    const later = ["heart", "drydown"].map(s => onScale(r[s])).filter(v => v != null);
     return later.every(v => v >= 0) && later.some(v => v > 0);
   }
 
@@ -105,9 +116,12 @@ window.PP_ENGINE = (function () {
        the opening), or disliked in a bottle the wearer kept (see kept), is a lean, not bottle evidence. It joins the
        told sums as one item (value its sign, weight its presence times half its size), so it moves the score the
        picks read but never makes a like or a deal-breaker; its evidence keeps the bottle and the kind (lean: "opening"
-       or "kept") for the page's caveat. It is still the wearer's word on that family in that bottle, so the bottle's
-       stage ratings count for the family only where they agree with it: a kept bottle's liked base never makes a
-       hated note a like, and a base that turned never makes a loved top note a deal-breaker. */
+       or "kept") for the page's caveat. Every note answer, a lean or not, is the wearer's word on that family in that
+       bottle, so the bottle's stage ratings and complaint chips never count for the family on the other side of it: a
+       liked base never makes a hated note a like, and a stage that turned never makes a loved note a deal-breaker.
+       A family that one bottle counts for and another against is mixed, however far the sum leans: one bottle's
+       verdict never outranks another's. The classes read the score to nine decimal places, so the order in which the
+       ratings are summed never moves a family across a line. */
     function computeProfile(state) {
       const ratings = state.ratings;
       const F = {}, leans = [];
@@ -125,28 +139,35 @@ window.PP_ENGINE = (function () {
            an answer on a family the perfume no longer holds is skipped. An unnoticed family gives no evidence. */
         const unnoticed = new Set(Array.isArray(r.unnoticed) ? r.unnoticed : []);
         const answers = {};
-        for (const [f, val] of Object.entries(r.noteAnswers || {})) {
-          if (!Number.isFinite(val) || unnoticed.has(f)) continue;
+        for (const [f, raw] of Object.entries(r.noteAnswers || {})) {
+          const val = onScale(raw);
+          if (val == null || unnoticed.has(f)) continue;
           const s = strongestStage(P, f); if (!s) continue;
           answers[f] = { val, s, lean: val > 0 && s === "opening" ? "opening" : val < 0 && keptIt ? "kept" : null };
         }
-        /* a stage rating gives way to the family's note answer in the answer's stage, and to a lean wherever it disagrees */
-        const yields = (f, s, v) => { const a = answers[f]; return !!a && (a.lean ? Math.sign(v) !== Math.sign(a.val) : a.s === s); };
+        /* What a stage rating says about a family that has an answer: an answer that is bottle evidence replaces the
+           rating in its own stage; elsewhere a rating that contradicts the answer (on its other side, or any liking or
+           dislike at all when the answer is "Didn't mind") counts as neutral for that family and keeps its weight
+           (dropping it would let a better rating lower the family); a lean, not being bottle evidence, lets a
+           contradicting rating drop out. A complaint chip that contradicts the answer (a liked or "Didn't mind" answer,
+           a lean included) drops out. */
+        const disagrees = (f, v) => { const a = answers[f]; return !!a && Math.sign(v) !== Math.sign(a.val); };
+        const ratingFor = (f, s, v) => { const a = answers[f]; return !a ? v : !a.lean && a.s === s ? null : !disagrees(f, v) ? v : a.lean ? null : 0; };
         for (const s of STAGES) {
-          const v = r[s]; if (v == null) continue;
+          const v = onScale(r[s]); if (v == null) continue;
           const sw = STAGE_W[s] * cm;
           for (const [f, w] of Object.entries(P.stages[s] || {})) {
-            if (unnoticed.has(f) || yields(f, s, v)) continue;
+            const fv = unnoticed.has(f) ? null : ratingFor(f, s, v); if (fv == null) continue;
             const prov = (P.prov && P.prov[s] && P.prov[s][f]) || "curated";
-            add(f, v, w * sw * (PROV_W[prov] || 0.75), { perfume: P, stage: s, value: v, strong: w >= STRONG, prov });
+            add(f, fv, w * sw * (PROV_W[prov] || 0.75), { perfume: P, stage: s, value: fv, strong: w >= STRONG, prov, kept: keptIt });
           }
           const cv = Math.min(-1.5, v - 0.5);
           for (const cid of (r.chips && r.chips[s]) || []) {
             const chip = CHIPS.find(c => c.id === cid); if (!chip) continue;
             for (const [f, cw] of Object.entries(chip.fams)) {
-              if (unnoticed.has(f)) continue;
+              if (unnoticed.has(f) || disagrees(f, cv)) continue;
               const present = (P.stages[s] || {})[f] || 0; if (present < 0.2) continue;
-              add(f, cv, cw * present * sw * 0.6, { perfume: P, stage: s, chip: cid, value: cv, strong: present >= STRONG });
+              add(f, cv, cw * present * sw * 0.6, { perfume: P, stage: s, chip: cid, value: cv, strong: present >= STRONG, kept: keptIt });
             }
           }
         }
@@ -154,7 +175,7 @@ window.PP_ENGINE = (function () {
           const w = P.stages[s][f];
           const prov = (P.prov && P.prov[s] && P.prov[s][f]) || "curated";
           if (lean) { leans.push({ f, value: Math.sign(val), w: w * Math.abs(val) / 2, perfume: P, stage: s, lean, note: val }); continue; }
-          add(f, val, w * STAGE_W[s] * cm * (PROV_W[prov] || 0.75), { perfume: P, stage: s, value: val, strong: w >= STRONG, prov, note: true });
+          add(f, val, w * STAGE_W[s] * cm * (PROV_W[prov] || 0.75), { perfume: P, stage: s, value: val, strong: w >= STRONG, prov, note: true, kept: keptIt });
         }
       }
       const T = {};
@@ -173,18 +194,18 @@ window.PP_ENGINE = (function () {
       }
       const out = {};
       for (const [f, o] of Object.entries(F)) {
-        const score = o.wsum ? o.sum / o.wsum : 0;
+        const score = o.wsum ? o.sum / o.wsum : 0, s9 = r9(score);
         const per = Object.values(o.per);            /* net evidence per perfume */
         const n = per.length;
         const pos = per.filter(x => x > 0).length, neg = per.filter(x => x < 0).length;
         let cls = "neutral";
-        if (n >= 2 && pos >= 1 && neg >= 1 && Math.abs(score) < 0.7) cls = "mixed";
-        else if (score <= -0.7 && neg >= 2 && pos === 0) cls = "badLikely";
-        else if (score <= -0.7 && neg >= 1) cls = "badPossible";
-        else if (score <= -0.35 && n >= 2 && neg >= pos) cls = "badPossible";
-        else if (score >= 0.7 && pos >= 2 && neg === 0) cls = "goodLikely";
-        else if (score >= 0.7 && pos >= 1) cls = "goodPossible";
-        else if (score >= 0.35 && n >= 2 && pos >= neg) cls = "goodPossible";
+        if (n >= 2 && pos >= 1 && neg >= 1) cls = "mixed";
+        else if (s9 <= -0.7 && neg >= 2 && pos === 0) cls = "badLikely";
+        else if (s9 <= -0.7 && neg >= 1) cls = "badPossible";
+        else if (s9 <= -0.35 && n >= 2 && neg >= pos) cls = "badPossible";
+        else if (s9 >= 0.7 && pos >= 2 && neg === 0) cls = "goodLikely";
+        else if (s9 >= 0.7 && pos >= 1) cls = "goodPossible";
+        else if (s9 >= 0.35 && n >= 2 && pos >= neg) cls = "goodPossible";
         out[f] = { score, n, cls, evidence: o.evidence.filter(e => e.strong), pos, neg };
       }
       for (const [f, t] of Object.entries(T)) {
@@ -201,19 +222,19 @@ window.PP_ENGINE = (function () {
     const atStrength = (s, w) => (s === "drydown" && w >= 0.5) || (s === "heart" && w >= 0.7);
 
     /* Notes the visitor said they avoid (notes.js avoidedNotes: [{ id, fams: { family: weight }, words: [name words] }]).
-       An avoided family (weight 0.5 or more on the card) binds the picks unless a bottle the visitor kept holds it
-       strongly (prof[f].pos > 0): then the bottles win, and the family is returned as a contradiction for the page to
-       explain. Binding means no pick where that family leads the heart or the base, or whose name carries the note. */
+       An avoided family (weight 0.5 or more on the card) binds the picks unless a bottle the visitor kept (see kept)
+       holds it strongly with a liking: then the bottles win, and the family is returned as a contradiction for the page
+       to explain, naming those kept bottles. A liking in a bottle that turned, or that put the visitor off, never
+       overrules what they said. Binding means no pick where that family leads the heart or the base, or whose name
+       carries the note. */
     function vetoOf(prof, avoid) {
       const bind = [], contradicted = [];
       for (const a of avoid || []) {
         for (const [f, w] of Object.entries(a.fams || {})) {
           if (w < 0.5) continue;
-          const v = prof[f];
-          if (v && v.pos > 0) {
-            const kept = [...new Set((v.evidence || []).filter(e => e.value > 0 && e.perfume).map(e => e.perfume.id))];
-            contradicted.push({ note: a.id, f, perfumes: kept });
-          } else bind.push({ note: a.id, f, words: a.words || [] });
+          const kept = [...new Set(((prof[f] || {}).evidence || []).filter(e => e.value > 0 && e.perfume && e.kept).map(e => e.perfume.id))];
+          if (kept.length) contradicted.push({ note: a.id, f, perfumes: kept });
+          else bind.push({ note: a.id, f, words: a.words || [] });
         }
       }
       return { bind, contradicted };
@@ -250,7 +271,8 @@ window.PP_ENGINE = (function () {
       const good = v => v && !leanNotes(v, "kept").length && (v.cls === "goodLikely" || v.cls === "goodPossible" || (v.n === 0 && v.score >= 0.3 && !topNoteOnly(v)));
       const deep = f => Math.max(P.stages.heart[f] || 0, P.stages.drydown[f] || 0);
       const likes = Object.entries(prof).filter(([f, v]) => good(v) && deep(f) >= 0.4).sort((a, b) => deep(b[0]) * b[1].score - deep(a[0]) * a[1].score).slice(0, 2).map(([f]) => f);
-      const clear = badAny.filter(f => (P.stages.drydown[f] || 0) < 0.2).slice(0, 2);
+      /* free of a deal-breaker only when it is under 0.2 in every stage, not just the base */
+      const clear = badAny.filter(f => STAGES.every(s => (P.stages[s][f] || 0) < 0.2)).slice(0, 2);
       const top = ["drydown", "heart"].map(s => Object.entries(P.stages[s] || {}).sort((a, b) => b[1] - a[1])[0]).filter(Boolean).sort((a, b) => b[1] - a[1])[0];
       const where = f => { const w = STAGES.map(s => [s, P.stages[s][f] || 0]).sort((a, b) => b[1] - a[1]); return w[0]; };
       let watch = null;
@@ -296,7 +318,13 @@ window.PP_ENGINE = (function () {
             const v = prof[f];
             if (likely.includes(f) && atStrength(s, w)) excluded = true;
             if (!v) { if (w >= 0.5) { unknown += w * sw; risks.push({ f, s, w, kind: "unknown", sev: w * sw }); } continue; }
-            if (v.cls === "mixed") { risks.push({ f, s, w, kind: "mixed", sev: w * sw * 0.8 }); penalty += w * sw * 0.3; continue; }
+            /* a mixed family costs a flat 0.3 for the doubt while its mean is balanced (under 0.7 either way); once the mean
+               leans clearly, it is weighed by that lean, as any family is */
+            if (v.cls === "mixed") {
+              risks.push({ f, s, w, kind: "mixed", sev: w * sw * 0.8 });
+              if (Math.abs(r9(v.score)) < 0.7) penalty += w * sw * 0.3; else if (v.score < 0) penalty += w * sw * (-v.score); else reward += w * sw * v.score;
+              continue;
+            }
             if (v.score < 0) { penalty += w * sw * (-v.score) * (v.cls === "badLikely" ? 1.5 : 1); if (w >= 0.3) risks.push({ f, s, w, kind: v.n === 0 && v.toldNeg ? "told" : "neg", sev: w * sw * (-v.score) }); }
             else reward += w * sw * v.score;
           }

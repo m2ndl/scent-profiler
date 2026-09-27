@@ -579,7 +579,7 @@ window.PP_DATA = (function () {
       { en:"jasmine, brown sugar / vanilla orchid, tonka, patchouli / amber, musk, brown sugar", ar:"ياسمين، سكر بني / أوركيد الفانيلا، تونكا، باتشولي / عنبر، مسك، سكر بني" })
   ];
 
-  /* Second block: designer and niche bestsellers, then the Arab houses. conf 3 = worn or strong consensus, 2 = tagged from reliable descriptions. */
+  /* Second block: designer and niche bestsellers, then the Arab houses. conf 3 = strong consensus, 2 = tagged from reliable descriptions. */
   const MORE = [
     /* designer, men */
     p("sauvageedt","Dior","Sauvage Eau de Toilette","سوفاج أو دو تواليت","m","designer",3,

@@ -19,7 +19,7 @@ those families. Static files, no build step, no accounts.
 | `site/quiz.html` | The quiz's old address: sends visitors to the front page, query and all. |
 | `site/og.png` | Share image for WhatsApp, Snapchat and X previews. |
 | `site/js/config.js` | Deployment settings: backend URL and shop links. The one file to edit when the site goes live. |
-| `site/js/data.js` | Verified catalogue (333 perfumes: 133 designer, 126 niche, 74 Arab-house including 21 marked clones of an original) and the material-family taxonomy. Only this tier drives recommendations. |
+| `site/js/data.js` | Verified catalogue (1,000 perfumes: 595 designer, 193 niche, 212 Arab-house including 21 marked clones of an original) and the material-family taxonomy. Only this tier drives recommendations. |
 | `site/js/mapper.js` | Note-to-family mapper: turns any published note pyramid into families at confidence 1 (about 380 rules plus accord floors). |
 | `site/js/materials.js` | Ingredient-list reader: 97 label materials with families and volatility classes (see Provenance). |
 | `site/js/evidence.js` | Generated from `evidence/` by `tools/build_evidence.js`: the book and label layers. Never edited by hand. |
@@ -47,8 +47,11 @@ those families. Static files, no build step, no accounts.
 Decided at a five-voice round table (reference/debate/ROUNDTABLE.md). Each family weight on each stage
 carries a source, and higher evidence overrides lower:
 
-1. **curated** (site/js/data.js): the note list read by a person, the floor for the 333 shipped entries. When the
-   vendor feed is on, looked-up perfumes get **notes** (vendor pyramid through mapper.js) as their floor.
+1. **curated** (site/js/data.js): the catalogue's own tags, the floor for its 1,000 entries. No person tagged them: the
+   286 older entries carry judgement tags (an earlier Claude session read each note list and description and set the
+   weights; about 40 were later corrected against two books), and the 714 added on 25 and 26 September 2026 were tagged
+   by mapper.js from their note lists. When the vendor feed is on, looked-up perfumes get **notes** (vendor pyramid
+   through mapper.js) as their floor.
 2. **label**: an ingredient list (INCI) parsed by materials.js. It proves presence; a material sets a weight
    only when it is among the first six fragrance materials, further down it records presence only. A
    new-format list (the 56 allergens added by EU Regulation 2023/1545, mandatory from 31 July 2026 for new
@@ -72,7 +75,7 @@ our derived family weights for looked-up perfumes; note lists reach the requesti
 
 ## Three catalogue tiers
 
-1. **Verified** (`site/js/data.js`): hand-tagged, confidence 2 or 3. Recommendations and "one sample would settle it" come only from here.
+1. **Verified** (`site/js/data.js`): tagged as described under Provenance, confidence 2 or 3. Recommendations and "one sample would settle it" come only from here.
 2. **Auto-tagged** (backend catalogue sheet): perfumes people typed that were not verified. The backend looks each one up once in Fragella, the page maps its notes to families at confidence 1, and the backend keeps only those family weights and the image. They count at half weight in the profile, are labelled on the card, and carry a "these tags look wrong" flag.
 3. **Untagged**: typed names the lookup could not find. Ratings are saved with the name so you can tag them later; they do not affect the profile.
 
@@ -144,7 +147,9 @@ was not found; Serge Lutens Un Bois Vanille was not checked). TOOIJ, the Saudi p
 
 The rules below are implemented in `site/js/engine.js`.
 
-- Ratings are −2 (hate) to +2 (love) per stage. Stage weights: opening 0.6, heart 0.8, drydown 1.0.
+- Ratings are −2 (hate) to +2 (love) per stage. A stored rating or note answer that is a number, or text that is only a
+  number, is read as a whole number held to that range (99 counts as 2); anything else counts as unanswered (these arise
+  only in a store edited by hand). Stage weights: opening 0.6, heart 0.8, drydown 1.0.
 - Each perfume stage lists material families with a presence weight 0 to 1. A rating adds
   `value × presence × stage weight` to every family present.
 - Complaint chips ("powdery", "sharp / chemical", ...) add negative evidence only to families
@@ -154,16 +159,22 @@ The rules below are implemented in `site/js/engine.js`.
 - A family's strongest stage (`strongestStage`) is the stage where the perfume holds it at the
   highest weight, with a tie going to the later stage.
 - An answer on one of a worn bottle's notes (`noteAnswers`, −2 to +2) replaces the stage rating
-  for that family in its strongest stage only and counts even when that stage has no rating,
-  while a family marked "didn't notice it" (`unnoticed`) gives no evidence at all.
+  for that family in its strongest stage and counts even when that stage has no rating,
+  while a family marked "didn't notice it" (`unnoticed`) gives no evidence at all. The answer is the wearer's word on
+  that family in that bottle: a rating of the bottle's other stages that contradicts it (on its other side, or any
+  liking or dislike at all when the answer is "Didn't mind") counts as neutral for that family, and a complaint chip
+  that contradicts it (a liked or "Didn't mind" answer) does not count. Black Aoud's base turning never makes the oud
+  liked in its heart a deal-breaker, and "Didn't mind" keeps both a stage that turned and a stage that was loved from
+  counting for or against the family.
 - A detail never outranks a verdict. A bottle is kept (`engine.kept`) when the wearer would buy it again, or when its
   heart and base (those rated) are 0 or above with one above 0; the opening lasts minutes, so it never decides. A note
   liked only in the first minutes (its family is strongest in the opening, as Hacivat's pineapple), or disliked in a
   kept bottle, is a lean rather than bottle evidence: it joins the told sums below as one item (its sign, weighted
   by its presence times half its size), so it moves the score the picks read but never makes a like or a
-  deal-breaker. It is still the wearer's word on that family in that bottle, so the bottle's stage ratings count for
-  the family only where they agree with it: Bade'e Al Oud kept with its oud hated never makes oud a like through the
-  base the wearer liked, and a base that turned never makes a loved top note a deal-breaker. Likes come from the hours
+  deal-breaker. Like any note answer, it is the wearer's word on that family in that bottle, so the bottle's stage ratings
+  and complaint chips count for the family only where they agree with it: Bade'e Al Oud kept with its oud hated never
+  makes oud a like through the base the wearer liked, and a base that turned, or a "too sweet" on it, never makes a loved
+  top note a deal-breaker. Likes come from the hours
   a bottle is worn, deal-breakers from the bottles they ruined: keeping Sauvage while marking its ambroxan "Disliked
   it" leans the picks away from woody ambers instead of ruling out every perfume built on them. A pick that carries
   such a family says so (see `reason` below).
@@ -174,12 +185,14 @@ The rules below are implemented in `site/js/engine.js`.
   effect of the bitter or sweet answer about 0.23.
 - A note card answered "avoid" is also a veto on the picks (`PP_NOTES.avoidedNotes`, `engine.recommend(prof, ratings,
   avoid)`): no pick where that card's family (weight 0.5 or more on the card) leads the heart or the base (0.7 or more,
-  and the strongest there), or whose name carries the note, and `ruledOut()` counts those perfumes. A kept bottle that
-  holds the family strongly (`pos > 0`) lifts the veto: the bottles win, `recommend()` returns the family under
-  `contradicted`, and the quiz result says so under the taste card ("You said you avoid musk, but Yara, which you kept,
-  has clean white musks..."). With no avoided card nothing changes, so the engine golden is unaffected.
+  and the strongest there), or whose name carries the note, and `ruledOut()` counts those perfumes. A bottle the visitor
+  kept (`engine.kept`) that holds the family strongly with a liking lifts the veto: the bottles win, `recommend()`
+  returns the family under `contradicted` with those kept bottles, and the quiz result says so under the taste card
+  ("You said you avoid musk, but Yara, which you kept, has clean white musks..."). A liking in a bottle that turned, or
+  that put the visitor off, never lifts it. With no avoided card nothing changes, so the engine golden is unaffected.
 - Each pick carries `reason`: up to two liked families it has in the heart or base (a liked class, or a clear lean
-  from the visitor's words), up to two deal-breakers it is free of, and at most one thing to watch for, in this order:
+  from the visitor's words), up to two deal-breakers it is free of (under 0.2 in every stage), and at most one thing to
+  watch for, in this order:
   an avoided family that is only secondary here (0.3 or more) or only in the opening, a possible deal-breaker, a family
   the visitor's words lean against, a family their bottles split on, a family the visitor disliked in a bottle they
   kept (`leanKept`, naming that bottle; such a family is never listed as a like or as shared with a liked bottle), a
@@ -189,10 +202,14 @@ The rules below are implemented in `site/js/engine.js`.
   watch item for its risk line.
 - A family is a **likely deal-breaker** when its weighted mean is ≤ −0.7 across two or more
   perfumes with no positive rating; **possible** on one perfume, or on a milder mean across
-  several; **mixed** when the same family drew both likes and dislikes.
+  several; **mixed** when the same family drew both likes and dislikes (one bottle for it and another against it,
+  however far the mean leans). The classes read the mean to nine decimal places, so the order of the ratings never
+  moves a family across a line.
 - Recommendations exclude any unrated perfume with a likely deal-breaker at ≥ 0.5 presence in
   the drydown (or ≥ 0.7 in the heart), then rank by liked-family reward minus twice the
-  dislike penalty minus a small unknown-family penalty, one perfume per house.
+  dislike penalty minus a small unknown-family penalty, one perfume per house. A mixed family costs a flat 0.3 while
+  its mean is balanced (under 0.7 either way) and is weighed by its mean like any family once it leans clearly, so
+  calling a lopsided family mixed changes its label, not the picks.
 - When a possible deal-breaker rests on one perfume, the page names one unrated perfume that
   contains that family in its base without the other suspects, so a single sample settles it.
 
@@ -358,7 +375,8 @@ Local run: `http://localhost:8765/?endpoint=http://localhost:8765/api` (the quiz
 ## Editing the catalogue
 
 Each entry in `site/js/data.js`: `p(id, house, name, arabicName, gender, tier, confidence, opening, heart, drydown, notes)`.
-Families and weights are the tagger's judgement of what dominates each stage. Confidence 3 means
-the tagger has worn it or the consensus is strong; 2 means tagged from reliable descriptions.
+Families and weights are a judgement of what dominates each stage, made from the note list and descriptions; nobody
+wore the perfumes to tag them. Confidence 3 means the sources agree strongly; 2 means tagged from descriptions, or by
+mapper.js.
 Prefer fewer families with honest weights over long lists. After editing, run `node tools/sync_backend.js`
 and the tests.
