@@ -171,6 +171,16 @@ test("an empty quiz state gives no told items", () => {
   for (const q of [undefined, null, {}, { notes: {}, told: [], toldNone: false }]) assert.deepEqual(plain(N.toldItems(q)), []);
 });
 
+test("every told item weighs at least 0.18, so avoiding a note always costs its perfumes more than leaving it unmet", () => {
+  /* engine.js: a family no rated stage exposes is read from the words alone, sum / (weights + 0.3), and the picks cost
+     twice that per unit of presence, against 0.3 for a strong family the visitor has not met. One avoided item of
+     weight w costs 2w / (w + 1), above 0.3 from w = 0.18; a lighter one would raise the perfumes the visitor avoids. */
+  const items = D.QUIZ.notePicker.flatMap(sc => sc.notes).flatMap(c => N.toldItems({ notes: { [c.id]: -1 } }))
+    .concat(N.toldItems({ taste: "sweet" }), N.toldItems({ taste: "bitter" }), ...D.CHIPS.map(c => N.toldItems({ told: [c.id] })));
+  assert.ok(items.length > 100);
+  assert.deepEqual(plain(items.filter(i => i.w < 0.18).map(i => `${i.src} ${i.f} ${i.w}`)), []);
+});
+
 test("with no bottles, \"prefer bitter\" and \"enjoy tea, lemon\" give three picks without a strong vanilla drydown", () => {
   const told = N.toldItems({ notes: { tea: 1, lemon: 1 }, taste: "bitter" });
   const prof = E.computeProfile({ ratings: {}, auto: {}, images: {}, told });

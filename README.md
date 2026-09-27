@@ -192,10 +192,10 @@ The rules below are implemented in `site/js/engine.js`.
   ("You said you avoid musk, but Yara, which you kept, has clean white musks..."). A liking in a bottle that turned, or
   that put the visitor off, never lifts it. With no avoided card nothing changes, so the engine golden is unaffected.
 - Each pick carries `reason`: up to two liked families it has in the heart or base (a liked class, or a clear lean
-  from the visitor's words; never a family known only from traces, see below), up to two deal-breakers it is free of
-  (under 0.2 in every stage), and at most one thing to watch for, in this order:
+  from the visitor's words, read from the words alone when no rated stage exposes the family; see below), up to two
+  deal-breakers it is free of (under 0.2 in every stage), and at most one thing to watch for, in this order:
   an avoided family that is only secondary here (0.3 or more) or only in the opening, a possible deal-breaker, a family
-  the visitor's words lean against (a told item or lean, never a trace alone), a family their bottles split on, a family the visitor disliked in a bottle they
+  the visitor's words lean against (read the same way), a family their bottles split on, a family the visitor disliked in a bottle they
   kept (`leanKept`, naming that bottle; such a family is never listed as a like or as shared with a liked bottle), a
   family they liked only in the first minutes of a bottle (`leanOpening`, naming that bottle; not listed as a like),
   then an untried family that leads the heart or base. A lean comes after the bottles' verdicts and is named only in
@@ -218,8 +218,11 @@ The rules below are implemented in `site/js/engine.js`.
   common: Molecule 01, Grand Soir and Not a Perfume each to 12 to 15 in 100
   (`reference/algorithm/stress/COVERAGE.md`). A disliked, doubtful or unmet family costs in every stage it is in, each
   stage being another chance for it to spoil the wear.
-- A family known only from traces, which no rated bottle holds at 0.4 or more and the visitor never spoke of (no told
-  item or lean), counts in the picks as a family the visitor has not met, and a pick never calls it a like.
+- A family no rated stage holds at 0.4 or more (n = 0) is read in the picks from the visitor's words alone, their told
+  items and leans, pulled toward zero as a family known only from words is (`wordScore`, `engine.picksView`); with no
+  words it counts as a family the visitor has not met. A trace never outweighs a word, so enjoying a note card never
+  lowers the perfumes that hold its families, and a pick never calls such a family a like, or says the visitor's answers lean against
+  it, unless their words do.
 - A mixed family costs a flat 0.3 while its mean is balanced (under 0.7 either way) and is weighed by its mean like
   any family once it leans clearly, so calling a lopsided family mixed changes its label, not the picks. The picks read
   every score to nine decimal places, as the classes do, and a tie goes to the perfume listed first, so the order of

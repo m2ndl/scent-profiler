@@ -500,7 +500,8 @@ test("a family the rated bottles hold only as a trace, and the visitor never spo
   const rated = Object.assign(onlyTwo("vanilla28", "grandsoir"), ratings);
   let v28 = E.recommend(prof, rated).picks.find(p => p.P.id === "vanilla28");
   assert.ok(!v28.reason.likes.includes("vanilla_gourmand"), "likes " + v28.reason.likes);
-  assert.ok(v28.risks.filter(r => r.f === "vanilla_gourmand").every(r => r.kind === "unknown"), "vanilla is unmet");
+  const vr = v28.risks.filter(r => r.f === "vanilla_gourmand");
+  assert.ok(vr.length && vr.every(r => r.kind === "unknown"), "vanilla is unmet");
   /* said in words, it counts: an enjoyed vanilla card makes it a like */
   prof = profileOf(ratings, toldFor("vanilla", 1));
   v28 = E.recommend(prof, rated).picks.find(p => p.P.id === "vanilla28");
@@ -542,4 +543,20 @@ test("the order of the ratings never reorders the picks (two candidates tied but
   assert.notEqual(mini.computeProfile(stateOf(ratings)).x.score, mini.computeProfile(stateOf(reversed)).x.score, "the two sums differ in the last digit");
   assert.deepEqual(picks(ratings), ["p", "q"]);
   assert.deepEqual(picks(reversed), ["p", "q"]);
+});
+
+test("a word for a family never counts against it: a trace in a bottle that turned never outweighs an enjoyed note", () => {
+  /* Sauvage turned in its base, which holds vanilla at 0.3, a trace; the visitor enjoys the vanilla card */
+  const ratings = { sauvageedp: { drydown: -2, again: 0 } };
+  const quiet = profileOf(ratings), said = profileOf(ratings, toldFor("vanilla", 1));
+  assert.ok(said.vanilla_gourmand.n === 0 && said.vanilla_gourmand.score < 0, "trace and word together lean against vanilla");
+  const rated = Object.assign(onlyTwo("vanilla28", "grandsoir"), ratings);
+  const finalOf = prof => E.recommend(prof, rated).picks.find(p => p.P.id === "vanilla28").final;
+  assert.ok(finalOf(said) >= finalOf(quiet), `enjoying vanilla lowered Vanilla 28: ${finalOf(quiet)} to ${finalOf(said)}`);
+  assert.ok(E.picksView(said).vanilla_gourmand.score > 0, "the picks read the word alone");
+  /* and so does the card: vanilla is a like, and nothing warns against it */
+  const card = E.recommend(said, rated).picks.find(p => p.P.id === "vanilla28").reason;
+  assert.ok(card.likes.includes("vanilla_gourmand"), "likes " + card.likes);
+  assert.ok(!(card.watch && card.watch.f === "vanilla_gourmand"), "watch " + JSON.stringify(card.watch));
+  assert.equal(E.picksView(quiet).vanilla_gourmand, undefined, "a trace alone is a family not met");
 });

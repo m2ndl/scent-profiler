@@ -212,6 +212,9 @@ window.PP_ENGINE = (function () {
         if (!out[f]) out[f] = { score: t.tsum / (t.twsum + TOLD_PRIOR), n: 0, cls: "neutral", evidence: [], pos: 0, neg: 0 };
         else if (out[f].n === 0) out[f].score = (F[f].sum + t.tsum) / (F[f].wsum + t.twsum);
         out[f].toldScore = t.tsum / t.twsum;
+        /* the visitor's words alone, pulled toward zero as a family known only from words is: what the picks read of
+           a family no rated stage exposes (picksView) */
+        out[f].wordScore = t.tsum / (t.twsum + TOLD_PRIOR);
         out[f].toldNeg = t.evidence.every(e => e.value < 0);
         out[f].toldEvidence = t.evidence;
       }
@@ -239,11 +242,20 @@ window.PP_ENGINE = (function () {
       }
       return { bind, contradicted };
     }
-    /* A family the profile knows only from traces: no rated bottle holds it at 0.4 or more (n = 0) and the visitor never
-       spoke of it (no told item or lean). A trace nudges a score but is not an exposure, so the picks treat such a
-       family as one the visitor has not met, and a pick never calls it a like or says the visitor's answers lean
-       against it. */
-    const traceOnly = v => !!v && v.n === 0 && !(v.toldEvidence && v.toldEvidence.length);
+    /* What the picks read of a profile. A family some rated stage holds at 0.4 or more (n > 0), as the profile has it. A
+       family no rated stage holds at that strength, from the visitor's words alone (told items and leans, wordScore):
+       a trace nudges a score but is not an exposure, so it never outweighs what the visitor said, and a family known
+       only from traces is left out, as one the visitor has not met. So a pick never calls such a family a like, or
+       says the visitor's answers lean against it, unless their words do, and an answer on the note picker, the taste question or the
+       complaints never moves the picks against itself. */
+    function picksView(prof) {
+      const out = {};
+      for (const [f, v] of Object.entries(prof)) {
+        if (v.n > 0) out[f] = v;
+        else if (v.toldEvidence && v.toldEvidence.length) out[f] = Object.assign({}, v, { score: v.wordScore });
+      }
+      return out;
+    }
     /* The visitor's side: the one gender, men's or women's, of the gendered bottles they kept (see kept), or, when they
        kept no bottle, of the gendered bottles they rated (a stage set). Unisex perfumes are on every side; bottles of
        both genders, or unisex ones only, give no side. */
@@ -279,17 +291,18 @@ window.PP_ENGINE = (function () {
        they kept (leanKept, with that bottle; it is never counted as a like), a family they liked only in the first
        minutes of a bottle (leanOpening, with that bottle; it is not counted as a like), then a family they have not
        met that leads the heart or base. A lean is a detail, so it comes after the bottles' verdicts, and is named
-       only in the pick's heart or base. Traces under 0.3 are not named: nearly every perfume carries a little musk. */
-    function reasonOf(P, prof, badAny, veto) {
+       only in the pick's heart or base. Traces under 0.3 are not named: nearly every perfume carries a little musk.
+       Likes and leans are read from the picks' view of the profile (pv, see picksView); "not met" from the profile. */
+    function reasonOf(P, prof, pv, badAny, veto) {
       /* the lean notes behind a family (see computeProfile), and whether its only liking is a top note */
       const leanNotes = (v, kind) => ((v && v.toldEvidence) || []).filter(e => e.lean === kind);
       const topNoteOnly = v => { const pos = ((v && v.toldEvidence) || []).filter(e => e.value > 0); return pos.length > 0 && pos.every(e => e.lean === "opening"); };
-      /* liked: a liked class from the bottles, or, with no bottle on it, a clear lean from what the visitor said (never
-         a family known only from traces) */
+      /* liked: a liked class from the bottles, or, with no bottle on it, a clear lean from what the visitor said (in pv
+         a family no rated stage exposes carries the visitor's words alone, and one known only from traces is absent) */
       /* a family disliked in a bottle the visitor still wears is never called a like, even when another bottle likes it */
-      const good = v => v && !leanNotes(v, "kept").length && (v.cls === "goodLikely" || v.cls === "goodPossible" || (v.n === 0 && !traceOnly(v) && v.score >= 0.3 && !topNoteOnly(v)));
+      const good = v => v && !leanNotes(v, "kept").length && (v.cls === "goodLikely" || v.cls === "goodPossible" || (v.n === 0 && v.score >= 0.3 && !topNoteOnly(v)));
       const deep = f => Math.max(P.stages.heart[f] || 0, P.stages.drydown[f] || 0);
-      const likes = Object.entries(prof).filter(([f, v]) => good(v) && deep(f) >= 0.4).sort((a, b) => deep(b[0]) * r9(b[1].score) - deep(a[0]) * r9(a[1].score) || (a[0] < b[0] ? -1 : 1)).slice(0, 2).map(([f]) => f);
+      const likes = Object.entries(pv).filter(([f, v]) => good(v) && deep(f) >= 0.4).sort((a, b) => deep(b[0]) * r9(b[1].score) - deep(a[0]) * r9(a[1].score) || (a[0] < b[0] ? -1 : 1)).slice(0, 2).map(([f]) => f);
       /* free of a deal-breaker only when it is under 0.2 in every stage, not just the base */
       const clear = badAny.filter(f => STAGES.every(s => (P.stages[s][f] || 0) < 0.2)).slice(0, 2);
       const top = ["drydown", "heart"].map(s => Object.entries(P.stages[s] || {}).sort((a, b) => b[1] - a[1])[0]).filter(Boolean).sort((a, b) => b[1] - a[1])[0];
@@ -300,10 +313,10 @@ window.PP_ENGINE = (function () {
         const onlyOpening = (P.stages.heart[b.f] || 0) < 0.3 && (P.stages.drydown[b.f] || 0) < 0.3;
         watch = { kind: onlyOpening ? "avoidOpening" : "avoid", f: b.f, s, note: b.note, top: top ? top[0] : null }; break;
       }
-      const inDeep = (pred, min) => Object.entries(prof).filter(([f, v]) => pred(v) && deep(f) >= min).sort((a, b) => deep(b[0]) - deep(a[0]))[0];
+      const inDeep = (pred, min) => Object.entries(pv).filter(([f, v]) => pred(v) && deep(f) >= min).sort((a, b) => deep(b[0]) - deep(a[0]))[0];
       if (!watch) { const x = inDeep(v => v.cls === "badPossible" || v.cls === "badLikely", 0.3); if (x) watch = { kind: "neg", f: x[0], s: where(x[0])[0] }; }
       if (!watch) {
-        const x = Object.entries(prof).filter(([f, v]) => v.n === 0 && !traceOnly(v) && v.score < 0 && !leanNotes(v, "kept").length && !veto.bind.some(b => b.f === f) && where(f)[1] >= 0.3).sort((a, b) => r9(a[1].score) - r9(b[1].score) || (a[0] < b[0] ? -1 : 1))[0];
+        const x = Object.entries(pv).filter(([f, v]) => v.n === 0 && v.score < 0 && !leanNotes(v, "kept").length && !veto.bind.some(b => b.f === f) && where(f)[1] >= 0.3).sort((a, b) => r9(a[1].score) - r9(b[1].score) || (a[0] < b[0] ? -1 : 1))[0];
         if (x) watch = { kind: "lean", f: x[0], s: where(x[0])[0] };
       }
       if (!watch) { const x = inDeep(v => v.cls === "mixed", 0.3); if (x) watch = { kind: "mixed", f: x[0], s: where(x[0])[0] }; }
@@ -332,7 +345,7 @@ window.PP_ENGINE = (function () {
     function recommend(prof, ratings, avoid) {
       const likely = Object.entries(prof).filter(([, v]) => v.cls === "badLikely").map(([f]) => f);
       const badAny = Object.entries(prof).filter(([, v]) => v.cls === "badLikely" || v.cls === "badPossible").map(([f]) => f);
-      const veto = vetoOf(prof, avoid), side = sideOf(ratings);
+      const veto = vetoOf(prof, avoid), side = sideOf(ratings), pv = picksView(prof);
       const scored = [];
       for (const P of PERFUMES) {
         if (ratings[P.id] || vetoed(P, veto) || (side && P.gender !== "u" && P.gender !== side)) continue;
@@ -341,7 +354,7 @@ window.PP_ENGINE = (function () {
         for (const s of STAGES) {
           const sw = STAGE_W[s];
           for (const [f, w] of Object.entries(P.stages[s])) {
-            const v = traceOnly(prof[f]) ? undefined : prof[f];
+            const v = pv[f];
             if (likely.includes(f) && atStrength(s, w)) excluded = true;
             if (!v) { if (w >= 0.5) { unknown += w * sw; risks.push({ f, s, w, kind: "unknown", sev: w * sw }); } continue; }
             /* the score read to nine places, as the classes read it, so the order of the ratings never reorders the picks */
@@ -369,7 +382,7 @@ window.PP_ENGINE = (function () {
         picks.push(s); houses.add(s.P.house); lineage.add(key);
         if (picks.length === 3) break;
       }
-      for (const p of picks) p.reason = reasonOf(p.P, prof, badAny, veto);
+      for (const p of picks) p.reason = reasonOf(p.P, prof, pv, badAny, veto);
       return { picks, badAny, likely, contradicted: veto.contradicted };
     }
 
@@ -386,7 +399,7 @@ window.PP_ENGINE = (function () {
       return null;
     }
 
-    return { STAGES, PERFUMES, byId, applyEvidence, buildAuto, derived, resolve, strongestStage, kept, computeProfile, recommend, settleSuggestion, ruledOut, sideOf };
+    return { STAGES, PERFUMES, byId, applyEvidence, buildAuto, derived, resolve, strongestStage, kept, computeProfile, recommend, settleSuggestion, ruledOut, sideOf, picksView };
   }
 
   return { create, STAGES, strongestStage, kept };
