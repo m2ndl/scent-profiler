@@ -292,13 +292,17 @@ looked-up ids) and then removes the parameter from the address.
 
 The result opens on the palate name and its emblem. The name follows what the kept bottles show: each kept bottle
 counts for one of nine palate groups (the group of its strongest liked family in the heart or the base, weighted by
-that family's presence; a note liked only in the first minutes shows on the taste card but does not name the palate),
+that family's presence; a note liked only in the first minutes shows on the taste card but does not name the palate,
+and a bottle that turned on the visitor or put them off in a shop never votes, even for a note they liked in it),
 and the lead group names the palate alone when it holds more than twice the next group's weight. Otherwise both are
 named ("The Oud and Musk Palate"), and from four bottles a third group the lead does not outweigh makes "The Wide
-Palate". Dislikes only give "The Selective Palate". One sentence under the name says what the bottles show; below the
-taste card come the comparison line and a tip for the lead group. The wide and selective palates keep their tip
-under the name, since there the deal-breaker is the finding. The comparison line appears only once 100 people have
+Palate". With no kept bottle to vote but a deal-breaker, "The Selective Palate". One sentence under the name says what
+the bottles show; below the taste card come the comparison line and a tip for the lead group. The wide and selective
+palates keep their tip under the name, since there the deal-breaker is the finding. The comparison line appears only once 100 people have
 finished the quiz: the share who hold the visitor's strongest deal-breaker, or, without one, the same palate.
+When the bottles overrule the sweet-or-bitter answer, the taste card says so: "You said you prefer bitter to sweet, but
+your bottles show a liking for vanilla and sugar, so the result follows your bottles." It names the liked families on
+the other side of `QUIZ.taste` (0.5 or more there).
 
 Under the name sits the palate's wheel: the nine palate groups around the emblem in the order of a fragrance wheel
 (fresh, floral, rose, sweet, amber, spiced, oud, woody, musk). A petal grows for each group the kept bottles vote for,

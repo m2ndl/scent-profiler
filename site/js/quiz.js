@@ -106,6 +106,7 @@
       noteLine: (perfume, words, v, stage) => `${perfume}: you ${{ 2: "loved", 1: "liked", 0: "didn't mind", "-1": "disliked", "-2": "hated" }[v]} the ${words} (${stage})`,
       youEnjoy: w => `You enjoy: ${w}`, youAvoid: w => `You avoid: ${w}`, bothered: w => `Has bothered you: ${w}`,
       prefer: { bitter: "You prefer bitter to sweet", sweet: "You prefer sweet to bitter" }, fromTold: "from what you told us",
+      tasteAgainst: (answer, fams) => `You said you prefer ${answer === "bitter" ? "bitter to sweet" : "sweet to bitter"}, but your bottles show a liking for ${fams}, so the result follows your bottles.`,
       disagree: w => `Your bottles and your answer (${w}) disagree; your bottles count more.`,
       unnoticed: pairs => `You did not notice ${pairs}.`, unnoticedPair: (f, bottle) => `the ${f} in ${bottle}`,
       toldOnlyLede: "No bottle yet, so these picks rest on your answers alone. Answers in words are a weaker guide than a bottle you have worn: try a sample first.",
@@ -200,6 +201,7 @@
       noteLine: (perfume, words, v, stage) => `${perfume}: «${words}» (${stage}): إجابتك «${{ 2: "أعجبني كثيراً", 1: "أعجبني", 0: "لا بأس به", "-1": "لم يعجبني", "-2": "كرهته" }[v]}»`,
       youEnjoy: w => `تحب: ${w}`, youAvoid: w => `تتجنب: ${w}`, bothered: w => `أزعجك من قبل: ${w}`,
       prefer: { bitter: "تفضّل المرّ على الحلو", sweet: "تفضّل الحلو على المرّ" }, fromTold: "مما أخبرتنا به",
+      tasteAgainst: (answer, fams) => `قلت إنك تفضّل ${answer === "bitter" ? "المرّ على الحلو" : "الحلو على المرّ"}، لكن عطورك تكشف ميلك إلى ${fams}، فبنينا النتيجة على عطورك.`,
       disagree: w => `عطورك وإجابتك (${w}) لا تتفقان، ولعطورك الوزن الأكبر.`,
       unnoticed: pairs => `لم تلاحظ ${pairs}.`, unnoticedPair: (f, bottle) => `${f} في ${bottle}`,
       toldOnlyLede: "لم تقيّم أي عطر بعد، لذلك تعتمد هذه الترشيحات على إجاباتك وحدها. وإجاباتك دليل أضعف من عطر جرّبته: جرّب عينة أولاً.",
@@ -249,6 +251,9 @@
   const cap = s => (lang === "en" && s ? s[0].toUpperCase() + s.slice(1) : s);
   /* A rating counts only when a stage is set; an all-null record (for example one left by a tester link) is unrated. */
   const hasStage = id => { const r = ratings[id]; return !!r && STAGES.some(s => r[s] != null); };
+  /* A kept bottle: every stage it has is 0 or above and one is above 0. A stage below 0 means it turned on the visitor,
+     or put them off in a shop. */
+  const keptBottle = id => { const r = ratings[id], vals = r ? STAGES.map(s => r[s]).filter(v => v != null) : []; return !vals.some(v => v < 0) && vals.some(v => v > 0); };
   /* A quiz rating whose only set stage is opening at -1 is a shop trial (the shop verdict writes it). */
   const shopTrial = id => { const r = ratings[id]; return !!r && r.src === "quiz" && r.opening === -1 && r.heart == null && r.drydown == null; };
   /* rated before this visit: a bottle answered on this visit can still be picked again after Back */
@@ -714,8 +719,16 @@
   function tasteCardHtml(prof, ids) {
     const good = drawnTo(prof), bad = byStrength(prof, ["badLikely", "badPossible"]).slice(0, 2);
     const rows = tasteRow(prof, good, "good") + tasteRow(prof, bad, "bad");
-    return `<div class="qreveal"><div class="qtaste">${rows || `<p class="qtaste-none">${esc(t().noFamilies)}</p>`}</div>
+    return `<div class="qreveal"><div class="qtaste">${rows || `<p class="qtaste-none">${esc(t().noFamilies)}</p>`}</div>${tasteAgainstHtml(prof)}
       <p class="qbasis">${esc(t().basis(ids.length, answerCount(ids)))}</p></div>`;
+  }
+  /* When the bottles overrule the sweet-or-bitter answer, the card says so: the families the result likes on the other
+     side of QUIZ.taste (0.5 or more there). Only bottles make a family liked, so each one has a bottle behind it. */
+  function tasteAgainstHtml(prof) {
+    const other = quiz.taste === "bitter" ? "sweet" : quiz.taste === "sweet" ? "bitter" : null;
+    if (!other || !QUIZ.taste || !QUIZ.taste[other]) return "";
+    const fams = byStrength(prof, ["goodLikely", "goodPossible"]).filter(f => (QUIZ.taste[other][f] || 0) >= 0.5).slice(0, 3);
+    return fams.length ? `<p class="qtaste-note">${esc(t().tasteAgainst(quiz.taste, andJoin(fams.map(famIn))))}</p>` : "";
   }
   /* A family's short name inside a sentence: lower case in English, as written in Arabic. */
   const famIn = f => low(famShort(f));
@@ -791,17 +804,19 @@
      with most families gain nothing and a bottle is never split. Only the heart and the base vote, the stages
      a perfume is worn in for hours: a note liked in the first minutes shows on the taste card but does not
      name the palate (Hacivat's pineapple, 0.9 in the opening, would otherwise outvote the oakmoss and woods it
-     is worn for). The group with most weight leads. It names
+     is worn for). A bottle that turned on the visitor, or put them off in a shop, is not kept and does not vote,
+     even for a note they liked in it. The group with most weight leads. It names
      the palate alone when it holds more than twice the next group's weight; otherwise the next group joins
      it ("The Fresh and Oud Palate": a summer side and a winter side, not a contradiction), and, from four
      bottles or more, a third group the lead does not outweigh makes the wide palate, whose real finding is the
-     deal-breaker; three bottles of three kinds are a sample, not a wardrobe, and take the two strongest. With dislikes
-     only, the selective palate; with neither, none. Told answers never set a class, so only bottles vote. */
+     deal-breaker; three bottles of three kinds are a sample, not a wardrobe, and take the two strongest. With no kept
+     bottle voting but a deal-breaker, the selective palate; with neither, none. Told answers never set a class, so
+     only bottles vote. */
   function palateGroups(prof) {
     const liked = byStrength(prof, ["goodLikely", "goodPossible"]);
     const vote = {};   /* perfume id -> [presence, group], the strongest liked family wins; ties keep the stronger family */
     for (const f of liked) for (const e of prof[f].evidence || []) {
-      if (!e.perfume || !(e.value > 0) || e.stage === "opening") continue;
+      if (!e.perfume || !(e.value > 0) || e.stage === "opening" || !keptBottle(e.perfume.id)) continue;
       const x = ((e.perfume.stages || {})[e.stage] || {})[f] || 0, cur = vote[e.perfume.id];
       if (x > 0 && (!cur || x > cur[0])) vote[e.perfume.id] = [x, ARCH.find(g => g.fams.includes(f))];
     }
@@ -811,9 +826,8 @@
     return { liked, G, bottles: Object.keys(vote).length };
   }
   function archetypeOf(prof) {
-    const { liked, G, bottles } = palateGroups(prof);
-    if (!liked.length) return Object.values(prof).some(v => v.cls === "badLikely" || v.cls === "badPossible") ? SELECTIVE : null;
-    if (!G.length) return null;
+    const { G, bottles } = palateGroups(prof);
+    if (!G.length) return Object.values(prof).some(v => v.cls === "badLikely" || v.cls === "badPossible") ? SELECTIVE : null;
     const lead = G[0];
     if (G.length === 1 || lead.sum > 2 * G[1].sum) return lead.a;
     if (G.length >= 3 && bottles >= 4 && lead.sum <= 2 * G[2].sum) return WIDE;
@@ -936,8 +950,7 @@
   function sortedBottles() {
     const kept = [], turned = [];
     for (const id of Object.keys(ratings).filter(hasStage)) {
-      const r = ratings[id], vals = STAGES.map(st => r[st]).filter(v => v != null);
-      if (vals.some(v => v < 0)) turned.push(id); else if (vals.some(v => v > 0)) kept.push(id);
+      if (keptBottle(id)) kept.push(id); else if (STAGES.some(st => ratings[id][st] < 0)) turned.push(id);
     }
     return { kept: kept.slice(0, 6), turned: turned.slice(0, 6) };
   }

@@ -1117,3 +1117,5 @@ header.top:has(.qprogress:not([hidden]))::after { opacity: 0; }
 @media (prefers-reduced-motion: reduce) {
   #quiz *, #quiz *::before, #quiz *::after, .qprogress::before { animation: none !important; transition: none !important; }
 }
+/* the taste card says when the bottles overrule the sweet-or-bitter answer */
+.qtaste-note { margin: 14px 0 0; padding-inline-start: 12px; border-inline-start: 3px solid var(--oil); font-size: 14px; line-height: 1.55; color: var(--ink-2); }

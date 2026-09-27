@@ -1087,7 +1087,47 @@ test("only the heart and the base name the palate: Hacivat kept with its pineapp
   const h = html(page);
   assert.match(h, /<h1>The Woody Palate<\/h1>/);
   assert.match(h, /<p class="qpal">Your bottles show a liking for woods\.<\/p>/);
-  /* the loved note is still said, on the taste card and as a slender petal on the wheel */
+  /* the loved note is still said, on the taste card and as a slender petal on the wheel, and the bitter answer it
+     overrules is named */
   assert.match(/<div class="qtaste-row good">[^]*?<\/div><\/div>/.exec(h)[0], /Sweet fruit/);
+  assert.match(h, /<p class="qtaste-note">You said you prefer bitter to sweet, but your bottles show a liking for sweet fruit, so the result follows your bottles\.<\/p>/);
   assert.match(h, /<path class="qpet trace" style="--k:\d+" fill="url\(#qp-sweet\)"/);
+});
+
+/* the result for stored ratings and answers, reached through "None of these" and the told screens */
+function resultFor(ratings, quizAnswers, langCode) {
+  const page = open({ localStorage: seed({ pp_ratings_v1: JSON.stringify(ratings), pp_quiz_v1: JSON.stringify(quizAnswers), pp_lang: JSON.stringify(langCode || "en") }) });
+  page.click({ dataset: { none: "1" } });
+  for (let i = 0; i < D.QUIZ.notePicker.length && /data-pn=/.test(html(page)); i++) page.click({ dataset: { continue: "1" } });
+  page.click({ dataset: { taste: quizAnswers.taste } });
+  page.click({ dataset: { continue: "1" } });
+  page.click({ dataset: { anosmia: "no" } });
+  return html(page);
+}
+
+test("a bottle the visitor did not keep never names the palate, even for a note they loved in it", () => {
+  const still = Object.assign({}, blank, { drydown: 1, again: 1, src: "quiz" });
+  const putOff = Object.assign({}, blank, { opening: -1, src: "quiz", noteAnswers: { fruity_sweet: 2 } });
+  assert.ok((E.byId.emotion.stages.heart.fruity_sweet || 0) >= 0.7, "Emotion holds sweet fruit in its heart, where the loved note counts");
+  /* put off in a shop, sweet fruit loved in it; Sauvage kept: Sauvage names the palate */
+  let h = resultFor({ emotion: putOff, sauvageedp: still }, { taste: "unsure" });
+  assert.match(h, /<h1>The Woody Palate<\/h1>/);
+  /* the shop trial alone: nothing kept, so the finding is what the visitor avoids */
+  h = resultFor({ emotion: putOff }, { taste: "unsure" });
+  assert.match(h, /<h1>The Selective Palate<\/h1>/);
+  /* the loved note still counts as a like on the taste card */
+  assert.match(/<div class="qtaste-row good">[^]*?<\/div><\/div>/.exec(h)[0], /Sweet fruit/);
+});
+
+test("when the bottles overrule the sweet-or-bitter answer, the taste card says so", () => {
+  const still = Object.assign({}, blank, { drydown: 1, again: 1, src: "quiz" });
+  let h = resultFor({ yara: still }, { taste: "bitter" });
+  assert.match(h, /<h1>The Sweet Palate<\/h1>/);
+  assert.match(h, /<p class="qtaste-note">You said you prefer bitter to sweet, but your bottles show a liking for vanilla and sugar, so the result follows your bottles\.<\/p>/);
+  /* an answer the bottles agree with, or no side taken, says nothing */
+  assert.doesNotMatch(resultFor({ yara: still }, { taste: "sweet" }), /qtaste-note/);
+  assert.doesNotMatch(resultFor({ yara: still }, { taste: "both" }), /qtaste-note/);
+  /* in Arabic */
+  h = resultFor({ yara: still }, { taste: "bitter" }, "ar");
+  assert.match(h, /<p class="qtaste-note">قلت إنك تفضّل المرّ على الحلو، لكن عطورك تكشف ميلك إلى الفانيلا والسكر، فبنينا النتيجة على عطورك\.<\/p>/);
 });
