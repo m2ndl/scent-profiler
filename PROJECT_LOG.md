@@ -2,6 +2,45 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-28: session close, the picks spread over the catalogue
+
+Session title: the picks spread over the catalogue. The owner asked for a stress test from new angles and whether the
+picks repeat a few perfumes; then, going to sleep, to research, fix and push.
+
+- Confirmed (reference/algorithm/stress/COVERAGE.md): on 0164d00 Molecule 01, Not a Perfume and Grand Soir each went to
+  12 to 15 visitors in 100 (Grand Soir 21 with verdicts only), and two visitors with no liking in common shared a pick 8
+  times in 100, against once for the best-possible picks. Cause: a liked family counted once per stage, so perfumes
+  that are one common base family from opening to base won, and "I still wear it" makes about four visitors in ten
+  like each common base family.
+- Fixed in site/js/engine.js (recommend, reasonOf, picksView): a liked family earns its reward once, at its strongest
+  presence; a family no rated stage exposes is read from the visitor's words alone, and is unmet without words (16% of
+  pick cards had said "Has X, which you like" of a trace, and 14 in 4,356 the opposite of the visitor's words); picks
+  read scores to nine places. Most picked now 3 in 100, the ten most picked 8% of picks (25%), kept 75% (74%), turn 10%
+  (9%).
+- A fresh verifier (REVIEWS.md section 4) found a blocking defect in the first version (ce09d2b, committed, not pushed):
+  a word on a family let its traces back in at full weight, so enjoying a note could lower its perfumes. Fixed by reading
+  the words alone; a test, an invariant (c_invariants.js "word steps") and m_wordsteps.js cover it. Its second pass
+  found nothing blocking; its should-fixes (card-line assertions, narrower wording) are in.
+- Decided on the owner's behalf: picks stay on the side of the gendered bottles kept, or rated when none kept
+  (`engine.sideOf`). Counting likes once alone raised other-gender picks from 22% to 30%, since the old top picks were
+  unisex; with the rule 11%. To undo, remove the side test in recommend().
+- Tests 120 (five new engine tests, tests/coverage.test.js and a told-weight guard in notes.test.js); golden reviewed by script
+  (profiles unchanged; every changed pick equals the trialled ranking); the site engine equals the trialled rules for
+  15,014 of 15,014 synthetic visitors; checks rerun in out/after_coverage/.
+
+Open, dated 28 Sep 2026 (owner's calls):
+- Visitors who rate no bottle: the engine cannot tell their side, and their other-gender picks rose from 26% to 33%.
+  Ask "men's, women's or either" on that path, or accept it. Restricting them to unisex was trialled and rejected.
+- Verdict-only visitors meet Montale Leather Patchouli 11 times in 100: the same cause as the palate without note rows
+  (REPORT.md section 2); the remedies named there would settle both.
+- Older than this change, found by the review: a note-row answer moved a step can move the picks the other way (about
+  one step in twenty), through the lean rule of 27 Sep; for a revision of that rule (REVIEWS.md section 5).
+- Minor: a pick from the same line as a rated bottle for 3% of visitors (2% before); the audit's 5 in 1,500 results
+  listing an avoided family under "Drawn to" with no line saying why (from the kept-only veto of 77c5f70).
+- Carried: the palate, deal-breaker and "ruled out" calls of the earlier 28 Sep entry (its gender and niche-heavy items
+  are settled above); owner to confirm the kept rule (27 Sep); the phone
+  artifact not refreshed since the motion work; reference/launch/ in or out of git; backend deployment; partner links.
+
 ## 2026-09-28: session close, the scoring stress-tested and its defects fixed
 
 Session title: the scoring stress-tested and its defects fixed. All pushed and live (b93b223): the workflow's tests and
