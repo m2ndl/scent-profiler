@@ -1073,3 +1073,21 @@ test("sweet or bitter sets each side's examples small under its name", () => {
   page.click({ id: "lang-ar" });
   assert.match(html(page), /<b>مرّ ومنعش<\/b><small>شاي، جريب فروت، فيتيفر<\/small>/);
 });
+
+test("only the heart and the base name the palate: Hacivat kept with its pineapple loved is woody, not sweet", () => {
+  const page = open();
+  page.click({ dataset: { add: "hacivat" } });
+  page.click({ dataset: { continue: "1" } });
+  page.click({ dataset: { verdict: "still" } });
+  /* the pineapple row sits in the opening, where Hacivat holds sweet fruit at 0.9, above the oakmoss and woods of its base */
+  assert.ok(E.byId.hacivat.stages.opening.fruity_sweet > Math.max(...Object.values(E.byId.hacivat.stages.drydown)));
+  page.click({ dataset: { na: "fruity_sweet", v: "2" } });
+  page.click({ dataset: { continue: "1" } });
+  finish(page, { taste: "bitter" });
+  const h = html(page);
+  assert.match(h, /<h1>The Woody Palate<\/h1>/);
+  assert.match(h, /<p class="qpal">Your bottles show a liking for woods\.<\/p>/);
+  /* the loved note is still said, on the taste card and as a slender petal on the wheel */
+  assert.match(/<div class="qtaste-row good">[^]*?<\/div><\/div>/.exec(h)[0], /Sweet fruit/);
+  assert.match(h, /<path class="qpet trace" style="--k:\d+" fill="url\(#qp-sweet\)"/);
+});

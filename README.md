@@ -291,7 +291,8 @@ opens `profile.html?add=<id>`, which adds that perfume on the profiler (retrying
 looked-up ids) and then removes the parameter from the address.
 
 The result opens on the palate name and its emblem. The name follows what the kept bottles show: each kept bottle
-counts for one of nine palate groups (the group of its strongest liked family, weighted by that family's presence),
+counts for one of nine palate groups (the group of its strongest liked family in the heart or the base, weighted by
+that family's presence; a note liked only in the first minutes shows on the taste card but does not name the palate),
 and the lead group names the palate alone when it holds more than twice the next group's weight. Otherwise both are
 named ("The Oud and Musk Palate"), and from four bottles a third group the lead does not outweigh makes "The Wide
 Palate". Dislikes only give "The Selective Palate". One sentence under the name says what the bottles show; below the
