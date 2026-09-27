@@ -62,9 +62,9 @@ const counted = c => c.body && c.body.type === "event" && !/^(reach|result):/.te
 const events = page => page.calls.filter(counted).map(c => [c.body.name, c.body.n]);
 
 test("the front page (the quiz) loads its scripts in order and the grid shows the twenty bottles; rated ones cannot be answered", () => {
-  assert.deepEqual(quizScripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/notes.js", "js/bottles.js", "js/page.js", "js/quiz.js"]);
-  /* the quiz's own script and the one it shares with the profiler */
-  for (const f of ["quiz.js", "page.js"]) {
+  assert.deepEqual(quizScripts.map(s => s.filename), ["js/config.js", "js/data.js", "js/mapper.js", "js/materials.js", "js/evidence.js", "js/engine.js", "js/notes.js", "js/bottles.js", "js/page.js", "js/motion.js", "js/quiz.js"]);
+  /* the quiz's own scripts and the one it shares with the profiler */
+  for (const f of ["quiz.js", "motion.js", "page.js"]) {
     const src = fs.readFileSync(path.join(SITE, "js", f), "utf8");
     assert.doesNotMatch(src, /querySelector/, f);
     assert.doesNotMatch(src, /<button(?![^>]*type="button")/, `${f}: every button is type=button`);
@@ -704,7 +704,7 @@ test("a row with no listed note says so, with its hint, in both languages", () =
 test("the page strings use no form of the Arabic verb for wearing clothes, and no em dash", () => {
   /* the root l-b-s with optional long vowels (the verb, its present tense, clothes, worn), diacritics removed first */
   const wear = /ل[اآ]?ب[وي]?س/;
-  for (const f of ["quiz.js", "app.js", "notes.js", "page.js"]) {
+  for (const f of ["quiz.js", "app.js", "notes.js", "page.js", "motion.js"]) {
     const src = fs.readFileSync(path.join(SITE, "js", f), "utf8");
     assert.equal(wear.test(src.replace(/[ً-ْـ]/g, "")), false, `${f} uses the verb for wearing clothes`);
     assert.equal(src.includes(String.fromCharCode(0x2014)), false, `${f} has an em dash`);
@@ -943,4 +943,133 @@ test("shop links fill {q} with the perfume's house and name and {lang} with the 
   const hrefs = [...prof.snapshot().els.recs.innerHTML.matchAll(/href="(https:\/\/shop\.example\/[^"]+)"/g)].map(m => m[1]);
   assert.equal(hrefs.length, 3, "one bottle link per pick on the profile page");
   for (const h of hrefs) assert.match(h, /^https:\/\/shop\.example\/ar\/search\?q=[^&]+&ref=x$/);
+});
+
+test("the dock holds one button: None of these until a bottle is picked, then Continue with the last four picked", () => {
+  const page = open();
+  const dock = () => page.snapshot().els["grid-actions"].innerHTML;
+  assert.equal(dock(), '<button type="button" class="btn qgo qgo-none" id="qgo" data-none="1">None of these</button>');
+  for (const id of ["sauvageedp", "yara"]) page.click({ dataset: { tile: id } });
+  assert.match(dock(), /^<button type="button" class="btn primary qgo" id="qgo" data-continue="1"><span class="qtray" id="tray" aria-hidden="true">/);
+  assert.deepEqual([...dock().matchAll(/data-tray="([^"]+)"/g)].map(m => m[1]), ["sauvageedp", "yara"]);
+  assert.match(dock(), /<span class="qgo-t">Continue with 2<\/span><\/button>$/);
+  for (const id of ["eros", "khamrah", "libre"]) page.click({ dataset: { tile: id } });
+  assert.deepEqual([...dock().matchAll(/data-tray="([^"]+)"/g)].map(m => m[1]), ["yara", "eros", "khamrah", "libre"], "the last four picked");
+  assert.match(dock(), /<b>\+1<\/b><\/span><span class="qgo-t">Continue with 5</);
+  /* the start screen's bottles and the grid's carry the same names, so a bottle can fly from one to the other */
+  const first = open({ atStart: true });
+  for (const id of D.QUIZ.grid.slice(0, 5)) assert.match(html(first), new RegExp(`<span class="qshelf-b" style="--i:\\d" data-vt="b-${id}"><img class="thumb`));
+  assert.match(page.snapshot().els.tiles.innerHTML, /<button type="button" class="qtile" style="--n:0" data-vt="b-sauvageedp" data-tile="sauvageedp" aria-pressed="true">/);
+  /* in Arabic */
+  const ar = open({ localStorage: seed({ pp_lang: JSON.stringify("ar") }) });
+  ar.click({ dataset: { tile: "yara" } });
+  assert.match(ar.snapshot().els["grid-actions"].innerHTML, /<span class="qgo-t">تابع \(1\)<\/span>/);
+});
+
+test("the narrowing round: None of these under the tiles, the dock only once a bottle is picked", () => {
+  const page = open();
+  twoBottles(page);
+  let h = html(page);
+  assert.match(h, /<div class="qalt"><button type="button" class="btn" data-skip="1">None of these, or I don&#39;t know them<\/button><\/div>/);
+  assert.match(h, /<div class="qactions" id="narrow-actions"><\/div>/);
+  const offered = /data-tile="([^"]+)"/.exec(h)[1];
+  page.click({ dataset: { tile: offered } });
+  h = html(page);
+  assert.match(h, new RegExp(`<div class="qactions" id="narrow-actions"><button type="button" class="btn primary qgo" id="qgo" data-continue="1"><span class="qtray" id="tray" aria-hidden="true"><img class="qtray-b" data-tray="${offered}"`));
+  assert.match(h, /data-skip="1"/, "None of these stays under the tiles");
+});
+
+test("the header's progress line: hidden on the start and the result, a quarter per part in between", () => {
+  const page = open({ atStart: true });
+  const bar = () => { const e = page.snapshot().els.qprogress; return e.hidden ? null : Number(/--p:([\d.]+)/.exec(e.attrs.style)[1]); };
+  assert.equal(bar(), null, "the start screen");
+  start(page);
+  const at = [bar()];
+  twoBottles(page);
+  at.push(bar());
+  /* a bottle picked in the narrowing round: round two's screen runs on from the narrowing screen */
+  const offered = /data-tile="([^"]+)"/.exec(html(page))[1];
+  page.click({ dataset: { tile: offered } }); page.click({ dataset: { continue: "1" } });
+  assert.match(html(page), /Bottle 1 of 1/);
+  at.push(bar());
+  page.click({ dataset: { verdict: "other" } });
+  at.push(bar());
+  for (let i = 0; i < D.QUIZ.notePicker.length && /data-pn=/.test(html(page)); i++) page.click({ dataset: { continue: "1" } });
+  at.push(bar());
+  page.click({ dataset: { taste: "unsure" } });
+  at.push(bar());
+  page.click({ dataset: { told: "unsure" } }); page.click({ dataset: { continue: "1" } });
+  at.push(bar());
+  const parts = [1, 1, 1, 2, 3, 4, 4];
+  at.forEach((p, i) => assert.ok(p > (parts[i] - 1) / 4 && p < parts[i] / 4, `step ${i}: ${p} in part ${parts[i]}`));
+  for (let i = 1; i < at.length; i++) assert.ok(at[i] >= at[i - 1], "the line only grows going forward");
+  page.click({ dataset: { anosmia: "no" } });
+  assert.equal(bar(), null, "the result");
+});
+
+test("a bottle screen: the bottle on its plinth, one dot per bottle coloured by its verdict, the wear ribbon for when", () => {
+  const page = open();
+  page.click({ dataset: { tile: "sauvageedp" } }); page.click({ dataset: { tile: "yara" } }); page.click({ dataset: { tile: "eros" } });
+  page.click({ dataset: { continue: "1" } });
+  let h = html(page);
+  assert.match(h, /<div class="qstage"><div class="qstage-b" data-vt="b-sauvageedp"><img class="thumb/);
+  assert.match(h, /<div class="qdots" aria-hidden="true"><i class="on"><\/i><i class=""><\/i><i class=""><\/i><\/div>/);
+  page.click({ dataset: { verdict: "turned" } });
+  assert.match(html(page), /<div class="qopts qopts-row qwhen">/);
+  assert.match(html(page), /<div class="qfollow turned">/);
+  page.click({ dataset: { continue: "1" } }); page.click({ dataset: { continue: "1" } });
+  page.click({ dataset: { verdict: "other" } });
+  h = html(page);
+  assert.match(h, /<div class="qdots" aria-hidden="true"><i class="v-turned"><\/i><i class="v-other"><\/i><i class="on"><\/i><\/div>/);
+  /* a single bottle has no dots */
+  const one = open();
+  one.click({ dataset: { tile: "yara" } }); one.click({ dataset: { continue: "1" } });
+  assert.doesNotMatch(html(one), /qdots/);
+});
+
+test("the result's wheel: nine kinds around the emblem, the lead kind's petal full, deal-breakers washed, a tapped kind names its families", () => {
+  const page = open();
+  keep(page, ["yara", "khamrah"], ["sauvageedp"]);
+  finish(page);
+  const h = () => html(page);
+  const keys = [...h().matchAll(/<button type="button" class="qrose-k([^"]*)" data-rose="([a-z]+)" aria-pressed="(true|false)"/g)];
+  assert.deepEqual(keys.map(m => m[2]), ["fresh", "floral", "rose", "sweet", "amber", "spiced", "oud", "woody", "musk"]);
+  const cls = Object.fromEntries(keys.map(m => [m[2], m[1]]));
+  assert.match(cls.sweet, / on/, "the palate's own kind has a petal");
+  assert.match(cls.woody, / bad/, "Sauvage's woody ambers wash the woody kind");
+  assert.equal((h().match(/<path class="qpet[^"]*"/g) || []).length, keys.filter(m => / on/.test(m[1])).length, "a petal for each kind named on");
+  /* the lead petal reaches the rim (radius 130 in the 360 box, around 180,180); every other one is shorter */
+  const tip = d => { const pts = [...d.matchAll(/(-?[\d.]+) (-?[\d.]+)/g)].map(m => [+m[1], +m[2]]); return Math.max(...pts.map(([x, y]) => Math.hypot(x - 180, y - 180))); };
+  const pets = [...h().matchAll(/<path class="qpet([^"]*)" style="--k:\d+" fill="url\(#qp-([a-z]+)\)" d="([^"]+)"/g)];
+  const lead = pets.find(m => m[2] === "sweet");
+  assert.ok(Math.abs(tip(lead[3]) - 130) < 0.6, "the lead petal is full length: " + tip(lead[3]));
+  for (const m of pets) if (m[2] !== "sweet") assert.ok(tip(m[3]) < tip(lead[3]) - 5, m[2] + " is shorter than the lead");
+  assert.match(h(), /<div class="qrose-cap" id="qrose-cap" aria-live="polite"><span class="qrose-hint">Tap a kind of perfume to see what your bottles show about it\.<\/span><\/div>/);
+  /* tapping woody names its deal-breaker; tapping it again lets go */
+  page.click({ dataset: { rose: "woody" } });
+  assert.match(h(), /data-rose="woody" aria-pressed="true"/);
+  assert.match(h(), /<div class="qrose has-sel"/);
+  assert.match(h(), /<b class="qrose-name">Woody<\/b>[^]*<span class="qrose-row bad"><span class="qrose-k2">(Your|Possible) deal-breaker<\/span><span class="qchip bad sm">Woody ambers<\/span>/);
+  page.click({ dataset: { rose: "woody" } });
+  assert.match(h(), /data-rose="woody" aria-pressed="false"/);
+  assert.match(h(), /qrose-hint/);
+  /* a kind the bottles say nothing about says so; an unknown kind is ignored */
+  page.click({ dataset: { rose: "oud" } });
+  assert.match(h(), /<b class="qrose-name">Oud<\/b><span class="qrose-hint">Your bottles show nothing about this kind yet\.<\/span>/);
+  page.click({ dataset: { rose: "nonsense" } });
+  assert.match(h(), /data-rose="oud" aria-pressed="true"/);
+  /* in Arabic */
+  page.click({ id: "lang-ar" });
+  assert.match(h(), /<b class="qrose-name">عودي<\/b><span class="qrose-hint">لم تكشف عطورك شيئاً عن هذا النوع بعد\.<\/span>/);
+  assert.match(h(), /aria-label="ذائقتك على عجلة من تسعة أنواع من العطور"/);
+});
+
+test("sweet or bitter sets each side's examples small under its name", () => {
+  const page = open();
+  page.click({ dataset: { none: "1" } });
+  for (let i = 0; i < D.QUIZ.notePicker.length && /data-pn=/.test(html(page)); i++) page.click({ dataset: { continue: "1" } });
+  assert.match(html(page), /<div class="qopts qduel"><button type="button" class="qopt" data-taste="bitter" aria-pressed="false"><b>Bitter and fresh<\/b><small>tea, grapefruit, vetiver<\/small><\/button>/);
+  assert.match(html(page), /data-taste="both" aria-pressed="false">Both, it depends<\/button>/);
+  page.click({ id: "lang-ar" });
+  assert.match(html(page), /<b>مرّ ومنعش<\/b><small>شاي، جريب فروت، فيتيفر<\/small>/);
 });

@@ -28,6 +28,7 @@ those families. Static files, no build step, no accounts.
 | `site/js/page.js` | What both pages share: the words both show, the device store, the photo and escape helpers, the rating sender (one pending send per perfume, sent at once when the page is hidden), the backend calls (lazy catalogue, lookup, stats), the search (perfumes holding the typed phrase first, then those holding every typed word, accents ignored and EDT or EDP read as the concentration) and the note rows and shop links both draw. |
 | `site/js/app.js` | The profiler page: its own words, rendering and clicks. |
 | `site/js/quiz.js` | The quiz page: grid, verdicts, note rows, narrowing round, note picker, taste and complaints, Back, result. Writes ordinary ratings into the profiler's device store through page.js. |
+| `site/js/motion.js` | The quiz's motion and touch: a new screen arrives as a view transition (the quiz column slides by direction, mirrored in Arabic, and a bottle shown on both screens flies between them); the same screen is patched in place, so pressed options animate and focus stays; the gold mist and the flight of a picked bottle into the dock. Changes nothing a screen says or does; with reduced motion, without view transitions or under the test stub, a screen is simply redrawn. |
 | `backend/apps-script.gs` | Google Sheets backend: anonymous ratings, tag corrections, community stats, and the lazy catalogue (on-demand lookups through the Fragella API, cached for everyone). Includes `enrichVerified()` for bottle images; its `VERIFIED` list is written by `tools/sync_backend.js`. |
 | `evidence/` | Inputs to `site/js/evidence.js`: `labels/<id>.txt` (ingredient lists) and `applied_changes.jsonl` (every tag change, with its quote and source). |
 | `tools/tag_queue.js` | Reads the ratings and catalogue CSV exports and prints the unverified perfumes people rated, by demand, with a data.js stub for each. |
@@ -203,6 +204,14 @@ the profiler reads (`pp_ratings_v1`), so the profiler shows the same bottles as 
 | I tried it in a shop and it put me off | opening −1 | null | optional, on opening |
 | I don't remember how it ended | nothing | | |
 
+The grid's dock, pinned above the bottom of the screen, holds one button: "None of these" until a bottle is picked, then
+"Continue with n" carrying the last four bottles picked (each picked bottle gives off a gold mist and flies into it).
+In the narrowing round "None of these, or I don't know them" sits under the tiles and the dock appears once a bottle is
+picked. On every screen after the start the header is compact (on a phone the nav links rest until the result), and a
+progress line in four quarters, one per part, runs along its gold edge. A bottle screen shows the bottle on a lit plinth
+with one dot per bottle in the queue, coloured by its verdict; "When did it bother you?" is drawn as the wear ribbon,
+first minutes to hours later, filled to the moment chosen.
+
 The screens come in four parts, named on a top line ("Part 1 of 4 · Your bottles"): your bottles (grid, verdicts,
 note rows, narrowing), notes you know (the note picker), sweet or bitter, and what bothers you (complaints and
 anosmia). Every screen but the start screen has a Back button. It restores a snapshot of the screen before (the bottle
@@ -289,6 +298,14 @@ Palate". Dislikes only give "The Selective Palate". One sentence under the name 
 taste card come the comparison line and a tip for the lead group. The wide and selective palates keep their tip
 under the name, since there the deal-breaker is the finding. The comparison line appears only once 100 people have
 finished the quiz: the share who hold the visitor's strongest deal-breaker, or, without one, the same palate.
+
+Under the name sits the palate's wheel: the nine palate groups around the emblem in the order of a fragrance wheel
+(fresh, floral, rose, sweet, amber, spiced, oud, woody, musk). A petal grows for each group the kept bottles vote for,
+its length in step with that group's share of the lead group's weight (0.36 of full length plus 0.64 times the share),
+so the longest petal is the palate's name; a slender petal at 0.3 of full length, shorter than any vote, marks a group
+holding a liked family but no vote of its own; a group holding a deal-breaker the taste card shows is washed in rose. Each group's name is a button: tapped, it lists the
+families behind that group, liked and deal-breaker, as the taste card names them. The counts carry a bar for their share
+of the catalogue and count up when they come into view; the picks are numbered.
 
 Events (`events` sheet) and the falsifier each one measures (reference/debate/quiz/ROUNDTABLE.md, section 6):
 

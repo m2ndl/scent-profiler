@@ -15,6 +15,9 @@
 
   /* Deployment settings: config.js. */
   const CONFIG = window.PP_CONFIG;
+  /* Motion and touch (motion.js): screen changes, in-place updates, the mist and the dock. Without it a screen is redrawn. */
+  const FX = window.PP_MOTION || { paint: (el, html, o) => { el.innerHTML = html; if (o && o.after) o.after(); }, patch: (el, html) => { el.innerHTML = html; },
+    pick() {}, tap() {}, chosen() {}, whenSeen: (el, fn) => fn(), moving: () => false };
 
   /* ---------- i18n: this page's words; page.js holds the ones both pages show ---------- */
   const T = PAGE.words({
@@ -66,6 +69,9 @@
       reading: "Reading your bottles", kept: "You kept", turned: "Turned on you", skip: "Show my result",
       palate: "Your palate", funnel: { checked: "perfumes checked", out: "ruled out for you", picked: "chosen for you" },
       cardPalate: "My palate",
+      wheel: { fresh: "Fresh", floral: "Floral", rose: "Rose", sweet: "Sweet", amber: "Amber", spiced: "Spiced", oud: "Oud", woody: "Woody", musk: "Musk" },
+      wheelLabel: "Your palate on a wheel of nine kinds of perfume", wheelHint: "Tap a kind of perfume to see what your bottles show about it.",
+      wheelNone: "Your bottles show nothing about this kind yet.",
       startH: "Find what ruins a perfume for you",
       startLede: "Tell us how the perfumes you know ended for you. We find the material family behind the ones that turned on you, name your palate and choose three samples to try next.",
       startParts: "Four parts:", startGo: "Start", startBack: "Took the quiz before? Rate the samples you tried",
@@ -157,6 +163,9 @@
       reading: "نقرأ عطورك", kept: "أبقيتها", turned: "انقلبت عليك", skip: "اعرض النتيجة",
       palate: "ذائقتك", funnel: { checked: "عطراً فحصناها", out: "استبعدناها لك", picked: "اخترناها لك" },
       cardPalate: "ذائقتي",
+      wheel: { fresh: "منعش", floral: "زهري", rose: "وردي", sweet: "حلو", amber: "عنبري", spiced: "متبّل", oud: "عودي", woody: "خشبي", musk: "مسكي" },
+      wheelLabel: "ذائقتك على عجلة من تسعة أنواع من العطور", wheelHint: "اضغط على نوع من العطور لترى ما تكشفه عطورك عنه.",
+      wheelNone: "لم تكشف عطورك شيئاً عن هذا النوع بعد.",
       startH: "اعرف ما يفسد العطر عليك",
       startLede: "أخبرنا كيف انتهت معك العطور التي تعرفها. نجد عائلة المواد وراء العطور التي انقلبت عليك، ونسمّي ذائقتك، ونختار لك ثلاث عيّنات تجرّبها بعد ذلك.",
       startParts: "أربعة أجزاء:", startGo: "ابدأ", startBack: "أنهيت الاختبار من قبل؟ قيّم العيّنات التي جرّبتها",
@@ -233,6 +242,9 @@
   const sent = new Set();       /* events already sent on this visit: each goes out once, when its screen is first left */
   let doneSent = false;
   let shown = { testers: [], picks: [] };   /* ids in the order the result shows them, for the link events' n */
+  let navDir = "fwd", toTop = false;        /* how the next screen arrives (motion.js: fwd, back, fade, up) and whether it opens at the top */
+  let lastLang = lang;                      /* a changed language redraws the screen with a fade */
+  let roseSel = null;                       /* the kind of perfume tapped on the result's palate wheel */
 
   const cap = s => (lang === "en" && s ? s[0].toUpperCase() + s.slice(1) : s);
   /* A rating counts only when a stage is set; an all-null record (for example one left by a tester link) is unrated. */
@@ -376,16 +388,16 @@
     step = next; editing = new Set();
     if (next === "result") {
       if (!doneSent) { doneSent = true; sendEvent("quiz_done", Object.keys(ratings).filter(hasStage).length); }
-      sendResult(); loadQuizStats();
+      sendResult(); loadQuizStats(); roseSel = null;
     }
+    navDir = "fwd"; toTop = true;
     render();
-    try { window.scrollTo(0, 0); } catch (e) { /* not available */ }
   }
   function back() {
     const s = hist.pop(); if (!s) return;
     ({ step, at, round, pk, noNotes } = s); queue = s.queue; narrow = s.narrow; editing = new Set();
+    navDir = "back"; toTop = true;
     render();
-    try { window.scrollTo(0, 0); } catch (e) { /* not available */ }
   }
   function sendOnce(key, name, n) { if (sent.has(key)) return; sent.add(key); sendEvent(name, n); }
   /* The result as one event, "result:<palate>:<deal-breakers joined by +>", with the rated bottles as n: the
@@ -467,16 +479,20 @@
     $("brand").setAttribute("href", "index.html" + (endpointParam ? "?endpoint=" + encodeURIComponent(endpointParam) : ""));
     $("nav-profiler").textContent = t().navProfiler; $("nav-profiler").setAttribute("href", profilerHref());
     $("nav-articles").textContent = t().navArticles;
+    const bar = $("qprogress"), p = progress();
+    if (bar) { bar.hidden = p == null; if (p != null) bar.setAttribute("style", "--p:" + p.toFixed(3)); }
   }
 
-  function tileHtml(id, on, line) {
+  /* n: the tile's place, which staggers the tiles' arrival; data-vt names the bottle, so it flies between screens */
+  function tileHtml(id, on, line, n) {
     const P = resolve(id); if (!P) return "";
     const rated = ratedBefore(id);
-    return `<button type="button" class="qtile" data-tile="${esc(id)}" aria-pressed="${!rated && !!on}"${rated ? " disabled" : ""}>${imgTag(P)}<span class="qtile-name">${esc(pname(P))}</span><span class="qtile-house">${esc(P.house)}</span>${rated ? `<span class="qtile-tag rated">${esc(t().rated)}</span>` : ""}${line ? `<span class="qtile-tag">${esc(line)}</span>` : ""}</button>`;
+    return `<button type="button" class="qtile" style="--n:${(n || 0) % 20}" data-vt="b-${esc(id)}" data-tile="${esc(id)}" aria-pressed="${!rated && !!on}"${rated ? " disabled" : ""}>${imgTag(P)}<span class="qtile-name">${esc(pname(P))}</span><span class="qtile-house">${esc(P.house)}</span>${rated ? `<span class="qtile-tag rated">${esc(t().rated)}</span>` : ""}${line ? `<span class="qtile-tag">${esc(line)}</span>` : ""}</button>`;
   }
-  /* The start screen: five of the grid's bottles, the promise, Start, then the four parts and a link for a returning visitor. */
+  /* The start screen: five of the grid's bottles on a shelf (on Start they fly to their tiles), the promise, Start,
+     then the four parts and a link for a returning visitor. */
   function startHtml() {
-    const shelf = QUIZ.grid.slice(0, 5).map(id => imgTag(resolve(id))).join("");
+    const shelf = QUIZ.grid.slice(0, 5).map((id, i) => `<span class="qshelf-b" style="--i:${i}" data-vt="b-${esc(id)}">${imgTag(resolve(id))}</span>`).join("");
     return `<div class="qstart"><div class="qstart-shelf" aria-hidden="true">${shelf}</div>
       <div class="hero"><h1>${esc(t().startH)}</h1><p>${esc(t().startLede)}</p></div>
       <button type="button" class="btn primary qstart-go" data-start="1">${esc(t().startGo)}</button>
@@ -488,20 +504,30 @@
   const MORE_STEP = 20;
   const gridIds = () => QUIZ.grid.concat(QUIZ.more.slice(0, moreShown));
   const tileIds = () => { const ids = gridIds(); return ids.concat(extra.filter(id => !ids.includes(id))); };
-  /* The grid screen keeps its search box across tile taps: only the tiles and the buttons are redrawn. */
+  /* The grid screen keeps its search box across tile taps: only the tiles, More and the dock are redrawn (patched in
+     place, so a tile keeps its node and its lift and check animate). */
   function gridHtml() {
     return topHtml() + `<div class="hero"><h1>${esc(t().gridQ)}</h1><p>${esc(t().gridHint)}</p></div>
-      <div class="qgrid" id="tiles"></div>
-      <div class="qmore" id="grid-more"></div>
+      <div class="qgrid" id="tiles">${tilesHtml()}</div>
+      <div class="qmore" id="grid-more">${moreHtml()}</div>
       <div class="search qsearch"><label class="sr" for="q">${esc(t().qLabel)}</label><input type="search" id="q" autocomplete="off" spellcheck="false" placeholder="${esc(t().q)}"><div class="results" id="results" hidden></div></div>
-      <div class="qactions" id="grid-actions"></div>` + foot();
+      <div class="qactions" id="grid-actions">${dockHtml(picked, true)}</div>` + foot();
+  }
+  const tilesHtml = () => tileIds().map((id, n) => tileHtml(id, picked.has(id), "", n)).join("");
+  const moreHtml = () => { const left = QUIZ.more.length - moreShown; return left > 0 ? `<button type="button" class="btn" data-gmore="1">${esc(t().more(Math.min(MORE_STEP, left)))}</button>` : ""; };
+  /* The dock holds one button. On the grid it reads "None of these" until a bottle is picked, then it turns gold,
+     "Continue with n", holding the last four bottles picked (motion.js flies each one in). */
+  function dockHtml(set, noneFirst) {
+    if (!set.size) return noneFirst ? `<button type="button" class="btn qgo qgo-none" id="qgo" data-none="1">${esc(t().none)}</button>` : "";
+    const ids = [...set].slice(-4), more = set.size - ids.length;
+    const tray = ids.map(id => { const P = resolve(id); return P ? `<img class="qtray-b" data-tray="${esc(id)}" src="${esc(bottleSrc(P) || PLACEHOLDER)}" alt="" onerror="this.onerror=null;this.src='${PLACEHOLDER}'">` : ""; }).join("");
+    return `<button type="button" class="btn primary qgo" id="qgo" data-continue="1"><span class="qtray" id="tray" aria-hidden="true">${tray}${more > 0 ? `<b>+${more}</b>` : ""}</span><span class="qgo-t">${esc(t().cont(set.size))}</span></button>`;
   }
   function renderGridParts() {
     const tiles = $("tiles"), more = $("grid-more"), actions = $("grid-actions"); if (!tiles || !actions) return;
-    tiles.innerHTML = tileIds().map(id => tileHtml(id, picked.has(id))).join("");
-    const left = QUIZ.more.length - moreShown;
-    if (more) more.innerHTML = left > 0 ? `<button type="button" class="btn" data-gmore="1">${esc(t().more(Math.min(MORE_STEP, left)))}</button>` : "";
-    actions.innerHTML = `<button type="button" class="btn" data-none="1">${esc(t().none)}</button><button type="button" class="btn primary" data-continue="1">${esc(t().cont(picked.size))}</button>`;
+    FX.patch(tiles, tilesHtml());
+    if (more) FX.patch(more, moreHtml());
+    FX.patch(actions, dockHtml(picked, true));
   }
   let boundQ = null;
   function bindSearch() {
@@ -519,16 +545,22 @@
     const id = queue[at], P = resolve(id), a = ans[id] || {};
     let follow = "";
     if (a.verdict === "turned" || a.verdict === "shop") {
-      const when = a.verdict === "turned" ? `<p class="ask">${esc(t().whenQ)}</p><div class="qopts qopts-row">${STAGES.concat("unsure").map(s => opt("when", s, t().when[s], a.when === s)).join("")}</div>` : "";
+      /* the three moments sit on the wear ribbon, first minutes to hours later, which fills to the one chosen */
+      const when = a.verdict === "turned" ? `<p class="ask">${esc(t().whenQ)}</p><div class="qopts qopts-row qwhen">${STAGES.concat("unsure").map(s => opt("when", s, t().when[s], a.when === s)).join("")}</div>` : "";
       const chips = `<div class="chips"><span class="eyebrow">${esc(a.verdict === "turned" ? t().wrongQ : t().wrongShop)}</span>` + CHIPS.map(c => `<button type="button" data-chip="${c.id}" data-stage="${a.stage}" aria-pressed="${a.chips.includes(c.id)}">${esc(c[lang])}</button>`).join("") + "</div>";
-      follow = `<div class="qfollow">${when}${chips}<div class="qactions"><button type="button" class="btn primary" data-continue="1">${esc(t().next)}</button></div></div>`;
+      follow = `<div class="qfollow ${a.verdict}">${when}${chips}<div class="qactions"><button type="button" class="btn primary" data-continue="1">${esc(t().next)}</button></div></div>`;
     }
     return topHtml() + `<div class="qcard">${bottleHead(P)}
       <p class="ask">${esc(t().verdictQ)}</p>
-      <div class="qopts">${["still", "turned", "other", "shop", "unsure"].map(v => opt("verdict", v, t().verdicts[v], a.verdict === v)).join("")}</div>${follow}</div>` + foot();
+      <div class="qopts qverdicts">${["still", "turned", "other", "shop", "unsure"].map(v => opt("verdict", v, t().verdicts[v], a.verdict === v)).join("")}</div>${follow}</div>` + foot();
   }
-  const bottleHead = P => `<p class="eyebrow">${esc(t().count(at + 1, queue.length))}</p>
-      <div class="with-thumb">${imgTag(P)}<div class="grow"><h1 class="qname">${esc(pname(P))}</h1><div class="notes">${esc(P.house)}</div></div></div>`;
+  /* The bottle on its plinth (it stays in place from its verdict to its notes), its name, and one dot per bottle in
+     the queue, coloured by the verdict given. */
+  const DOT = { still: "still", turned: "turned", shop: "shop", other: "other", unsure: "other" };
+  const bottleHead = P => {
+    const dots = queue.length > 1 ? `<div class="qdots" aria-hidden="true">${queue.map((id, i) => `<i class="${i === at ? "on" : ans[id] ? "v-" + DOT[ans[id].verdict] : ""}"></i>`).join("")}</div>` : "";
+    return `<div class="qstage"><div class="qstage-b" data-vt="b-${esc(P.id)}">${imgTag(P)}</div><div class="qstage-t"><p class="eyebrow">${esc(t().count(at + 1, queue.length))}</p><h1 class="qname">${esc(pname(P))}</h1><div class="notes">${esc(P.house)}</div>${dots}</div></div>`;
+  };
   /* a bottle's note rows, drawn by page.js noteRowHtml as on the profiler's "Rate its notes" block */
   function notesHtml() {
     const id = queue[at], P = resolve(id), a = ans[id] || { na: {}, un: [] }, rows = rowsFor(id);
@@ -538,10 +570,12 @@
       <div class="nrows">${rows.map(row => page.noteRowHtml(P, row, { noteAnswers: a.na, unnoticed: a.un }, editing.has(row.f))).join("")}</div>
       <div class="qactions"><button type="button" class="btn primary" data-continue="1">${esc(t().next)}</button></div></div>` + foot();
   }
+  /* "None of these" sits under the tiles; the dock appears, gold, once a bottle is picked */
   function narrowHtml() {
     return topHtml() + `<div class="hero"><h1>${esc(t().narrowQ)}</h1><p>${esc(t().narrowHint)}</p></div>
-      <div class="qgrid">${narrow.map(c => tileHtml(c.id, narrowPicked.has(c.id), t().tests(fam(c.f)))).join("")}</div>
-      <div class="qactions"><button type="button" class="btn" data-skip="1">${esc(t().noneNarrow)}</button><button type="button" class="btn primary" data-continue="1">${esc(t().cont(narrowPicked.size))}</button></div>` + foot();
+      <div class="qgrid">${narrow.map((c, n) => tileHtml(c.id, narrowPicked.has(c.id), t().tests(fam(c.f)), n)).join("")}</div>
+      <div class="qalt"><button type="button" class="btn" data-skip="1">${esc(t().noneNarrow)}</button></div>
+      <div class="qactions" id="narrow-actions">${dockHtml(narrowPicked, false)}</div>` + foot();
   }
   /* five screens of single notes, each card "I enjoy it", "I avoid it" or "Not sure" (the default). A screen
      shows its first ten cards; "More notes" shows the rest in place, and a screen whose folded cards hold an
@@ -556,24 +590,32 @@
       const v = notes[n.id] === 1 || notes[n.id] === -1 ? notes[n.id] : 0, hint = n["hint_" + lang];
       return `<div class="pcard"><div class="pcard-name"><b>${esc(lang === "ar" ? n.ar : n.en)}</b>${hint ? `<span class="pcard-hint">${esc(hint)}</span>` : ""}</div><div class="pcard-opts">${[1, -1, 0].map(x => `<button type="button" data-pn="${n.id}" data-pv="${x}" aria-pressed="${v === x}">${esc(t().pick[x])}</button>`).join("")}</div></div>`;
     };
-    return topHtml() + `<div class="hero"><h1>${esc(t().pickerH[QUIZ.notePicker[pk].id])}</h1><p>${esc(t().pickerQ)}</p></div>
+    const mood = QUIZ.notePicker[pk].id;
+    return topHtml() + `<div class="hero qmood" data-mood="${esc(mood)}">${moodMark(mood)}<h1>${esc(t().pickerH[mood])}</h1><p>${esc(t().pickerQ)}</p></div>
       <div class="pcards">${cards.map(card).join("")}</div>
       ${cards.length < s.cards.length ? `<div class="qmore"><button type="button" class="btn" data-pmore="1">${esc(t().pickMore(s.cards.length - cards.length))}</button></div>` : ""}
       <div class="qactions"><button type="button" class="btn primary" data-continue="1">${esc(t().next)}</button></div>` + foot();
   }
+  /* each picker screen's drawn mark, from the palate emblems (fruit has its own) */
+  const moodMark = mood => {
+    const d = { fresh: ICON.fresh, flowers: ICON.floral, fruit: '<circle cx="8.6" cy="15.4" r="4"/><circle cx="15.6" cy="14.6" r="3.5"/><path d="M8.6 11.4c.2-2.8 1.6-5 3.9-6.4M15.6 11.1c-.3-2.5-1.4-4.6-3.1-6.1M12.5 5c1.8-1.1 3.9-1 5.6.4-1.8 1.1-3.9 1-5.6-.4z"/>', spices: ICON.spiced, woods: ICON.woody }[mood];
+    return d ? `<svg class="qmood-i" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">${d}</g></svg>` : "";
+  };
+  /* sweet or bitter: two tall cards, each with its examples set small under its name, then both and I don't know */
   function tasteHtml() {
-    return topHtml() + `<div class="hero"><h1>${esc(t().tasteQ)}</h1></div><div class="qopts">${["bitter", "sweet", "both", "unsure"].map(v => opt("taste", v, t().taste[v], quiz.taste === v)).join("")}</div>` + foot();
+    const label = v => { const s = t().taste[v], m = /^(.*?)\s*\((.*)\)$/.exec(s); return m ? `<b>${esc(m[1])}</b><small>${esc(m[2])}</small>` : esc(s); };
+    return topHtml() + `<div class="hero"><h1>${esc(t().tasteQ)}</h1></div><div class="qopts qduel">${["bitter", "sweet", "both", "unsure"].map(v => `<button type="button" class="qopt" data-taste="${v}" aria-pressed="${quiz.taste === v}">${label(v)}</button>`).join("")}</div>` + foot();
   }
   /* complaints, several at once; "Nothing has bothered me" and "I don't know" each clear the others */
   const TOLD = ["sweet", "chemical", "soapy", "heavy", "powdery", "smoky"];
   function toldHtml() {
     const cur = normTold(quiz);
-    return topHtml() + `<div class="hero"><h1>${esc(t().toldQ)}</h1></div><div class="qopts">${TOLD.map(v => opt("told", v, cap(chipWord(v)), cur.told.includes(v))).join("")}</div>
+    return topHtml() + `<div class="hero"><h1>${esc(t().toldQ)}</h1></div><div class="qopts qtold-grid">${TOLD.map(v => opt("told", v, cap(chipWord(v)), cur.told.includes(v))).join("")}</div>
       <div class="qopts qopts-apart">${opt("told", "none", t().toldNone, cur.toldNone)}${opt("told", "unsure", t().toldUnsure, toldUnsure)}</div>
       <div class="qactions"><button type="button" class="btn primary" data-continue="1">${esc(t().next)}</button></div>` + foot();
   }
   function anosmiaHtml() {
-    return topHtml() + `<div class="hero"><h1>${esc(t().anosQ)}</h1></div><div class="qopts">${["yes", "no", "unsure"].map(v => opt("anosmia", v, t().anos[v], quiz.anosmia === v)).join("")}</div>` + foot();
+    return topHtml() + `<div class="hero"><h1>${esc(t().anosQ)}</h1></div><div class="qopts qtri">${["yes", "no", "unsure"].map(v => opt("anosmia", v, t().anos[v], quiz.anosmia === v)).join("")}</div>` + foot();
   }
 
   /* Testers for a visitor with no rated bottle: the told complaints put first the tester whose family weighs
@@ -809,21 +851,79 @@
   }
   /* a two-group palate shades from the first group's colour into the second's and carries the first group's mark */
   const emblemSvg = (a, size) => `<svg class="qemblem" width="${size}" height="${size}" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="qe-${a.id}" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".55" stop-color="${a.color}" stop-opacity="1"/><stop offset="1" stop-color="${a.color2 || a.color}"/></radialGradient><linearGradient id="qr-${a.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B8862A"/><stop offset=".35" stop-color="#F2D68A"/><stop offset=".55" stop-color="#C99C43"/><stop offset=".75" stop-color="#FBECB8"/><stop offset="1" stop-color="#A8781F"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="url(#qr-${a.id})"/><circle cx="32" cy="32" r="26.5" fill="url(#qe-${a.id})"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#FCF8F0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">${ICON[a.icon || a.id]}</g></svg>`;
-  /* the funnel: every catalogue perfume checked, the ones a deal-breaker rules out, the three chosen */
+  /* The palate as a wheel of the nine groups around the emblem, in the order of a fragrance wheel. A petal grows for
+     each group the kept bottles vote for (palateGroups), its length that group's share of the lead group's weight, so
+     the longest petal is always the palate's name; a short petal marks a group holding a liked family but no vote of
+     its own; a group holding a deal-breaker the taste card shows is washed in rose. Each group's name is a button:
+     tapped, it names the families behind that group (roseSel). */
+  const WHEEL = ["fresh", "floral", "rose", "sweet", "amber", "spiced", "oud", "woody", "musk"];
+  const R0 = 58, R1 = 130;
+  function petal(i, r1, w) {
+    const th = i * 40 * Math.PI / 180, c = Math.cos(th), s = Math.sin(th);
+    const p = (x, y) => (180 + x * c - y * s).toFixed(1) + " " + (180 + x * s + y * c).toFixed(1);
+    const a = R0 + (r1 - R0) * 0.18, b = R0 + (r1 - R0) * 0.74;
+    return `M${p(0, -R0)}C${p(w, -a)} ${p(w * 0.9, -b)} ${p(0, -r1)}C${p(-w * 0.9, -b)} ${p(-w, -a)} ${p(0, -R0)}Z`;
+  }
+  const groupOf = f => ARCH.find(a => a.fams.includes(f));
+  function roseHtml(prof) {
+    const { liked, G } = palateGroups(prof), max = G.length ? G[0].sum : 0;
+    const vote = {}; for (const g of G) vote[g.a.id] = g.sum / max;
+    const bad = new Set(byStrength(prof, ["badLikely", "badPossible"]).slice(0, 2).map(f => (groupOf(f) || {}).id).filter(Boolean));
+    let defs = "", base = "", pets = "", keys = "", k = 0;
+    WHEEL.forEach((id, i) => {
+      const a = ARCH.find(x => x.id === id), sel = roseSel === id ? " sel" : "";
+      /* a vote petal's length grows in step with its share, from 0.36 of full length for the smallest share to full
+         length for the lead; a liked family without a vote gets a slender petal at 0.3, shorter than any vote */
+      const trace = vote[id] == null, len = !trace ? 0.36 + 0.64 * vote[id] : liked.some(f => a.fams.includes(f)) ? 0.3 : 0;
+      base += `<path class="qbase${bad.has(id) ? " bad" : ""}${sel}" d="${petal(i, R1, 23)}"/>`;
+      if (len) {
+        defs += `<radialGradient id="qp-${id}" gradientUnits="userSpaceOnUse" cx="180" cy="180" r="${R1}"><stop offset="${(R0 / R1).toFixed(2)}" stop-color="${a.color}"/><stop offset="1" stop-color="#F2D68A"/></radialGradient>`;
+        pets += `<path class="qpet${trace ? " trace" : ""}${sel}" style="--k:${k++}" fill="url(#qp-${id})" d="${petal(i, R0 + len * (R1 - R0), trace ? 9 : 8 + 15 * len)}"/>`;
+      }
+      const th = i * 40 * Math.PI / 180;
+      keys += `<button type="button" class="qrose-k${len ? " on" : ""}${bad.has(id) ? " bad" : ""}" data-rose="${id}" aria-pressed="${roseSel === id}" style="left:${(50 + 42.4 * Math.sin(th)).toFixed(1)}%;top:${(50 - 42.4 * Math.cos(th)).toFixed(1)}%">${esc(t().wheel[id])}</button>`;
+    });
+    return `<div class="qrose${roseSel ? " has-sel" : ""}" role="group" aria-label="${esc(t().wheelLabel)}"><svg class="qrose-svg" viewBox="0 0 360 360" aria-hidden="true"><defs>${defs}</defs><circle class="qrose-ring" cx="180" cy="180" r="${R1 + 8}"/>${base}${pets}</svg>${keys}</div>`;
+  }
+  /* under the wheel: a hint, or the tapped group's families (liked and deal-breakers, as the taste card names them),
+     then a key to the two marks */
+  function roseCapHtml(prof) {
+    const a = roseSel && ARCH.find(x => x.id === roseSel);
+    let cap = `<span class="qrose-hint">${esc(t().wheelHint)}</span>`;
+    if (a) {
+      const part = (fams, kind) => {
+        if (!fams.length) return "";
+        const likely = fams.some(f => prof[f].cls === (kind === "good" ? "goodLikely" : "badLikely"));
+        return `<span class="qrose-row ${kind}"><span class="qrose-k2">${esc((kind === "good" ? t().drawn : t().breaker)[likely ? "likely" : "possible"])}</span>${fams.map(f => `<span class="qchip ${kind} sm">${esc(famShort(f))}</span>`).join("")}</span>`;
+      };
+      const rows = part(byStrength(prof, ["goodLikely", "goodPossible"]).filter(f => a.fams.includes(f)), "good") + part(byStrength(prof, ["badLikely", "badPossible"]).filter(f => a.fams.includes(f)), "bad");
+      cap = `<b class="qrose-name">${esc(t().wheel[a.id])}</b>${rows || `<span class="qrose-hint">${esc(t().wheelNone)}</span>`}`;
+    }
+    const anyPet = palateGroups(prof).G.length > 0, bad = byStrength(prof, ["badLikely", "badPossible"]);
+    const key = (anyPet ? `<span class="qkey pet">${esc(t().kept)}</span>` : "") + (bad.length ? `<span class="qkey bad">${esc(t().breaker[bad.some(f => prof[f].cls === "badLikely") ? "likely" : "possible"])}</span>` : "");
+    return `<div class="qrose-cap" id="qrose-cap" aria-live="polite">${cap}</div>${key ? `<div class="qrose-keys" aria-hidden="true">${key}</div>` : ""}`;
+  }
+  /* the funnel: every catalogue perfume checked, the ones a deal-breaker rules out, the three chosen; each with a bar
+     for its share of the catalogue */
   function funnelHtml(prof, nPicks) {
     const total = E.PERFUMES.length, out = E.ruledOut(prof, avoided()).length;
-    let i = 0; const cell = (n, label, cls) => `<div class="qfun ${cls || ""}"><b id="qc-${i++}" data-count="${n}">${n}</b><span>${esc(label)}</span></div>`;
+    /* the digits count up on screen, so a screen reader reads the true number from a hidden line instead */
+    let i = 0; const cell = (n, label, cls) => `<div class="qfun ${cls || ""}"><span class="sr">${n} </span><b id="qc-${i++}" aria-hidden="true" data-count="${n}">${n}</b><span>${esc(label)}</span><i class="qfun-bar" style="--w:${(100 * n / total).toFixed(1)}%"></i></div>`;
     return `<div class="qfunnel">${cell(total, t().funnel.checked)}${cell(out, t().funnel.out, "out")}${nPicks ? cell(nPicks, t().funnel.picked, "pick") : ""}</div>`;
   }
-  /* numbers count up once the result is on screen; a visitor who prefers less motion sees them at once */
+  /* numbers count up when they come into view; a visitor who prefers less motion sees them at once */
   function countUp() {
-    let still = false; try { still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { still = true; }
-    if (still || typeof requestAnimationFrame !== "function") return;
-    for (let i = 0, el; (el = $("qc-" + i)); i++) {
-      const end = +el.dataset.count, t0 = performance.now(), dur = 900 + Math.min(end, 300);
-      const tick = now => { const k = Math.min(1, (now - t0) / dur), e2 = 1 - Math.pow(1 - k, 3); el.textContent = String(Math.round(end * e2)); if (k < 1) requestAnimationFrame(tick); };
-      el.textContent = "0"; requestAnimationFrame(tick);
-    }
+    if (!FX.moving()) return;
+    const els = []; for (let i = 0, el; (el = $("qc-" + i)); i++) els.push(el);
+    if (!els.length) return;
+    for (const el of els) el.textContent = "0";
+    FX.whenSeen(els[0], () => {
+      for (const el of els) {
+        const end = +el.dataset.count, t0 = performance.now(), dur = 900 + Math.min(end, 300);
+        const tick = now => { const k = Math.min(1, (now - t0) / dur), e2 = 1 - Math.pow(1 - k, 3); el.textContent = String(Math.round(end * e2)); if (k < 1) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+      }
+    });
   }
 
   /* ---------- the reveal: the visitor's bottles sort into kept and turned, then the result arrives ---------- */
@@ -846,7 +946,7 @@
       <div class="qsorts">${col(b.kept, t().kept, "kept")}${col(b.turned, t().turned, "turned")}</div>
       <button type="button" class="qlink" data-skipintro="1">${esc(t().skip)}</button></div>`;
   }
-  function showResult() { clearTimeout(revealTimer); revealTimer = null; revealed = true; render(); }
+  function showResult() { clearTimeout(revealTimer); revealTimer = null; revealed = true; navDir = "up"; render(); }
 
   /* ---------- the share card: a 1080 x 1350 image of the taste card and the three picks ---------- */
   function loadImg(src) {
@@ -987,7 +1087,7 @@
     const arch = archetypeOf(prof), nPicks = gate ? recommend(prof).picks.length : 0;
     const tip = arch ? palateText(arch, prof).tip : "", tipHtml = tip ? `<p class="qtip"><b>${esc(t().tipH)}</b>${esc(tip)}</p>` : "";
     const hero = arch
-      ? `<div class="qname-hero" style="--arch:${arch.color}">${emblemSvg(arch, 96)}<div><p class="eyebrow">${esc(t().palate)}</p><h1>${esc(arch[lang])}</h1></div></div><p class="qpal">${esc(palateText(arch, prof).about)}</p>`
+      ? `<div class="qname-hero" style="--arch:${arch.color}">${emblemSvg(arch, 96)}<div class="qname-t"><p class="eyebrow">${esc(t().palate)}</p><h1>${esc(arch[lang])}</h1></div>${roseHtml(prof)}</div>${roseCapHtml(prof)}<p class="qpal">${esc(palateText(arch, prof).about)}</p>`
       : `<div class="hero"><h1>${esc(t().resultH)}</h1></div>`;
     return topHtml() + `<div class="qresult">${hero}${funnelHtml(prof, nPicks)}
       ${tasteCardHtml(prof, ids)}${contradictHtml(recommend(prof).contradicted)}<p class="qcompare" id="qcompare">${compareHtml(prof)}</p>${tipHtml}${recs}
@@ -996,31 +1096,67 @@
       <details class="qhow"><summary>${esc(t().how)}</summary><p class="notes">${esc(t().resultLede)}</p>${famHtml}${told}</details></div>` + foot();
   }
 
+  /* the progress along the header's gold edge: four equal quarters, one per part, each filled by the place reached in
+     its part; none on the start screen and the result */
+  function progress() {
+    const p = PART[step]; if (!p) return null;
+    let f = 0.5;
+    if (step === "grid") f = 0.08;
+    else if (step === "narrow") f = 0.92;
+    /* round two (the bottles picked in the narrowing round) runs on from where the narrowing screen stood */
+    else if (step === "verdicts" || step === "notes") f = (round === 2 ? 0.92 : 0.15) + (round === 2 ? 0.07 : 0.72) * (at + (step === "notes" ? 0.5 : 0)) / Math.max(1, queue.length);
+    else if (step === "picker") { const list = pickScreens().map(s => s.i); f = (Math.max(0, list.indexOf(pk)) + 0.35) / Math.max(1, list.length); }
+    else if (step === "told") f = 0.3;
+    else if (step === "anosmia") f = 0.75;
+    return (p - 1 + f) / 4;
+  }
+  /* A screen is drawn through motion.js: a new one (the key changes) arrives as a transition by direction, the same one
+     is patched in place. What needs the new markup (the header, the search box, the counts, the reveal's timer, the
+     scroll to the top) runs in `after`, inside the transition. */
+  let countedKey = null;
   function render() {
-    renderChrome();
     /* each screen reached on this visit goes out once, so the backend's funnel shows where people stop; picker
        screens by their position among the five, the result by quiz_done */
     if (step !== "result") { const k = step === "picker" ? "picker:" + (pk + 1) : step; sendOnce("reach:" + k, "reach:" + k, 0); }
     const host = $("quiz");
+    const screens = { start: startHtml, verdicts: verdictHtml, notes: notesHtml, narrow: narrowHtml, picker: pickerHtml, taste: tasteHtml, told: toldHtml, anosmia: anosmiaHtml };
+    let html = null, after = null;
     if (step === "grid") {
       const old = $("q"), typed = old ? old.value : "";
-      host.innerHTML = gridHtml();
-      bindSearch(); if ($("q")) $("q").value = typed;
-      renderGridParts();
-      return;
-    }
-    const screens = { start: startHtml, verdicts: verdictHtml, notes: notesHtml, narrow: narrowHtml, picker: pickerHtml, taste: tasteHtml, told: toldHtml, anosmia: anosmiaHtml };
-    if (!screens[step] && !revealed) {
+      html = gridHtml();
+      after = () => { bindSearch(); if ($("q")) $("q").value = typed; renderGridParts(); };
+    } else if (!screens[step] && !revealed) {
       const b = sortedBottles();
       if (!stillMotion() && b.kept.length + b.turned.length >= 2 && typeof setTimeout === "function") {
-        host.innerHTML = revealHtml(b);
-        revealTimer = setTimeout(showResult, 1500 + 110 * (b.kept.length + b.turned.length));
-        return;
-      }
-      revealed = true;
+        html = revealHtml(b);
+        after = () => { clearTimeout(revealTimer); revealTimer = setTimeout(showResult, 1500 + 110 * (b.kept.length + b.turned.length)); };
+      } else revealed = true;
     }
-    host.innerHTML = (screens[step] || resultHtml)();
-    if (!screens[step]) countUp();
+    const key = [step, lang, round, step === "verdicts" || step === "notes" ? at + ":" + queue[at] : "", step === "picker" ? pk : "", step === "result" ? +revealed : ""].join("|");
+    if (html == null) {
+      html = (screens[step] || resultHtml)();
+      if (!screens[step]) after = () => { if (key !== countedKey) { countedKey = key; countUp(); } };
+    }
+    const dir = lang !== lastLang ? "fade" : navDir, top = toTop, fresh = shownKey !== null && key !== shownKey;
+    lastLang = lang; navDir = "fwd"; toTop = false; shownKey = key;
+    FX.paint(host, html, { key, dir, after: () => {
+      renderChrome(); host.setAttribute("data-step", step);
+      if (after) after();
+      if (top) { try { window.scrollTo(0, 0); } catch (e) { /* not available */ } }
+      if (fresh) focusHeading(host);
+    } });
+  }
+  /* A new screen takes the place of the button that was pressed, so focus would fall back to the page: it goes to the
+     new screen's heading instead, where a screen reader starts reading. Focus that is still somewhere (the language
+     buttons) stays. */
+  let shownKey = null;
+  function focusHeading(host) {
+    try {
+      const a = document.activeElement;
+      if (a && a !== document.body) return;
+      const h = host.getElementsByTagName("h1")[0]; if (!h) return;
+      h.setAttribute("tabindex", "-1"); h.focus({ preventScroll: true });
+    } catch (e) { /* not available */ }
   }
 
   /* ---------- events ---------- */
@@ -1028,6 +1164,11 @@
     const b = ev.target.closest("button, a"); if (!b) return;
     if (b.id === "lang-en" || b.id === "lang-ar") { lang = b.id === "lang-en" ? "en" : "ar"; store.set("pp_lang", lang); render(); return; }
     const d = b.dataset || {};
+    FX.tap(b);
+    /* an answer that moves the visitor on stays marked, chosen, in the picture of the screen that leaves */
+    if ((d.verdict && step === "verdicts") || (d.taste && step === "taste") || (d.anosmia && step === "anosmia")) FX.chosen(b);
+    /* a kind of perfume on the result's wheel: tapped, it names the families behind it; tapped again, it lets go */
+    if (d.rose && step === "result") { if (WHEEL.includes(d.rose)) { roseSel = roseSel === d.rose ? null : d.rose; render(); } return; }
     /* a shop link opens in a new tab; the event records which one and its position on the page (0: not a card,
        or the anosmia note's link) */
     if (d.skipintro) { showResult(); return; }
@@ -1040,8 +1181,9 @@
       moreShown += n; sendOnce("grid_more:" + moreShown, "grid_more", moreShown); renderGridParts(); return;
     }
     if (d.tile) {
-      if (step === "grid" && !ratedBefore(d.tile)) { if (picked.has(d.tile)) picked.delete(d.tile); else picked.add(d.tile); renderGridParts(); }
-      if (step === "narrow" && narrow.some(c => c.id === d.tile)) { if (narrowPicked.has(d.tile)) narrowPicked.delete(d.tile); else narrowPicked.add(d.tile); render(); }
+      /* a picked bottle gives off its mist and flies into the dock (motion.js) */
+      if (step === "grid" && !ratedBefore(d.tile)) { const on = !picked.has(d.tile); if (on) picked.add(d.tile); else picked.delete(d.tile); renderGridParts(); FX.pick(b, on, d.tile); }
+      if (step === "narrow" && narrow.some(c => c.id === d.tile)) { const on = !narrowPicked.has(d.tile); if (on) narrowPicked.add(d.tile); else narrowPicked.delete(d.tile); render(); FX.pick(b, on, d.tile); }
       return;
     }
     if (d.back) { back(); return; }
