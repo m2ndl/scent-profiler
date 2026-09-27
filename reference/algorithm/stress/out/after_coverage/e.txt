@@ -1,0 +1,36 @@
+
+Three bottles, note rows and told answers: 2916 wearers shown picks
+  picks of the other gender: 12% (for women 14%, for men 10%); random picks 36%; the wearers' own bottles 7%; wearers with at least one: 20%
+  tiers of the picks: niche 26%, designer 49%, arab 25%; catalogue: niche 19%, designer 60%, arab 21%
+  868 distinct perfumes picked; the ten most picked take 8% of all picks; Gini 0.58
+    Montale Leather Patchouli (u, niche): 3.6% of wearers
+    Maison Francis Kurkdjian Grand Soir (u, niche): 3.2% of wearers
+    Serge Lutens Un Bois Vanille (u, niche): 2.8% of wearers
+    Hugo Boss Hugo Iced (m, designer): 2.8% of wearers
+    Chanel Sycomore Eau de Parfum (u, niche): 2.2% of wearers
+    Tom Ford Tobacco Vanille (u, niche): 2.2% of wearers
+    Le Labo Another 13 (u, niche): 1.9% of wearers
+    Davidoff Champion (m, designer): 1.9% of wearers
+    Jean Paul Gaultier La Belle Le Parfum (f, designer): 1.8% of wearers
+    Montblanc Legend Eau de Parfum (m, designer): 1.8% of wearers
+  wearers given a pick from the same line as a bottle they rated: 3%
+    Le Male Elixir recommended to a wearer who rated Le Male Le Parfum
+    Explorer Ultra Blue recommended to a wearer who rated Explorer
+    Club de Nuit Urban Man Elixir recommended to a wearer who rated Club de Nuit Intense Man
+    Hawas Black recommended to a wearer who rated Hawas
+    Interlude Black Iris recommended to a wearer who rated Interlude Man
+
+Told answers only, no bottle: 2751 wearers shown picks
+  picks of the other gender: 32% (for women 41%, for men 24%); random picks 36%; the wearers' own bottles 0%; wearers with at least one: 57%
+  tiers of the picks: designer 56%, niche 31%, arab 13%; catalogue: niche 19%, designer 60%, arab 21%
+  541 distinct perfumes picked; the ten most picked take 26% of all picks; Gini 0.84
+    Hugo Boss Hugo Iced (m, designer): 14.6% of wearers
+    Tom Ford Tobacco Vanille (u, niche): 12.6% of wearers
+    Montblanc Legend Eau de Parfum (m, designer): 9.9% of wearers
+    Serge Lutens Un Bois Vanille (u, niche): 8.0% of wearers
+    Jean Paul Gaultier Le Male Elixir (m, designer): 6.9% of wearers
+    Jean Paul Gaultier La Belle Le Parfum (f, designer): 6.6% of wearers
+    Davidoff Champion (m, designer): 6.3% of wearers
+    Louis Vuitton Afternoon Swim (u, niche): 5.2% of wearers
+    Valentino Born in Roma the Gold Donna (f, designer): 4.1% of wearers
+    Reef Pesca (u, arab): 3.9% of wearers

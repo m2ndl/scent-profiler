@@ -1,6 +1,7 @@
-# Stress test of the scoring (27 Sep 2026)
+# Stress test of the scoring (27 and 28 Sep 2026)
 
-The findings are in `REPORT.md`; the independent reviews of the report and of the fix are condensed in `REVIEWS.md`. The scripts run the site's own code: the engine and note rows through
+The findings are in `REPORT.md`, and those on where the picks go (the owner's question of 28 Sep: do they repeat a few
+perfumes?) in `COVERAGE.md`; the independent reviews are condensed in `REVIEWS.md`. The scripts run the site's own code: the engine and note rows through
 `tools/lib/site.js`, and the quiz page through the stub browser in `tests/lib/dom.js`. They change nothing in `site/`.
 Each is seeded, so a rerun prints the same numbers for the same code and catalogue; each writes its numbers to `out/`.
 
@@ -18,9 +19,17 @@ Each is seeded, so a rerun prints the same numbers for the same code and catalog
 | `f2_palate_cases.js` | The palate on the page for visitors who keep floral, rose or fresh perfumes, with the verdict alone and with "Loved it" on those note rows. | `node f2_palate_cases.js 150 81` | 40 s |
 | `fix_trial.js` | The fixes for REPORT.md section 8 applied to the engine of commit 23cab69 in memory, the two ways of fixing "mixed" compared on the same visitors, the changes made after the independent review, and the fixed site engine checked against the adopted version visitor by visitor. | `node fix_trial.js 3000 97` | 4 min |
 | `g_palate_whatif.js` | The quiz's palate rule copied (checked against the page), two other voting rules, bottles owned for what the visitor likes, and "I still wear it" crediting the heart too. | `node g_palate_whatif.js 3000 71` | 1 min |
+| `h_coverage.js` | Where the picks go, on the engine of commit 0164d00: six populations, against the best three for each visitor's hidden taste and three random perfumes; the tag shape of the most picked; the families counted as liked against the true likings; variants of the ranking, each changing one suspected cause; reachability. Its copy of the ranking matches the site only on that engine. | `node h_coverage.js 3000 101` | 6 min |
+| `rank_trial.js` | The ranking of `recommend()` rewritten with switches (a liked family counted once or in every stage, traces, the visitor's side, scores read to nine places), for trials. With no switch it is the ranking of 0164d00. | (library) | |
+| `j_trial.js` | The switches trialled on the same visitors: coverage, kept and turn (the headline population under five seeds), other gender, niche, the catalogue in another order, tags shaken by 15%, perfumes ever picked, reachability; and a check that the site's `recommend()` picks what the adopted switches pick for every visitor (`--check` runs only that). | `node j_trial.js 2000 211`, `--check` | 8 min, 5 min |
+| `i_extremes.js` | Extreme but valid answers through the engine and the quiz page: every card avoided or loved, every quiz bottle kept or turned, one bottle, words only, up to 1,000 profiler ratings. | `node i_extremes.js 131` | 20 s |
+| `l_tagnoise.js` | Pick quality when the engine reads the tags shaken by 15% or 30% while the visitors smell the catalogue's, for the ranking of 0164d00 and the site's. | `node l_tagnoise.js 2000 307` | 3 min |
+| `k_cards.js` | Pick cards that call a family liked, or say the answers lean against it, when it is known only from traces, on the engine of 0164d00 and on the site's; perfumes with identical tags. | `node k_cards.js 1500 5` | 1 min |
 
 `out/` holds the numbers the report cites, from the code as tested; `out/after_fix/` holds `c_invariants.js` and `f_page.js`
-rerun on the fixed code.
+rerun on the fixed code; `out/after_coverage/` holds the checks rerun on the engine that counts a liked family once
+(`c_invariants.js`, `a1_accuracy.js --seeds`, `e_bias.js`, `f_page.js`, `i_extremes.js` and the audit). `out/h.txt`,
+`out/i.json` and `out/k.txt` are from the engine of 0164d00 (k also from the site's), `out/j.txt` compares the two.
 
 `out/audit.txt` is the output of `reference/algorithm/audit.js 1500 7` (run from the repository root) on the commit tested.
 

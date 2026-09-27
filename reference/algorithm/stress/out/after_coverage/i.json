@@ -1,0 +1,258 @@
+[
+ {
+  "label": "every note card avoided, no bottle",
+  "rated": 0,
+  "gate": false,
+  "enginePicks": [
+   "Silver Shade",
+   "H24",
+   "Afternoon Swim"
+  ],
+  "pagePicks": [],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 947,
+  "broken": [],
+  "ms": 29.5
+ },
+ {
+  "label": "every note card avoided, three kept bottles",
+  "rated": 3,
+  "gate": true,
+  "enginePicks": [
+   "Le Lion Eau de Parfum",
+   "Grand Soir",
+   "Vanilla 28"
+  ],
+  "pagePicks": [
+   "Le Lion Eau de Parfum",
+   "Grand Soir",
+   "Vanilla 28"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 768,
+  "broken": [],
+  "ms": 27.1
+ },
+ {
+  "label": "every note card loved, no bottle",
+  "rated": 0,
+  "gate": true,
+  "enginePicks": [
+   "Jaguar For Men",
+   "Halfeti",
+   "Lapidus Pour Homme"
+  ],
+  "pagePicks": [
+   "Jaguar For Men",
+   "Halfeti",
+   "Lapidus Pour Homme"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 10.1
+ },
+ {
+  "label": "the 60 quiz bottles all kept",
+  "rated": 60,
+  "gate": true,
+  "enginePicks": [
+   "Gris Charnel Extrait",
+   "Azzaro pour Homme",
+   "Jaguar For Men"
+  ],
+  "pagePicks": [
+   "Gris Charnel Extrait",
+   "Azzaro pour Homme",
+   "Jaguar For Men"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 10.6
+ },
+ {
+  "label": "the 60 quiz bottles all turned in the base",
+  "rated": 60,
+  "gate": true,
+  "enginePicks": [
+   "Tears From The Moon",
+   "My Burberry Blush",
+   "Touch"
+  ],
+  "pagePicks": [
+   "Tears From The Moon",
+   "My Burberry Blush",
+   "Touch"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 988,
+  "broken": [],
+  "ms": 4.3
+ },
+ {
+  "label": "the 60 quiz bottles all turned in the base, every complaint",
+  "rated": 60,
+  "gate": true,
+  "enginePicks": [
+   "Tears From The Moon",
+   "My Burberry Blush",
+   "Touch"
+  ],
+  "pagePicks": [
+   "Tears From The Moon",
+   "My Burberry Blush",
+   "Touch"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 988,
+  "broken": [],
+  "ms": 3.4
+ },
+ {
+  "label": "one bottle kept, nothing else",
+  "rated": 1,
+  "gate": false,
+  "enginePicks": [
+   "Not a Perfume",
+   "Tygar",
+   "Imagination"
+  ],
+  "pagePicks": [],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 2.4
+ },
+ {
+  "label": "one bottle turned, nothing else",
+  "rated": 1,
+  "gate": false,
+  "enginePicks": [
+   "Un Jardin sur le Nil",
+   "Wulong Cha",
+   "Sycomore Eau de Parfum"
+  ],
+  "pagePicks": [],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 342,
+  "broken": [],
+  "ms": 1.3
+ },
+ {
+  "label": "two bottles turned, every complaint told",
+  "rated": 2,
+  "gate": true,
+  "enginePicks": [
+   "Scandal Pour Homme Le Parfum",
+   "Hugo Iced",
+   "Pesca"
+  ],
+  "pagePicks": [
+   "Scandal Pour Homme Le Parfum",
+   "Hugo Iced",
+   "Pesca"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 539,
+  "broken": [],
+  "ms": 2.6
+ },
+ {
+  "label": "only avoided notes, no bottle",
+  "rated": 0,
+  "gate": false,
+  "enginePicks": [
+   "H24",
+   "Bloom",
+   "Qaed Al Fursan"
+  ],
+  "pagePicks": [],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 15,
+  "broken": [],
+  "ms": 4.7
+ },
+ {
+  "label": "one note loved, no bottle",
+  "rated": 0,
+  "gate": true,
+  "enginePicks": [
+   "Afternoon Swim",
+   "Glacier Bold",
+   "Silver Shade"
+  ],
+  "pagePicks": [
+   "Afternoon Swim",
+   "Glacier Bold",
+   "Silver Shade"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 1.8
+ },
+ {
+  "label": "profiler, 100 perfumes rated at random",
+  "rated": 100,
+  "gate": true,
+  "enginePicks": [
+   "Defy Parfum",
+   "Chocolate Greedy",
+   "Replica Coffee Break"
+  ],
+  "pagePicks": [
+   "Defy Parfum",
+   "Chocolate Greedy",
+   "Replica Coffee Break"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 2,
+  "broken": [],
+  "ms": 5.9
+ },
+ {
+  "label": "profiler, 400 perfumes rated at random",
+  "rated": 400,
+  "gate": true,
+  "enginePicks": [
+   "Arabs of Diriyah",
+   "Bonsoir",
+   "Rose Malaki"
+  ],
+  "pagePicks": [
+   "Arabs of Diriyah",
+   "Bonsoir",
+   "Rose Malaki"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 7.9
+ },
+ {
+  "label": "profiler, 1000 perfumes rated at random",
+  "rated": 1000,
+  "gate": true,
+  "enginePicks": [],
+  "pagePicks": [],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 10.8
+ }
+]

@@ -1,0 +1,51 @@
+{
+ "visitors": 2000,
+ "seed": 307,
+ "levels": {
+  "0": {
+   "shown": 1944,
+   "rules": {
+    "ranking of 0164d00": {
+     "keep": 0.7448273891175108,
+     "turn": 0.09394147233653413,
+     "mostPicked": "Molecule 01 13%"
+    },
+    "site ranking": {
+     "keep": 0.751074531321444,
+     "turn": 0.10276634659350732,
+     "mostPicked": "Grand Soir 4%"
+    }
+   }
+  },
+  "0.15": {
+   "shown": 1952,
+   "rules": {
+    "ranking of 0164d00": {
+     "keep": 0.7318021402550088,
+     "turn": 0.0991689435336978,
+     "mostPicked": "Grand Soir 14%"
+    },
+    "site ranking": {
+     "keep": 0.7408071493624767,
+     "turn": 0.10745104735883441,
+     "mostPicked": "Grand Soir 4%"
+    }
+   }
+  },
+  "0.3": {
+   "shown": 1943,
+   "rules": {
+    "ranking of 0164d00": {
+     "keep": 0.7304912220506664,
+     "turn": 0.10459770114942538,
+     "mostPicked": "Grand Soir 15%"
+    },
+    "site ranking": {
+     "keep": 0.7342940470063474,
+     "turn": 0.11135700806313296,
+     "mostPicked": "Grand Soir 3%"
+    }
+   }
+  }
+ }
+}

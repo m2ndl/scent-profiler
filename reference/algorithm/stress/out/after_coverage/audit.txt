@@ -1,0 +1,13 @@
+visitors 1500, with a palate 1428
+
+drawn_from_unkept_bottle: 318
+   sandalwood_creamy: [guccibloom:other | lunarossablack:still {"citrus_fresh":2} | legend:turned@drydown {"fruity_sweet":-1,"oakmoss_chypre":-2,"sandalwood_creamy":2}] taste=bitter cards={"cedar":-1,"grapefruit":1,"fig":-1,"benzoin":1} -> The Amber Palate
+   fruity_sweet: [emotion:shop {"citrus_fresh":-2,"fruity_sweet":2}] taste=bitter cards={"rose":-1,"coconut":1,"caraway":1} -> The Selective Palate
+   woody_amber: [bleuedp:still {"spicy_warm":0,"spice_fresh":0,"woody_amber":0} | sauvageedp:turned@drydown {"woody_amber":2} | cdnim:shop {"leather_smoky":-1} | crystalnoir:other] taste=sweet cards={"milk":-1,"coconut":1,"peony":1} -> The Woody Palate
+   rose: [legend:still {"fruity_sweet":1,"oakmoss_chypre":0} | blacktoblack:turned@drydown {"saffron_leathery":-1,"rose":2,"patchouli":2,"leather_smoky":-1} | gentlemanedpboisee:still {"spice_fresh":-1}] taste=unsure cards={"apple":-1,"rosewood":-1,"peony":1,"sea_salt":-1} -> The Woody and Amber Palate
+
+avoided_but_drawn_unexplained: 5
+   magnolia->white_floral: [onlywhite:turned@heart {"white_floral":2,"white_musk":0} | reef33:shop {"saffron_leathery":0} | explorer:still {"citrus_fresh":1,"vetiver":1,"patchouli":1,"woody_amber":2} | bleuedp:still {"cedar_dry":2,"woody_amber":1}] taste=bitter cards={"violet_leaf":-1,"magnolia":-1} -> The Woody Palate
+   magnolia->white_floral: [onlywhite:turned@heart {"white_floral":2,"white_musk":0} | reef33:shop {"saffron_leathery":0} | explorer:still {"citrus_fresh":1,"vetiver":1,"patchouli":1,"woody_amber":2} | bleuedp:still {"cedar_dry":2,"woody_amber":1}] taste=bitter cards={"violet_leaf":-1,"magnolia":-1} -> The Woody Palate
+   magnolia->white_floral: [onlywhite:turned@heart {"white_floral":2,"white_musk":0} | reef33:shop {"saffron_leathery":0} | explorer:still {"citrus_fresh":1,"vetiver":1,"patchouli":1,"woody_amber":2} | bleuedp:still {"cedar_dry":2,"woody_amber":1}] taste=bitter cards={"violet_leaf":-1,"magnolia":-1} -> The Woody Palate
+   magnolia->white_floral: [onlywhite:turned@heart {"white_floral":2,"white_musk":0} | reef33:shop {"saffron_leathery":0} | explorer:still {"citrus_fresh":1,"vetiver":1,"patchouli":1,"woody_amber":2} | bleuedp:still {"cedar_dry":2,"woody_amber":1}] taste=bitter cards={"violet_leaf":-1,"magnolia":-1} -> The Woody Palate

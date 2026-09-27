@@ -1,0 +1,125 @@
+visitors per population 2000, seed 211; the site's recommend() picked what the engine of 0164d00 picks for 550 of 15014 visitors, and what "likes once, traces unmet, side of kept, else tried" picks for 15014
+
+Three bottles, every answer, mean over 5 seeds (range)
+| variant                                                         | distinct | top 10 share | effective number | most picked | no liking in common, share a pick | kept             | turn             | other gender | niche |
+|-----------------------------------------------------------------|----------|--------------|------------------|-------------|-----------------------------------|------------------|------------------|--------------|-------|
+| engine                                                          | 661      | 25%          | 96               | 15%         | 8% (8% to 8%)                     | 74% (73% to 75%) | 9% (9% to 10%)   | 22%          | 40%   |
+| likes once                                                      | 828      | 9%           | 344              | 5%          | 2% (2% to 2%)                     | 74% (73% to 75%) | 11% (10% to 11%) | 30%          | 21%   |
+| traces unmet                                                    | 649      | 24%          | 103              | 13%         | 7% (7% to 7%)                     | 75% (75% to 76%) | 9% (9% to 9%)    | 21%          | 40%   |
+| the side of kept bottles                                        | 660      | 25%          | 90               | 16%         | 9% (8% to 9%)                     | 74% (73% to 74%) | 9% (9% to 10%)   | 13%          | 43%   |
+| the side of kept, else tried bottles                            | 654      | 25%          | 89               | 16%         | 9% (8% to 9%)                     | 73% (73% to 74%) | 10% (9% to 10%)  | 8%           | 45%   |
+| likes once, traces unmet                                        | 832      | 9%           | 372              | 4%          | 2% (2% to 2%)                     | 76% (75% to 76%) | 10% (10% to 11%) | 29%          | 21%   |
+| likes once, traces unmet, side of kept bottles                  | 837      | 8%           | 373              | 4%          | 2% (2% to 2%)                     | 75% (74% to 76%) | 10% (10% to 11%) | 16%          | 24%   |
+| likes once, traces unmet, side of kept, else tried              | 834      | 8%           | 372              | 4%          | 2% (2% to 2%)                     | 75% (74% to 75%) | 10% (10% to 11%) | 11%          | 25%   |
+| all once, traces unmet, side of kept, else tried                | 826      | 8%           | 363              | 4%          | 2% (2% to 2%)                     | 75% (74% to 75%) | 10% (10% to 11%) | 11%          | 26%   |
+| likes once, traces unmet, side of kept, else tried, else unisex | 805      | 9%           | 327              | 4%          | 2% (2% to 2%)                     | 74% (73% to 75%) | 10% (10% to 11%) | 4%           | 31%   |
+  engine: Molecule 01 15%; Grand Soir 13%; Not a Perfume 12%; Vanilla 28 7%; Narciso Eau de Parfum Ambrée 5%
+  likes once: Leather Patchouli 6%; Narciso Eau de Parfum Ambrée 5%; Hugo Iced 4%; Agua Brava 3%; Champion 2%
+  traces unmet: Not a Perfume 14%; Grand Soir 11%; Molecule 01 9%; Vanilla 28 8%; Eclaire 6%
+  the side of kept bottles: Molecule 01 16%; Grand Soir 13%; Not a Perfume 13%; Vanilla 28 8%; Un Bois Vanille 5%
+  the side of kept, else tried bottles: Molecule 01 16%; Grand Soir 14%; Not a Perfume 13%; Vanilla 28 8%; Un Bois Vanille 5%
+  likes once, traces unmet: Leather Patchouli 4%; Hugo Iced 3%; Narciso Eau de Parfum Ambrée 3%; Agua Brava 3%; Legend Eau de Parfum 2%
+  likes once, traces unmet, side of kept bottles: Leather Patchouli 4%; Hugo Iced 3%; Grand Soir 3%; Legend Eau de Parfum 3%; Agua Brava 2%
+  likes once, traces unmet, side of kept, else tried: Leather Patchouli 4%; Hugo Iced 3%; Grand Soir 3%; Sycomore Eau de Parfum 2%; Legend Eau de Parfum 2%
+  all once, traces unmet, side of kept, else tried: Leather Patchouli 4%; Grand Soir 3%; Hugo Iced 3%; Sycomore Eau de Parfum 3%; Not a Perfume 2%
+  likes once, traces unmet, side of kept, else tried, else unisex: Leather Patchouli 4%; Sycomore Eau de Parfum 3%; Grand Soir 3%; Un Bois Vanille 3%; Moon Fever 2%
+
+Three bottles, verdicts only
+| variant                                                         | distinct | top 10 share | effective number | most picked | no liking in common, share a pick | kept | turn | other gender | niche |
+|-----------------------------------------------------------------|----------|--------------|------------------|-------------|-----------------------------------|------|------|--------------|-------|
+| engine                                                          | 430      | 34%          | 53               | 21%         | 14%                               | 60%  | 16%  | 18%          | 47%   |
+| likes once                                                      | 562      | 17%          | 138              | 15%         | 6%                                | 60%  | 18%  | 26%          | 30%   |
+| traces unmet                                                    | 384      | 34%          | 54               | 21%         | 14%                               | 61%  | 16%  | 17%          | 48%   |
+| the side of kept bottles                                        | 423      | 35%          | 50               | 23%         | 15%                               | 61%  | 16%  | 10%          | 51%   |
+| the side of kept, else tried bottles                            | 423      | 35%          | 50               | 23%         | 15%                               | 60%  | 16%  | 6%           | 51%   |
+| likes once, traces unmet                                        | 542      | 16%          | 161              | 9%          | 5%                                | 61%  | 18%  | 26%          | 31%   |
+| likes once, traces unmet, side of kept bottles                  | 550      | 17%          | 152              | 11%         | 5%                                | 60%  | 18%  | 12%          | 35%   |
+| likes once, traces unmet, side of kept, else tried              | 550      | 18%          | 146              | 11%         | 5%                                | 60%  | 18%  | 8%           | 37%   |
+| all once, traces unmet, side of kept, else tried                | 535      | 20%          | 131              | 11%         | 6%                                | 61%  | 18%  | 8%           | 40%   |
+| likes once, traces unmet, side of kept, else tried, else unisex | 541      | 18%          | 140              | 11%         | 5%                                | 60%  | 18%  | 5%           | 39%   |
+  engine: Molecule 01 21%; Grand Soir 19%; Not a Perfume 16%; Vanilla 28 9%; Narciso Eau de Parfum Ambrée 8%
+  likes once: Leather Patchouli 15%; Narciso Eau de Parfum Ambrée 7%; Arabs of Diriyah 6%; Sycomore Eau de Parfum 5%; Arabian Knight Silver 4%
+  traces unmet: Not a Perfume 21%; Grand Soir 14%; Vanilla 28 14%; Molecule 01 13%; Blessed Baraka 10%
+  the side of kept bottles: Molecule 01 23%; Grand Soir 19%; Not a Perfume 17%; Vanilla 28 10%; Blessed Baraka 8%
+  the side of kept, else tried bottles: Molecule 01 23%; Grand Soir 19%; Not a Perfume 17%; Vanilla 28 10%; Blessed Baraka 8%
+  likes once, traces unmet: Leather Patchouli 9%; Sycomore Eau de Parfum 5%; Encre Noire 4%; Narciso Eau de Parfum Ambrée 4%; H24 4%
+  likes once, traces unmet, side of kept bottles: Leather Patchouli 11%; Sycomore Eau de Parfum 6%; Another 13 5%; Vanilla 28 5%; Not a Perfume 4%
+  likes once, traces unmet, side of kept, else tried: Leather Patchouli 11%; Sycomore Eau de Parfum 7%; Another 13 5%; Vanilla 28 5%; Irish Leather 5%
+  all once, traces unmet, side of kept, else tried: Leather Patchouli 11%; Sycomore Eau de Parfum 9%; Not a Perfume 7%; Philosykos 6%; Another 13 5%
+  likes once, traces unmet, side of kept, else tried, else unisex: Leather Patchouli 11%; Sycomore Eau de Parfum 8%; Another 13 5%; Vanilla 28 5%; Irish Leather 5%
+
+Eight bottles, every answer
+| variant                                                         | distinct | top 10 share | effective number | most picked | no liking in common, share a pick | kept | turn | other gender | niche |
+|-----------------------------------------------------------------|----------|--------------|------------------|-------------|-----------------------------------|------|------|--------------|-------|
+| engine                                                          | 649      | 21%          | 111              | 16%         | 7%                                | 76%  | 8%   | 24%          | 36%   |
+| likes once                                                      | 770      | 11%          | 262              | 9%          | 3%                                | 75%  | 9%   | 30%          | 21%   |
+| traces unmet                                                    | 677      | 21%          | 115              | 17%         | 7%                                | 77%  | 8%   | 23%          | 36%   |
+| the side of kept bottles                                        | 661      | 22%          | 102              | 18%         | 8%                                | 75%  | 8%   | 9%           | 41%   |
+| the side of kept, else tried bottles                            | 664      | 22%          | 102              | 18%         | 8%                                | 75%  | 8%   | 8%           | 41%   |
+| likes once, traces unmet                                        | 793      | 10%          | 306              | 8%          | 2%                                | 76%  | 9%   | 29%          | 21%   |
+| likes once, traces unmet, side of kept bottles                  | 807      | 10%          | 286              | 9%          | 3%                                | 76%  | 9%   | 11%          | 25%   |
+| likes once, traces unmet, side of kept, else tried              | 807      | 10%          | 285              | 9%          | 3%                                | 76%  | 9%   | 10%          | 25%   |
+| all once, traces unmet, side of kept, else tried                | 800      | 10%          | 280              | 9%          | 3%                                | 76%  | 9%   | 10%          | 26%   |
+| likes once, traces unmet, side of kept, else tried, else unisex | 803      | 10%          | 277              | 9%          | 3%                                | 76%  | 9%   | 8%           | 27%   |
+  engine: Grand Soir 16%; Molecule 01 13%; Not a Perfume 6%; Dior Homme (2020) 6%; Leather Patchouli 5%
+  likes once: Leather Patchouli 9%; Azzaro pour Homme 3%; Narciso Eau de Parfum Ambrée 3%; Gris Charnel Extrait 3%; Prada L'Homme Intense 3%
+  traces unmet: Grand Soir 17%; Molecule 01 10%; Not a Perfume 7%; Vanilla 28 5%; Eclaire 4%
+  the side of kept bottles: Grand Soir 18%; Molecule 01 14%; Not a Perfume 7%; Leather Patchouli 6%; Vanilla 28 5%
+  the side of kept, else tried bottles: Grand Soir 18%; Molecule 01 14%; Not a Perfume 7%; Leather Patchouli 6%; Vanilla 28 5%
+  likes once, traces unmet: Leather Patchouli 8%; Azzaro pour Homme 3%; Prada L'Homme Intense 3%; Narciso Eau de Parfum Ambrée 3%; Scandal By Night 3%
+  likes once, traces unmet, side of kept bottles: Leather Patchouli 9%; Gris Charnel Extrait 3%; Grand Soir 3%; Le Lion Eau de Parfum 3%; Scandal By Night 2%
+  likes once, traces unmet, side of kept, else tried: Leather Patchouli 9%; Gris Charnel Extrait 3%; Grand Soir 3%; Le Lion Eau de Parfum 3%; Scandal By Night 2%
+  all once, traces unmet, side of kept, else tried: Leather Patchouli 9%; Gris Charnel Extrait 3%; Grand Soir 3%; Le Lion Eau de Parfum 3%; Terroni 2%
+  likes once, traces unmet, side of kept, else tried, else unisex: Leather Patchouli 9%; Gris Charnel Extrait 4%; Grand Soir 3%; Le Lion Eau de Parfum 3%; Scandal By Night 2%
+
+Word answers only, no bottle
+| variant                                                         | distinct | top 10 share | effective number | most picked | no liking in common, share a pick | kept | turn | other gender | niche |
+|-----------------------------------------------------------------|----------|--------------|------------------|-------------|-----------------------------------|------|------|--------------|-------|
+| engine                                                          | 373      | 32%          | 60               | 16%         | 8%                                | 81%  | 9%   | 26%          | 45%   |
+| likes once                                                      | 483      | 28%          | 82               | 15%         | 7%                                | 80%  | 10%  | 33%          | 30%   |
+| traces unmet                                                    | 373      | 32%          | 60               | 16%         | 8%                                | 81%  | 9%   | 26%          | 45%   |
+| the side of kept bottles                                        | 373      | 32%          | 60               | 16%         | 8%                                | 81%  | 9%   | 26%          | 45%   |
+| the side of kept, else tried bottles                            | 373      | 32%          | 60               | 16%         | 8%                                | 81%  | 9%   | 26%          | 45%   |
+| likes once, traces unmet                                        | 483      | 28%          | 82               | 15%         | 7%                                | 80%  | 10%  | 33%          | 30%   |
+| likes once, traces unmet, side of kept bottles                  | 483      | 28%          | 82               | 15%         | 7%                                | 80%  | 10%  | 33%          | 30%   |
+| likes once, traces unmet, side of kept, else tried              | 483      | 28%          | 82               | 15%         | 7%                                | 80%  | 10%  | 33%          | 30%   |
+| all once, traces unmet, side of kept, else tried                | 471      | 29%          | 77               | 16%         | 7%                                | 80%  | 10%  | 32%          | 33%   |
+| likes once, traces unmet, side of kept, else tried, else unisex | 200      | 35%          | 52               | 18%         | 11%                               | 78%  | 10%  | 0%           | 63%   |
+  engine: Hugo Iced 16%; Tobacco Vanille 15%; Sycomore Eau de Parfum 14%; Un Bois Vanille 13%; Eclaire 9%
+  likes once: Hugo Iced 15%; Tobacco Vanille 13%; Legend Eau de Parfum 11%; Un Bois Vanille 9%; Champion 8%
+  traces unmet: Hugo Iced 16%; Tobacco Vanille 15%; Sycomore Eau de Parfum 14%; Un Bois Vanille 13%; Eclaire 9%
+  the side of kept bottles: Hugo Iced 16%; Tobacco Vanille 15%; Sycomore Eau de Parfum 14%; Un Bois Vanille 13%; Eclaire 9%
+  the side of kept, else tried bottles: Hugo Iced 16%; Tobacco Vanille 15%; Sycomore Eau de Parfum 14%; Un Bois Vanille 13%; Eclaire 9%
+  likes once, traces unmet: Hugo Iced 15%; Tobacco Vanille 13%; Legend Eau de Parfum 11%; Un Bois Vanille 9%; Champion 8%
+  likes once, traces unmet, side of kept bottles: Hugo Iced 15%; Tobacco Vanille 13%; Legend Eau de Parfum 11%; Un Bois Vanille 9%; Champion 8%
+  likes once, traces unmet, side of kept, else tried: Hugo Iced 15%; Tobacco Vanille 13%; Legend Eau de Parfum 11%; Un Bois Vanille 9%; Champion 8%
+  all once, traces unmet, side of kept, else tried: Hugo Iced 16%; Tobacco Vanille 13%; Legend Eau de Parfum 11%; Un Bois Vanille 9%; Champion 8%
+  likes once, traces unmet, side of kept, else tried, else unisex: Sycomore Eau de Parfum 18%; Tobacco Vanille 16%; Afternoon Swim 15%; Un Bois Vanille 14%; Angels' Share 9%
+
+Robustness, 1953 visitors (three bottles, every answer)
+| variant                                                         | same picks, catalogue in another order | same picks, tags shaken 15% | ten most picked still in the ten, tags shaken |
+|-----------------------------------------------------------------|----------------------------------------|-----------------------------|-----------------------------------------------|
+| engine                                                          | 98%                                    | 33%                         | 7                                             |
+| likes once                                                      | 97%                                    | 25%                         | 5                                             |
+| traces unmet                                                    | 98%                                    | 33%                         | 6                                             |
+| the side of kept bottles                                        | 98%                                    | 34%                         | 7                                             |
+| the side of kept, else tried bottles                            | 98%                                    | 34%                         | 7                                             |
+| likes once, traces unmet                                        | 97%                                    | 24%                         | 4                                             |
+| likes once, traces unmet, side of kept bottles                  | 97%                                    | 25%                         | 4                                             |
+| likes once, traces unmet, side of kept, else tried              | 97%                                    | 25%                         | 4                                             |
+| all once, traces unmet, side of kept, else tried                | 97%                                    | 26%                         | 3                                             |
+| likes once, traces unmet, side of kept, else tried, else unisex | 97%                                    | 26%                         | 6                                             |
+
+Perfumes picked at least once over every population, and reachability (the share of the catalogue among the picks of a visitor whose liked families are its own)
+| variant                                                         | picked at least once | reachable | not reachable, e.g.                                     |
+|-----------------------------------------------------------------|----------------------|-----------|---------------------------------------------------------|
+| engine                                                          | 894                  | 65%       | Creed Aventus, Nishane Hacivat, Xerjoff Erba Pura       |
+| likes once                                                      | 966                  | 79%       | Creed Aventus, Nishane Hacivat, Parfums de Marly Layton |
+| traces unmet                                                    | 890                  | 65%       | Creed Aventus, Nishane Hacivat, Xerjoff Erba Pura       |
+| the side of kept bottles                                        | 898                  | 65%       | Creed Aventus, Nishane Hacivat, Xerjoff Erba Pura       |
+| the side of kept, else tried bottles                            | 892                  | 65%       | Creed Aventus, Nishane Hacivat, Xerjoff Erba Pura       |
+| likes once, traces unmet                                        | 968                  | 79%       | Creed Aventus, Nishane Hacivat, Parfums de Marly Layton |
+| likes once, traces unmet, side of kept bottles                  | 974                  | 79%       | Creed Aventus, Nishane Hacivat, Parfums de Marly Layton |
+| likes once, traces unmet, side of kept, else tried              | 973                  | 79%       | Creed Aventus, Nishane Hacivat, Parfums de Marly Layton |
+| all once, traces unmet, side of kept, else tried                | 969                  | 79%       | Creed Aventus, Nishane Hacivat, Parfums de Marly Layton |
+| likes once, traces unmet, side of kept, else tried, else unisex | 965                  | 25%       | Creed Aventus, Nishane Hacivat, Parfums de Marly Layton |

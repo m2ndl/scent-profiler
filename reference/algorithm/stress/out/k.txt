@@ -1,0 +1,12 @@
+engine of 0164d00: 1452 visitors shown picks, 4356 pick cards; "which you like" naming a family known only from traces: 676 (16%); "your answers lean against" one: 3
+    Molecule 01: "Has cedar_dry, which you like"
+    Goldea The Roman Night Absolute: "Has patchouli, which you like"
+    The One For Men Eau de Parfum Intense: "Has patchouli, which you like"
+    Molecule 01: "Has cedar_dry, woody_amber, which you like"
+site engine: 1452 visitors shown picks, 4356 pick cards; "which you like" naming a family known only from traces: 0 (0%); "your answers lean against" one: 0
+groups of perfumes with identical tags: 5
+    Yves Saint Laurent Y Eau de Parfum = Lattafa Fakhar Black
+    Initio Oud for Greatness = Lattafa Bade'e Al Oud Oud for Glory
+    Al Haramain Amber Oud Ruby = Fragrance World Barakkat Rouge 540
+    Calvin Klein Sheer Beauty = Lattafa Maahir
+    Ajmal Musk Silk = Ajmal Musk Silk Supreme

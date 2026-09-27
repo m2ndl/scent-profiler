@@ -1,0 +1,109 @@
+{
+ "inputs": 20000,
+ "seed": 31,
+ "seen": {
+  "quiz": 20000,
+  "quiz: picks": 60000,
+  "quiz: 'free of' lines": 54095,
+  "profiler": 20000,
+  "profiler: picks": 60000,
+  "profiler: 'free of' lines": 103833,
+  "profiler: picks counted in 'ruled out'": 1376,
+  "quiz: picks counted in 'ruled out'": 93
+ },
+ "tally": {},
+ "examples": {},
+ "hostile": [
+  {
+   "name": "rating 99",
+   "ok": true,
+   "picks": [
+    "imagination",
+    "tygar",
+    "myslf"
+   ],
+   "top": [
+    "white_musk badPossible -2.00",
+    "sandalwood_creamy badPossible -2.00"
+   ]
+  },
+  {
+   "name": "rating as a string",
+   "ok": true,
+   "picks": [
+    "imagination",
+    "tygar",
+    "myslf"
+   ],
+   "top": [
+    "white_musk badPossible -2.00",
+    "sandalwood_creamy badPossible -2.00"
+   ]
+  },
+  {
+   "name": "note answer 1e6",
+   "ok": true,
+   "picks": [
+    "raregold",
+    "caroherr212sexymen",
+    "rasaattarmubakhar"
+   ],
+   "top": [
+    "vanilla_gourmand goodPossible 1.00",
+    "white_musk goodPossible 1.00"
+   ]
+  },
+  {
+   "name": "chips not a list",
+   "ok": true,
+   "picks": [
+    "franckolivier",
+    "gabrielleessence",
+    "musktherapy"
+   ],
+   "top": [
+    "woody_amber badPossible -2.00",
+    "vanilla_gourmand neutral 0.25"
+   ]
+  },
+  {
+   "name": "unknown perfume id",
+   "ok": true,
+   "picks": [
+    "franckolivier",
+    "gabrielleessence",
+    "sheerbeauty"
+   ],
+   "top": [
+    "vanilla_gourmand goodPossible 1.00",
+    "white_musk goodPossible 1.00"
+   ]
+  },
+  {
+   "name": "record without chips",
+   "ok": true,
+   "picks": [
+    "franckolivier",
+    "gabrielleessence",
+    "musktherapy"
+   ],
+   "top": [
+    "woody_amber badPossible -2.00",
+    "vanilla_gourmand neutral 0.25"
+   ]
+  },
+  {
+   "name": "unnoticed as a string",
+   "ok": true,
+   "picks": [
+    "franckolivier",
+    "gabrielleessence",
+    "musktherapy"
+   ],
+   "top": [
+    "woody_amber badPossible -2.00",
+    "vanilla_gourmand neutral 0.25"
+   ]
+  }
+ ]
+}

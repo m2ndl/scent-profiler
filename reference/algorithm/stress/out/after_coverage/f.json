@@ -1,0 +1,152 @@
+{
+ "wearers": 1500,
+ "palateNamed": 0.726,
+ "special": {
+  "selective": 315,
+  "none": 96
+ },
+ "leadRight": 0.20752984389348025,
+ "anyLikedGroup": 0.5289256198347108,
+ "noLikedGroup": 0.47107438016528924,
+ "constantBest": 0.24058769513314968,
+ "constantGroup": "woody",
+ "constantAnyBest": 0.5169880624426079,
+ "constantAnyGroup": "woody",
+ "confusion": {
+  "sweet": {
+   "sweet": 32,
+   "musk": 22,
+   "woody": 37,
+   "selective": 38,
+   "none": 8,
+   "oud": 8,
+   "fresh": 2,
+   "amber": 4,
+   "floral": 3
+  },
+  "floral": {
+   "oud": 15,
+   "selective": 25,
+   "none": 12,
+   "sweet": 18,
+   "woody": 29,
+   "floral": 15,
+   "musk": 22,
+   "amber": 7,
+   "fresh": 1
+  },
+  "woody": {
+   "oud": 22,
+   "woody": 115,
+   "sweet": 39,
+   "musk": 36,
+   "floral": 16,
+   "none": 22,
+   "fresh": 8,
+   "selective": 66,
+   "amber": 22,
+   "spiced": 3,
+   "rose": 1
+  },
+  "fresh": {
+   "musk": 35,
+   "amber": 20,
+   "oud": 29,
+   "sweet": 47,
+   "selective": 71,
+   "woody": 64,
+   "none": 20,
+   "fresh": 11,
+   "floral": 11,
+   "spiced": 2
+  },
+  "musk": {
+   "sweet": 5,
+   "musk": 16,
+   "woody": 12,
+   "none": 5,
+   "oud": 8,
+   "selective": 9,
+   "amber": 2
+  },
+  "amber": {
+   "musk": 17,
+   "woody": 37,
+   "sweet": 28,
+   "oud": 13,
+   "none": 11,
+   "amber": 16,
+   "spiced": 2,
+   "selective": 34,
+   "floral": 6,
+   "fresh": 2
+  },
+  "oud": {
+   "selective": 41,
+   "musk": 16,
+   "none": 8,
+   "oud": 17,
+   "floral": 7,
+   "sweet": 16,
+   "woody": 32,
+   "amber": 8,
+   "fresh": 5
+  },
+  "rose": {
+   "woody": 11,
+   "sweet": 6,
+   "floral": 3,
+   "selective": 10,
+   "amber": 4,
+   "oud": 5,
+   "musk": 6,
+   "fresh": 4,
+   "rose": 2,
+   "none": 2
+  },
+  "spiced": {
+   "amber": 9,
+   "musk": 13,
+   "selective": 21,
+   "none": 8,
+   "woody": 26,
+   "sweet": 23,
+   "spiced": 2,
+   "oud": 5,
+   "floral": 5,
+   "rose": 2,
+   "fresh": 2
+  }
+ },
+ "goodChipsTrue": 0.19738671114817974,
+ "goodChipsMild": 0.4120100083402824,
+ "badChipsTrue": 0.33758389261744964,
+ "freeWatch": 0,
+ "picks": 4407,
+ "freeWatchEx": [],
+ "lovedBad": 0,
+ "lovedBadSame": 0,
+ "lovedBadOther": 0,
+ "lovedBadEx": [],
+ "parity": {
+  "n": 300,
+  "palate": 300,
+  "picks": 300,
+  "ex": []
+ },
+ "retest": {
+  "n": 500,
+  "same": 277,
+  "bothNamed": 464,
+  "sameNamed": 255
+ },
+ "fixedCase": [
+  {
+   "cls": "mixed",
+   "f": "vanilla_gourmand",
+   "lines": [
+    "Supremacy Noir: you liked the vanilla (hours later)"
+   ]
+  }
+ ]
+}

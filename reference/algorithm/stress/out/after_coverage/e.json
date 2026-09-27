@@ -1,0 +1,84 @@
+{
+ "withBottles": {
+  "wearers": 2916,
+  "gender": {
+   "engine": 0.11705532693187014,
+   "random": 0.3635116598079561,
+   "ownBottles": 0.06779951939581187,
+   "forWomen": 0.13557384545038867,
+   "forMen": 0.09853680841335162,
+   "anyOpposite": 0.20473251028806586
+  },
+  "tiers": {
+   "niche": 0.26200274348423136,
+   "designer": 0.4892546867855134,
+   "arab": 0.24874256973023273
+  },
+  "catTiers": {
+   "niche": 0.19300000000000014,
+   "designer": 0.5950000000000004,
+   "arab": 0.21200000000000016
+  },
+  "distinct": 868,
+  "top10Share": 0.08070416095107454,
+  "gini": 0.5796296296296296,
+  "top10": [
+   "Montale Leather Patchouli (u, niche): 3.6% of wearers",
+   "Maison Francis Kurkdjian Grand Soir (u, niche): 3.2% of wearers",
+   "Serge Lutens Un Bois Vanille (u, niche): 2.8% of wearers",
+   "Hugo Boss Hugo Iced (m, designer): 2.8% of wearers",
+   "Chanel Sycomore Eau de Parfum (u, niche): 2.2% of wearers",
+   "Tom Ford Tobacco Vanille (u, niche): 2.2% of wearers",
+   "Le Labo Another 13 (u, niche): 1.9% of wearers",
+   "Davidoff Champion (m, designer): 1.9% of wearers",
+   "Jean Paul Gaultier La Belle Le Parfum (f, designer): 1.8% of wearers",
+   "Montblanc Legend Eau de Parfum (m, designer): 1.8% of wearers"
+  ],
+  "redundant": 0.033950617283950615,
+  "redEx": [
+   "Le Male Elixir recommended to a wearer who rated Le Male Le Parfum",
+   "Explorer Ultra Blue recommended to a wearer who rated Explorer",
+   "Club de Nuit Urban Man Elixir recommended to a wearer who rated Club de Nuit Intense Man",
+   "Hawas Black recommended to a wearer who rated Hawas",
+   "Interlude Black Iris recommended to a wearer who rated Interlude Man"
+  ]
+ },
+ "wordsOnly": {
+  "wearers": 2751,
+  "gender": {
+   "engine": 0.3220647037440931,
+   "random": 0.3632618441778747,
+   "ownBottles": 0,
+   "forWomen": 0.4109723242713691,
+   "forMen": 0.23501199040767387,
+   "anyOpposite": 0.569611050527081
+  },
+  "tiers": {
+   "designer": 0.5579789167575503,
+   "niche": 0.3098267296740574,
+   "arab": 0.132194353568401
+  },
+  "catTiers": {
+   "niche": 0.19300000000000014,
+   "designer": 0.5950000000000004,
+   "arab": 0.21200000000000016
+  },
+  "distinct": 541,
+  "top10Share": 0.2599054889131225,
+  "gini": 0.8410055737307646,
+  "top10": [
+   "Hugo Boss Hugo Iced (m, designer): 14.6% of wearers",
+   "Tom Ford Tobacco Vanille (u, niche): 12.6% of wearers",
+   "Montblanc Legend Eau de Parfum (m, designer): 9.9% of wearers",
+   "Serge Lutens Un Bois Vanille (u, niche): 8.0% of wearers",
+   "Jean Paul Gaultier Le Male Elixir (m, designer): 6.9% of wearers",
+   "Jean Paul Gaultier La Belle Le Parfum (f, designer): 6.6% of wearers",
+   "Davidoff Champion (m, designer): 6.3% of wearers",
+   "Louis Vuitton Afternoon Swim (u, niche): 5.2% of wearers",
+   "Valentino Born in Roma the Gold Donna (f, designer): 4.1% of wearers",
+   "Reef Pesca (u, arab): 3.9% of wearers"
+  ],
+  "redundant": 0,
+  "redEx": []
+ }
+}

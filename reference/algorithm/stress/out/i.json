@@ -1,0 +1,258 @@
+[
+ {
+  "label": "every note card avoided, no bottle",
+  "rated": 0,
+  "gate": false,
+  "enginePicks": [
+   "Silver Shade",
+   "H24",
+   "Afternoon Swim"
+  ],
+  "pagePicks": [],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 947,
+  "broken": [],
+  "ms": 29.7
+ },
+ {
+  "label": "every note card avoided, three kept bottles",
+  "rated": 3,
+  "gate": true,
+  "enginePicks": [
+   "Grand Soir",
+   "Vanilla 28",
+   "Candy"
+  ],
+  "pagePicks": [
+   "Grand Soir",
+   "Vanilla 28",
+   "Candy"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 768,
+  "broken": [],
+  "ms": 24.3
+ },
+ {
+  "label": "every note card loved, no bottle",
+  "rated": 0,
+  "gate": true,
+  "enginePicks": [
+   "Lapidus Pour Homme",
+   "Jaguar For Men",
+   "Blue Jeans"
+  ],
+  "pagePicks": [
+   "Lapidus Pour Homme",
+   "Jaguar For Men",
+   "Blue Jeans"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 3.7
+ },
+ {
+  "label": "the 60 quiz bottles all kept",
+  "rated": 60,
+  "gate": true,
+  "enginePicks": [
+   "Jaguar For Men",
+   "Vetiver",
+   "Azzaro pour Homme"
+  ],
+  "pagePicks": [
+   "Jaguar For Men",
+   "Vetiver",
+   "Azzaro pour Homme"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 3.9
+ },
+ {
+  "label": "the 60 quiz bottles all turned in the base",
+  "rated": 60,
+  "gate": true,
+  "enginePicks": [
+   "Tears From The Moon",
+   "My Burberry Blush",
+   "Born in Roma the Gold Donna"
+  ],
+  "pagePicks": [
+   "Tears From The Moon",
+   "My Burberry Blush",
+   "Born in Roma the Gold Donna"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 988,
+  "broken": [],
+  "ms": 3.5
+ },
+ {
+  "label": "the 60 quiz bottles all turned in the base, every complaint",
+  "rated": 60,
+  "gate": true,
+  "enginePicks": [
+   "Tears From The Moon",
+   "My Burberry Blush",
+   "Born in Roma the Gold Donna"
+  ],
+  "pagePicks": [
+   "Tears From The Moon",
+   "My Burberry Blush",
+   "Born in Roma the Gold Donna"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 988,
+  "broken": [],
+  "ms": 2.8
+ },
+ {
+  "label": "one bottle kept, nothing else",
+  "rated": 1,
+  "gate": false,
+  "enginePicks": [
+   "Not a Perfume",
+   "Baccarat Rouge 540",
+   "Olympéa"
+  ],
+  "pagePicks": [],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 4
+ },
+ {
+  "label": "one bottle turned, nothing else",
+  "rated": 1,
+  "gate": false,
+  "enginePicks": [
+   "Bloom",
+   "Un Jardin sur le Nil",
+   "Wulong Cha"
+  ],
+  "pagePicks": [],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 342,
+  "broken": [],
+  "ms": 2
+ },
+ {
+  "label": "two bottles turned, every complaint told",
+  "rated": 2,
+  "gate": true,
+  "enginePicks": [
+   "Scandal Pour Homme Le Parfum",
+   "Hugo Iced",
+   "Pesca"
+  ],
+  "pagePicks": [
+   "Scandal Pour Homme Le Parfum",
+   "Hugo Iced",
+   "Pesca"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 539,
+  "broken": [],
+  "ms": 1.9
+ },
+ {
+  "label": "only avoided notes, no bottle",
+  "rated": 0,
+  "gate": false,
+  "enginePicks": [
+   "H24",
+   "Bloom",
+   "Qaed Al Fursan"
+  ],
+  "pagePicks": [],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 15,
+  "broken": [],
+  "ms": 4.1
+ },
+ {
+  "label": "one note loved, no bottle",
+  "rated": 0,
+  "gate": true,
+  "enginePicks": [
+   "Afternoon Swim",
+   "Island Dreams",
+   "Neroli Portofino"
+  ],
+  "pagePicks": [
+   "Afternoon Swim",
+   "Island Dreams",
+   "Neroli Portofino"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 1.4
+ },
+ {
+  "label": "profiler, 100 perfumes rated at random",
+  "rated": 100,
+  "gate": true,
+  "enginePicks": [
+   "Chocolate Greedy",
+   "Replica Coffee Break",
+   "Defy Parfum"
+  ],
+  "pagePicks": [
+   "Chocolate Greedy",
+   "Replica Coffee Break",
+   "Defy Parfum"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 2,
+  "broken": [],
+  "ms": 9.6
+ },
+ {
+  "label": "profiler, 400 perfumes rated at random",
+  "rated": 400,
+  "gate": true,
+  "enginePicks": [
+   "Bonsoir",
+   "Rose Malaki",
+   "Flora Gorgeous Gardenia Intense"
+  ],
+  "pagePicks": [
+   "Bonsoir",
+   "Rose Malaki",
+   "Flora Gorgeous Gardenia Intense"
+  ],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 5.4
+ },
+ {
+  "label": "profiler, 1000 perfumes rated at random",
+  "rated": 1000,
+  "gate": true,
+  "enginePicks": [],
+  "pagePicks": [],
+  "pageError": null,
+  "samePicks": true,
+  "ruledOut": 0,
+  "broken": [],
+  "ms": 7.2
+ }
+]

@@ -1,0 +1,36 @@
+
+Three bottles, note rows and told answers: 2916 wearers shown picks
+  picks of the other gender: 21% (for women 23%, for men 20%); random picks 36%; the wearers' own bottles 7%; wearers with at least one: 43%
+  tiers of the picks: niche 40%, designer 41%, arab 18%; catalogue: niche 19%, designer 60%, arab 21%
+  736 distinct perfumes picked; the ten most picked take 25% of all picks; Gini 0.77
+    Escentric Molecules Molecule 01 (u, niche): 14.5% of wearers
+    Maison Francis Kurkdjian Grand Soir (u, niche): 13.1% of wearers
+    Juliette Has a Gun Not a Perfume (u, niche): 12.1% of wearers
+    Kayali Vanilla 28 (u, designer): 7.0% of wearers
+    Lattafa Eclaire (f, arab): 5.3% of wearers
+    Serge Lutens Un Bois Vanille (u, niche): 4.8% of wearers
+    Swiss Arabian Jannet El Firdaus White (u, arab): 4.7% of wearers
+    Narciso Rodriguez Narciso Eau de Parfum Ambrée (f, designer): 4.4% of wearers
+    Dior Dior Homme (2020) (m, designer): 4.0% of wearers
+    Hugo Boss Hugo Iced (m, designer): 3.9% of wearers
+  wearers given a pick from the same line as a bottle they rated: 2%
+    Interlude Black Iris recommended to a wearer who rated Interlude Man
+    Explorer Ultra Blue recommended to a wearer who rated Explorer
+    Yara Candy recommended to a wearer who rated Yara
+    Bleu de Chanel Eau de Toilette recommended to a wearer who rated Bleu de Chanel Eau de Parfum
+    Oud for Greatness recommended to a wearer who rated Bade'e Al Oud Oud for Glory
+
+Told answers only, no bottle: 2751 wearers shown picks
+  picks of the other gender: 26% (for women 29%, for men 24%); random picks 36%; the wearers' own bottles 0%; wearers with at least one: 50%
+  tiers of the picks: designer 43%, niche 45%, arab 12%; catalogue: niche 19%, designer 60%, arab 21%
+  415 distinct perfumes picked; the ten most picked take 31% of all picks; Gini 0.89
+    Hugo Boss Hugo Iced (m, designer): 15.7% of wearers
+    Tom Ford Tobacco Vanille (u, niche): 15.1% of wearers
+    Serge Lutens Un Bois Vanille (u, niche): 13.8% of wearers
+    Chanel Sycomore Eau de Parfum (u, niche): 12.6% of wearers
+    Lattafa Eclaire (f, arab): 8.5% of wearers
+    Louis Vuitton Afternoon Swim (u, niche): 7.7% of wearers
+    Montblanc Legend Eau de Parfum (m, designer): 5.4% of wearers
+    Cartier Baiser Vole (f, designer): 5.2% of wearers
+    Juliette Has a Gun Not a Perfume (u, niche): 4.9% of wearers
+    Giorgio Armani Armani Prive Rouge Malachite (u, niche): 4.9% of wearers

@@ -1,0 +1,14 @@
+every note card avoided, no bottle: rated 0; picks shown 0 (gate closed); page showed 0, same as the engine: true; ruled out 947; promises broken none; engine 29.7 ms
+every note card avoided, three kept bottles: rated 3; picks shown 3 (Grand Soir, Vanilla 28, Candy); page showed 3, same as the engine: true; ruled out 768; promises broken none; engine 24.3 ms
+every note card loved, no bottle: rated 0; picks shown 3 (Lapidus Pour Homme, Jaguar For Men, Blue Jeans); page showed 3, same as the engine: true; ruled out 0; promises broken none; engine 3.7 ms
+the 60 quiz bottles all kept: rated 60; picks shown 3 (Jaguar For Men, Vetiver, Azzaro pour Homme); page showed 3, same as the engine: true; ruled out 0; promises broken none; engine 3.9 ms
+the 60 quiz bottles all turned in the base: rated 60; picks shown 3 (Tears From The Moon, My Burberry Blush, Born in Roma the Gold Donna); page showed 3, same as the engine: true; ruled out 988; promises broken none; engine 3.5 ms
+the 60 quiz bottles all turned in the base, every complaint: rated 60; picks shown 3 (Tears From The Moon, My Burberry Blush, Born in Roma the Gold Donna); page showed 3, same as the engine: true; ruled out 988; promises broken none; engine 2.8 ms
+one bottle kept, nothing else: rated 1; picks shown 0 (gate closed); page showed 0, same as the engine: true; ruled out 0; promises broken none; engine 4 ms
+one bottle turned, nothing else: rated 1; picks shown 0 (gate closed); page showed 0, same as the engine: true; ruled out 342; promises broken none; engine 2 ms
+two bottles turned, every complaint told: rated 2; picks shown 3 (Scandal Pour Homme Le Parfum, Hugo Iced, Pesca); page showed 3, same as the engine: true; ruled out 539; promises broken none; engine 1.9 ms
+only avoided notes, no bottle: rated 0; picks shown 0 (gate closed); page showed 0, same as the engine: true; ruled out 15; promises broken none; engine 4.1 ms
+one note loved, no bottle: rated 0; picks shown 3 (Afternoon Swim, Island Dreams, Neroli Portofino); page showed 3, same as the engine: true; ruled out 0; promises broken none; engine 1.4 ms
+profiler, 100 perfumes rated at random: rated 100; picks shown 3 (Chocolate Greedy, Replica Coffee Break, Defy Parfum); page showed 3, same as the engine: true; ruled out 2; promises broken none; engine 9.6 ms
+profiler, 400 perfumes rated at random: rated 400; picks shown 3 (Bonsoir, Rose Malaki, Flora Gorgeous Gardenia Intense); page showed 3, same as the engine: true; ruled out 0; promises broken none; engine 5.4 ms
+profiler, 1000 perfumes rated at random: rated 1000; picks shown 0 (); page showed 0, same as the engine: true; ruled out 0; promises broken none; engine 7.2 ms
