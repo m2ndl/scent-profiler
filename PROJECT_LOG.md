@@ -2,6 +2,43 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-28: session close, the scoring stress-tested and its defects fixed
+
+Session title: the scoring stress-tested and its defects fixed. All pushed and live (b93b223): the workflow's tests and
+deploy passed, and the live quiz and profile pages load with no console errors.
+
+- Stress test (reference/algorithm/stress/, REPORT.md): synthetic visitors with a hidden taste run through the real
+  engine and quiz page, from seven angles. The picks beat chance (74% kept and 9 to 10% turn, against about a third
+  turning for random or bestselling perfumes). What the result says about the visitor is weaker: the palate follows the
+  note rows when they are answered and otherwise the kept bottles' strongest base family; "Drawn to" families are true
+  likings about one time in five, the first deal-breaker about four in ten; a retest repeats palate and deal-breaker
+  about 55% of the time.
+- Owner's correction: no person tagged the catalogue (judgement tags by an earlier Claude session for 286, mapper tags
+  for 714). Against Fragrantica's crowd accords, now cached for the 214 older perfumes with a URL, the judgement tags
+  agree somewhat more than the mapper's (65% against 53% of strong families backed). README corrected.
+- Fixed (77c5f70) and reviewed twice by a bounded independent verifier (REVIEWS.md): a liked family shown as a
+  deal-breaker (through the same bottle, or through another under the old mixed rule), "Free of X" checking only the
+  base, class lines depending on rating order, unchecked stored values; and the verifier's follow-ups (an avoided note
+  gives way only to a kept bottle; a lopsided mixed family keeps its pick weight, so the golden's picks match 23cab69's).
+  Tests 113, each new one failing on the old engine.
+- The four commits of 27 Sep (the lean rule) went out with these; the stress test served as their review.
+
+Open, dated 28 Sep 2026 (operational):
+- Owner's calls from the stress test (REPORT.md, "What it points to"): how to name the palate when the note rows are
+  skipped (describe the bottles, or ask for the rows first); naming a deal-breaker only when a note row or a second
+  bottle singles it out, with the narrowing round drawing on the whole catalogue; counting in "ruled out" only what the
+  picks exclude; keeping picks to the visitor's gender side; the niche-heavy, minimalist picks (Molecule 01 goes to 14%
+  of visitors).
+- Two minor edges left: on the profiler a kept bottle's liked opening can lift an avoided note; a note liked only in
+  the first minutes can sit beside a deal-breaker from other bottles (by design; the page does not show the note).
+- Carried: owner to confirm the kept rule (27 Sep); the phone artifact not refreshed since the motion work;
+  reference/launch/ in or out of git; backend deployment; partner links.
+
+Reflective, not scheduled:
+- In the model the word answers carry most of the pick quality; how well real visitors know note names decides whether
+  that holds. Measure it once the backend collects events.
+- Settled: the 27 Sep item about a family liked in one kept bottle and disliked in another now shows it as mixed.
+
 ## 2026-09-27: session close, the quiz in motion and the lean rule
 
 Session title: the quiz in motion and the lean rule. The motion work is live (618dfb0). The algorithm fixes are
