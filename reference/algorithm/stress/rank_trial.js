@@ -9,6 +9,10 @@
                 "unmet": a family that no rated bottle holds at 0.4 or more and that the visitor never spoke about
                 (n = 0, no told item or lean) is treated as a family the visitor has not met.
                 "neutral": ... is left out of the score altogether.
+                "words" (the adopted rule, engine.js picksView): a family no rated stage holds at 0.4 or more is read
+                from the visitor's words alone (the profile's wordScore) when there are any, and is unmet when there
+                are none, so a trace never outweighs a word. ("unmet" let the traces back in, at full weight, as soon
+                as a word was given: an enjoyed note could lower the perfumes that hold it.)
      side       keep the picks to the visitor's side, one gender (men's or women's); unisex perfumes are on every side.
                 "kept": the one gender of the gendered bottles they kept (engine.kept); none when they kept no gendered
                 bottle, or kept both. "kept, else tried": the same, and when they kept no bottle at all, the one gender of
@@ -17,7 +21,8 @@
      r9         true: read each score to nine decimal places, as the classes do (the adopted engine), so that exact
                 ties between two candidates never depend on the order of the ratings.
      stages     the stages scored; unknownW the cost of a strong unmet family; norm divides by the tag mass.
-   The "likes once" loop keeps the engine's order of summing, so a site engine written the same way can be checked
+   The side rule counts catalogue bottles only (the synthetic visitors rate no other kind); the engine also reads the
+   gender of vendor and custom bottles. The "likes once" loop keeps the engine's order of summing, so a site engine written the same way can be checked
    against it pick for pick. */
 "use strict";
 const STAGES = ["opening", "heart", "drydown"];
@@ -55,7 +60,14 @@ function ranker(E, SW, opt, perfumes) {
     const likely = Object.entries(prof).filter(([, v]) => v.cls === "badLikely").map(([f]) => f);
     const bind = vetoOf(prof, avoid), scored = [];
     const side = opt.side ? sideOf(E, ratings, opt.side) : null;
-    const read = f => { const v = prof[f]; return opt.traces !== "count" && traceOnly(v) ? (opt.traces === "unmet" ? undefined : null) : v; };
+    const read0 = f => {
+      const v = prof[f];
+      if (opt.traces === "count" || !v || v.n > 0) return v;
+      if (opt.traces === "words") return v.toldEvidence && v.toldEvidence.length ? Object.assign({}, v, { score: v.wordScore }) : undefined;
+      return traceOnly(v) ? (opt.traces === "unmet" ? undefined : null) : v;
+    };
+    const view = {}; for (const f of Object.keys(prof)) view[f] = read0(f);
+    const read = f => view[f];
     for (const P of LIST) {
       if (ratings[P.id] || vetoed(P, bind)) continue;
       if (side && P.gender !== "u" && P.gender !== side) continue;

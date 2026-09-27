@@ -1,10 +1,10 @@
 2000 visitors (three bottles, every answer), seed 307; the engine reads shaken tags, the visitors smell the catalogue's
 
-| tags shaken | ranking            | kept | turn | most picked     |
-|-------------|--------------------|------|------|-----------------|
-| 0%          | ranking of 0164d00 | 74%  | 9%   | Molecule 01 13% |
-| 0%          | site ranking       | 75%  | 10%  | Grand Soir 4%   |
-| 15%         | ranking of 0164d00 | 73%  | 10%  | Grand Soir 14%  |
-| 15%         | site ranking       | 74%  | 11%  | Grand Soir 4%   |
-| 30%         | ranking of 0164d00 | 73%  | 10%  | Grand Soir 15%  |
-| 30%         | site ranking       | 73%  | 11%  | Grand Soir 3%   |
+| tags shaken | ranking            | kept | turn | most picked        |
+|-------------|--------------------|------|------|--------------------|
+| 0%          | ranking of 0164d00 | 74%  | 9%   | Molecule 01 13%    |
+| 0%          | site ranking       | 75%  | 10%  | Grand Soir 3%      |
+| 15%         | ranking of 0164d00 | 73%  | 10%  | Grand Soir 14%     |
+| 15%         | site ranking       | 74%  | 11%  | Grand Soir 4%      |
+| 30%         | ranking of 0164d00 | 73%  | 10%  | Grand Soir 15%     |
+| 30%         | site ranking       | 74%  | 11%  | Un Bois Vanille 3% |

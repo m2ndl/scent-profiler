@@ -25,12 +25,13 @@ const VARIANTS = {
   "likes once, traces unmet, side of kept bottles": { agg: "likes once", traces: "unmet", side: "kept" },
   "likes once, traces unmet, side of kept, else tried": { agg: "likes once", traces: "unmet", side: "kept, else tried", r9: true },
   "all once, traces unmet, side of kept, else tried": { agg: "once", traces: "unmet", side: "kept, else tried" },
-  "likes once, traces unmet, side of kept, else tried, else unisex": { agg: "likes once", traces: "unmet", side: "kept, else tried, else unisex" }
+  "likes once, traces unmet, side of kept, else tried, else unisex": { agg: "likes once", traces: "unmet", side: "kept, else tried, else unisex" },
+  "likes once, traces as words, side of kept, else tried": { agg: "likes once", traces: "words", side: "kept, else tried", r9: true }
 };
 const RANK = Object.fromEntries(Object.entries(VARIANTS).map(([k, o]) => [k, ranker(E, D.STAGE_W, o)]));
 /* the variant adopted in site/js/engine.js after commit 0164d00. The site's recommend() is checked against it and
    against the engine of 0164d00, so one of the two counts is complete. --check runs only this check. */
-const ADOPTED = "likes once, traces unmet, side of kept, else tried";
+const ADOPTED = "likes once, traces as words, side of kept, else tried";
 const CHECK_ONLY = process.argv.includes("--check");
 const POPS = [
   { key: "3VNT", label: "Three bottles, every answer", nb: 3, o: { notes: 0.6, told: true }, seeds: 5 },

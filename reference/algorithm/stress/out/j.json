@@ -545,6 +545,60 @@
       "Un Bois Vanille 3%",
       "Moon Fever 2%"
      ]
+    },
+    "likes once, traces as words, side of kept, else tried": {
+     "distinct": {
+      "mean": 833.4,
+      "min": 823,
+      "max": 838
+     },
+     "top10": {
+      "mean": 0.08135255510812847,
+      "min": 0.07819782496116003,
+      "max": 0.08516063233044364
+     },
+     "effective": {
+      "mean": 370.2516615237113,
+      "min": 356.2610168095776,
+      "max": 381.7366313658045
+     },
+     "top1": {
+      "mean": 0.034224291586388976,
+      "min": 0.02864450127877238,
+      "max": 0.03826530612244898
+     },
+     "apart": {
+      "mean": 0.01801919812404198,
+      "min": 0.01682459872365113,
+      "max": 0.02018513756749807
+     },
+     "keep": {
+      "mean": 0.7503619187043945,
+      "min": 0.7405201680188727,
+      "max": 0.7561125319693067
+     },
+     "turn": {
+      "mean": 0.1016964433568575,
+      "min": 0.09840863881784617,
+      "max": 0.10545485931296392
+     },
+     "otherGender": {
+      "mean": 0.1118341627567915,
+      "min": 0.1032312925170068,
+      "max": 0.11696504688832055
+     },
+     "niche": {
+      "mean": 0.2549463104291891,
+      "min": 0.24761904761904763,
+      "max": 0.265198087431694
+     },
+     "most": [
+      "Leather Patchouli 4%",
+      "Hugo Iced 3%",
+      "Sycomore Eau de Parfum 3%",
+      "Grand Soir 2%",
+      "Legend Eau de Parfum 2%"
+     ]
     }
    }
   },
@@ -1087,6 +1141,60 @@
      "most": [
       "Leather Patchouli 11%",
       "Sycomore Eau de Parfum 8%",
+      "Another 13 5%",
+      "Vanilla 28 5%",
+      "Irish Leather 5%"
+     ]
+    },
+    "likes once, traces as words, side of kept, else tried": {
+     "distinct": {
+      "mean": 550,
+      "min": 550,
+      "max": 550
+     },
+     "top10": {
+      "mean": 0.17762237762237762,
+      "min": 0.17762237762237762,
+      "max": 0.17762237762237762
+     },
+     "effective": {
+      "mean": 146.3220913037237,
+      "min": 146.3220913037237,
+      "max": 146.3220913037237
+     },
+     "top1": {
+      "mean": 0.10909090909090909,
+      "min": 0.10909090909090909,
+      "max": 0.10909090909090909
+     },
+     "apart": {
+      "mean": 0.0521415270018622,
+      "min": 0.0521415270018622,
+      "max": 0.0521415270018622
+     },
+     "keep": {
+      "mean": 0.6018570318570311,
+      "min": 0.6018570318570311,
+      "max": 0.6018570318570311
+     },
+     "turn": {
+      "mean": 0.18219891219891227,
+      "min": 0.18219891219891227,
+      "max": 0.18219891219891227
+     },
+     "otherGender": {
+      "mean": 0.08484848484848485,
+      "min": 0.08484848484848485,
+      "max": 0.08484848484848485
+     },
+     "niche": {
+      "mean": 0.36526806526806527,
+      "min": 0.36526806526806527,
+      "max": 0.36526806526806527
+     },
+     "most": [
+      "Leather Patchouli 11%",
+      "Sycomore Eau de Parfum 7%",
       "Another 13 5%",
       "Vanilla 28 5%",
       "Irish Leather 5%"
@@ -1637,6 +1745,60 @@
       "Le Lion Eau de Parfum 3%",
       "Scandal By Night 2%"
      ]
+    },
+    "likes once, traces as words, side of kept, else tried": {
+     "distinct": {
+      "mean": 800,
+      "min": 800,
+      "max": 800
+     },
+     "top10": {
+      "mean": 0.09988327497081874,
+      "min": 0.09988327497081874,
+      "max": 0.09988327497081874
+     },
+     "effective": {
+      "mean": 290.681676002036,
+      "min": 290.681676002036,
+      "max": 290.681676002036
+     },
+     "top1": {
+      "mean": 0.08704352176088044,
+      "min": 0.08704352176088044,
+      "max": 0.08704352176088044
+     },
+     "apart": {
+      "mean": 0.026946688206785138,
+      "min": 0.026946688206785138,
+      "max": 0.026946688206785138
+     },
+     "keep": {
+      "mean": 0.7576232560724792,
+      "min": 0.7576232560724792,
+      "max": 0.7576232560724792
+     },
+     "turn": {
+      "mean": 0.08939469734867443,
+      "min": 0.08939469734867443,
+      "max": 0.08939469734867443
+     },
+     "otherGender": {
+      "mean": 0.09821577455394363,
+      "min": 0.09821577455394363,
+      "max": 0.09821577455394363
+     },
+     "niche": {
+      "mean": 0.25095881273970316,
+      "min": 0.25095881273970316,
+      "max": 0.25095881273970316
+     },
+     "most": [
+      "Leather Patchouli 9%",
+      "Gris Charnel Extrait 3%",
+      "Le Lion Eau de Parfum 3%",
+      "Scandal By Night 3%",
+      "Grand Soir 3%"
+     ]
     }
    }
   },
@@ -2183,15 +2345,69 @@
       "Un Bois Vanille 14%",
       "Angels' Share 9%"
      ]
+    },
+    "likes once, traces as words, side of kept, else tried": {
+     "distinct": {
+      "mean": 483,
+      "min": 483,
+      "max": 483
+     },
+     "top10": {
+      "mean": 0.2787513691128149,
+      "min": 0.2787513691128149,
+      "max": 0.2787513691128149
+     },
+     "effective": {
+      "mean": 81.58292462781581,
+      "min": 81.58292462781581,
+      "max": 81.58292462781581
+     },
+     "top1": {
+      "mean": 0.15169769989047097,
+      "min": 0.15169769989047097,
+      "max": 0.15169769989047097
+     },
+     "apart": {
+      "mean": 0.0660214088840459,
+      "min": 0.0660214088840459,
+      "max": 0.0660214088840459
+     },
+     "keep": {
+      "mean": 0.8006997687720583,
+      "min": 0.8006997687720583,
+      "max": 0.8006997687720583
+     },
+     "turn": {
+      "mean": 0.09824145065108932,
+      "min": 0.09824145065108932,
+      "max": 0.09824145065108932
+     },
+     "otherGender": {
+      "mean": 0.32657904344651334,
+      "min": 0.32657904344651334,
+      "max": 0.32657904344651334
+     },
+     "niche": {
+      "mean": 0.3048557867834976,
+      "min": 0.3048557867834976,
+      "max": 0.3048557867834976
+     },
+     "most": [
+      "Hugo Iced 15%",
+      "Tobacco Vanille 13%",
+      "Legend Eau de Parfum 11%",
+      "Un Bois Vanille 9%",
+      "Champion 8%"
+     ]
     }
    }
   }
  },
  "replicaCheck": {
   "checked": 15014,
-  "matchedEngine0164d00": 550,
+  "matchedEngine0164d00": 512,
   "matchedAdopted": 15014,
-  "adopted": "likes once, traces unmet, side of kept, else tried"
+  "adopted": "likes once, traces as words, side of kept, else tried"
  },
  "robust": {
   "engine": {
@@ -2253,6 +2469,12 @@
    "sameInAnotherOrder": 0.9682539682539683,
    "samePicksShaken": 0.26472094214029696,
    "top10KeptShaken": 6
+  },
+  "likes once, traces as words, side of kept, else tried": {
+   "visitors": 1953,
+   "sameInAnotherOrder": 0.9687660010240655,
+   "samePicksShaken": 0.2616487455197133,
+   "top10KeptShaken": 5
   }
  },
  "pooled": {
@@ -2265,7 +2487,8 @@
   "likes once, traces unmet, side of kept bottles": 974,
   "likes once, traces unmet, side of kept, else tried": 973,
   "all once, traces unmet, side of kept, else tried": 969,
-  "likes once, traces unmet, side of kept, else tried, else unisex": 965
+  "likes once, traces unmet, side of kept, else tried, else unisex": 965,
+  "likes once, traces as words, side of kept, else tried": 971
  },
  "reach": {
   "engine": {
@@ -2376,6 +2599,17 @@
     "Parfums de Marly Herod",
     "Parfums de Marly Althaïr",
     "Parfums de Marly Delina"
+   ]
+  },
+  "likes once, traces as words, side of kept, else tried": {
+   "share": 0.794,
+   "examples": [
+    "Creed Aventus",
+    "Nishane Hacivat",
+    "Parfums de Marly Layton",
+    "Parfums de Marly Delina",
+    "Maison Francis Kurkdjian Baccarat Rouge 540",
+    "Dior Sauvage Elixir"
    ]
   }
  }

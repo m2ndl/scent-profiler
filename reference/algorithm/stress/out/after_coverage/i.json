@@ -13,7 +13,7 @@
   "samePicks": true,
   "ruledOut": 947,
   "broken": [],
-  "ms": 29.5
+  "ms": 29.9
  },
  {
   "label": "every note card avoided, three kept bottles",
@@ -33,7 +33,7 @@
   "samePicks": true,
   "ruledOut": 768,
   "broken": [],
-  "ms": 27.1
+  "ms": 28
  },
  {
   "label": "every note card loved, no bottle",
@@ -73,7 +73,7 @@
   "samePicks": true,
   "ruledOut": 0,
   "broken": [],
-  "ms": 10.6
+  "ms": 7.1
  },
  {
   "label": "the 60 quiz bottles all turned in the base",
@@ -93,7 +93,7 @@
   "samePicks": true,
   "ruledOut": 988,
   "broken": [],
-  "ms": 4.3
+  "ms": 4.4
  },
  {
   "label": "the 60 quiz bottles all turned in the base, every complaint",
@@ -113,7 +113,7 @@
   "samePicks": true,
   "ruledOut": 988,
   "broken": [],
-  "ms": 3.4
+  "ms": 3.5
  },
  {
   "label": "one bottle kept, nothing else",
@@ -152,20 +152,20 @@
   "rated": 2,
   "gate": true,
   "enginePicks": [
-   "Scandal Pour Homme Le Parfum",
-   "Hugo Iced",
-   "Pesca"
+   "Tears From The Moon",
+   "Sun",
+   "Scandal Pour Homme Le Parfum"
   ],
   "pagePicks": [
-   "Scandal Pour Homme Le Parfum",
-   "Hugo Iced",
-   "Pesca"
+   "Tears From The Moon",
+   "Sun",
+   "Scandal Pour Homme Le Parfum"
   ],
   "pageError": null,
   "samePicks": true,
   "ruledOut": 539,
   "broken": [],
-  "ms": 2.6
+  "ms": 4.2
  },
  {
   "label": "only avoided notes, no bottle",
@@ -181,7 +181,7 @@
   "samePicks": true,
   "ruledOut": 15,
   "broken": [],
-  "ms": 4.7
+  "ms": 4.3
  },
  {
   "label": "one note loved, no bottle",
@@ -221,7 +221,7 @@
   "samePicks": true,
   "ruledOut": 2,
   "broken": [],
-  "ms": 5.9
+  "ms": 6
  },
  {
   "label": "profiler, 400 perfumes rated at random",
@@ -241,7 +241,7 @@
   "samePicks": true,
   "ruledOut": 0,
   "broken": [],
-  "ms": 7.9
+  "ms": 6.6
  },
  {
   "label": "profiler, 1000 perfumes rated at random",
@@ -253,6 +253,6 @@
   "samePicks": true,
   "ruledOut": 0,
   "broken": [],
-  "ms": 10.8
+  "ms": 12.9
  }
 ]

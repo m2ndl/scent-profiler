@@ -1,24 +1,36 @@
 {
  "visitors": 1500,
  "seed": 5,
- "before": {
-  "visitors": 1452,
-  "cards": 4356,
-  "likeFromTrace": 676,
-  "leanFromTrace": 3,
-  "examples": [
-   "Molecule 01: \"Has cedar_dry, which you like\"",
-   "Goldea The Roman Night Absolute: \"Has patchouli, which you like\"",
-   "The One For Men Eau de Parfum Intense: \"Has patchouli, which you like\"",
-   "Molecule 01: \"Has cedar_dry, woody_amber, which you like\""
-  ]
- },
- "after": {
-  "visitors": 1452,
-  "cards": 4356,
-  "likeFromTrace": 0,
-  "leanFromTrace": 0,
-  "examples": []
+ "runs": {
+  "engine of 0164d00": {
+   "visitors": 1452,
+   "cards": 4356,
+   "likeFromTrace": 676,
+   "leanFromTrace": 3,
+   "againstWords": 14,
+   "examples": [
+    "Molecule 01: \"Has cedar_dry, which you like\"",
+    "Goldea The Roman Night Absolute: \"Has patchouli, which you like\"",
+    "The One For Men Eau de Parfum Intense: \"Has patchouli, which you like\"",
+    "Molecule 01: \"Has cedar_dry, woody_amber, which you like\""
+   ]
+  },
+  "ce09d2b": {
+   "visitors": 1452,
+   "cards": 4356,
+   "likeFromTrace": 0,
+   "leanFromTrace": 0,
+   "againstWords": 17,
+   "examples": []
+  },
+  "site engine": {
+   "visitors": 1452,
+   "cards": 4356,
+   "likeFromTrace": 0,
+   "leanFromTrace": 0,
+   "againstWords": 0,
+   "examples": []
+  }
  },
  "identical": [
   [

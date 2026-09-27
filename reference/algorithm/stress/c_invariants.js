@@ -2,7 +2,8 @@
    synthetic wearers (lib.js), and profiler-shaped records with any stage values, chips, note answers and "didn't
    notice", plus random note-picker, taste and complaint answers. Each input is also re-run with its ratings in another
    key order, and worsened or improved by one step, to check that the result does not depend on order and moves the right
-   way. Usage: node c_invariants.js [inputs per population] [seed]. Writes out/c.json with counts and examples. */
+   way; and one note card more, enjoyed or avoided, must move what the picks read of its families its way.
+   Usage: node c_invariants.js [inputs per population] [seed]. Writes out/c.json with counts and examples. */
 "use strict";
 const fs = require("fs"), path = require("path");
 const L = require("./lib");
@@ -98,6 +99,23 @@ function check(inp, pop) {
     const r2 = {}; for (const k of keys.slice().reverse()) r2[k] = inp.ratings[k];
     const o2 = engine({ ratings: r2, quiz: inp.quiz });
     if (sig(o2) !== sig(out)) hit(pop + ": result depends on rating order", brief(inp));
+  }
+  /* a word never moves the picks against itself: one more note card enjoyed (or avoided) never lowers (or raises) what
+     the picks read of the card's families (engine.picksView, from 28 Sep 2026; skipped on an engine without it) */
+  if (E.picksView && ctx.CARDS.length) {
+    const quiz = inp.quiz || {}, card = ctx.CARDS[(keys.length * 31 + JSON.stringify(quiz).length) % ctx.CARDS.length];
+    if (!(quiz.notes || {})[card.id]) {
+      const r9 = x => Math.round(x * 1e9) / 1e9, pv0 = E.picksView(prof);
+      for (const dir of [1, -1]) {
+        const q2 = Object.assign({}, quiz, { notes: Object.assign({}, quiz.notes, { [card.id]: dir }) });
+        const pv1 = E.picksView(engine({ ratings: inp.ratings, quiz: q2 }).prof);
+        count(pop + ": word steps");
+        for (const f of Object.keys(card.fams || ctx.M.famsForNote(card.en) || {})) {
+          const a = pv0[f], b = pv1[f];
+          if (b && (a ? dir * (r9(b.score) - r9(a.score)) < 0 : dir * b.score < 0)) hit(pop + ": a word moves the picks against itself", `${card.id} ${dir > 0 ? "enjoyed" : "avoided"}, ${f}: ${a ? a.score : "unmet"} to ${b.score} ${brief(inp)}`);
+        }
+      }
+    }
   }
   /* one step worse or better on one stage of one bottle: no family's class moves the other way */
   if (!keys.length) return;

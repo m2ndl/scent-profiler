@@ -1,0 +1,4 @@
+5832 word steps over 3000 quiz-shaped inputs, seed 31; steps that move the picks against the word: first version's reading 87, site's 0
+    melon avoided: aquatic_marine unmet to 0.304
+    rosewood avoided: cedar_dry unmet to 0.250
+    fig enjoyed: green_herbal unmet to -0.256

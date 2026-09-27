@@ -2,6 +2,7 @@
 
 One Opus verifier, bounded (no web, no edits, a time budget), reviewed the stress test and then the fix. Its three
 reports are condensed here. Each finding was either fixed (commit 77c5f70) or is recorded as open in PROJECT_LOG.md.
+Section 4 condenses a fresh verifier's review of the coverage change of 28 September (COVERAGE.md).
 
 ## 1. On REPORT.md, before the fix
 
@@ -46,3 +47,47 @@ reports are condensed here. Each finding was either fixed (commit 77c5f70) or is
   opening can lift an avoided note (open).
 - Still contradicting the visitor, by design: a note liked only in the first minutes can sit beside a deal-breaker from
   other bottles; the card does not show the note.
+
+## 4. On the coverage change (ce09d2b)
+
+- **Blocking, fixed:** a family known only from traces was left out of the picks, but its traces came back at full
+  weight as soon as the visitor gave a word on it, so a word could move the picks against itself (Eros turned and
+  Sauvage kept: enjoying the vetiver card made vetiver score below zero and took Sycomore out). The same mechanism,
+  older than the change, let cards contradict the visitor's words ("Some vetiver in the base, which your answers lean
+  against" after a bitter taste answer that leans towards vetiver). Fixed as the verifier proposed: for a family no
+  rated stage exposes, the picks and the card lines read the words alone (engine.js `picksView`). A test, an invariant
+  in c_invariants.js and `m_wordsteps.js` cover it; k_cards.js counts 14 contradicting cards on 0164d00, 17 on ce09d2b,
+  none after.
+- **Should fix, fixed:** COVERAGE.md overstated the old top perfumes as winning "for nearly everyone".
+- **Notes:** the trial's side rule counts catalogue bottles only while the engine also reads vendor and custom bottles
+  (stated in rank_trial.js); the fallback to rated bottles, when none was kept, takes the side from bottles the visitor
+  disliked, which the model cannot test (COVERAGE.md section 5); a weak assertion in the trace test passed on 0164d00 too
+  (tightened); the one-sample suggestion and narrowing round ignore the side; card lines, not picks, can still depend on
+  the order of the ratings at an exact tie or threshold; README said "no rated bottle" where the code means "no rated
+  stage" (corrected). Open items are in COVERAGE.md section 8.
+- **Confirmed:** likes counted once, the side rule, reading to nine places, the golden diff (only picks change; every new
+  pick equals the trialled ranking), the trial's equivalence with the site and its fairness (same visitors, seeded
+  wears), the figures in out/j.txt, and no page reading the old reward sums. The new tests fail on 0164d00 at their
+  assertions. The costs (turn up by one to two points in every population, word-only visitors' other-gender picks at a
+  third) were judged no reason to hold, and are for the owner to accept.
+
+## 5. On the fix of section 4 (words alone)
+
+- **Nothing blocking.** For note-card answers the picks now always move the way the word points: the verifier patched a
+  copy to expose every candidate's final score and found none of 730,306 moving against the card over 2,318 card steps
+  on the site, against 7,057 on ce09d2b. Every reader of the profile uses the right view: the ranking and the card lines
+  read the picks' view, while vetoes, deal-breakers, settle suggestions, "ruled out", the palate and the taste card read
+  classes, the same in both. The "not tried" line still reads the profile.
+- **Should fix, fixed:** the new test did not cover the card lines (reading the likes or the lean line from the profile
+  passed all tests); two assertions added, and each of those two mutations now fails it. The README and COVERAGE.md
+  claimed monotonicity for "a note"; they now say note card, since note-row answers are not covered.
+- **Open, older than the change:** a note-row answer moved one step can move the picks the other way, 118 of 2,452 steps
+  in the verifier's check on the site, 121 on ce09d2b and on 0164d00: "Liked" on a note strongest in the opening makes
+  it a lean, so that bottle's own rating drops out and another bottle's dislike stands alone (two turned bottles with
+  white musk: "Didn't mind" to "Liked" took white musk from a possible deal-breaker at -0.80 to -2.0). For a revision
+  of the lean rule.
+- **Guard added:** one avoided item of weight w costs a perfume 2w/(w + 1) per unit, against 0.3 for an unmet family, so
+  below w = 0.18 avoiding a note would raise its perfumes; the lightest told item today is 0.2, and a notes test now
+  fails if one falls under 0.18.
+- **Confirmed:** the figures in COVERAGE.md against out/ (j, k, m, c, a1_seeds, e, i, l), and the site equal to the
+  adopted variant on a fresh check (3,007 of 3,007).

@@ -1,4 +1,4 @@
-inputs per population: 20000 (448 s); checked: {"quiz":20000,"quiz: picks":60000,"quiz: 'free of' lines":54095,"profiler":20000,"profiler: picks":60000,"profiler: 'free of' lines":103833,"profiler: picks counted in 'ruled out'":1376,"quiz: picks counted in 'ruled out'":93}
+inputs per population: 20000 (715 s); checked: {"quiz":20000,"quiz: picks":60000,"quiz: 'free of' lines":54118,"quiz: word steps":38776,"profiler":20000,"profiler: picks":60000,"profiler: 'free of' lines":103850,"profiler: word steps":38870,"profiler: picks counted in 'ruled out'":1330,"quiz: picks counted in 'ruled out'":83}
 
 
 hostile storage:

@@ -9,7 +9,7 @@ const fs = require("fs"), path = require("path");
 const L = require("./lib");
 const { ranker } = require("./rank_trial");
 const N_PER = +(process.argv[2] || 2000), SEED = +(process.argv[3] || 307), K = 30;
-const RULES = { "ranking of 0164d00": {}, "site ranking": { agg: "likes once", traces: "unmet", side: "kept, else tried", r9: true } };
+const RULES = { "ranking of 0164d00": {}, "site ranking": { agg: "likes once", traces: "words", side: "kept, else tried", r9: true } };
 function hashSeed(...xs) { let h = 2166136261; for (const c of xs.join("|")) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
 
 const base = L.site(), out = { visitors: N_PER, seed: SEED, levels: {} };
