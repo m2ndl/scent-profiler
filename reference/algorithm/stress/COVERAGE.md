@@ -119,8 +119,8 @@ trialled in `rank_trial.js`; the site's `recommend()` picks what the trialled ru
   `out/e_0164d00.txt` against `out/after_coverage/e.txt`).
 - Each rule alone: counting likes once gives most of the coverage but, since the old top picks were unisex, raises
   other-gender picks to 30%; the side rule brings them to 11%; the trace rule changes coverage little.
-- The golden scenarios: profiles, deal-breakers, "ruled out" and settle suggestions unchanged in all 60; the picks
-  changed in 55, each to what the trialled rules pick.
+- The golden scenarios (`golden_review.js`, `out/golden.txt`): profiles, deal-breakers and settle suggestions unchanged
+  in all 60; the picks changed in 55, and all 60 are what the trialled rules pick.
 
 ## 4. Traces and words on the pick cards
 
@@ -195,7 +195,7 @@ visitors whether they want men's, women's or either would settle it; that is a c
 - The result page (`f_page.js`, 1,500 visitors, `out/after_coverage/f.txt`): palate, chips and retest figures
   unchanged; no "Free of X" beside a warning about X; no deal-breaker card listing a note the visitor liked; the same
   palate and picks in Arabic and English for 300 of 300. The audit (`reference/algorithm/audit.js`) finds its two
-  patterns at the counts it found on 0164d00.
+  patterns at the counts it found on 0164d00 (`out/after_coverage/audit.txt`, `out/audit_0164d00.txt`).
 - Accuracy under `a1_accuracy.js --seeds` (its own visitors): picks kept 74% (74% to 75%), turn 10% (10% to 11%);
   deal-breaker and liking figures as before, since the profile is unchanged.
 

@@ -23,6 +23,7 @@ Each is seeded, so a rerun prints the same numbers for the same code and catalog
 | `rank_trial.js` | The ranking of `recommend()` rewritten with switches (a liked family counted once or in every stage, traces, the visitor's side, scores read to nine places), for trials. With no switch it is the ranking of 0164d00. | (library) | |
 | `j_trial.js` | The switches trialled on the same visitors: coverage, kept and turn (the headline population under five seeds), other gender, niche, the catalogue in another order, tags shaken by 15%, perfumes ever picked, reachability; and a check that the site's `recommend()` picks what the adopted switches pick for every visitor (`--check` runs only that). | `node j_trial.js 2000 211`, `--check` | 8 min, 5 min |
 | `i_extremes.js` | Extreme but valid answers through the engine and the quiz page: every card avoided or loved, every quiz bottle kept or turned, one bottle, words only, up to 1,000 profiler ratings. | `node i_extremes.js 131` | 20 s |
+| `golden_review.js` | The engine golden of 0164d00 against the current one: what must not change did not, and every scenario's picks are what the adopted rules of `rank_trial.js` pick. | `node golden_review.js` | seconds |
 | `m_wordsteps.js` | One note card more, enjoyed or avoided, on the first version's reading of the profile (traces back at full weight once a word is given) and on the site's: how often the picks move against the word. | `node m_wordsteps.js 3000 31` | 20 s |
 | `l_tagnoise.js` | Pick quality when the engine reads the tags shaken by 15% or 30% while the visitors smell the catalogue's, for the ranking of 0164d00 and the site's. | `node l_tagnoise.js 2000 307` | 3 min |
 | `k_cards.js` | Pick cards that call a family liked, or say the answers lean against it, when it is known only from traces, and cards that say the opposite of the visitor's words, on the engine of 0164d00, on ce09d2b and on the site's; perfumes with identical tags. | `node k_cards.js 1500 5` | 2 min |
@@ -30,7 +31,7 @@ Each is seeded, so a rerun prints the same numbers for the same code and catalog
 `out/` holds the numbers the report cites, from the code as tested; `out/after_fix/` holds `c_invariants.js` and `f_page.js`
 rerun on the fixed code; `out/after_coverage/` holds the checks rerun on the engine that counts a liked family once
 (`c_invariants.js`, `a1_accuracy.js --seeds`, `e_bias.js`, `f_page.js`, `i_extremes.js` and the audit). `out/h.txt`,
-`out/i.json` and `out/k.txt` are from the engine of 0164d00 (k also from the site's), `out/j.txt` compares the two.
+`out/i.json` and `out/k.txt` are from the engine of 0164d00 (k also from the site's), `out/j.txt` compares the two; `out/audit_0164d00.txt` is the audit on 0164d00 and `out/golden.txt` the golden review.
 
 `out/audit.txt` is the output of `reference/algorithm/audit.js 1500 7` (run from the repository root) on the commit tested.
 

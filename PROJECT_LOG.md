@@ -5,7 +5,9 @@ Continuity record for the perfume profiler. Newest first.
 ## 2026-09-28: session close, the picks spread over the catalogue
 
 Session title: the picks spread over the catalogue. The owner asked for a stress test from new angles and whether the
-picks repeat a few perfumes; then, going to sleep, to research, fix and push.
+picks repeat a few perfumes; then, going to sleep, to research, fix and push. All pushed and live (6a5f6ea): the
+workflow's tests and deploy passed, the live quiz and profile pages load with no console errors, and the live profile
+shows the new picks (Sauvage and Bleu kept: La'dor Bakhur Classic, Molecule 01, Dior Homme Sport).
 
 - Confirmed (reference/algorithm/stress/COVERAGE.md): on 0164d00 Molecule 01, Not a Perfume and Grand Soir each went to
   12 to 15 visitors in 100 (Grand Soir 21 with verdicts only), and two visitors with no liking in common shared a pick 8

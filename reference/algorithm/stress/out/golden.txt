@@ -1,0 +1,3 @@
+scenarios 60; vendor mapping unchanged: true
+unchanged: profile 60, badAny 60, likely 60, settle 60, resolved 60
+picks equal to the adopted rules: 60; old picks equal to the ranking of 0164d00: 60; scenarios whose picks changed: 55
