@@ -1,0 +1,45 @@
+inputs per population: 20000 (392 s); checked: {"quiz":20000,"quiz: picks":60000,"quiz: 'free of' lines":55687,"profiler":20000,"profiler: picks":60000,"profiler: 'free of' lines":105566,"profiler: picks counted in 'ruled out'":2073,"profiler: ... and it decides the class":39,"quiz: picks counted in 'ruled out'":216,"quiz: ... and it decides the class":38}
+
+profiler: 'free of X' and 'watch for X' on one pick: 1235
+    br540extrait white_floral watch neg
+    guccirush green_herbal watch avoid
+    azzaroph sandalwood_creamy watch neg
+profiler: 'free of X' while X is 0.3+ in the heart or opening: 3864
+    br540extrait free of white_floral: heart 0.5, opening 0, base 0
+    guccirush free of green_herbal: heart 0.3, opening 0, base 0
+    windflowers free of fruity_sweet: heart 0, opening 0.42, base 0
+profiler: a note the wearer disliked in a bottle counts for it through that bottle's other stage: 7
+    vanilla_gourmand goodLikely: historicsahara {"historicsahara":{"opening":-2,"heart":-1,"drydown":2,"noteAnswers":{"vanilla_gourmand":-1,"citrus_fresh":0}}}
+    vanilla_gourmand goodPossible: floragorgeousorchid {"floragorgeousorchid":{"opening":1,"heart":1,"drydown":-2,"again":0,"noteAnswers":{"aquatic_marine":-1,"vanilla_gourmand":-1}}}
+    vanilla_gourmand goodPossible: olympea {"olympea":{"opening":2,"heart":0,"again":0,"chips":{"heart":["loud"]},"noteAnswers":{"sandalwood_creamy":-1,"vanilla_gourmand":-2}}}
+profiler: a note the wearer loved in a bottle counts against it through that bottle's other stage: 107
+    fruity_sweet badLikely (badPossible without it): dolcegarden {"dolcegarden":{"opening":-1,"heart":0,"drydown":-2,"again":1,"noteAnswers":{"tonka_coumarin":-1,"fruity_sweet":1}}}
+    fruity_sweet badPossible: irresistiblegivenchy {"irresistiblegivenchy":{"opening":-1,"heart":-2,"again":1,"chips":{"opening":["sour","sweet"]},"noteAnswers":{"fruity_sweet":2}}}
+    cedar_dry badPossible: eaudelacostel1212white {"eaudelacostel1212white":{"heart":-1,"drydown":-2,"again":1,"chips":{"drydown":["chemical","heavy"]},"noteAnswers":{"white_floral":-2,"citrus_fresh":0,"cedar_dry":2}}}
+profiler: result depends on rating order: 3
+    {"obsession":{"opening":1,"drydown":2,"again":0},"adore":{"opening":1,"heart":0,"chips":{"drydown":["sweet"]}},"jaguarclassicblack":{"drydown":-1,"again":0,"noteAnswers":{"oakmoss_chypre":2,"rose":-1}},"jamaicantobacco":{"heart":-2,"drydown":1,"again":0,"chips":{"drydown":["smoky","sweet"]},"noteAns
+    {"diorhommesport":{"opening":1,"heart":2,"drydown":2,"chips":{"opening":["faded","animalic"]},"noteAnswers":{"citrus_fresh":0,"woody_amber":-1}},"weekendfm":{"drydown":1,"chips":{"drydown":["sweet"]},"noteAnswers":{"white_musk":2,"fruity_sweet":2,"amber_resin":0}},"lhommeideal":{"opening":2,"heart":
+    {"jannetelfirdauswhite":{"opening":-2,"drydown":-1,"again":0},"dare700am":{"heart":-2,"again":0,"chips":{"drydown":["powdery","sweet"]}},"ambreimperial":{"opening":-1,"drydown":-1,"noteAnswers":{"amber_resin":2,"citrus_fresh":-1}},"touchofpink":{"drydown":0,"again":0},"tarteelsilver":{"drydown":-2,"
+quiz: 'free of X' and 'watch for X' on one pick: 212
+    epicman spice_fresh watch avoidOpening
+    musktherapy spice_fresh watch avoidOpening
+    tonkaimperiale fruity_sweet watch neg
+quiz: 'free of X' while X is 0.3+ in the heart or opening: 646
+    armanipriverougemalachite free of spice_fresh: heart 0, opening 0.54, base 0
+    narcisoforher free of fruity_sweet: heart 0, opening 0.4, base 0
+    scandalphleparfum free of lavender_aromatic: heart 0, opening 0.36, base 0
+quiz: a note the wearer loved in a bottle counts against it through that bottle's other stage: 58
+    tonka_coumarin badLikely: khamrah {"khamrah":{"drydown":-2,"again":0,"chips":{"drydown":["sweet"]},"noteAnswers":{"spicy_warm":-1,"fruity_sweet":1,"vanilla_gourmand":-2,"tonka_coumarin":1,"amber_resin":1}}}
+    vanilla_gourmand badLikely (mixed without it): supremacynoir {"supremacynoir":{"heart":-2,"again":0,"noteAnswers":{"spice_fresh":1,"vanilla_gourmand":1,"tonka_coumarin":-1}}}
+    vetiver badPossible (neutral without it): vetiver {"vetiver":{"drydown":-2,"again":0,"chips":{"drydown":["sweet"]},"noteAnswers":{"vetiver":1,"sandalwood_creamy":0,"leather_smoky":-1}}}
+quiz: result depends on rating order: 1
+    {"lunefeline":{"drydown":1,"again":1,"noteAnswers":{"spice_fresh":0,"woody_amber":1,"cedar_dry":0,"vanilla_gourmand":1,"white_musk":1}},"guccibloom":{"heart":-2,"again":0,"noteAnswers":{"white_floral":0,"sandalwood_creamy":1},"unnoticed":["white_musk"]},"libre":{"drydown":1,"again":1,"noteAnswers":{
+
+hostile storage:
+  {"name":"rating 99","ok":true,"picks":["notaperfume","megamare","br540"],"top":["white_musk badPossible -2.00","sandalwood_creamy badPossible -2.00"]}
+  {"name":"rating as a string","ok":true,"picks":["molecule01","tygar","amberoudruby"],"top":["white_musk badPossible -2.00","sandalwood_creamy badPossible -2.00"]}
+  {"name":"note answer 1e6","ok":true,"picks":["notaperfume","megamare","officefm"],"top":["vanilla_gourmand goodPossible 1.00","white_musk goodPossible 1.00"]}
+  {"name":"chips not a list","ok":true,"picks":["musktherapy","muskgarden","narcisoforher"],"top":["woody_amber badPossible -2.00","vanilla_gourmand neutral 0.25"]}
+  {"name":"unknown perfume id","ok":true,"picks":["blessedbaraka","chocomusk","jannetelfirdauswhite"],"top":["vanilla_gourmand goodPossible 1.00","white_musk goodPossible 1.00"]}
+  {"name":"record without chips","ok":true,"picks":["musktherapy","muskgarden","narcisoforher"],"top":["woody_amber badPossible -2.00","vanilla_gourmand neutral 0.25"]}
+  {"name":"unnoticed as a string","ok":true,"picks":["musktherapy","muskgarden","narcisoforher"],"top":["woody_amber badPossible -2.00","vanilla_gourmand neutral 0.25"]}

@@ -1,0 +1,183 @@
+{
+ "copyMatchesPage": "300 of 300",
+ "anyBottles": {
+  "ceilingLead": 0.22366666666666668,
+  "ceilingAny": 0.44333333333333336,
+  "rules": {
+   "current": {
+    "named": 0.72,
+    "lead": 0.18935185185185185,
+    "any": 0.5,
+    "dist": {
+     "sweet": 445,
+     "none": 196,
+     "amber": 181,
+     "selective": 644,
+     "woody": 754,
+     "musk": 358,
+     "oud": 216,
+     "rose": 20,
+     "floral": 110,
+     "fresh": 62,
+     "spiced": 14
+    }
+   },
+   "lift": {
+    "named": 0.72,
+    "lead": 0.1912037037037037,
+    "any": 0.4981481481481482,
+    "dist": {
+     "sweet": 363,
+     "none": 196,
+     "amber": 205,
+     "selective": 644,
+     "woody": 795,
+     "musk": 251,
+     "oud": 322,
+     "fresh": 87,
+     "rose": 27,
+     "floral": 85,
+     "spiced": 25
+    }
+   },
+   "words": {
+    "named": 0.72,
+    "lead": 0.20092592592592592,
+    "any": 0.5212962962962963,
+    "dist": {
+     "sweet": 421,
+     "none": 196,
+     "amber": 191,
+     "selective": 644,
+     "woody": 721,
+     "musk": 364,
+     "oud": 206,
+     "rose": 30,
+     "fresh": 73,
+     "floral": 136,
+     "spiced": 18
+    }
+   }
+  }
+ },
+ "likedBottles": {
+  "ceilingLead": 0.2956666666666667,
+  "ceilingAny": 0.5473333333333333,
+  "rules": {
+   "current": {
+    "named": 0.7556666666666667,
+    "lead": 0.22320247022496692,
+    "any": 0.5522717247463609,
+    "dist": {
+     "woody": 781,
+     "none": 246,
+     "selective": 487,
+     "sweet": 469,
+     "spiced": 15,
+     "musk": 356,
+     "oud": 241,
+     "amber": 206,
+     "fresh": 69,
+     "rose": 19,
+     "floral": 111
+    }
+   },
+   "lift": {
+    "named": 0.7556666666666667,
+    "lead": 0.21746801940891045,
+    "any": 0.545213939126599,
+    "dist": {
+     "woody": 814,
+     "none": 246,
+     "selective": 487,
+     "sweet": 371,
+     "amber": 233,
+     "spiced": 32,
+     "musk": 238,
+     "oud": 370,
+     "fresh": 83,
+     "floral": 98,
+     "rose": 28
+    }
+   },
+   "words": {
+    "named": 0.7556666666666667,
+    "lead": 0.24217026907807676,
+    "any": 0.5857962064402293,
+    "dist": {
+     "woody": 745,
+     "none": 246,
+     "selective": 487,
+     "sweet": 441,
+     "spiced": 22,
+     "musk": 356,
+     "oud": 232,
+     "amber": 217,
+     "fresh": 85,
+     "floral": 143,
+     "rose": 26
+    }
+   }
+  }
+ },
+ "heartToo": {
+  "ceilingLead": 0.22366666666666668,
+  "ceilingAny": 0.44333333333333336,
+  "rules": {
+   "current": {
+    "named": 0.7433333333333333,
+    "lead": 0.18744394618834082,
+    "any": 0.4860986547085202,
+    "dist": {
+     "sweet": 400,
+     "none": 184,
+     "fresh": 152,
+     "selective": 586,
+     "woody": 528,
+     "musk": 217,
+     "amber": 102,
+     "floral": 436,
+     "oud": 250,
+     "rose": 84,
+     "spiced": 61
+    }
+   },
+   "lift": {
+    "named": 0.7433333333333333,
+    "lead": 0.17399103139013453,
+    "any": 0.4968609865470852,
+    "dist": {
+     "sweet": 350,
+     "none": 184,
+     "fresh": 186,
+     "selective": 586,
+     "oud": 382,
+     "woody": 633,
+     "amber": 146,
+     "rose": 83,
+     "musk": 131,
+     "floral": 241,
+     "spiced": 78
+    }
+   },
+   "words": {
+    "named": 0.7433333333333333,
+    "lead": 0.19910313901345292,
+    "any": 0.5121076233183857,
+    "dist": {
+     "sweet": 384,
+     "none": 184,
+     "fresh": 143,
+     "selective": 586,
+     "woody": 527,
+     "musk": 244,
+     "amber": 116,
+     "floral": 426,
+     "oud": 241,
+     "rose": 87,
+     "spiced": 62
+    }
+   }
+  }
+ }
+}

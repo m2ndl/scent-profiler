@@ -1,0 +1,48 @@
+{
+ "cases": [
+  {
+   "bottles": [
+    "Acqua di Giò",
+    "Bleu de Chanel Eau de Parfum",
+    "Invictus"
+   ],
+   "verdictOnly": "woody-musk",
+   "lovedRows": "woody-fresh"
+  },
+  {
+   "bottles": [
+    "Coco Mademoiselle Eau de Parfum",
+    "Libre",
+    "Miss Dior Blooming Bouquet"
+   ],
+   "verdictOnly": "musk-woody",
+   "lovedRows": "rose-floral"
+  }
+ ],
+ "random": {
+  "floral+rose": {
+   "pool": 316,
+   "trios": 150,
+   "verdictOnly": {
+    "named": 13,
+    "lead": 2
+   },
+   "lovedRows": {
+    "named": 149,
+    "lead": 144
+   }
+  },
+  "fresh": {
+   "pool": 113,
+   "trios": 150,
+   "verdictOnly": {
+    "named": 30,
+    "lead": 10
+   },
+   "lovedRows": {
+    "named": 137,
+    "lead": 128
+   }
+  }
+ }
+}

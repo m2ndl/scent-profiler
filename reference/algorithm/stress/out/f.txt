@@ -1,0 +1,24 @@
+1500 wearers (three bottles, note rows and told answers), run through the real quiz page
+
+Palate: a group palate is named for 73%; otherwise {"selective":316,"none":96}.
+  Of the group palates, the lead group is the wearer's strongest like for 21%; it includes any liked group for 53%; it names no group the wearer likes for 47%.
+  Naming every wearer "woody" would match the strongest like for 24%; naming every wearer "woody" would name a liked group for 52%.
+  The wearer's strongest like (rows) against the palate named (lead group, or wide / selective / none):
+| true like | n   | woody | sweet | musk | amber | oud | fresh | floral | rose | spiced | wide | selective | none |
+|-----------|-----|-------|-------|------|-------|-----|-------|--------|------|--------|------|-----------|------|
+| amber     | 166 | 22%   | 17%   | 10%  | 10%   | 8%  | 1%    | 4%     |      | 1%     |      | 20%       | 7%   |
+| floral    | 144 | 20%   | 13%   | 15%  | 5%    | 10% | 1%    | 10%    |      |        |      | 17%       | 8%   |
+| fresh     | 310 | 21%   | 15%   | 11%  | 6%    | 9%  | 4%    | 4%     |      | 1%     |      | 23%       | 6%   |
+| musk      | 57  | 21%   | 9%    | 28%  | 4%    | 14% |       |        |      |        |      | 16%       | 9%   |
+| oud       | 150 | 21%   | 11%   | 11%  | 5%    | 11% | 3%    | 5%     |      |        |      | 27%       | 5%   |
+| rose      | 53  | 21%   | 11%   | 11%  | 8%    | 9%  | 8%    | 6%     | 4%   |        |      | 19%       | 4%   |
+| spiced    | 116 | 22%   | 20%   | 11%  | 8%    | 4%  | 2%    | 4%     | 2%   | 2%     |      | 18%       | 7%   |
+| sweet     | 154 | 24%   | 20%   | 14%  | 3%    | 5%  | 1%    | 2%     |      |        |      | 25%       | 5%   |
+| woody     | 350 | 33%   | 11%   | 11%  | 6%    | 6%  | 2%    | 5%     | 0%   | 1%     |      | 19%       | 6%   |
+
+"Drawn to" chips that are true likes: 20% (liked at least mildly: 41%); deal-breaker chips that are true: 33%.
+Pick cards saying "Free of X" and warning about X: 12 of 4407 cards. pradalhommeintense: "Free of woody ambers and dry cedar / Iso E Super." / "Some woody ambers in the heart, which may be a deal-breaker for you: try a sample first." ; vanilla28: "Free of white florals and citrus." / "A touch of white florals in the opening only, which you said you avoid; it fades within the hour." ; althair: "Free of white florals." / "A light touch of white florals in the heart, which you said you avoid; vanilla and sugar leads."
+Deal-breaker cards (How we worked this out) listing a note the wearer loved or liked: 11 of 1500 results (3 through the same bottle, 8 through another). woody_amber (bad-likely, same bottle): Dylan Blue: you liked the ambrox (hours later) ; vanilla_gourmand (bad-possible, another bottle): Yara: you didn&#39;t mind the vanilla (hours later) | Idôle: you liked the vanilla (hours later) ; white_musk (bad-possible, another bottle): Hypnotic Poison: you liked the musk (hours later)
+Arabic and English: same palate 300 of 300, same picks 300 of 300. 
+Retest (same bottles and history, answered twice): same palate 55%; when both name one, the same 55%.
+Fixed case, vanilla liked on Supremacy Noir, Yara turned: [{"cls":"bad-likely","f":"vanilla_gourmand","lines":["Supremacy Noir: you liked the vanilla (hours later)"]}]

@@ -1,0 +1,25 @@
+The copy of the quiz's rule gives the page's palate for 300 of 300 wearers.
+
+Bottles owned regardless of taste: the strongest like sits (0.4+, heart or base) in a kept bottle for 22% of wearers; any like for 44%.
+
+| rule    | group palate named | lead = strongest like | names a liked group | lead groups named (share of wearers)                                                                              |
+|---------|--------------------|-----------------------|---------------------|-------------------------------------------------------------------------------------------------------------------|
+| current | 72%                | 19%                   | 50%                 | woody 25%, selective 21%, sweet 15%, musk 12%, oud 7%, none 7%, amber 6%, floral 4%, fresh 2%, rose 1%, spiced 0% |
+| lift    | 72%                | 19%                   | 50%                 | woody 27%, selective 21%, sweet 12%, oud 11%, musk 8%, amber 7%, none 7%, fresh 3%, floral 3%, rose 1%, spiced 1% |
+| words   | 72%                | 20%                   | 52%                 | woody 24%, selective 21%, sweet 14%, musk 12%, oud 7%, none 7%, amber 6%, floral 5%, fresh 2%, rose 1%, spiced 1% |
+
+Bottles owned for what the wearer likes in them: the strongest like sits (0.4+, heart or base) in a kept bottle for 30% of wearers; any like for 55%.
+
+| rule    | group palate named | lead = strongest like | names a liked group | lead groups named (share of wearers)                                                                              |
+|---------|--------------------|-----------------------|---------------------|-------------------------------------------------------------------------------------------------------------------|
+| current | 76%                | 22%                   | 55%                 | woody 26%, selective 16%, sweet 16%, musk 12%, none 8%, oud 8%, amber 7%, floral 4%, fresh 2%, rose 1%, spiced 1% |
+| lift    | 76%                | 22%                   | 55%                 | woody 27%, selective 16%, sweet 12%, oud 12%, none 8%, musk 8%, amber 8%, floral 3%, fresh 3%, spiced 1%, rose 1% |
+| words   | 76%                | 24%                   | 59%                 | woody 25%, selective 16%, sweet 15%, musk 12%, none 8%, oud 8%, amber 7%, floral 5%, fresh 3%, rose 1%, spiced 1% |
+
+As the first, with "I still wear it" also writing +1 on the heart: the strongest like sits (0.4+, heart or base) in a kept bottle for 22% of wearers; any like for 44%.
+
+| rule    | group palate named | lead = strongest like | names a liked group | lead groups named (share of wearers)                                                                              |
+|---------|--------------------|-----------------------|---------------------|-------------------------------------------------------------------------------------------------------------------|
+| current | 74%                | 19%                   | 49%                 | selective 20%, woody 18%, floral 15%, sweet 13%, oud 8%, musk 7%, none 6%, fresh 5%, amber 3%, rose 3%, spiced 2% |
+| lift    | 74%                | 17%                   | 50%                 | woody 21%, selective 20%, oud 13%, sweet 12%, floral 8%, fresh 6%, none 6%, amber 5%, musk 4%, rose 3%, spiced 3% |
+| words   | 74%                | 20%                   | 51%                 | selective 20%, woody 18%, floral 14%, sweet 13%, musk 8%, oud 8%, none 6%, fresh 5%, amber 4%, rose 3%, spiced 2% |

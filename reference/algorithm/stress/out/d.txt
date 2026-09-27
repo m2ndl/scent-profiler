@@ -1,0 +1,68 @@
+Families most often in the base (0.4 or more), share of the 1,000 perfumes
+
+| family                  | base | heart or base |
+|-------------------------|------|---------------|
+| Woody ambers            | 43%  | 46%           |
+| Clean white musks       | 42%  | 45%           |
+| Vanilla and sugar       | 39%  | 43%           |
+| Resinous amber          | 34%  | 37%           |
+| Creamy sandalwood       | 26%  | 29%           |
+| Patchouli               | 25%  | 31%           |
+| Dry cedar / Iso E Super | 24%  | 29%           |
+| Tonka and hay           | 16%  | 18%           |
+| Vetiver                 | 13%  | 16%           |
+| Leather and birch smoke | 11%  | 15%           |
+
+85% of the catalogue holds at least one of the four most common (Woody ambers, Clean white musks, Vanilla and sugar, Resinous amber) at 0.4 or more in the base; a base holds 3.15 families at 0.4 or more on average across the catalogue.
+
+The sixty quiz bottles: a base that turned accuses 2.7 families on average; 8 bottles accuse one only.
+Of the 163 (bottle, accused family) pairs, the narrowing round's grid holds a bottle that separates the family for 60%; the whole catalogue for 100%.
+
+Palate each quiz bottle votes for when kept (its strongest base family's group): {"woody":19,"sweet":16,"musk":14,"amber":5,"oud":5,"fresh":1}
+Families behind those votes: {"woody_amber":6,"cedar_dry":2,"vanilla_gourmand":16,"white_musk":14,"tonka_coumarin":3,"patchouli":3,"incense_resin":1,"sandalwood_creamy":7,"oud_smoky":2,"amber_resin":1,"oakmoss_chypre":1,"green_herbal":1,"leather_smoky":2,"tobacco_honey":1}
+The same vote over all 1,000 perfumes: {"musk":116,"woody":417,"amber":140,"sweet":219,"oud":77,"floral":17,"fresh":11,"rose":2,"spiced":1}
+Each group's share of all heart and base weight in the catalogue: {"oud":0.074,"woody":0.307,"floral":0.13,"musk":0.085,"sweet":0.124,"amber":0.113,"spiced":0.027,"fresh":0.089,"rose":0.051} 
+
+Families that travel together in the base
+
+| with f at 0.5+          | perfumes | also g at 0.4+    | share |
+|-------------------------|----------|-------------------|-------|
+| Coffee and cacao        | 16       | Vanilla and sugar | 63%   |
+| Creamy sandalwood       | 212      | Clean white musks | 57%   |
+| Tonka and hay           | 148      | Vanilla and sugar | 57%   |
+| Iris and powder         | 30       | Clean white musks | 57%   |
+| Clean white musks       | 376      | Woody ambers      | 53%   |
+| Oakmoss                 | 79       | Clean white musks | 51%   |
+| Iris and powder         | 30       | Woody ambers      | 47%   |
+| Woody ambers            | 330      | Clean white musks | 46%   |
+| Oud, smoky or medicinal | 59       | Resinous amber    | 44%   |
+| Resinous amber          | 235      | Woody ambers      | 43%   |
+| Tobacco and honey       | 44       | Resinous amber    | 43%   |
+| Vanilla and sugar       | 356      | Clean white musks | 41%   |
+| Incense                 | 37       | Resinous amber    | 41%   |
+| Oakmoss                 | 79       | Woody ambers      | 41%   |
+
+Quiz grid bottles (the narrowing round draws on these): accused families and separators in the grid / catalogue
+
+| bottle                          | accused                                                                                                                         | votes for |
+|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|-----------|
+| Sauvage Eau de Parfum           | Woody ambers (7/201)                                                                                                            | woody     |
+| Bleu de Chanel Eau de Parfum    | Dry cedar / Iso E Super (0/80); Woody ambers (6/114); Incense (1/15)                                                            | woody     |
+| Eros                            | Vanilla and sugar (1/137); Tonka and hay (0/29); Woody ambers (4/129)                                                           | sweet     |
+| Club de Nuit Intense Man        | Clean white musks (1/115); Woody ambers (4/95); Leather and birch smoke (0/34)                                                  | musk      |
+| Hawas                           | Woody ambers (4/101); Clean white musks (1/122)                                                                                 | woody     |
+| Khamrah                         | Vanilla and sugar (1/107); Tonka and hay (0/25); Resinous amber (0/17); Woody ambers (4/77)                                     | sweet     |
+| Yara                            | Vanilla and sugar (4/130); Clean white musks (1/137); Creamy sandalwood (0/43)                                                  | sweet     |
+| Libre                           | Vanilla and sugar (2/115); Clean white musks (0/58); Woody ambers (2/69)                                                        | sweet     |
+| Black Opium                     | Vanilla and sugar (2/127); Patchouli (0/55); Woody ambers (2/109)                                                               | sweet     |
+| Good Girl                       | Tonka and hay (0/35); Vanilla and sugar (3/140); Coffee and cacao (0/2); Resinous amber (0/44)                                  | amber     |
+| Coco Mademoiselle Eau de Parfum | Patchouli (0/46); Vetiver (0/26); Vanilla and sugar (2/102); Clean white musks (0/137)                                          | woody     |
+| La Vie Est Belle                | Vanilla and sugar (2/167); Patchouli (0/101); Tonka and hay (0/44); Iris and powder (0/13)                                      | sweet     |
+| Baccarat Rouge 540              | Woody ambers (3/76); Dry cedar / Iso E Super (0/64); Vanilla and sugar (3/163)                                                  | woody     |
+| Interlude Man                   | Incense (0/24); Oud, smoky or medicinal (1/34); Leather and birch smoke (0/56)                                                  | oud       |
+| Santal 33                       | Creamy sandalwood (0/42); Woody ambers (4/86); Clean white musks (0/64); Leather and birch smoke (0/28)                         | woody     |
+| Oud Wood                        | Tonka and hay (0/23); Vanilla and sugar (2/91); Resinous amber (0/25); Creamy sandalwood (1/46); Oud, smoky or medicinal (1/16) | amber     |
+| Bade'e Al Oud Oud for Glory     | Patchouli (1/102); Clean white musks (3/242); Oud, smoky or medicinal (1/27)                                                    | oud       |
+| Acqua di Giò                    | Clean white musks (4/210); Dry cedar / Iso E Super (1/96)                                                                       | musk      |
+| Aventus                         | Clean white musks (1/109); Oakmoss (0/17); Woody ambers (3/88)                                                                  | musk      |
+| Invictus                        | Woody ambers (7/201)                                                                                                            | woody     |

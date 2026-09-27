@@ -1,0 +1,1746 @@
+{
+ "ubiquity": [
+  {
+   "f": "woody_amber",
+   "base": 0.427,
+   "heartOrBase": 0.455
+  },
+  {
+   "f": "white_musk",
+   "base": 0.424,
+   "heartOrBase": 0.445
+  },
+  {
+   "f": "vanilla_gourmand",
+   "base": 0.386,
+   "heartOrBase": 0.425
+  },
+  {
+   "f": "amber_resin",
+   "base": 0.339,
+   "heartOrBase": 0.372
+  },
+  {
+   "f": "sandalwood_creamy",
+   "base": 0.257,
+   "heartOrBase": 0.287
+  },
+  {
+   "f": "patchouli",
+   "base": 0.254,
+   "heartOrBase": 0.306
+  },
+  {
+   "f": "cedar_dry",
+   "base": 0.237,
+   "heartOrBase": 0.29
+  },
+  {
+   "f": "tonka_coumarin",
+   "base": 0.164,
+   "heartOrBase": 0.181
+  },
+  {
+   "f": "vetiver",
+   "base": 0.132,
+   "heartOrBase": 0.164
+  },
+  {
+   "f": "leather_smoky",
+   "base": 0.108,
+   "heartOrBase": 0.149
+  },
+  {
+   "f": "oakmoss_chypre",
+   "base": 0.103,
+   "heartOrBase": 0.107
+  },
+  {
+   "f": "oud_smoky",
+   "base": 0.062,
+   "heartOrBase": 0.081
+  },
+  {
+   "f": "incense_resin",
+   "base": 0.049,
+   "heartOrBase": 0.083
+  },
+  {
+   "f": "tobacco_honey",
+   "base": 0.046,
+   "heartOrBase": 0.069
+  },
+  {
+   "f": "iris_powdery",
+   "base": 0.035,
+   "heartOrBase": 0.157
+  },
+  {
+   "f": "white_floral",
+   "base": 0.018,
+   "heartOrBase": 0.448
+  },
+  {
+   "f": "coffee_gourmand",
+   "base": 0.018,
+   "heartOrBase": 0.029
+  },
+  {
+   "f": "green_herbal",
+   "base": 0.017,
+   "heartOrBase": 0.158
+  },
+  {
+   "f": "fruity_sweet",
+   "base": 0.016,
+   "heartOrBase": 0.116
+  },
+  {
+   "f": "spicy_warm",
+   "base": 0.012,
+   "heartOrBase": 0.129
+  },
+  {
+   "f": "rose",
+   "base": 0.01,
+   "heartOrBase": 0.252
+  },
+  {
+   "f": "animalic",
+   "base": 0.009,
+   "heartOrBase": 0.013
+  },
+  {
+   "f": "spice_fresh",
+   "base": 0.008,
+   "heartOrBase": 0.09
+  },
+  {
+   "f": "skin_musk",
+   "base": 0.006,
+   "heartOrBase": 0.007
+  },
+  {
+   "f": "citrus_fresh",
+   "base": 0.004,
+   "heartOrBase": 0.026
+  },
+  {
+   "f": "aquatic_marine",
+   "base": 0.003,
+   "heartOrBase": 0.031
+  },
+  {
+   "f": "saffron_leathery",
+   "base": 0.003,
+   "heartOrBase": 0.015
+  },
+  {
+   "f": "lavender_aromatic",
+   "base": 0.002,
+   "heartOrBase": 0.108
+  },
+  {
+   "f": "oud_animalic",
+   "base": 0.001,
+   "heartOrBase": 0.001
+  },
+  {
+   "f": "aldehydes",
+   "base": 0.001,
+   "heartOrBase": 0.006
+  },
+  {
+   "f": "muguet_floral",
+   "base": 0,
+   "heartOrBase": 0.037
+  },
+  {
+   "f": "damascone_fruit",
+   "base": 0,
+   "heartOrBase": 0
+  }
+ ],
+ "fourCommon": [
+  "woody_amber",
+  "white_musk",
+  "vanilla_gourmand",
+  "amber_resin"
+ ],
+ "holdOneOfFour": 0.853,
+ "meanSuspectsCatalogue": 3.151,
+ "bottles": [
+  {
+   "id": "sauvageedp",
+   "name": "Sauvage Eau de Parfum",
+   "grid": true,
+   "suspects": 1,
+   "sep": [
+    {
+     "f": "woody_amber",
+     "grid": 7,
+     "catalogue": 201
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "woody_amber"
+  },
+  {
+   "id": "bleuedp",
+   "name": "Bleu de Chanel Eau de Parfum",
+   "grid": true,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "cedar_dry",
+     "grid": 0,
+     "catalogue": 80
+    },
+    {
+     "f": "woody_amber",
+     "grid": 6,
+     "catalogue": 114
+    },
+    {
+     "f": "incense_resin",
+     "grid": 1,
+     "catalogue": 15
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "cedar_dry"
+  },
+  {
+   "id": "eros",
+   "name": "Eros",
+   "grid": true,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 1,
+     "catalogue": 137
+    },
+    {
+     "f": "tonka_coumarin",
+     "grid": 0,
+     "catalogue": 29
+    },
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 129
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "cdnim",
+   "name": "Club de Nuit Intense Man",
+   "grid": true,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 115
+    },
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 95
+    },
+    {
+     "f": "leather_smoky",
+     "grid": 0,
+     "catalogue": 34
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "hawas",
+   "name": "Hawas",
+   "grid": true,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 101
+    },
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 122
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "woody_amber"
+  },
+  {
+   "id": "khamrah",
+   "name": "Khamrah",
+   "grid": true,
+   "suspects": 4,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 1,
+     "catalogue": 107
+    },
+    {
+     "f": "tonka_coumarin",
+     "grid": 0,
+     "catalogue": 25
+    },
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 17
+    },
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 77
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "yara",
+   "name": "Yara",
+   "grid": true,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 4,
+     "catalogue": 130
+    },
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 137
+    },
+    {
+     "f": "sandalwood_creamy",
+     "grid": 0,
+     "catalogue": 43
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "libre",
+   "name": "Libre",
+   "grid": true,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 2,
+     "catalogue": 115
+    },
+    {
+     "f": "white_musk",
+     "grid": 0,
+     "catalogue": 58
+    },
+    {
+     "f": "woody_amber",
+     "grid": 2,
+     "catalogue": 69
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "blackopium",
+   "name": "Black Opium",
+   "grid": true,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 2,
+     "catalogue": 127
+    },
+    {
+     "f": "patchouli",
+     "grid": 0,
+     "catalogue": 55
+    },
+    {
+     "f": "woody_amber",
+     "grid": 2,
+     "catalogue": 109
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "goodgirl",
+   "name": "Good Girl",
+   "grid": true,
+   "suspects": 4,
+   "sep": [
+    {
+     "f": "tonka_coumarin",
+     "grid": 0,
+     "catalogue": 35
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 3,
+     "catalogue": 140
+    },
+    {
+     "f": "coffee_gourmand",
+     "grid": 0,
+     "catalogue": 2
+    },
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 44
+    }
+   ],
+   "vote": "amber",
+   "voteFam": "tonka_coumarin"
+  },
+  {
+   "id": "cocomademoiselle",
+   "name": "Coco Mademoiselle Eau de Parfum",
+   "grid": true,
+   "suspects": 4,
+   "sep": [
+    {
+     "f": "patchouli",
+     "grid": 0,
+     "catalogue": 46
+    },
+    {
+     "f": "vetiver",
+     "grid": 0,
+     "catalogue": 26
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 2,
+     "catalogue": 102
+    },
+    {
+     "f": "white_musk",
+     "grid": 0,
+     "catalogue": 137
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "patchouli"
+  },
+  {
+   "id": "lavieestbelle",
+   "name": "La Vie Est Belle",
+   "grid": true,
+   "suspects": 4,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 2,
+     "catalogue": 167
+    },
+    {
+     "f": "patchouli",
+     "grid": 0,
+     "catalogue": 101
+    },
+    {
+     "f": "tonka_coumarin",
+     "grid": 0,
+     "catalogue": 44
+    },
+    {
+     "f": "iris_powdery",
+     "grid": 0,
+     "catalogue": 13
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "br540",
+   "name": "Baccarat Rouge 540",
+   "grid": true,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "woody_amber",
+     "grid": 3,
+     "catalogue": 76
+    },
+    {
+     "f": "cedar_dry",
+     "grid": 0,
+     "catalogue": 64
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 3,
+     "catalogue": 163
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "woody_amber"
+  },
+  {
+   "id": "interlude",
+   "name": "Interlude Man",
+   "grid": true,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "incense_resin",
+     "grid": 0,
+     "catalogue": 24
+    },
+    {
+     "f": "oud_smoky",
+     "grid": 1,
+     "catalogue": 34
+    },
+    {
+     "f": "leather_smoky",
+     "grid": 0,
+     "catalogue": 56
+    }
+   ],
+   "vote": "oud",
+   "voteFam": "incense_resin"
+  },
+  {
+   "id": "santal33",
+   "name": "Santal 33",
+   "grid": true,
+   "suspects": 4,
+   "sep": [
+    {
+     "f": "sandalwood_creamy",
+     "grid": 0,
+     "catalogue": 42
+    },
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 86
+    },
+    {
+     "f": "white_musk",
+     "grid": 0,
+     "catalogue": 64
+    },
+    {
+     "f": "leather_smoky",
+     "grid": 0,
+     "catalogue": 28
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "sandalwood_creamy"
+  },
+  {
+   "id": "oudwood",
+   "name": "Oud Wood",
+   "grid": true,
+   "suspects": 5,
+   "sep": [
+    {
+     "f": "tonka_coumarin",
+     "grid": 0,
+     "catalogue": 23
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 2,
+     "catalogue": 91
+    },
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 25
+    },
+    {
+     "f": "sandalwood_creamy",
+     "grid": 1,
+     "catalogue": 46
+    },
+    {
+     "f": "oud_smoky",
+     "grid": 1,
+     "catalogue": 16
+    }
+   ],
+   "vote": "amber",
+   "voteFam": "tonka_coumarin"
+  },
+  {
+   "id": "badeealoud",
+   "name": "Bade'e Al Oud Oud for Glory",
+   "grid": true,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "patchouli",
+     "grid": 1,
+     "catalogue": 102
+    },
+    {
+     "f": "white_musk",
+     "grid": 3,
+     "catalogue": 242
+    },
+    {
+     "f": "oud_smoky",
+     "grid": 1,
+     "catalogue": 27
+    }
+   ],
+   "vote": "oud",
+   "voteFam": "oud_smoky"
+  },
+  {
+   "id": "adgedt",
+   "name": "Acqua di Giò",
+   "grid": true,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 4,
+     "catalogue": 210
+    },
+    {
+     "f": "cedar_dry",
+     "grid": 1,
+     "catalogue": 96
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "aventus",
+   "name": "Aventus",
+   "grid": true,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 109
+    },
+    {
+     "f": "oakmoss_chypre",
+     "grid": 0,
+     "catalogue": 17
+    },
+    {
+     "f": "woody_amber",
+     "grid": 3,
+     "catalogue": 88
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "invictus",
+   "name": "Invictus",
+   "grid": true,
+   "suspects": 1,
+   "sep": [
+    {
+     "f": "woody_amber",
+     "grid": 7,
+     "catalogue": 201
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "woody_amber"
+  },
+  {
+   "id": "swyintensely",
+   "name": "Stronger With You Intensely",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 3,
+     "catalogue": 146
+    },
+    {
+     "f": "tonka_coumarin",
+     "grid": 0,
+     "catalogue": 35
+    },
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 44
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "missdiorbloomingbouquet",
+   "name": "Miss Dior Blooming Bouquet",
+   "grid": false,
+   "suspects": 1,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 5,
+     "catalogue": 323
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "jovanmusk",
+   "name": "Musk for Women",
+   "grid": false,
+   "suspects": 1,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 5,
+     "catalogue": 323
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "ckbeauty",
+   "name": "Beauty",
+   "grid": false,
+   "suspects": 1,
+   "sep": [
+    {
+     "f": "cedar_dry",
+     "grid": 1,
+     "catalogue": 163
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "cedar_dry"
+  },
+  {
+   "id": "yedp",
+   "name": "Y Eau de Parfum",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "woody_amber",
+     "grid": 5,
+     "catalogue": 108
+    },
+    {
+     "f": "tonka_coumarin",
+     "grid": 2,
+     "catalogue": 57
+    },
+    {
+     "f": "cedar_dry",
+     "grid": 0,
+     "catalogue": 72
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "woody_amber"
+  },
+  {
+   "id": "interditrouge",
+   "name": "L'Interdit Eau de Parfum Rouge",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "sandalwood_creamy",
+     "grid": 1,
+     "catalogue": 117
+    },
+    {
+     "f": "patchouli",
+     "grid": 1,
+     "catalogue": 111
+    },
+    {
+     "f": "vetiver",
+     "grid": 0,
+     "catalogue": 35
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "sandalwood_creamy"
+  },
+  {
+   "id": "idole",
+   "name": "Idôle",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 200
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 5,
+     "catalogue": 177
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "paradoxe",
+   "name": "Paradoxe",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 42
+    },
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 122
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 3,
+     "catalogue": 110
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "lemaleleparfum",
+   "name": "Le Male Le Parfum",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 7,
+     "catalogue": 257
+    },
+    {
+     "f": "cedar_dry",
+     "grid": 1,
+     "catalogue": 117
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "onemillion",
+   "name": "1 Million",
+   "grid": false,
+   "suspects": 4,
+   "sep": [
+    {
+     "f": "leather_smoky",
+     "grid": 0,
+     "catalogue": 22
+    },
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 34
+    },
+    {
+     "f": "patchouli",
+     "grid": 2,
+     "catalogue": 76
+    },
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 89
+    }
+   ],
+   "vote": "amber",
+   "voteFam": "amber_resin"
+  },
+  {
+   "id": "bossbottlednight",
+   "name": "Boss Bottled Night",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 122
+    },
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 101
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "explorer",
+   "name": "Explorer",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "patchouli",
+     "grid": 2,
+     "catalogue": 112
+    },
+    {
+     "f": "woody_amber",
+     "grid": 5,
+     "catalogue": 153
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "patchouli"
+  },
+  {
+   "id": "guccibloom",
+   "name": "Bloom",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "sandalwood_creamy",
+     "grid": 0,
+     "catalogue": 73
+    },
+    {
+     "f": "white_musk",
+     "grid": 4,
+     "catalogue": 210
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "sandalwood_creamy"
+  },
+  {
+   "id": "dylanblue",
+   "name": "Dylan Blue",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 122
+    },
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 101
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "9pm",
+   "name": "9pm",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 3,
+     "catalogue": 146
+    },
+    {
+     "f": "tonka_coumarin",
+     "grid": 0,
+     "catalogue": 35
+    },
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 44
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "reef33",
+   "name": "Reef 33",
+   "grid": false,
+   "suspects": 1,
+   "sep": [
+    {
+     "f": "oud_smoky",
+     "grid": 2,
+     "catalogue": 52
+    }
+   ],
+   "vote": "oud",
+   "voteFam": "oud_smoky"
+  },
+  {
+   "id": "sacrificeforher",
+   "name": "Sacrifice for Her",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 122
+    },
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 101
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "evokeforher",
+   "name": "Evoke for Her",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "patchouli",
+     "grid": 0,
+     "catalogue": 95
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 5,
+     "catalogue": 214
+    },
+    {
+     "f": "oakmoss_chypre",
+     "grid": 0,
+     "catalogue": 34
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "patchouli"
+  },
+  {
+   "id": "supremacycollector",
+   "name": "Supremacy Collector's Edition Pour Homme",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "oakmoss_chypre",
+     "grid": 0,
+     "catalogue": 17
+    },
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 109
+    },
+    {
+     "f": "woody_amber",
+     "grid": 3,
+     "catalogue": 88
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "oakmoss_chypre"
+  },
+  {
+   "id": "onlywhite",
+   "name": "Only White",
+   "grid": false,
+   "suspects": 1,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 5,
+     "catalogue": 323
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "noirextreme",
+   "name": "Noir Extreme",
+   "grid": false,
+   "suspects": 5,
+   "sep": [
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 7
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 1,
+     "catalogue": 75
+    },
+    {
+     "f": "sandalwood_creamy",
+     "grid": 0,
+     "catalogue": 26
+    },
+    {
+     "f": "woody_amber",
+     "grid": 2,
+     "catalogue": 41
+    },
+    {
+     "f": "cedar_dry",
+     "grid": 0,
+     "catalogue": 42
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "allurehommesport",
+   "name": "Allure Homme Sport",
+   "grid": false,
+   "suspects": 4,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 101
+    },
+    {
+     "f": "tonka_coumarin",
+     "grid": 2,
+     "catalogue": 55
+    },
+    {
+     "f": "vetiver",
+     "grid": 0,
+     "catalogue": 27
+    },
+    {
+     "f": "woody_amber",
+     "grid": 3,
+     "catalogue": 75
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "floragardenia",
+   "name": "Flora Gorgeous Gardenia",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 3,
+     "catalogue": 114
+    },
+    {
+     "f": "patchouli",
+     "grid": 0,
+     "catalogue": 63
+    },
+    {
+     "f": "white_musk",
+     "grid": 0,
+     "catalogue": 153
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "valentinodonnaborninroma",
+   "name": "Donna Born In Roma",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 141
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 3,
+     "catalogue": 192
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "woody_amber"
+  },
+  {
+   "id": "crystalnoir",
+   "name": "Crystal Noir",
+   "grid": false,
+   "suspects": 4,
+   "sep": [
+    {
+     "f": "sandalwood_creamy",
+     "grid": 0,
+     "catalogue": 43
+    },
+    {
+     "f": "white_musk",
+     "grid": 0,
+     "catalogue": 63
+    },
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 35
+    },
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 54
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "sandalwood_creamy"
+  },
+  {
+   "id": "paradiso",
+   "name": "Paradiso",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "green_herbal",
+     "grid": 0,
+     "catalogue": 3
+    },
+    {
+     "f": "cedar_dry",
+     "grid": 1,
+     "catalogue": 154
+    }
+   ],
+   "vote": "fresh",
+   "voteFam": "green_herbal"
+  },
+  {
+   "id": "quatre",
+   "name": "Quatre pour Femme",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 5,
+     "catalogue": 177
+    },
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 200
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "ombreleather",
+   "name": "Ombré Leather",
+   "grid": false,
+   "suspects": 4,
+   "sep": [
+    {
+     "f": "amber_resin",
+     "grid": 1,
+     "catalogue": 66
+    },
+    {
+     "f": "oakmoss_chypre",
+     "grid": 0,
+     "catalogue": 22
+    },
+    {
+     "f": "patchouli",
+     "grid": 2,
+     "catalogue": 95
+    },
+    {
+     "f": "leather_smoky",
+     "grid": 0,
+     "catalogue": 22
+    }
+   ],
+   "vote": "oud",
+   "voteFam": "leather_smoky"
+  },
+  {
+   "id": "gentlemanedpboisee",
+   "name": "Gentleman Eau de Parfum Boisée",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "sandalwood_creamy",
+     "grid": 0,
+     "catalogue": 64
+    },
+    {
+     "f": "patchouli",
+     "grid": 2,
+     "catalogue": 78
+    },
+    {
+     "f": "woody_amber",
+     "grid": 4,
+     "catalogue": 132
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "sandalwood_creamy"
+  },
+  {
+   "id": "hypnoticpoison",
+   "name": "Hypnotic Poison",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 4,
+     "catalogue": 130
+    },
+    {
+     "f": "sandalwood_creamy",
+     "grid": 0,
+     "catalogue": 43
+    },
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 137
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "spicebombextreme",
+   "name": "Spicebomb Extreme",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "tobacco_honey",
+     "grid": 0,
+     "catalogue": 11
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 5,
+     "catalogue": 188
+    },
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 50
+    }
+   ],
+   "vote": "amber",
+   "voteFam": "tobacco_honey"
+  },
+  {
+   "id": "narcisoforher",
+   "name": "For Her Eau de Toilette",
+   "grid": false,
+   "suspects": 1,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 5,
+     "catalogue": 323
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "legend",
+   "name": "Legend",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "tonka_coumarin",
+     "grid": 2,
+     "catalogue": 80
+    },
+    {
+     "f": "sandalwood_creamy",
+     "grid": 1,
+     "catalogue": 138
+    },
+    {
+     "f": "oakmoss_chypre",
+     "grid": 0,
+     "catalogue": 39
+    }
+   ],
+   "vote": "amber",
+   "voteFam": "tonka_coumarin"
+  },
+  {
+   "id": "thescentmen",
+   "name": "Boss The Scent",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "leather_smoky",
+     "grid": 0,
+     "catalogue": 45
+    },
+    {
+     "f": "woody_amber",
+     "grid": 6,
+     "catalogue": 190
+    }
+   ],
+   "vote": "oud",
+   "voteFam": "leather_smoky"
+  },
+  {
+   "id": "qaedalfursan",
+   "name": "Qaed Al Fursan",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 122
+    },
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 42
+    },
+    {
+     "f": "vanilla_gourmand",
+     "grid": 3,
+     "catalogue": 110
+    }
+   ],
+   "vote": "musk",
+   "voteFam": "white_musk"
+  },
+  {
+   "id": "shuhrah",
+   "name": "Shuhrah Pour Homme",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 3,
+     "catalogue": 146
+    },
+    {
+     "f": "tonka_coumarin",
+     "grid": 0,
+     "catalogue": 35
+    },
+    {
+     "f": "amber_resin",
+     "grid": 0,
+     "catalogue": 44
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "jannetelfirdauswhite",
+   "name": "Jannet El Firdaus White",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "sandalwood_creamy",
+     "grid": 0,
+     "catalogue": 73
+    },
+    {
+     "f": "white_musk",
+     "grid": 4,
+     "catalogue": 210
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "sandalwood_creamy"
+  },
+  {
+   "id": "eclaire",
+   "name": "Eclaire",
+   "grid": false,
+   "suspects": 3,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 1,
+     "catalogue": 116
+    },
+    {
+     "f": "white_musk",
+     "grid": 1,
+     "catalogue": 185
+    },
+    {
+     "f": "tonka_coumarin",
+     "grid": 0,
+     "catalogue": 36
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  },
+  {
+   "id": "puremusk",
+   "name": "Pure Musk",
+   "grid": false,
+   "suspects": 2,
+   "sep": [
+    {
+     "f": "sandalwood_creamy",
+     "grid": 0,
+     "catalogue": 73
+    },
+    {
+     "f": "white_musk",
+     "grid": 4,
+     "catalogue": 210
+    }
+   ],
+   "vote": "woody",
+   "voteFam": "sandalwood_creamy"
+  },
+  {
+   "id": "emotion",
+   "name": "Emotion",
+   "grid": false,
+   "suspects": 4,
+   "sep": [
+    {
+     "f": "vanilla_gourmand",
+     "grid": 4,
+     "catalogue": 110
+    },
+    {
+     "f": "cedar_dry",
+     "grid": 1,
+     "catalogue": 64
+    },
+    {
+     "f": "sandalwood_creamy",
+     "grid": 0,
+     "catalogue": 27
+    },
+    {
+     "f": "white_musk",
+     "grid": 0,
+     "catalogue": 84
+    }
+   ],
+   "vote": "sweet",
+   "voteFam": "vanilla_gourmand"
+  }
+ ],
+ "separable": {
+  "pairs": 163,
+  "byGrid": 0.6012269938650306,
+  "byCatalogue": 1,
+  "singleSuspect": 8,
+  "meanSuspects": 2.716666666666667
+ },
+ "votes": {
+  "woody": 19,
+  "sweet": 16,
+  "musk": 14,
+  "amber": 5,
+  "oud": 5,
+  "fresh": 1
+ },
+ "voteFams": {
+  "woody_amber": 6,
+  "cedar_dry": 2,
+  "vanilla_gourmand": 16,
+  "white_musk": 14,
+  "tonka_coumarin": 3,
+  "patchouli": 3,
+  "incense_resin": 1,
+  "sandalwood_creamy": 7,
+  "oud_smoky": 2,
+  "amber_resin": 1,
+  "oakmoss_chypre": 1,
+  "green_herbal": 1,
+  "leather_smoky": 2,
+  "tobacco_honey": 1
+ },
+ "votesAll": {
+  "musk": 116,
+  "woody": 417,
+  "amber": 140,
+  "sweet": 219,
+  "oud": 77,
+  "floral": 17,
+  "fresh": 11,
+  "rose": 2,
+  "spiced": 1
+ },
+ "weightAll": {
+  "oud": 0.074,
+  "woody": 0.307,
+  "floral": 0.13,
+  "musk": 0.085,
+  "sweet": 0.124,
+  "amber": 0.113,
+  "spiced": 0.027,
+  "fresh": 0.089,
+  "rose": 0.051
+ },
+ "companions": [
+  {
+   "f": "coffee_gourmand",
+   "g": "vanilla_gourmand",
+   "n": 16,
+   "share": 0.625
+  },
+  {
+   "f": "sandalwood_creamy",
+   "g": "white_musk",
+   "n": 212,
+   "share": 0.5707547169811321
+  },
+  {
+   "f": "tonka_coumarin",
+   "g": "vanilla_gourmand",
+   "n": 148,
+   "share": 0.5675675675675675
+  },
+  {
+   "f": "iris_powdery",
+   "g": "white_musk",
+   "n": 30,
+   "share": 0.5666666666666667
+  },
+  {
+   "f": "white_musk",
+   "g": "woody_amber",
+   "n": 376,
+   "share": 0.526595744680851
+  },
+  {
+   "f": "oakmoss_chypre",
+   "g": "white_musk",
+   "n": 79,
+   "share": 0.5063291139240507
+  },
+  {
+   "f": "iris_powdery",
+   "g": "woody_amber",
+   "n": 30,
+   "share": 0.4666666666666667
+  },
+  {
+   "f": "woody_amber",
+   "g": "white_musk",
+   "n": 330,
+   "share": 0.4575757575757576
+  },
+  {
+   "f": "oud_smoky",
+   "g": "amber_resin",
+   "n": 59,
+   "share": 0.4406779661016949
+  },
+  {
+   "f": "amber_resin",
+   "g": "woody_amber",
+   "n": 235,
+   "share": 0.4340425531914894
+  },
+  {
+   "f": "tobacco_honey",
+   "g": "amber_resin",
+   "n": 44,
+   "share": 0.4318181818181818
+  },
+  {
+   "f": "vanilla_gourmand",
+   "g": "white_musk",
+   "n": 356,
+   "share": 0.41292134831460675
+  },
+  {
+   "f": "incense_resin",
+   "g": "amber_resin",
+   "n": 37,
+   "share": 0.40540540540540543
+  },
+  {
+   "f": "oakmoss_chypre",
+   "g": "woody_amber",
+   "n": 79,
+   "share": 0.4050632911392405
+  },
+  {
+   "f": "vetiver",
+   "g": "patchouli",
+   "n": 117,
+   "share": 0.4017094017094017
+  },
+  {
+   "f": "amber_resin",
+   "g": "vanilla_gourmand",
+   "n": 235,
+   "share": 0.4
+  },
+  {
+   "f": "iris_powdery",
+   "g": "sandalwood_creamy",
+   "n": 30,
+   "share": 0.4
+  }
+ ]
+}

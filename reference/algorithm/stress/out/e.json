@@ -1,0 +1,84 @@
+{
+ "withBottles": {
+  "wearers": 2916,
+  "gender": {
+   "engine": 0.21502057613168724,
+   "random": 0.3635116598079561,
+   "ownBottles": 0.06779951939581187,
+   "forWomen": 0.2295381801554641,
+   "forMen": 0.20050297210791038,
+   "anyOpposite": 0.43072702331961593
+  },
+  "tiers": {
+   "niche": 0.40386374028347233,
+   "designer": 0.41415180612709174,
+   "arab": 0.18198445358939724
+  },
+  "catTiers": {
+   "niche": 0.19300000000000014,
+   "designer": 0.5950000000000004,
+   "arab": 0.21200000000000016
+  },
+  "distinct": 735,
+  "top10Share": 0.24691358024691357,
+  "gini": 0.7704990855052584,
+  "top10": [
+   "Escentric Molecules Molecule 01 (u, niche): 14.5% of wearers",
+   "Maison Francis Kurkdjian Grand Soir (u, niche): 13.0% of wearers",
+   "Juliette Has a Gun Not a Perfume (u, niche): 12.2% of wearers",
+   "Kayali Vanilla 28 (u, designer): 6.9% of wearers",
+   "Lattafa Eclaire (f, arab): 5.4% of wearers",
+   "Serge Lutens Un Bois Vanille (u, niche): 4.9% of wearers",
+   "Swiss Arabian Jannet El Firdaus White (u, arab): 4.8% of wearers",
+   "Narciso Rodriguez Narciso Eau de Parfum Ambrée (f, designer): 4.5% of wearers",
+   "Dior Dior Homme (2020) (m, designer): 4.0% of wearers",
+   "Hugo Boss Hugo Iced (m, designer): 3.9% of wearers"
+  ],
+  "redundant": 0.02091906721536351,
+  "redEx": [
+   "Interlude Black Iris recommended to a wearer who rated Interlude Man",
+   "Explorer Ultra Blue recommended to a wearer who rated Explorer",
+   "Yara Candy recommended to a wearer who rated Yara",
+   "Bleu de Chanel Eau de Toilette recommended to a wearer who rated Bleu de Chanel Eau de Parfum",
+   "Oud for Greatness recommended to a wearer who rated Bade'e Al Oud Oud for Glory"
+  ]
+ },
+ "wordsOnly": {
+  "wearers": 2751,
+  "gender": {
+   "engine": 0.2630558584757058,
+   "random": 0.3632618441778747,
+   "ownBottles": 0,
+   "forWomen": 0.28630908645603725,
+   "forMen": 0.24028776978417266,
+   "anyOpposite": 0.5019992729916394
+  },
+  "tiers": {
+   "designer": 0.4278444202108484,
+   "niche": 0.4503816793893321,
+   "arab": 0.12177390039985679
+  },
+  "catTiers": {
+   "niche": 0.19300000000000014,
+   "designer": 0.5950000000000004,
+   "arab": 0.21200000000000016
+  },
+  "distinct": 415,
+  "top10Share": 0.31297709923664124,
+  "gini": 0.8907697806858113,
+  "top10": [
+   "Hugo Boss Hugo Iced (m, designer): 15.7% of wearers",
+   "Tom Ford Tobacco Vanille (u, niche): 15.1% of wearers",
+   "Serge Lutens Un Bois Vanille (u, niche): 13.8% of wearers",
+   "Chanel Sycomore Eau de Parfum (u, niche): 12.6% of wearers",
+   "Lattafa Eclaire (f, arab): 8.5% of wearers",
+   "Louis Vuitton Afternoon Swim (u, niche): 7.7% of wearers",
+   "Montblanc Legend Eau de Parfum (m, designer): 5.4% of wearers",
+   "Cartier Baiser Vole (f, designer): 5.2% of wearers",
+   "Juliette Has a Gun Not a Perfume (u, niche): 4.9% of wearers",
+   "Giorgio Armani Armani Prive Rouge Malachite (u, niche): 4.9% of wearers"
+  ],
+  "redundant": 0,
+  "redEx": []
+ }
+}

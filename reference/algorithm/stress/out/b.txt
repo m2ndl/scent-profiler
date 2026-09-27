@@ -1,0 +1,62 @@
+1. The two methods on the same 265 judgement-tagged perfumes (clones left out); 0 of 2402 note words unread by the mapper
+
+| stage   | mapper families (0.4+) also in the judgement tags | judgement families (0.4+) the mapper also finds | same strongest family | mean weight gap |
+|---------|---------------------------------------------------|-------------------------------------------------|-----------------------|-----------------|
+| opening | 86%                                               | 90%                                             | 74%                   | 0.24            |
+| heart   | 79%                                               | 92%                                             | 65%                   | 0.27            |
+| drydown | 75%                                               | 86%                                             | 59%                   | 0.28            |
+
+Families the mapper most often puts 0.3 or more above / below the judgement tags (any stage):
+  Woody ambers: above 79, below 28
+  White florals: above 81, below 10
+  Citrus: above 86, below 2
+  Vanilla and sugar: above 53, below 21
+  Green and herbal: above 63, below 4
+  Creamy sandalwood: above 62, below 4
+  Dry cedar / Iso E Super: above 62, below 3
+  Clean white musks: above 45, below 15
+  Sweet fruit: above 46, below 10
+  Rose: above 51, below 5
+
+Bases whose strongest family differs:
+  Aventus: base, judgement {"white_musk":0.6,"oakmoss_chypre":0.4,"woody_amber":0.5,"vanilla_gourmand":0.2}; mapper {"white_musk":0.8,"oakmoss_chypre":0.9,"woody_amber":0.6,"amber_resin":0.2,"animalic":0.2} (listed base notes: musk, oakmoss, ambergris)
+  Althaïr: base, judgement {"vanilla_gourmand":1,"tonka_coumarin":0.6,"woody_amber":0.6,"white_musk":0.3}; mapper {"vanilla_gourmand":0.69,"tonka_coumarin":0.69,"woody_amber":0.77,"white_musk":0.61} (listed base notes: vanilla, tonka, ambroxan, musk)
+  Baccarat Rouge 540: base, judgement {"woody_amber":1,"cedar_dry":0.4,"white_musk":0.3}; mapper {"incense_resin":0.45,"green_herbal":0.45,"amber_resin":0.34,"cedar_dry":0.9} (listed base notes: fir resin, cedar)
+  Grand Soir: base, judgement {"amber_resin":0.9,"vanilla_gourmand":0.6,"woody_amber":0.3}; mapper {"vanilla_gourmand":0.9,"amber_resin":0.9} (listed base notes: vanilla, cistus)
+  Tobacco Vanille: base, judgement {"vanilla_gourmand":0.8,"tobacco_honey":0.7,"fruity_sweet":0.3,"amber_resin":0.4}; mapper {"fruity_sweet":0.9,"damascone_fruit":0.9,"woody_amber":0.9,"cedar_dry":0.54} (listed base notes: dried fruits, woods)
+  Ombré Leather: base, judgement {"amber_resin":0.5,"oakmoss_chypre":0.4,"patchouli":0.4,"leather_smoky":0.7}; mapper {"amber_resin":0.5,"woody_amber":0.5,"oakmoss_chypre":0.7,"green_herbal":0.2,"patchouli":0.9} (listed base notes: amber, moss, patchouli)
+  Sauvage Elixir: base, judgement {"woody_amber":0.7,"amber_resin":0.5,"patchouli":0.4,"sandalwood_creamy":0.3,"vetiver":0.3}; mapper {"spicy_warm":0.34,"vanilla_gourmand":0.26,"tonka_coumarin":0.17,"sandalwood_creamy":0.77,"amber_resin":0.43,"woody_amber":0.43,"patchouli":0.77,"vetiver":0.77} (listed base notes: licorice, sandalwood, amber, patchouli, vetiver)
+  Bleu de Chanel Eau de Parfum: base, judgement {"cedar_dry":0.7,"woody_amber":0.7,"incense_resin":0.4,"patchouli":0.3}; mapper {"incense_resin":0.77,"amber_resin":0.43,"woody_amber":0.43,"cedar_dry":0.68,"sandalwood_creamy":0.77,"patchouli":0.77} (listed base notes: incense, amber, cedar, sandalwood, patchouli)
+
+2. Against Fragrantica's crowd-voted accords (first accord: the first that names a family; lenient: any family of the same palate group counts)
+
+| tags                           | perfumes | first accord missing | first accord missing, lenient | strongest base family not in the first six accords | strongest base family not backed, lenient | strong families (0.5+) backed by the first six accords |
+|--------------------------------|----------|----------------------|-------------------------------|----------------------------------------------------|-------------------------------------------|--------------------------------------------------------|
+| judgement tags                 | 214      | 7%                   | 4%                            | 29%                                                | 18%                                       | 65%                                                    |
+| mapper tags, same perfumes     | 214      | 7%                   | 3%                            | 34%                                                | 16%                                       | 53%                                                    |
+| mapper tags, the 667 expansion | 667      | 4%                   | 1%                            | 36%                                                | 16%                                       | 61%                                                    |
+  Creed Aventus: accords fruity, sweet, woody, leather, citrus, smoky | judgement base {"white_musk":0.6,"oakmoss_chypre":0.4,"woody_amber":0.5,"vanilla_gourmand":0.2} | mapper base {"white_musk":0.8,"oakmoss_chypre":0.9,"woody_amber":0.6,"amber_resin":0.2,"animalic":0.2}
+  Parfums de Marly Althaïr: accords sweet, vanilla, warm spicy, cinnamon, aromatic, powdery | judgement base {"vanilla_gourmand":1,"tonka_coumarin":0.6,"woody_amber":0.6,"white_musk":0.3} | mapper base {"vanilla_gourmand":0.69,"tonka_coumarin":0.69,"woody_amber":0.77,"white_musk":0.61}
+  Chanel Bleu de Chanel Eau de Parfum: accords citrus, amber, woody, fresh spicy, aromatic, warm spicy | judgement base {"cedar_dry":0.7,"woody_amber":0.7,"incense_resin":0.4,"patchouli":0.3} | mapper base {"incense_resin":0.77,"amber_resin":0.43,"woody_amber":0.43,"cedar_dry":0.68,"sandalwood_creamy":0.77,"patchouli":0.77}
+  Rasasi Hawas: accords fruity, citrus, aquatic, fresh, warm spicy, sweet | judgement base {"woody_amber":0.9,"aquatic_marine":0.3,"white_musk":0.5} | mapper base {"woody_amber":0.9,"aquatic_marine":0.23,"amber_resin":0.15,"animalic":0.15,"white_musk":0.6}
+  Kayali Vanilla 28: accords amber, sweet, woody, vanilla, warm spicy, powdery | judgement base {"vanilla_gourmand":1,"amber_resin":0.6,"white_musk":0.5} | mapper base {"amber_resin":0.56,"woody_amber":0.56,"white_musk":0.9,"vanilla_gourmand":0.9}
+  Giorgio Armani Acqua di Giò: accords citrus, aromatic, marine, fresh spicy, floral, woody | judgement base {"white_musk":0.8,"cedar_dry":0.5,"oakmoss_chypre":0.3,"patchouli":0.3,"woody_amber":0.3} | mapper base {"white_musk":0.77,"cedar_dry":0.68,"oakmoss_chypre":0.77,"patchouli":0.77,"amber_resin":0.43,"woody_amber":0.43}
+  Yves Saint Laurent La Nuit de l'Homme: accords aromatic, warm spicy, lavender, woody, fresh spicy, citrus | judgement base {"tonka_coumarin":0.7,"vetiver":0.5,"spicy_warm":0.3,"woody_amber":0.3} | mapper base {"vetiver":0.9,"tonka_coumarin":0.9,"spicy_warm":0.6}
+  Yves Saint Laurent Y Eau de Toilette: accords fresh spicy, aromatic, aldehydic, citrus, fresh, amber | judgement base {"woody_amber":0.8,"cedar_dry":0.5,"incense_resin":0.3,"green_herbal":0.2} | mapper base {"woody_amber":0.35,"amber_resin":0.29,"cedar_dry":0.47,"incense_resin":0.77,"green_herbal":0.24,"vetiver":0.53}
+  Expansion perfumes whose strongest base family no accord in the first six backs, even by palate group:
+    Arabian Oud Arabian Knight: accords amber, citrus, cinnamon, powdery, woody, warm spicy | base {"vanilla_gourmand":0.77,"cedar_dry":0.68,"white_musk":0.68,"amber_resin":0.43,"woody_amber":0.43}
+    Arabian Oud Al Fareed: accords musky, amber, powdery, fresh spicy, oud, animalic | base {"vanilla_gourmand":0.9,"white_musk":0.8,"oud_smoky":0.8,"oud_animalic":0.3}
+    Al Rehab Officer: accords fresh spicy, woody, aromatic, citrus, warm spicy, patchouli | base {"leather_smoky":0.9,"amber_resin":0.9,"cedar_dry":0.8}
+    Arabian Oud Aseel Special Edition: accords rose, vanilla, caramel, sweet, white floral, ozonic | base {"patchouli":0.9,"white_musk":0.8,"woody_amber":0.6,"amber_resin":0.2,"animalic":0.2}
+    Abdul Samad Al Qurashi Black Incense: accords warm spicy, citrus, sweet, fruity, metallic, leather | base {"vetiver":0.9,"vanilla_gourmand":0.7,"coffee_gourmand":0.3}
+    Afnan Mystique Bouquet: accords citrus, musky, fruity, powdery, sweet, floral | base {"woody_amber":0.77,"oakmoss_chypre":0.69,"vanilla_gourmand":0.69,"white_musk":0.61}
+  Families at 0.4 or more in a base: 2.94 for the judgement-tagged entries, 3.24 for the mapper-tagged ones (all 1,000 as shipped).
+
+3. What the disagreement costs (265 judgement-tagged perfumes; three bottles with note rows and told answers; 1500 wearers)
+
+| wearers smell / engine reads | picks kept | picks that turn | flagged deal-breakers that are true | first deal-breaker true | likes that are true |
+|------------------------------|------------|-----------------|-------------------------------------|-------------------------|---------------------|
+| judgement / judgement        | 74%        | 10%             | 32%                                 | 47%                     | 25%                 |
+| judgement / mapper           | 70%        | 13%             | 26%                                 | 39%                     | 21%                 |
+| mapper / mapper              | 71%        | 11%             | 28%                                 | 42%                     | 21%                 |
+| mapper / judgement           | 67%        | 15%             | 26%                                 | 40%                     | 22%                 |

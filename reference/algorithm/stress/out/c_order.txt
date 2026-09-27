@@ -1,0 +1,4 @@
+quiz: white_musk goodPossible at 0.6999999999999998 against goodLikely at 0.7; picks identical
+profiler: citrus_fresh goodLikely at 0.7 against goodPossible at 0.6999999999999998; picks identical
+profiler: cedar_dry mixed at -0.6999999999999998 against badPossible at -0.7; picks identical
+profiler: woody_amber mixed at -0.6999999999999998 against badPossible at -0.7000000000000001; picks the same three in another order

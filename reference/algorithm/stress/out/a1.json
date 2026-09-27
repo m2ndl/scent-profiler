@@ -1,0 +1,1225 @@
+{
+ "personasPerCell": 1500,
+ "seed": 11,
+ "cells": [
+  {
+   "bottles": 1,
+   "depth": "V",
+   "unsureWhen": 0.25,
+   "rated": 0.67,
+   "gate": 0,
+   "dbRecallAll": 0.10140636565507032,
+   "dbRecallExposed": 0.7733333333333333,
+   "dbPrecision": 0.21915246212121217,
+   "dbPrecisionSoft": 0.5598958333333331,
+   "dbInnocent": 2.053977272727273,
+   "dbTopRight": 0.2869318181818182,
+   "likePrecision": 0.12872821410340549,
+   "likeSoft": 0.32075767519871684,
+   "likeRecall": 0.06277777777777771,
+   "hatedShownAsLike": 0.013782542113323124,
+   "turnsByRuin": 0.5284090909090909,
+   "pickKeep": 0.5310962962962965,
+   "pickTurn": 0.20747407407407434,
+   "pickKeepShown": null,
+   "pickTurnShown": null,
+   "randomKeep": 0.44782222222222184,
+   "randomTurn": 0.3408444444444454,
+   "popularKeep": 0.4706518518518514,
+   "popularTurn": 0.3042296296296306,
+   "oracleKeep": 0.9625407407407418,
+   "oracleTurn": 0.03689629629629648,
+   "ruledOut": 106.14133333333334,
+   "ruledOutPrecision": 0.3731175858209419,
+   "ruledOutRecall": 0.14793371218623916,
+   "byLabel": {
+    "badLikely": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "badPossible": {
+     "shown": 908,
+     "true": 0.20374449339207049,
+     "dislikedAtAll": 0.5110132158590308
+    },
+    "goodLikely": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "goodPossible": {
+     "shown": 1856,
+     "true": 0.12661637931034483,
+     "dislikedAtAll": 0.23706896551724138
+    }
+   }
+  },
+  {
+   "bottles": 1,
+   "depth": "VN",
+   "unsureWhen": 0.25,
+   "rated": 0.6626666666666666,
+   "gate": 0,
+   "dbRecallAll": 0.10081845238095238,
+   "dbRecallExposed": 0.8422222222222222,
+   "dbPrecision": 0.2853801169590641,
+   "dbPrecisionSoft": 0.671150097465887,
+   "dbInnocent": 1.6023391812865497,
+   "dbTopRight": 0.3830409356725146,
+   "likePrecision": 0.2120723362658846,
+   "likeSoft": 0.40609900851836345,
+   "likeRecall": 0.08233333333333318,
+   "hatedShownAsLike": 0.007331378299120235,
+   "turnsByRuin": 0.5452054794520548,
+   "pickKeep": 0.5552592592592592,
+   "pickTurn": 0.19958518518518575,
+   "pickKeepShown": null,
+   "pickTurnShown": null,
+   "randomKeep": 0.4433259259259257,
+   "randomTurn": 0.3380888888888895,
+   "popularKeep": 0.4715703703703698,
+   "popularTurn": 0.30544444444444524,
+   "oracleKeep": 0.9655555555555551,
+   "oracleTurn": 0.033896296296296466,
+   "ruledOut": 86.634,
+   "ruledOutPrecision": 0.4362559321832584,
+   "ruledOutRecall": 0.13558328013064871,
+   "byLabel": {
+    "badLikely": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "badPossible": {
+     "shown": 740,
+     "true": 0.2594594594594595,
+     "dislikedAtAll": 0.6256756756756757
+    },
+    "goodLikely": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "goodPossible": {
+     "shown": 1573,
+     "true": 0.19198982835346473,
+     "dislikedAtAll": 0.189446916719644
+    }
+   }
+  },
+  {
+   "bottles": 1,
+   "depth": "VNT",
+   "unsureWhen": 0.25,
+   "rated": 0.6473333333333333,
+   "gate": 0.908,
+   "dbRecallAll": 0.10465976331360946,
+   "dbRecallExposed": 0.8246753246753247,
+   "dbPrecision": 0.295333333333333,
+   "dbPrecisionSoft": 0.6511282051282048,
+   "dbInnocent": 1.6738461538461538,
+   "dbTopRight": 0.38769230769230767,
+   "likePrecision": 0.2028151469855505,
+   "likeSoft": 0.41509715994020907,
+   "likeRecall": 0.07899999999999989,
+   "hatedShownAsLike": 0.0029895366218236174,
+   "turnsByRuin": 0.5798319327731093,
+   "pickKeep": 0.7530888888888883,
+   "pickTurn": 0.09691851851851861,
+   "pickKeepShown": 0.7682819383259918,
+   "pickTurnShown": 0.09286996247348693,
+   "randomKeep": 0.44400740740740835,
+   "randomTurn": 0.33926666666666744,
+   "popularKeep": 0.4646962962962967,
+   "popularTurn": 0.31063703703703754,
+   "oracleKeep": 0.9643185185185198,
+   "oracleTurn": 0.035222222222222425,
+   "ruledOut": 161.93666666666667,
+   "ruledOutPrecision": 0.6718170010632757,
+   "ruledOutRecall": 0.39950883354664346,
+   "byLabel": {
+    "badLikely": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "badPossible": {
+     "shown": 740,
+     "true": 0.2648648648648649,
+     "dislikedAtAll": 0.595945945945946
+    },
+    "goodLikely": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "goodPossible": {
+     "shown": 1522,
+     "true": 0.1938239159001314,
+     "dislikedAtAll": 0.18134034165571616
+    }
+   }
+  },
+  {
+   "bottles": 2,
+   "depth": "V",
+   "unsureWhen": 0.25,
+   "rated": 1.36,
+   "gate": 0.46066666666666667,
+   "dbRecallAll": 0.2025925925925926,
+   "dbRecallExposed": 0.822463768115942,
+   "dbPrecision": 0.22242002063983493,
+   "dbPrecisionSoft": 0.5914031402034498,
+   "dbInnocent": 2.1656346749226008,
+   "dbTopRight": 0.3281733746130031,
+   "likePrecision": 0.13666666666666663,
+   "likeSoft": 0.30719505984211815,
+   "likeRecall": 0.1084444444444444,
+   "hatedShownAsLike": 0.0106951871657754,
+   "turnsByRuin": 0.5261146496815287,
+   "pickKeep": 0.5692962962962957,
+   "pickTurn": 0.1900000000000005,
+   "pickKeepShown": 0.5970413249718606,
+   "pickTurnShown": 0.17846920726804943,
+   "randomKeep": 0.4611333333333341,
+   "randomTurn": 0.3336222222222229,
+   "popularKeep": 0.4677407407407406,
+   "popularTurn": 0.31171851851851906,
+   "oracleKeep": 0.9676666666666656,
+   "oracleTurn": 0.031859259259259406,
+   "ruledOut": 204.32466666666667,
+   "ruledOutPrecision": 0.3696310621860403,
+   "ruledOutRecall": 0.2819550671612877,
+   "byLabel": {
+    "badLikely": {
+     "shown": 80,
+     "true": 0.45,
+     "dislikedAtAll": 0.6875
+    },
+    "badPossible": {
+     "shown": 1690,
+     "true": 0.19822485207100593,
+     "dislikedAtAll": 0.5319526627218935
+    },
+    "goodLikely": {
+     "shown": 275,
+     "true": 0.16,
+     "dislikedAtAll": 0.15272727272727274
+    },
+    "goodPossible": {
+     "shown": 2737,
+     "true": 0.1329923273657289,
+     "dislikedAtAll": 0.23310193642674462
+    }
+   }
+  },
+  {
+   "bottles": 2,
+   "depth": "VN",
+   "unsureWhen": 0.25,
+   "rated": 1.3393333333333333,
+   "gate": 0.454,
+   "dbRecallAll": 0.20185873605947954,
+   "dbRecallExposed": 0.8166666666666667,
+   "dbPrecision": 0.28251803751803783,
+   "dbPrecisionSoft": 0.6679214220123314,
+   "dbInnocent": 1.7752066115702478,
+   "dbTopRight": 0.3867768595041322,
+   "likePrecision": 0.20116896387467556,
+   "likeSoft": 0.3998570967593229,
+   "likeRecall": 0.1448888888888892,
+   "hatedShownAsLike": 0.007744433688286544,
+   "turnsByRuin": 0.5598958333333334,
+   "pickKeep": 0.6088814814814807,
+   "pickTurn": 0.1636814814814815,
+   "pickKeepShown": 0.6681350954478711,
+   "pickTurnShown": 0.13845651819220114,
+   "randomKeep": 0.4548962962962966,
+   "randomTurn": 0.33317777777777835,
+   "popularKeep": 0.46837037037037044,
+   "popularTurn": 0.31357777777777857,
+   "oracleKeep": 0.9648370370370376,
+   "oracleTurn": 0.034703703703703896,
+   "ruledOut": 168.184,
+   "ruledOutPrecision": 0.43210567116364035,
+   "ruledOutRecall": 0.26086451419268186,
+   "byLabel": {
+    "badLikely": {
+     "shown": 72,
+     "true": 0.75,
+     "dislikedAtAll": 0.8472222222222222
+    },
+    "badPossible": {
+     "shown": 1374,
+     "true": 0.2314410480349345,
+     "dislikedAtAll": 0.5946142649199417
+    },
+    "goodLikely": {
+     "shown": 198,
+     "true": 0.29797979797979796,
+     "dislikedAtAll": 0.14646464646464646
+    },
+    "goodPossible": {
+     "shown": 2667,
+     "true": 0.18335208098987626,
+     "dislikedAtAll": 0.19122609673790777
+    }
+   }
+  },
+  {
+   "bottles": 2,
+   "depth": "VNT",
+   "unsureWhen": 0.25,
+   "rated": 1.334,
+   "gate": 0.9566666666666667,
+   "dbRecallAll": 0.20642540620384048,
+   "dbRecallExposed": 0.83451536643026,
+   "dbPrecision": 0.2912346122145117,
+   "dbPrecisionSoft": 0.6695880194623912,
+   "dbInnocent": 1.8542713567839195,
+   "dbTopRight": 0.3869346733668342,
+   "likePrecision": 0.18457178164624993,
+   "likeSoft": 0.404118694544226,
+   "likeRecall": 0.13211111111111135,
+   "hatedShownAsLike": 0.005802707930367505,
+   "turnsByRuin": 0.5686274509803921,
+   "pickKeep": 0.734762962962964,
+   "pickTurn": 0.10048888888888911,
+   "pickKeepShown": 0.7409059233449484,
+   "pickTurnShown": 0.09872241579558672,
+   "randomKeep": 0.4516222222222224,
+   "randomTurn": 0.3392074074074081,
+   "popularKeep": 0.4572888888888894,
+   "popularTurn": 0.32971851851851913,
+   "oracleKeep": 0.9642962962962962,
+   "oracleTurn": 0.0351407407407409,
+   "ruledOut": 231.16933333333333,
+   "ruledOutPrecision": 0.59318674150331,
+   "ruledOutRecall": 0.48149030581806174,
+   "byLabel": {
+    "badLikely": {
+     "shown": 64,
+     "true": 0.609375,
+     "dislikedAtAll": 0.875
+    },
+    "badPossible": {
+     "shown": 1409,
+     "true": 0.2320794889992903,
+     "dislikedAtAll": 0.6061036195883606
+    },
+    "goodLikely": {
+     "shown": 171,
+     "true": 0.19298245614035087,
+     "dislikedAtAll": 0.08771929824561403
+    },
+    "goodPossible": {
+     "shown": 2720,
+     "true": 0.1724264705882353,
+     "dislikedAtAll": 0.19154411764705884
+    }
+   }
+  },
+  {
+   "bottles": 3,
+   "depth": "V",
+   "unsureWhen": 0.25,
+   "rated": 1.9806666666666666,
+   "gate": 0.722,
+   "dbRecallAll": 0.27408513816280805,
+   "dbRecallExposed": 0.8505747126436781,
+   "dbPrecision": 0.21957720948461676,
+   "dbPrecisionSoft": 0.6044307270233198,
+   "dbInnocent": 2.303703703703704,
+   "dbTopRight": 0.3506172839506173,
+   "likePrecision": 0.1381348486157924,
+   "likeSoft": 0.3192932042750547,
+   "likeRecall": 0.14111111111111138,
+   "hatedShownAsLike": 0.009981851179673321,
+   "turnsByRuin": 0.5393457117595049,
+   "pickKeep": 0.5739333333333333,
+   "pickTurn": 0.17546666666666677,
+   "pickKeepShown": 0.5900482199651181,
+   "pickTurnShown": 0.1710782804965633,
+   "randomKeep": 0.45617037037037095,
+   "randomTurn": 0.3297259259259263,
+   "popularKeep": 0.4561185185185181,
+   "popularTurn": 0.3218444444444451,
+   "oracleKeep": 0.9634518518518519,
+   "oracleTurn": 0.0360222222222224,
+   "ruledOut": 256.718,
+   "ruledOutPrecision": 0.3594590629005862,
+   "ruledOutRecall": 0.363441475455572,
+   "byLabel": {
+    "badLikely": {
+     "shown": 199,
+     "true": 0.47738693467336685,
+     "dislikedAtAll": 0.7386934673366834
+    },
+    "badPossible": {
+     "shown": 2154,
+     "true": 0.18198700092850512,
+     "dislikedAtAll": 0.5450324976787372
+    },
+    "goodLikely": {
+     "shown": 573,
+     "true": 0.16928446771378708,
+     "dislikedAtAll": 0.1849912739965096
+    },
+    "goodPossible": {
+     "shown": 3377,
+     "true": 0.12851643470535978,
+     "dislikedAtAll": 0.24637251998815518
+    }
+   }
+  },
+  {
+   "bottles": 3,
+   "depth": "VN",
+   "unsureWhen": 0.25,
+   "rated": 2.009333333333333,
+   "gate": 0.7433333333333333,
+   "dbRecallAll": 0.2866716306775875,
+   "dbRecallExposed": 0.863302752293578,
+   "dbPrecision": 0.28705833848691004,
+   "dbPrecisionSoft": 0.6743186971758408,
+   "dbInnocent": 2.0142857142857142,
+   "dbTopRight": 0.39090909090909093,
+   "likePrecision": 0.18221345402498926,
+   "likeSoft": 0.38545285159826115,
+   "likeRecall": 0.17888888888888946,
+   "hatedShownAsLike": 0.005686433793663688,
+   "turnsByRuin": 0.5474325500435161,
+   "pickKeep": 0.633066666666666,
+   "pickTurn": 0.14871851851851853,
+   "pickKeepShown": 0.6614150473343298,
+   "pickTurnShown": 0.13642252117588455,
+   "randomKeep": 0.45358518518518515,
+   "randomTurn": 0.3365629629629635,
+   "popularKeep": 0.46071111111111046,
+   "popularTurn": 0.31325185185185245,
+   "oracleKeep": 0.9662296296296297,
+   "oracleTurn": 0.03308888888888904,
+   "ruledOut": 221.07133333333334,
+   "ruledOutPrecision": 0.414391140618088,
+   "ruledOutRecall": 0.3373135438879974,
+   "byLabel": {
+    "badLikely": {
+     "shown": 171,
+     "true": 0.5146198830409356,
+     "dislikedAtAll": 0.8362573099415205
+    },
+    "badPossible": {
+     "shown": 1892,
+     "true": 0.22410147991543342,
+     "dislikedAtAll": 0.6025369978858351
+    },
+    "goodLikely": {
+     "shown": 451,
+     "true": 0.24168514412416853,
+     "dislikedAtAll": 0.1197339246119734
+    },
+    "goodPossible": {
+     "shown": 3507,
+     "true": 0.15996578272027373,
+     "dislikedAtAll": 0.19532363843741088
+    }
+   }
+  },
+  {
+   "bottles": 3,
+   "depth": "VNT",
+   "unsureWhen": 0.25,
+   "rated": 1.9813333333333334,
+   "gate": 0.98,
+   "dbRecallAll": 0.2940074906367041,
+   "dbRecallExposed": 0.8605504587155963,
+   "dbPrecision": 0.2966184917546785,
+   "dbPrecisionSoft": 0.6467595166038748,
+   "dbInnocent": 1.859922178988327,
+   "dbTopRight": 0.4383916990920882,
+   "likePrecision": 0.1949244966442952,
+   "likeSoft": 0.38903237189730383,
+   "likeRecall": 0.19088888888888902,
+   "hatedShownAsLike": 0.007550335570469799,
+   "turnsByRuin": 0.5723049956178791,
+   "pickKeep": 0.7424814814814809,
+   "pickTurn": 0.0923111111111112,
+   "pickKeepShown": 0.7472184429327283,
+   "pickTurnShown": 0.09080120937263803,
+   "randomKeep": 0.4546592592592592,
+   "randomTurn": 0.3371333333333335,
+   "popularKeep": 0.4689333333333333,
+   "popularTurn": 0.30996296296296355,
+   "oracleKeep": 0.9698222222222224,
+   "oracleTurn": 0.02969629629629644,
+   "ruledOut": 268.154,
+   "ruledOutPrecision": 0.5468066471953874,
+   "ruledOutRecall": 0.5395580207740601,
+   "byLabel": {
+    "badLikely": {
+     "shown": 166,
+     "true": 0.608433734939759,
+     "dislikedAtAll": 0.8614457831325302
+    },
+    "badPossible": {
+     "shown": 1782,
+     "true": 0.23176206509539843,
+     "dislikedAtAll": 0.569023569023569
+    },
+    "goodLikely": {
+     "shown": 436,
+     "true": 0.25,
+     "dislikedAtAll": 0.12155963302752294
+    },
+    "goodPossible": {
+     "shown": 3528,
+     "true": 0.17205215419501133,
+     "dislikedAtAll": 0.19671201814058956
+    }
+   }
+  },
+  {
+   "bottles": 5,
+   "depth": "V",
+   "unsureWhen": 0.25,
+   "rated": 3.3233333333333333,
+   "gate": 0.9466666666666667,
+   "dbRecallAll": 0.3889716840536513,
+   "dbRecallExposed": 0.8465753424657534,
+   "dbPrecision": 0.22950863091673343,
+   "dbPrecisionSoft": 0.6008244143866673,
+   "dbInnocent": 2.6679841897233203,
+   "dbTopRight": 0.40810276679841895,
+   "likePrecision": 0.13404186139457744,
+   "likeSoft": 0.297707868939697,
+   "likeRecall": 0.19344444444444456,
+   "hatedShownAsLike": 0.011476664116296864,
+   "turnsByRuin": 0.5675249605885444,
+   "pickKeep": 0.6036592592592602,
+   "pickTurn": 0.15540000000000018,
+   "pickKeepShown": 0.6084037558685456,
+   "pickTurnShown": 0.15356807511737106,
+   "randomKeep": 0.45478518518518435,
+   "randomTurn": 0.32817777777777835,
+   "popularKeep": 0.45920000000000083,
+   "popularTurn": 0.3208518518518523,
+   "oracleKeep": 0.9653851851851853,
+   "oracleTurn": 0.03405185185185202,
+   "ruledOut": 325.2746666666667,
+   "ruledOutPrecision": 0.3613650189964236,
+   "ruledOutRecall": 0.47828797921037436,
+   "byLabel": {
+    "badLikely": {
+     "shown": 500,
+     "true": 0.498,
+     "dislikedAtAll": 0.748
+    },
+    "badPossible": {
+     "shown": 2899,
+     "true": 0.1552259399793032,
+     "dislikedAtAll": 0.5112107623318386
+    },
+    "goodLikely": {
+     "shown": 1365,
+     "true": 0.15164835164835164,
+     "dislikedAtAll": 0.20512820512820512
+    },
+    "goodPossible": {
+     "shown": 4299,
+     "true": 0.12142358688066993,
+     "dislikedAtAll": 0.24819725517562224
+    }
+   }
+  },
+  {
+   "bottles": 5,
+   "depth": "VN",
+   "unsureWhen": 0.25,
+   "rated": 3.3806666666666665,
+   "gate": 0.9526666666666667,
+   "dbRecallAll": 0.3864644970414201,
+   "dbRecallExposed": 0.8462603878116344,
+   "dbPrecision": 0.2629117194469891,
+   "dbPrecisionSoft": 0.6501858762491549,
+   "dbInnocent": 2.3765560165975104,
+   "dbTopRight": 0.45435684647302904,
+   "likePrecision": 0.19417757929881346,
+   "likeSoft": 0.39225770351780576,
+   "likeRecall": 0.265777777777777,
+   "hatedShownAsLike": 0.0073475385745775165,
+   "turnsByRuin": 0.5708267509215377,
+   "pickKeep": 0.6754962962962959,
+   "pickTurn": 0.12734074074074112,
+   "pickKeepShown": 0.6849622890910502,
+   "pickTurnShown": 0.12346629344530015,
+   "randomKeep": 0.45738518518518556,
+   "randomTurn": 0.3320592592592601,
+   "popularKeep": 0.46274074074074073,
+   "popularTurn": 0.31284444444444504,
+   "oracleKeep": 0.9676518518518513,
+   "oracleTurn": 0.03185925925925942,
+   "ruledOut": 292.09066666666666,
+   "ruledOutPrecision": 0.38922123746079873,
+   "ruledOutRecall": 0.44714930688740845,
+   "byLabel": {
+    "badLikely": {
+     "shown": 414,
+     "true": 0.6111111111111112,
+     "dislikedAtAll": 0.8454106280193237
+    },
+    "badPossible": {
+     "shown": 2573,
+     "true": 0.1721725612125923,
+     "dislikedAtAll": 0.5639331519626894
+    },
+    "goodLikely": {
+     "shown": 1112,
+     "true": 0.26618705035971224,
+     "dislikedAtAll": 0.125
+    },
+    "goodPossible": {
+     "shown": 4568,
+     "true": 0.15499124343257442,
+     "dislikedAtAll": 0.1941768826619965
+    }
+   }
+  },
+  {
+   "bottles": 5,
+   "depth": "VNT",
+   "unsureWhen": 0.25,
+   "rated": 3.3013333333333335,
+   "gate": 0.9913333333333333,
+   "dbRecallAll": 0.38228699551569506,
+   "dbRecallExposed": 0.8653846153846154,
+   "dbPrecision": 0.2821891846812313,
+   "dbPrecisionSoft": 0.6562698642232053,
+   "dbInnocent": 2.2895015906680807,
+   "dbTopRight": 0.4411452810180276,
+   "likePrecision": 0.19330807059083938,
+   "likeSoft": 0.3950268312933991,
+   "likeRecall": 0.26911111111111086,
+   "hatedShownAsLike": 0.004418262150220913,
+   "turnsByRuin": 0.5441334768568353,
+   "pickKeep": 0.7436888888888881,
+   "pickTurn": 0.08845185185185199,
+   "pickKeepShown": 0.7451692445639981,
+   "pickTurnShown": 0.08793245161772413,
+   "randomKeep": 0.46339999999999953,
+   "randomTurn": 0.32854074074074135,
+   "popularKeep": 0.47038518518518635,
+   "popularTurn": 0.30424444444444493,
+   "oracleKeep": 0.962570370370371,
+   "oracleTurn": 0.03704444444444463,
+   "ruledOut": 316.5106666666667,
+   "ruledOutPrecision": 0.5086340534836133,
+   "ruledOutRecall": 0.5909119177614185,
+   "byLabel": {
+    "badLikely": {
+     "shown": 385,
+     "true": 0.5714285714285714,
+     "dislikedAtAll": 0.8233766233766234
+    },
+    "badPossible": {
+     "shown": 2468,
+     "true": 0.1920583468395462,
+     "dislikedAtAll": 0.5822528363047001
+    },
+    "goodLikely": {
+     "shown": 1065,
+     "true": 0.292018779342723,
+     "dislikedAtAll": 0.1295774647887324
+    },
+    "goodPossible": {
+     "shown": 4494,
+     "true": 0.1542056074766355,
+     "dislikedAtAll": 0.19870939029817533
+    }
+   }
+  },
+  {
+   "bottles": 8,
+   "depth": "V",
+   "unsureWhen": 0.25,
+   "rated": 5.276,
+   "gate": 0.9946666666666667,
+   "dbRecallAll": 0.522476050110538,
+   "dbRecallExposed": 0.882943143812709,
+   "dbPrecision": 0.22667586361867265,
+   "dbPrecisionSoft": 0.605729801924082,
+   "dbInnocent": 3.1152228763666945,
+   "dbTopRight": 0.432296047098402,
+   "likePrecision": 0.127293986101426,
+   "likeSoft": 0.3043967135870848,
+   "likeRecall": 0.22899999999999962,
+   "hatedShownAsLike": 0.007293946024799417,
+   "turnsByRuin": 0.5570731707317074,
+   "pickKeep": 0.6107777777777786,
+   "pickTurn": 0.13999259259259272,
+   "pickKeepShown": 0.6115951742627352,
+   "pickTurnShown": 0.13990914507000307,
+   "randomKeep": 0.4603703703703704,
+   "randomTurn": 0.32888148148148183,
+   "popularKeep": 0.45021481481481473,
+   "popularTurn": 0.3186148148148154,
+   "oracleKeep": 0.9616074074074081,
+   "oracleTurn": 0.0378888888888891,
+   "ruledOut": 393.21866666666665,
+   "ruledOutPrecision": 0.33972786792883775,
+   "ruledOutRecall": 0.578631493464917,
+   "byLabel": {
+    "badLikely": {
+     "shown": 913,
+     "true": 0.4556407447973713,
+     "dislikedAtAll": 0.7458926615553122
+    },
+    "badPossible": {
+     "shown": 3729,
+     "true": 0.13998390989541432,
+     "dislikedAtAll": 0.524001072673639
+    },
+    "goodLikely": {
+     "shown": 2350,
+     "true": 0.15106382978723404,
+     "dislikedAtAll": 0.19319148936170213
+    },
+    "goodPossible": {
+     "shown": 4451,
+     "true": 0.1130083127387104,
+     "dislikedAtAll": 0.25814423725005614
+    }
+   }
+  },
+  {
+   "bottles": 8,
+   "depth": "VN",
+   "unsureWhen": 0.25,
+   "rated": 5.244,
+   "gate": 0.9933333333333333,
+   "dbRecallAll": 0.507754800590842,
+   "dbRecallExposed": 0.8761111111111111,
+   "dbPrecision": 0.2807408890668798,
+   "dbPrecisionSoft": 0.6621352925097406,
+   "dbInnocent": 2.6008810572687224,
+   "dbTopRight": 0.5251101321585903,
+   "likePrecision": 0.19668731284223243,
+   "likeSoft": 0.39720345561238746,
+   "likeRecall": 0.3432222222222215,
+   "hatedShownAsLike": 0.007676203768318213,
+   "turnsByRuin": 0.56647784071976,
+   "pickKeep": 0.7046592592592592,
+   "pickTurn": 0.1144740740740743,
+   "pickKeepShown": 0.7065622669649514,
+   "pickTurnShown": 0.11386278896346036,
+   "randomKeep": 0.4521555555555562,
+   "randomTurn": 0.33880000000000104,
+   "popularKeep": 0.4567555555555567,
+   "popularTurn": 0.323111111111112,
+   "oracleKeep": 0.9657037037037031,
+   "oracleTurn": 0.03382222222222242,
+   "ruledOut": 341.392,
+   "ruledOutPrecision": 0.39567113508690643,
+   "ruledOutRecall": 0.5449954201136238,
+   "byLabel": {
+    "badLikely": {
+     "shown": 782,
+     "true": 0.5677749360613811,
+     "dislikedAtAll": 0.8375959079283888
+    },
+    "badPossible": {
+     "shown": 3088,
+     "true": 0.15349740932642486,
+     "dislikedAtAll": 0.5527849740932642
+    },
+    "goodLikely": {
+     "shown": 1916,
+     "true": 0.2745302713987474,
+     "dislikedAtAll": 0.12578288100208768
+    },
+    "goodPossible": {
+     "shown": 5240,
+     "true": 0.14618320610687022,
+     "dislikedAtAll": 0.20229007633587787
+    }
+   }
+  },
+  {
+   "bottles": 8,
+   "depth": "VNT",
+   "unsureWhen": 0.25,
+   "rated": 5.238666666666667,
+   "gate": 1,
+   "dbRecallAll": 0.5106853352984525,
+   "dbRecallExposed": 0.8955981941309256,
+   "dbPrecision": 0.26854212590408855,
+   "dbPrecisionSoft": 0.6642202037907559,
+   "dbInnocent": 2.6862401402278704,
+   "dbTopRight": 0.5276073619631901,
+   "likePrecision": 0.18329735532532698,
+   "likeSoft": 0.38684241748927023,
+   "likeRecall": 0.32955555555555466,
+   "hatedShownAsLike": 0.006993006993006993,
+   "turnsByRuin": 0.5605914496946319,
+   "pickKeep": 0.7469777777777772,
+   "pickTurn": 0.08283703703703718,
+   "pickKeepShown": 0.7469777777777772,
+   "pickTurnShown": 0.08283703703703718,
+   "randomKeep": 0.4542444444444453,
+   "randomTurn": 0.3323333333333332,
+   "popularKeep": 0.45082962962962986,
+   "popularTurn": 0.32338518518518566,
+   "oracleKeep": 0.9620592592592595,
+   "oracleTurn": 0.037555555555555745,
+   "ruledOut": 377.89733333333334,
+   "ruledOutPrecision": 0.45055542675323107,
+   "ruledOutRecall": 0.6625307535691697,
+   "byLabel": {
+    "badLikely": {
+     "shown": 774,
+     "true": 0.5839793281653747,
+     "dislikedAtAll": 0.8294573643410853
+    },
+    "badPossible": {
+     "shown": 3217,
+     "true": 0.14734224432701273,
+     "dislikedAtAll": 0.5629468448865402
+    },
+    "goodLikely": {
+     "shown": 1805,
+     "true": 0.2559556786703601,
+     "dislikedAtAll": 0.1185595567867036
+    },
+    "goodPossible": {
+     "shown": 5236,
+     "true": 0.14648586707410235,
+     "dislikedAtAll": 0.2012987012987013
+    }
+   }
+  },
+  {
+   "bottles": 0,
+   "depth": "T",
+   "unsureWhen": 0.25,
+   "rated": 0,
+   "gate": 0.924,
+   "dbRecallAll": 0,
+   "dbRecallExposed": null,
+   "dbPrecision": null,
+   "dbPrecisionSoft": null,
+   "dbInnocent": null,
+   "dbTopRight": null,
+   "likePrecision": null,
+   "likeSoft": null,
+   "likeRecall": 0,
+   "hatedShownAsLike": null,
+   "turnsByRuin": null,
+   "pickKeep": 0.787718518518517,
+   "pickTurn": 0.09502222222222236,
+   "pickKeepShown": 0.8076719576719554,
+   "pickTurnShown": 0.08960237293570639,
+   "randomKeep": 0.4494814814814813,
+   "randomTurn": 0.33632592592592564,
+   "popularKeep": 0.463474074074074,
+   "popularTurn": 0.3159481481481489,
+   "oracleKeep": 0.967340740740741,
+   "oracleTurn": 0.032111111111111305,
+   "ruledOut": 86.55533333333334,
+   "ruledOutPrecision": 0.7187861414984146,
+   "ruledOutRecall": 0.3016158528389179,
+   "byLabel": {
+    "badLikely": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "badPossible": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "goodLikely": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "goodPossible": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    }
+   }
+  },
+  {
+   "bottles": 3,
+   "depth": "VNT",
+   "unsureWhen": 0,
+   "rated": 2.02,
+   "gate": 0.98,
+   "dbRecallAll": 0.2934131736526946,
+   "dbRecallExposed": 0.8761301989150091,
+   "dbPrecision": 0.3052122288706061,
+   "dbPrecisionSoft": 0.7011681417767808,
+   "dbInnocent": 1.8861256544502618,
+   "dbTopRight": 0.4607329842931937,
+   "likePrecision": 0.18485886422819642,
+   "likeSoft": 0.38113602757048737,
+   "likeRecall": 0.18144444444444477,
+   "hatedShownAsLike": 0.004122011541632316,
+   "turnsByRuin": 0.5442708333333334,
+   "pickKeep": 0.7411851851851846,
+   "pickTurn": 0.08880000000000018,
+   "pickKeepShown": 0.7426152683295538,
+   "pickTurnShown": 0.08817838246409693,
+   "randomKeep": 0.44354814814814797,
+   "randomTurn": 0.3416000000000005,
+   "popularKeep": 0.46137037037037004,
+   "popularTurn": 0.32354074074074185,
+   "oracleKeep": 0.9623259259259256,
+   "oracleTurn": 0.03724444444444463,
+   "ruledOut": 261.6453333333333,
+   "ruledOutPrecision": 0.5588274351537921,
+   "ruledOutRecall": 0.5319436027456339,
+   "byLabel": {
+    "badLikely": {
+     "shown": 188,
+     "true": 0.6329787234042553,
+     "dislikedAtAll": 0.8776595744680851
+    },
+    "badPossible": {
+     "shown": 1781,
+     "true": 0.22964626614261652,
+     "dislikedAtAll": 0.618192026951151
+    },
+    "goodLikely": {
+     "shown": 489,
+     "true": 0.26789366053169733,
+     "dislikedAtAll": 0.12883435582822086
+    },
+    "goodPossible": {
+     "shown": 3391,
+     "true": 0.16219404305514598,
+     "dislikedAtAll": 0.19463285166617517
+    }
+   }
+  },
+  {
+   "bottles": 3,
+   "depth": "VNT",
+   "unsureWhen": 0.5,
+   "rated": 1.97,
+   "gate": 0.97,
+   "dbRecallAll": 0.2663447251114413,
+   "dbRecallExposed": 0.812962962962963,
+   "dbPrecision": 0.2637401450646484,
+   "dbPrecisionSoft": 0.6208798486281931,
+   "dbInnocent": 2.11523178807947,
+   "dbTopRight": 0.3655629139072848,
+   "likePrecision": 0.1860930887633998,
+   "likeSoft": 0.3804467539749282,
+   "likeRecall": 0.1770000000000005,
+   "hatedShownAsLike": 0.00672834314550042,
+   "turnsByRuin": 0.5797872340425532,
+   "pickKeep": 0.7331259259259277,
+   "pickTurn": 0.09919259259259272,
+   "pickKeepShown": 0.7386177930507845,
+   "pickTurnShown": 0.09810614738449804,
+   "randomKeep": 0.4628370370370376,
+   "randomTurn": 0.3276518518518527,
+   "popularKeep": 0.465977777777779,
+   "popularTurn": 0.3182740740740738,
+   "oracleKeep": 0.9660148148148152,
+   "oracleTurn": 0.033577777777777915,
+   "ruledOut": 272.32666666666665,
+   "ruledOutPrecision": 0.529021915451214,
+   "ruledOutRecall": 0.5225885423396106,
+   "byLabel": {
+    "badLikely": {
+     "shown": 181,
+     "true": 0.5524861878453039,
+     "dislikedAtAll": 0.8011049723756906
+    },
+    "badPossible": {
+     "shown": 1896,
+     "true": 0.20042194092827004,
+     "dislikedAtAll": 0.5574894514767933
+    },
+    "goodLikely": {
+     "shown": 448,
+     "true": 0.2700892857142857,
+     "dislikedAtAll": 0.11830357142857142
+    },
+    "goodPossible": {
+     "shown": 3420,
+     "true": 0.15789473684210525,
+     "dislikedAtAll": 0.20029239766081872
+    }
+   }
+  },
+  {
+   "bottles": 3,
+   "depth": "VN1T",
+   "unsureWhen": 0.25,
+   "rated": 1.9766666666666666,
+   "gate": 0.9673333333333334,
+   "dbRecallAll": 0.29411764705882354,
+   "dbRecallExposed": 0.8527827648114902,
+   "dbPrecision": 0.34242571688075785,
+   "dbPrecisionSoft": 0.7105812897366033,
+   "dbInnocent": 1.6457765667574933,
+   "dbTopRight": 0.46866485013623976,
+   "likePrecision": 0.22609134826526128,
+   "likeSoft": 0.44830008156095014,
+   "likeRecall": 0.2071111111111113,
+   "hatedShownAsLike": 0.0071146245059288534,
+   "turnsByRuin": 0.5878070973612375,
+   "pickKeep": 0.7563185185185172,
+   "pickTurn": 0.08804444444444454,
+   "pickKeepShown": 0.7631977946243957,
+   "pickTurnShown": 0.08492227582510159,
+   "randomKeep": 0.4550370370370372,
+   "randomTurn": 0.3326592592592597,
+   "popularKeep": 0.45934814814814806,
+   "popularTurn": 0.3208888888888889,
+   "oracleKeep": 0.9660666666666666,
+   "oracleTurn": 0.033333333333333555,
+   "ruledOut": 239.042,
+   "ruledOutPrecision": 0.5728670076727962,
+   "ruledOutRecall": 0.5128722336426085,
+   "byLabel": {
+    "badLikely": {
+     "shown": 139,
+     "true": 0.7697841726618705,
+     "dislikedAtAll": 0.9064748201438849
+    },
+    "badPossible": {
+     "shown": 1585,
+     "true": 0.2580441640378549,
+     "dislikedAtAll": 0.6422712933753943
+    },
+    "goodLikely": {
+     "shown": 412,
+     "true": 0.3616504854368932,
+     "dislikedAtAll": 0.043689320388349516
+    },
+    "goodPossible": {
+     "shown": 3328,
+     "true": 0.18900240384615385,
+     "dislikedAtAll": 0.16466346153846154
+    }
+   }
+  },
+  {
+   "bottles": 3,
+   "depth": "VNT-weak",
+   "unsureWhen": 0.25,
+   "rated": 1.9553333333333334,
+   "gate": 0.9073333333333333,
+   "dbRecallAll": 0.2830258302583026,
+   "dbRecallExposed": 0.8579335793357934,
+   "dbPrecision": 0.27748564891422056,
+   "dbPrecisionSoft": 0.675763007905865,
+   "dbInnocent": 2.0025740025740024,
+   "dbTopRight": 0.40283140283140284,
+   "likePrecision": 0.18581736604793808,
+   "likeSoft": 0.39031094154919854,
+   "likeRecall": 0.1686666666666672,
+   "hatedShownAsLike": 0.008539709649871904,
+   "turnsByRuin": 0.5367132867132867,
+   "pickKeep": 0.6886444444444445,
+   "pickTurn": 0.11753333333333363,
+   "pickKeepShown": 0.7012817372846766,
+   "pickTurnShown": 0.11245815984978386,
+   "randomKeep": 0.4447481481481481,
+   "randomTurn": 0.34058518518518605,
+   "popularKeep": 0.44991851851851844,
+   "popularTurn": 0.32777037037037104,
+   "oracleKeep": 0.9629037037037035,
+   "oracleTurn": 0.03655555555555576,
+   "ruledOut": 249.11333333333334,
+   "ruledOutPrecision": 0.45787076262520743,
+   "ruledOutRecall": 0.41968679288927657,
+   "byLabel": {
+    "badLikely": {
+     "shown": 158,
+     "true": 0.569620253164557,
+     "dislikedAtAll": 0.8354430379746836
+    },
+    "badPossible": {
+     "shown": 1906,
+     "true": 0.2193074501573977,
+     "dislikedAtAll": 0.6075550891920252
+    },
+    "goodLikely": {
+     "shown": 444,
+     "true": 0.24549549549549549,
+     "dislikedAtAll": 0.11936936936936937
+    },
+    "goodPossible": {
+     "shown": 3272,
+     "true": 0.15892420537897312,
+     "dislikedAtAll": 0.20904645476772615
+    }
+   }
+  },
+  {
+   "bottles": 0,
+   "depth": "T-weak",
+   "unsureWhen": 0.25,
+   "rated": 0,
+   "gate": 0.7266666666666667,
+   "dbRecallAll": 0,
+   "dbRecallExposed": null,
+   "dbPrecision": null,
+   "dbPrecisionSoft": null,
+   "dbInnocent": null,
+   "dbTopRight": null,
+   "likePrecision": null,
+   "likeSoft": null,
+   "likeRecall": 0,
+   "hatedShownAsLike": null,
+   "turnsByRuin": null,
+   "pickKeep": 0.6894740740740755,
+   "pickTurn": 0.13945185185185216,
+   "pickKeepShown": 0.7549439347604509,
+   "pickTurnShown": 0.11879714576962296,
+   "randomKeep": 0.46097037037037003,
+   "randomTurn": 0.3256000000000005,
+   "popularKeep": 0.47118518518518565,
+   "popularTurn": 0.31528148148148183,
+   "oracleKeep": 0.9680888888888882,
+   "oracleTurn": 0.03145185185185197,
+   "ruledOut": 42.718,
+   "ruledOutPrecision": 0.6197261801352587,
+   "ruledOutRecall": 0.12310308934601975,
+   "byLabel": {
+    "badLikely": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "badPossible": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "goodLikely": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    },
+    "goodPossible": {
+     "shown": 0,
+     "true": null,
+     "dislikedAtAll": null
+    }
+   }
+  },
+  {
+   "bottles": 3,
+   "depth": "VNT-liked",
+   "unsureWhen": 0.25,
+   "rated": 1.8386666666666667,
+   "gate": 0.9653333333333334,
+   "dbRecallAll": 0.2638473053892216,
+   "dbRecallExposed": 0.8521400778210116,
+   "dbPrecision": 0.33974826772814387,
+   "dbPrecisionSoft": 0.6355263157894739,
+   "dbInnocent": 1.804953560371517,
+   "dbTopRight": 0.4613003095975232,
+   "likePrecision": 0.21844409762864692,
+   "likeSoft": 0.4359736234199748,
+   "likeRecall": 0.2157777777777775,
+   "hatedShownAsLike": 0.008583690987124463,
+   "turnsByRuin": 0.6448390677025527,
+   "pickKeep": 0.7482074074074075,
+   "pickTurn": 0.09134814814814826,
+   "pickKeepShown": 0.7523250460405154,
+   "pickTurnShown": 0.09037753222836115,
+   "randomKeep": 0.4615185185185188,
+   "randomTurn": 0.32294814814814865,
+   "popularKeep": 0.4647407407407412,
+   "popularTurn": 0.31449629629629644,
+   "oracleKeep": 0.9676222222222235,
+   "oracleTurn": 0.031992592592592774,
+   "ruledOut": 223.08,
+   "ruledOutPrecision": 0.5932777581050572,
+   "ruledOutRecall": 0.49252492935967634,
+   "byLabel": {
+    "badLikely": {
+     "shown": 120,
+     "true": 0.7,
+     "dislikedAtAll": 0.8583333333333333
+    },
+    "badPossible": {
+     "shown": 1524,
+     "true": 0.2585301837270341,
+     "dislikedAtAll": 0.5577427821522309
+    },
+    "goodLikely": {
+     "shown": 515,
+     "true": 0.35145631067961164,
+     "dislikedAtAll": 0.1145631067961165
+    },
+    "goodPossible": {
+     "shown": 3435,
+     "true": 0.18136826783114993,
+     "dislikedAtAll": 0.18136826783114993
+    }
+   }
+  },
+  {
+   "bottles": 8,
+   "depth": "VNT-liked",
+   "unsureWhen": 0.25,
+   "rated": 4.984666666666667,
+   "gate": 0.9993333333333333,
+   "dbRecallAll": 0.49444444444444446,
+   "dbRecallExposed": 0.8737083811710677,
+   "dbPrecision": 0.30983186639584714,
+   "dbPrecisionSoft": 0.6533716993906569,
+   "dbInnocent": 2.3876777251184835,
+   "dbTopRight": 0.5753554502369668,
+   "likePrecision": 0.20031457707806208,
+   "likeSoft": 0.397311321688915,
+   "likeRecall": 0.3812222222222224,
+   "hatedShownAsLike": 0.008298755186721992,
+   "turnsByRuin": 0.6292090837901331,
+   "pickKeep": 0.7450444444444443,
+   "pickTurn": 0.0903555555555557,
+   "pickKeepShown": 0.7453191016233043,
+   "pickTurnShown": 0.09021569935512579,
+   "randomKeep": 0.44856296296296394,
+   "randomTurn": 0.34420740740740774,
+   "popularKeep": 0.4328222222222232,
+   "popularTurn": 0.3433777777777783,
+   "oracleKeep": 0.966348148148149,
+   "oracleTurn": 0.03320000000000021,
+   "ruledOut": 320.66266666666667,
+   "ruledOutPrecision": 0.5089324763611471,
+   "ruledOutRecall": 0.626078217614876,
+   "byLabel": {
+    "badLikely": {
+     "shown": 647,
+     "true": 0.6445131375579598,
+     "dislikedAtAll": 0.8222565687789799
+    },
+    "badPossible": {
+     "shown": 2776,
+     "true": 0.17543227665706052,
+     "dislikedAtAll": 0.5461095100864554
+    },
+    "goodLikely": {
+     "shown": 2093,
+     "true": 0.3029144768275203,
+     "dislikedAtAll": 0.11992355470616341
+    },
+    "goodPossible": {
+     "shown": 5465,
+     "true": 0.14181152790484905,
+     "dislikedAtAll": 0.21152790484903933
+    }
+   }
+  }
+ ]
+}

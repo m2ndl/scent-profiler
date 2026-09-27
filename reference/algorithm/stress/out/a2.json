@@ -1,0 +1,66 @@
+{
+ "wearers": 2000,
+ "seed": 23,
+ "res": {
+  "same bottles, 3": {
+   "n": 2000,
+   "topSame": 0.5735449735449736,
+   "breakerShownOnce": 0.0525,
+   "badJ": 0.5646581249438392,
+   "goodJ": 0.5102978134264337,
+   "picksCommon": 0.9625,
+   "picksNone": 0.392,
+   "picksAll": 0.069
+  },
+  "same bottles, 5": {
+   "n": 2000,
+   "topSame": 0.6208569118835894,
+   "breakerShownOnce": 0.061,
+   "badJ": 0.5610694779017079,
+   "goodJ": 0.5276928042095684,
+   "picksCommon": 0.832,
+   "picksNone": 0.43,
+   "picksAll": 0.043
+  },
+  "3 of 6 owned bottles": {
+   "n": 2000,
+   "topSame": 0.44487678339818415,
+   "breakerShownOnce": 0.25,
+   "badJ": 0.2619513387215982,
+   "goodJ": 0.2765072056055658,
+   "picksCommon": 0.4785,
+   "picksNone": 0.654,
+   "picksAll": 0.0185
+  },
+  "3 bottles: verdicts only ('when' and chips vary)": {
+   "n": 2000,
+   "topSame": 0.809478672985782,
+   "breakerShownOnce": 0.0015,
+   "badJ": 0.8677536231884061,
+   "goodJ": 0.9723126516021958,
+   "picksCommon": 2.79,
+   "picksNone": 0.044,
+   "picksAll": 0.9095
+  },
+  "3 bottles: note rows vary, words fixed": {
+   "n": 2000,
+   "topSame": 0.5748031496062992,
+   "breakerShownOnce": 0.0535,
+   "badJ": 0.5750091874090099,
+   "goodJ": 0.5109739759855234,
+   "picksCommon": 1.231,
+   "picksNone": 0.337,
+   "picksAll": 0.182
+  },
+  "3 bottles: words vary, bottles fixed": {
+   "n": 2000,
+   "topSame": 1,
+   "breakerShownOnce": 0,
+   "badJ": 1,
+   "goodJ": 1,
+   "picksCommon": 2.1125,
+   "picksNone": 0.064,
+   "picksAll": 0.402
+  }
+ }
+}

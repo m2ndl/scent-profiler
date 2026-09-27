@@ -1,0 +1,10 @@
+wearers per retest: 2000, seed 23
+
+| retest                                           | first deal-breaker the same | a deal-breaker shown once only | deal-breaker overlap | liked overlap | picks in common (of 3) | no pick in common | same three picks |
+|--------------------------------------------------|-----------------------------|--------------------------------|----------------------|---------------|------------------------|-------------------|------------------|
+| same bottles, 3                                  | 57%                         | 5%                             | 56%                  | 51%           | 0.96                   | 39%               | 7%               |
+| same bottles, 5                                  | 62%                         | 6%                             | 56%                  | 53%           | 0.83                   | 43%               | 4%               |
+| 3 of 6 owned bottles                             | 44%                         | 25%                            | 26%                  | 28%           | 0.48                   | 65%               | 2%               |
+| 3 bottles: verdicts only ('when' and chips vary) | 81%                         | 0%                             | 87%                  | 97%           | 2.79                   | 4%                | 91%              |
+| 3 bottles: note rows vary, words fixed           | 57%                         | 5%                             | 58%                  | 51%           | 1.23                   | 34%               | 18%              |
+| 3 bottles: words vary, bottles fixed             | 100%                        | 0%                             | 100%                 | 100%          | 2.11                   | 6%                | 40%              |
