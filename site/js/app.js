@@ -45,6 +45,8 @@
       riskNeg: (fam, stage) => `Contains a little ${fam} in the ${stage.toLowerCase()}, which you have disliked before.`,
       riskTold: (fam, stage) => `Contains ${fam} in the ${stage.toLowerCase()}, which you said you avoid.`,
       riskLean: (fam, stage) => `Contains ${fam} in the ${stage.toLowerCase()}, which your quiz answers lean against.`,
+      riskLeanKept: (fam, stage, bottle) => `Contains ${fam} in the ${stage.toLowerCase()}, which you disliked in ${bottle}, a perfume you still wear.`,
+      riskLeanOpening: (fam, stage, bottle) => `Contains ${fam} in the ${stage.toLowerCase()}, which you liked only in the first minutes of ${bottle}: a sample shows whether you like it for hours.`,
       toldUses: n => `Also uses ${n} ${n === 1 ? "answer" : "answers"} from the quiz.`,
       noteLine: (perfume, stage, words, v) => `${perfume}, ${stage.toLowerCase()}: you ${{ 2: "loved", 1: "liked", 0: "didn't mind", "-1": "disliked", "-2": "hated" }[v]} the ${words}`,
       notesS: "Rate its notes", notesHint: "Tap what you remember; skip what you don't.",
@@ -102,6 +104,8 @@
       riskNeg: (fam, stage) => `فيه قليل من ${fam} في ${stage}، وقد أزعجك من قبل.`,
       riskTold: (fam, stage) => `يحتوي على ${fam} في ${stage}، وقد قلت إنك تتجنبه.`,
       riskLean: (fam, stage) => `يحتوي على ${fam} في ${stage}، وإجاباتك في الاختبار تميل ضده.`,
+      riskLeanKept: (fam, stage, bottle) => `يحتوي على ${fam} في ${stage}، وقد قلت إنه لم يعجبك في ${bottle} الذي ما زلت تستخدمه.`,
+      riskLeanOpening: (fam, stage, bottle) => `يحتوي على ${fam} في ${stage}، وقد أعجبك في الدقائق الأولى من ${bottle} فقط: العيّنة تبيّن لك إن كان يعجبك لساعات.`,
       toldUses: n => `يعتمد الملف أيضاً على إجاباتك في الاختبار (${n}).`,
       noteLine: (perfume, stage, words, v) => `${perfume}: «${words}» (${stage}): إجابتك «${{ 2: "أعجبني كثيراً", 1: "أعجبني", 0: "لا بأس به", "-1": "لم يعجبني", "-2": "كرهته" }[v]}»`,
       notesS: "قيّم نوتاته", notesHint: "اختر ما تتذكره، وتجاوز ما لا تتذكره.",
@@ -329,7 +333,8 @@
       /* one thing to watch for at most, chosen by the engine (a family the visitor avoids, a possible deal-breaker, a
          family their bottles split on, an untried family that leads) */
       const risk = reason && reason.watch;
-      const riskLine = risk ? ((risk.kind === "avoid" || risk.kind === "avoidOpening" || risk.kind === "lean") ? (saidAvoid(risk.f) ? t().riskTold : t().riskLean)(fam(risk.f), stageName(risk.s)) : risk.kind === "unknown" ? t().riskUnknown(fam(risk.f), stageName(risk.s)) : risk.kind === "mixed" ? t().riskMixed(fam(risk.f), stageName(risk.s)) : t().riskNeg(fam(risk.f), stageName(risk.s))) : "";
+      const leanBottle = risk && risk.perfume && resolve(risk.perfume) ? pname(resolve(risk.perfume)) : "";
+      const riskLine = risk && (risk.kind === "leanKept" || risk.kind === "leanOpening") ? t()[risk.kind === "leanKept" ? "riskLeanKept" : "riskLeanOpening"](fam(risk.f), stageName(risk.s), leanBottle) : risk ? ((risk.kind === "avoid" || risk.kind === "avoidOpening" || risk.kind === "lean") ? (saidAvoid(risk.f) ? t().riskTold : t().riskLean)(fam(risk.f), stageName(risk.s)) : risk.kind === "unknown" ? t().riskUnknown(fam(risk.f), stageName(risk.s)) : risk.kind === "mixed" ? t().riskMixed(fam(risk.f), stageName(risk.s)) : t().riskNeg(fam(risk.f), stageName(risk.s))) : "";
       const PP = resolve(P.id) || P;
       return `<div class="rec">
         <div class="with-thumb">${imgTag(PP)}<div class="grow">

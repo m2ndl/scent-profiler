@@ -60,7 +60,9 @@
         neg: (f, s) => `Some ${f} in the ${s}, which may be a deal-breaker for you: try a sample first.`,
         lean: (f, s) => `Some ${f} in the ${s}, which your answers lean against.`,
         mixed: (f, s) => `${f.charAt(0).toUpperCase() + f.slice(1)} in the ${s}: it went well in one of your bottles and badly in another.`,
-        unknown: (f, s) => `Led by ${f} in the ${s}, which you have not tried yet: a sample will tell.`
+        unknown: (f, s) => `Led by ${f} in the ${s}, which you have not tried yet: a sample will tell.`,
+        leanKept: (f, s, b) => `Some ${f} in the ${s}, which you disliked in ${b}, a bottle you still wear.`,
+        leanOpening: (f, s, b) => `${f.charAt(0).toUpperCase() + f.slice(1)} in the ${s}, which you liked only in the first minutes of ${b}: a sample shows whether you like it for hours.`
       },
       stageWord: { opening: "opening", heart: "heart", drydown: "base" },
       contradict: (note, bottles, many, f) => `You said you avoid ${note}, but ${bottles}, which you kept, ${many ? "have" : "has"} ${f}, so the picks do not leave it out. Perhaps another kind of ${note} is what bothers you.`,
@@ -153,7 +155,9 @@
         neg: (f, s) => `فيه شيء من ${f} في ${s}، وقد يفسد العطر عليك: جرّب عيّنة أولاً.`,
         lean: (f, s) => `فيه شيء من ${f} في ${s}، وإجاباتك تميل ضدّه.`,
         mixed: (f, s) => `فيه ${f} في ${s}، وقد نجح معك في عطر وانقلب عليك في آخر.`,
-        unknown: (f, s) => `يغلب عليه ${f} في ${s}، ولم تجرّبه بعد: العيّنة ستخبرك.`
+        unknown: (f, s) => `يغلب عليه ${f} في ${s}، ولم تجرّبه بعد: العيّنة ستخبرك.`,
+        leanKept: (f, s, b) => `فيه شيء من ${f} في ${s}، وقد قلت إنه لم يعجبك في ${b} الذي ما زلت تستخدمه.`,
+        leanOpening: (f, s, b) => `فيه ${f} في ${s}، وقد أعجبك في الدقائق الأولى من ${b} فقط: العيّنة تبيّن لك إن كان يعجبك لساعات.`
       },
       stageWord: { opening: "البداية", heart: "القلب", drydown: "القاعدة" },
       contradict: (note, bottles, many, f) => many
@@ -750,7 +754,9 @@
     const w = r.watch;
     if (w) {
       const W = t().watch, s = t().stageWord[w.s];
-      const text = w.kind === "avoid" ? W.avoid(famIn(w.f), s, w.top ? famIn(w.top) : famIn(w.f)) : w.kind === "avoidOpening" ? W.avoidOpening(famIn(w.f)) : W[w.kind](famIn(w.f), s);
+      /* a lean's caveat names the bottle the note answer was given on */
+      const bottle = w.perfume && resolve(w.perfume) ? pname(resolve(w.perfume)) : "";
+      const text = w.kind === "avoid" ? W.avoid(famIn(w.f), s, w.top ? famIn(w.top) : famIn(w.f)) : w.kind === "avoidOpening" ? W.avoidOpening(famIn(w.f)) : W[w.kind](famIn(w.f), s, bottle);
       lines.push(`<div class="risk">${esc(text)}</div>`);
     }
     const sample = shopUrl(lang === "ar" ? CONFIG.links.sampleSA : CONFIG.links.sampleUS, P);

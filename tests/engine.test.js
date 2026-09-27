@@ -161,19 +161,60 @@ test("an unnoticed family gives no evidence, from the stage rating, a chip or a 
 });
 
 test("a note answer counts even when its stage has no stage rating", () => {
-  const prof = profileOf({ sauvageedp: { opening: 1, noteAnswers: { woody_amber: -2 } } });
+  /* a shop trial that put the wearer off: the hated drydown note is bottle evidence */
+  const prof = profileOf({ sauvageedp: { opening: -1, noteAnswers: { woody_amber: -2 } } });
   assert.deepEqual(evLines(prof.woody_amber), ["sauvageedp drydown -2 note"]);
   assert.equal(prof.woody_amber.score, -2);
   assert.equal(prof.woody_amber.n, 1);
   assert.equal(prof.woody_amber.cls, "badPossible");
 });
 
-test("two bottles with a hated note in the same family give a likely deal-breaker", () => {
-  const ratings = { sauvageedp: { drydown: 1, again: 1, noteAnswers: { woody_amber: -2 } }, bleuedp: { drydown: 1, again: 1, noteAnswers: { woody_amber: -2 } } };
+test("two bottles with a hated note in the same family give a likely deal-breaker, when neither was kept", () => {
+  const ratings = { sauvageedp: { opening: -1, noteAnswers: { woody_amber: -2 } }, bleuedp: { heart: -2, again: 0, noteAnswers: { woody_amber: -2 } } };
   const prof = profileOf(ratings), rec = E.recommend(prof, ratings);
   assert.equal(prof.woody_amber.cls, "badLikely");
   assert.ok(rec.likely.includes("woody_amber"));
   for (const p of rec.picks) assert.ok((p.P.stages.drydown.woody_amber || 0) < 0.5 && (p.P.stages.heart.woody_amber || 0) < 0.7, p.P.id);
+});
+
+/* A detail never outranks a verdict: a note disliked in a bottle the wearer still wears, or liked only in the first
+   minutes, is a lean (told sums: it moves the score, never a class), and the picks that carry it say so. */
+test("a note disliked in a bottle the wearer still wears is a lean: no deal-breaker, nothing ruled out, a caveat on a pick that carries it", () => {
+  for (const v of [-1, -2]) {
+    const ratings = { sauvageedp: { drydown: 1, again: 1, noteAnswers: { woody_amber: v } } };
+    const prof = profileOf(ratings);
+    assert.equal(prof.woody_amber.cls, "neutral", "hated or disliked: " + v);
+    assert.equal(prof.woody_amber.n, 0);
+    assert.ok(prof.woody_amber.score < 0, "it still leans against woody ambers");
+    assert.deepEqual(plain(prof.woody_amber.toldEvidence.map(e => [e.lean, e.perfume.id, e.stage, e.note])), [["kept", "sauvageedp", "drydown", v]]);
+    assert.equal(E.ruledOut(prof).length, 0, "nothing ruled out");
+    /* a pick holding woody ambers names the note and the bottle */
+    const rec = E.recommend(prof, Object.assign(onlyTwo("bleuedp", "br540"), ratings));
+    for (const pk of rec.picks) if (Math.max(...E.STAGES.map(s => pk.P.stages[s].woody_amber || 0)) >= 0.3) assert.deepEqual(plain(pk.reason.watch), { kind: "leanKept", f: "woody_amber", s: "drydown", perfume: "sauvageedp" }, pk.P.id);
+  }
+  /* the same note hated in a bottle that turned on the wearer is a deal-breaker, as before */
+  assert.equal(profileOf({ sauvageedp: { heart: -2, again: 0, noteAnswers: { woody_amber: -2 } } }).woody_amber.cls, "badPossible");
+});
+
+test("a note liked only in the first minutes is a lean: not a like, the taste answer counts against it, a caveat on a pick that carries it", () => {
+  const ratings = { hacivat: { drydown: 1, again: 1, noteAnswers: { fruity_sweet: 2 } } };
+  assert.equal(E.strongestStage(E.byId.hacivat, "fruity_sweet"), "opening");
+  const prof = profileOf(ratings);
+  assert.equal(prof.fruity_sweet.cls, "neutral");
+  assert.equal(prof.fruity_sweet.n, 0);
+  assert.ok(prof.fruity_sweet.score > 0 && prof.fruity_sweet.score < 1, "a lean, pulled toward zero: " + prof.fruity_sweet.score);
+  const bitter = profileOf(ratings, plain(N.toldItems({ taste: "bitter" })));
+  assert.ok(bitter.fruity_sweet.score < prof.fruity_sweet.score, "the bitter answer pulls it down");
+  /* a note liked in the heart is bottle evidence, as before */
+  assert.equal(profileOf({ oriana: { drydown: 1, again: 1, noteAnswers: { fruity_sweet: 2 } } }).fruity_sweet.cls, "goodPossible");
+  /* a pick with sweet fruit in its heart is not said to be liked for it, and names the top note */
+  const rec = E.recommend(prof, Object.assign(onlyTwo("oriana", "erbapura"), ratings));
+  assert.ok(rec.picks.length >= 1);
+  for (const pk of rec.picks) {
+    assert.ok(!pk.reason.likes.includes("fruity_sweet"), pk.P.id + " does not count sweet fruit as a like");
+    if (pk.reason.watch && pk.reason.watch.kind === "leanOpening") assert.deepEqual(plain(pk.reason.watch), { kind: "leanOpening", f: "fruity_sweet", s: "heart", perfume: "hacivat" });
+  }
+  assert.ok(rec.picks.some(pk => pk.reason.watch && pk.reason.watch.kind === "leanOpening"), "one of them carries the caveat");
 });
 
 test("told-only families stay neutral with n = 0, never appear in likely or badAny, and never exclude", () => {

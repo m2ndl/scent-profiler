@@ -90,10 +90,15 @@ window.PP_ENGINE = (function () {
 
     /* state.told (optional): what the visitor said in words, [{ f, value: 1 | -1, w: 0..1, src }]. Told items
        keep their own sums and count only for a family with no strong bottle evidence (n = 0), so they can
-       reorder picks but never set a class or an exclusion. */
+       reorder picks but never set a class or an exclusion.
+       A detail never outranks a verdict: a note answer liked only in the first minutes (its family is strongest in
+       the opening), or disliked in a bottle the wearer still wears (every stage rated 0 or above, one above 0), is a
+       lean, not bottle evidence. It joins the told sums as one item (value its sign, weight its presence times half
+       its size), so it moves the score the picks read but never makes a like or a deal-breaker; its evidence keeps the
+       bottle and the kind (lean: "opening" or "kept") for the page's caveat. */
     function computeProfile(state) {
       const ratings = state.ratings;
-      const F = {};
+      const F = {}, leans = [];
       const STRONG = 0.4; /* a family below this presence is a trace: it nudges the score but is not an exposure */
       const add = (f, value, w, ev) => {
         if (!F[f]) F[f] = { sum: 0, wsum: 0, evidence: [], per: {} };
@@ -104,6 +109,7 @@ window.PP_ENGINE = (function () {
         const P = resolve(id, state); if (!P || !P.stages) continue;
         const cm = P.auto && !(P.evidence && (P.evidence.label || P.evidence.book)) ? 0.5 : 1;   /* vendor-only entries count at half weight */
         const r = ratings[id];
+        const kept = STAGES.every(s => r[s] == null || r[s] >= 0) && STAGES.some(s => r[s] > 0);
         /* note answers: an observation of one family in its strongest stage, where it replaces the stage rating;
            an answer on a family the perfume no longer holds is skipped. An unnoticed family gives no evidence. */
         const unnoticed = new Set(Array.isArray(r.unnoticed) ? r.unnoticed : []);
@@ -134,10 +140,18 @@ window.PP_ENGINE = (function () {
         for (const [f, val, s] of answers) {
           const w = P.stages[s][f];
           const prov = (P.prov && P.prov[s] && P.prov[s][f]) || "curated";
+          const lean = val > 0 && s === "opening" ? "opening" : val < 0 && kept ? "kept" : null;
+          if (lean) { leans.push({ f, value: Math.sign(val), w: w * Math.abs(val) / 2, perfume: P, stage: s, lean, note: val }); continue; }
           add(f, val, w * STAGE_W[s] * cm * (PROV_W[prov] || 0.75), { perfume: P, stage: s, value: val, strong: w >= STRONG, prov, note: true });
         }
       }
       const T = {};
+      for (const it of leans) {
+        const t = T[it.f] || (T[it.f] = { tsum: 0, twsum: 0, evidence: [] });
+        const w = TOLD_W * it.w;
+        t.tsum += it.value * w; t.twsum += w;
+        t.evidence.push({ told: true, src: "lean:" + it.perfume.id, perfume: it.perfume, stage: it.stage, value: it.value, note: it.note, lean: it.lean, strong: false, prov: "told" });
+      }
       for (const it of Array.isArray(state.told) ? state.told : []) {
         if (!it || !it.f || !Number.isFinite(it.value) || !(it.w > 0)) continue;
         const t = T[it.f] || (T[it.f] = { tsum: 0, twsum: 0, evidence: [] });
@@ -209,13 +223,18 @@ window.PP_ENGINE = (function () {
 
     /* Why a pick was chosen, as data for the page to put into words: up to two liked families it carries in the heart
        or base, up to two deal-breakers it is free of, and at most one thing to watch for, by priority: a family the
-       visitor said they avoid (secondary here, or only in the opening), a possible deal-breaker, a family their words
-       lean against (sweet or bitter, a complaint), a family their bottles split on, then a family they have not met
-       that leads the heart or base. Traces under 0.3 are not
-       named: nearly every perfume carries a little musk. */
+       visitor said they avoid (secondary here, or only in the opening), a possible deal-breaker, a family they disliked
+       in a bottle they still wear (leanKept, with that bottle), a family their words lean against (sweet or bitter, a
+       complaint), a family their bottles split on, a family they liked only in the first minutes of a bottle
+       (leanOpening, with that bottle; it is not counted as a like), then a family they have not met that leads the
+       heart or base. Traces under 0.3 are not named: nearly every perfume carries a little musk. */
     function reasonOf(P, prof, badAny, veto) {
+      /* the lean notes behind a family (see computeProfile), and whether its only liking is a top note */
+      const leanNotes = (v, kind) => ((v && v.toldEvidence) || []).filter(e => e.lean === kind);
+      const topNoteOnly = v => { const pos = ((v && v.toldEvidence) || []).filter(e => e.value > 0); return pos.length > 0 && pos.every(e => e.lean === "opening"); };
       /* liked: a liked class from the bottles, or, with no bottle on it, a clear lean from what the visitor said */
-      const good = v => v && (v.cls === "goodLikely" || v.cls === "goodPossible" || (v.n === 0 && v.score >= 0.3));
+      /* a family disliked in a bottle the visitor still wears is never called a like, even when another bottle likes it */
+      const good = v => v && !leanNotes(v, "kept").length && (v.cls === "goodLikely" || v.cls === "goodPossible" || (v.n === 0 && v.score >= 0.3 && !topNoteOnly(v)));
       const deep = f => Math.max(P.stages.heart[f] || 0, P.stages.drydown[f] || 0);
       const likes = Object.entries(prof).filter(([f, v]) => good(v) && deep(f) >= 0.4).sort((a, b) => deep(b[0]) * b[1].score - deep(a[0]) * a[1].score).slice(0, 2).map(([f]) => f);
       const clear = badAny.filter(f => (P.stages.drydown[f] || 0) < 0.2).slice(0, 2);
@@ -230,10 +249,18 @@ window.PP_ENGINE = (function () {
       const inDeep = (pred, min) => Object.entries(prof).filter(([f, v]) => pred(v) && deep(f) >= min).sort((a, b) => deep(b[0]) - deep(a[0]))[0];
       if (!watch) { const x = inDeep(v => v.cls === "badPossible" || v.cls === "badLikely", 0.3); if (x) watch = { kind: "neg", f: x[0], s: where(x[0])[0] }; }
       if (!watch) {
+        const x = Object.entries(prof).filter(([f, v]) => leanNotes(v, "kept").length && where(f)[1] >= 0.3).sort((a, b) => where(b[0])[1] - where(a[0])[1])[0];
+        if (x) watch = { kind: "leanKept", f: x[0], s: where(x[0])[0], perfume: leanNotes(x[1], "kept")[0].perfume.id };
+      }
+      if (!watch) {
         const x = Object.entries(prof).filter(([f, v]) => v.n === 0 && v.score < 0 && !veto.bind.some(b => b.f === f) && where(f)[1] >= 0.3).sort((a, b) => a[1].score - b[1].score)[0];
         if (x) watch = { kind: "lean", f: x[0], s: where(x[0])[0] };
       }
       if (!watch) { const x = inDeep(v => v.cls === "mixed", 0.3); if (x) watch = { kind: "mixed", f: x[0], s: where(x[0])[0] }; }
+      if (!watch) {
+        const x = inDeep(v => v.n === 0 && v.score > 0 && topNoteOnly(v), 0.4);
+        if (x) watch = { kind: "leanOpening", f: x[0], s: ["drydown", "heart"].find(s => (P.stages[s][x[0]] || 0) >= 0.4), perfume: leanNotes(x[1], "opening")[0].perfume.id };
+      }
       if (!watch) {
         const x = ["drydown", "heart"].map(s => Object.keys(P.stages[s] || {}).filter(f => !prof[f] && leads(P, f, s)).map(f => [f, s])[0]).filter(Boolean)[0];
         if (x) watch = { kind: "unknown", f: x[0], s: x[1] };

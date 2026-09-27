@@ -1074,7 +1074,7 @@ test("sweet or bitter sets each side's examples small under its name", () => {
   assert.match(html(page), /<b>مرّ ومنعش<\/b><small>شاي، جريب فروت، فيتيفر<\/small>/);
 });
 
-test("only the heart and the base name the palate: Hacivat kept with its pineapple loved is woody, not sweet", () => {
+test("a top note never speaks for the hours: Hacivat kept with its pineapple loved and bitter preferred is woody, and nothing calls it sweet", () => {
   const page = open();
   page.click({ dataset: { add: "hacivat" } });
   page.click({ dataset: { continue: "1" } });
@@ -1087,11 +1087,13 @@ test("only the heart and the base name the palate: Hacivat kept with its pineapp
   const h = html(page);
   assert.match(h, /<h1>The Woody Palate<\/h1>/);
   assert.match(h, /<p class="qpal">Your bottles show a liking for woods\.<\/p>/);
-  /* the loved note is still said, on the taste card and as a slender petal on the wheel, and the bitter answer it
-     overrules is named */
-  assert.match(/<div class="qtaste-row good">[^]*?<\/div><\/div>/.exec(h)[0], /Sweet fruit/);
-  assert.match(h, /<p class="qtaste-note">You said you prefer bitter to sweet, but your bottles show a liking for sweet fruit, so the result follows your bottles\.<\/p>/);
-  assert.match(h, /<path class="qpet trace" style="--k:\d+" fill="url\(#qp-sweet\)"/);
+  /* the loved top note is a lean (engine.js): not a like on the taste card or the wheel, so the bitter answer stands,
+     and no pick is said to be liked for sweet fruit */
+  assert.doesNotMatch(/<div class="qtaste-row good">[^]*?<\/div><\/div>/.exec(h)[0], /Sweet fruit/);
+  assert.doesNotMatch(h, /qtaste-note/);
+  assert.doesNotMatch(h, /fill="url\(#qp-sweet\)"/);
+  assert.doesNotMatch(h, /<div class="why">Has [^<]*sweet fruit[^<]*, which you like/);
+  assert.equal((h.match(/<div class="rec qpick">/g) || []).length, 3);
 });
 
 /* the result for stored ratings and answers, reached through "None of these" and the told screens */

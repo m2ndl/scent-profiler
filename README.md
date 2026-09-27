@@ -156,6 +156,13 @@ The rules below are implemented in `site/js/engine.js`.
 - An answer on one of a worn bottle's notes (`noteAnswers`, −2 to +2) replaces the stage rating
   for that family in its strongest stage only and counts even when that stage has no rating,
   while a family marked "didn't notice it" (`unnoticed`) gives no evidence at all.
+- A detail never outranks a verdict. A note liked only in the first minutes (its family is strongest in the
+  opening, as Hacivat's pineapple), or disliked in a bottle the wearer still wears (every stage rated 0 or above,
+  one above 0), is a lean rather than bottle evidence: it joins the told sums below as one item (its sign, weighted
+  by its presence times half its size), so it moves the score the picks read but never makes a like or a
+  deal-breaker. Likes come from the hours a bottle is worn, deal-breakers from the bottles they ruined: keeping
+  Sauvage while marking its ambroxan "Disliked it" leans the picks away from woody ambers instead of ruling out every
+  perfume built on them. A pick that carries such a family says so (see `reason` below).
 - What the visitor told the quiz in words (`state.told`: notes enjoyed or avoided, bitter or
   sweet, complaints) counts at 0.3 of an item's weight in separate sums, used only for a family
   with no strong bottle evidence, so it can reorder the picks but never sets a class. A family known only from told answers scores their weighted sum over their weights
@@ -170,8 +177,10 @@ The rules below are implemented in `site/js/engine.js`.
 - Each pick carries `reason`: up to two liked families it has in the heart or base (a liked class, or a clear lean
   from the visitor's words), up to two deal-breakers it is free of, and at most one thing to watch for, in this order:
   an avoided family that is only secondary here (0.3 or more) or only in the opening, a possible deal-breaker, a family
-  the visitor's words lean against, a family their bottles split on, then an untried family that leads the heart or
-  base. Traces under 0.3 are never named. The quiz shows these as lines on stacked pick cards; the profile page uses the
+  the visitor disliked in a bottle they still wear (`leanKept`, naming that bottle; such a family is never listed as a
+  like), a family the visitor's words lean against, a family their bottles split on, a family they liked only in the
+  first minutes of a bottle (`leanOpening`, naming that bottle; not listed as a like), then an untried family that
+  leads the heart or base. Traces under 0.3 are never named. The quiz shows these as lines on stacked pick cards; the profile page uses the
   watch item for its risk line.
 - A family is a **likely deal-breaker** when its weighted mean is ≤ −0.7 across two or more
   perfumes with no positive rating; **possible** on one perfume, or on a milder mean across
