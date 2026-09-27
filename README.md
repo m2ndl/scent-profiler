@@ -102,6 +102,7 @@ then open `http://localhost:8765/?endpoint=http://localhost:8765/api`. The `endp
 node --test tests/*.test.js
 ```
 - `engine.test.js`: 60 seeded rating sets on a frozen 88-perfume catalogue (`tests/fixtures/`) must give the stored profiles, recommendations and one-sample suggestions, and the recommendation rules below must hold. Catalogue edits do not affect it. After an intended engine change, run `node tests/engine.test.js --update` and review the diff of `tests/fixtures/engine_golden.json`.
+- `coverage.test.js`: on the live catalogue, 400 seeded visitors (three quiz bottles each, a few note cards), under three seeds: no perfume goes to more than 11 in 100 of them, and the ten most picked take under 18% of all picks. Unlike the engine tests it reads the live catalogue, so a catalogue edit that narrows the picks again breaks it.
 - `page.test.js`: the page, run in a stub browser, shows what the engine computes, handles clicks, and with a backend never sends the vendor's note lists back; its "Rate its notes" block writes `noteAnswers`, and loaded after the quiz on the same device it gives the quiz's picks.
 - `quiz.test.js`: the quiz page in the stub browser: the start screen, the grid and More perfumes, verdicts written as ratings, the note rows, the narrowing round, the note picker, taste, complaints and anosmia answers, Back, the result and testers, the events and ratings sent to a backend, the palate name and its text, the comparison line, and the profiler reading the quiz's ratings and `?add=`.
 - `backend.test.js`: the backend's quiz counts (each device's last result, by palate and deal-breaker) and the funnel built from the screen-reached events.
@@ -191,10 +192,10 @@ The rules below are implemented in `site/js/engine.js`.
   ("You said you avoid musk, but Yara, which you kept, has clean white musks..."). A liking in a bottle that turned, or
   that put the visitor off, never lifts it. With no avoided card nothing changes, so the engine golden is unaffected.
 - Each pick carries `reason`: up to two liked families it has in the heart or base (a liked class, or a clear lean
-  from the visitor's words), up to two deal-breakers it is free of (under 0.2 in every stage), and at most one thing to
-  watch for, in this order:
+  from the visitor's words; never a family known only from traces, see below), up to two deal-breakers it is free of
+  (under 0.2 in every stage), and at most one thing to watch for, in this order:
   an avoided family that is only secondary here (0.3 or more) or only in the opening, a possible deal-breaker, a family
-  the visitor's words lean against, a family their bottles split on, a family the visitor disliked in a bottle they
+  the visitor's words lean against (a told item or lean, never a trace alone), a family their bottles split on, a family the visitor disliked in a bottle they
   kept (`leanKept`, naming that bottle; such a family is never listed as a like or as shared with a liked bottle), a
   family they liked only in the first minutes of a bottle (`leanOpening`, naming that bottle; not listed as a like),
   then an untried family that leads the heart or base. A lean comes after the bottles' verdicts and is named only in
@@ -206,10 +207,23 @@ The rules below are implemented in `site/js/engine.js`.
   however far the mean leans). The classes read the mean to nine decimal places, so the order of the ratings never
   moves a family across a line.
 - Recommendations exclude any unrated perfume with a likely deal-breaker at ≥ 0.5 presence in
-  the drydown (or ≥ 0.7 in the heart), then rank by liked-family reward minus twice the
-  dislike penalty minus a small unknown-family penalty, one perfume per house. A mixed family costs a flat 0.3 while
-  its mean is balanced (under 0.7 either way) and is weighed by its mean like any family once it leans clearly, so
-  calling a lopsided family mixed changes its label, not the picks.
+  the drydown (or ≥ 0.7 in the heart), and any perfume for the other side (`engine.sideOf`): after kept bottles of
+  one gender, men's or women's, or, when none was kept, rated bottles of one gender, the picks are that gender and
+  unisex; bottles of both genders, unisex ones only, or none give no side. The rest rank by liked-family reward minus
+  twice the dislike penalty minus a small unknown-family penalty, one perfume per house.
+- A liked family earns its reward once, at its strongest presence (weight × stage weight). Counted in every stage it
+  was in, it favoured the few perfumes that are one of the four commonest base families from opening to base
+  (woody ambers, white musks, vanilla, resinous amber); since "I still wear it" credits every family in a kept base,
+  about four visitors in ten counted as liking each of those, and the same perfumes went to visitors with nothing in
+  common: Molecule 01, Grand Soir and Not a Perfume each to 12 to 15 in 100
+  (`reference/algorithm/stress/COVERAGE.md`). A disliked, doubtful or unmet family costs in every stage it is in, each
+  stage being another chance for it to spoil the wear.
+- A family known only from traces, which no rated bottle holds at 0.4 or more and the visitor never spoke of (no told
+  item or lean), counts in the picks as a family the visitor has not met, and a pick never calls it a like.
+- A mixed family costs a flat 0.3 while its mean is balanced (under 0.7 either way) and is weighed by its mean like
+  any family once it leans clearly, so calling a lopsided family mixed changes its label, not the picks. The picks read
+  every score to nine decimal places, as the classes do, and a tie goes to the perfume listed first, so the order of
+  the ratings never reorders them.
 - When a possible deal-breaker rests on one perfume, the page names one unrated perfume that
   contains that family in its base without the other suspects, so a single sample settles it.
 

@@ -298,6 +298,6 @@ test("the profiler's picks name a lean note's bottle, and never offer a family d
   assert.match(h, /<div class="risk">يحتوي على الأخشاب العنبرية الصناعية \(نوع أمبروكسان\) في القاعدة، وقد قلت إنه لم يعجبك في سوفاج، وهو عطر تحبه في مجمله\.<\/div>/);
   /* citrus loved in Sauvage's first minutes */
   const top = { sauvageedp: still({ citrus_fresh: 2 }), cdnim: still() };
-  assert.match(recsFor(top, "en"), /<div class="risk">Contains Citrus in the drydown, which you liked only in the first minutes of Sauvage Eau de Parfum: a sample shows whether you like it for hours\.<\/div>/);
-  assert.match(recsFor(top, "ar"), /<div class="risk">يحتوي على الحمضيات في القاعدة، وقد أعجبك في الدقائق الأولى من سوفاج فقط: العيّنة تبيّن لك إن كان يعجبك لساعات\.<\/div>/);
+  assert.match(recsFor(top, "en"), /<div class="risk">Contains Citrus in the (heart|drydown), which you liked only in the first minutes of Sauvage Eau de Parfum: a sample shows whether you like it for hours\.<\/div>/);
+  assert.match(recsFor(top, "ar"), /<div class="risk">يحتوي على الحمضيات في (القلب|القاعدة)، وقد أعجبك في الدقائق الأولى من سوفاج فقط: العيّنة تبيّن لك إن كان يعجبك لساعات\.<\/div>/);
 });

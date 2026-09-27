@@ -482,3 +482,64 @@ test("in the picks a mixed family is weighed by its mean once the mean leans cle
   const P = E.byId.vanilla28, flat = E.STAGES.reduce((t, s) => t + (P.stages[s].vanilla_gourmand || 0) * catalogue.data.STAGE_W[s] * 0.3, 0);
   assert.ok(Math.abs(penaltyOf({ cls: "mixed", score: -0.5, pos: 1, neg: 1 }) - flat) < 1e-12);
 });
+
+test("in the picks a liked family earns its reward once, at its strongest stage, and a disliked one costs in every stage", () => {
+  /* Not a Perfume holds woody ambers at 1 from opening to base; counted in every stage it collected 0.6 + 0.8 + 1 */
+  const rated = onlyTwo("notaperfume", "aventus");
+  const pickOf = v => E.recommend({ woody_amber: Object.assign({ n: 2, evidence: [] }, v) }, rated).picks.find(p => p.P.id === "notaperfume");
+  assert.ok(Math.abs(pickOf({ cls: "goodLikely", score: 1, pos: 2, neg: 0 }).reward - 1) < 1e-12);
+  assert.ok(Math.abs(pickOf({ cls: "goodLikely", score: 2, pos: 2, neg: 0 }).reward - 2) < 1e-12);
+  assert.ok(Math.abs(pickOf({ cls: "badPossible", score: -1, pos: 0, neg: 2 }).penalty - (0.6 + 0.8 + 1)) < 1e-12);
+});
+
+test("a family the rated bottles hold only as a trace, and the visitor never spoke of, counts in the picks as unmet and is never called a like", () => {
+  /* Aventus, still worn, holds vanilla at 0.2 in its base: vanilla scores +1 with no exposure (n = 0) */
+  const ratings = { aventus: { drydown: 1, again: 1 } };
+  let prof = profileOf(ratings);
+  assert.ok(prof.vanilla_gourmand.n === 0 && prof.vanilla_gourmand.score > 0 && !prof.vanilla_gourmand.toldEvidence);
+  const rated = Object.assign(onlyTwo("vanilla28", "grandsoir"), ratings);
+  let v28 = E.recommend(prof, rated).picks.find(p => p.P.id === "vanilla28");
+  assert.ok(!v28.reason.likes.includes("vanilla_gourmand"), "likes " + v28.reason.likes);
+  assert.ok(v28.risks.filter(r => r.f === "vanilla_gourmand").every(r => r.kind === "unknown"), "vanilla is unmet");
+  /* said in words, it counts: an enjoyed vanilla card makes it a like */
+  prof = profileOf(ratings, toldFor("vanilla", 1));
+  v28 = E.recommend(prof, rated).picks.find(p => p.P.id === "vanilla28");
+  assert.ok(v28.reason.likes.includes("vanilla_gourmand"), "likes " + v28.reason.likes);
+  assert.ok(!v28.risks.some(r => r.f === "vanilla_gourmand"));
+  /* Aventus turned in its base: the vanilla trace scores -2, but the answers never leaned against vanilla */
+  const turned = { aventus: { drydown: -2, again: 0 } };
+  prof = profileOf(turned);
+  assert.ok(prof.vanilla_gourmand.n === 0 && prof.vanilla_gourmand.score < 0);
+  const osm = E.recommend(prof, Object.assign(onlyTwo("oudsatinmood", "vanilla28"), turned)).picks.find(p => p.P.id === "oudsatinmood");
+  assert.ok(!(osm.reason.watch && osm.reason.watch.f === "vanilla_gourmand"), JSON.stringify(osm.reason.watch));
+  assert.equal(osm.penalty, 0, "a trace in a bottle that turned costs nothing");
+});
+
+test("picks stay on the side of the gendered bottles the visitor kept, or, with none kept, of those rated", () => {
+  const kept = { drydown: 1, again: 1 }, turned = { drydown: -2, again: 0 };
+  const genders = ratings => E.recommend(profileOf(ratings), ratings).picks.map(p => p.P.gender);
+  /* two men's bottles kept: the picks once included Oriana; two women's: Althair */
+  assert.ok(genders({ aventus: kept, althair: kept }).every(g => g !== "f"));
+  assert.ok(genders({ delina: kept, libre: kept }).every(g => g !== "m"));
+  assert.equal(E.sideOf({ aventus: kept, althair: kept }), "m");
+  assert.equal(E.sideOf({ althair: turned, delina: kept }), "f", "the kept bottle decides");
+  assert.equal(E.sideOf({ aventus: turned, layton: turned }), "m", "none kept: the bottles rated");
+  assert.equal(E.sideOf({ aventus: kept, delina: kept }), null, "both genders kept");
+  assert.equal(E.sideOf({ grandsoir: kept, delina: turned }), null, "only a unisex bottle kept");
+  assert.equal(E.sideOf({ delina: {}, aventus: turned }), "m", "a record with no stage set is not a rating");
+  assert.equal(E.sideOf({}), null);
+});
+
+test("the order of the ratings never reorders the picks (two candidates tied but for the last digit)", () => {
+  /* x scores exactly 0.7, summed in one order as 0.6999999999999998; p holds x at 1 in its base, q holds z, liked at 1,
+     at 0.7: in truth they tie, and a tie goes to the perfume listed first */
+  const mk = (id, st) => ({ id, house: id, name: id, ar: "", gender: "u", tier: "designer", conf: 3, stages: { opening: {}, heart: {}, drydown: st }, notes: { en: "", ar: "" } });
+  const P = [mk("a", { x: 0.6 }), mk("b", { x: 0.6 }), mk("c", { x: 0.5 }), mk("d", { x: 0.3 }), mk("e", { z: 1 }), mk("p", { x: 1 }), mk("q", { z: 0.7 })];
+  const mini = W.PP_ENGINE.create({ CHIPS: [], STAGE_W: catalogue.data.STAGE_W, PERFUMES: P }, W.PP_MAP, { book: {}, label: {} });
+  const ratings = { a: { drydown: 1 }, b: { drydown: 0 }, c: { drydown: 1 }, d: { drydown: 1 }, e: { drydown: 1 } };
+  const reversed = Object.fromEntries(Object.entries(ratings).reverse());
+  const picks = r => plain(mini.recommend(mini.computeProfile(stateOf(r)), r).picks.map(p => p.P.id));
+  assert.notEqual(mini.computeProfile(stateOf(ratings)).x.score, mini.computeProfile(stateOf(reversed)).x.score, "the two sums differ in the last digit");
+  assert.deepEqual(picks(ratings), ["p", "q"]);
+  assert.deepEqual(picks(reversed), ["p", "q"]);
+});

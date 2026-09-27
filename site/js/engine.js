@@ -239,6 +239,24 @@ window.PP_ENGINE = (function () {
       }
       return { bind, contradicted };
     }
+    /* A family the profile knows only from traces: no rated bottle holds it at 0.4 or more (n = 0) and the visitor never
+       spoke of it (no told item or lean). A trace nudges a score but is not an exposure, so the picks treat such a
+       family as one the visitor has not met, and a pick never calls it a like or says the visitor's answers lean
+       against it. */
+    const traceOnly = v => !!v && v.n === 0 && !(v.toldEvidence && v.toldEvidence.length);
+    /* The visitor's side: the one gender, men's or women's, of the gendered bottles they kept (see kept), or, when they
+       kept no bottle, of the gendered bottles they rated (a stage set). Unisex perfumes are on every side; bottles of
+       both genders, or unisex ones only, give no side. */
+    function sideOf(ratings) {
+      const rated = [];
+      for (const id of Object.keys(ratings || {})) {
+        const r = ratings[id], P = resolve(id, { ratings, auto: {}, images: {} });
+        if (P && r && (kept(r) || STAGES.some(s => onScale(r[s]) != null))) rated.push({ g: P.gender, kept: kept(r) });
+      }
+      const from = rated.some(x => x.kept) ? rated.filter(x => x.kept) : rated;
+      const g = new Set(from.map(x => x.g).filter(x => x === "m" || x === "f"));
+      return g.size === 1 ? [...g][0] : null;
+    }
     /* a family leads a stage when it is the strongest there, at 0.7 or more */
     const leads = (P, f, s) => { const st = P.stages[s] || {}, w = st[f] || 0; return w >= 0.7 && w >= Math.max(...Object.values(st)); };
     const reEsc = x => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -266,11 +284,12 @@ window.PP_ENGINE = (function () {
       /* the lean notes behind a family (see computeProfile), and whether its only liking is a top note */
       const leanNotes = (v, kind) => ((v && v.toldEvidence) || []).filter(e => e.lean === kind);
       const topNoteOnly = v => { const pos = ((v && v.toldEvidence) || []).filter(e => e.value > 0); return pos.length > 0 && pos.every(e => e.lean === "opening"); };
-      /* liked: a liked class from the bottles, or, with no bottle on it, a clear lean from what the visitor said */
+      /* liked: a liked class from the bottles, or, with no bottle on it, a clear lean from what the visitor said (never
+         a family known only from traces) */
       /* a family disliked in a bottle the visitor still wears is never called a like, even when another bottle likes it */
-      const good = v => v && !leanNotes(v, "kept").length && (v.cls === "goodLikely" || v.cls === "goodPossible" || (v.n === 0 && v.score >= 0.3 && !topNoteOnly(v)));
+      const good = v => v && !leanNotes(v, "kept").length && (v.cls === "goodLikely" || v.cls === "goodPossible" || (v.n === 0 && !traceOnly(v) && v.score >= 0.3 && !topNoteOnly(v)));
       const deep = f => Math.max(P.stages.heart[f] || 0, P.stages.drydown[f] || 0);
-      const likes = Object.entries(prof).filter(([f, v]) => good(v) && deep(f) >= 0.4).sort((a, b) => deep(b[0]) * b[1].score - deep(a[0]) * a[1].score).slice(0, 2).map(([f]) => f);
+      const likes = Object.entries(prof).filter(([f, v]) => good(v) && deep(f) >= 0.4).sort((a, b) => deep(b[0]) * r9(b[1].score) - deep(a[0]) * r9(a[1].score) || (a[0] < b[0] ? -1 : 1)).slice(0, 2).map(([f]) => f);
       /* free of a deal-breaker only when it is under 0.2 in every stage, not just the base */
       const clear = badAny.filter(f => STAGES.every(s => (P.stages[s][f] || 0) < 0.2)).slice(0, 2);
       const top = ["drydown", "heart"].map(s => Object.entries(P.stages[s] || {}).sort((a, b) => b[1] - a[1])[0]).filter(Boolean).sort((a, b) => b[1] - a[1])[0];
@@ -284,7 +303,7 @@ window.PP_ENGINE = (function () {
       const inDeep = (pred, min) => Object.entries(prof).filter(([f, v]) => pred(v) && deep(f) >= min).sort((a, b) => deep(b[0]) - deep(a[0]))[0];
       if (!watch) { const x = inDeep(v => v.cls === "badPossible" || v.cls === "badLikely", 0.3); if (x) watch = { kind: "neg", f: x[0], s: where(x[0])[0] }; }
       if (!watch) {
-        const x = Object.entries(prof).filter(([f, v]) => v.n === 0 && v.score < 0 && !leanNotes(v, "kept").length && !veto.bind.some(b => b.f === f) && where(f)[1] >= 0.3).sort((a, b) => a[1].score - b[1].score)[0];
+        const x = Object.entries(prof).filter(([f, v]) => v.n === 0 && !traceOnly(v) && v.score < 0 && !leanNotes(v, "kept").length && !veto.bind.some(b => b.f === f) && where(f)[1] >= 0.3).sort((a, b) => r9(a[1].score) - r9(b[1].score) || (a[0] < b[0] ? -1 : 1))[0];
         if (x) watch = { kind: "lean", f: x[0], s: where(x[0])[0] };
       }
       if (!watch) { const x = inDeep(v => v.cls === "mixed", 0.3); if (x) watch = { kind: "mixed", f: x[0], s: where(x[0])[0] }; }
@@ -303,33 +322,43 @@ window.PP_ENGINE = (function () {
       return { likes, clear, watch };
     }
 
+    /* The picks. A perfume with a likely deal-breaker at the strength that excludes it is left out, and so is one for
+       the other side from the visitor (sideOf). The rest rank by what the visitor likes in them, minus twice what they
+       dislike, minus a little for each strong family they have not met, one perfume per house. A liked family earns its
+       reward once, at its strongest presence (weight times stage weight), so a perfume is not favoured for repeating
+       one family from opening to base: counted in every stage, the few perfumes that are one common base family from
+       start to finish went to visitors with nothing in common (reference/algorithm/stress/COVERAGE.md). A disliked, doubtful or unmet
+       family costs in every stage it is in, each stage being another chance for it to spoil the wear. */
     function recommend(prof, ratings, avoid) {
       const likely = Object.entries(prof).filter(([, v]) => v.cls === "badLikely").map(([f]) => f);
       const badAny = Object.entries(prof).filter(([, v]) => v.cls === "badLikely" || v.cls === "badPossible").map(([f]) => f);
-      const veto = vetoOf(prof, avoid);
+      const veto = vetoOf(prof, avoid), side = sideOf(ratings);
       const scored = [];
       for (const P of PERFUMES) {
-        if (ratings[P.id] || vetoed(P, veto)) continue;
+        if (ratings[P.id] || vetoed(P, veto) || (side && P.gender !== "u" && P.gender !== side)) continue;
         let penalty = 0, reward = 0, unknown = 0, excluded = false;
-        const risks = [];
+        const risks = [], liked = {};
         for (const s of STAGES) {
           const sw = STAGE_W[s];
           for (const [f, w] of Object.entries(P.stages[s])) {
-            const v = prof[f];
+            const v = traceOnly(prof[f]) ? undefined : prof[f];
             if (likely.includes(f) && atStrength(s, w)) excluded = true;
             if (!v) { if (w >= 0.5) { unknown += w * sw; risks.push({ f, s, w, kind: "unknown", sev: w * sw }); } continue; }
+            /* the score read to nine places, as the classes read it, so the order of the ratings never reorders the picks */
+            const sc = r9(v.score);
             /* a mixed family costs a flat 0.3 for the doubt while its mean is balanced (under 0.7 either way); once the mean
                leans clearly, it is weighed by that lean, as any family is */
             if (v.cls === "mixed") {
               risks.push({ f, s, w, kind: "mixed", sev: w * sw * 0.8 });
-              if (Math.abs(r9(v.score)) < 0.7) penalty += w * sw * 0.3; else if (v.score < 0) penalty += w * sw * (-v.score); else reward += w * sw * v.score;
+              if (Math.abs(sc) < 0.7) penalty += w * sw * 0.3; else if (sc < 0) penalty += w * sw * (-sc); else liked[f] = Math.max(liked[f] || 0, w * sw * sc);
               continue;
             }
-            if (v.score < 0) { penalty += w * sw * (-v.score) * (v.cls === "badLikely" ? 1.5 : 1); if (w >= 0.3) risks.push({ f, s, w, kind: v.n === 0 && v.toldNeg ? "told" : "neg", sev: w * sw * (-v.score) }); }
-            else reward += w * sw * v.score;
+            if (sc < 0) { penalty += w * sw * (-sc) * (v.cls === "badLikely" ? 1.5 : 1); if (w >= 0.3) risks.push({ f, s, w, kind: v.n === 0 && v.toldNeg ? "told" : "neg", sev: w * sw * (-sc) }); }
+            else liked[f] = Math.max(liked[f] || 0, w * sw * sc);
           }
         }
         if (excluded) continue;
+        for (const x of Object.values(liked)) reward += x;
         scored.push({ P, final: reward - 2 * penalty - 0.3 * unknown, reward, penalty, risks });
       }
       scored.sort((a, b) => b.final - a.final);
@@ -357,7 +386,7 @@ window.PP_ENGINE = (function () {
       return null;
     }
 
-    return { STAGES, PERFUMES, byId, applyEvidence, buildAuto, derived, resolve, strongestStage, kept, computeProfile, recommend, settleSuggestion, ruledOut };
+    return { STAGES, PERFUMES, byId, applyEvidence, buildAuto, derived, resolve, strongestStage, kept, computeProfile, recommend, settleSuggestion, ruledOut, sideOf };
   }
 
   return { create, STAGES, strongestStage, kept };

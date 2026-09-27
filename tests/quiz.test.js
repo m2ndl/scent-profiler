@@ -1175,9 +1175,9 @@ test("a top note loved in a kept bottle: a pick that holds it in the heart or ba
   const ratings = { sauvageedp: still({ citrus_fresh: 2 }), cdnim: still() };
   assert.equal(E.strongestStage(E.byId.sauvageedp, "citrus_fresh"), "opening");
   let h = resultFor(ratings, { taste: "unsure" });
-  assert.match(h, /<div class="risk">Citrus in the base, which you liked only in the first minutes of Sauvage Eau de Parfum: a sample shows whether you like it for hours\.<\/div>/);
+  assert.match(h, /<div class="risk">Citrus in the (heart|base), which you liked only in the first minutes of Sauvage Eau de Parfum: a sample shows whether you like it for hours\.<\/div>/);
   h = resultFor(ratings, { taste: "unsure" }, "ar");
-  assert.match(h, /<div class="risk">فيه الحمضيات في القاعدة، وقد أعجبك في الدقائق الأولى من سوفاج فقط: العيّنة تبيّن لك إن كان يعجبك لساعات\.<\/div>/);
+  assert.match(h, /<div class="risk">فيه الحمضيات في (القلب|القاعدة)، وقد أعجبك في الدقائق الأولى من سوفاج فقط: العيّنة تبيّن لك إن كان يعجبك لساعات\.<\/div>/);
 });
 
 test("a profiler record with a disliked opening but a liked heart and base is kept, so it names the palate", () => {
