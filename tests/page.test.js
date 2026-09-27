@@ -283,3 +283,21 @@ test("zero bottles with a taste answer: no pick says the visitor said they avoid
     for (const s of ["heart", "drydown"]) { const st = P.stages[s], w = st.vanilla_gourmand || 0; assert.ok(!(w >= 0.7 && w >= Math.max(...Object.values(st))), P.id + " is led by vanilla"); }
   }
 });
+
+test("the profiler's picks name a lean note's bottle, and never offer a family disliked in a kept bottle as shared", () => {
+  const blank = { opening: null, heart: null, drydown: null, again: null, chips: {} };
+  const still = na => Object.assign({}, blank, { drydown: 1, again: 1, src: "quiz" }, na ? { noteAnswers: na } : {});
+  const recsFor = (r, lang) => { const p = createPage({ localStorage: Object.assign(seed(), { pp_ratings_v1: JSON.stringify(r), pp_lang: JSON.stringify(lang) }) }); p.load(scripts); return p.snapshot().els.recs.innerHTML; };
+  /* woody ambers disliked in kept Sauvage and liked in kept Bleu */
+  const kept = { sauvageedp: still({ woody_amber: -2 }), bleuedp: still() };
+  let h = recsFor(kept, "en");
+  assert.match(h, /<div class="risk">Contains Woody ambers \(Ambroxan-type\) in the drydown, which you disliked in Sauvage Eau de Parfum, a perfume you like overall\.<\/div>/);
+  assert.doesNotMatch(h, /Shares Woody ambers/);
+  assert.match(h, /Shares [^<]* with Bleu de Chanel Eau de Parfum, which you liked\./);
+  h = recsFor(kept, "ar");
+  assert.match(h, /<div class="risk">يحتوي على الأخشاب العنبرية الصناعية \(نوع أمبروكسان\) في القاعدة، وقد قلت إنه لم يعجبك في سوفاج، وهو عطر تحبه في مجمله\.<\/div>/);
+  /* citrus loved in Sauvage's first minutes */
+  const top = { sauvageedp: still({ citrus_fresh: 2 }), cdnim: still() };
+  assert.match(recsFor(top, "en"), /<div class="risk">Contains Citrus in the drydown, which you liked only in the first minutes of Sauvage Eau de Parfum: a sample shows whether you like it for hours\.<\/div>/);
+  assert.match(recsFor(top, "ar"), /<div class="risk">يحتوي على الحمضيات في القاعدة، وقد أعجبك في الدقائق الأولى من سوفاج فقط: العيّنة تبيّن لك إن كان يعجبك لساعات\.<\/div>/);
+});

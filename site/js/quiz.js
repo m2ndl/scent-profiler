@@ -61,7 +61,7 @@
         lean: (f, s) => `Some ${f} in the ${s}, which your answers lean against.`,
         mixed: (f, s) => `${f.charAt(0).toUpperCase() + f.slice(1)} in the ${s}: it went well in one of your bottles and badly in another.`,
         unknown: (f, s) => `Led by ${f} in the ${s}, which you have not tried yet: a sample will tell.`,
-        leanKept: (f, s, b) => `Some ${f} in the ${s}, which you disliked in ${b}, a bottle you still wear.`,
+        leanKept: (f, s, b) => `Some ${f} in the ${s}, which you disliked in ${b}, a perfume you like overall.`,
         leanOpening: (f, s, b) => `${f.charAt(0).toUpperCase() + f.slice(1)} in the ${s}, which you liked only in the first minutes of ${b}: a sample shows whether you like it for hours.`
       },
       stageWord: { opening: "opening", heart: "heart", drydown: "base" },
@@ -90,7 +90,7 @@
         fresh: { side: "fresh, bright materials", tip: "Citrus is usually gone within the hour, so what makes a fresh perfume last is something else, often sea notes, musk or woods. Smell a sample again after an hour before you buy." },
         spiced: { side: "spice", tip: "Saffron and warm spices often sit on an oud, amber or woody base, and the base decides whether you keep the perfume. Judge a sample hours in, not only at the first spray." },
         wide: { text: "Your bottles cover several kinds of perfume and none of them leads: you like a wide range.", tip: "For a palate this wide, the useful finding is what you avoid: your deal-breaker rules perfumes out, and everything else is open to you.", tipNone: "No deal-breaker has shown up yet. Rating more bottles on your profile, especially ones that turned on you, is how one shows up." },
-        selective: { text: "None of your bottles stands out as a like, but they do show what you avoid.", tip: "That is the useful half: the count above shows how many perfumes your deal-breaker rules out." }
+        selective: { text: "None of your bottles stands out as a like, but they do show what you avoid.", textSome: "What you like is not clear enough yet to name your palate, but your bottles do show what you avoid.", tip: "That is the useful half: the count above shows how many perfumes your deal-breaker rules out." }
       },
       compare: { breaker: (p, n, f) => `${p} of the ${n} people who finished this quiz share your deal-breaker: ${f}.`, palate: (p, n) => `${p} of the ${n} people who finished this quiz share your palate.` }, under1: "Under 1%",
       share: "Share my profile", shareMade: "Saved as an image", shareFail: "Your browser could not make the image",
@@ -156,7 +156,7 @@
         lean: (f, s) => `فيه شيء من ${f} في ${s}، وإجاباتك تميل ضدّه.`,
         mixed: (f, s) => `فيه ${f} في ${s}، وقد نجح معك في عطر وانقلب عليك في آخر.`,
         unknown: (f, s) => `يغلب عليه ${f} في ${s}، ولم تجرّبه بعد: العيّنة ستخبرك.`,
-        leanKept: (f, s, b) => `فيه شيء من ${f} في ${s}، وقد قلت إنه لم يعجبك في ${b} الذي ما زلت تستخدمه.`,
+        leanKept: (f, s, b) => `فيه شيء من ${f} في ${s}، وقد قلت إنه لم يعجبك في ${b}، وهو عطر تحبه في مجمله.`,
         leanOpening: (f, s, b) => `فيه ${f} في ${s}، وقد أعجبك في الدقائق الأولى من ${b} فقط: العيّنة تبيّن لك إن كان يعجبك لساعات.`
       },
       stageWord: { opening: "البداية", heart: "القلب", drydown: "القاعدة" },
@@ -187,7 +187,7 @@
         fresh: { side: "المواد المنعشة", tip: "الحمضيات تختفي عادة خلال ساعة، فما يُبقي العطر المنعش مادة أخرى، غالباً النفحات البحرية أو المسك أو الأخشاب. اشتمّ العيّنة مرة أخرى بعد ساعة قبل أن تشتري." },
         spiced: { side: "التوابل", tip: "كثيراً ما يأتي الزعفران والتوابل الدافئة على قاعدة من العود أو العنبر أو الأخشاب، والقاعدة هي التي تحدد إن كنت ستبقي على العطر. احكم على العيّنة بعد ساعات، لا عند الرشّة الأولى فقط." },
         wide: { text: "عطورك من أنواع كثيرة ولا يتقدّم أحدها على البقية: ذائقتك تتسع لأنواع كثيرة.", tip: "في ذائقة بهذا الاتساع، النتيجة المفيدة هي ما تتجنّبه: ما يفسد العطر عليك يستبعد عطوراً، وكل ما عداها متاح لك.", tipNone: "لم يظهر بعد ما يفسد العطر عليك. تقييم مزيد من العطور في ملفك العطري، وخاصة التي انقلبت عليك، هو ما يُظهره." },
-        selective: { text: "لا يبرز من عطورك ما تحبه بوضوح، لكنها تكشف ما تتجنّبه.", tip: "وهذا هو النصف المفيد: الرقم أعلاه يبيّن كم عطراً يستبعده ما يفسد العطر عليك." }
+        selective: { text: "لا يبرز من عطورك ما تحبه بوضوح، لكنها تكشف ما تتجنّبه.", textSome: "لم يتضح ما تحبه بعدُ بما يكفي لتسمية ذائقتك، لكن عطورك تكشف ما تتجنّبه.", tip: "وهذا هو النصف المفيد: الرقم أعلاه يبيّن كم عطراً يستبعده ما يفسد العطر عليك." }
       },
       compare: { breaker: (p, n, f) => `${p} ممن أنهوا هذا الاختبار (${n}) يشاركونك النفور من ${f}.`, palate: (p, n) => `${p} ممن أنهوا هذا الاختبار (${n}) يشاركونك ذائقتك.` }, under1: "أقل من 1٪",
       share: "شارك ذائقتك", shareMade: "حُفظت صورة", shareFail: "تعذّر على المتصفح صنع الصورة",
@@ -255,9 +255,9 @@
   const cap = s => (lang === "en" && s ? s[0].toUpperCase() + s.slice(1) : s);
   /* A rating counts only when a stage is set; an all-null record (for example one left by a tester link) is unrated. */
   const hasStage = id => { const r = ratings[id]; return !!r && STAGES.some(s => r[s] != null); };
-  /* A kept bottle: every stage it has is 0 or above and one is above 0. A stage below 0 means it turned on the visitor,
-     or put them off in a shop. */
-  const keptBottle = id => { const r = ratings[id], vals = r ? STAGES.map(s => r[s]).filter(v => v != null) : []; return !vals.some(v => v < 0) && vals.some(v => v > 0); };
+  /* A kept bottle (engine.js kept): bought again, or its heart and base 0 or above with one above 0. The quiz's
+     "I still wear it" is kept; a bottle that turned on the visitor, or put them off in a shop, is not. */
+  const keptBottle = id => E.kept(ratings[id]);
   /* A quiz rating whose only set stage is opening at -1 is a shop trial (the shop verdict writes it). */
   const shopTrial = id => { const r = ratings[id]; return !!r && r.src === "quiz" && r.opening === -1 && r.heart == null && r.drydown == null; };
   /* rated before this visit: a bottle answered on this visit can still be picked again after Back */
@@ -736,8 +736,9 @@
   }
   /* A family's short name inside a sentence: lower case in English, as written in Arabic. */
   const famIn = f => low(famShort(f));
-  /* a list inside a sentence: "a, b and c"; in Arabic the last item takes و ("أ، ب وج") */
-  const andJoin = arr => lang === "ar" ? (arr.length > 1 ? arr.slice(0, -1).join("، ") + " و" + arr[arr.length - 1] : arr[0] || "") : listJoin(arr);
+  /* a list inside a sentence: "a, b and c"; in Arabic the last item takes و ("أ، ب وج"). When an item holds its own
+     "and" (الفانيلا والسكر), a comma comes before the last: "الفانيلا والسكر، والأخشاب العنبرية". */
+  const andJoin = arr => lang === "ar" ? (arr.length > 1 ? arr.slice(0, -1).join("، ") + (arr.some(x => / و/.test(x)) ? "، و" : " و") + arr[arr.length - 1] : arr[0] || "") : listJoin(arr);
   /* A note card's name inside a sentence, brackets dropped: "musk"; in Arabic with the article, "المسك". */
   const noteIn = id => {
     const n = QUIZ.notePicker.flatMap(s => s.notes).find(x => x.id === id); if (!n) return id;
@@ -855,7 +856,8 @@
   function palateText(arch, prof) {
     const P = t().pal;
     if (arch.id === "wide") return { about: P.wide.text + " " + (byStrength(prof, ["badLikely", "badPossible"]).length ? P.wide.tip : P.wide.tipNone), tip: "" };
-    if (arch.id === "selective") return { about: P.selective.text + " " + P.selective.tip, tip: "" };
+    /* the selective palate beside liked families (a like from a bottle not kept, or from an opening) says the likes are not yet clear */
+    if (arch.id === "selective") return { about: (byStrength(prof, ["goodLikely", "goodPossible"]).length ? P.selective.textSome : P.selective.text) + " " + P.selective.tip, tip: "" };
     const [a, b] = arch.id.split("-");
     return { about: b ? t().palTwo(P[a].side, P[b].side) : t().palOne(P[a].side), tip: P[a].tip };
   }
@@ -952,7 +954,7 @@
   /* ---------- the reveal: the visitor's bottles sort into kept and turned, then the result arrives ---------- */
   let revealed = false, revealTimer = null;
   const stillMotion = () => { try { return !window.matchMedia || window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return true; } };
-  /* a rated bottle is kept when every stage it has is 0 or above and one is above 0, turned when any stage is below 0 */
+  /* a rated bottle is kept (keptBottle), or turned when it is not kept and a stage is below 0 */
   function sortedBottles() {
     const kept = [], turned = [];
     for (const id of Object.keys(ratings).filter(hasStage)) {

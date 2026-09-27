@@ -1117,8 +1117,12 @@ test("a bottle the visitor did not keep never names the palate, even for a note 
   /* the shop trial alone: nothing kept, so the finding is what the visitor avoids */
   h = resultFor({ emotion: putOff }, { taste: "unsure" });
   assert.match(h, /<h1>The Selective Palate<\/h1>/);
-  /* the loved note still counts as a like on the taste card */
+  /* the loved note still counts as a like on the taste card, so the palate's line says the likes are not yet clear */
   assert.match(/<div class="qtaste-row good">[^]*?<\/div><\/div>/.exec(h)[0], /Sweet fruit/);
+  assert.match(h, /<p class="qpal">What you like is not clear enough yet to name your palate, but your bottles do show what you avoid\. /);
+  assert.match(resultFor({ emotion: putOff }, { taste: "unsure" }, "ar"), /<p class="qpal">لم يتضح ما تحبه بعدُ بما يكفي لتسمية ذائقتك، لكن عطورك تكشف ما تتجنّبه\. /);
+  /* with no like at all, the first sentence */
+  assert.match(resultFor({ emotion: Object.assign({}, blank, { opening: -1, src: "quiz", noteAnswers: { fruity_sweet: -2 } }) }, { taste: "unsure" }), /<p class="qpal">None of your bottles stands out as a like, but they do show what you avoid\. /);
 });
 
 test("when the bottles overrule the sweet-or-bitter answer, the taste card says so", () => {
@@ -1132,4 +1136,40 @@ test("when the bottles overrule the sweet-or-bitter answer, the taste card says 
   /* in Arabic */
   h = resultFor({ yara: still }, { taste: "bitter" }, "ar");
   assert.match(h, /<p class="qtaste-note">قلت إنك تفضّل المرّ على الحلو، لكن عطورك تكشف ميلك إلى الفانيلا والسكر، فبنينا النتيجة على عطورك\.<\/p>/);
+  /* two families that each hold an "and" take a comma before the last */
+  assert.match(resultFor({ eros: still }, { taste: "bitter" }), /a liking for vanilla and sugar, and tonka and hay, so the result follows your bottles\./);
+  assert.match(resultFor({ eros: still }, { taste: "bitter" }, "ar"), /ميلك إلى الفانيلا والسكر، والتونكا والقش، فبنينا النتيجة على عطورك\./);
+});
+
+test("a note disliked in a bottle the visitor kept is never a like or the palate, and the picks that carry it name the bottle", () => {
+  const still = na => Object.assign({}, blank, { drydown: 1, again: 1, src: "quiz" }, na ? { noteAnswers: na } : {});
+  /* Bade'e Al Oud kept, its oud hated: oud leads its heart and sits at 0.8 in the base the visitor liked */
+  assert.equal(E.strongestStage(E.byId.badeealoud, "oud_smoky"), "heart");
+  let h = resultFor({ badeealoud: still({ oud_smoky: -2 }) }, { taste: "unsure" });
+  assert.match(h, /<h1>The Woody Palate<\/h1>/);
+  assert.doesNotMatch(h, /<span class="qchip good">Oud/);
+  /* Sauvage kept with its woody ambers disliked, Bleu kept: a pick holding woody ambers says so, in both languages */
+  const ratings = { sauvageedp: still({ woody_amber: -2 }), bleuedp: still() };
+  h = resultFor(ratings, { taste: "unsure" });
+  assert.match(h, /<div class="risk">Some woody ambers in the base, which you disliked in Sauvage Eau de Parfum, a perfume you like overall\.<\/div>/);
+  assert.doesNotMatch(h, /<div class="why">Has [^<]*woody ambers[^<]*, which you like/);
+  h = resultFor(ratings, { taste: "unsure" }, "ar");
+  assert.match(h, /<div class="risk">فيه شيء من الأخشاب العنبرية الصناعية في القاعدة، وقد قلت إنه لم يعجبك في سوفاج، وهو عطر تحبه في مجمله\.<\/div>/);
+});
+
+test("a top note loved in a kept bottle: a pick that holds it in the heart or base says it was liked only in the first minutes", () => {
+  const still = na => Object.assign({}, blank, { drydown: 1, again: 1, src: "quiz" }, na ? { noteAnswers: na } : {});
+  const ratings = { sauvageedp: still({ citrus_fresh: 2 }), cdnim: still() };
+  assert.equal(E.strongestStage(E.byId.sauvageedp, "citrus_fresh"), "opening");
+  let h = resultFor(ratings, { taste: "unsure" });
+  assert.match(h, /<div class="risk">Citrus in the base, which you liked only in the first minutes of Sauvage Eau de Parfum: a sample shows whether you like it for hours\.<\/div>/);
+  h = resultFor(ratings, { taste: "unsure" }, "ar");
+  assert.match(h, /<div class="risk">فيه الحمضيات في القاعدة، وقد أعجبك في الدقائق الأولى من سوفاج فقط: العيّنة تبيّن لك إن كان يعجبك لساعات\.<\/div>/);
+});
+
+test("a profiler record with a disliked opening but a liked heart and base is kept, so it names the palate", () => {
+  for (const again of [1, null]) {
+    const h = resultFor({ sauvageedp: Object.assign({}, blank, { opening: -1, heart: 1, drydown: 2, again }) }, { taste: "unsure" });
+    assert.match(h, /<h1>The Woody Palate<\/h1>/, "buy again: " + again);
+  }
 });

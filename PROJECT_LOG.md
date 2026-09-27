@@ -2,6 +2,36 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-27: session close, the quiz in motion and the lean rule
+
+Session title: the quiz in motion and the lean rule. The motion work is live (618dfb0). The algorithm fixes are
+committed locally and NOT pushed: the owner approved "push when done", but the final independent review was stopped
+when the session ended, so the push waits for it.
+
+- The quiz moves: screen transitions (View Transitions, direction-aware), in-place updates that keep focus, a one-button
+  dock, the wear ribbon for when a bottle turned, a progress line in the header, and the palate wheel on the result
+  (`site/js/motion.js`; plan, notes and the lockstep check in reference/design/motion/). Reduced motion turns it all off.
+- The owner's complaint: kept Hacivat with its pineapple loved gave "sweet" although they prefer bitter. The fix is one
+  rule, "a detail never outranks a verdict" (README, engine): only the heart and base of kept bottles name the palate;
+  a note liked only in the first minutes, or disliked in a kept bottle, is a lean (moves the picks, never a like or a
+  deal-breaker), and it silences the same bottle's stage ratings on that family where they disagree; picks carrying a
+  lean name the bottle; the taste card says when the bottles overrule the sweet-or-bitter answer.
+- `engine.kept`: kept means buy again yes, or heart and base 0 or above with one above 0; the opening never decides.
+  Chosen this session without asking the owner (the reviewer flagged it as the owner's call): it restores the palate for
+  profiler records with a disliked opening. Opening-only liked records are no longer "kept".
+- A second reviewer found a blocking defect in the first version (a hated note became a like); fixed with tests that fail
+  on the earlier engine. Golden unchanged. Record in reference/algorithm/. Tests 103.
+
+Open, dated 27 Sep 2026 (operational):
+- Run a fresh verifier on the last commit, fix what it finds, then push the four local commits and check the live site.
+- Owner to confirm the kept rule above (buy again yes counts as kept; the opening never decides).
+- The private phone artifact of the quiz was not refreshed with the motion work.
+- Earlier open items stand (reference/launch/ in or out of git, backend deployment, partner links).
+
+Reflective, not scheduled:
+- A family liked in one kept bottle and disliked in another shows as liked on the taste card, with the dislike only as
+  a pick caveat; an honest split, but it could read as a contradiction.
+
 ## 2026-09-26: session close, the shared page script and More perfumes
 
 Session title: the shared page script and More perfumes. All live (last commit 74a3ad7; the deploy's tests and publish

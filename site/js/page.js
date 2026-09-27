@@ -89,7 +89,8 @@ window.PP_PAGE = (function () {
     const pname = p => (lang() === "ar" && p.ar ? p.ar : p.name);
     const chipWord = id => { const c = D.CHIPS.find(x => x.id === id); return c ? c[lang()] : id; };
     const low = s => (lang() === "en" && s ? s[0].toLowerCase() + s.slice(1) : s);
-    const listJoin = arr => lang() === "ar" ? arr.join("، ") : arr.length > 1 ? arr.slice(0, -1).join(", ") + " and " + arr[arr.length - 1] : arr[0] || "";
+    /* "a, b and c"; a comma before the last when an item holds its own "and": "vanilla and sugar, and woody ambers" */
+    const listJoin = arr => lang() === "ar" ? arr.join("، ") : arr.length > 1 ? arr.slice(0, -1).join(", ") + (arr.some(x => / and /.test(x)) ? ", and " : " and ") + arr[arr.length - 1] : arr[0] || "";
     /* a shop link for a perfume: {q} becomes its house and name, {lang} the page language (ar or en) */
     const shopUrl = (tpl, P) => tpl.replace("{q}", encodeURIComponent(P.house + " " + P.name)).replace("{lang}", lang());
     /* the partner program's required statement from config.js, in the page language */

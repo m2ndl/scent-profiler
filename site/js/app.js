@@ -45,7 +45,7 @@
       riskNeg: (fam, stage) => `Contains a little ${fam} in the ${stage.toLowerCase()}, which you have disliked before.`,
       riskTold: (fam, stage) => `Contains ${fam} in the ${stage.toLowerCase()}, which you said you avoid.`,
       riskLean: (fam, stage) => `Contains ${fam} in the ${stage.toLowerCase()}, which your quiz answers lean against.`,
-      riskLeanKept: (fam, stage, bottle) => `Contains ${fam} in the ${stage.toLowerCase()}, which you disliked in ${bottle}, a perfume you still wear.`,
+      riskLeanKept: (fam, stage, bottle) => `Contains ${fam} in the ${stage.toLowerCase()}, which you disliked in ${bottle}, a perfume you like overall.`,
       riskLeanOpening: (fam, stage, bottle) => `Contains ${fam} in the ${stage.toLowerCase()}, which you liked only in the first minutes of ${bottle}: a sample shows whether you like it for hours.`,
       toldUses: n => `Also uses ${n} ${n === 1 ? "answer" : "answers"} from the quiz.`,
       noteLine: (perfume, stage, words, v) => `${perfume}, ${stage.toLowerCase()}: you ${{ 2: "loved", 1: "liked", 0: "didn't mind", "-1": "disliked", "-2": "hated" }[v]} the ${words}`,
@@ -104,7 +104,7 @@
       riskNeg: (fam, stage) => `فيه قليل من ${fam} في ${stage}، وقد أزعجك من قبل.`,
       riskTold: (fam, stage) => `يحتوي على ${fam} في ${stage}، وقد قلت إنك تتجنبه.`,
       riskLean: (fam, stage) => `يحتوي على ${fam} في ${stage}، وإجاباتك في الاختبار تميل ضده.`,
-      riskLeanKept: (fam, stage, bottle) => `يحتوي على ${fam} في ${stage}، وقد قلت إنه لم يعجبك في ${bottle} الذي ما زلت تستخدمه.`,
+      riskLeanKept: (fam, stage, bottle) => `يحتوي على ${fam} في ${stage}، وقد قلت إنه لم يعجبك في ${bottle}، وهو عطر تحبه في مجمله.`,
       riskLeanOpening: (fam, stage, bottle) => `يحتوي على ${fam} في ${stage}، وقد أعجبك في الدقائق الأولى من ${bottle} فقط: العيّنة تبيّن لك إن كان يعجبك لساعات.`,
       toldUses: n => `يعتمد الملف أيضاً على إجاباتك في الاختبار (${n}).`,
       noteLine: (perfume, stage, words, v) => `${perfume}: «${words}» (${stage}): إجابتك «${{ 2: "أعجبني كثيراً", 1: "أعجبني", 0: "لا بأس به", "-1": "لم يعجبني", "-2": "كرهته" }[v]}»`,
@@ -328,7 +328,8 @@
       const whys = [];
       const clear = badAny.filter(f => (P.stages.drydown[f] || 0) < 0.2);
       if (clear.length) whys.push(t().whyClear(listJoin(clear.slice(0, 3).map(fam))));
-      const liked = Object.entries(prof).filter(([f, v]) => (v.cls === "goodLikely" || v.cls === "goodPossible") && STAGES.some(s => (P.stages[s][f] || 0) >= 0.4)).sort((a, b) => b[1].score - a[1].score)[0];
+      /* a family disliked in a bottle the visitor kept is never offered as a like (engine.js reasonOf) */
+      const liked = Object.entries(prof).filter(([f, v]) => (v.cls === "goodLikely" || v.cls === "goodPossible") && !(v.toldEvidence || []).some(e => e.lean === "kept") && STAGES.some(s => (P.stages[s][f] || 0) >= 0.4)).sort((a, b) => b[1].score - a[1].score)[0];
       if (liked) { const src = liked[1].evidence.find(e => e.value > 0); if (src) whys.push(t().whyShares(fam(liked[0]), pname(src.perfume))); }
       /* one thing to watch for at most, chosen by the engine (a family the visitor avoids, a possible deal-breaker, a
          family their bottles split on, an untried family that leads) */

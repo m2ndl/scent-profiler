@@ -156,13 +156,17 @@ The rules below are implemented in `site/js/engine.js`.
 - An answer on one of a worn bottle's notes (`noteAnswers`, −2 to +2) replaces the stage rating
   for that family in its strongest stage only and counts even when that stage has no rating,
   while a family marked "didn't notice it" (`unnoticed`) gives no evidence at all.
-- A detail never outranks a verdict. A note liked only in the first minutes (its family is strongest in the
-  opening, as Hacivat's pineapple), or disliked in a bottle the wearer still wears (every stage rated 0 or above,
-  one above 0), is a lean rather than bottle evidence: it joins the told sums below as one item (its sign, weighted
+- A detail never outranks a verdict. A bottle is kept (`engine.kept`) when the wearer would buy it again, or when its
+  heart and base (those rated) are 0 or above with one above 0; the opening lasts minutes, so it never decides. A note
+  liked only in the first minutes (its family is strongest in the opening, as Hacivat's pineapple), or disliked in a
+  kept bottle, is a lean rather than bottle evidence: it joins the told sums below as one item (its sign, weighted
   by its presence times half its size), so it moves the score the picks read but never makes a like or a
-  deal-breaker. Likes come from the hours a bottle is worn, deal-breakers from the bottles they ruined: keeping
-  Sauvage while marking its ambroxan "Disliked it" leans the picks away from woody ambers instead of ruling out every
-  perfume built on them. A pick that carries such a family says so (see `reason` below).
+  deal-breaker. It is still the wearer's word on that family in that bottle, so the bottle's stage ratings count for
+  the family only where they agree with it: Bade'e Al Oud kept with its oud hated never makes oud a like through the
+  base the wearer liked, and a base that turned never makes a loved top note a deal-breaker. Likes come from the hours
+  a bottle is worn, deal-breakers from the bottles they ruined: keeping Sauvage while marking its ambroxan "Disliked
+  it" leans the picks away from woody ambers instead of ruling out every perfume built on them. A pick that carries
+  such a family says so (see `reason` below).
 - What the visitor told the quiz in words (`state.told`: notes enjoyed or avoided, bitter or
   sweet, complaints) counts at 0.3 of an item's weight in separate sums, used only for a family
   with no strong bottle evidence, so it can reorder the picks but never sets a class. A family known only from told answers scores their weighted sum over their weights
@@ -177,10 +181,11 @@ The rules below are implemented in `site/js/engine.js`.
 - Each pick carries `reason`: up to two liked families it has in the heart or base (a liked class, or a clear lean
   from the visitor's words), up to two deal-breakers it is free of, and at most one thing to watch for, in this order:
   an avoided family that is only secondary here (0.3 or more) or only in the opening, a possible deal-breaker, a family
-  the visitor disliked in a bottle they still wear (`leanKept`, naming that bottle; such a family is never listed as a
-  like), a family the visitor's words lean against, a family their bottles split on, a family they liked only in the
-  first minutes of a bottle (`leanOpening`, naming that bottle; not listed as a like), then an untried family that
-  leads the heart or base. Traces under 0.3 are never named. The quiz shows these as lines on stacked pick cards; the profile page uses the
+  the visitor's words lean against, a family their bottles split on, a family the visitor disliked in a bottle they
+  kept (`leanKept`, naming that bottle; such a family is never listed as a like or as shared with a liked bottle), a
+  family they liked only in the first minutes of a bottle (`leanOpening`, naming that bottle; not listed as a like),
+  then an untried family that leads the heart or base. A lean comes after the bottles' verdicts and is named only in
+  the pick's heart or base. Traces under 0.3 are never named. The quiz shows these as lines on stacked pick cards; the profile page uses the
   watch item for its risk line.
 - A family is a **likely deal-breaker** when its weighted mean is ≤ −0.7 across two or more
   perfumes with no positive rating; **possible** on one perfume, or on a milder mean across
@@ -305,13 +310,15 @@ that family's presence; a note liked only in the first minutes shows on the tast
 and a bottle that turned on the visitor or put them off in a shop never votes, even for a note they liked in it),
 and the lead group names the palate alone when it holds more than twice the next group's weight. Otherwise both are
 named ("The Oud and Musk Palate"), and from four bottles a third group the lead does not outweigh makes "The Wide
-Palate". With no kept bottle to vote but a deal-breaker, "The Selective Palate". One sentence under the name says what
-the bottles show; below the taste card come the comparison line and a tip for the lead group. The wide and selective
+Palate". With no kept bottle to vote but a deal-breaker, "The Selective Palate"; its sentence says the likes are not
+yet clear enough to name the palate when the taste card shows liked families, and that no bottle stands out as a like
+when it shows none. One sentence under the name says what the bottles show; below the taste card come the comparison line and a tip for the lead group. The wide and selective
 palates keep their tip under the name, since there the deal-breaker is the finding. The comparison line appears only once 100 people have
 finished the quiz: the share who hold the visitor's strongest deal-breaker, or, without one, the same palate.
 When the bottles overrule the sweet-or-bitter answer, the taste card says so: "You said you prefer bitter to sweet, but
 your bottles show a liking for vanilla and sugar, so the result follows your bottles." It names the liked families on
-the other side of `QUIZ.taste` (0.5 or more there).
+the other side of `QUIZ.taste` (0.5 or more there). A list whose items hold their own "and" takes a comma before the
+last: "vanilla and sugar, and tonka and hay" (in Arabic "الفانيلا والسكر، والتونكا والقش").
 
 Under the name sits the palate's wheel: the nine palate groups around the emblem in the order of a fragrance wheel
 (fresh, floral, rose, sweet, amber, spiced, oud, woody, musk). A petal grows for each group the kept bottles vote for,
