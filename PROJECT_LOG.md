@@ -2,6 +2,25 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-28: the backend deployed
+
+At the owner's request the Google Apps Script backend went live (f866dc9, workflow tests and deploy passed).
+
+- In the owner's Google Drive: the sheet "Scent Profiler backend" and its bound Apps Script project of the same
+  name, holding backend/apps-script.gs as committed (checksum matched) with SHEET_ID set in the deployed copy only.
+  Web app version 1, executes as the owner, access Anyone:
+  https://script.google.com/macros/s/AKfycbySbzxOcL6TKGIhj874qBcpGbfqA9CMFwrtJB6j6Ur0Nf40v7IgdzItYNCuTs2xjtCY/exec
+- site/js/config.js points at it. The test browser (tests/lib/dom.js) clears that endpoint unless a test asks for a
+  backend. Checked from the live origin: a post returns ok, ?stats=1 answers, and the live quiz sent its own
+  "reach:start" event. Test rows in the events tab: two with device "setup-check" and one "reach:start" from the owner's
+  Chrome (device d_bsklrhs9muhg2lpp); leave them out of any count.
+- Not set: FRAGELLA_KEY (Script Properties), so perfumes outside the catalogue stay untagged until the owner adds one.
+- To change the backend later: paste the new backend/apps-script.gs into the project keeping the SHEET_ID line, then
+  Deploy > Manage deployments > edit > Version: New version; the URL stays the same.
+
+Open, dated 28 Sep 2026: bring the first 50 to 100 real visitors through the quiz, then read the events and ratings
+tabs (Profiler menu > Build the quiz funnel) against the open calls of the entries below.
+
 ## 2026-09-28: session close, the picks spread over the catalogue
 
 Session title: the picks spread over the catalogue. The owner asked for a stress test from new angles and whether the
