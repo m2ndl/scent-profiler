@@ -1,7 +1,7 @@
 /* Deployment settings: the one file to edit when the site goes live. */
 window.PP_CONFIG = {
   /* Google Apps Script web-app URL (see backend/apps-script.gs). Leave "" to keep ratings on this device only. */
-  endpoint: "",
+  endpoint: "https://script.google.com/macros/s/AKfycbySbzxOcL6TKGIhj874qBcpGbfqA9CMFwrtJB6j6Ur0Nf40v7IgdzItYNCuTs2xjtCY/exec",
   /* Where "try a sample" and "full bottle" links go. {q} is replaced by the perfume name, {lang} by the page
      language (ar or en).
      Replace with a partner shop's search URL plus your coupon or affiliate parameter. */

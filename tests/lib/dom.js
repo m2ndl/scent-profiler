@@ -78,7 +78,14 @@ function createPage(opts) {
 
   const page = {
     ctx, sandbox, calls, clipboard, localStorage, history,
-    load(scripts) { for (const s of scripts) vm.runInContext(s.code, ctx, { filename: s.filename }); },
+    /* the site's own config.js names the live backend; a page opened without opts.endpoint is a page with no backend,
+       so its endpoint is cleared as config.js loads (with opts.endpoint the page takes it from the address, as on localhost) */
+    load(scripts) {
+      for (const s of scripts) {
+        vm.runInContext(s.code, ctx, { filename: s.filename });
+        if (/(^|\/)config\.js$/.test(s.filename) && !opts.endpoint && ctx.PP_CONFIG) ctx.PP_CONFIG.endpoint = "";
+      }
+    },
     /* as in a browser, a timer that throws does not stop the others; the first error is rethrown at the end */
     flushTimers() {
       const errors = []; let n = 0;
