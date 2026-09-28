@@ -2,9 +2,11 @@
 
 Continuity record for the perfume profiler. Newest first.
 
-## 2026-09-28: the backend deployed
+## 2026-09-28: session close, the backend live
 
-At the owner's request the Google Apps Script backend went live (f866dc9, workflow tests and deploy passed).
+Session title: the picks spread and the backend live. This entry closes the session whose engine work is logged in
+the entry below. At the owner's request the Google Apps Script backend went live (f866dc9, workflow tests and deploy
+passed); all work is pushed (last commit before this entry 12d926f).
 
 - In the owner's Google Drive: the sheet "Scent Profiler backend" and its bound Apps Script project of the same
   name, holding backend/apps-script.gs as committed (checksum matched) with SHEET_ID set in the deployed copy only.
@@ -13,13 +15,25 @@ At the owner's request the Google Apps Script backend went live (f866dc9, workfl
 - site/js/config.js points at it. The test browser (tests/lib/dom.js) clears that endpoint unless a test asks for a
   backend. Checked from the live origin: a post returns ok, ?stats=1 answers, and the live quiz sent its own
   "reach:start" event. Test rows in the events tab: two with device "setup-check" and one "reach:start" from the owner's
-  Chrome (device d_bsklrhs9muhg2lpp); leave them out of any count.
+  Chrome (device d_bsklrhs9muhg2lpp); leave them out of any count. The owner then ran the whole quiz in an incognito
+  tab (device d_zarh8ak9mukxej8q: 26 events, 16 ratings); leave that out too.
+- The site writes to the events, ratings and catalogue tabs; Sheet1 stays empty (the owner first looked there and
+  thought nothing had arrived).
 - Not set: FRAGELLA_KEY (Script Properties), so perfumes outside the catalogue stay untagged until the owner adds one.
 - To change the backend later: paste the new backend/apps-script.gs into the project keeping the SHEET_ID line, then
   Deploy > Manage deployments > edit > Version: New version; the URL stays the same.
 
-Open, dated 28 Sep 2026: bring the first 50 to 100 real visitors through the quiz, then read the events and ratings
-tabs (Profiler menu > Build the quiz funnel) against the open calls of the entries below.
+Open, dated 28 Sep 2026 (operational):
+- Bring the first 50 to 100 real visitors through the quiz, then read the events and ratings tabs (Profiler menu >
+  Build the quiz funnel) against the open calls of the entry below.
+- Next after that: the noon affiliate link on the Bottle button (reference/launch/FIRST_SALE.md).
+- Optional: FRAGELLA_KEY in the script's Script Properties, for perfumes outside the catalogue.
+- The phone artifact, if rebuilt, now carries the endpoint; the claude.ai host blocks the requests and the page ignores
+  the failures.
+
+Reflective, not scheduled:
+- The first real data decides which of the owner's open calls matter; measure how often visitors answer the note rows
+  and know note names before changing the palate or deal-breaker wording.
 
 ## 2026-09-28: session close, the picks spread over the catalogue
 
