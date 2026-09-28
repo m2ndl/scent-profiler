@@ -2,6 +2,42 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-28: session close, the removal pass
+
+Session title: the removal pass. The owner asked whether the design was now world class. A render pass (phone and
+desktop, both languages) said no: too many effects at once, and four defects on a phone (the fixed bottom waves greyed
+out any card passing over them; the lavender sketch sat behind text; box shots in the quiz grid; a start-page header
+181 px tall). At the owner's word the effects were taken out, then the Start button and the body text were reworked
+after the owner judged the flat gold button "not nice looking". All pushed and live (d4991d0): the workflow's tests and
+deploy passed, and the live pages serve the committed files with no console errors. Record in reference/design/README.md
+(section "The removal pass").
+
+- site/site.css: no waves or discs; the rose and lavender close every page in a band after the footer; gold is never a
+  metallic gradient (flat marks, thin lines, a soft shade on the primary buttons); on a phone the header is one row on
+  every page (63 px) with one button for the other language, and its two links open the footer (quiz.js, app.js).
+- Text: Arabic in Noto Sans Arabic (Latin stays IBM Plex Sans), chosen over Readex Pro, Almarai and Tajawal on a
+  side-by-side render; ink-2 #4B3B2F and ink-3 #665344 (8.8 and 6.0 to 1 on the ground). The Arabic font adds about
+  65 KB to the first load.
+- Grid photos: all sixty show the bottle alone. Seven box shots now use their Fragrantica page photos (page numbers for
+  Sauvage EDP, Club de Nuit Intense Man and Eclaire added to reference/images/fragrantica_ids.json); Jovan Musk and
+  Reef 33 are cropped by tools/fetch_bottles.py from the new reference/images/crops.json. Edit script:
+  reference/design/edits/photo_data_edit.py.
+- Checks of the live site blocked script.google.com, so this session left no rows in the backend sheet.
+
+Open, dated 28 Sep 2026 (operational):
+- Only the grid's sixty photos were checked for boxes; picks can show any of the 1,000. Sweep the contact sheets
+  (build/bottle_sheets/, rebuilt by tools/fetch_bottles.py) for box and props shots and fix them the same way.
+- The phone artifact (claude.ai) still predates the motion work and this pass; rebuild only if the owner wants it.
+- Carried: bring the first 50 to 100 real visitors through the quiz, then read the events and ratings tabs; the noon
+  affiliate link; FRAGELLA_KEY; the owner's calls listed in the two entries below.
+
+Reflective, not scheduled:
+- Left from the design review: the note picker (92 cards with three buttons over five screens) still reads as a form,
+  and the desktop result leaves the right third of the screen empty.
+- The other strong Start trial was a dark button with a gold arrow at its end; the shaded gold went live with the owner's approval.
+- Self-hosting the fonts would drop the render-blocking Google Fonts request and the Noto symbols subset that the
+  arrow characters pull in.
+
 ## 2026-09-28: session close, the backend live
 
 Session title: the picks spread and the backend live. This entry closes the session whose engine work is logged in
