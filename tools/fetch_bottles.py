@@ -11,7 +11,9 @@ are never dropped, so a hit is the right perfume or no hit at all; dropping a co
 Second source, for what the first lacks: Fragrantica's image server by page number
 (https://fimgs.net/mdimg/perfume/375x500.<n>.jpg), with the numbers in reference/images/fragrantica_ids.json.
 Those shots sit on white; the white that touches the edges is cut away. An address dropped with --drop is kept in
-reference/images/rejected.json and never taken again.
+reference/images/rejected.json and never taken again. Where the only photo shows the box or props beside the bottle,
+reference/images/crops.json keeps the part that holds the bottle (left, top, right, bottom as fractions of the photo);
+a crop applies only to the address it was measured on.
 
 Each hit is trimmed to the bottle, fitted into a 160 px transparent square and saved as
 site/img/bottles/<id>.webp. The tool then writes site/js/bottles.js (id -> path, only ids with a file)
@@ -33,6 +35,7 @@ RECORD = os.path.join(ROOT, "reference", "images", "bottles.json")
 SHEETS = os.path.join(ROOT, "build", "bottle_sheets")
 REJECTED = os.path.join(ROOT, "reference", "images", "rejected.json")
 FIDS = os.path.join(ROOT, "reference", "images", "fragrantica_ids.json")
+CROPS = os.path.join(ROOT, "reference", "images", "crops.json")
 CDN = "https://cdn.fragella.com/images/{}.webp"
 FRAGRANTICA = "https://fimgs.net/mdimg/perfume/375x500.{}.jpg"
 UA = {"User-Agent": "DrydownProfiler/1.0 (bottle thumbnails)"}
@@ -155,9 +158,10 @@ def cut_white(im):
     out = im.convert("RGBA"); out.putalpha(alpha)
     return out
 
-def thumb(data, white_bg=False):
+def thumb(data, white_bg=False, crop=None):
     from PIL import Image
     im = Image.open(io.BytesIO(data)).convert("RGBA")
+    if crop: im = im.crop(tuple(round(f * n) for f, n in zip(crop, (im.width, im.height, im.width, im.height))))
     if white_bg: im = cut_white(im)
     box = im.getchannel("A").point(lambda a: 255 if a > 12 else 0).getbbox()
     if box: im = im.crop(box)
@@ -229,7 +233,7 @@ def main(argv):
     drop = set(argv[argv.index("--drop") + 1].split(",")) if "--drop" in argv else set()
     os.makedirs(IMG_DIR, exist_ok=True); os.makedirs(os.path.dirname(RECORD), exist_ok=True)
     load = lambda f, d: json.load(open(f, encoding="utf-8")) if os.path.exists(f) else d
-    record, rejected, fids = load(RECORD, {}), load(REJECTED, {}), load(FIDS, {})
+    record, rejected, fids, crops = load(RECORD, {}), load(REJECTED, {}), load(FIDS, {}), load(CROPS, {})
     cat = catalogue()
     for i in drop:                                            # a wrong or poor photo: never take that address again
         if i in record: rejected.setdefault(i, []).append(record.pop(i)["source"])
@@ -240,7 +244,8 @@ def main(argv):
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         for p, url, kind, data, white in pool.map(lambda p: find(p, set(rejected.get(p["id"], [])), fids), todo):
             if not data: misses.append(p); continue
-            with open(os.path.join(IMG_DIR, p["id"] + ".webp"), "wb") as f: f.write(thumb(data, white))
+            c = crops.get(p["id"])
+            with open(os.path.join(IMG_DIR, p["id"] + ".webp"), "wb") as f: f.write(thumb(data, white, c["box"] if c and c["source"] == url else None))
             record[p["id"]] = {"kind": kind, "source": url}
     dump = lambda f, d: (open(f, "w", encoding="utf-8", newline="\n").write(json.dumps({k: d[k] for k in sorted(d)}, ensure_ascii=False, indent=1) + "\n"))
     dump(RECORD, record); dump(REJECTED, rejected)

@@ -27,6 +27,9 @@
  "bleuedp": [
   "https://cdn.fragella.com/images/bleu-de-chanel.webp"
  ],
+ "bossbottlednight": [
+  "https://cdn.fragella.com/images/boss-bottled-night.webp"
+ ],
  "bossthescentforheredt": [
   "https://fimgs.net/mdimg/perfume/375x500.48517.jpg"
  ],
@@ -48,6 +51,9 @@
  "cavalliedp": [
   "https://cdn.fragella.com/images/roberto-cavalli-roberto-cavalli-for-women.webp"
  ],
+ "cdnim": [
+  "https://cdn.fragella.com/images/armaf-club-de-nuit-intense.webp"
+ ],
  "cerr1881men": [
   "https://cdn.fragella.com/images/cerruti-1881.webp"
  ],
@@ -59,6 +65,9 @@
  ],
  "chanceedp": [
   "https://cdn.fragella.com/images/chanel-chance.webp"
+ ],
+ "ckbeauty": [
+  "https://cdn.fragella.com/images/calvin-klein-beauty.webp"
  ],
  "cliniquehappyfw": [
   "https://fimgs.net/mdimg/perfume/375x500.372.jpg"
@@ -97,6 +106,12 @@
  ],
  "dolceandgabbana": [
   "https://cdn.fragella.com/images/dolce-gabbana-dolce-gabbana-for-women.webp"
+ ],
+ "eclaire": [
+  "https://cdn.fragella.com/images/lattafa-eclaire.webp"
+ ],
+ "emotion": [
+  "https://cdn.fragella.com/images/rasasi-emotion.webp"
  ],
  "emporioarmanistrongerwithy4": [
   "https://cdn.fragella.com/images/emporio-armani-stronger-with-you-leather.webp"
@@ -245,6 +260,10 @@
   "https://cdn.fragella.com/images/samsara.webp",
   "https://fimgs.net/mdimg/perfume/375x500.55.jpg"
  ],
+ "sauvageedp": [
+  "https://cdn.fragella.com/images/dior-sauvage-eau-de-toilette.webp",
+  "https://cdn.fragella.com/images/dior-sauvage.webp"
+ ],
  "sultani": [
   "https://cdn.fragella.com/images/arabian-oud-sultani.webp"
  ],
@@ -263,6 +282,9 @@
  "theoneedt": [
   "https://cdn.fragella.com/images/the-one.webp",
   "https://fimgs.net/mdimg/perfume/375x500.46273.jpg"
+ ],
+ "thescentmen": [
+  "https://cdn.fragella.com/images/boss-the-scent.webp"
  ],
  "touch": [
   "https://cdn.fragella.com/images/tous-touch.webp"

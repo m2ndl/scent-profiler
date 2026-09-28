@@ -2,21 +2,23 @@
    The page is built around one idea: a perfume is a timeline, and the last hour matters most.
    The design is a still life of materials in daylight: amber oil in glass, dried rose petals, calendula, frankincense
    resin, olive wood. The ground is pale wood and cream, lit by an amber glow from the oil and a rose glow from the
-   petals, with out-of-focus jars behind as soft discs; the page is framed in dark wood, a band across the top and
-   grain waves along the bottom of the screen, each edged in gold. Two faint line sketches from botanical plates sit in the
-   corners, away from the text: a Redouté rose at the top and Thomé lavender (khuzama) above the waves (tools/botanicals.py). Surfaces are cream glass with a gold rim and a white
-   gleam along the top edge. Gold is metallic on the brand name, the primary buttons, the selected tile and the
-   profile counts; as text it is a deep old gold that reads on cream. The wear ribbon follows the board: calendula
+   petals; a band of dark wood edged with a gold line runs across the top. Two faint line sketches from botanical plates,
+   a Redouté rose and Thomé lavender (khuzama), close every page in a band of their own after the footer, so nothing is
+   ever drawn over them (tools/botanicals.py). Surfaces are cream glass with a gold rim and a white gleam along the top
+   edge. Gold is never a metallic gradient: the primary buttons carry a soft shade from a lighter gold at the top to a
+   deeper one at the bottom, the brand mark and the marks of a choice are one flat gold, and elsewhere gold is a thin
+   line; as text it is a deep old gold that reads on cream. The wear ribbon follows the board: calendula
    for the opening, rose petal for the heart, amber oil for the drydown; sage carries good, petal rose carries bad.
    Every colour was set in OKLCH and checked for WCAG AA against the surface it sits on. One theme: there is no dark mode.
-   Type: Fraunces for Latin headings, Noto Naskh Arabic for Arabic headings, IBM Plex Sans Arabic for text in both scripts. */
+   Type: Fraunces for Latin headings, Noto Naskh Arabic for Arabic headings; text is IBM Plex Sans in Latin and Noto Sans
+   Arabic in Arabic, whose letters draw larger and more open than IBM Plex Sans Arabic's at the same size. */
 
 :root {
   color-scheme: light;
   --ground: #F6E8D0; --ground-2: #EFDBBD;
   --paper: #FCF8F0; --paper-2: #F0DFC4; --line: #DCCBB1; --line-2: #C1AA8B;
   --glass: rgba(252, 248, 240, .68); --glass-2: rgba(252, 248, 240, .5);
-  --ink: #2A1B11; --ink-2: #614E3F; --ink-3: #816D5D; --on-strong: #FCF8F0;
+  --ink: #2A1B11; --ink-2: #4B3B2F; --ink-3: #665344; --on-strong: #FCF8F0;
   --gold: #8C5F00; --gold-2: #734900; --gold-soft: #F9E6BB;
   --rim: rgba(140, 95, 0, .38); --rim-2: rgba(140, 95, 0, .5); --gleam: rgba(255, 255, 255, .75);
   --accent: #8C5F00; --accent-2: #734900; --accent-ink: #2A1B11; --accent-soft: #F9E6BB;
@@ -26,15 +28,15 @@
   --good: #446630; --good-2: #365526; --good-soft: #D8ECCE; --good-tint: #EBF6E5;
   --open: #ECAA0B; --heart: #D1528B; --dry: #CC6600;
   --font-display: "Fraunces", "Young Serif", Georgia, "Times New Roman", serif;
-  --font-body: "IBM Plex Sans Arabic", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-body: "IBM Plex Sans", "Noto Sans Arabic", "Segoe UI", system-ui, -apple-system, sans-serif;
   --radius: 10px;
   --radius-lg: 16px;
   --ease: 160ms cubic-bezier(.2,.7,.3,1);
   --shadow: 0 1px 0 rgba(42,27,17,.04), 0 14px 34px -22px rgba(42,27,17,.45);
   --shadow-lift: 0 2px 0 rgba(42,27,17,.04), 0 22px 44px -24px rgba(42,27,17,.55);
-  --gold-line: linear-gradient(90deg, transparent 0%, #B8862A 12%, #F2D68A 38%, #D4A94A 50%, #FBECB8 62%, #B8862A 88%, transparent 100%);
-  --metal: linear-gradient(115deg, #B8862A 0%, #F2D68A 26%, #D4A94A 44%, #FBECB8 58%, #D9AE4F 74%, #A8781F 100%);
-  --metal-text: linear-gradient(115deg, #6E4A0C 0%, #C4922C 30%, #8C5F00 48%, #D6A93F 64%, #7A5210 100%);
+  --gold-fill: #D4A94A; --gold-fill-2: #C4973A;
+  --gold-button: linear-gradient(180deg, #E3C170 0%, #CC9E47 100%); --gold-button-2: linear-gradient(180deg, #DAB563 0%, #C1923D 100%);
+  --gold-line: linear-gradient(90deg, transparent 0%, var(--gold-fill) 12%, var(--gold-fill) 88%, transparent 100%);
 }
 [dir="rtl"] { --font-display: "Noto Naskh Arabic", "Amiri", "Times New Roman", serif; }
 
@@ -388,41 +390,24 @@ footer.foot p { margin: 4px 0; max-width: 70ch; }
 .pcard-opts button[data-pv="-1"][aria-pressed="true"] { background: var(--bad); border-color: transparent; color: var(--on-strong); }
 @media (min-width: 481px) { .nrow, .pcard { padding: 12px 14px; } }
 
-/* the scene: pale wood, an amber glow from the oil, a rose glow from the petals, jars out of focus behind */
-/* the botanical sketches sit in the corners away from the heading: rose top right and lavender bottom left in
-   English; mirrored (and flipped) in Arabic, where the heading is right-aligned */
-:root {
-  --bot-rose: url("img/botanical/rose.webp"); --bot-lav: url("img/botanical/lavender.webp");
-  --bot-rose-at: right -46px top 132px; --bot-lav-at: left -6px bottom 84px;
-}
-[dir="rtl"] {
-  --bot-rose: url("img/botanical/rose-rtl.webp"); --bot-lav: url("img/botanical/lavender-rtl.webp");
-  --bot-rose-at: left -46px top 132px; --bot-lav-at: right -6px bottom 84px;
-}
-@media (min-width: 901px) {
-  :root { --bot-rose-at: right -18px top 96px; --bot-lav-at: left calc(50vw - 770px) bottom 116px; }
-  [dir="rtl"] { --bot-rose-at: left -18px top 96px; --bot-lav-at: right calc(50vw - 770px) bottom 116px; }
-}
+/* the scene: pale wood, an amber glow from the oil, a rose glow from the petals */
 body::before {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background-repeat: no-repeat;
-  background-position: bottom center, var(--bot-rose-at), var(--bot-lav-at), 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
-  background-size: 100% 150px, auto 130px, auto 150px, auto, auto, auto, auto, auto, auto, auto, auto;
   background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1440' height='240' viewBox='0 0 1440 240' preserveAspectRatio='none'><path d='M0,150 C220,90 420,205 720,150 C1020,95 1220,200 1440,130 L1440,240 L0,240 Z' fill='%23301F13' opacity='.55'/><path d='M0,185 C260,135 520,225 820,180 C1100,138 1260,215 1440,175 L1440,240 L0,240 Z' fill='%232A1B11' opacity='.9'/><path d='M0,150 C220,90 420,205 720,150 C1020,95 1220,200 1440,130' fill='none' stroke='%23D9AE4F' stroke-width='2.5' opacity='.7'/><path d='M0,185 C260,135 520,225 820,180 C1100,138 1260,215 1440,175' fill='none' stroke='%23F2D68A' stroke-width='1.5' opacity='.5'/></svg>"),
-    var(--bot-rose),
-    var(--bot-lav),
-    radial-gradient(circle at 12% 18%, color-mix(in oklab, var(--oil) 14%, transparent) 0 9vmax, transparent 9.6vmax),
-    radial-gradient(circle at 78% 12%, color-mix(in oklab, var(--resin) 18%, transparent) 0 7vmax, transparent 7.6vmax),
-    radial-gradient(circle at 92% 46%, color-mix(in oklab, var(--rose) 9%, transparent) 0 6vmax, transparent 6.6vmax),
-    radial-gradient(circle at 30% 70%, color-mix(in oklab, var(--amber) 8%, transparent) 0 8vmax, transparent 8.6vmax),
     radial-gradient(70% 45% at 18% 0%, color-mix(in oklab, var(--oil) 22%, transparent), transparent 70%),
     radial-gradient(55% 40% at 100% 30%, color-mix(in oklab, var(--rose) 14%, transparent), transparent 70%),
     radial-gradient(60% 40% at 50% 110%, color-mix(in oklab, var(--amber) 16%, transparent), transparent 70%),
     linear-gradient(180deg, var(--ground) 0%, var(--ground) 55%, var(--ground-2) 100%);
 }
-@media (min-width: 901px) { body::before {
-  background-size: 100% 210px, auto 240px, auto 270px, auto, auto, auto, auto, auto, auto, auto, auto; } }
+/* the botanical sketches close the page in a band of their own after the footer, lavender at the start of the line and
+   the rose at its end (mirrored in Arabic), so no text or control is ever drawn over them */
+:root { --bot-rose: url("img/botanical/rose.webp"); --bot-lav: url("img/botanical/lavender.webp"); }
+[dir="rtl"] { --bot-rose: url("img/botanical/rose-rtl.webp"); --bot-lav: url("img/botanical/lavender-rtl.webp"); }
+main.wrap { padding-bottom: 0; }
+main.wrap::after { content: ""; display: block; height: 150px; margin-top: 24px; pointer-events: none;
+  background: var(--bot-lav) left bottom / auto 100% no-repeat, var(--bot-rose) right bottom / auto 88% no-repeat; }
+[dir="rtl"] main.wrap::after { background-position: right bottom, left bottom; }
+@media (min-width: 901px) { main.wrap::after { height: 210px; margin-top: 32px; } }
 body::after {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .12; mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
@@ -437,8 +422,8 @@ body::after {
 .search input:focus { border-color: var(--gold); box-shadow: inset 0 1px 0 var(--gleam), 0 0 0 4px var(--gold-soft); }
 .qtile:hover { border-color: var(--rim-2); box-shadow: inset 0 1px 0 var(--gleam), var(--shadow-lift); }
 .qtile[aria-pressed="true"], .qopt[aria-pressed="true"] { background: color-mix(in oklab, var(--gold-soft) 85%, transparent); border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold), inset 0 1px 0 var(--gleam), 0 0 24px -8px color-mix(in oklab, var(--oil) 60%, transparent); }
-.qtile[aria-pressed="true"]::after { background-color: transparent; background-image: var(--metal); box-shadow: inset 0 1px 0 var(--gleam); }
-.qtile[aria-pressed="true"]::after { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A1B11' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='m5 12.5 4.5 4.5L19 7.5'/></svg>"), var(--metal); background-size: 14px, auto; background-position: center, 0 0; background-repeat: no-repeat; }
+.qtile[aria-pressed="true"]::after { background-color: var(--gold-fill); box-shadow: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A1B11' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='m5 12.5 4.5 4.5L19 7.5'/></svg>"); background-size: 14px; background-position: center; background-repeat: no-repeat; }
 .qopt::before { background: var(--paper); border-color: var(--line-2); }
 .qopt[aria-pressed="true"]::before { background: var(--gold); border-color: var(--gold); box-shadow: inset 0 0 0 3.5px var(--paper); }
 .qtile[disabled] { opacity: .55; }
@@ -466,16 +451,16 @@ header.top .wrap { border-bottom: 0; }
 .topnav a:hover { color: #FBECB8; border-bottom-color: #D9AE4F; }
 header.top .lang { background: rgba(252,248,240,.1); border-color: rgba(242,214,138,.4); }
 header.top .lang button { color: #E9DCC6; }
-header.top .lang button[aria-pressed="true"] { background: var(--metal); color: var(--ink); }
+header.top .lang button[aria-pressed="true"] { background: var(--gold-fill); color: var(--ink); }
 .brand small { -webkit-text-fill-color: #C9B79A; color: #C9B79A; }
 
-/* metal: the brand name, the primary buttons, the selected tile's check, the profile counts */
-.brand { background: var(--metal); -webkit-background-clip: text; background-clip: text; color: transparent; filter: none; }
-.brand small { background: none; }
-.brand::before { background: var(--metal); box-shadow: inset 0 1px 0 var(--gleam), 0 2px 8px -2px rgba(140,95,0,.5); }
-.btn.primary, .rec .links a.primary, .hero-link:hover { background: var(--metal); color: var(--ink); border: 0; box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 10px 22px -10px rgba(140,95,0,.7); text-shadow: 0 1px 0 rgba(255,255,255,.35); }
-.btn.primary:hover, .rec .links a.primary:hover { background: var(--metal); color: var(--ink); filter: brightness(1.05); }
-.panel .counts b { background: var(--metal-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* gold: the brand name and mark and the selected tile's check in flat gold, the primary buttons in a soft shade of it
+   with a fine edge, the profile counts in old gold */
+.brand, .brand:hover { color: var(--gold-fill); }
+.brand::before { background: var(--gold-fill); box-shadow: none; }
+.btn.primary, .rec .links a.primary, .hero-link:hover { background: var(--gold-button); color: var(--ink); border: 1px solid #B58A36; box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 6px 14px -8px rgba(90,60,10,.5); }
+.btn.primary:hover, .rec .links a.primary:hover { background: var(--gold-button-2); color: var(--ink); border-color: #B58A36; }
+.panel .counts b { color: var(--gold); }
 .panel::before { height: 3px; }
 .hero-link { border-color: var(--rim-2); background: var(--glass-2); color: var(--gold); }
 .hero h1::after { height: 4px; box-shadow: 0 0 14px -2px color-mix(in oklab, var(--heart) 45%, transparent); }
@@ -489,21 +474,21 @@ a:hover, .qlink:hover, .labelbox summary:hover, .nbox summary:hover { color: var
 .timeline::before { box-shadow: 0 0 10px -1px color-mix(in oklab, var(--heart) 35%, transparent); }
 .stage::before { background: var(--paper); border-color: var(--line-2); }
 
-/* more gold: a metal line under the header, a rule under the hero, short rules under section titles,
-   gold edges on the panel, the footer, the method fold and the phone's summary bar */
+/* more gold, as lines: under the header, under the hero, short rules under section titles,
+   edges on the panel, the footer, the method fold and the phone's summary bar */
 header.top { position: relative; }
-header.top::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--metal); box-shadow: 0 1px 0 rgba(255,255,255,.35); }
+header.top::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--gold-fill); }
 .hero { position: relative; padding-bottom: 26px; }
-.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--gold-line); box-shadow: 0 5px 0 -1px rgba(140,95,0,.28); }
-.block > h2::after, .qh2::after { content: ""; display: block; width: 56px; height: 3px; margin-top: 10px; border-radius: 999px; background: var(--metal); box-shadow: 0 1px 0 rgba(255,255,255,.5); }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--gold-line); }
+.block > h2::after, .qh2::after { content: ""; display: block; width: 56px; height: 2px; margin-top: 10px; border-radius: 999px; background: var(--gold-fill); }
 [dir="rtl"] .block > h2::after, [dir="rtl"] .qh2::after { margin-inline-start: 0; }
-.panel::before { background: var(--metal); height: 4px; }
+.panel::before { background: var(--gold-fill); height: 3px; }
 .panel .counts { border-bottom: 1px solid var(--rim-2); }
 .panel h3 { padding-bottom: 8px; }
 details.method { border-top: 2px solid transparent; border-image: var(--gold-line) 1; }
 footer.foot { border-top: 2px solid transparent; border-image: var(--gold-line) 1; }
 .qfollow, .qopts-apart { border-top-color: var(--rim-2); }
-.bottombar::before { background: var(--metal); height: 3px; }
+.bottombar::before { background: var(--gold-fill); height: 2px; }
 .qtop { border-bottom: 1px solid var(--rim); padding-bottom: 12px; }
 .strip .timeline::before, .timeline::before { box-shadow: 0 0 10px -1px color-mix(in oklab, var(--heart) 35%, transparent), 0 2px 0 -1px rgba(140,95,0,.25); }
 .qtile .thumb, .thumb { border-color: var(--rim); box-shadow: inset 0 1px 0 rgba(255,255,255,.7); }
@@ -523,7 +508,7 @@ footer.foot { border-top: 2px solid transparent; border-image: var(--gold-line) 
 .qreveal { margin-top: 14px; padding: 18px 18px 14px; border: 1px solid var(--rim); border-radius: var(--radius-lg);
   background: var(--glass); -webkit-backdrop-filter: blur(16px) saturate(1.15); backdrop-filter: blur(16px) saturate(1.15);
   box-shadow: inset 0 1px 0 var(--gleam), var(--shadow); position: relative; overflow: hidden; }
-.qreveal::before { content: ""; position: absolute; top: 0; inset-inline: 0; height: 3px; background: var(--metal); }
+.qreveal::before { content: ""; position: absolute; top: 0; inset-inline: 0; height: 3px; background: var(--gold-fill); }
 .qtaste { display: grid; gap: 14px; }
 .qtaste-row + .qtaste-row { padding-top: 14px; border-top: 1px solid var(--rim); }
 .qtaste-k { font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
@@ -587,7 +572,7 @@ details.qhow > summary { cursor: pointer; font-weight: 600; color: var(--gold); 
 .qfun { text-align: center; padding: 12px 6px 10px; border-radius: var(--radius); border: 1px solid var(--rim); background: var(--glass-2); }
 .qfun b { display: block; font-family: var(--font-display); font-weight: 600; font-size: 34px; line-height: 1.05; color: var(--ink); font-variant-numeric: tabular-nums; }
 .qfun.out b { color: var(--bad); }
-.qfun.pick b { background: var(--metal-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.qfun.pick b { color: var(--gold); }
 .qfun span { display: block; margin-top: 4px; font-size: 12.5px; line-height: 1.3; color: var(--ink-3); }
 @media (min-width: 641px) { .qfunnel { gap: 12px; } .qfun b { font-size: 44px; } .qfun span { font-size: 13.5px; } }
 /* the palate text under the name, and the comparison with other visitors (empty until the backend has enough) */
@@ -597,8 +582,8 @@ details.qhow > summary { cursor: pointer; font-weight: 600; color: var(--gold); 
 /* the start screen's link for a returning visitor */
 .qreturn { margin: 18px 2px 0; font-size: 15px; }
 /* Start: the one thing to do on the start screen, so it comes straight after the promise and fills the width on a phone */
-.qstart-go.btn.primary { display: flex; width: 100%; min-height: 60px; margin-top: 22px; padding: 14px 28px; font-size: 21px; font-weight: 700; letter-spacing: .01em;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 14px 28px -12px rgba(140,95,0,.85), 0 0 0 4px rgba(242,214,138,.35); }
+.qstart-go.btn.primary { display: flex; width: 100%; min-height: 56px; margin-top: 22px; padding: 12px 28px; border-radius: 16px; font-size: 19px; font-weight: 600; letter-spacing: .01em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 8px 18px -10px rgba(90,60,10,.55); }
 .qstart-go::after { content: "\2192"; margin-inline-start: 12px; font-weight: 400; }
 [dir="rtl"] .qstart-go::after { content: "\2190"; }
 @media (min-width: 641px) { .qstart-go.btn.primary { width: auto; min-width: 320px; } }
@@ -644,27 +629,21 @@ details.qhow > summary { cursor: pointer; font-weight: 600; color: var(--gold); 
 [dir="rtl"] .qsteps-h { letter-spacing: 0; text-transform: none; font-size: 14px; }
 .qsteps { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .qsteps li { display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: var(--radius); border: 1px solid var(--rim); background: var(--glass); box-shadow: var(--shadow); font-weight: 600; font-size: 15px; line-height: 1.25; }
-.qsteps b { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--metal); color: var(--ink); font-family: var(--font-display); font-size: 16px; box-shadow: inset 0 1px 0 var(--gleam); }
+.qsteps b { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; color: var(--gold); font-family: var(--font-display); font-size: 16px; box-shadow: inset 0 0 0 1.5px var(--gold-fill); }
 @media (min-width: 641px) { .qsteps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (prefers-reduced-motion: no-preference) {
   .qresult .qname-hero { animation: qrise .55s cubic-bezier(.2,.7,.3,1) both; }
   .qresult .qname-hero .qemblem { animation: qpop .7s .15s cubic-bezier(.2,1.4,.4,1) both; }
-  .qname-hero::after { content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(105deg, transparent 30%, rgba(255,246,225,.75) 46%, rgba(242,214,138,.55) 50%, transparent 64%);
-    transform: translateX(-120%); animation: qsweep 1.3s .45s ease-out both; }
-  [dir="rtl"] .qname-hero::after { animation-name: qsweep-rtl; }
   .qresult .qfunnel .qfun { animation: qrise .5s cubic-bezier(.2,.7,.3,1) both; }
   .qresult .qfunnel .qfun:nth-child(2) { animation-delay: .1s; }
   .qresult .qfunnel .qfun:nth-child(3) { animation-delay: .2s; }
 }
 @keyframes qpop { from { opacity: 0; transform: scale(.6) rotate(-12deg); } to { opacity: 1; transform: none; } }
-@keyframes qsweep { from { transform: translateX(-120%); } to { transform: translateX(120%); } }
-@keyframes qsweep-rtl { from { transform: translateX(120%); } to { transform: translateX(-120%); } }
 
 /* the reveal before the result: the visitor's own bottles sort into kept and turned */
 .qreveal-intro { min-height: 62vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; padding: 24px 0; text-align: center; cursor: pointer; }
 .qreveal-read { margin: 0; font-family: var(--font-display); font-size: clamp(24px, 6vw, 34px); color: var(--ink); }
-.qreveal-read::after { content: ""; display: block; width: 72px; height: 3px; margin: 12px auto 0; border-radius: 999px; background: var(--metal);
+.qreveal-read::after { content: ""; display: block; width: 72px; height: 3px; margin: 12px auto 0; border-radius: 999px; background: var(--gold-fill);
   transform-origin: left; animation: qbar 1.6s ease-in-out infinite alternate; }
 [dir="rtl"] .qreveal-read::after { transform-origin: right; }
 .qsorts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 560px; }
@@ -719,8 +698,6 @@ details.qhow > summary { cursor: pointer; font-weight: 600; color: var(--gold); 
 @keyframes q-draw { to { stroke-dashoffset: 0; } }
 @keyframes q-bloom { from { opacity: 0; transform: scale(.3); } }
 @keyframes q-breathe { from { opacity: .75; transform: scale(.96); } to { opacity: 1; transform: scale(1.04); } }
-@keyframes q-sheen { 0% { transform: translateX(-130%); } 34%, 100% { transform: translateX(130%); } }
-@keyframes q-sheen-rtl { 0% { transform: translateX(130%); } 34%, 100% { transform: translateX(-130%); } }
 
 /* ---------- a new screen: the quiz column slides by direction; a shared bottle flies (motion.js names them) ---------- */
 html.vt #quiz { view-transition-name: qstage; }
@@ -751,25 +728,30 @@ html[data-motion="up"] { --vt-rise: 28px; }
 .fxfly img { display: block; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 10px 10px rgba(42,27,17,.3)); }
 
 /* ---------- the header on every screen after the start: compact, the progress along its gold edge ---------- */
-body:has(#quiz[data-step]:not([data-step="start"])) header.top .wrap { padding-block: 10px 12px; gap: 4px 16px; }
-body:has(#quiz[data-step]:not([data-step="start"])) .brand { font-size: 19px; }
-body:has(#quiz[data-step]:not([data-step="start"])) .brand small { display: none; }
-body:has(#quiz[data-step]:not([data-step="start"])) .brand::before { width: 9px; height: 24px; grid-row: 1; }
-body:has(#quiz[data-step]:not([data-step="start"])) header.top .lang { padding: 2px; }
-body:has(#quiz[data-step]:not([data-step="start"])) header.top .lang button { min-height: 30px; padding: 3px 12px; font-size: 13px; }
+@media (min-width: 641px) {
+  body:has(#quiz[data-step]:not([data-step="start"])) header.top .wrap { padding-block: 10px 12px; gap: 4px 16px; }
+  body:has(#quiz[data-step]:not([data-step="start"])) .brand { font-size: 19px; }
+  body:has(#quiz[data-step]:not([data-step="start"])) .brand small { display: none; }
+  body:has(#quiz[data-step]:not([data-step="start"])) .brand::before { width: 9px; height: 24px; grid-row: 1; }
+  body:has(#quiz[data-step]:not([data-step="start"])) header.top .lang { padding: 2px; }
+  body:has(#quiz[data-step]:not([data-step="start"])) header.top .lang button { min-height: 30px; padding: 3px 12px; font-size: 13px; }
+}
+/* on a phone the header is one row on every page and screen: the name, and a single button for the other language;
+   the two links move to the footer (.footnav) */
+.footnav { display: none; }
 @media (max-width: 640px) {
-  body:has(#quiz[data-step]:not([data-step="start"])) header.top .wrap { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 18px; }
-  body:has(#quiz[data-step]:not([data-step="start"])) .brand { grid-row: 1; grid-column: 1 / 3; }
-  body:has(#quiz[data-step]:not([data-step="start"])) .topnav { display: contents; }
-  body:has(#quiz[data-step]:not([data-step="start"])) .topnav a { grid-row: 2; grid-column: 1; font-size: 13.5px; padding: 2px 0; white-space: nowrap; }
-  body:has(#quiz[data-step]:not([data-step="start"])) .topnav a + a { grid-column: 2 / 4; justify-self: start; }
-  body:has(#quiz[data-step]:not([data-step="start"])) header.top .lang { grid-row: 1; grid-column: 3; }
-  /* inside the quiz the links rest; they come back on the result */
-  body:has(#quiz[data-step]:not([data-step="start"]):not([data-step="result"])) .topnav a { display: none; }
+  header.top .wrap { flex-wrap: nowrap; padding-block: 10px 12px; gap: 12px; }
+  .brand { font-size: 19px; }
+  .brand small, .topnav > a, header.top .lang button[aria-pressed="true"] { display: none; }
+  .brand::before { width: 9px; height: 24px; grid-row: 1; }
+  header.top .lang { padding: 2px; }
+  header.top .lang button { min-height: 36px; padding: 4px 14px; font-size: 14px; }
+  .footnav { display: flex; flex-wrap: wrap; gap: 0 22px; margin: 0 0 8px; }
+  .footnav a { display: inline-flex; align-items: center; min-height: 40px; font-size: 14.5px; color: var(--ink-2); text-decoration-color: var(--line-2); }
 }
 .qprogress { position: absolute; inset-inline: 0; bottom: 0; height: 3px; z-index: 1; background: rgba(242,214,138,.2); }
 .qprogress[hidden] { display: none; }
-.qprogress::before { content: ""; position: absolute; inset: 0; background: var(--metal); box-shadow: 0 0 12px rgba(242,214,138,.75); transform-origin: left center; transform: scaleX(var(--p, 0)); transition: transform .8s var(--glide); }
+.qprogress::before { content: ""; position: absolute; inset: 0; background: var(--gold-fill); transform-origin: left center; transform: scaleX(var(--p, 0)); transition: transform .8s var(--glide); }
 [dir="rtl"] .qprogress::before { transform-origin: right center; }
 /* four quarters, one per part */
 .qprogress::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent calc(25% - 1px), #1E130C calc(25% - 1px) calc(25% + 1px), transparent calc(25% + 1px) calc(50% - 1px), #1E130C calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px) calc(75% - 1px), #1E130C calc(75% - 1px) calc(75% + 1px), transparent calc(75% + 1px)); }
@@ -790,13 +772,7 @@ header.top:has(.qprogress:not([hidden]))::after { opacity: 0; }
 #quiz .qtray img { width: 30px; height: 30px; object-fit: contain; margin-inline-end: -11px; filter: drop-shadow(0 2px 2px rgba(42,27,17,.35)); }
 #quiz .qtray img:last-of-type { margin-inline-end: 0; }
 #quiz .qtray b { margin-inline-start: 5px; padding: 1px 7px; border-radius: 999px; background: rgba(42,27,17,.14); font-size: 12px; font-weight: 700; }
-/* a light sweeps across the gold buttons that move the visitor on */
-#quiz .qstart-go, #quiz .qgo.primary { position: relative; overflow: hidden; isolation: isolate; }
 @media (prefers-reduced-motion: no-preference) {
-  #quiz .qstart-go::before, #quiz .qgo.primary::before { content: ""; position: absolute; inset: -2px; z-index: -1; pointer-events: none;
-    background: linear-gradient(105deg, transparent 32%, rgba(255,255,255,.62) 47%, rgba(255,246,214,.25) 55%, transparent 66%);
-    transform: translateX(-130%); animation: q-sheen 4.6s 1.4s ease-in-out infinite; }
-  [dir="rtl"] #quiz .qstart-go::before, [dir="rtl"] #quiz .qgo.primary::before { animation-name: q-sheen-rtl; }
   #quiz .qtray img { animation: q-check .45s var(--spring) backwards; }
 }
 #quiz .qalt { margin-top: 16px; }
@@ -871,7 +847,7 @@ header.top:has(.qprogress:not([hidden]))::after { opacity: 0; }
 #quiz .qstage-t .eyebrow { display: block; margin: 0 0 4px; }
 #quiz .qdots { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 #quiz .qdots i { width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--line-2); transition: background-color .3s, box-shadow .3s; }
-#quiz .qdots i.on { background: var(--metal); box-shadow: 0 0 0 3px rgba(242,214,138,.5); }
+#quiz .qdots i.on { background: var(--gold-fill); box-shadow: 0 0 0 3px rgba(242,214,138,.5); }
 #quiz .qdots i.v-still { background: var(--good); box-shadow: none; }
 #quiz .qdots i.v-turned { background: var(--bad); box-shadow: none; }
 #quiz .qdots i.v-shop { background: var(--warn); box-shadow: none; }
@@ -1066,7 +1042,7 @@ header.top:has(.qprogress:not([hidden]))::after { opacity: 0; }
 .qrose-k.bad { color: var(--bad); }
 .qrose-k.bad::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-inline-end: 4px; vertical-align: -1px; background: currentColor; -webkit-mask: var(--i-avoid) center / contain no-repeat; mask: var(--i-avoid) center / contain no-repeat; }
 .qrose-k:hover { color: var(--ink); background: rgba(252,248,240,.75); }
-.qrose-k[aria-pressed="true"] { background: var(--metal); color: var(--ink); box-shadow: inset 0 1px 0 var(--gleam), 0 6px 12px -6px rgba(140,95,0,.7); }
+.qrose-k[aria-pressed="true"] { background: var(--gold-fill); color: var(--ink); box-shadow: 0 6px 12px -6px rgba(140,95,0,.6); }
 [dir="rtl"] .qrose-k { font-size: 13.5px; }
 @media (prefers-reduced-motion: no-preference) {
   .qpet { transform-box: view-box; transform-origin: 50% 50%; animation: q-bloom 1s var(--spring) backwards; animation-delay: calc(var(--k) * 110ms + .45s); }
@@ -1087,7 +1063,7 @@ header.top:has(.qprogress:not([hidden]))::after { opacity: 0; }
 @media (min-width: 720px) { .qrose-cap, .qrose-keys { justify-content: flex-start; text-align: start; } }
 /* the counts: a bar under each for its share of the catalogue */
 #quiz .qfun { position: relative; overflow: hidden; }
-#quiz .qfun-bar { position: absolute; inset-inline-start: 0; bottom: 0; height: 3px; width: max(var(--w), 4px); border-start-end-radius: 3px; border-end-end-radius: 3px; background: var(--metal); }
+#quiz .qfun-bar { position: absolute; inset-inline-start: 0; bottom: 0; height: 3px; width: max(var(--w), 4px); border-start-end-radius: 3px; border-end-end-radius: 3px; background: var(--gold-fill); }
 #quiz .qfun.out .qfun-bar { background: linear-gradient(90deg, var(--bad), var(--rose)); }
 @media (prefers-reduced-motion: no-preference) {
   #quiz .qfun-bar { transform-origin: left center; animation: q-grow 1.4s var(--glide) backwards .6s; }
@@ -1097,7 +1073,7 @@ header.top:has(.qprogress:not([hidden]))::after { opacity: 0; }
 #quiz .recs-list { counter-reset: pick; gap: 18px; margin-top: 16px; }
 #quiz .qpick { position: relative; counter-increment: pick; transition: transform .35s var(--glide), box-shadow .35s var(--glide); }
 #quiz .qpick::before { content: counter(pick); position: absolute; top: -11px; inset-inline-start: 14px; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
-  background: var(--metal); color: var(--ink); font-family: var(--font-display); font-size: 14px; font-weight: 600; box-shadow: inset 0 1px 0 var(--gleam), 0 4px 10px -4px rgba(140,95,0,.7); }
+  background: var(--paper); color: var(--gold); font-family: var(--font-display); font-size: 14px; font-weight: 600; box-shadow: inset 0 0 0 1.5px var(--gold-fill); }
 #quiz .qpick-head .thumb { width: 84px; height: 84px; background: radial-gradient(ellipse 46% 10% at 50% 95%, rgba(42,27,17,.2), transparent 72%), radial-gradient(50% 50% at 50% 45%, rgba(255,236,186,.8), transparent 70%); }
 @media (hover: hover) { #quiz .qpick:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 var(--gleam), var(--shadow-lift); } }
 @media (prefers-reduced-motion: no-preference) {
@@ -1110,9 +1086,6 @@ header.top:has(.qprogress:not([hidden]))::after { opacity: 0; }
 #quiz .qopts-apart .qopt { min-height: 52px; padding: 10px 12px; text-align: center; border-radius: 999px; font-size: 14.5px; line-height: 1.3; }
 #quiz .qopts-apart .qopt::before { display: none; }
 
-/* On a phone or tablet the rose sketch sits where the compact header now puts the headings: it stays on the start
-   screen only, so decoration never lies behind a heading */
-@media (max-width: 900px) { body:has(#quiz[data-step]:not([data-step="start"])) { --bot-rose: none; } }
 /* a visitor who asked for less motion gets every state at once: no transition, no pop, no wipe */
 @media (prefers-reduced-motion: reduce) {
   #quiz *, #quiz *::before, #quiz *::after, .qprogress::before { animation: none !important; transition: none !important; }

@@ -572,8 +572,8 @@
   "source": "https://cdn.fragella.com/images/boss-bottled.webp"
  },
  "bossbottlednight": {
-  "kind": "exact",
-  "source": "https://cdn.fragella.com/images/boss-bottled-night.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.8825.jpg"
  },
  "bossbottledparfum": {
   "kind": "fragrantica",
@@ -712,8 +712,8 @@
   "source": "https://fimgs.net/mdimg/perfume/375x500.13675.jpg"
  },
  "cdnim": {
-  "kind": "no-gender-word",
-  "source": "https://cdn.fragella.com/images/armaf-club-de-nuit-intense.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.34696.jpg"
  },
  "cdnimwoman": {
   "kind": "fragrantica",
@@ -840,8 +840,8 @@
   "source": "https://fimgs.net/mdimg/perfume/375x500.113163.jpg"
  },
  "ckbeauty": {
-  "kind": "exact",
-  "source": "https://cdn.fragella.com/images/calvin-klein-beauty.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.8840.jpg"
  },
  "ckeveryoneedt": {
   "kind": "no-concentration",
@@ -1164,8 +1164,8 @@
   "source": "https://cdn.fragella.com/images/tom-ford-eau-dombre-leather.webp"
  },
  "eclaire": {
-  "kind": "exact",
-  "source": "https://cdn.fragella.com/images/lattafa-eclaire.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.93628.jpg"
  },
  "egoisteplatinum": {
   "kind": "exact",
@@ -1212,8 +1212,8 @@
   "source": "https://cdn.fragella.com/images/mont-blanc-emblem.webp"
  },
  "emotion": {
-  "kind": "exact",
-  "source": "https://cdn.fragella.com/images/rasasi-emotion.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.8681.jpg"
  },
  "emporioarmanibecauseitsyou": {
   "kind": "exact",
@@ -3288,8 +3288,8 @@
   "source": "https://cdn.fragella.com/images/dior-sauvage-eau-forte.webp"
  },
  "sauvageedp": {
-  "kind": "no-concentration",
-  "source": "https://cdn.fragella.com/images/dior-sauvage.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.48100.jpg"
  },
  "sauvageedt": {
   "kind": "exact",
@@ -3620,8 +3620,8 @@
   "source": "https://fimgs.net/mdimg/perfume/375x500.38998.jpg"
  },
  "thescentmen": {
-  "kind": "exact",
-  "source": "https://cdn.fragella.com/images/boss-the-scent.webp"
+  "kind": "fragrantica",
+  "source": "https://fimgs.net/mdimg/perfume/375x500.31445.jpg"
  },
  "tiffanyandloveforher": {
   "kind": "fragrantica",

@@ -211,7 +211,9 @@
     $("profile-h").textContent = t().profileH; $("profile-lede").textContent = t().profileLede;
     $("recs-h").textContent = t().recsH; $("recs-lede").textContent = t().recsLede;
     $("share").textContent = t().share; $("reset").textContent = pendingReset ? t().resetYes : t().reset;
-    $("method-s").textContent = t().methodS; $("method").innerHTML = t().method; $("foot").innerHTML = t().foot + partnerLine();
+    $("method-s").textContent = t().methodS; $("method").innerHTML = t().method;
+    /* the footer opens with the header's two links, which a phone shows here instead of in its one-row header */
+    $("foot").innerHTML = `<nav class="footnav"><a href="index.html">${esc(t().navQuiz)}</a><a href="articles.html">${esc(t().navArticles)}</a></nav>` + t().foot + partnerLine();
     const quickIds = ["sauvageedp", "bleuedp", "aventus", "hacivat", "br540", "khamrah", "yara", "erbapura", "libre", "cdnim"];
     $("quick").innerHTML = "<span class='eyebrow'>" + esc(t().quick) + "</span>" + quickIds.filter(id => !ratings[id]).map(id => `<button type="button" data-add="${id}">${esc(pname(byId[id]))}</button>`).join("");
   }

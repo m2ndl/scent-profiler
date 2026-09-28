@@ -471,7 +471,8 @@
   }
 
   /* ---------- rendering ---------- */
-  const foot = () => `<footer class="foot">${t().foot}${partnerLine()}</footer>`;
+  /* the footer opens with the header's two links, which a phone shows here instead of in its one-row header */
+  const foot = () => `<footer class="foot"><nav class="footnav"><a href="${esc(profilerHref())}">${esc(t().navProfiler)}</a><a href="articles.html">${esc(t().navArticles)}</a></nav>${t().foot}${partnerLine()}</footer>`;
   const opt = (attr, v, label, on) => `<button type="button" class="qopt" data-${attr}="${v}" aria-pressed="${!!on}">${esc(label)}</button>`;
   const PART = { grid: 1, verdicts: 1, notes: 1, narrow: 1, picker: 2, taste: 3, told: 4, anosmia: 4 };
   /* Back (on every screen but the first) and "Part i of 4" with the part's name; the picker also counts its screens */
@@ -874,8 +875,9 @@
     const [a, b] = arch.id.split("-"), c = (q.palates[arch.id] || 0) + (b ? q.palates[b + "-" + a] || 0 : 0);
     return c ? esc(t().compare.palate(pct(c), q.n)) : "";
   }
-  /* a two-group palate shades from the first group's colour into the second's and carries the first group's mark */
-  const emblemSvg = (a, size) => `<svg class="qemblem" width="${size}" height="${size}" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="qe-${a.id}" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".55" stop-color="${a.color}" stop-opacity="1"/><stop offset="1" stop-color="${a.color2 || a.color}"/></radialGradient><linearGradient id="qr-${a.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B8862A"/><stop offset=".35" stop-color="#F2D68A"/><stop offset=".55" stop-color="#C99C43"/><stop offset=".75" stop-color="#FBECB8"/><stop offset="1" stop-color="#A8781F"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="url(#qr-${a.id})"/><circle cx="32" cy="32" r="26.5" fill="url(#qe-${a.id})"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#FCF8F0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">${ICON[a.icon || a.id]}</g></svg>`;
+  /* a flat gold ring round the palate's colour; a two-group palate shades from the first group's colour into the
+     second's and carries the first group's mark */
+  const emblemSvg = (a, size) => `<svg class="qemblem" width="${size}" height="${size}" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="qe-${a.id}" cx="38%" cy="32%" r="75%"><stop offset=".55" stop-color="${a.color}" stop-opacity="1"/><stop offset="1" stop-color="${a.color2 || a.color}"/></radialGradient></defs><circle cx="32" cy="32" r="30" fill="#D4A94A"/><circle cx="32" cy="32" r="26.5" fill="url(#qe-${a.id})"/><g transform="translate(14 14) scale(1.5)" fill="none" stroke="#FCF8F0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">${ICON[a.icon || a.id]}</g></svg>`;
   /* The palate as a wheel of the nine groups around the emblem, in the order of a fragrance wheel. A petal grows for
      each group the kept bottles vote for (palateGroups), its length that group's share of the lead group's weight, so
      the longest petal is always the palate's name; a short petal marks a group holding a liked family but no vote of
@@ -978,12 +980,12 @@
   }
   async function drawCard() {
     const W = 1080, H = 1350, M = 72, rtl = lang === "ar";
-    const disp = rtl ? '"Noto Naskh Arabic", serif' : '"Fraunces", Georgia, serif', body = '"IBM Plex Sans Arabic", sans-serif';
-    try { await Promise.all([`600 72px ${disp}`, `600 34px ${body}`, `500 30px ${body}`].map(f => document.fonts.load(f))); } catch (e) { /* draw with what is there */ }
+    const disp = rtl ? '"Noto Naskh Arabic", serif' : '"Fraunces", Georgia, serif', body = '"IBM Plex Sans", "Noto Sans Arabic", sans-serif';
+    /* the text sample makes the Arabic face load too, not only the Latin one the font list names first */
+    try { await Promise.all([`600 72px ${disp}`, `600 34px ${body}`, `500 30px ${body}`, `500 24px ${body}`].map(f => document.fonts.load(f, "Aa عطر"))); } catch (e) { /* draw with what is there */ }
     const c = document.createElement("canvas"); c.width = W; c.height = H;
     const x = c.getContext("2d"); if (!x) return null;
-    const gold = x.createLinearGradient(0, 0, W, 0);
-    [["0", "#B8862A"], [".3", "#F2D68A"], [".5", "#D4A94A"], [".65", "#FBECB8"], ["1", "#A8781F"]].forEach(([o, col]) => gold.addColorStop(+o, col));
+    const gold = "#D4A94A";
     const bg = x.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, "#F6E8D0"); bg.addColorStop(1, "#EFDBBD");
     x.fillStyle = bg; x.fillRect(0, 0, W, H);
     const glow = x.createRadialGradient(W * .15, 220, 0, W * .15, 220, 520); glow.addColorStop(0, "rgba(240,177,53,.28)"); glow.addColorStop(1, "rgba(240,177,53,0)");
@@ -1011,7 +1013,7 @@
       text(t().card.title, M, 262, `600 76px ${disp}`, "#2A1B11");
     }
     const ruled = E.ruledOut(prof, avoided()).length;
-    text(`${E.PERFUMES.length} ${t().funnel.checked} · ${ruled} ${t().funnel.out}`, M, 372, `600 30px ${body}`, "#614E3F");
+    text(`${E.PERFUMES.length} ${t().funnel.checked} · ${ruled} ${t().funnel.out}`, M, 372, `600 30px ${body}`, "#4B3B2F");
     x.fillStyle = gold; x.fillRect(rtl ? W - M - 120 : M, 398, 120, 6);
     const good = drawnTo(prof), bad = byStrength(prof, ["badLikely", "badPossible"]).slice(0, 2);
     let y = 478;
@@ -1051,7 +1053,7 @@
         for (const w2 of words) { const tryL = line ? line + " " + w2 : w2; if (x.measureText(tryL).width > cw - 28 && line) { lines.push(line); line = w2; } else line = tryL; }
         lines.push(line);
         const shown2 = lines.slice(0, 2); shown2.forEach((l, k) => x.fillText(l, left + cw / 2, y + 244 + k * 34));
-        x.font = `500 24px ${body}`; x.fillStyle = "#816D5D"; x.fillText(pk.P.house, left + cw / 2, y + 244 + shown2.length * 34 + 2);
+        x.font = `500 24px ${body}`; x.fillStyle = "#665344"; x.fillText(pk.P.house, left + cw / 2, y + 244 + shown2.length * 34 + 2);
       });
       y += 324;
     }

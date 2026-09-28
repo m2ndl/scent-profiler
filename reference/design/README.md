@@ -23,3 +23,28 @@ old-gold line sketch of the flowering tops only, dissolving downward, placed in 
 *Rosa centifolia anglica rubra* (Les Roses, 1817-1824) at the top right and Thomé's *Lavandula angustifolia*
 (Flora von Deutschland, 1885) above the waves at the left. Both plates are public domain on Wikimedia Commons;
 `tools/botanicals.py` rebuilds them.
+
+# The removal pass, 28 September 2026
+
+Asked whether the design was world class, the answer was no: too many effects at once, and four defects on a phone. At
+the owner's word five things were removed or changed (site/site.css, site/js/quiz.js, site/js/app.js):
+
+1. The dark waves fixed along the bottom of the screen and the four soft discs are gone. Glass cards passing over the
+   waves had looked greyed out (the start screen's four parts, the result's counts).
+2. The rose and lavender sketches no longer sit behind the page, where on a phone they fell behind text (the intro on
+   a small screen, the footer, the profile's hint). They close every page in a band of their own after the footer.
+3. Gold is one flat colour (#D4A94A, #C4973A on hover): a fill on the brand mark, the primary buttons, the selected
+   tile's check and the chosen wheel label, and a thin line under the header, the hero and the section titles. The
+   metallic gradients, the light that swept across the gold buttons and the palate name, and the emblem's metallic
+   ring are gone; the step and pick numbers are gold rings.
+4. On a phone the header is one row on every page and screen: the name and one button for the other language (63 px
+   high at 360 px wide; the start screen's was 181). Its two links open the footer instead.
+5. The quiz grid's sixty photos show the bottle alone. Nine showed the box or props: seven now use their Fragrantica
+   page photo, and two are cropped by tools/fetch_bottles.py from reference/images/crops.json (edits/photo_data_edit.py).
+
+Later the same day, at the owner's word: the flat Start button looked poor, and the text needed to read more clearly.
+The primary buttons now carry a soft shade of gold (#E3C170 at the top to #CC9E47 at the bottom) with a fine darker
+edge; Start is a 56 px block with 16 px corners. Arabic text is set in Noto Sans Arabic, whose letters draw larger and
+more open than IBM Plex Sans Arabic's at the same size (the headings' Noto Naskh Arabic is its sister face); Latin text
+stays IBM Plex Sans. The two text greys are darker (#4B3B2F and #665344, 8.8 and 6.0 to 1 on the ground). The Arabic
+font adds about 65 KB to the first load.

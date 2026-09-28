@@ -15,3 +15,7 @@ on a second run: do not re-run them. Listed in the order they ran.
    unchanged; engine golden test still passes), the card led by the name.
 6. `reveal2_edit.py`: the kept/turned reveal before the result, and the card's tiles fitted above its footer.
    Checked by the new quiz test on the name, count and reveal.
+7. `photo_data_edit.py` (28 Sep 2026, the removal pass): Fragrantica page numbers for Sauvage EDP, Club de Nuit
+   Intense Man and Eclaire, Fragella's EDT bottle rejected for the Sauvage EDP entry, and the crops for Jovan Musk and
+   Reef 33 in `reference/images/crops.json`. Followed by `fetch_bottles.py --drop` on the seven boxed photos and
+   `--only jovanmusk,reef33`; checked on a contact sheet of the grid's sixty bottles.
