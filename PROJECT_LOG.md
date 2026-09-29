@@ -2,6 +2,48 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-29: session close, the front page and its brass atomizer
+
+Session title: the front page and its brass atomizer. All pushed and live (334ee48, e6eaec3, 8c9cbf4); the workflow's
+tests and deploy passed, the live files match the committed ones, and the live page loads the 3D atomizer. Checks of
+the live site blocked script.google.com.
+
+- Research: can the site rank all 1,000 perfumes by a visitor's answers? The groups hold; positions inside a group are
+  close to noise (Spearman 0.40 against 0.59 for a perfect reader of the same answers), and the trialled fixes gain
+  little. Record: reference/algorithm/stress/FULLORDER.md and its scripts.
+- No drydown framing: the quiz and the pages no longer judge a perfume by how it ended (memory no-drydown-framing).
+- A front page (site/index.html); the quiz moved to site/quiz.html and opens on its grid from the front page's buttons
+  (quiz.html?go=1), with reach:start sent from the front page. Built, rebuilt as seven evidenced steps at the owner's
+  word, then rewritten to hook the reader. As it stands: a 3D atomizer of engraved antique brass (site/js/bottle3d.js,
+  three.js 0.170.0 from jsDelivr pinned by an import map; still pictures from tools/render_atomizer.py as the first
+  paint and the fallback); the 1,000-perfume test; the Pegasus box turned round to its label (Iso E Super among the
+  first five ingredients on 11 of 12 Parfums de Marly labels, on no note list); the grid of 100 noses; the spoiled
+  note; the critics' stars; the day of wear. Sources are folded under each section; each section ends on a question
+  that links to the next. Edit scripts: reference/landing/edits/README.md.
+- Articles page: new title and lede ("Why a perfume can turn on you"); the article bodies are unchanged.
+- One test "reach:start" reached the live events tab from a review probe at about 14:17 AST on 29 Sep 2026 (English,
+  a new device id): leave it out of any count.
+
+Open, dated 29 Sep 2026 (operational):
+- Watch the first visitors through the new front page: the events tab now starts at index.html, and the quiz's own
+  start screen is skipped from it. Compare reach:start with reach:grid once there are visitors.
+- Base-first wording remains in the article bodies ("Read the base line first", "Ignore the opening for buying
+  decisions") and the profile page ("Clear of X in the base"); the "hand-checked catalogue" line in the notes article
+  is false (the tags are machine-made). Offered, not done.
+- Base-only engine rules remain (the "I still wear it" credit, the narrowing round, the starter samples and the
+  settle suggestion all read the base). Offered, not changed.
+- The jewel on the atomizer takes each perfume's colour; it was not asked for and goes if the owner dislikes it.
+- The claude.ai phone preview predates all of this; tools/build_artifact.py now carries the module and the still
+  pictures but was not published.
+- reference/launch/ (FIRST_SALE.md, an Arabic message) is the owner's own and stays out of git unless asked.
+- Carried: the first 50 to 100 real visitors, the noon affiliate link, FRAGELLA_KEY.
+
+Reflective, not scheduled:
+- The front page's 1,000-perfume test could hand its likes and the one dislike to the quiz, so the quiz starts from
+  them.
+- The quiz's own screens still read in the older, plainer voice; the front page's hook style could carry into them.
+- Self-hosting three.js would drop the page's only third-party script besides the fonts.
+
 ## 2026-09-28: session close, the removal pass
 
 Session title: the removal pass. The owner asked whether the design was now world class. A render pass (phone and

@@ -1,0 +1,73 @@
+/* ---------- the sections' parts: the kicker, the facts, the folded sources and the closing question ---------- */
+.lp-sec { scroll-margin-top: 76px; }
+.lp-head .lp-kick { margin: 0 0 8px; font-size: 12.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+[dir="rtl"] .lp-head .lp-kick { letter-spacing: 0; text-transform: none; font-size: 14px; line-height: 1.6; }
+.lp-tag { display: block; margin: 0 0 6px; font-family: var(--font-body); font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+[dir="rtl"] .lp-tag { letter-spacing: 0; text-transform: none; font-size: 13px; }
+/* a fact worth stopping for: set a size up, with a gold rule */
+.lp-fact { max-width: 60ch; margin: 18px 0 0; padding-inline-start: 14px; border-inline-start: 3px solid var(--gold-fill); font-family: var(--font-display); font-size: 19px; line-height: 1.5; color: var(--ink); }
+[dir="rtl"] .lp-fact { font-weight: 600; font-size: 18px; line-height: 1.85; }
+/* the sources, folded */
+.lp-srcx { max-width: 70ch; margin: 16px 0 0; font-size: 13px; line-height: 1.6; color: var(--ink-3); }
+.lp-srcx summary { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; cursor: pointer; font-weight: 600; list-style: none; }
+.lp-srcx summary::-webkit-details-marker { display: none; }
+.lp-srcx summary::before { content: "+"; display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; border: 1px solid var(--rim-2); font-size: 13px; line-height: 1; }
+.lp-srcx[open] summary::before { content: "\2212"; }
+.lp-srcx p { margin: 4px 0 0; }
+/* the closing question, which leads to the section that answers it */
+.lp-next { display: flex; align-items: center; justify-content: space-between; gap: 14px; max-width: 720px; margin: 34px 0 0; padding: 16px 20px; border-radius: 18px; text-decoration: none; color: var(--ink);
+  background: linear-gradient(135deg, rgba(252, 248, 240, .92), rgba(249, 230, 187, .55)); border: 1px solid color-mix(in oklab, var(--gold-fill) 45%, var(--rim)); box-shadow: inset 0 1px 0 var(--gleam), var(--shadow); transition: transform .2s ease, border-color .2s ease; }
+.lp-next span { font-family: var(--font-display); font-size: 19px; line-height: 1.45; }
+[dir="rtl"] .lp-next span { font-weight: 700; font-size: 18px; line-height: 1.8; }
+.lp-next:hover { color: var(--ink); border-color: var(--gold); transform: translateY(-1px); }
+.lp-next i, .lp-down i { flex: none; display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--gold-button); border: 1px solid #B58A36; }
+.lp-next i::before, .lp-down i::before { content: ""; width: 9px; height: 9px; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: translateY(-2px) rotate(45deg); }
+.lp-down { gap: 8px; }
+.lp-down i { width: 24px; height: 24px; }
+.lp-down i::before { width: 6px; height: 6px; border-width: 1.5px; }
+@media (prefers-reduced-motion: no-preference) { .lp-sec.seen .lp-next i { animation: lp-nudge 1.1s ease-in-out .7s 2; } }
+@keyframes lp-nudge { 0%, 100% { transform: none; } 50% { transform: translateY(5px); } }
+
+/* ---------- the 1,000-perfume test: the count beside the smells to tap ---------- */
+.lp-test-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; max-width: 980px; }
+@media (min-width: 861px) { .lp-test-body { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 30px; align-items: start; } .lp-meter { position: sticky; top: 84px; } }
+.lp-meter { padding: 22px; border-radius: 22px; background: var(--glass); border: 1px solid var(--rim); box-shadow: inset 0 1px 0 var(--gleam), var(--shadow-lift); }
+.lp-meter-n { display: grid; gap: 4px; margin: 0; }
+.lp-meter-n b { font-family: var(--font-display); font-size: clamp(56px, 11vw, 88px); font-weight: 500; line-height: .95; letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+[dir="rtl"] .lp-meter-n b { font-weight: 700; line-height: 1.2; letter-spacing: 0; }
+.lp-meter-n span { font-size: 16px; line-height: 1.5; color: var(--ink-2); }
+.lp-meter-bar { display: flex; height: 14px; margin: 16px 0 0; border-radius: 999px; overflow: hidden; background: rgba(42, 27, 17, .07); }
+.lp-meter-bar i { display: block; height: 100%; width: var(--w); transition: width .6s cubic-bezier(.16, .84, .3, 1); }
+.lp-meter-bar .kept { background: linear-gradient(90deg, var(--gold-fill), var(--rose-2)); }
+[dir="rtl"] .lp-meter-bar .kept { background: linear-gradient(270deg, var(--gold-fill), var(--rose-2)); }
+.lp-meter-bar .gone { background: repeating-linear-gradient(135deg, color-mix(in oklab, var(--bad) 55%, transparent) 0 6px, color-mix(in oklab, var(--bad) 22%, transparent) 6px 12px); }
+.lp-verdict { margin-top: 16px; }
+.lp-verdict[hidden] { display: none; }
+.lp-verdict p { margin: 0; font-size: 16.5px; line-height: 1.6; font-weight: 600; color: var(--ink); }
+[dir="rtl"] .lp-verdict p { line-height: 1.85; }
+.lp-verdict .why { margin-top: 6px; font-weight: 400; color: var(--ink-2); }
+.lp-test-go.btn.primary { margin-top: 14px; min-height: 48px; padding: 10px 24px; border-radius: 14px; font-size: 16px; font-weight: 600; }
+.lp-test-k { margin: 0 0 10px; font-size: 15px; font-weight: 600; color: var(--ink); }
+.lp-picks + .lp-test-k { margin-top: 20px; }
+.lp-picks { display: flex; flex-wrap: wrap; gap: 8px; }
+.lp-pick { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px 8px 12px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 15px; color: var(--ink);
+  background: var(--paper); border: 1px solid color-mix(in oklab, var(--c) 38%, var(--line-2)); transition: transform .15s ease, background-color .2s ease, box-shadow .2s ease; }
+[dir="rtl"] .lp-pick { padding: 8px 12px 8px 16px; }
+.lp-pick i { width: 11px; height: 11px; border-radius: 50%; background: var(--c); flex: none; }
+.lp-pick:hover { border-color: var(--c); }
+.lp-pick:active { transform: scale(.96); }
+.lp-pick[aria-pressed="true"] { font-weight: 600; background: color-mix(in oklab, var(--c) 16%, var(--paper)); border-color: var(--c); box-shadow: 0 0 0 2px color-mix(in oklab, var(--c) 30%, transparent); }
+.lp-pick.hate[aria-pressed="true"] { color: var(--bad-2); background: var(--bad-tint); border-color: var(--bad); box-shadow: 0 0 0 3px color-mix(in oklab, var(--bad) 20%, transparent); text-decoration: line-through; text-decoration-thickness: 2px; }
+
+/* ---------- the box turned round: two faces of one card ---------- */
+.lp-flip { max-width: 560px; perspective: 1400px; }
+.lp-flip-in { display: grid; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.3, .7, .2, 1); }
+.lp-flip.on .lp-flip-in { transform: rotateY(180deg); }
+.lp-face { grid-area: 1 / 1; padding: 20px 22px; border-radius: 22px; -webkit-backface-visibility: hidden; backface-visibility: hidden; background: var(--glass); border: 1px solid var(--rim); box-shadow: inset 0 1px 0 var(--gleam), var(--shadow-lift); }
+.lp-back { transform: rotateY(180deg); background: linear-gradient(180deg, #FDFAF3, #F4EADA); }
+.lp .lp-face h3 { margin: 0 0 10px; font-family: var(--font-body); font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+[dir="rtl"] .lp .lp-face h3 { letter-spacing: 0; text-transform: none; font-size: 13.5px; }
+.lp-back .lp-small { margin: 12px 0 0; font-size: 14px; color: var(--ink-2); }
+.lp-flipbtn { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; margin-top: 16px; padding: 10px 18px; border-radius: 14px; cursor: pointer; font: inherit; font-size: 15.5px; font-weight: 600; color: var(--ink); background: var(--gold-button); border: 1px solid #B58A36; }
+.lp-flipbtn i::before { content: "\21BB"; font-size: 18px; line-height: 1; }
+@media (prefers-reduced-motion: reduce) { .lp-flip-in { transition: none; } }
