@@ -9,8 +9,8 @@ backend. README.md is the full reference; PROJECT_LOG.md is the continuity recor
   `js/engine.js` the profile logic, `js/notes.js` the note rows and told items both pages share, `js/page.js` the
   words, storage, sending and backend calls both pages share, `js/app.js` the profile page (`profile.html`),
   `js/quiz.js` the quiz (`quiz.html`), with `js/motion.js` its motion and touch (screen transitions, in-place
-  updates, the dock), and `js/landing.js` the front page (`index.html`), with `js/bottle3d.js` its 3D atomizer (three.js
-  from jsDelivr, pinned by the import map in `index.html`; `python tools/render_atomizer.py` redraws its still pictures); `js/evidence.js`, `js/bottles.js` and
+  updates, the dock), and `js/landing.js` the front page (`index.html`), whose large bottle pictures in `img/hero/` come
+  from `python tools/fetch_hero_bottles.py`; `js/evidence.js`, `js/bottles.js` and
   `js/landing-data.js` (run `node tools/build_landing.js`) are generated,
   and `img/bottles/` holds the bottle photos.
 - `backend/apps-script.gs`: the Sheets backend. Its `VERIFIED` list is generated.

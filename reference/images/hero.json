@@ -1,0 +1,142 @@
+{
+ "adgedt": {
+  "source": "https://cdn.fragella.com/images/acqua-di-gio.webp",
+  "w": 270,
+  "h": 507,
+  "nx": 0.501,
+  "ny": 0.002
+ },
+ "aventus": {
+  "source": "https://cdn.fragella.com/images/creed-aventus.webp",
+  "w": 265,
+  "h": 492,
+  "nx": 0.477,
+  "ny": 0.002
+ },
+ "badeealoud": {
+  "source": "https://fimgs.net/mdimg/perfume/375x500.64948.jpg",
+  "w": 248,
+  "h": 466,
+  "nx": 0.486,
+  "ny": 0.002
+ },
+ "blackopium": {
+  "source": "https://cdn.fragella.com/images/black-opium.webp",
+  "w": 277,
+  "h": 415,
+  "nx": 0.502,
+  "ny": 0.0
+ },
+ "bleuedp": {
+  "source": "https://fimgs.net/mdimg/perfume/375x500.25967.jpg",
+  "w": 345,
+  "h": 473,
+  "nx": 0.493,
+  "ny": 0.002
+ },
+ "br540": {
+  "source": "https://cdn.fragella.com/images/maison-francis-kurkdjian-baccarat-rouge-540.webp",
+  "w": 188,
+  "h": 403,
+  "nx": 0.491,
+  "ny": 0.005
+ },
+ "cdnim": {
+  "source": "https://fimgs.net/mdimg/perfume/375x500.34696.jpg",
+  "w": 292,
+  "h": 476,
+  "nx": 0.505,
+  "ny": 0.006
+ },
+ "cocomademoiselle": {
+  "source": "https://fimgs.net/mdimg/perfume/375x500.611.jpg",
+  "w": 282,
+  "h": 472,
+  "nx": 0.483,
+  "ny": 0.002
+ },
+ "eros": {
+  "source": "https://cdn.fragella.com/images/versace-eros.webp",
+  "w": 274,
+  "h": 380,
+  "nx": 0.525,
+  "ny": 0.003
+ },
+ "goodgirl": {
+  "source": "https://cdn.fragella.com/images/carolina-herrera-good-girl.webp",
+  "w": 222,
+  "h": 472,
+  "nx": 0.814,
+  "ny": 0.002
+ },
+ "hawas": {
+  "source": "https://cdn.fragella.com/images/rasasi-hawas-for-him.webp",
+  "w": 246,
+  "h": 431,
+  "nx": 0.501,
+  "ny": 0.002
+ },
+ "interlude": {
+  "source": "https://fimgs.net/mdimg/perfume/o.15294.jpg",
+  "w": 266,
+  "h": 520,
+  "nx": 0.485,
+  "ny": 0.004
+ },
+ "invictus": {
+  "source": "https://cdn.fragella.com/images/invictus.webp",
+  "w": 257,
+  "h": 378,
+  "nx": 0.543,
+  "ny": 0.003
+ },
+ "khamrah": {
+  "source": "https://fimgs.net/mdimg/perfume/o.75805.jpg",
+  "w": 353,
+  "h": 452,
+  "nx": 0.505,
+  "ny": 0.002
+ },
+ "lavieestbelle": {
+  "source": "https://cdn.fragella.com/images/la-vie-est-belle.webp",
+  "w": 286,
+  "h": 392,
+  "nx": 0.46,
+  "ny": 0.003
+ },
+ "libre": {
+  "source": "https://fimgs.net/mdimg/perfume/375x500.56077.jpg",
+  "w": 249,
+  "h": 472,
+  "nx": 0.426,
+  "ny": 0.002
+ },
+ "oudwood": {
+  "source": "https://cdn.fragella.com/images/tom-ford-oud-wood.webp",
+  "w": 189,
+  "h": 431,
+  "nx": 0.513,
+  "ny": 0.002
+ },
+ "santal33": {
+  "source": "https://fimgs.net/mdimg/perfume/o.12201.jpg",
+  "w": 218,
+  "h": 495,
+  "nx": 0.484,
+  "ny": 0.002
+ },
+ "sauvageedp": {
+  "source": "https://fimgs.net/mdimg/perfume/375x500.48100.jpg",
+  "w": 211,
+  "h": 474,
+  "nx": 0.512,
+  "ny": 0.002
+ },
+ "yara": {
+  "source": "https://cdn.fragella.com/images/lattafa-yara.webp",
+  "w": 191,
+  "h": 467,
+  "nx": 0.495,
+  "ny": 0.002
+ }
+}

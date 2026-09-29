@@ -47,16 +47,10 @@ bottles = {}
 for img in sorted((site / "img" / "bottles").glob("*.webp")):
     bottles[img.stem] = "data:image/webp;base64," + base64.b64encode(img.read_bytes()).decode("ascii")
 (out / "js" / "bottles.js").write_text("window.PP_BOTTLES = " + json.dumps(bottles, separators=(",", ":")) + ";\n", encoding="utf-8")
-# the front page's twenty photos are named by path in js/landing-data.js; the host serves no img/ folder, so they
-# travel inside that file as data URIs too
+# the front page's photos and its large bottle pictures are named by path in js/landing-data.js; the host serves no
+# img/ folder, so they travel inside that file as data URIs too
 landing = (out / "js" / "landing-data.js").read_text(encoding="utf-8")
-for ref in sorted(set(re.findall(r'"(img/bottles/[^"]+\.webp)"', landing))):
+for ref in sorted(set(re.findall(r'"(img/(?:bottles|hero)/[^"]+\.webp)"', landing))):
     landing = landing.replace(f'"{ref}"', '"data:image/webp;base64,' + base64.b64encode((site / ref).read_bytes()).decode("ascii") + '"')
 (out / "js" / "landing-data.js").write_text(landing, encoding="utf-8")
-# the atomizer's two still pictures are named by path in js/landing.js; they travel inside it the same way (its live 3D
-# version, js/bottle3d.js, loads three.js from jsDelivr through the import map kept in the page's head)
-lp = (out / "js" / "landing.js").read_text(encoding="utf-8")
-for ref in sorted(set(re.findall(r'"(img/[^"]+\.webp)"', lp))):
-    lp = lp.replace(f'"{ref}"', '"data:image/webp;base64,' + base64.b64encode((site / ref).read_bytes()).decode("ascii") + '"')
-(out / "js" / "landing.js").write_text(lp, encoding="utf-8")
 print("OK", (out / "index.html").stat().st_size, "bytes;", len(bottles), "bottle photos,", (out / "js" / "bottles.js").stat().st_size, "bytes")

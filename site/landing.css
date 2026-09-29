@@ -1,25 +1,24 @@
-/* The front page (index.html), on top of site.css. A still life at a dressing table: the atomizer stands in a pool of
-   warm light on a pane of cream glass, its mist and notes held inside that pane so nothing drifts over the text. The
-   palette widens here with the colours of the nine palate groups (js/landing-data.js), a plum for the rubber bulb and
-   the band in the middle of the page, and deeper rose and amber for the light around it. Gold stays flat or softly
+/* The front page (index.html), on top of site.css. A still life at a dressing table: a perfume's own bottle stands in a
+   pool of warm light on a pane of cream glass, its mist and notes held inside that pane so nothing drifts over the text.
+   The palette widens here with the colours of the nine palate groups (js/landing-data.js), a plum for the band in the
+   middle of the page, and deeper rose and amber for the light around the bottle. Gold stays flat or softly
    shaded, never metallic. The writing is centred: every section is a short headline, one interaction and one line. */
 
 :root { --plum: #5E1E3D; --plum-2: #7E2A4E; --plum-3: #3E1428; --rose-2: #B8467A; --amber-2: #E8903A; --glow-rose: rgba(184, 70, 122, .16); --glow-amber: rgba(240, 177, 53, .24); }
 .lp { padding-bottom: 0; }
 .lp h1, .lp h2, .lp h3 { font-family: var(--font-display); }
 
-/* ---------- hero: on a phone the promise, the button and the atomizer share the first screen ---------- */
+/* ---------- hero: on a phone the promise, the button and the bottle share the first screen ---------- */
 .lp-hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; padding-top: 12px; }
-.lp-hero-text { text-align: center; }
-@media (min-width: 901px) { .lp-hero { grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); gap: 44px; align-items: center; padding-top: 40px; min-height: min(720px, calc(100vh - 90px)); } .lp-hero-text { text-align: start; } }
+.lp-hero-text { text-align: center; }   /* centred at every width, beside the bottle on a wide screen too */
+@media (min-width: 901px) { .lp-hero { grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); gap: 44px; align-items: center; padding-top: 40px; min-height: min(720px, calc(100vh - 90px)); } }
 .lp-hero h1 { font-weight: 500; font-size: clamp(31px, 5.2vw, 58px); line-height: 1.06; letter-spacing: -.02em; margin: 0 0 12px; text-wrap: balance; }
 [dir="rtl"] .lp-hero h1 { font-weight: 700; line-height: 1.45; letter-spacing: 0; font-size: clamp(28px, 4.6vw, 50px); }
 .lp-hero h1::after { content: ""; display: block; width: 72px; height: 3px; border-radius: 999px; margin: 12px auto 0; background: linear-gradient(90deg, var(--open), var(--heart) 50%, var(--dry)); box-shadow: 0 0 14px -2px color-mix(in oklab, var(--heart) 45%, transparent); }
 [dir="rtl"] .lp-hero h1::after { background: linear-gradient(270deg, var(--open), var(--heart) 50%, var(--dry)); }
-@media (min-width: 901px) { .lp-hero h1::after { margin-inline: 0; margin-top: 20px; width: 84px; height: 4px; } }
+@media (min-width: 901px) { .lp-hero h1::after { margin-top: 20px; width: 84px; height: 4px; } }
 .lp-lede { margin: 0 auto; max-width: 46ch; font-size: 17px; line-height: 1.55; color: var(--ink-2); text-wrap: balance; }
 @media (min-width: 641px) { .lp-lede { font-size: 18.5px; } }
-@media (min-width: 901px) { .lp-lede { margin: 0; } }
 [dir="rtl"] .lp-lede { line-height: 1.75; }
 .lp .lp-go.btn.primary { display: flex; width: 100%; min-height: 56px; margin-top: 16px; padding: 12px 30px; border-radius: 16px; font-size: 19px; font-weight: 600; letter-spacing: .01em; }
 @media (min-width: 641px) { .lp .lp-go.btn.primary { display: inline-flex; width: auto; min-width: 320px; } }
@@ -28,22 +27,18 @@
 /* the stage: a pane of cream glass lit from inside, which clips the mist */
 .lp-stage { position: relative; height: 580px; border-radius: 28px; overflow: hidden; isolation: isolate;
   background:
-    radial-gradient(60% 46% at 58% 70%, var(--glow-rose), transparent 72%),
-    radial-gradient(52% 42% at 60% 36%, var(--glow-amber), transparent 72%),
+    radial-gradient(46% 34% at 50% 74%, var(--glow-rose), transparent 72%),
+    radial-gradient(56% 44% at 50% 40%, var(--glow-amber), transparent 72%),
     linear-gradient(180deg, rgba(252, 248, 240, .5), rgba(252, 248, 240, .28));
   border: 1px solid var(--rim); box-shadow: inset 0 1px 0 var(--gleam), var(--shadow-lift);
   -webkit-backdrop-filter: blur(14px) saturate(1.1); backdrop-filter: blur(14px) saturate(1.1); }
-[dir="rtl"] .lp-stage { background:
-    radial-gradient(60% 46% at 42% 70%, var(--glow-rose), transparent 72%),
-    radial-gradient(52% 42% at 40% 36%, var(--glow-amber), transparent 72%),
-    linear-gradient(180deg, rgba(252, 248, 240, .5), rgba(252, 248, 240, .28)); }
 @media (min-width: 641px) { .lp-stage { height: 600px; } }
 @media (min-width: 901px) { .lp-stage { height: 660px; } }
 /* an arched alcove: the top is a half circle of the stage's width */
 .lp-stage { border-radius: 50vw 50vw 28px 28px / 36vw 36vw 28px 28px; }
 @media (min-width: 641px) { .lp-stage { border-radius: 280px 280px 30px 30px / 240px 240px 30px 30px; } }
-/* a table edge under the bottle */
-.lp-stage::after { content: ""; position: absolute; inset-inline: 0; bottom: 0; height: 120px; z-index: -1;
+/* the table the bottle stands on */
+.lp-stage::after { content: ""; position: absolute; inset-inline: 0; bottom: 0; height: 130px; z-index: -1;
   background: linear-gradient(180deg, transparent, rgba(126, 42, 78, .07) 40%, rgba(94, 30, 61, .12)); border-top: 1px solid rgba(181, 138, 54, .22); }
 .lp-mist { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
 
@@ -51,7 +46,8 @@
 .lp-field { position: absolute; top: 46px; inset-inline: 12px; height: calc(100% - 46px - 330px); display: flex; flex-direction: column; justify-content: flex-end; gap: 9px; z-index: 3; pointer-events: none; text-align: center; }
 @media (min-width: 641px) { .lp-field { top: 84px; inset-inline: 30px; height: calc(100% - 84px - 400px); } }
 .lp-frow { display: grid; grid-template-columns: 1fr; gap: 5px; justify-items: center; }
-.lp-frow-k { font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+/* a row's name sits on a light backing, so the mist that rises through the rows never lies behind bare text */
+.lp-frow-k { padding: 1px 9px; border-radius: 999px; background: rgba(252, 248, 240, .84); font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
 [dir="rtl"] .lp-frow-k { letter-spacing: 0; text-transform: none; font-size: 12.5px; }
 .lp-fnotes { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
 .lp-fnote { display: inline-flex; align-items: center; gap: 7px; padding: 4px 11px 4px 9px; border-radius: 999px; font-size: 14px; line-height: 1.3; color: var(--ink);
@@ -78,32 +74,28 @@
 /* each row's label arrives with its notes */
 .lp-frow-k { transition: opacity .5s ease .35s; }
 
-/* the atomizer is one button: pressing anywhere on it squeezes the bulb. It holds the still picture and, once
-   js/bottle3d.js has loaded, the live 3D atomizer over it (.gl on the stage); --bx and --by place the bulb */
-.lp-atomizer { position: absolute; left: 50%; bottom: 112px; transform: translateX(-50%); width: min(76%, 440px); aspect-ratio: 420 / 330; padding: 0; border: 0; background: none; cursor: pointer; z-index: 1; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
-@media (min-width: 641px) { .lp-atomizer { bottom: 104px; width: min(84%, 440px); } }
-.lp-atomizer:focus-visible { outline: 2px solid var(--gold); outline-offset: 6px; border-radius: 22px; }
-.lp-poster, .lp-gl { position: absolute; inset: 0; display: block; width: 100%; height: 100%; pointer-events: none; }
-.lp-poster { object-fit: contain; -webkit-user-drag: none; transition: opacity .6s ease, transform .12s ease-out; }
-.lp-gl { opacity: 0; transition: opacity .6s ease; }
-.lp-stage.gl .lp-gl { opacity: 1; }
-.lp-stage.gl .lp-poster { opacity: 0; }
-.lp-stage.pressed:not(.gl) .lp-poster { transform: scale(.985); }   /* the picture can only nod to a press */
-/* the hint sits above the bulb, with a ring that breathes on the bulb until the visitor's own first press or answer */
-.lp-hint { position: absolute; top: calc(var(--by) * 100% - 34%); inset-inline-start: calc(var(--bx) * 100% - 16%); z-index: 2; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--plum);
-  background: rgba(252, 248, 240, .92); border: 1px solid rgba(126, 42, 78, .28); box-shadow: 0 6px 16px -10px rgba(94, 30, 61, .6); white-space: nowrap; pointer-events: none; }
-.lp-hint::after { content: ""; position: absolute; top: 100%; inset-inline-start: 26px; width: 10px; height: 10px; background: inherit; border: inherit; border-top: 0; border-inline-start: 0; transform: translateY(-5px) rotate(45deg); }
-[dir="rtl"] .lp-hint::after { transform: translateY(-5px) rotate(-45deg); border-inline-start: 1px solid rgba(126, 42, 78, .28); border-inline-end: 0; }
+/* the bottle is one button: the sprayed perfume's own picture standing on the table, under the notes' rows. A press
+   dips it; a new perfume's bottle sinks the old one away and rises in (.out); the hint sits on the glass until the
+   visitor's own first press or answer */
+.lp-bottle { position: absolute; inset-inline: 0; bottom: 126px; height: 194px; display: flex; align-items: flex-end; justify-content: center; padding: 0; border: 0; background: none; cursor: pointer; z-index: 1; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
+@media (min-width: 641px) { .lp-bottle { bottom: 110px; height: 278px; } .lp-stage::after { height: 120px; } }
+.lp-bottle:focus-visible { outline: none; }
+.lp-bottle:focus-visible .lp-glass { outline: 2px solid var(--gold); outline-offset: 8px; border-radius: 14px; }
+.lp-glass { position: relative; display: flex; align-items: flex-end; height: 100%; max-width: 66%; transition: opacity .2s ease, transform .2s ease; }
+.lp-glass img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; -webkit-user-drag: none; pointer-events: none;
+  filter: drop-shadow(0 16px 14px rgba(62, 30, 20, .2)) drop-shadow(0 2px 3px rgba(62, 30, 20, .22)); transition: transform .12s ease-out; transform-origin: 50% 100%; }
+/* the bottle's shadow on the table */
+.lp-glass::before { content: ""; position: absolute; left: 50%; bottom: -8px; width: 118%; height: 20px; transform: translateX(-50%); z-index: -1; background: radial-gradient(closest-side, rgba(62, 30, 20, .32), transparent); }
+.lp-stage.pressed .lp-glass img { transform: translateY(2px) scale(.985); }
+.lp-glass.out { opacity: 0; transform: translateY(10px); }
+.lp-hint { position: absolute; top: 42%; left: 50%; transform: translateX(-50%); z-index: 2; width: max-content; max-width: 150px; padding: 6px 13px; border-radius: 999px; font-size: 13px; font-weight: 600; line-height: 1.35; color: var(--plum); text-align: center;
+  background: rgba(252, 248, 240, .95); border: 1px solid rgba(126, 42, 78, .3); box-shadow: 0 8px 18px -10px rgba(94, 30, 61, .7); pointer-events: none; transition: opacity .3s ease; }
 .lp-stage.touched .lp-hint { opacity: 0; }
-.lp-hint { transition: opacity .3s ease; }
-.lp-atomizer::after { content: ""; position: absolute; left: calc(var(--bx) * 100%); top: calc(var(--by) * 100%); width: 30%; aspect-ratio: 1.35; border-radius: 50%; border: 2px solid rgba(212, 169, 74, .75); transform: translate(-50%, -50%); pointer-events: none; opacity: 0; z-index: 2; }
-[dir="rtl"] .lp-atomizer::after { left: auto; right: calc(var(--bx) * 100%); transform: translate(50%, -50%); }
 
-/* under the atomizer: the perfume just sprayed, and the quiz's first question about it */
-.lp-caption { position: absolute; inset-inline: 12px; bottom: 12px; display: grid; grid-template-columns: 44px minmax(0, 1fr); align-items: center; gap: 8px 10px; padding: 10px 12px; border-radius: 16px; z-index: 3;
+/* under the bottle: the perfume just sprayed, and the quiz's first question about it */
+.lp-caption { position: absolute; inset-inline: 12px; bottom: 12px; display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; gap: 8px 10px; padding: 10px 12px; border-radius: 16px; z-index: 3;
   background: rgba(252, 248, 240, .9); border: 1px solid var(--rim); box-shadow: inset 0 1px 0 var(--gleam), 0 10px 24px -18px rgba(42, 27, 17, .6); opacity: 0; transform: translateY(8px); transition: opacity .5s ease .5s, transform .5s ease .5s; }
 .lp-caption.on { opacity: 1; transform: none; }
-.lp-caption > img { width: 44px; height: 44px; object-fit: contain; }
 .lp-cap-t { min-width: 0; text-align: start; }
 .lp-cap-t b { display: block; font-size: 15.5px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .lp-cap-t span { display: block; font-size: 12.5px; color: var(--ink-3); line-height: 1.35; }
@@ -114,19 +106,15 @@
 .lp-tried .lp-tried-yes.on { background: var(--gold-soft); box-shadow: inset 0 0 0 1px var(--gold); }
 .lp-tried .lp-tried-yes.on::before { content: "\2713\00a0"; }
 @media (max-width: 379px) { .lp-tried { gap: 6px; } .lp-tried-q { font-size: 13.5px; } .lp-tried button { padding: 6px 11px; font-size: 13.5px; } }
-@media (min-width: 641px) { .lp-caption { inset-inline: 16px; bottom: 16px; grid-template-columns: 44px minmax(0, 1fr) auto; } .lp-tried { grid-column: auto; } }
+@media (min-width: 641px) { .lp-caption { inset-inline: 16px; bottom: 16px; grid-template-columns: minmax(0, 1fr) auto; } .lp-tried { grid-column: auto; } }
 
+@media (prefers-reduced-motion: reduce) { .lp-glass, .lp-glass img { transition: none; } }
 @media (prefers-reduced-motion: no-preference) {
-  .lp-atomizer::after { animation: lp-breathe 2.4s ease-in-out infinite; }
-  .lp-stage.touched .lp-atomizer::after { animation: none; opacity: 0; }
   .lp-stage { transition: box-shadow .4s ease; }
   .lp-stage.pressed { box-shadow: inset 0 1px 0 var(--gleam), 0 22px 60px -28px rgba(184, 70, 122, .55); }
   .lp-sec { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s cubic-bezier(.16, .84, .3, 1); }
   .lp-sec.seen { opacity: 1; transform: none; }
 }
-@keyframes lp-breathe { 0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(.85); } 50% { opacity: .9; transform: translate(-50%, -50%) scale(1.08); } }
-[dir="rtl"] .lp-atomizer::after { animation-name: lp-breathe-rtl; }
-@keyframes lp-breathe-rtl { 0%, 100% { opacity: 0; transform: translate(50%, -50%) scale(.85); } 50% { opacity: .9; transform: translate(50%, -50%) scale(1.08); } }
 
 /* ---------- sections: centred, one headline, one interaction, one line ---------- */
 .lp-sec { margin-top: 72px; text-align: center; scroll-margin-top: 76px; }

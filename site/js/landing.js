@@ -1,12 +1,13 @@
-/* The front page (index.html), written for a visitor who scrolls more than reads: a hook and the atomizer on the first
-   screen, then a real result, then three short sections that each turn on one tap, then the quiz (quiz.html) and the
-   articles. Every section holds one headline, one interaction and one line; its sources fold away under it.
-   The centrepiece is a classic atomizer of antique brass (drawn in 3D by js/bottle3d.js): a completed press on it
-   squeezes the rubber bulb and sprays one of the quiz's twenty perfumes, whose listed notes rise from the mist in three
-   rows, first minutes, first hours and hours later (js/landing-data.js, built by tools/build_landing.js). Under it the
-   quiz's first question waits: tried it? Each bottle the visitor has tried goes into the quiz links (?tried=), so the
-   quiz opens with them picked. The mist and every other movement sit under prefers-reduced-motion: no-preference;
-   without motion the notes simply appear. Shared words and the device store come from page.js. */
+/* The front page (index.html), written for a visitor who scrolls more than reads: a hook and a perfume bottle on the
+   first screen, then a real result, then three short sections that each turn on one tap, then the quiz (quiz.html) and
+   the articles. Every section holds one headline, one interaction and one line; its sources fold away under it.
+   The centrepiece is the real bottle of one of the quiz's twenty perfumes (its picture from site/img/hero/): a completed
+   press on it sprays from its top straight up, and its listed notes rise out of the mist in three rows, first minutes,
+   first hours and hours later (js/landing-data.js, built by tools/build_landing.js); the next press brings another
+   perfume's bottle, which sprays in its turn. Under it the quiz's first question waits: tried it? Each bottle the visitor
+   has tried goes into the quiz links (?tried=), so the quiz opens with them picked. The mist and every other movement
+   sit under prefers-reduced-motion: no-preference; without motion the bottles swap and the notes simply appear. Shared
+   words and the device store come from page.js. */
 (function () {
   "use strict";
   const host = document.getElementById("lp");
@@ -16,7 +17,7 @@
   const STAGES = ["opening", "heart", "drydown"];
   const store = PAGE.store;
   let lang = store.get("pp_lang", "ar");   /* Arabic first, whatever the device language; a chosen language is kept */
-  const tried = [];                       /* the bottles the visitor said, under the atomizer, they have tried */
+  const tried = [];                       /* the bottles the visitor said, under the stage, they have tried */
 
   /* Local testing only, as page.js does: http://localhost:8765/?endpoint=http://localhost:8765/api */
   let endpointParam = "";
@@ -25,7 +26,7 @@
   const QUIZ_HREF = () => withEndpoint("quiz.html?go=1" + (tried.length ? "&tried=" + tried.join(",") : ""));
   /* This page is the quiz's start screen: one "reach:start" per visit, from the device id the quiz and the profiler use
      (the same format page.js makes), so the backend's funnel still begins here. "land:tried" counts the bottles a
-     visitor marks as tried under the atomizer (n: how many so far). */
+     visitor marks as tried under the stage (n: how many so far). */
   function send(name, n) {
     if (!CONFIG.endpoint) return;
     let device = store.get("pp_device", null);
@@ -54,8 +55,8 @@
       lede: "Four quick parts look for the smell behind it, then choose perfumes for you to try.",
       start: "Find what suits me", cont: n => `Continue with ${n} ${n === 1 ? "bottle" : "bottles"}`,
       startNote: "Free. No sign-up.",
-      press: "Press the bulb",
-      bottleLabel: "Perfume atomizer. Press to spray one of the quiz's twenty perfumes and see its notes.",
+      press: "Press the bottle",
+      bottleLabel: name => `${name}. Press to spray it and see its notes; the next press brings another of the quiz's twenty perfumes.`,
       triedQ: "Tried it?", triedYes: "Yes", triedNo: "Not yet", triedDone: "Added to your quiz",
       sprayedLive: (house, name, rows) => `Sprayed ${house} ${name}. ${rows}. Tried it?`,
       srcTag: "Sources",
@@ -118,8 +119,8 @@
       lede: "أربعة أجزاء سريعة تبحث عن الرائحة التي وراء ذلك، ثم تختار لك عطوراً لتجرّبها.",
       start: "اكتشف ما يناسبك", cont: n => `تابع مع ${arCount(n, "عطر واحد", "عطرين", "عطور", "عطراً")}`,
       startNote: "مجاناً، وبلا تسجيل.",
-      press: "اضغط على الكرة",
-      bottleLabel: "بخّاخ عطر. اضغط لترشّ أحد العطور العشرين في الاختبار وترى نوتاته.",
+      press: "اضغط على الزجاجة",
+      bottleLabel: name => `${name}. اضغط لترشّه وترى نوتاته، والضغطة التالية تأتي بعطر آخر من عطور الاختبار العشرين.`,
       triedQ: "جرّبته من قبل؟", triedYes: "نعم", triedNo: "ليس بعد", triedDone: "أضفناه إلى اختبارك",
       sprayedLive: (house, name, rows) => `رششت ${name} من ${house}. ${rows}. هل جرّبته من قبل؟`,
       srcTag: "المصادر",
@@ -190,18 +191,8 @@
   /* a Fisher-Yates shuffle with the random source given */
   const shuffle = (arr, rnd) => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
-  /* ---------- the atomizer ----------
-     A classic atomizer of antique brass: an engraved flacon with a jewel, a silk cord and a rubber bulb in a net.
-     js/bottle3d.js draws it live in 3D when WebGL is there; until then, and without it, the page shows a still picture of
-     the same atomizer (drawn by tools/render_atomizer.py, which also checks the two positions below). NOZZLE and BULB
-     are where the nozzle and the middle of the bulb fall in the atomizer box, as shares of its width and height, drawn
-     left to right; in Arabic the atomizer is turned round, so the spray leaves toward the open side of the page. */
-  const POSTER = { ltr: "img/atomizer-ltr.webp", rtl: "img/atomizer-rtl.webp" };
-  const NOZZLE = [0.884, 0.134], BULB = [0.319, 0.698];
-  let jewel = null;   /* the colour the live atomizer's jewel takes for the perfume last sprayed */
-
   /* ---------- the mist: droplets on a canvas, drawn from pre-rendered sprites ----------
-     It runs only while droplets are alive, and holds at most 720 of them however fast the bulb is pressed. */
+     It runs only while droplets are alive, and holds at most 720 of them however fast the bottle is pressed. */
   const MAX_PARTS = 720;
   const mist = {
     canvas: null, ctx: null, parts: [], raf: 0, w: 0, h: 0, dpr: 1, sprites: {},
@@ -220,13 +211,13 @@
       this.dpr = Math.min(2, window.devicePixelRatio || 1); this.w = r.width; this.h = r.height;
       this.canvas.width = Math.round(r.width * this.dpr); this.canvas.height = Math.round(r.height * this.dpr);
     },
-    /* one burst from (x, y) toward angle a (radians), in the colours given: fine droplets in the perfume's colours,
-       with a few soft clouds among them, strong enough to read as a spray on a phone */
-    burst(x, y, a, cols) {
+    /* one burst from (x, y) toward angle a (radians), fanning out over `fan` radians, in the colours given: fine
+       droplets in the perfume's colours, with a few soft clouds among them, strong enough to read as a spray on a phone */
+    burst(x, y, a, cols, fan) {
       const k = Math.max(.6, Math.min(1.3, this.w / 460));
       cols = cols.map(c => tint(c, .85));
       for (let i = 0; i < 260; i++) {
-        const spread = (Math.random() - .5) * .75, sp = (3 + Math.random() * 8) * k, big = Math.random() < .16;
+        const spread = (Math.random() - .5) * (fan || .75), sp = (3 + Math.random() * 8) * k, big = Math.random() < .16;
         this.parts.push({ x, y, vx: Math.cos(a + spread) * sp, vy: Math.sin(a + spread) * sp, r: big ? 18 + Math.random() * 30 : 2.6 + Math.random() * 6,
           life: 0, max: 80 + Math.random() * 100, col: Math.random() < .18 ? "#FFF3D6" : cols[i % cols.length], a: big ? .3 : .95, delay: Math.floor(Math.random() * 16) });
       }
@@ -251,6 +242,7 @@
 
   /* ---------- rendering ---------- */
   let sprayIdx = -1, sprayOrder = [], touched = false;
+  let shown = false;   /* whether the bottle on the stage has sprayed, so its notes and question are out */
   let noseId = "musk", flipped = false, hate = null;   /* hate: the smell tapped in the 1,000-perfume test */
 
   const fmt = n => (lang === "en" ? fmtEn(n) : String(n));
@@ -272,6 +264,7 @@
   }
 
   function heroHtml() {
+    const s = LD.sprays[sprayIdx];
     return `<section class="lp-hero" id="lp-hero">
       <div class="lp-hero-text">
         <h1>${esc(t().h1)}</h1>
@@ -282,16 +275,16 @@
       <div class="lp-stage${touched ? " touched" : ""}" id="lp-stage">
         <canvas class="lp-mist" id="lp-mist" aria-hidden="true"></canvas>
         <div class="lp-field" id="lp-field" aria-hidden="true"></div>
-        <button type="button" class="lp-atomizer" id="lp-atomizer" aria-label="${esc(t().bottleLabel)}" style="--bx:${BULB[0]};--by:${BULB[1]}"><img class="lp-poster" src="${lang === "ar" ? POSTER.rtl : POSTER.ltr}" alt="" width="420" height="330" draggable="false"><span class="lp-hint" id="lp-hint">${esc(t().press)}</span></button>
+        <button type="button" class="lp-bottle" id="lp-bottle" aria-label="${esc(t().bottleLabel(pname(s)))}"><span class="lp-glass" id="lp-glass"><img src="${esc(s.hero.src)}" alt="" width="${s.hero.w}" height="${s.hero.h}" draggable="false"><span class="lp-hint" id="lp-hint">${esc(t().press)}</span></span></button>
         <div class="lp-caption" id="lp-caption"></div>
         <p class="sr" id="lp-live" aria-live="polite"></p>
       </div>
     </section>`;
   }
-  /* under the atomizer: the perfume just sprayed, and the quiz's first question about it */
+  /* under the bottle: the perfume just sprayed, and the quiz's first question about it */
   function captionHtml(s) {
     const done = tried.includes(s.id);
-    return `<img src="${esc(s.photo)}" alt=""><div class="lp-cap-t"><b>${esc(pname(s))}</b><span>${esc(s.house)}</span></div>
+    return `<div class="lp-cap-t" data-id="${esc(s.id)}"><b>${esc(pname(s))}</b><span>${esc(s.house)}</span></div>
       <div class="lp-tried" role="group" aria-label="${esc(t().triedQ)}"><span class="lp-tried-q">${esc(done ? t().triedDone : t().triedQ)}</span>
       <button type="button" class="lp-tried-yes${done ? " on" : ""}" data-tried="yes">${esc(t().triedYes)}</button><button type="button" class="lp-tried-no" data-tried="no">${esc(t().triedNo)}</button></div>`;
   }
@@ -433,12 +426,12 @@
     $("nav-articles").textContent = t().navArticles;
   }
   function render() {
+    if (sprayIdx < 0) nextSpray();   /* the first bottle stands on the stage before it sprays */
     chrome();
     host.innerHTML = heroHtml() + getHtml() + testHtml() + listHtml() + noseHtml() + quizHtml() + artsHtml() + footHtml() +
       `<p class="sr" id="lp-tried-live" aria-live="polite"></p>`;
     mist.canvas = $("lp-mist"); mist.ctx = mist.canvas.getContext ? mist.canvas.getContext("2d") : null; mist.parts = []; mist.size();
-    if (sprayIdx >= 0) showSpray(false);
-    mount3d();
+    if (shown) showSpray(false);
     reveal();
     if (booted) autoSpray();
   }
@@ -470,9 +463,6 @@
     cap.innerHTML = captionHtml(s);
     refocus(cap, focused);
     cap.classList.add("on"); stage.classList.add("sprayed");
-    /* the jewel takes the colour of the perfume's strongest family in its first hours */
-    const f = ((s.stages.heart || [])[0] || (s.stages.opening || [])[0] || [])[0], g = f && LD.families[f] ? LD.families[f].group : null;
-    jewel = color(g); if (window.PP_ATOMIZER3D) window.PP_ATOMIZER3D.tint(jewel);
     $("lp-live").textContent = t().sprayedLive(s.house, pname(s), STAGES.map(st => t().rowStage[st] + ": " + s.notes[st].map(noteWord).join(", ")).join(". "));
     if (!fly || !motion() || !field.querySelectorAll || !stage.getBoundingClientRect) return;
     const nz = nozzle(), box = stage.getBoundingClientRect();
@@ -517,27 +507,55 @@
     };
     for (const c of ["dense", "denser"]) { if (inside()) return; field.classList.add(c); }
   }
+  /* where the spray leaves: the middle of the top of the bottle's glass (hero.nx, hero.ny, measured on its picture by
+     tools/fetch_hero_bottles.py), in the stage's own pixels */
   function nozzle() {
-    const stage = $("lp-stage"), A = window.PP_ATOMIZER3D;
-    const live = A && stage.classList.contains && stage.classList.contains("gl") ? A.nozzle() : null;
-    if (live) return live;
-    const b = stage.getBoundingClientRect(), r = $("lp-atomizer").getBoundingClientRect(), fx = lang === "ar" ? 1 - NOZZLE[0] : NOZZLE[0];
-    return { x: r.left - b.left + r.width * fx, y: r.top - b.top + r.height * NOZZLE[1] };
+    const stage = $("lp-stage"), img = $("lp-glass").querySelector("img"), H = LD.sprays[sprayIdx].hero;
+    const b = stage.getBoundingClientRect(), r = img.getBoundingClientRect();
+    return { x: r.left - b.left + r.width * H.nx, y: r.top - b.top + r.height * H.ny };
   }
+  /* The bottle on the stage becomes the perfume given, then `then` runs. With motion the old bottle sinks away and the
+     new one rises in once its picture is ready; without it, or under the test stub, it is simply replaced. */
+  function showBottle(s, then) {
+    const g = $("lp-glass"), btn = $("lp-bottle"), img = g && g.querySelector ? g.querySelector("img") : null;
+    if (btn) btn.setAttribute("aria-label", t().bottleLabel(pname(s)));
+    if (!img) { then(); return; }
+    const swap = () => { img.setAttribute("src", s.hero.src); img.setAttribute("width", s.hero.w); img.setAttribute("height", s.hero.h); };
+    if (!motion() || typeof Image !== "function") { swap(); then(); return; }
+    const pre = new Image(); pre.src = s.hero.src;
+    const ready = pre.decode ? pre.decode().catch(() => {}) : Promise.resolve();
+    g.classList.add("out");
+    Promise.all([ready, new Promise(r => setTimeout(r, 200))]).then(() => { swap(); g.classList.remove("out"); requestAnimationFrame(then); });
+  }
+  /* the next bottle's picture, fetched ahead so a press can show it at once */
+  function preloadNext() {
+    if (typeof Image !== "function") return;
+    const open = i => !tried.includes(LD.sprays[i].id) && i !== sprayIdx;
+    if (!sprayOrder.filter(open).length) return;
+    new Image().src = LD.sprays[sprayOrder.filter(open)[0]].hero.src;
+  }
+  /* A press: the bottle on the stage sprays straight up into the space its notes rise to. Once it has sprayed, the next
+     press brings another perfume's bottle first. */
   function spray() {
-    const s = nextSpray(), stage = $("lp-stage");
-    if (!stage) return;
-    if (motion() && mist.ctx && stage.getBoundingClientRect) {
-      const nz = nozzle(), a = lang === "ar" ? Math.PI + .62 : -.62;
-      const cols = [...new Set(STAGES.flatMap(st => s.notes[st].map(n => color(n.g))))];
-      mist.burst(nz.x, nz.y, a, cols.length ? cols : ["#E8903A"]);
-    }
-    showSpray(true);
+    const go = () => {
+      const s = LD.sprays[sprayIdx], stage = $("lp-stage");
+      if (!s || !stage) return;
+      if (motion() && mist.ctx && stage.getBoundingClientRect) {
+        const nz = nozzle(), cols = [...new Set(STAGES.flatMap(st => s.notes[st].map(n => color(n.g))))];
+        mist.burst(nz.x, nz.y, -Math.PI / 2, cols.length ? cols : ["#E8903A"], 1.1);
+      }
+      shown = true;
+      showSpray(true);
+      preloadNext();
+    };
+    if (swapping) return;   /* a press while a bottle is on its way in waits for it */
+    if (shown) { swapping = true; nextSpray(); showBottle(LD.sprays[sprayIdx], () => { swapping = false; go(); }); } else go();
   }
-  /* a spray with the bulb's squeeze shown, as a press gives */
+  let swapping = false;
+  /* a spray with the press shown, as a finger gives */
   const pressSpray = () => { squeeze(true); spray(); setTimeout(() => squeeze(false), 220); };
-  /* the squeeze as a picture only: it shows while a finger or the mouse is down, and for a moment after a key */
-  const squeeze = on => { const st = $("lp-stage"); if (st) st.classList.toggle("pressed", on); if (window.PP_ATOMIZER3D) window.PP_ATOMIZER3D.squeeze(on); };
+  /* the press as a picture only: the bottle dips while a finger or the mouse is down, and for a moment after a key */
+  const squeeze = on => { const st = $("lp-stage"); if (st) st.classList.toggle("pressed", on); };
   /* the visitor's own first press or answer ends the hint on the bulb */
   const touch = () => { touched = true; const st = $("lp-stage"); if (st) st.classList.add("touched"); };
   /* a redrawn caption hands keyboard focus back to the answer button that had it */
@@ -545,7 +563,7 @@
   /* Tried it? Yes adds the bottle to the quiz links and says so, then the next perfume comes; Not yet sprays the next. */
   let nextTimer = null;
   function answerTried(yes) {
-    const s = LD.sprays[sprayIdx]; if (!s) return;
+    const s = LD.sprays[sprayIdx]; if (!s || !shown) return;
     touch();
     clearTimeout(nextTimer);
     if (!yes) { pressSpray(); return; }
@@ -555,18 +573,6 @@
     const live = $("lp-tried-live"); if (live) live.textContent = `${t().triedDone}: ${pname(s)}. ${ctaText()}.`;
     nextTimer = setTimeout(pressSpray, 900);
   }
-  /* the live atomizer takes the picture's place after every render, once js/bottle3d.js has loaded; the hint and its
-     ring then follow the bulb as drawn */
-  function mount3d() {
-    const A = window.PP_ATOMIZER3D, b = $("lp-atomizer"), st = $("lp-stage");
-    if (!A || !b || !st) return;
-    A.mount(b, st, lang === "ar");
-    const p = A.bulb();
-    if (p) { b.style.setProperty("--bx", (lang === "ar" ? 1 - p.fx : p.fx).toFixed(3)); b.style.setProperty("--by", p.fy.toFixed(3)); }
-    if (jewel) A.tint(jewel);
-  }
-  document.addEventListener("pp:atomizer3d", mount3d);
-
   /* sections fade up as they come into view; without IntersectionObserver or motion they are simply there */
   let io = null;
   function reveal() {
@@ -586,7 +592,7 @@
      The bottle sprays on a completed press (a click, which a tap, the mouse and Enter or Space all give), so a finger
      that starts a scroll on the bottle does not spray. */
   host.addEventListener("pointerdown", e => {
-    if (!e.target.closest || !e.target.closest("#lp-atomizer") || e.button !== 0) return;
+    if (!e.target.closest || !e.target.closest("#lp-bottle") || e.button !== 0) return;
     if (e.pointerType === "mouse") e.preventDefault();
     squeeze(true);
   });
@@ -595,7 +601,7 @@
   host.addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
     const d = b.dataset;
-    if (b.id === "lp-atomizer") { touch(); clearTimeout(nextTimer); if (e.detail === 0) { squeeze(true); setTimeout(() => squeeze(false), 160); } spray(); return; }
+    if (b.id === "lp-bottle") { touch(); clearTimeout(nextTimer); if (e.detail === 0) { squeeze(true); setTimeout(() => squeeze(false), 160); } spray(); return; }
     if (d.tried) { answerTried(d.tried === "yes"); return; }
     if (d.hate) { hate = hate === d.hate ? null : d.hate; updateTest(); return; }
     if (d.flip) { flip(d.flip === "1"); return; }
@@ -617,9 +623,9 @@
   let autoIo = null, booted = false;
   function autoSpray() {
     if (autoIo) { autoIo.disconnect(); autoIo = null; }
-    if (sprayIdx >= 0) return;
-    const go = () => { if (sprayIdx >= 0 || document.visibilityState === "hidden") return; pressSpray(); };
-    const st = $("lp-atomizer"); if (!st) return;
+    if (shown) return;
+    const go = () => { if (shown || document.visibilityState === "hidden") return; pressSpray(); };
+    const st = $("lp-bottle"); if (!st) return;
     if (!("IntersectionObserver" in window)) { setTimeout(go, 900); return; }
     autoIo = new IntersectionObserver(es => { if (es.some(e => e.intersectionRatio >= .5)) { autoIo.disconnect(); autoIo = null; setTimeout(go, 600); } }, { threshold: [.5] });
     autoIo.observe(st);

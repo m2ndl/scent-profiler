@@ -1,8 +1,8 @@
 /* The front page (site/index.html) under the stub browser (lib/dom.js): its generated data is current (the example
    result included, which is a run of the quiz), it renders in both languages from that data, every way into the quiz
    opens the quiz on its first question with the bottles marked as tried already picked, it starts the backend's funnel
-   with one reach:start, and its words keep the site's rules. The atomizer's mist and motion need a real browser; here
-   the page must simply render without them. */
+   with one reach:start, and its words keep the site's rules. The mist, the bottles' swap and the motion need a real
+   browser; here the page must simply render without them. */
 "use strict";
 const test = require("node:test");
 const assert = require("node:assert/strict");
@@ -24,10 +24,16 @@ test("site/js/landing-data.js is current (run node tools/build_landing.js)", () 
   assert.equal(fs.readFileSync(OUT, "utf8"), build().text);
   const D = loadSite("data").PP_DATA;
   assert.equal(LD.total, D.PERFUMES.length);
-  assert.deepEqual([...LD.sprays.map(s => s.id)], [...D.QUIZ.grid], "the atomizer sprays the quiz's twenty bottles");
+  assert.deepEqual([...LD.sprays.map(s => s.id)], [...D.QUIZ.grid], "the stage shows the quiz's twenty bottles");
   assert.deepEqual([...Object.keys(LD.groups)].sort(), ["amber", "floral", "fresh", "musk", "oud", "rose", "spiced", "sweet", "woody"]);
   for (const s of LD.sprays) {
     assert.ok(s.photo && fs.existsSync(path.join(SITE, s.photo)), `${s.id} has a shipped photo`);
+    /* its large picture for the stage (python tools/fetch_hero_bottles.py), sized, with the spray's point on its glass */
+    const H = s.hero;
+    assert.equal(H.src, `img/hero/${s.id}.webp`);
+    assert.ok(fs.existsSync(path.join(SITE, H.src)), `${s.id}: its large picture`);
+    assert.ok(H.w > 0 && H.h >= 300, `${s.id}: tall enough to stand sharp on a phone (${H.h} px)`);
+    assert.ok(H.nx > 0.05 && H.nx < 0.95 && H.ny >= 0 && H.ny < 0.1, `${s.id}: the spray leaves from the top of the glass, off centre where the cap is, as on Good Girl's heel (${H.nx}, ${H.ny})`);
     for (const st of ["opening", "heart", "drydown"]) for (const n of s.notes[st]) {
       assert.ok(n.g in LD.groups, `${s.id} ${n.en}: a palate group`);
       assert.ok(n.ar, `${s.id} ${n.en}: its Arabic word (the two note lists of that stage must line up in data.js)`);
@@ -59,9 +65,13 @@ test("the front page renders in Arabic first and in English, from the catalogue'
   let h = html(page);
   assert.equal(page.snapshot().html.dir, "rtl");
   assert.match(h, /<h1>اشتريت عطراً ثم تركته؟ قد تكون نوتة واحدة هي السبب\.<\/h1>/);
-  assert.match(h, /class="lp-atomizer" id="lp-atomizer" aria-label="بخّاخ عطر/);
-  /* the atomizer's still picture, turned for Arabic; js/bottle3d.js replaces it with the live one where it can */
-  assert.match(h, /<img class="lp-poster" src="img\/atomizer-rtl\.webp"/);
+  /* one of the twenty bottles stands on the stage before any spray, named in its label */
+  const first = /<button type="button" class="lp-bottle" id="lp-bottle" aria-label="([^"]+)\. اضغط لترشّه وترى نوتاته، والضغطة التالية تأتي بعطر آخر من عطور الاختبار العشرين\."><span class="lp-glass" id="lp-glass"><img src="img\/hero\/([a-z0-9]+)\.webp"/.exec(h);
+  assert.ok(first, "the bottle on the stage");
+  const onStage = LD.sprays.find(s => s.id === first[2]);
+  assert.ok(onStage && first[1] === (onStage.ar || onStage.name));
+  assert.match(h, /<span class="lp-hint" id="lp-hint">اضغط على الزجاجة<\/span>/);
+  assert.doesNotMatch(h, /atomizer|lp-poster/);
   /* the sections in order: the result, then three that turn on one tap each, then the quiz and the articles */
   const order = [...h.matchAll(/<section class="lp-sec [^"]*" id="([^"]+)"/g)].map(m => m[1]);
   assert.deepEqual(order, ["lp-get", "lp-test", "lp-list", "lp-nose", "lp-quiz", "lp-arts"]);
@@ -101,7 +111,8 @@ test("the front page renders in Arabic first and in English, from the catalogue'
   h = html(page);
   assert.equal(page.snapshot().html.dir, "ltr");
   assert.match(h, /<h1>Bought a perfume you never wear\? One note may be why\.<\/h1>/);
-  assert.match(h, /<img class="lp-poster" src="img\/atomizer-ltr\.webp"/);
+  const attr = x => x.replace(/&/g, "&amp;").replace(/'/g, "&#39;").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  assert.match(h, new RegExp(`aria-label="${attr(onStage.name)}\\. ${attr("Press to spray it and see its notes; the next press brings another of the quiz's twenty perfumes.")}"><span class="lp-glass" id="lp-glass"><img src="img/hero/${onStage.id}\\.webp"`), "the same bottle stays through a language switch");
   assert.match(h, />Find what suits me</);
   assert.match(h, new RegExp(`<p class="lp-res-k">Your palate</p><h3>${R.palate.en}</h3>`));
   assert.match(h, new RegExp(`<b data-count="${R.out}">${R.out}</b><span>of our 1,000 perfumes ruled out</span>`));
@@ -176,7 +187,6 @@ test("the sections' words match the data they describe", () => {
   assert.deepEqual([...LD.example.label.filter(x => x.hidden).map(x => x.inci)], ["tetramethyl acetyloctahydronaphthalenes", "hexamethylindanopyran"], "the copy names Iso E Super and Galaxolide as the materials the list leaves out");
   const musk = LD.families.white_musk.count;
   assert.ok(musk >= 400 && musk < 500, `"nearly half" of the catalogue carries a clean musk (${musk})`);
-  for (const side of ["ltr", "rtl"]) assert.ok(fs.existsSync(path.join(SITE, "img", `atomizer-${side}.webp`)), `the ${side} still picture (python tools/render_atomizer.py)`);
   /* every ingredient shown has its common name in both languages */
   const page = open();
   for (const lang of ["ar", "en"]) {
@@ -227,14 +237,16 @@ test("the 1,000-perfume test: one smell the visitor cannot stand, set beside all
   assert.match(h, new RegExp(`رائحة واحدة لا تطيقها استبعدت ${gone("white_musk")} عطراً\\. أما الورد والفانيلا والحمضيات وغيرها من الروائح الشائعة فلا يخلو منها كلها إلا ${none} عطراً من الألف\\.`));
 });
 
-test("under the atomizer, tried it? Yes carries the bottle into every link to the quiz, and Not yet sprays another", () => {
+test("under the bottle, tried it? Yes carries the bottle into every link to the quiz, and Not yet sprays another", () => {
   const page = open({ endpoint: ENDPOINT, localStorage: { pp_device: JSON.stringify("d_tried"), pp_lang: JSON.stringify("en") } });
   const tap = dataset => page.sandbox.document.getElementById("lp").listeners.click[0]({ target: { closest: sel => (sel === "button" ? { id: "", dataset } : null) }, detail: 1, preventDefault() {} });
-  const sprayed = () => { const cap = page.snapshot().els["lp-caption"], m = cap && /^<img src="([^"]+)" alt=""><div class="lp-cap-t">/.exec(cap.innerHTML); return m ? LD.sprays.find(s => s.photo === m[1]) : null; };
+  const sprayed = () => { const cap = page.snapshot().els["lp-caption"], m = cap && /^<div class="lp-cap-t" data-id="([^"]+)">/.exec(cap.innerHTML); return m ? LD.sprays.find(s => s.id === m[1]) : null; };
+  const label = () => page.snapshot().els["lp-bottle"].attrs["aria-label"];
   assert.equal(sprayed(), null, "nothing sprayed before the page's own first spray");
   page.flushTimers();   /* the first spray, once the bottle is in view (at once without IntersectionObserver) */
   const first = sprayed();
   assert.ok(first, "the first spray names one of the twenty");
+  assert.match(html(page), new RegExp(`<img src="img/hero/${first.id}\\.webp"`), "the first spray is the bottle that stood on the stage");
   assert.match(page.snapshot().els["lp-caption"].innerHTML, /<span class="lp-tried-q">Tried it\?<\/span>\s*<button type="button" class="lp-tried-yes" data-tried="yes">Yes<\/button><button type="button" class="lp-tried-no" data-tried="no">Not yet<\/button>/);
   tap({ tried: "yes" });
   assert.match(page.snapshot().els["lp-caption"].innerHTML, /<span class="lp-tried-q">Added to your quiz<\/span>/);
@@ -247,6 +259,7 @@ test("under the atomizer, tried it? Yes carries the bottle into every link to th
   tap({ tried: "no" });
   const third = sprayed();
   assert.ok(third && third.id !== second.id && third.id !== first.id, "Not yet sprays another at once");
+  assert.ok(label().startsWith(third.name + ". Press to spray it"), "the bottle's label names the perfume now on the stage");
   assert.equal(quizHref(), `quiz.html?go=1&tried=${first.id}&endpoint=${encodeURIComponent(ENDPOINT)}`, "Not yet adds nothing");
   /* a redraw (here a language switch) keeps the tried bottles, and the calls to action say how many */
   page.sandbox.document.getElementById("lang-ar").listeners.click[0]();
