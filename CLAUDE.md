@@ -8,8 +8,9 @@ backend. README.md is the full reference; PROJECT_LOG.md is the continuity recor
 - `site/`: the website and the only folder that is deployed. `js/config.js` holds the deployment settings,
   `js/engine.js` the profile logic, `js/notes.js` the note rows and told items both pages share, `js/page.js` the
   words, storage, sending and backend calls both pages share, `js/app.js` the profile page (`profile.html`),
-  `js/quiz.js` the quiz, which is the front page (`index.html`), with `js/motion.js` its motion and touch (screen
-  transitions, in-place updates, the dock); `js/evidence.js` and `js/bottles.js` are generated,
+  `js/quiz.js` the quiz (`quiz.html`), with `js/motion.js` its motion and touch (screen transitions, in-place
+  updates, the dock), and `js/landing.js` the front page (`index.html`); `js/evidence.js`, `js/bottles.js` and
+  `js/landing-data.js` (run `node tools/build_landing.js`) are generated,
   and `img/bottles/` holds the bottle photos.
 - `backend/apps-script.gs`: the Sheets backend. Its `VERIFIED` list is generated.
 - `evidence/`: label lists and the tag changelog, the inputs to `site/js/evidence.js`.

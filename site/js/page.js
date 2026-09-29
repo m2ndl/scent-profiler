@@ -8,7 +8,7 @@ window.PP_PAGE = (function () {
   /* the words both pages show; PP_PAGE.words adds a page's own words to them */
   const WORDS = {
     en: {
-      brand: "Scent Profiler", tagline: "find what you hate before you buy", navArticles: "Why drydowns fail",
+      brand: "Scent Profiler", tagline: "find what you hate before you buy", navArticles: "Articles",
       cls: { badLikely: "Likely deal-breaker", badPossible: "Possible deal-breaker", goodLikely: "Reliably liked", goodPossible: "Probably liked", mixed: "Depends on the perfume" },
       recsH: "Three to try next", recsLede: "Ranked by what they avoid first, and what they share with your likes second. Samples, never blind bottles.",
       toldOnlyH: "Based only on what you told us",
@@ -22,7 +22,7 @@ window.PP_PAGE = (function () {
       cats: { m: "men", f: "women", u: "unisex" }
     },
     ar: {
-      brand: "محلل الذائقة العطرية", tagline: "اعرف ما تكرهه قبل أن تشتري", navArticles: "لماذا يتغيّر العطر بعد ساعات",
+      brand: "محلل الذائقة العطرية", tagline: "اعرف ما تكرهه قبل أن تشتري", navArticles: "مقالات",
       cls: { badLikely: "مُفسد مرجّح", badPossible: "مُفسد محتمل", goodLikely: "تحبه باستمرار", goodPossible: "تحبه على الأرجح", mixed: "يعتمد على العطر" },
       recsH: "ثلاثة لتجربتها", recsLede: "مرتّبة بحسب ما تتجنبه أولاً، وما تشترك فيه مع ما أحببته ثانياً. عينات، لا زجاجات على العمياني.",
       toldOnlyH: "بناءً على ما أخبرتنا به فقط",

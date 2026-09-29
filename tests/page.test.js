@@ -11,7 +11,7 @@ const { createPage } = require("./lib/dom");
 
 const html = fs.readFileSync(path.join(SITE, "profile.html"), "utf8");
 const scriptsOf = src => [...src.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
-const scripts = scriptsOf(html), quizScripts = scriptsOf(fs.readFileSync(path.join(SITE, "index.html"), "utf8"));
+const scripts = scriptsOf(html), quizScripts = scriptsOf(fs.readFileSync(path.join(SITE, "quiz.html"), "utf8"));
 const W = loadSite("data", "mapper", "materials", "evidence", "engine", "notes");
 const E = W.PP_ENGINE.create(W.PP_DATA, W.PP_MAP, W.PP_EVIDENCE), N = W.PP_NOTES.create(W.PP_DATA, W.PP_MAP, E);
 const FAMILIES = W.PP_DATA.FAMILIES;
@@ -203,7 +203,7 @@ test("the profiler, loaded with the quiz's storage, gives the quiz's picks and u
   const els = page.snapshot().els;
   assert.deepEqual(picksOf(els.recs.innerHTML), picksOf(qh));
   assert.equal(els["recs-h"].textContent, "Three to try next");
-  assert.match(els.profile.innerHTML, /<p class="hint"><a href="index\.html">Also uses 4 answers from the quiz\.<\/a><\/p>/);
+  assert.match(els.profile.innerHTML, /<p class="hint"><a href="quiz\.html">Also uses 4 answers from the quiz\.<\/a><\/p>/);
   assert.match(els.profile.innerHTML, new RegExp(`${esc(E.byId.sauvageedp.name)}, opening: you hated the bergamot <span class="src">`), "the evidence line names the note");
 });
 

@@ -2,10 +2,10 @@
 
 The Artifact host wraps pages in its own <html>/<head>/<body>, so each published file must contain only the
 inner content. site/profile.html marks that content with <!--ARTIFACT:START--> ... <!--ARTIFACT:END--> pairs,
-which are concatenated; the other pages (index.html, the quiz; articles.html; quiz.html, the redirect to the
-front page) are full documents whose head and body contents are kept, meta tags dropped. site.css is inlined in
-every page and js/ is copied alongside. Publish build/artifact/index.html (the quiz) as the page, with
-profile.html, articles.html, quiz.html and js/*.js as its files. Run after every edit under site/.
+which are concatenated; the other pages (index.html, the front page; quiz.html, the quiz; articles.html) are full
+documents whose head and body contents are kept, meta tags dropped. site.css (and landing.css on the front page) is
+inlined in every page and js/ is copied alongside. Publish build/artifact/index.html (the front page) as the page,
+with profile.html, articles.html, quiz.html and js/*.js as its files. Run after every edit under site/.
 """
 import base64, json, re, shutil, pathlib
 
@@ -31,9 +31,11 @@ def inner(name):
         page = "\n".join(p.strip("\n") for p in parts) + "\n"
     else:
         head = re.search(r"<head>(.*?)</head>", doc, flags=re.S).group(1)
-        body = re.search(r"<body>(.*?)</body>", doc, flags=re.S).group(1)
+        body = re.search(r"<body[^>]*>(.*?)</body>", doc, flags=re.S).group(1)
         page = re.sub(r"<meta[^>]*>\s*", "", head).strip() + "\n" + body.strip() + "\n"
-    return page.replace('<link rel="stylesheet" href="site.css">', STYLE)
+    page = page.replace('<link rel="stylesheet" href="site.css">', STYLE)
+    # the front page's own stylesheet travels inline too (the host allows no stylesheet from elsewhere)
+    return page.replace('<link rel="stylesheet" href="landing.css">', "<style>\n" + (site / "landing.css").read_text(encoding="utf-8") + "\n</style>")
 
 for name in ("index.html", "profile.html", "articles.html", "quiz.html"):
     (out / name).write_text(inner(name), encoding="utf-8")
@@ -45,4 +47,10 @@ bottles = {}
 for img in sorted((site / "img" / "bottles").glob("*.webp")):
     bottles[img.stem] = "data:image/webp;base64," + base64.b64encode(img.read_bytes()).decode("ascii")
 (out / "js" / "bottles.js").write_text("window.PP_BOTTLES = " + json.dumps(bottles, separators=(",", ":")) + ";\n", encoding="utf-8")
+# the front page's twenty photos are named by path in js/landing-data.js; the host serves no img/ folder, so they
+# travel inside that file as data URIs too
+landing = (out / "js" / "landing-data.js").read_text(encoding="utf-8")
+for ref in sorted(set(re.findall(r'"(img/bottles/[^"]+\.webp)"', landing))):
+    landing = landing.replace(f'"{ref}"', '"data:image/webp;base64,' + base64.b64encode((site / ref).read_bytes()).decode("ascii") + '"')
+(out / "js" / "landing-data.js").write_text(landing, encoding="utf-8")
 print("OK", (out / "index.html").stat().st_size, "bytes;", len(bottles), "bottle photos,", (out / "js" / "bottles.js").stat().st_size, "bytes")

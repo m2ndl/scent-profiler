@@ -38,7 +38,7 @@ function palate(prof, ratings, rule) {
 
 /* check the copy against the real page */
 const { createPage } = require(path.join(ROOT, "tests", "lib", "dom"));
-const scripts = [...fs.readFileSync(path.join(SITE, "index.html"), "utf8").matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
+const scripts = [...fs.readFileSync(path.join(SITE, "quiz.html"), "utf8").matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
 function pagePalate(ratings, quiz) {
   const answers = Object.assign({ taste: "unsure", told: [], anosmia: "no" }, quiz);
   const p = createPage({ localStorage: { pp_device: JSON.stringify("d"), pp_lang: JSON.stringify("en"), pp_ratings_v1: JSON.stringify(ratings), pp_quiz_v1: JSON.stringify(answers) } });

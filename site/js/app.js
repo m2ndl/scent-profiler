@@ -213,7 +213,7 @@
     $("share").textContent = t().share; $("reset").textContent = pendingReset ? t().resetYes : t().reset;
     $("method-s").textContent = t().methodS; $("method").innerHTML = t().method;
     /* the footer opens with the header's two links, which a phone shows here instead of in its one-row header */
-    $("foot").innerHTML = `<nav class="footnav"><a href="index.html">${esc(t().navQuiz)}</a><a href="articles.html">${esc(t().navArticles)}</a></nav>` + t().foot + partnerLine();
+    $("foot").innerHTML = `<nav class="footnav"><a href="quiz.html">${esc(t().navQuiz)}</a><a href="articles.html">${esc(t().navArticles)}</a></nav>` + t().foot + partnerLine();
     const quickIds = ["sauvageedp", "bleuedp", "aventus", "hacivat", "br540", "khamrah", "yara", "erbapura", "libre", "cdnim"];
     $("quick").innerHTML = "<span class='eyebrow'>" + esc(t().quick) + "</span>" + quickIds.filter(id => !ratings[id]).map(id => `<button type="button" data-add="${id}">${esc(pname(byId[id]))}</button>`).join("");
   }
@@ -282,7 +282,7 @@
     const host = $("profile");
     const ids = Object.keys(ratings).filter(id => STAGES.some(s => ratings[id][s] != null));
     /* one line when the quiz's word answers count too, with a link to the quiz */
-    const uses = toldAnswers ? `<p class="hint"><a href="index.html">${esc(t().toldUses(toldAnswers))}</a></p>` : "";
+    const uses = toldAnswers ? `<p class="hint"><a href="quiz.html">${esc(t().toldUses(toldAnswers))}</a></p>` : "";
     const prof = computeProfile();
     if (!ids.length) { host.innerHTML = `<div class="empty">${esc(t().emptyProfile)}</div>` + uses; return { prof, ids }; }
     trackProfile(ids.length);

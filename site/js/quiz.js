@@ -1,4 +1,4 @@
-/* The quiz, the site's front page (index.html): which well-known bottles the visitor has worn and how each one ended. Each
+/* The quiz (quiz.html), which the front page (index.html) leads to: which well-known bottles the visitor has worn and how each one went. Each
    verdict is written as an ordinary rating into the device store the profiler reads, so both pages show
    the same profile. Storage, sending, the lazy catalogue and the lookup are in page.js, shared with app.js;
    profile logic lives in engine.js, the note rows and told items in notes.js. What the visitor says in words (notes
@@ -24,22 +24,22 @@
     en: {
       navProfiler: "Your profile",
       gridQ: "Which of these have you tried?",
-      gridHint: "On skin or clothes, at home or in a shop; a sniff from a paper strip doesn't count. Next, you say how each one ended for you.",
+      gridHint: "On skin or clothes, at home or in a shop; a sniff from a paper strip doesn't count. Next, you say how each one went for you.",
       qLabel: "Search for another perfume", q: "Not here? Type a perfume or a house",
       none: "None of these", cont: n => (n ? `Continue with ${n}` : "Continue"), more: n => `More perfumes (${n})`,
       rated: "already rated", ratedToast: "Already rated on your profile.",
       notFound: "Not found. You can add it by name on your profile.",
       part: (i, name) => `Part ${i} of 4 · ${name}`, parts: ["Your bottles", "Notes you know", "Sweet or bitter", "What bothers you"], back: "Back",
       count: (i, n) => `Bottle ${i} of ${n}`,
-      verdictQ: "How did it end?",
-      verdicts: { still: "I still wear it", turned: "I stopped wearing it: it turned on me", other: "I stopped for another reason", shop: "I tried it in a shop and it put me off", unsure: "I don't remember how it ended" },
+      verdictQ: "How did it go?",
+      verdicts: { still: "I still wear it", turned: "I stopped wearing it: it turned on me", other: "I stopped for another reason", shop: "I tried it in a shop and it put me off", unsure: "I don't remember how it went" },
       whenQ: "When did it bother you?",
       when: { opening: "In the first minutes", heart: "In the first hours", drydown: "Hours later, or on my clothes", unsure: "I don't remember" },
       wrongQ: "What was wrong? (optional)", wrongShop: "What put you off? (optional)", next: "Next",
       notesIntro: (name, n) => `${cap(["", "one", "two", "three", "four", "five"][n] || String(n))} ${n === 1 ? "note" : "notes"} from ${name}. Tap what you remember; skip what you don't.`,
       skipNotes: "Skip the notes for this bottle", skipAllNotes: "Skip notes for the other bottles",
       narrowQ: "One more would settle it: have you worn any of these?",
-      narrowHint: "Each of these has, in its base, a family that may be a deal-breaker for you. Your verdict on it shows whether that family is the problem.",
+      narrowHint: "Each of these tests one family that may be a deal-breaker for you. Your verdict on it shows whether that family is the problem.",
       noneNarrow: "None of these, or I don't know them",
       tests: f => `Tests: ${f}`,
       pickerH: { fresh: "Citrus and fresh", flowers: "Flowers", fruit: "Fruit and sweet", spices: "Spices and herbs", woods: "Woods, resins, musks and smoke" },
@@ -75,20 +75,20 @@
       wheelLabel: "Your palate on a wheel of nine kinds of perfume", wheelHint: "Tap a kind of perfume to see what your bottles show about it.",
       wheelNone: "Your bottles show nothing about this kind yet.",
       startH: "Find what ruins a perfume for you",
-      startLede: "Tell us how the perfumes you know ended for you. We find the material family behind the ones that turned on you, name your palate and choose three samples to try next.",
+      startLede: "Tell us about the perfumes you know: which suited you and which did not. We find the material family behind the ones that turned on you, name your palate and choose three samples to try next.",
       startParts: "Four parts:", startGo: "Start", startBack: "Took the quiz before? Rate the samples you tried",
       palOne: side => `Your bottles show a liking for ${side}.`,
       palTwo: (a, b) => `Your bottles show two likings, each with bottles behind it: ${a}, and ${b}.`, tipH: "A tip for your palate",
       pal: {
-        amber: { side: "warm, resinous bases", tip: "These materials carry a perfume's last hours, so judge an amber sample hours after you put it on, not at the counter." },
-        sweet: { side: "dessert-like sweetness", tip: "Sweet perfumes differ most in their base: the patchouli, woods or musk under the sugar are what set one vanilla apart from the next." },
+        amber: { side: "warm, resinous bases", tip: "These materials last longest on skin, so judge an amber sample over several hours, not only at the counter." },
+        sweet: { side: "dessert-like sweetness", tip: "Sweet perfumes differ in what comes with the sugar: the fruit or flowers at the start and the patchouli, woods or musk under it are what set one vanilla apart from the next." },
         oud: { side: "dark, smoky materials", tip: "Most oud in Western perfumes is a smoky accord, while natural oud smells more animal and leathery. If you have met only one, a sample of the other shows which you like." },
         musk: { side: "musks", tip: "Many people cannot smell one or more musks, so a musk perfume can be strong on you while you barely notice it. Ask someone near you before you add more sprays." },
         woody: { side: "woods", tip: "These woods smell very different, from the dry, radiant Ambroxan-type base to creamy sandalwood, so follow the families listed below rather than the word \"woody\" on a box." },
         rose: { side: "rose", tip: "A lemony green rose and a honeyed, jammy one rarely smell like the same flower. If you have met only one kind, try a sample of the other." },
         floral: { side: "flowers", tip: "Heavy white florals and light, clean ones are far apart, so follow the families listed below rather than the word \"floral\" on a box." },
         fresh: { side: "fresh, bright materials", tip: "Citrus is usually gone within the hour, so what makes a fresh perfume last is something else, often sea notes, musk or woods. Smell a sample again after an hour before you buy." },
-        spiced: { side: "spice", tip: "Saffron and warm spices often sit on an oud, amber or woody base, and the base decides whether you keep the perfume. Judge a sample hours in, not only at the first spray." },
+        spiced: { side: "spice", tip: "Saffron and warm spices often sit on an oud, amber or woody base, so the same perfume can smell quite different an hour in. Judge a sample over several hours, not only at the first spray." },
         wide: { text: "Your bottles cover several kinds of perfume and none of them leads: you like a wide range.", tip: "For a palate this wide, the useful finding is what you avoid: your deal-breaker rules perfumes out, and everything else is open to you.", tipNone: "No deal-breaker has shown up yet. Rating more bottles on your profile, especially ones that turned on you, is how one shows up." },
         selective: { text: "None of your bottles stands out as a like, but they do show what you avoid.", textSome: "What you like is not clear enough yet to name your palate, but your bottles do show what you avoid.", tip: "That is the useful half: the count above shows how many perfumes your deal-breaker rules out." }
       },
@@ -102,8 +102,8 @@
       oneMore: "One more bottle gives you three recommendations. Add it on your profile.",
       full: "See the full profile",
       noneH: "Start with a sample",
-      noneLede: "Your profile comes from perfumes you have worn, so it cannot be built yet. Each of these three has one family strong in its base: wear a sample for a day and see whether that family bothers you.",
-      carry: n => `If this bothers you, ${n} other perfumes in our catalogue carry the same family in their base.`,
+      noneLede: "Your profile comes from perfumes you have worn, so it cannot be built yet. Each of these three tests one family: wear a sample for a day and see whether that family bothers you.",
+      carry: n => `If this bothers you, ${n} other perfumes in our catalogue carry the same family strongly.`,
       rateLater: "Rate it when you have worn it",
       noteLine: (perfume, words, v, stage) => `${perfume}: you ${{ 2: "loved", 1: "liked", 0: "didn't mind", "-1": "disliked", "-2": "hated" }[v]} the ${words} (${stage})`,
       youEnjoy: w => `You enjoy: ${w}`, youAvoid: w => `You avoid: ${w}`, bothered: w => `Has bothered you: ${w}`,
@@ -113,28 +113,28 @@
       unnoticed: pairs => `You did not notice ${pairs}.`, unnoticedPair: (f, bottle) => `the ${f} in ${bottle}`,
       toldOnlyLede: "No bottle yet, so these picks rest on your answers alone. Answers in words are a weaker guide than a bottle you have worn: try a sample first.",
       confirmH: "Samples that would confirm it",
-      confirmLede: "Each has one family strong in its base: wear a sample for a day and see whether that family bothers you.",
+      confirmLede: "Each tests one family: wear a sample for a day and see whether that family bothers you.",
       anosmiaNote: name => `Musks and woody ambers may be hard for you to judge: some people barely smell them even when others can. A sample of ${name}, whose base is mostly white musk, shows whether you can.`,
     },
     ar: {
       navProfiler: "ملفك العطري",
       gridQ: "أيّ هذه العطور جرّبتها؟",
-      gridHint: "على البشرة أو على الثياب، في البيت أو في المتجر؛ شمّ الورقة لا يُحسب. بعدها تخبرنا كيف انتهى كل عطر منها معك.",
+      gridHint: "على البشرة أو على الثياب، في البيت أو في المتجر؛ شمّ الورقة لا يُحسب. بعدها تخبرنا كيف كانت تجربتك مع كل عطر منها.",
       qLabel: "ابحث عن عطر آخر", q: "ليس هنا؟ اكتب اسم عطر أو دار",
       none: "لا شيء منها", cont: n => (n ? `تابع (${n})` : "تابع"), more: n => `المزيد من العطور (${n})`,
       rated: "قيّمته من قبل", ratedToast: "قيّمته من قبل في ملفك العطري.",
       notFound: "لم نجده. يمكنك إضافته باسمه في ملفك العطري.",
       part: (i, name) => `الجزء ${i} من 4 · ${name}`, parts: ["عطورك", "نوتات تعرفها", "حلو أو مرّ", "ما يزعجك"], back: "رجوع",
       count: (i, n) => `العطر ${i} من ${n}`,
-      verdictQ: "كيف انتهى معك؟",
-      verdicts: { still: "ما زلت أستخدمه", turned: "توقفت عن استخدامه: انقلب عليّ", other: "توقفت عنه لسبب آخر", shop: "جرّبته في متجر فنفرت منه", unsure: "لا أتذكر كيف انتهى معي" },
+      verdictQ: "كيف كانت تجربتك معه؟",
+      verdicts: { still: "ما زلت أستخدمه", turned: "توقفت عن استخدامه: انقلب عليّ", other: "توقفت عنه لسبب آخر", shop: "جرّبته في متجر فنفرت منه", unsure: "لا أتذكر كيف كانت تجربتي معه" },
       whenQ: "متى أزعجك؟",
       when: { opening: "في الدقائق الأولى", heart: "في الساعات الأولى", drydown: "بعد ساعات، أو على ثيابي", unsure: "لا أتذكر" },
       wrongQ: "ما الذي أزعجك؟ (اختياري)", wrongShop: "ما الذي نفّرك منه؟ (اختياري)", next: "التالي",
       notesIntro: (name, n) => `${["", "نوتة واحدة", "نوتتان", "ثلاث نوتات", "أربع نوتات", "خمس نوتات"][n] || n + " نوتات"} من ${name}. اختر ما تتذكره، وتجاوز ما لا تتذكره.`,
       skipNotes: "تجاوز نوتات هذا العطر", skipAllNotes: "تجاوز النوتات لبقية العطور",
       narrowQ: "عطر واحد آخر يحسم الأمر: هل جرّبت أياً من هذه؟",
-      narrowHint: "في قاعدة كل واحد منها عائلة قد تكون مُفسدة لك. وجوابك عنه يبيّن إن كانت هذه العائلة هي السبب.",
+      narrowHint: "كل واحد منها يختبر عائلة قد تكون مُفسدة لك. وجوابك عنه يبيّن إن كانت هذه العائلة هي السبب.",
       noneNarrow: "لا شيء منها، أو لا أعرفها",
       tests: f => `يختبر: ${f}`,
       pickerH: { fresh: "حمضيات ومنعش", flowers: "زهور", fruit: "فواكه وحلويات", spices: "توابل وأعشاب", woods: "أخشاب وراتنجات ومسك ودخان" },
@@ -172,20 +172,20 @@
       wheelLabel: "ذائقتك على عجلة من تسعة أنواع من العطور", wheelHint: "اضغط على نوع من العطور لترى ما تكشفه عطورك عنه.",
       wheelNone: "لم تكشف عطورك شيئاً عن هذا النوع بعد.",
       startH: "اعرف ما يفسد العطر عليك",
-      startLede: "أخبرنا كيف انتهت معك العطور التي تعرفها. نجد عائلة المواد وراء العطور التي انقلبت عليك، ونسمّي ذائقتك، ونختار لك ثلاث عيّنات تجرّبها بعد ذلك.",
+      startLede: "أخبرنا عن العطور التي تعرفها: أيّها ناسبك وأيّها لم يناسبك. نجد عائلة المواد وراء العطور التي انقلبت عليك، ونسمّي ذائقتك، ونختار لك ثلاث عيّنات تجرّبها بعد ذلك.",
       startParts: "أربعة أجزاء:", startGo: "ابدأ", startBack: "أنهيت الاختبار من قبل؟ قيّم العيّنات التي جرّبتها",
       palOne: side => `عطورك تكشف ميلك إلى ${side}.`,
       palTwo: (a, b) => `عطورك تكشف ميلين، لكلٍّ منهما عطور تشهد له: إلى ${a}، وإلى ${b}.`, tipH: "نصيحة لذائقتك",
       pal: {
-        amber: { side: "القواعد الدافئة الراتنجية", tip: "هذه المواد تحمل الساعات الأخيرة من العطر، فاحكم على عيّنة العنبر بعد ساعات من وضعها، لا في المتجر." },
-        sweet: { side: "الحلاوة التي تشبه الحلويات", tip: "تختلف العطور الحلوة في قاعدتها أكثر من أي شيء آخر: الباتشولي أو الأخشاب أو المسك تحت السكر هي ما يميّز فانيلا عن أخرى." },
+        amber: { side: "القواعد الدافئة الراتنجية", tip: "هذه المواد تدوم أطول من غيرها على الجلد، فاحكم على عيّنة العنبر على مدى ساعات، لا في المتجر فقط." },
+        sweet: { side: "الحلاوة التي تشبه الحلويات", tip: "تختلف العطور الحلوة فيما يرافق السكر: الفواكه أو الزهور في البداية، والباتشولي أو الأخشاب أو المسك تحته، هي ما يميّز فانيلا عن أخرى." },
         oud: { side: "المواد الداكنة المدخّنة", tip: "أغلب العود في العطور الغربية تركيبة مدخّنة، أما العود الطبيعي فرائحته أقرب إلى الحيواني والجلدي. إن لم تجرّب إلا نوعاً واحداً، فعيّنة من الآخر تبيّن لك أيّهما تحب." },
         musk: { side: "المسك", tip: "كثير من الناس لا يشمّون نوعاً أو أكثر من المسك، فقد يكون عطر المسك قوياً عليك وأنت بالكاد تلاحظه. اسأل من حولك قبل أن تزيد الرشّات." },
         woody: { side: "الأخشاب", tip: "هذه الأخشاب مختلفة جداً، من قاعدة الأمبروكسان الجافة النفّاذة إلى الصندل الكريمي، فاتبع العائلات المذكورة أدناه لا كلمة «خشبي» على العلبة." },
         rose: { side: "الورد", tip: "الورد الأخضر الليموني والورد العسلي المربّى نادراً ما يبدوان زهرة واحدة. إن لم تجرّب إلا نوعاً منهما، فجرّب عيّنة من الآخر." },
         floral: { side: "الزهور", tip: "الزهور البيضاء الثقيلة والزهور الخفيفة النظيفة بعيدة عن بعضها، فاتبع العائلات المذكورة أدناه لا كلمة «زهري» على العلبة." },
         fresh: { side: "المواد المنعشة", tip: "الحمضيات تختفي عادة خلال ساعة، فما يُبقي العطر المنعش مادة أخرى، غالباً النفحات البحرية أو المسك أو الأخشاب. اشتمّ العيّنة مرة أخرى بعد ساعة قبل أن تشتري." },
-        spiced: { side: "التوابل", tip: "كثيراً ما يأتي الزعفران والتوابل الدافئة على قاعدة من العود أو العنبر أو الأخشاب، والقاعدة هي التي تحدد إن كنت ستبقي على العطر. احكم على العيّنة بعد ساعات، لا عند الرشّة الأولى فقط." },
+        spiced: { side: "التوابل", tip: "كثيراً ما يأتي الزعفران والتوابل الدافئة على قاعدة من العود أو العنبر أو الأخشاب، فقد يتغيّر العطر نفسه كثيراً بعد ساعة. احكم على العيّنة على مدى ساعات، لا عند الرشّة الأولى فقط." },
         wide: { text: "عطورك من أنواع كثيرة ولا يتقدّم أحدها على البقية: ذائقتك تتسع لأنواع كثيرة.", tip: "في ذائقة بهذا الاتساع، النتيجة المفيدة هي ما تتجنّبه: ما يفسد العطر عليك يستبعد عطوراً، وكل ما عداها متاح لك.", tipNone: "لم يظهر بعد ما يفسد العطر عليك. تقييم مزيد من العطور في ملفك العطري، وخاصة التي انقلبت عليك، هو ما يُظهره." },
         selective: { text: "لا يبرز من عطورك ما تحبه بوضوح، لكنها تكشف ما تتجنّبه.", textSome: "لم يتضح ما تحبه بعدُ بما يكفي لتسمية ذائقتك، لكن عطورك تكشف ما تتجنّبه.", tip: "وهذا هو النصف المفيد: الرقم أعلاه يبيّن كم عطراً يستبعده ما يفسد العطر عليك." }
       },
@@ -199,8 +199,8 @@
       oneMore: "عطر واحد آخر يعطيك ثلاثة ترشيحات. أضفه في ملفك العطري.",
       full: "اعرض الملف الكامل",
       noneH: "ابدأ بعينة",
-      noneLede: "ملفك يُبنى من عطور جرّبتها، لذلك لا يمكن بناؤه بعد. لكل واحد من هذه الثلاثة عائلة واحدة قوية في قاعدته: جرّب عينة منه يوماً كاملاً لترى إن كانت تلك العائلة تزعجك.",
-      carry: n => `إن أزعجك هذا، فعدد العطور الأخرى في قائمتنا التي تحمل العائلة نفسها في قاعدتها: ${n}.`,
+      noneLede: "ملفك يُبنى من عطور جرّبتها، لذلك لا يمكن بناؤه بعد. كل واحد من هذه الثلاثة يختبر عائلة واحدة: جرّب عينة منه يوماً كاملاً لترى إن كانت تلك العائلة تزعجك.",
+      carry: n => `إن أزعجك هذا، فعدد العطور الأخرى في قائمتنا التي تحمل العائلة نفسها بقوة: ${n}.`,
       rateLater: "قيّمه بعد أن تجرّبه",
       noteLine: (perfume, words, v, stage) => `${perfume}: «${words}» (${stage}): إجابتك «${{ 2: "أعجبني كثيراً", 1: "أعجبني", 0: "لا بأس به", "-1": "لم يعجبني", "-2": "كرهته" }[v]}»`,
       youEnjoy: w => `تحب: ${w}`, youAvoid: w => `تتجنب: ${w}`, bothered: w => `أزعجك من قبل: ${w}`,
@@ -210,7 +210,7 @@
       unnoticed: pairs => `لم تلاحظ ${pairs}.`, unnoticedPair: (f, bottle) => `${f} في ${bottle}`,
       toldOnlyLede: "لم تقيّم أي عطر بعد، لذلك تعتمد هذه الترشيحات على إجاباتك وحدها. وإجاباتك دليل أضعف من عطر جرّبته: جرّب عينة أولاً.",
       confirmH: "عينات تؤكد ذلك",
-      confirmLede: "لكل واحد منها عائلة واحدة قوية في قاعدته: جرّب عينة منه يوماً كاملاً لترى إن كانت تلك العائلة تزعجك.",
+      confirmLede: "كل واحد منها يختبر عائلة واحدة: جرّب عينة منه يوماً كاملاً لترى إن كانت تلك العائلة تزعجك.",
       anosmiaNote: name => `قد يصعب عليك الحكم على المسك والأخشاب العنبرية: بعض الناس لا يكادون يشمّونها وإن شمّها غيرهم. عينة من ${name}، وقاعدته مسك أبيض في معظمها، تبيّن لك إن كنت تشمّه.`,
     }
   });
@@ -1284,6 +1284,9 @@
   });
   document.addEventListener("click", e => { if (!e.target.closest(".search")) showResults([]); });
 
+  /* The front page's calls to action link here with ?go: the promise and the four parts were on that page, so the quiz
+     opens on its first question, and Back leads to the start screen. The front page sent reach:start. */
+  if (new URLSearchParams(location.search).has("go")) { sent.add("reach:start"); hist.push(snap()); step = "grid"; }
   render();
   page.loadCatalogue(() => { if (step === "grid") renderGridParts(); else render(); });
 })();

@@ -8,7 +8,7 @@ function make(root) {
   const { createPage } = require(path.join(root, "tests/lib/dom"));
   const { loadSite } = require(path.join(root, "tools/lib/site"));
   const scriptsOf = file => [...fs.readFileSync(path.join(SITE, file), "utf8").matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
-  const quizScripts = scriptsOf("index.html"), appScripts = scriptsOf("profile.html");
+  const quizScripts = scriptsOf("quiz.html"), appScripts = scriptsOf("profile.html");
   const W = loadSite("data", "mapper", "materials", "evidence", "engine", "notes");
   const D = W.PP_DATA, E = W.PP_ENGINE.create(D, W.PP_MAP, W.PP_EVIDENCE), N = W.PP_NOTES.create(D, W.PP_MAP, E);
   function quiz(ratings, answers, lang) {

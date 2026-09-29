@@ -10,7 +10,7 @@ const L = require("./lib");
 const SEED = +(process.argv[2] || 131);
 const ROOT = L.ROOT, SITE = path.join(ROOT, "site");
 const { createPage } = require(path.join(ROOT, "tests", "lib", "dom"));
-const scripts = [...fs.readFileSync(path.join(SITE, "index.html"), "utf8").matchAll(/<script src="([^"]+)"><\/script>/g)]
+const scripts = [...fs.readFileSync(path.join(SITE, "quiz.html"), "utf8").matchAll(/<script src="([^"]+)"><\/script>/g)]
   .map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
 const ctx = L.site(), { E, D } = ctx;
 const QUIZ60 = D.QUIZ.grid.concat(D.QUIZ.more).filter(id => E.byId[id]);

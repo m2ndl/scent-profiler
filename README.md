@@ -12,11 +12,12 @@ those families. Static files, no build step, no accounts.
 
 | Path | Purpose |
 |---|---|
-| `site/index.html` | The front page: the bottle quiz, a first profile from well-known bottles the visitor has worn (see Quiz). Markup only; its scripts are in `site/js/`. |
+| `site/index.html` | The front page: why few perfumes suit any one person, shown with the catalogue's own data, leading to the quiz and the articles. An atomizer whose bulb sprays one of the quiz's twenty perfumes into its listed notes by stage; paper test strips for ten families with how many perfumes clearly carry each, and the critics' star count; a 100-person grid per smell from a large smell survey; a perfume's notes, one of which the visitor marks as the one they would mind; a day of wear across the three stages. Its facts from the books carry their sources on the page. Markup only; its scripts are `js/landing.js` and the generated `js/landing-data.js`, its styles `landing.css` on top of `site.css`. |
+| `site/landing.css` | The front page's styles: an arched alcove of cream glass for the atomizer, the palette widened with the nine palate groups' colours and a plum for the bulb. |
 | `site/site.css` | Shared styles for all pages. The design is built on one idea: a perfume is a timeline and the last hours matter most (rating rows are wear timelines, the side panel is a live profile). A still life in daylight: cream glass surfaces with gold rims on pale wood, a dark wood band across the top and grain waves along the bottom, metallic gold on the brand and the primary buttons; the wear ribbon runs calendula, rose petal, amber oil. One theme, no dark mode. Fraunces and Noto Naskh Arabic for headings, IBM Plex Sans Arabic for text; mobile-first. |
 | `site/articles.html` | Four bilingual pieces on why drydowns fail (woody ambers, musk anosmia, notes versus ingredients, the three ouds). The site's reason to be found. |
 | `site/profile.html` | "Your profile", the profiler: rate any perfume or sample stage by stage, see the full profile, picks and the one sample that would settle a doubt. Markup only. |
-| `site/quiz.html` | The quiz's old address: sends visitors to the front page, query and all. |
+| `site/quiz.html` | The bottle quiz, a first profile from well-known bottles the visitor has worn (see Quiz). The front page's calls to action open it on its first question (`quiz.html?go=1`). Markup only. |
 | `site/og.png` | Share image for WhatsApp, Snapchat and X previews. |
 | `site/js/config.js` | Deployment settings: backend URL and shop links. The one file to edit when the site goes live. |
 | `site/js/data.js` | Verified catalogue (1,000 perfumes: 595 designer, 193 niche, 212 Arab-house including 21 marked clones of an original) and the material-family taxonomy. Only this tier drives recommendations. |
@@ -28,6 +29,8 @@ those families. Static files, no build step, no accounts.
 | `site/js/page.js` | What both pages share: the words both show, the device store, the photo and escape helpers, the rating sender (one pending send per perfume, sent at once when the page is hidden), the backend calls (lazy catalogue, lookup, stats), the search (perfumes holding the typed phrase first, then those holding every typed word, accents ignored and EDT or EDP read as the concentration) and the note rows and shop links both draw. |
 | `site/js/app.js` | The profiler page: its own words, rendering and clicks. |
 | `site/js/quiz.js` | The quiz page: grid, verdicts, note rows, narrowing round, note picker, taste and complaints, Back, result. Writes ordinary ratings into the profiler's device store through page.js. |
+| `site/js/landing.js` | The front page: its words in both languages, the atomizer (an SVG bottle, a canvas mist, the notes rising in three rows), the strips, the spoiled note, the day of wear; the funnel's `reach:start`. Everything that moves sits under reduced-motion: no-preference. |
+| `site/js/landing-data.js` | Generated from the catalogue by `tools/build_landing.js`: the twenty quiz bottles with their notes by stage, family and palate group, every family's description and count, the palate groups' colours. Never edited by hand. |
 | `site/js/motion.js` | The quiz's motion and touch: a new screen arrives as a view transition (the quiz column slides by direction, mirrored in Arabic, and a bottle shown on both screens flies between them); the same screen is patched in place, so pressed options animate and focus stays; the gold mist and the flight of a picked bottle into the dock. Changes nothing a screen says or does; with reduced motion, without view transitions or under the test stub, a screen is simply redrawn. |
 | `backend/apps-script.gs` | Google Sheets backend: anonymous ratings, tag corrections, community stats, and the lazy catalogue (on-demand lookups through the Fragella API, cached for everyone). Includes `enrichVerified()` for bottle images; its `VERIFIED` list is written by `tools/sync_backend.js`. |
 | `evidence/` | Inputs to `site/js/evidence.js`: `labels/<id>.txt` (ingredient lists) and `applied_changes.jsonl` (every tag change, with its quote and source). |
@@ -36,6 +39,7 @@ those families. Static files, no build step, no accounts.
 | `tools/mock_backend.py` | Local stand-in for the backend with a three-perfume fixture, for testing without Google or an API key. Serves `site/`. |
 | `tools/fetch_bottles.py` | Finds, trims and ships a bottle photo per verified perfume and writes `site/js/bottles.js`; draws contact sheets for review. Needs Pillow. |
 | `tools/botanicals.py` | Makes the two faint background sketches in `site/img/botanical/` from public-domain plates (Redouté's rose, 1824; Thomé's lavender, 1885). |
+| `tools/build_landing.js` | Writes `site/js/landing-data.js` from `data.js`, `mapper.js`, `bottles.js` and the palate groups in `quiz.js`; `tests/landing.test.js` fails while it is out of date. |
 | `tools/build_artifact.py` | Produces `build/artifact/` for the claude.ai Artifact host (preview only; that host blocks outbound requests and outside images). |
 | `tools/lib/site.js` | Loads the site scripts into Node the way the page does; every tool and test reads the catalogue through it. |
 | `tests/` | `node --test tests/*.test.js`; see Tests. |
@@ -232,7 +236,9 @@ The rules below are implemented in `site/js/engine.js`.
 
 ## Quiz
 
-The quiz is the front page (`site/index.html`). It opens on a start screen
+The quiz is `site/quiz.html`, which the front page (`site/index.html`) leads to. The front page sends the funnel's
+`reach:start` and its calls to action open the quiz on its first question (`?go=1`; Back then shows the start screen).
+Opened at its own address, the quiz opens on a start screen
 with the promise ("Find what ruins a perfume for you"), five of the grid's bottles, the four parts as numbered
 cards, a Start button and, for a returning visitor, a link to rate the samples they tried on their profile
 (`site/profile.html`); it states no time. It then shows twenty well-known

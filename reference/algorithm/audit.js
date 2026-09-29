@@ -6,7 +6,7 @@ const ROOT = process.argv[4] || "C:/Users/malha/Desktop/Webapps/perfume-profiler
 const SITE = path.join(ROOT, "site");
 const { createPage } = require(path.join(ROOT, "tests/lib/dom"));
 const { loadSite } = require(path.join(ROOT, "tools/lib/site"));
-const scripts = [...fs.readFileSync(path.join(SITE, "index.html"), "utf8").matchAll(/<script src="([^"]+)"><\/script>/g)]
+const scripts = [...fs.readFileSync(path.join(SITE, "quiz.html"), "utf8").matchAll(/<script src="([^"]+)"><\/script>/g)]
   .map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
 const W = loadSite("data", "mapper", "materials", "evidence", "engine", "notes");
 const D = W.PP_DATA, E = W.PP_ENGINE.create(D, W.PP_MAP, W.PP_EVIDENCE), N = W.PP_NOTES.create(D, W.PP_MAP, E);
