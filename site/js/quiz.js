@@ -69,7 +69,7 @@
       fromBottles: "From your bottles:", has: "has", without: f => `No ${f.charAt(0).toLowerCase() + f.slice(1)}`, getSample: "Sample",
       basis: (b, a) => `Built from ${b} ${b === 1 ? "bottle" : "bottles"} and ${a} ${a === 1 ? "answer" : "answers"}.`,
       reading: "Reading your bottles", kept: "You kept", turned: "Turned on you", skip: "Show my result",
-      palate: "Your palate", funnel: { checked: "perfumes checked", out: "ruled out for you", picked: "chosen for you" },
+      palate: "Your palate", funnel: { checked: "perfumes checked", out: "ruled out for you", open: "still open to you", picked: "chosen to try first" },
       cardPalate: "My palate",
       wheel: { fresh: "Fresh", floral: "Floral", rose: "Rose", sweet: "Sweet", amber: "Amber", spiced: "Spiced", oud: "Oud", woody: "Woody", musk: "Musk" },
       wheelLabel: "Your palate on a wheel of nine kinds of perfume", wheelHint: "Tap a kind of perfume to see what your bottles show about it.",
@@ -166,7 +166,7 @@
       fromBottles: "من عطورك:", has: "فيه", without: f => `خالٍ من ${f}`, getSample: "عينة",
       basis: (b, a) => `بُني على ${b} من عطورك و${a} من إجاباتك.`,
       reading: "نقرأ عطورك", kept: "أبقيتها", turned: "انقلبت عليك", skip: "اعرض النتيجة",
-      palate: "ذائقتك", funnel: { checked: "عطراً فحصناها", out: "استبعدناها لك", picked: "اخترناها لك" },
+      palate: "ذائقتك", funnel: { checked: "عطراً فحصناها", out: "استبعدناها لك", open: "بقيت أمامك", picked: "اخترناها لتبدأ بها" },
       cardPalate: "ذائقتي",
       wheel: { fresh: "منعش", floral: "زهري", rose: "وردي", sweet: "حلو", amber: "عنبري", spiced: "متبّل", oud: "عودي", woody: "خشبي", musk: "مسكي" },
       wheelLabel: "ذائقتك على عجلة من تسعة أنواع من العطور", wheelHint: "اضغط على نوع من العطور لترى ما تكشفه عطورك عنه.",
@@ -930,13 +930,14 @@
     const key = (anyPet ? `<span class="qkey pet">${esc(t().kept)}</span>` : "") + (bad.length ? `<span class="qkey bad">${esc(t().breaker[bad.some(f => prof[f].cls === "badLikely") ? "likely" : "possible"])}</span>` : "");
     return `<div class="qrose-cap" id="qrose-cap" aria-live="polite">${cap}</div>${key ? `<div class="qrose-keys" aria-hidden="true">${key}</div>` : ""}`;
   }
-  /* the funnel: every catalogue perfume checked, the ones a deal-breaker rules out, the three chosen; each with a bar
-     for its share of the catalogue */
+  /* the funnel: every catalogue perfume checked, the ones a deal-breaker rules out, the rest, still open, and the
+     picks; each with a bar for its share of the catalogue. Ruled out and open add up to the catalogue, so the three
+     picks do not read as the only perfumes left. */
   function funnelHtml(prof, nPicks) {
     const total = E.PERFUMES.length, out = E.ruledOut(prof, avoided()).length;
     /* the digits count up on screen, so a screen reader reads the true number from a hidden line instead */
     let i = 0; const cell = (n, label, cls) => `<div class="qfun ${cls || ""}"><span class="sr">${n} </span><b id="qc-${i++}" aria-hidden="true" data-count="${n}">${n}</b><span>${esc(label)}</span><i class="qfun-bar" style="--w:${(100 * n / total).toFixed(1)}%"></i></div>`;
-    return `<div class="qfunnel">${cell(total, t().funnel.checked)}${cell(out, t().funnel.out, "out")}${nPicks ? cell(nPicks, t().funnel.picked, "pick") : ""}</div>`;
+    return `<div class="qfunnel${nPicks ? " four" : ""}">${cell(total, t().funnel.checked)}${cell(out, t().funnel.out, "out")}${cell(total - out, t().funnel.open, "open")}${nPicks ? cell(nPicks, t().funnel.picked, "pick") : ""}</div>`;
   }
   /* numbers count up when they come into view; a visitor who prefers less motion sees them at once */
   function countUp() {
@@ -1012,8 +1013,12 @@
     } else {
       text(t().card.title, M, 262, `600 76px ${disp}`, "#2A1B11");
     }
-    const ruled = E.ruledOut(prof, avoided()).length;
-    text(`${E.PERFUMES.length} ${t().funnel.checked} · ${ruled} ${t().funnel.out}`, M, 372, `600 30px ${body}`, "#4B3B2F");
+    /* the screen's count, the picks left out since they are drawn below; a long line drops in size until it fits */
+    const total = E.PERFUMES.length, ruled = E.ruledOut(prof, avoided()).length;
+    const count = `${total} ${t().funnel.checked} · ${ruled} ${t().funnel.out} · ${total - ruled} ${t().funnel.open}`;
+    let cpx = 30;
+    for (; cpx > 22; cpx--) { x.font = `600 ${cpx}px ${body}`; if (x.measureText(count).width <= W - 2 * M) break; }
+    text(count, M, 372, `600 ${cpx}px ${body}`, "#4B3B2F");
     x.fillStyle = gold; x.fillRect(rtl ? W - M - 120 : M, 398, 120, 6);
     const good = drawnTo(prof), bad = byStrength(prof, ["badLikely", "badPossible"]).slice(0, 2);
     let y = 478;

@@ -367,8 +367,10 @@ Under the name sits the palate's wheel: the nine palate groups around the emblem
 its length in step with that group's share of the lead group's weight (0.36 of full length plus 0.64 times the share),
 so the longest petal is the palate's name; a slender petal at 0.3 of full length, shorter than any vote, marks a group
 holding a liked family but no vote of its own; a group holding a deal-breaker the taste card shows is washed in rose. Each group's name is a button: tapped, it lists the
-families behind that group, liked and deal-breaker, as the taste card names them. The counts carry a bar for their share
-of the catalogue and count up when they come into view; the picks are numbered.
+families behind that group, liked and deal-breaker, as the taste card names them. Four counts follow: perfumes checked,
+ruled out for you (`ruledOut()`), still open to you (the rest, so the two add up to the catalogue and the picks do not
+read as the only perfumes left), and chosen to try first (the picks; the box is left out when there are none). They
+carry a bar for their share of the catalogue and count up when they come into view; the picks are numbered.
 
 Events (`events` sheet) and the falsifier each one measures (reference/debate/quiz/ROUNDTABLE.md, section 6):
 

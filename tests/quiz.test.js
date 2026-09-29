@@ -722,12 +722,13 @@ test("the result leads with a palate name and a true count; the reveal sorts the
   const liked = Object.entries(prof).filter(([, v]) => v.cls === "goodLikely" || v.cls === "goodPossible");
   assert.ok(liked.length, "the two bottles give a liked family");
   assert.match(h, /<div class="qname-hero" style="--arch:#[0-9A-F]{6}"><svg class="qemblem"[^]*?<p class="eyebrow">Your palate<\/p><h1>The ([A-Z][a-z]+|[A-Z][a-z]+ and [A-Z][a-z]+|Wide) Palate<\/h1>/);
-  /* the count: the whole catalogue, the perfumes a deal-breaker rules out, and the picks shown */
+  /* the count: the whole catalogue, the perfumes a deal-breaker rules out, the rest still open, and the picks shown;
+     ruled out and open add up to the catalogue, so the three picks do not read as the only perfumes left */
   const total = E.PERFUMES.length, out = E.ruledOut(prof).length;
   assert.ok(out > 0 && out < total, `ruled out ${out} of ${total}`);
-  assert.match(h, new RegExp(`data-count="${total}">${total}</b><span>perfumes checked</span>`));
-  assert.match(h, new RegExp(`data-count="${out}">${out}</b><span>ruled out for you</span>`));
-  assert.match(h, /data-count="3">3<\/b><span>chosen for you<\/span>/);
+  const counts = [...h.matchAll(/data-count="(\d+)">\d+<\/b><span>([^<]+)<\/span>/g)].map(m => [m[2], +m[1]]);
+  assert.deepEqual(counts, [["perfumes checked", total], ["ruled out for you", out], ["still open to you", total - out], ["chosen to try first", 3]]);
+  assert.match(h, /<div class="qfunnel four">/);
   /* every ruled-out perfume holds a possible or likely deal-breaker at the engine's exclusion strength */
   const bad = Object.entries(prof).filter(([, v]) => v.cls === "badLikely" || v.cls === "badPossible").map(([f]) => f);
   for (const id of E.ruledOut(prof)) {
