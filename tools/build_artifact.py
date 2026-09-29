@@ -53,4 +53,10 @@ landing = (out / "js" / "landing-data.js").read_text(encoding="utf-8")
 for ref in sorted(set(re.findall(r'"(img/bottles/[^"]+\.webp)"', landing))):
     landing = landing.replace(f'"{ref}"', '"data:image/webp;base64,' + base64.b64encode((site / ref).read_bytes()).decode("ascii") + '"')
 (out / "js" / "landing-data.js").write_text(landing, encoding="utf-8")
+# the atomizer's two still pictures are named by path in js/landing.js; they travel inside it the same way (its live 3D
+# version, js/bottle3d.js, loads three.js from jsDelivr through the import map kept in the page's head)
+lp = (out / "js" / "landing.js").read_text(encoding="utf-8")
+for ref in sorted(set(re.findall(r'"(img/[^"]+\.webp)"', lp))):
+    lp = lp.replace(f'"{ref}"', '"data:image/webp;base64,' + base64.b64encode((site / ref).read_bytes()).decode("ascii") + '"')
+(out / "js" / "landing.js").write_text(lp, encoding="utf-8")
 print("OK", (out / "index.html").stat().st_size, "bytes;", len(bottles), "bottle photos,", (out / "js" / "bottles.js").stat().st_size, "bytes")
