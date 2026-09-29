@@ -1,0 +1,19 @@
+1946 visitors shown picks (three bottles, every answer; seeds 11, 12, 13, 14, 15, 400 drawn per seed). Agreement of the full order with the hidden taste (Spearman over the visitor's whole list, left-out perfumes at the bottom).
+
+| what the ranking formula is given                                                     | agreement | seed range   | picks kept / turn |
+|---------------------------------------------------------------------------------------|-----------|--------------|-------------------|
+| engine, as it is                                                                      | 0.40      | 0.39 to 0.41 | 75% / 10%         |
+| families wrongly flagged as deal-breakers read as neutral                             | 0.43      | 0.42 to 0.44 |                   |
+| families wrongly shown as liked read as neutral                                       | 0.44      | 0.43 to 0.45 |                   |
+| both of those                                                                         | 0.47      | 0.46 to 0.48 |                   |
+| exposed deal-breakers found                                                           | 0.49      | 0.48 to 0.49 |                   |
+| exposed likes found                                                                   | 0.46      | 0.45 to 0.47 |                   |
+| exposed deal-breakers and likes found, nothing else                                   | 0.55      | 0.54 to 0.55 |                   |
+| all four                                                                              | 0.58      | 0.57 to 0.59 |                   |
+| families known only from words: their likes and deal-breakers found, the rest neutral | 0.49      | 0.49 to 0.50 |                   |
+| unmet families read as mildly liked, not as a risk                                    | 0.39      | 0.38 to 0.40 |                   |
+| engine change: words at face value                                                    | 0.41      | 0.41 to 0.43 | 76% / 10%         |
+| all four, and unmet families as mildly liked                                          | 0.57      | 0.56 to 0.59 |                   |
+| reference: exposed likes and deal-breakers, the rest at the mean                      | 0.59      | 0.57 to 0.60 |                   |
+| reference: every like and deal-breaker, the rest at the mean                          | 0.69      | 0.68 to 0.70 |                   |
+| reference: the whole true taste                                                       | 0.84      | 0.84 to 0.84 |                   |

@@ -1,0 +1,8 @@
+Spearman with the hidden taste over the visitor's whole list (seeds 11 to 15)
+
+| Visitors | n | engine | perfect reader of these answers | all strong families known | likes exposed | deal-breakers exposed |
+|---|---|---|---|---|---|---|
+| Three bottles, every answer | 969 | 0.40 | 0.58 | 0.69 | 72% | 80% |
+| Three bottles, verdicts only | 713 | 0.23 | 0.36 | 0.70 | 36% | 31% |
+| Eight bottles, every answer | 1000 | 0.43 | 0.64 | 0.69 | 81% | 87% |
+| Word answers only | 911 | 0.39 | 0.54 | 0.70 | 67% | 75% |

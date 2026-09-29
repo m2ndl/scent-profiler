@@ -1,4 +1,4 @@
-# Independent reviews (27 and 28 September 2026)
+# Independent reviews (27 to 29 September 2026)
 
 One Opus verifier, bounded (no web, no edits, a time budget), reviewed the stress test and then the fix. Its three
 reports are condensed here. Each finding was either fixed (commit 77c5f70) or is recorded as open in PROJECT_LOG.md.
@@ -91,3 +91,22 @@ Section 4 condenses a fresh verifier's review of the coverage change of 28 Septe
   fails if one falls under 0.18.
 - **Confirmed:** the figures in COVERAGE.md against out/ (j, k, m, c, a1_seeds, e, i, l), and the site equal to the
   adopted variant on a fresh check (3,007 of 3,007).
+
+## 6. On the full-order probe and the fixes trial (FULLORDER.md)
+
+- **Blocking, fixed:** the first version of the ablation (`p_gap_ablation.js`) corrected a wrongly flagged or wrongly
+  liked family to the visitor's true mild opinion, which no answer holds, and so overstated what correcting the reading
+  errors recovers (0.52 and 0.62 then). The rows now read such a family as neutral at the mean (0.47 and 0.58, matching
+  the verifier's own code to the second decimal), and a row for finding the exposed families alone was added (0.55).
+- **Should fix, fixed:** the naming rule counted complaint chips, where `REPORT.md` section 3 proposed a note row or a
+  second bottle; it now follows `REPORT.md`, with chips beside it. Most of that rule's gain comes from naming no
+  deal-breaker for visitors whose first flagged one is least often right, which `FULLORDER.md` now says. Lift's costs
+  (fewer liked families shown, fewer true likes shown, more visitors with no palate) are reported beside its gain. The
+  trial's rows switch could redraw rows on a bottle whose screen was answered with every row skipped; every bottle is
+  now answered from its own streams, so a switch only answers screens that were skipped.
+- **Checked by the verifier's own code:** the grid pool of the trial's narrowing round equals `quiz.js` narrowCandidates
+  for 3,000 of 3,000 visitors; the bottle answering matches `lib.js` answer() in distribution over 18,000 bottles; every
+  switch is paired (hash-seeded draws per visitor, bottle and row; wears per visitor and perfume); the rows gains on a
+  second seed set (rows on kept bottles +0.020 and +2.3 points, every bottle +0.030 and +3.1); filling the
+  whole-catalogue round's tiles one family each still gains nothing (ticks 3.3% to 4.0%, twelve bottles 9.7% to 12.0%);
+  the picker's hiding of cards asked on rows moves the rows gains by under 0.002; lift's veto path changes no picks.

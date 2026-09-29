@@ -1,0 +1,109 @@
+patched engine gives the site's picks: 400/400
+
+## Three bottles, every answer (1000 visitors, 97% shown picks; seeds 11, 12, 13, 14, 15)
+ranked by the engine: 657 perfumes; left out on the visitor's side (likely deal-breaker or avoided note): 76; other side: 265
+Spearman, engine order against the hidden taste: mean 0.33 (quartiles 0.21, 0.34, 0.47); a ranking that ignores the visitor: 0.08
+  over the perfumes the answers say something about: 0.34
+  by seed: rho 0.32, 0.32, 0.35, 0.35, 0.32; top-10 kept 70%, 75%, 75%, 72%, 71%; bottom-100 kept 33%, 35%, 33%, 31%, 33%
+perfumes the answers say nothing about (score from unmet families only): 3%; distinct scores per perfume ranked: 96%; largest tie: 1% of the list
+overlap with the best possible order: top 10 9%, top 50 21%, top 100 31% (chance: 2%, 8%, 15%)
+| ranks      | engine kept | engine turn | best-order kept | best-order turn |
+|------------|-------------|-------------|-----------------|-----------------|
+| 1-3        | 75%         | 11%         | 97%             | 3%              |
+| 4-10       | 71%         | 12%         | 95%             | 5%              |
+| 11-30      | 67%         | 14%         | 92%             | 6%              |
+| 31-100     | 62%         | 17%         | 86%             | 7%              |
+| 101-300    | 54%         | 23%         | 66%             | 13%             |
+| 301+       | 42%         | 34%         | 29%             | 43%             |
+| all ranked | 49%         | 28%         |                 |                 |
+| left out   | 13%         | 79%         |                 |                 |
+pairs: listed higher is truly the better fit, by distance apart in the list
+| apart   | engine | ignores the visitor |
+|---------|--------|---------------------|
+| 1-24    | 51%    | 51%                 |
+| 25-99   | 55%    | 51%                 |
+| 100-299 | 61%    | 52%                 |
+| 300+    | 70%    | 55%                 |
+
+## Three bottles, verdicts only (500 visitors, 71% shown picks; seeds 11)
+ranked by the engine: 686 perfumes; left out on the visitor's side (likely deal-breaker or avoided note): 34; other side: 277
+Spearman, engine order against the hidden taste: mean 0.20 (quartiles 0.06, 0.21, 0.34); a ranking that ignores the visitor: 0.09
+  over the perfumes the answers say something about: 0.20
+perfumes the answers say nothing about (score from unmet families only): 10%; distinct scores per perfume ranked: 89%; largest tie: 2% of the list
+overlap with the best possible order: top 10 3%, top 50 12%, top 100 22% (chance: 1%, 7%, 15%)
+| ranks      | engine kept | engine turn | best-order kept | best-order turn |
+|------------|-------------|-------------|-----------------|-----------------|
+| 1-3        | 62%         | 18%         | 96%             | 4%              |
+| 4-10       | 59%         | 20%         | 95%             | 4%              |
+| 11-30      | 59%         | 19%         | 93%             | 5%              |
+| 31-100     | 56%         | 22%         | 86%             | 7%              |
+| 101-300    | 52%         | 26%         | 67%             | 13%             |
+| 301+       | 44%         | 36%         | 28%             | 47%             |
+| all ranked | 48%         | 31%         |                 |                 |
+| left out   | 21%         | 68%         |                 |                 |
+pairs: listed higher is truly the better fit, by distance apart in the list
+| apart   | engine | ignores the visitor |
+|---------|--------|---------------------|
+| 1-24    | 51%    | 52%                 |
+| 25-99   | 53%    | 52%                 |
+| 100-299 | 56%    | 53%                 |
+| 300+    | 62%    | 54%                 |
+
+## Eight bottles, every answer (500 visitors, 100% shown picks; seeds 11)
+ranked by the engine: 603 perfumes; left out on the visitor's side (likely deal-breaker or avoided note): 127; other side: 265
+Spearman, engine order against the hidden taste: mean 0.33 (quartiles 0.21, 0.34, 0.47); a ranking that ignores the visitor: 0.07
+  over the perfumes the answers say something about: 0.33
+perfumes the answers say nothing about (score from unmet families only): 1%; distinct scores per perfume ranked: 98%; largest tie: 1% of the list
+overlap with the best possible order: top 10 6%, top 50 19%, top 100 31% (chance: 2%, 8%, 17%)
+| ranks      | engine kept | engine turn | best-order kept | best-order turn |
+|------------|-------------|-------------|-----------------|-----------------|
+| 1-3        | 72%         | 10%         | 97%             | 3%              |
+| 4-10       | 70%         | 12%         | 95%             | 4%              |
+| 11-30      | 67%         | 13%         | 92%             | 6%              |
+| 31-100     | 62%         | 16%         | 84%             | 7%              |
+| 101-300    | 55%         | 21%         | 63%             | 14%             |
+| 301+       | 44%         | 32%         | 31%             | 39%             |
+| all ranked | 51%         | 25%         |                 |                 |
+| left out   | 16%         | 72%         |                 |                 |
+pairs: listed higher is truly the better fit, by distance apart in the list
+| apart   | engine | ignores the visitor |
+|---------|--------|---------------------|
+| 1-24    | 51%    | 51%                 |
+| 25-99   | 55%    | 51%                 |
+| 100-299 | 62%    | 53%                 |
+| 300+    | 70%    | 53%                 |
+
+## Word answers only (500 visitors, 92% shown picks; seeds 11)
+ranked by the engine: 917 perfumes; left out on the visitor's side (likely deal-breaker or avoided note): 83; other side: 0
+Spearman, engine order against the hidden taste: mean 0.34 (quartiles 0.23, 0.36, 0.47); a ranking that ignores the visitor: 0.09
+  over the perfumes the answers say something about: 0.36
+perfumes the answers say nothing about (score from unmet families only): 12%; distinct scores per perfume ranked: 94%; largest tie: 1% of the list
+overlap with the best possible order: top 10 15%, top 50 24%, top 100 30% (chance: 1%, 5%, 11%)
+| ranks      | engine kept | engine turn | best-order kept | best-order turn |
+|------------|-------------|-------------|-----------------|-----------------|
+| 1-3        | 80%         | 10%         | 97%             | 3%              |
+| 4-10       | 75%         | 13%         | 96%             | 4%              |
+| 11-30      | 71%         | 14%         | 94%             | 5%              |
+| 31-100     | 65%         | 17%         | 89%             | 6%              |
+| 101-300    | 57%         | 21%         | 75%             | 9%              |
+| 301+       | 43%         | 34%         | 33%             | 39%             |
+| all ranked | 49%         | 29%         |                 |                 |
+| left out   | 14%         | 79%         |                 |                 |
+pairs: listed higher is truly the better fit, by distance apart in the list
+| apart   | engine | ignores the visitor |
+|---------|--------|---------------------|
+| 1-24    | 51%    | 48%                 |
+| 25-99   | 54%    | 48%                 |
+| 100-299 | 58%    | 50%                 |
+| 300+    | 68%    | 57%                 |
+
+## Retest, three bottles, same history, answered twice (577 visitors)
+Spearman between the two lists: 0.71 (quartiles 0.61, 0.79, 0.89)
+top 10 in common 32%, top 50 47%, top 100 55%
+first list's top 100: median move 71 places (mean over visitors of each visitor's median); perfumes moving more than 100 places: 39%
+
+## Tags shaken by 15% (490 visitors, three bottles, every answer)
+Spearman, list on the catalogue's tags against the list on shaken tags: 0.94; top 10 in common 65%, top 100 81%
+against the hidden taste: catalogue tags 0.33, shaken tags 0.33
+
+40 s

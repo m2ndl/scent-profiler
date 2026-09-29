@@ -1,7 +1,8 @@
-# Stress test of the scoring (27 and 28 Sep 2026)
+# Stress test of the scoring (27 to 29 Sep 2026)
 
-The findings are in `REPORT.md`, and those on where the picks go (the owner's question of 28 Sep: do they repeat a few
-perfumes?) in `COVERAGE.md`; the independent reviews are condensed in `REVIEWS.md`. The scripts run the site's own code: the engine and note rows through
+The findings are in `REPORT.md`, those on where the picks go (the owner's question of 28 Sep: do they repeat a few
+perfumes?) in `COVERAGE.md`, and those on the order of the whole catalogue and the fixes trialled for it (29 Sep) in
+`FULLORDER.md`; the independent reviews are condensed in `REVIEWS.md`. The scripts run the site's own code: the engine and note rows through
 `tools/lib/site.js`, and the quiz page through the stub browser in `tests/lib/dom.js`. They change nothing in `site/`.
 Each is seeded, so a rerun prints the same numbers for the same code and catalogue; each writes its numbers to `out/`.
 
@@ -27,11 +28,18 @@ Each is seeded, so a rerun prints the same numbers for the same code and catalog
 | `m_wordsteps.js` | One note card more, enjoyed or avoided, on the first version's reading of the profile (traces back at full weight once a word is given) and on the site's: how often the picks move against the word. | `node m_wordsteps.js 3000 31` | 20 s |
 | `l_tagnoise.js` | Pick quality when the engine reads the tags shaken by 15% or 30% while the visitors smell the catalogue's, for the ranking of 0164d00 and the site's. | `node l_tagnoise.js 2000 307` | 3 min |
 | `k_cards.js` | Pick cards that call a family liked, or say the answers lean against it, when it is known only from traces, and cards that say the opposite of the visitor's words, on the engine of 0164d00, on ce09d2b and on the site's; perfumes with identical tags. | `node k_cards.js 1500 5` | 2 min |
+| `n_fullorder.js` | The engine's order of the whole catalogue against the hidden taste: agreement, kept and turn by position, how often two perfumes are in the right order by how far apart they are listed, ties, a retest, tags shaken by 15%. | `node n_fullorder.js` | 1 min |
+| `n2_cause.js` | The same order against the ranking formula given the whole true taste, only the true likes and deal-breakers, and the hidden-taste score with the mild opinions left out. | `node n2_cause.js` | 1 min |
+| `n3_reader.js` | The ceiling for any reading of the answers: the formula told the true likes and deal-breakers the answers expose, by population. | `node n3_reader.js` | 1 min |
+| `o_fixes_trial.js` | The fixes proposed for the order, as switches on the same visitors: note rows asked outright on kept bottles or every bottle, the narrowing round from a wider pool, a reading change ("lift"), a deal-breaker named only when singled out; three populations. | `node o_fixes_trial.js 400` | 5 min |
+| `p_gap_ablation.js` | Where the engine's order loses to the ceiling: its profile with one kind of reading error corrected at a time, and one engine change (words at face value). | `node p_gap_ablation.js 400` | 3 min |
 
 `out/` holds the numbers the report cites, from the code as tested; `out/after_fix/` holds `c_invariants.js` and `f_page.js`
 rerun on the fixed code; `out/after_coverage/` holds the checks rerun on the engine that counts a liked family once
 (`c_invariants.js`, `a1_accuracy.js --seeds`, `e_bias.js`, `f_page.js`, `i_extremes.js` and the audit). `out/h.txt`,
 `out/i.json` and `out/k.txt` are from the engine of 0164d00 (k also from the site's), `out/j.txt` compares the two; `out/audit_0164d00.txt` is the audit on 0164d00 and `out/golden.txt` the golden review.
+`out/n.txt`, `out/n2.txt`, `out/n3.txt`, `out/o.txt` (with `out/o.json`) and `out/p.txt` (with `out/p.json`) are the
+numbers of `FULLORDER.md`, on the engine of commit 33e1ca8.
 
 `out/audit.txt` is the output of `reference/algorithm/audit.js 1500 7` (run from the repository root) on the commit tested.
 

@@ -1,0 +1,24 @@
+971 visitors (three bottles, every answer, seeds 11 to 15); each ranks the visitor's whole list, left-out perfumes at the bottom
+
+| ranking                       | Spearman with the hidden taste |
+|-------------------------------|--------------------------------|
+| engine                        | 0.40                           |
+| formula, true taste           | 0.84                           |
+| formula, strong families only | 0.69                           |
+| truth, strong families only   | 0.81                           |
+
+kept / turn by position in the list
+| ranking                       | 1-10      | 11-100    | 101-300   | 301-500   | 501+      |
+|-------------------------------|-----------|-----------|-----------|-----------|-----------|
+| engine                        | 73% / 11% | 63% / 17% | 54% / 24% | 44% / 33% | 31% / 50% |
+| formula, true taste           | 93% / 2%  | 84% / 4%  | 65% / 12% | 40% / 32% | 16% / 66% |
+| formula, strong families only | 87% / 5%  | 77% / 8%  | 61% / 14% | 42% / 31% | 20% / 64% |
+| truth, strong families only   | 93% / 7%  | 81% / 10% | 60% / 15% | 41% / 30% | 20% / 62% |
+
+pairs: listed higher is truly the better fit, by distance apart
+| ranking                       | 1-24 | 25-99 | 100-299 | 300+ |
+|-------------------------------|------|-------|---------|------|
+| engine                        | 51%  | 55%   | 62%     | 73%  |
+| formula, true taste           | 54%  | 67%   | 84%     | 96%  |
+| formula, strong families only | 53%  | 60%   | 75%     | 89%  |
+| truth, strong families only   | 57%  | 67%   | 82%     | 94%  |

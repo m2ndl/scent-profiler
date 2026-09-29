@@ -1,0 +1,98 @@
+checks: the exposed engine picks what the site picks for 300 of 300 visitors; with no liking from a stage rating the lift engine gives the same profile for 64 of 64
+checks: the copy of the palate rule gives the page's palate for 200 of 200 visitors
+checks: 9,000 bottles, lib.js answer() against this script: rated 66% / 66%; base -2 16% / 16%; chips 4% / 4%; note screen answered 39% / 40%; row answer minus opinion, sd 0.56 / 0.57
+
+## the stress test's visitors (1951 visitors shown picks; seeds 11, 12, 13, 14, 15, 400 drawn per seed)
+
+| switches                                        | extra answers | narrowing shown | a bottle ticked | full order | gain over now (seed range) | upper bound | picks kept | kept gain, points (seed range) | picks turn | top 10 kept |
+|-------------------------------------------------|---------------|-----------------|-----------------|------------|----------------------------|-------------|------------|--------------------------------|------------|-------------|
+| no narrowing round                              | -0.1          | 0%              | 0%              | 0.40       | -0.00 (-0.00 to +0.00)     |             | 75%        | +0.1 (-0.2 to +0.2)            | 11%        | 72%         |
+| now (grid narrowing round)                      | 0.0           | 29%             | 3%              | 0.40       | +0.00 (+0.00 to +0.00)     | 0.59        | 75%        | +0.0 (+0.0 to +0.0)            | 11%        | 72%         |
+| rows on kept bottles                            | 1.6           | 29%             | 3%              | 0.42       | +0.02 (+0.01 to +0.03)     |             | 77%        | +2.1 (+1.3 to +3.4)            | 10%        | 74%         |
+| rows on every bottle                            | 2.5           | 25%             | 3%              | 0.43       | +0.03 (+0.02 to +0.03)     | 0.59        | 77%        | +2.6 (+2.0 to +3.7)            | 10%        | 74%         |
+| rows on kept bottles, judged poorly             | 1.6           | 29%             | 4%              | 0.41       | +0.01 (+0.01 to +0.02)     |             | 76%        | +1.5 (+0.8 to +2.6)            | 10%        | 73%         |
+| narrowing from the 60 popular                   | 0.0           | 37%             | 4%              | 0.40       | -0.00 (-0.00 to +0.00)     |             | 75%        | +0.1 (-0.1 to +0.3)            | 11%        | 72%         |
+| narrowing from the whole catalogue              | -0.0          | 47%             | 3%              | 0.40       | -0.00 (-0.00 to +0.00)     |             | 75%        | +0.1 (-0.1 to +0.3)            | 11%        | 72%         |
+| lift                                            | 0.0           | 29%             | 3%              | 0.41       | +0.01 (+0.01 to +0.01)     |             | 76%        | +1.4 (+1.1 to +1.8)            | 10%        | 73%         |
+| rows on kept + whole-catalogue narrowing        | 1.6           | 47%             | 3%              | 0.42       | +0.02 (+0.01 to +0.03)     | 0.59        | 77%        | +2.1 (+1.6 to +3.4)            | 10%        | 74%         |
+| rows on kept + whole-catalogue narrowing + lift | 1.6           | 47%             | 3%              | 0.43       | +0.03 (+0.02 to +0.04)     |             | 78%        | +3.5 (+2.5 to +5.1)            | 9%         | 75%         |
+
+Likes and palate
+| switches                                        | liked shown per visitor | any liked | liked that are true | true likes shown | group palate | no palate | palate lead right | palate names a liked group |
+|-------------------------------------------------|-------------------------|-----------|---------------------|------------------|--------------|-----------|-------------------|----------------------------|
+| no narrowing round                              | 2.64                    | 81%       | 19%                 | 19%              | 74%          | 6%        | 21%               | 48%                        |
+| now (grid narrowing round)                      | 2.66                    | 82%       | 19%                 | 19%              | 74%          | 6%        | 21%               | 49%                        |
+| rows on kept bottles                            | 2.40                    | 81%       | 23%                 | 21%              | 73%          | 7%        | 22%               | 53%                        |
+| rows on every bottle                            | 2.58                    | 85%       | 22%                 | 22%              | 73%          | 7%        | 22%               | 53%                        |
+| rows on kept bottles, judged poorly             | 2.46                    | 81%       | 22%                 | 20%              | 73%          | 7%        | 21%               | 51%                        |
+| narrowing from the 60 popular                   | 2.65                    | 81%       | 19%                 | 19%              | 74%          | 6%        | 21%               | 48%                        |
+| narrowing from the whole catalogue              | 2.65                    | 81%       | 19%                 | 19%              | 74%          | 6%        | 21%               | 49%                        |
+| lift                                            | 1.72                    | 76%       | 23%                 | 15%              | 67%          | 10%       | 21%               | 50%                        |
+| rows on kept + whole-catalogue narrowing        | 2.39                    | 80%       | 23%                 | 21%              | 72%          | 7%        | 22%               | 53%                        |
+| rows on kept + whole-catalogue narrowing + lift | 1.75                    | 76%       | 27%                 | 18%              | 67%          | 9%        | 23%               | 54%                        |
+
+Deal-breakers: flagged as now, and named only when a note row or a second bottle points to it (with chips: a complaint chip counts too)
+| switches                                        | any flagged | flagged that are true | first flagged true | innocent flagged | any named | named that are true | first named true | first flagged true, same visitors | true deal-breakers named | any named, with chips | first named true, with chips |
+|-------------------------------------------------|-------------|-----------------------|--------------------|------------------|-----------|---------------------|------------------|-----------------------------------|--------------------------|-----------------------|------------------------------|
+| no narrowing round                              | 50%         | 30%                   | 44%                | 1.89             | 24%       | 53%                 | 61%              | 56%                               | 14%                      | 28%                   | 65%                          |
+| now (grid narrowing round)                      | 50%         | 30%                   | 44%                | 1.90             | 25%       | 53%                 | 60%              | 56%                               | 14%                      | 29%                   | 64%                          |
+| rows on kept bottles                            | 50%         | 30%                   | 44%                | 1.94             | 25%       | 53%                 | 60%              | 56%                               | 14%                      | 29%                   | 64%                          |
+| rows on every bottle                            | 48%         | 35%                   | 48%                | 1.62             | 34%       | 51%                 | 61%              | 54%                               | 19%                      | 36%                   | 64%                          |
+| rows on kept bottles, judged poorly             | 50%         | 30%                   | 44%                | 1.93             | 25%       | 53%                 | 61%              | 56%                               | 14%                      | 29%                   | 64%                          |
+| narrowing from the 60 popular                   | 50%         | 30%                   | 45%                | 1.91             | 25%       | 53%                 | 61%              | 57%                               | 14%                      | 29%                   | 65%                          |
+| narrowing from the whole catalogue              | 50%         | 30%                   | 45%                | 1.91             | 25%       | 53%                 | 61%              | 56%                               | 14%                      | 29%                   | 65%                          |
+| lift                                            | 50%         | 30%                   | 44%                | 1.91             | 25%       | 53%                 | 60%              | 56%                               | 14%                      | 29%                   | 64%                          |
+| rows on kept + whole-catalogue narrowing        | 50%         | 30%                   | 45%                | 1.95             | 25%       | 53%                 | 61%              | 56%                               | 14%                      | 29%                   | 65%                          |
+| rows on kept + whole-catalogue narrowing + lift | 50%         | 30%                   | 45%                | 1.95             | 25%       | 53%                 | 60%              | 56%                               | 14%                      | 29%                   | 64%                          |
+
+## visitors who seldom answer note rows (1947 visitors shown picks; seeds 11, 12, 13, 14, 15, 400 drawn per seed)
+
+| switches                            | extra answers | narrowing shown | a bottle ticked | full order | gain over now (seed range) | upper bound | picks kept | kept gain, points (seed range) | picks turn | top 10 kept |
+|-------------------------------------|---------------|-----------------|-----------------|------------|----------------------------|-------------|------------|--------------------------------|------------|-------------|
+| now (grid narrowing round)          | 0.0           | 30%             | 4%              | 0.38       | +0.00 (+0.00 to +0.00)     | 0.60        | 72%        | +0.0 (+0.0 to +0.0)            | 12%        | 70%         |
+| rows on kept bottles                | 3.3           | 30%             | 4%              | 0.41       | +0.04 (+0.03 to +0.04)     |             | 76%        | +4.2 (+3.0 to +5.5)            | 10%        | 74%         |
+| rows on every bottle                | 5.1           | 23%             | 2%              | 0.44       | +0.06 (+0.06 to +0.07)     | 0.60        | 77%        | +5.1 (+4.3 to +6.3)            | 10%        | 75%         |
+| rows on kept bottles, judged poorly | 3.3           | 30%             | 4%              | 0.40       | +0.02 (+0.02 to +0.03)     |             | 75%        | +3.2 (+1.9 to +4.3)            | 11%        | 73%         |
+
+Likes and palate
+| switches                            | liked shown per visitor | any liked | liked that are true | true likes shown | group palate | no palate | palate lead right | palate names a liked group |
+|-------------------------------------|-------------------------|-----------|---------------------|------------------|--------------|-----------|-------------------|----------------------------|
+| now (grid narrowing round)          | 2.77                    | 79%       | 16%                 | 17%              | 76%          | 5%        | 17%               | 47%                        |
+| rows on kept bottles                | 2.25                    | 76%       | 24%                 | 20%              | 74%          | 5%        | 22%               | 55%                        |
+| rows on every bottle                | 2.56                    | 86%       | 23%                 | 23%              | 74%          | 7%        | 22%               | 55%                        |
+| rows on kept bottles, judged poorly | 2.35                    | 77%       | 21%                 | 19%              | 74%          | 5%        | 20%               | 52%                        |
+
+Deal-breakers: flagged as now, and named only when a note row or a second bottle points to it (with chips: a complaint chip counts too)
+| switches                            | any flagged | flagged that are true | first flagged true | innocent flagged | any named | named that are true | first named true | first flagged true, same visitors | true deal-breakers named | any named, with chips | first named true, with chips |
+|-------------------------------------|-------------|-----------------------|--------------------|------------------|-----------|---------------------|------------------|-----------------------------------|--------------------------|-----------------------|------------------------------|
+| now (grid narrowing round)          | 51%         | 25%                   | 38%                | 2.17             | 15%       | 52%                 | 59%              | 55%                               | 8%                       | 19%                   | 66%                          |
+| rows on kept bottles                | 51%         | 24%                   | 38%                | 2.27             | 16%       | 50%                 | 57%              | 54%                               | 8%                       | 19%                   | 65%                          |
+| rows on every bottle                | 46%         | 33%                   | 47%                | 1.70             | 33%       | 51%                 | 61%              | 52%                               | 19%                      | 35%                   | 63%                          |
+| rows on kept bottles, judged poorly | 51%         | 24%                   | 38%                | 2.26             | 16%       | 51%                 | 58%              | 54%                               | 8%                       | 19%                   | 65%                          |
+
+## visitors who have tried twelve bottles (1951 visitors shown picks; seeds 11, 12, 13, 14, 15, 400 drawn per seed)
+
+| switches                           | extra answers | narrowing shown | a bottle ticked | full order | gain over now (seed range) | upper bound | picks kept | kept gain, points (seed range) | picks turn | top 10 kept |
+|------------------------------------|---------------|-----------------|-----------------|------------|----------------------------|-------------|------------|--------------------------------|------------|-------------|
+| no narrowing round                 | -0.2          | 0%              | 0%              | 0.40       | -0.00 (-0.00 to -0.00)     |             | 75%        | +0.0 (-0.3 to +0.2)            | 10%        | 73%         |
+| now (grid narrowing round)         | 0.0           | 26%             | 8%              | 0.41       | +0.00 (+0.00 to +0.00)     | 0.59        | 75%        | +0.0 (+0.0 to +0.0)            | 10%        | 73%         |
+| narrowing from the 60 popular      | 0.1           | 35%             | 11%             | 0.40       | -0.00 (-0.00 to +0.00)     |             | 75%        | -0.1 (-0.7 to +0.5)            | 10%        | 73%         |
+| narrowing from the whole catalogue | -0.0          | 48%             | 9%              | 0.40       | -0.00 (-0.01 to +0.00)     |             | 75%        | -0.0 (-0.5 to +0.5)            | 10%        | 73%         |
+
+Likes and palate
+| switches                           | liked shown per visitor | any liked | liked that are true | true likes shown | group palate | no palate | palate lead right | palate names a liked group |
+|------------------------------------|-------------------------|-----------|---------------------|------------------|--------------|-----------|-------------------|----------------------------|
+| no narrowing round                 | 2.66                    | 82%       | 19%                 | 19%              | 73%          | 6%        | 20%               | 52%                        |
+| now (grid narrowing round)         | 2.69                    | 82%       | 19%                 | 19%              | 73%          | 6%        | 20%               | 52%                        |
+| narrowing from the 60 popular      | 2.70                    | 83%       | 19%                 | 19%              | 74%          | 6%        | 20%               | 52%                        |
+| narrowing from the whole catalogue | 2.69                    | 82%       | 19%                 | 19%              | 74%          | 6%        | 20%               | 52%                        |
+
+Deal-breakers: flagged as now, and named only when a note row or a second bottle points to it (with chips: a complaint chip counts too)
+| switches                           | any flagged | flagged that are true | first flagged true | innocent flagged | any named | named that are true | first named true | first flagged true, same visitors | true deal-breakers named | any named, with chips | first named true, with chips |
+|------------------------------------|-------------|-----------------------|--------------------|------------------|-----------|---------------------|------------------|-----------------------------------|--------------------------|-----------------------|------------------------------|
+| no narrowing round                 | 50%         | 28%                   | 40%                | 2.01             | 25%       | 46%                 | 55%              | 50%                               | 13%                      | 28%                   | 60%                          |
+| now (grid narrowing round)         | 50%         | 28%                   | 41%                | 2.04             | 26%       | 47%                 | 56%              | 52%                               | 14%                      | 28%                   | 60%                          |
+| narrowing from the 60 popular      | 50%         | 28%                   | 43%                | 2.05             | 27%       | 48%                 | 56%              | 53%                               | 15%                      | 29%                   | 60%                          |
+| narrowing from the whole catalogue | 50%         | 28%                   | 42%                | 2.05             | 26%       | 47%                 | 56%              | 53%                               | 14%                      | 29%                   | 59%                          |
+
+262 s
