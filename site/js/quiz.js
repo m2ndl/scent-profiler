@@ -1285,8 +1285,13 @@
   document.addEventListener("click", e => { if (!e.target.closest(".search")) showResults([]); });
 
   /* The front page's calls to action link here with ?go: the promise and the four parts were on that page, so the quiz
-     opens on its first question, and Back leads to the start screen. The front page sent reach:start. */
-  if (new URLSearchParams(location.search).has("go")) { sent.add("reach:start"); hist.push(snap()); step = "grid"; }
+     opens on its first question, and Back leads to the start screen. The front page sent reach:start. The bottles the
+     visitor said there they have tried (?tried=id,id) arrive picked on the grid, unless already rated. */
+  const params = new URLSearchParams(location.search);
+  if (params.has("go")) {
+    sent.add("reach:start"); hist.push(snap()); step = "grid";
+    for (const id of (params.get("tried") || "").split(",")) if (D.QUIZ.grid.includes(id) && !ratedBefore(id)) picked.add(id);
+  }
   render();
   page.loadCatalogue(() => { if (step === "grid") renderGridParts(); else render(); });
 })();

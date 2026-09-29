@@ -8,10 +8,13 @@
        more in some stage (the engine's threshold for a family a perfume clearly carries);
      - the nine palate groups with their colours, read from site/js/quiz.js (ARCH), and the catalogue's size;
      - for the 1,000-perfume test, the families a visitor can say they like and the ones they can say they cannot
-       stand, and for every catalogue perfume one number whose bits say which of those families it clearly carries;
+       stand, and for every catalogue perfume one number whose bits say which liked families it clearly carries and
+       which disliked families would rule it out (the engine's own ruledOut, so the test counts as the quiz does);
      - from the ingredient labels in evidence/labels/, one perfume's label beside its note list, and how many of the
-       labels name Iso E Super among their first five ingredients while no note list names it.
-   Run after any change to data.js, mapper.js, bottles.js, materials.js, the palate groups or the labels;
+       labels name Iso E Super among their first five ingredients while no note list names it;
+     - an example result: what the quiz itself shows a visitor who answers as VISITOR says, run in the stub browser of
+       tests/lib/dom.js (the palate's name and emblem, the deal-breaker, the count ruled out and the three picks).
+   Run after any change to data.js, mapper.js, bottles.js, materials.js, engine.js, notes.js, quiz.js or the labels;
    tests/landing.test.js fails while the file is out of date. */
 
 const fs = require("fs");
@@ -22,11 +25,14 @@ const LABELS = path.join(ROOT, "evidence", "labels");
 const STAGES = ["opening", "heart", "drydown"];
 /* the 1,000-perfume test: smells most people like, and smells that often divide people */
 const LIKES = ["rose", "white_floral", "citrus_fresh", "spicy_warm", "sandalwood_creamy", "vanilla_gourmand", "amber_resin"];
-const DISLIKES = ["woody_amber", "white_musk", "patchouli", "oud_smoky", "leather_smoky", "iris_powdery", "aquatic_marine", "incense_resin"];
+const DISLIKES = ["woody_amber", "white_musk", "patchouli", "cedar_dry", "leather_smoky", "oud_smoky", "iris_powdery", "incense_resin"];
 /* the perfume whose ingredient label is set beside its note list, and the material counted across the labels */
 const EXAMPLE = "pegasus";
 const ISO = "tetramethyl acetyloctahydronaphthalenes";
 const TOP = 5;
+/* the example result's visitor: still uses two bottles, and two turned on them hours later; every other answer is
+   left as it comes (no narrowing, no notes, taste and complaints not sure, the musk heard) */
+const VISITOR = { still: ["yara", "goodgirl"], turned: ["sauvageedp", "hawas"] };
 
 /* the quiz's palate groups (ARCH in quiz.js): id, families and colour */
 function palateGroups() {
@@ -51,8 +57,50 @@ function readLabels() {
   });
 }
 
+/* The quiz run for VISITOR in one language, read from the result screen it writes. */
+function quizResult(lang, byId) {
+  const { createPage } = require("../tests/lib/dom");
+  const scripts = [...fs.readFileSync(path.join(SITE, "quiz.html"), "utf8").matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => ({ filename: m[1], code: fs.readFileSync(path.join(SITE, m[1]), "utf8") }));
+  const page = createPage({ localStorage: { pp_device: JSON.stringify("d_example"), pp_lang: JSON.stringify(lang) } });
+  page.load(scripts);
+  const html = () => page.snapshot().els.quiz.innerHTML;
+  const fail = what => { throw new Error(`the example visitor's quiz run (${lang}) stopped at ${what}`); };
+  const all = VISITOR.still.concat(VISITOR.turned);
+  page.click({ dataset: { start: "1" } });
+  for (const id of all) page.click({ dataset: { tile: id } });
+  page.click({ dataset: { continue: "1" } });
+  /* the bottles come in the grid's order: each screen is known by the name in its heading */
+  const esc = x => String(x).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  for (let k = 0; k < all.length; k++) {
+    const name = (/<h1 class="qname">([^<]*)<\/h1>/.exec(html()) || [])[1];
+    const id = all.find(x => name === esc(lang === "ar" && byId[x].ar ? byId[x].ar : byId[x].name));
+    if (!id) fail("bottle screen " + (k + 1));
+    page.click({ dataset: { verdict: VISITOR.still.includes(id) ? "still" : "turned" } });
+    if (!VISITOR.still.includes(id)) page.click({ dataset: { when: "drydown" } });
+    page.click({ dataset: { continue: "1" } });
+    if (/data-nskip="1"/.test(html())) page.click({ dataset: { continue: "1" } });
+  }
+  if (/data-skip="1"/.test(html())) page.click({ dataset: { skip: "1" } });
+  for (let i = 0; i < 40 && /data-pn=/.test(html()); i++) page.click({ dataset: { continue: "1" } });
+  page.click({ dataset: { taste: "unsure" } });
+  page.click({ dataset: { told: "unsure" } });
+  page.click({ dataset: { continue: "1" } });
+  page.click({ dataset: { anosmia: "no" } });
+  const h = html(), one = (re, what) => { const m = re.exec(h); if (!m) fail(what); return m[1]; };
+  /* names are read from the page's markup: undo its escaping, since the front page escapes them again */
+  const unesc = x => x.replace(/&(amp|lt|gt|quot|#39);/g, (m, k) => ({ amp: "&", lt: "<", gt: ">", quot: '"', "#39": "'" }[k]));
+  const bad = one(/<div class="qtaste-row bad">([^]*?)<\/div><\/div>/, "the deal-breaker");
+  return {
+    palate: unesc(one(/<div class="qname-t"><p class="eyebrow">[^<]*<\/p><h1>([^<]+)<\/h1>/, "the palate's name")),
+    emblem: one(/(<svg class="qemblem"[^]*?<\/svg>)/, "the emblem").replace(/ width="\d+" height="\d+"/, ""),
+    breakers: [...bad.matchAll(/<span class="qchip bad">([^<]+)<\/span>/g)].map(m => unesc(m[1])),
+    out: +one(/<div class="qfun out"><span class="sr">(\d+) /, "the count ruled out"),
+    picks: [...new Set([...h.matchAll(/data-event="sample:([^"]+)"/g)].map(m => m[1]))]
+  };
+}
+
 function build() {
-  const w = loadSite("data", "mapper", "bottles", "materials");
+  const w = loadSite("data", "mapper", "bottles", "materials", "evidence", "engine");
   const D = w.PP_DATA, M = w.PP_MAP, PHOTOS = w.PP_BOTTLES || {}, MAT = w.PP_MATERIALS;
   const groups = palateGroups();
   const groupOf = f => Object.keys(groups).find(g => groups[g].fams.includes(f)) || null;
@@ -109,13 +157,28 @@ function build() {
   const facts = {
     labels: { checked: labels.length, top: TOP, iso_top: isoTop.length, iso_listed: labels.filter(L => lists_name(byId[L.id], ISO)).length }
   };
-  /* bit i of a perfume's number: it clearly carries TEST[i] */
-  const test = { likes: LIKES, dislikes: DISLIKES, masks: D.PERFUMES.map(P => TEST.reduce((m, f, i) => (carries(P, f) ? m | (1 << i) : m), 0)) };
+  /* bit i of a perfume's number: it clearly carries the liked family TEST[i], or, for a disliked family, the quiz would
+     rule it out if that family were the visitor's deal-breaker */
+  const ENG = w.PP_ENGINE.create(D, M, w.PP_EVIDENCE);
+  const outBy = Object.fromEntries(DISLIKES.map(f => [f, new Set(ENG.ruledOut({ [f]: { cls: "badLikely" } }))]));
+  const hit = (P, f) => (outBy[f] ? outBy[f].has(P.id) : carries(P, f));
+  const test = { likes: LIKES, dislikes: DISLIKES, masks: D.PERFUMES.map(P => TEST.reduce((m, f, i) => (hit(P, f) ? m | (1 << i) : m), 0)) };
 
-  const data = { total: D.PERFUMES.length, groups: Object.fromEntries(Object.entries(groups).map(([g, v]) => [g, { color: v.color }])), families, sprays, example, facts, test };
-  const text = `/* Generated by tools/build_landing.js from data.js, mapper.js, bottles.js, materials.js, the palate groups in quiz.js
-   and the ingredient labels in evidence/labels/. Do not edit by hand: rerun the tool. What the front page (index.html)
-   shows of the catalogue. */
+  /* the example result, in both languages; the bottles it names come with their names and photos */
+  const en = quizResult("en", byId), ar = quizResult("ar", byId);
+  if (en.emblem !== ar.emblem || en.out !== ar.out || en.picks.join() !== ar.picks.join() || en.breakers.length !== ar.breakers.length) throw new Error("the example result differs between the two languages");
+  if (en.picks.length !== 3 || !en.breakers.length) throw new Error("the example result needs a deal-breaker and three picks");
+  const bottle = id => { const P = byId[id]; return { id, name: P.name, ar: P.ar || "", house: P.house, photo: PHOTOS[id] || "" }; };
+  const result = {
+    still: VISITOR.still.map(bottle), turned: VISITOR.turned.map(bottle),
+    palate: { en: en.palate, ar: ar.palate }, emblem: en.emblem,
+    breakers: en.breakers.map((x, i) => ({ en: x, ar: ar.breakers[i] })), out: en.out, picks: en.picks.map(bottle)
+  };
+
+  const data = { total: D.PERFUMES.length, groups: Object.fromEntries(Object.entries(groups).map(([g, v]) => [g, { color: v.color }])), families, sprays, example, facts, test, result };
+  const text = `/* Generated by tools/build_landing.js from data.js, mapper.js, bottles.js, materials.js, the palate groups in quiz.js,
+   the ingredient labels in evidence/labels/ and a run of the quiz. Do not edit by hand: rerun the tool. What the front
+   page (index.html) shows of the catalogue. */
 window.PP_LANDING_DATA = ${JSON.stringify(data)};
 `;
   return { text, sprays: sprays.length, families: Object.keys(families).length, facts };

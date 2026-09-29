@@ -1,12 +1,12 @@
-/* The front page (index.html): why so few perfumes suit any one person, told in sections that each answer the question
-   the one before leaves open (see the words below), with their evidence from the books in reference/books/ folded
-   under each, leading to the quiz (quiz.html) and the articles.
+/* The front page (index.html), written for a visitor who scrolls more than reads: a hook and the atomizer on the first
+   screen, then a real result, then three short sections that each turn on one tap, then the quiz (quiz.html) and the
+   articles. Every section holds one headline, one interaction and one line; its sources fold away under it.
    The centrepiece is a classic atomizer of antique brass (drawn in 3D by js/bottle3d.js): a completed press on it
-   squeezes the rubber bulb and sprays one of the quiz's
-   twenty perfumes, whose listed notes rise from the mist in three rows, first minutes, first hours and hours later
-   (js/landing-data.js, built by tools/build_landing.js). The mist and every other movement sit under
-   prefers-reduced-motion: no-preference; without motion the notes simply appear. Shared words and the device store
-   come from page.js. */
+   squeezes the rubber bulb and sprays one of the quiz's twenty perfumes, whose listed notes rise from the mist in three
+   rows, first minutes, first hours and hours later (js/landing-data.js, built by tools/build_landing.js). Under it the
+   quiz's first question waits: tried it? Each bottle the visitor has tried goes into the quiz links (?tried=), so the
+   quiz opens with them picked. The mist and every other movement sit under prefers-reduced-motion: no-preference;
+   without motion the notes simply appear. Shared words and the device store come from page.js. */
 (function () {
   "use strict";
   const host = document.getElementById("lp");
@@ -16,20 +16,23 @@
   const STAGES = ["opening", "heart", "drydown"];
   const store = PAGE.store;
   let lang = store.get("pp_lang", "ar");   /* Arabic first, whatever the device language; a chosen language is kept */
+  const tried = [];                       /* the bottles the visitor said, under the atomizer, they have tried */
 
   /* Local testing only, as page.js does: http://localhost:8765/?endpoint=http://localhost:8765/api */
   let endpointParam = "";
   if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { try { const e = new URLSearchParams(location.search).get("endpoint"); if (e) { CONFIG.endpoint = e; endpointParam = e; } } catch (err) { /* ignore */ } }
   const withEndpoint = href => (endpointParam ? href + (href.includes("?") ? "&" : "?") + "endpoint=" + encodeURIComponent(endpointParam) : href);
-  const QUIZ_HREF = () => withEndpoint("quiz.html?go=1");
-  /* This page is the quiz's start screen now: one "reach:start" per visit, from the device id the quiz and the
-     profiler use (the same format page.js makes), so the backend's funnel still begins here. */
-  (function reachStart() {
+  const QUIZ_HREF = () => withEndpoint("quiz.html?go=1" + (tried.length ? "&tried=" + tried.join(",") : ""));
+  /* This page is the quiz's start screen: one "reach:start" per visit, from the device id the quiz and the profiler use
+     (the same format page.js makes), so the backend's funnel still begins here. "land:tried" counts the bottles a
+     visitor marks as tried under the atomizer (n: how many so far). */
+  function send(name, n) {
     if (!CONFIG.endpoint) return;
     let device = store.get("pp_device", null);
     if (!device) { device = "d_" + Math.random().toString(36).slice(2, 10) + Date.now().toString(36); store.set("pp_device", device); }
-    try { fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type: "event", name: "reach:start", n: 0, device, lang, ts: new Date().toISOString() }) }).catch(() => {}); } catch (e) { /* offline or blocked */ }
-  })();
+    try { fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ type: "event", name, n, device, lang, ts: new Date().toISOString() }) }).catch(() => {}); } catch (e) { /* offline or blocked */ }
+  }
+  send("reach:start", 0);
 
   /* Arabic counted nouns: 1 and 2 have their own forms, 3 to 10 take the plural, 11 and more the singular */
   const arCount = (n, one, two, few, many) => (n === 1 ? one : n === 2 ? two : n <= 10 ? `${n} ${few}` : `${n} ${many}`);
@@ -39,57 +42,53 @@
   const fmtEn = n => Number(n).toLocaleString("en-US");
 
   /* ---------- words ----------
-     Each section answers the question the one before it leaves open, and ends on the next question: the 1,000-perfume
-     test (what you like barely narrows the choice; one dislike does), the box turned round (the label names what the
-     note list leaves out), the nose (a third of people cannot smell a common musk), one note (the note you hate
-     outweighs the rest), the rare ones (critics' stars; the quiz learns from what you kept) and the day of wear.
-     Figures from the catalogue and the labels come from js/landing-data.js; figures from the books are written here,
-     with their sources in each section's folded Sources. */
+     The hook is the bottle the reader bought and stopped using. The sections: a real result (what the quiz gives), the
+     1,000-perfume test (one smell you cannot stand rules out far more than all the popular smells you like), the box
+     turned round (the label names what the note list leaves out) and the nose (a third of people cannot smell a common
+     musk). Figures from the catalogue, the labels and the example result come from js/landing-data.js; figures from
+     the books are written here, with their sources in each section's folded Sources. */
   const T = PAGE.words({
     en: {
       navQuiz: "The quiz", navProfiler: "Your profile",
-      eyebrow: "The perfume quiz that starts with what you can't stand",
-      h1: "One note can ruin a perfume for you. Find out which.",
-      lede: "Rose, vanilla, sandalwood: you probably like them all, yet few perfumes that list them end up suiting you. In four quick parts, the quiz finds the note behind that, then the scents you'll love.",
-      start: "Find your deal-breakers", startNote: "Four quick parts. No sign-up.", down: "See how it works",
-      press: "Press the bulb", pressAgain: "Press again for another perfume",
-      invite: "Press the rubber bulb to spray one of the quiz's perfumes and watch its notes rise.",
+      h1: "Bought a perfume you never wear? One note may be why.",
+      lede: "Four quick parts look for the smell behind it, then choose perfumes for you to try.",
+      start: "Find what suits me", cont: n => `Continue with ${n} ${n === 1 ? "bottle" : "bottles"}`,
+      startNote: "Free. No sign-up.",
+      press: "Press the bulb",
       bottleLabel: "Perfume atomizer. Press to spray one of the quiz's twenty perfumes and see its notes.",
-      sprayed: (house, name) => `${house} · ${name}`,
-      sprayedNote: "One of the twenty perfumes in the quiz, with its listed notes.",
-      sprayedLive: (house, name, rows) => `Sprayed ${house} ${name}. ${rows}`,
-      srcTag: "Sources", quizTag: "How the quiz uses this",
+      triedQ: "Tried it?", triedYes: "Yes", triedNo: "Not yet", triedDone: "Added to your quiz",
+      sprayedLive: (house, name, rows) => `Sprayed ${house} ${name}. ${rows}. Tried it?`,
+      srcTag: "Sources",
+
+      getKick: "What you get",
+      getH: "Tell it about four perfumes you've tried, and you get a result like this.",
+      getPalate: "Your palate", getBad: "Your deal-breaker", getPicks: "Three to try",
+      getOut: total => `of our ${fmtEn(total)} perfumes ruled out`,
+      getWho: (a, b, c, d) => `An example: still uses ${a} and ${b}; ${c} and ${d} turned on them.`,
 
       testKick: "Try it",
-      testH: "What you like barely narrows down 1,000 perfumes. Watch what one dislike does.",
-      testLike: "1. Tap the smells you like",
-      testHate: "2. Now tap one smell you can't stand",
-      testNames: { rose: "Rose", white_floral: "White flowers", citrus_fresh: "Citrus", spicy_warm: "Warm spices", sandalwood_creamy: "Sandalwood",
-        vanilla_gourmand: "Vanilla", amber_resin: "Resin amber", woody_amber: "Woody amber", white_musk: "Clean musk", patchouli: "Patchouli",
-        oud_smoky: "Smoky oud", leather_smoky: "Leather", iris_powdery: "Powdery iris", aquatic_marine: "Marine notes", incense_resin: "Incense" },
+      testH: "Tap one smell you can't stand. Watch the count fall from 1,000.",
+      testNames: { woody_amber: "Woody ambers", white_musk: "Clean musk", patchouli: "Patchouli", cedar_dry: "Dry cedar", leather_smoky: "Leather",
+        oud_smoky: "Smoky oud", iris_powdery: "Powdery iris", incense_resin: "Incense" },
       testAll: () => "perfumes in our catalogue",
-      testLiked: () => "have something you like",
-      testLeft: (n, name) => `left without ${name.toLowerCase()}`,
-      testVerdict: (a, b) => `${a ? `Your likes ruled out ${fmtEn(a)}.` : "Your likes ruled out none."} One dislike ruled out ${fmtEn(b)}.`,
+      testLeft: (n, name) => `left after ruling out ${name.toLowerCase()}`,
+      testVerdict: (gone, none) => `One smell you can't stand ruled out ${fmtEn(gone)}. Only ${fmtEn(none)} of the 1,000 have none of rose, vanilla, citrus and the other popular smells.`,
       testWhy: "That's why the quiz starts with what you can't stand.",
       testGo: "Find yours",
-      testNext: "So how does a smell you can't stand get into a perfume whose box lists only lovely ones?",
-      testSrc: "Counts from our catalogue of 1,000 perfumes. A perfume counts for a family when that family is clearly present in at least one of its stages.",
+      testSrc: "Counts from our catalogue of 1,000 perfumes. A smell you can't stand rules a perfume out as the quiz does: when its family is strong in the heart or the base. A perfume has a popular smell when that family is clearly present in at least one of its stages. The popular smells: rose, white flowers, citrus, warm spices, sandalwood, vanilla and resin amber.",
 
       listKick: "Turn the box around",
-      listH: "The box says jasmine and vanilla. The label says Iso E Super.",
-      listLede: name => `${name} by Parfums de Marly lists nine notes, from bergamot to vanilla. Turn the box around and read its ingredient label.`,
+      listH: "The box says jasmine and vanilla. What does the label say?",
+      listLede: name => `${name} by Parfums de Marly lists nine notes. Turn the box around and read its ingredients.`,
       boxOn: "On the box", labelOn: "On the label, first five ingredients",
       flip: "Turn it around", flipBack: "Back to the box", boxTease: "Now read the other side.",
       inciNames: { "alcohol denat.": "alcohol", parfum: "fragrance", aqua: "water", "tetramethyl acetyloctahydronaphthalenes": "Iso E Super", hexamethylindanopyran: "Galaxolide" },
       labelHidden: "Two synthetic materials near the top. The note list names neither.",
       labelCount: (checked, iso, listed) => `${iso} of the ${checked} Parfums de Marly labels we checked list Iso E Super among the first five ingredients. ${listed ? `Only ${listed} of their note lists mention it.` : "None of their note lists mentions it."}`,
-      jasmine: "Even real jasmine is up to a tenth indole. On its own, indole smells like mothballs.",
-      listNext: "The strange part: about 1 in 3 people can't smell the musk on that label at all. Are you one of them?",
-      listSrc: "Labels: the ingredient lists on the Parfums de Marly website, September 2026. Iso E Super is a synthetic woody material and Galaxolide a synthetic musk. Jasmine and indole: McGee, Nose Dive (2020).",
+      listSrc: "Labels: the ingredient lists on the Parfums de Marly website, September 2026. Iso E Super is a synthetic woody material and Galaxolide a synthetic musk.",
 
       noseKick: "Your nose",
-      noseH: "About 1 in 3 people can't smell this musk.",
+      noseH: "About 1 in 3 people can't smell this musk. Are you one of them?",
       noseLede: "It's Galaxolide, the musk on that label, and clean musks like it are in nearly half of our 1,000 perfumes. Tap a smell and watch 100 people split.",
       noseCases: [
         { id: "banana", name: "Banana", can: 99, about: true, note: "Everyone smells this one, except the 1 in 100 who can't smell anything at all.", g: "fresh" },
@@ -97,59 +96,12 @@
         { id: "musk", name: "Clean musk", can: 67, about: true, note: "About 1 in 3 miss it completely. To them, a perfume built on it smells much weaker than it is.", g: "musk" },
         { id: "andro", name: "Androstenone", can: 67, about: true, note: "Most people who smell it say urine. Some say sweet flowers. About 1 in 3 smell nothing.", g: "amber" }
       ],
-      noseCan: n => `${n} can smell it`, noseCannot: n => `${n} cannot`, noseAbout: "about",
-      noseCritics: "Even two top critics split: Luca Turin found Mr. Burberry loud; Tania Sanchez found it quiet, because she couldn't smell one of its main materials.",
-      noseNext: "So what happens when the one note you can't stand is in the bottle?",
-      noseSrc: "Survey: the National Geographic Smell Survey, as reported in Ohloff and others, Scent and Chemistry (2022). About 400 kinds of smell receptor, with genes that vary between people: McGee, Nose Dive (2020); Gilbert, What the Nose Knows (2008). The critics: Turin and Sanchez, Perfumes: The Guide (2018).",
+      noseCan: n => `${n} can smell it`, noseCannot: n => `${n} cannot`, noseAbout: "about", noseGroup: "Pick a smell",
+      noseSrc: "Survey: the National Geographic Smell Survey, as reported in Ohloff and others, Scent and Chemistry (2022). About 400 kinds of smell receptor, with genes that vary between people: McGee, Nose Dive (2020); Gilbert, What the Nose Knows (2008).",
 
-      spoilKick: "One note",
-      spoilH: "Pick the note you'd hate. However good the rest, the perfume is out.",
-      spoilLede: "Choose one of the quiz's perfumes, then tap the note you'd least want to smell.",
-      spoilPick: "Tap the note you'd mind most",
-      spoilResult: (note, n, name) => `"${note.charAt(0).toUpperCase() + note.slice(1)}" is 1 of ${n} notes in ${name}. If it's the one you can't stand, the other ${n - 1} won't make up for it.`,
-      spoilFamily: (fam, n, total) => `It belongs to ${fam}, clearly present in ${fmtEn(n)} of our ${fmtEn(total)} perfumes.`,
-      spoilIds: ["khamrah", "yara", "sauvageedp", "br540"],
-      spoilFact: "In a classic test, a lipstick scent most testers liked was rejected once a touch of civet was added.",
-      spoilQuiz: "It looks for what the perfumes that turned on you have in common, and keeps that out of your picks.",
-      spoilNext: "Knowing what you hate is half of it. The other half is rarer than you'd think.",
-      spoilSrc: "The lipstick test: Jellinek, The Psychological Basis of Perfumery (1997), p. 134. Critics calling good perfumes \"marred\" by one material, often a woody amber: Turin and Sanchez, Perfumes: The Guide (2018). People rarely buy an everyday product for its scent, yet may well reject one whose scent they dislike: Calkin and Jellinek, Perfumery: Practice and Principles (1994), p. 148.",
-
-      critKick: "The rare ones",
-      critH: "Two critics smelled 1,207 perfumes. They gave five stars to 19.",
-      statBig: "Nearly half", statText: "got one or two stars out of five.",
-      starsRow: (k, n) => `${k} star${k > 1 ? "s" : ""}: ${fmtEn(n)} perfumes`,
-      critLove: "A perfume you love is rare. So the quiz learns most from the ones you still use, not the ones that only smelled nice.",
-      critNext: "One more thing you can't judge in a shop: how it smells hours later.",
-      critSrc: "Star counts of all 1,207 rated reviews in Turin and Sanchez, Perfumes: The Guide (2018).",
-
-      timeKick: "Over the day",
-      timeH: "What you smell in the shop is gone within the hour.",
-      timeLede: "The first notes fade in minutes, the heart lasts a few hours, and the base many more. Slide through a day and watch the perfume change.",
-      timeFact: "Some perfumes are built to smell great only for the few minutes you spend deciding at the counter.",
-      timeQuiz: "So it asks when a perfume turned on you: in the first minutes, the first hours or hours later.",
-      timeNext: "Ready to find what spoils perfumes for you?",
-      timeSrc: "Top notes fade within minutes to an hour, heart notes last from about an hour to a few hours, and base notes for many hours: McGee, Nose Dive (2020). Perfumes made to smell good only for the minutes at the counter: Turin and Sanchez, Perfumes: The Guide (2018).",
-      timeSlider: "Time since you put it on",
-      timeNow: m => (m === 0 ? "At the first spray" : m < 60 ? `${m} minutes in` : `${Math.floor(m / 60)} h${m % 60 ? " " + (m % 60) + " min" : ""} in`),
-      timeIn: "Stage", tick: h => `${h} h`,
-      timeStage: { opening: "First minutes", heart: "First hours", drydown: "Hours later" },
-      timeIds: ["sauvageedp", "libre", "khamrah", "adgedt"],
-      timeNotes: "Listed notes",
-
-      quizH: "Four quick parts, and you'll know what to avoid and what to try.",
+      quizH: "Four quick parts, then perfumes chosen for you.",
       quizLede: "It learns first from the perfumes you've tried, then from what you say about notes.",
-      quizSteps: [
-        ["Your bottles", "Tap the perfumes you have tried and say how each went: still in use, turned on you, or put you off in the shop."],
-        ["Notes you know", "Say which notes you enjoy and which you avoid."],
-        ["Sweet or bitter", "Say whether you prefer sweet perfumes or bitter, fresh ones."],
-        ["What bothers you", "Pick what has bothered you in perfumes before."]
-      ],
-      getH: "What you get",
-      gets: [
-        ["Your palate", "Named from the perfumes you still wear."],
-        ["Your deal-breakers", "The families that spoil perfumes for you, and the bottles that show it."],
-        ["Three samples", "Chosen to avoid your deal-breakers and match what you love."]
-      ],
+      quizSteps: ["Your bottles", "Notes you know", "Sweet or bitter", "What bothers you"],
 
       artH: "Read more",
       arts: [
@@ -162,108 +114,58 @@
     },
     ar: {
       navQuiz: "الاختبار", navProfiler: "ملفك العطري",
-      eyebrow: "الاختبار الذي يبدأ بما لا تطيقه",
-      h1: "نوتة واحدة قد تفسد عليك العطر كله. اعرف أيّها.",
-      lede: "الورد والفانيلا والصندل تعجبك غالباً، ومع ذلك قليلة هي العطور التي تذكرها ثم تناسبك. في أربعة أجزاء سريعة يكشف لك الاختبار النوتة التي وراء ذلك، ثم الروائح التي ستعشقها.",
-      start: "اكتشف ما يفسد العطر عليك", startNote: "أربعة أجزاء سريعة، بلا تسجيل.", down: "شاهد كيف يعمل",
-      press: "اضغط على الكرة", pressAgain: "اضغط مرة أخرى لعطر آخر",
-      invite: "اضغط على الكرة المطاطية لترشّ أحد عطور الاختبار وتظهر لك نوتاته.",
+      h1: "اشتريت عطراً ثم تركته؟ قد تكون نوتة واحدة هي السبب.",
+      lede: "أربعة أجزاء سريعة تبحث عن الرائحة التي وراء ذلك، ثم تختار لك عطوراً لتجرّبها.",
+      start: "اكتشف ما يناسبك", cont: n => `تابع مع ${arCount(n, "عطر واحد", "عطرين", "عطور", "عطراً")}`,
+      startNote: "مجاناً، وبلا تسجيل.",
+      press: "اضغط على الكرة",
       bottleLabel: "بخّاخ عطر. اضغط لترشّ أحد العطور العشرين في الاختبار وترى نوتاته.",
-      sprayed: (house, name) => `${house} · ${name}`,
-      sprayedNote: "أحد العطور العشرين في الاختبار، بنوتاته المعلنة.",
-      sprayedLive: (house, name, rows) => `رششت ${name} من ${house}. ${rows}`,
-      srcTag: "المصادر", quizTag: "كيف يستفيد الاختبار من ذلك",
+      triedQ: "جرّبته من قبل؟", triedYes: "نعم", triedNo: "ليس بعد", triedDone: "أضفناه إلى اختبارك",
+      sprayedLive: (house, name, rows) => `رششت ${name} من ${house}. ${rows}. هل جرّبته من قبل؟`,
+      srcTag: "المصادر",
 
-      testKick: "جرّبها",
-      testH: "ما تحبه لا يكاد يقلّص 1000 عطر. انظر ماذا تفعل رائحة واحدة لا تطيقها.",
-      testLike: "1. اختر الروائح التي تحبها",
-      testHate: "2. والآن اختر رائحة واحدة لا تطيقها",
-      testNames: { rose: "الورد", white_floral: "الزهور البيضاء", citrus_fresh: "الحمضيات", spicy_warm: "التوابل الدافئة", sandalwood_creamy: "الصندل",
-        vanilla_gourmand: "الفانيلا", amber_resin: "العنبر الراتنجي", woody_amber: "الخشب العنبري", white_musk: "المسك النظيف", patchouli: "الباتشولي",
-        oud_smoky: "العود المدخّن", leather_smoky: "الجلد", iris_powdery: "السوسن البودري", aquatic_marine: "النفحات البحرية", incense_resin: "البخور" },
+      getKick: "ما تحصل عليه",
+      getH: "أخبرنا عن أربعة عطور جرّبتها، فتحصل على نتيجة كهذه.",
+      getPalate: "ذائقتك", getBad: "ما يفسد العطر عليك", getPicks: "ثلاثة عطور لتجرّبها",
+      getOut: (total, n) => `${arNoun(n)} استُبعدت من ${arPerfumes(total)} في قائمتنا`,
+      getWho: (a, b, c, d) => `مثال: ما زال يستخدم ${a} و${b}، وانقلب عليه ${c} و${d}.`,
+
+      testKick: "جرّب بنفسك",
+      testH: "اختر رائحة واحدة لا تطيقها، وانظر كم عطراً يبقى من الألف.",
+      testNames: { woody_amber: "الأخشاب العنبرية الصناعية", white_musk: "المسك النظيف", patchouli: "الباتشولي", cedar_dry: "الأرز الجاف", leather_smoky: "الجلد",
+        oud_smoky: "العود المدخّن", iris_powdery: "السوسن البودري", incense_resin: "البخور" },
       testAll: n => `${arNoun(n)} في قائمتنا`,
-      testLiked: n => `${arNoun(n)} فيها شيء تحبه`,
-      testLeft: (n, name) => `${arNoun(n)} خالية من ${name}`,
-      testVerdict: (a, b) => `${a ? `ما تحبه استبعد ${arPerfumes(a)} فقط،` : "ما تحبه لم يستبعد أيّ عطر،"} ورائحة واحدة لا تطيقها استبعدت ${arPerfumes(b)}.`,
+      testLeft: (n, name) => `${arNoun(n)} بعد استبعاد ${name}`,
+      testVerdict: (gone, none) => `رائحة واحدة لا تطيقها استبعدت ${arPerfumes(gone)}. أما الورد والفانيلا والحمضيات وغيرها من الروائح الشائعة فلا يخلو منها كلها إلا ${arPerfumes(none)} من الألف.`,
       testWhy: "لهذا يبدأ الاختبار بما لا تطيقه.",
       testGo: "اكتشف ما لا تطيقه",
-      testNext: "فكيف تدخل رائحة لا تطيقها عطراً لا تذكر علبته إلا الروائح الجميلة؟",
-      testSrc: "الأرقام من قائمتنا التي تضم 1000 عطر: يُحسب العطر لعائلة ما حين تظهر فيه بوضوح في مرحلة واحدة على الأقل من مراحله.",
+      testSrc: "الأرقام من قائمتنا التي تضم 1000 عطر. الرائحة التي لا تطيقها تستبعد العطر كما يفعل الاختبار: حين تكون عائلتها قوية في قلبه أو قاعدته. ويُحسب للعطر رائحة شائعة حين تظهر عائلتها فيه بوضوح في مرحلة واحدة على الأقل من مراحله. الروائح الشائعة: الورد والزهور البيضاء والحمضيات والتوابل الدافئة والصندل والفانيلا والعنبر الراتنجي.",
 
       listKick: "اقلب العلبة",
-      listH: "العلبة تقول ياسمين وفانيلا. والملصق يقول إيزو إي سوبر.",
-      listLede: name => `عطر ${name} من دار بارفيوم دي مارلي يذكر تسع نوتات، من البرغموت إلى الفانيلا. اقلب العلبة واقرأ ملصق مكوناته.`,
+      listH: "العلبة تقول ياسمين وفانيلا. فماذا يقول الملصق؟",
+      listLede: name => `عطر ${name} من دار بارفيوم دي مارلي يذكر تسع نوتات. اقلب العلبة واقرأ مكوناته.`,
       boxOn: "على العلبة", labelOn: "على الملصق: أول خمسة مكونات",
       flip: "اقلب العلبة", flipBack: "أعدها", boxTease: "والآن اقرأ الجهة الأخرى.",
       inciNames: { "alcohol denat.": "كحول", parfum: "عطر", aqua: "ماء", "tetramethyl acetyloctahydronaphthalenes": "إيزو إي سوبر", hexamethylindanopyran: "غالاكسوليد" },
       labelHidden: "مادتان صناعيتان في أول القائمة، ولا تذكر قائمة النوتات أيّاً منهما.",
       labelCount: (checked, iso, listed) => `في ${iso} من ${arCount(checked, "ملصق واحد", "ملصقين", "ملصقات", "ملصقاً")} راجعناها لهذه الدار يأتي إيزو إي سوبر بين أول خمسة مكونات. ${listed ? `ولا تذكره إلا قوائم نوتات ${listed} منها.` : "ولا تذكره قائمة نوتات أيّ منها."}`,
-      jasmine: "حتى الياسمين الطبيعي قد يكون عُشر رائحته إندولاً، والإندول وحده رائحته كحبوب النفتالين.",
-      listNext: "والأغرب أن نحو ثلث الناس لا يشمّون المسك المذكور في هذا الملصق أصلاً. هل أنت منهم؟",
-      listSrc: "الملصقات: قوائم المكونات على موقع Parfums de Marly، سبتمبر 2026. إيزو إي سوبر مادة خشبية صناعية، وغالاكسوليد مسك صناعي. الياسمين والإندول: ماكغي، «الغوص بالأنف» (2020).",
+      listSrc: "الملصقات: قوائم المكونات على موقع Parfums de Marly، سبتمبر 2026. إيزو إي سوبر مادة خشبية صناعية، وغالاكسوليد مسك صناعي.",
 
       noseKick: "أنفك",
-      noseH: "نحو ثلث الناس لا يشمّون هذا المسك.",
+      noseH: "نحو ثلث الناس لا يشمّون هذا المسك. هل أنت منهم؟",
       noseLede: "إنه غالاكسوليد، المسك المذكور في ذلك الملصق، والمسك النظيف مثله موجود في قرابة نصف عطور قائمتنا الألف. اختر رائحة وشاهد كيف ينقسم 100 شخص.",
       noseCases: [
         { id: "banana", name: "الموز", can: 99, about: true, note: "يشمّها الجميع، إلا واحداً من كل مئة فقد حاسة الشم كلها.", g: "fresh" },
         { id: "clove", name: "القرنفل", can: 99, about: true, note: "ويشمّها الجميع أيضاً، إلا واحداً من كل مئة فقد حاسة الشم كلها.", g: "spiced" },
-        { id: "musk", name: "المسك النظيف", can: 67, about: true, note: "نحو الثلث لا يشمّونه أبداً، فيبدو لهم العطر المبني عليه أضعف كثيراً مما هو.", g: "musk" },
-        { id: "andro", name: "الأندروستينون", can: 67, about: true, note: "أكثر من يشمّه يقول إن رائحته كالبول، وبعضهم يقول زهور حلوة، ونحو الثلث لا يشمّ شيئاً.", g: "amber" }
+        { id: "musk", name: "المسك النظيف", can: 67, about: true, note: "نحو الثلث لا يشمّونه أبداً، فيبدو لهم العطر المبني عليه أضعف بكثير مما هو عليه.", g: "musk" },
+        { id: "andro", name: "الأندروستينون", can: 67, about: true, note: "أكثر من يشمّه يقول إن رائحته كالبول، وبعضهم يجدها كالزهور الحلوة، ونحو الثلث لا يشمّ شيئاً.", g: "amber" }
       ],
-      noseCan: n => `${n} يشمّونها`, noseCannot: n => (n === 1 ? "واحد لا يشمّها" : `${n} لا يشمّونها`), noseAbout: "نحو",
-      noseCritics: "حتى ناقدان كبيران اختلفا: وجد لوكا تورين عطر «مستر بربري» قوياً جداً، ووجدته تانيا سانشيز هادئاً، لأنها لا تشمّ إحدى مواده الرئيسية.",
-      noseNext: "فماذا يحدث حين تكون الرائحة الوحيدة التي لا تطيقها في الزجاجة؟",
-      noseSrc: "المسح: مسح ناشيونال جيوغرافيك للشم، كما نقله أولوف وآخرون في «الرائحة والكيمياء» (2022). نحو 400 نوع من مستقبلات الشم تختلف جيناتها بين الناس: ماكغي، «الغوص بالأنف» (2020)؛ غيلبرت، «ما يعرفه الأنف» (2008). الناقدان: تورين وسانشيز، «العطور: الدليل» (2018).",
+      noseCan: n => `${n} يشمّونها`, noseCannot: n => (n === 1 ? "واحد لا يشمّها" : `${n} لا يشمّونها`), noseAbout: "نحو", noseGroup: "اختر رائحة",
+      noseSrc: "المسح: مسح ناشيونال جيوغرافيك للشم، كما نقله أولوف وآخرون في كتاب Scent and Chemistry (2022). نحو 400 نوع من مستقبلات الشم تختلف جيناتها بين الناس: ماكغي في كتاب Nose Dive (2020)، وغيلبرت في كتاب What the Nose Knows (2008).",
 
-      spoilKick: "نوتة واحدة",
-      spoilH: "اختر النوتة التي تكرهها. مهما كان الباقي جميلاً، يخرج العطر من حسابك.",
-      spoilLede: "اختر عطراً من عطور الاختبار، ثم اضغط على النوتة التي لا تريد أن تشمّها.",
-      spoilPick: "اضغط على النوتة التي تزعجك أكثر من غيرها",
-      spoilResult: (note, n, name) => `«${note}» واحدة من ${arCount(n, "نوتة واحدة", "نوتتين", "نوتات", "نوتة")} في ${name}. فإن كانت هي ما لا تطيقه، فلن يعوّضك عنها الباقي.`,
-      spoilFamily: (fam, n, total) => `وهي من عائلة ${fam}، وتظهر بوضوح في ${n} من ${arPerfumes(total)} في قائمتنا.`,
-      spoilIds: ["khamrah", "yara", "sauvageedp", "br540"],
-      spoilFact: "في اختبار قديم، استحسن أكثر المختبرين رائحة لأحمر الشفاه، ثم رفضوها حين أُضيفت إليها لمسة من الزباد.",
-      spoilQuiz: "يبحث عمّا تشترك فيه العطور التي انقلبت عليك، ويستبعده من ترشيحاتك.",
-      spoilNext: "هذا نصف ما يبحث عنه الاختبار. والنصف الآخر أندر مما تظن.",
-      spoilSrc: "اختبار أحمر الشفاه: يلينك، «الأساس النفسي لصناعة العطور» (1997)، ص 134. نقاد يصفون عطوراً جيدة أفسدتها مادة واحدة، كثيراً ما تكون خشباً عنبرياً: تورين وسانشيز، «العطور: الدليل» (2018). الناس قلّما يشترون منتجاً يومياً من أجل رائحته، لكنهم قد يرفضونه إن كرهوها: كالكن ويلينك، «صناعة العطور: الممارسة والمبادئ» (1994)، ص 148.",
-
-      critKick: "النادر",
-      critH: "ناقدان شمّا 1207 عطور، ولم يمنحا النجوم الخمس إلا لـ19 منها.",
-      statBig: "قرابة النصف", statText: "نال نجمة أو نجمتين من خمس.",
-      starsRow: (k, n) => `${["نجمة واحدة", "نجمتان", "3 نجوم", "4 نجوم", "5 نجوم"][k - 1]}: ${arPerfumes(n)}`,
-      critLove: "العطر الذي تعشقه نادر، لذلك يتعلم الاختبار أكثر ما يتعلم من العطور التي ما زلت تستخدمها، لا من التي كانت رائحتها جميلة فحسب.",
-      critNext: "وشيء آخر لا تعرفه في المتجر: رائحة العطر بعد ساعات.",
-      critSrc: "عدد النجوم في مراجعات الكتاب المقيّمة كلها، وعددها 1207: تورين وسانشيز، «العطور: الدليل» (2018).",
-
-      timeKick: "على مدار اليوم",
-      timeH: "ما تشمّه في المتجر يختفي خلال ساعة.",
-      timeLede: "النوتات الأولى تتلاشى في دقائق، والقلب يبقى بضع ساعات، والقاعدة ساعات أطول. حرّك المؤشر عبر يوم كامل وشاهد العطر يتغيّر.",
-      timeFact: "بعض العطور تُصنع لتكون جميلة في الدقائق القليلة التي تقضيها في المتجر قبل أن تقرّر، لا أكثر.",
-      timeQuiz: "لذلك يسألك متى انقلب عليك العطر: في الدقائق الأولى، أم في الساعات الأولى، أم بعد ساعات.",
-      timeNext: "جاهز لتعرف ما يفسد العطر عليك؟",
-      timeSrc: "تتلاشى النوتات العليا خلال دقائق إلى ساعة، وتبقى نوتات القلب من نحو ساعة إلى بضع ساعات، ونوتات القاعدة لساعات طويلة: ماكغي، «الغوص بالأنف» (2020). عطور تُصنع لتكون جميلة في دقائق المتجر فقط: تورين وسانشيز، «العطور: الدليل» (2018).",
-      timeSlider: "الوقت منذ وضعته",
-      timeNow: m => { const d = n => arCount(n, "دقيقة", "دقيقتين", "دقائق", "دقيقة"), h = n => arCount(n, "ساعة", "ساعتين", "ساعات", "ساعة"); return m === 0 ? "عند الرشّ" : m < 60 ? "بعد " + d(m) : "بعد " + h(Math.floor(m / 60)) + (m % 60 ? " و" + d(m % 60) : ""); },
-      timeIn: "المرحلة", tick: h => `${h} س`,
-      timeStage: { opening: "الدقائق الأولى", heart: "الساعات الأولى", drydown: "بعد ساعات" },
-      timeIds: ["sauvageedp", "libre", "khamrah", "adgedt"],
-      timeNotes: "النوتات المعلنة",
-
-      quizH: "أربعة أجزاء سريعة، وستعرف ما تتجنبه وما تجرّبه.",
+      quizH: "أربعة أجزاء سريعة، ثم عطور مختارة لك.",
       quizLede: "يتعلم أولاً من العطور التي جرّبتها، ثم مما تقوله عن النوتات.",
-      quizSteps: [
-        ["عطورك", "اختر العطور التي جرّبتها، وأخبرنا بما حدث مع كل منها: ما زلت تستخدمه، أو انقلب عليك، أو نفرت منه في المتجر."],
-        ["نوتات تعرفها", "أخبرنا بالنوتات التي تحبها والتي تتجنبها."],
-        ["حلو أو مرّ", "أخبرنا أيّهما تفضّل: العطور الحلوة أم المرّة المنعشة."],
-        ["ما يزعجك", "اختر ما أزعجك في العطور من قبل."]
-      ],
-      getH: "ما تحصل عليه",
-      gets: [
-        ["ذائقتك", "نسمّيها من العطور التي ما زلت تستخدمها."],
-        ["ما يفسد العطر عليك", "العائلات التي تفسد العطور عليك، والعطور التي كشفتها."],
-        ["ثلاث عيّنات", "مختارة لتتجنّب ما يفسد العطر عليك وتوافق ما تحبه."]
-      ],
+      quizSteps: ["عطورك", "نوتات تعرفها", "حلو أو مرّ", "ما يزعجك"],
 
       artH: "اقرأ المزيد",
       arts: [
@@ -278,8 +180,6 @@
   const t = () => T[lang];
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const $ = id => document.getElementById(id);
-  const byId = Object.fromEntries(LD.sprays.map(s => [s.id, s]));
-  const fam = f => (LD.families[f] ? LD.families[f][lang] : f);
   const color = g => (g && LD.groups[g] ? LD.groups[g].color : "#8C7A66");
   const pname = s => (lang === "ar" && s.ar ? s.ar : s.name);
   const noteWord = n => (lang === "ar" && n.ar ? n.ar : n.en);
@@ -300,7 +200,7 @@
   const NOZZLE = [0.884, 0.134], BULB = [0.319, 0.698];
   let jewel = null;   /* the colour the live atomizer's jewel takes for the perfume last sprayed */
 
-  /* ---------- the mist: soft droplets on a canvas, drawn from pre-rendered sprites ----------
+  /* ---------- the mist: droplets on a canvas, drawn from pre-rendered sprites ----------
      It runs only while droplets are alive, and holds at most 720 of them however fast the bulb is pressed. */
   const MAX_PARTS = 720;
   const mist = {
@@ -310,7 +210,7 @@
       const c = document.createElement("canvas"); c.width = c.height = 48;
       const x = c.getContext("2d"); if (!x) return null;
       const g = x.createRadialGradient(24, 24, 0, 24, 24, 24);
-      g.addColorStop(0, col); g.addColorStop(.35, col + "AA"); g.addColorStop(1, col + "00");
+      g.addColorStop(0, col); g.addColorStop(.4, col + "C8"); g.addColorStop(1, col + "00");
       x.fillStyle = g; x.fillRect(0, 0, 48, 48);
       return (this.sprites[col] = c);
     },
@@ -320,14 +220,15 @@
       this.dpr = Math.min(2, window.devicePixelRatio || 1); this.w = r.width; this.h = r.height;
       this.canvas.width = Math.round(r.width * this.dpr); this.canvas.height = Math.round(r.height * this.dpr);
     },
-    /* one burst from (x, y) toward angle a (radians), in the colours given */
+    /* one burst from (x, y) toward angle a (radians), in the colours given: fine droplets in the perfume's colours,
+       with a few soft clouds among them, strong enough to read as a spray on a phone */
     burst(x, y, a, cols) {
       const k = Math.max(.6, Math.min(1.3, this.w / 460));
-      cols = cols.map(c => tint(c, .55));
-      for (let i = 0; i < 240; i++) {
-        const spread = (Math.random() - .5) * .7, sp = (3 + Math.random() * 7.5) * k, big = Math.random() < .14;
-        this.parts.push({ x, y, vx: Math.cos(a + spread) * sp, vy: Math.sin(a + spread) * sp, r: big ? 16 + Math.random() * 26 : 2.2 + Math.random() * 5.5,
-          life: 0, max: 70 + Math.random() * 90, col: Math.random() < .3 ? "#FFF7E4" : cols[i % cols.length], a: big ? .18 : .8, delay: Math.floor(Math.random() * 16) });
+      cols = cols.map(c => tint(c, .85));
+      for (let i = 0; i < 260; i++) {
+        const spread = (Math.random() - .5) * .75, sp = (3 + Math.random() * 8) * k, big = Math.random() < .16;
+        this.parts.push({ x, y, vx: Math.cos(a + spread) * sp, vy: Math.sin(a + spread) * sp, r: big ? 18 + Math.random() * 30 : 2.6 + Math.random() * 6,
+          life: 0, max: 80 + Math.random() * 100, col: Math.random() < .18 ? "#FFF3D6" : cols[i % cols.length], a: big ? .3 : .95, delay: Math.floor(Math.random() * 16) });
       }
       if (this.parts.length > MAX_PARTS) this.parts.splice(0, this.parts.length - MAX_PARTS);
       if (!this.raf && this.ctx) this.raf = requestAnimationFrame(() => this.step());
@@ -349,21 +250,16 @@
   };
 
   /* ---------- rendering ---------- */
-  let sprayIdx = -1, sprayOrder = [];
-  let spoilId = null, spoilPick = null, timeId = null, timeMin = 10, noseId = "musk", flipped = false;
-  const likes = new Set(); let hate = null;   /* the 1,000-perfume test: smells tapped as liked, and the one that is not */
-  /* the critics' stars: how many of the 1,207 rated reviews in Perfumes: The Guide (2018) got one to five stars */
-  const STARS = [98, 489, 389, 212, 19];
+  let sprayIdx = -1, sprayOrder = [], touched = false;
+  let noseId = "musk", flipped = false, hate = null;   /* hate: the smell tapped in the 1,000-perfume test */
 
   const fmt = n => (lang === "en" ? fmtEn(n) : String(n));
   const kick = k => `<p class="lp-kick">${esc(t()[k])}</p>`;
   const head = (k, h, p) => `<div class="lp-head">${kick(k)}<h2>${esc(h)}</h2>${p ? `<p>${esc(p)}</p>` : ""}</div>`;
-  const tag = k => `<span class="lp-tag">${esc(t()[k])}</span>`;
   /* a section's sources, folded away under the section */
   const sources = text => `<details class="lp-srcx"><summary>${esc(t().srcTag)}</summary><p>${esc(text)}</p></details>`;
-  const inQuiz = text => `<p class="lp-inquiz">${tag("quizTag")}${esc(text)}</p>`;
-  /* the question a section leaves open, which leads to the section that answers it */
-  const next = (text, to) => `<a class="lp-next" href="#${to}" data-next="${to}"><span>${esc(text)}</span><i aria-hidden="true"></i></a>`;
+  const ctaText = () => (tried.length ? t().cont(tried.length) : t().start);
+  const goBtn = cls => `<a class="btn primary lp-go${cls ? " " + cls : ""}" href="${esc(QUIZ_HREF())}" data-quiz="1">${esc(ctaText())}</a>`;
   /* a number that runs from where it stands to its new value; without motion it simply changes */
   function countTo(el, to) {
     if (!el) return;
@@ -378,76 +274,87 @@
   function heroHtml() {
     return `<section class="lp-hero" id="lp-hero">
       <div class="lp-hero-text">
-        <p class="lp-eyebrow">${esc(t().eyebrow)}</p>
         <h1>${esc(t().h1)}</h1>
         <p class="lp-lede">${esc(t().lede)}</p>
-        <a class="btn primary lp-go" href="${esc(QUIZ_HREF())}">${esc(t().start)}</a>
-        <p class="lp-under"><span>${esc(t().startNote)}</span> <a class="lp-down" href="#lp-test" data-next="lp-test">${esc(t().down)}<i aria-hidden="true"></i></a></p>
+        ${goBtn("lp-hero-go")}
+        <p class="lp-under">${esc(t().startNote)}</p>
       </div>
-      <div class="lp-stage" id="lp-stage">
+      <div class="lp-stage${touched ? " touched" : ""}" id="lp-stage">
         <canvas class="lp-mist" id="lp-mist" aria-hidden="true"></canvas>
         <div class="lp-field" id="lp-field" aria-hidden="true"></div>
-        <div class="lp-invite" aria-hidden="true"><p>${esc(t().invite)}</p></div>
         <button type="button" class="lp-atomizer" id="lp-atomizer" aria-label="${esc(t().bottleLabel)}" style="--bx:${BULB[0]};--by:${BULB[1]}"><img class="lp-poster" src="${lang === "ar" ? POSTER.rtl : POSTER.ltr}" alt="" width="420" height="330" draggable="false"><span class="lp-hint" id="lp-hint">${esc(t().press)}</span></button>
         <div class="lp-caption" id="lp-caption"></div>
         <p class="sr" id="lp-live" aria-live="polite"></p>
       </div>
     </section>`;
   }
+  /* under the atomizer: the perfume just sprayed, and the quiz's first question about it */
+  function captionHtml(s) {
+    const done = tried.includes(s.id);
+    return `<img src="${esc(s.photo)}" alt=""><div class="lp-cap-t"><b>${esc(pname(s))}</b><span>${esc(s.house)}</span></div>
+      <div class="lp-tried" role="group" aria-label="${esc(t().triedQ)}"><span class="lp-tried-q">${esc(done ? t().triedDone : t().triedQ)}</span>
+      <button type="button" class="lp-tried-yes${done ? " on" : ""}" data-tried="yes">${esc(t().triedYes)}</button><button type="button" class="lp-tried-no" data-tried="no">${esc(t().triedNo)}</button></div>`;
+  }
+
+  /* ---------- what you get: the result the quiz gives the example visitor (landing-data.js, from a run of the quiz) ---------- */
+  function getHtml() {
+    const R = LD.result, total = LD.total;
+    const bottle = b => `<figure class="lp-res-b"><img src="${esc(b.photo)}" alt="" loading="lazy"><figcaption><b>${esc(pname(b))}</b><span>${esc(b.house)}</span></figcaption></figure>`;
+    const out = lang === "en" ? t().getOut(total) : t().getOut(total, R.out);
+    return `<section class="lp-sec lp-get" id="lp-get">${head("getKick", t().getH)}
+      <div class="lp-res">
+        <div class="lp-res-name">${R.emblem}<p class="lp-res-k">${esc(t().getPalate)}</p><h3>${esc(R.palate[lang])}</h3></div>
+        <div class="lp-res-bad"><span class="lp-res-k">${esc(t().getBad)}</span>${R.breakers.map(b => `<span class="lp-res-chip">${esc(b[lang])}</span>`).join("")}</div>
+        <p class="lp-res-out"><b data-count="${R.out}">${esc(fmt(R.out))}</b><span>${esc(out)}</span></p>
+        <p class="lp-res-k">${esc(t().getPicks)}</p>
+        <div class="lp-res-picks">${R.picks.map(bottle).join("")}</div>
+      </div>
+      <p class="lp-res-who">${esc(t().getWho(pname(R.still[0]), pname(R.still[1]), pname(R.turned[0]), pname(R.turned[1])))}</p>
+      ${goBtn()}
+    </section>`;
+  }
 
   /* ---------- the 1,000-perfume test ----------
-     How many catalogue perfumes clearly carry at least one smell the visitor likes, and how many of those are left
-     once the one smell they cannot stand is taken out. Bit i of each number in LD.test.masks says whether that perfume
-     clearly carries the i-th smell of the likes followed by the dislikes. */
+     The visitor taps the one smell they cannot stand; the count falls from the whole catalogue to the perfumes that do
+     not clearly carry it, and the verdict sets that beside the few perfumes that carry none of the popular smells.
+     Bit i of each number in LD.test.masks says whether that perfume clearly carries the i-th smell of the likes
+     followed by the dislikes. */
   const TESTF = LD.test.likes.concat(LD.test.dislikes);
+  const LIKED = LD.test.likes.reduce((m, f) => m | (1 << TESTF.indexOf(f)), 0);
   function testView() {
-    const bit = f => 1 << TESTF.indexOf(f);
-    const L = [...likes].reduce((m, f) => m | bit(f), 0), H = hate ? bit(hate) : 0, total = LD.test.masks.length;
-    let n = 0, m = 0;
-    for (const x of LD.test.masks) if (!L || (x & L)) { n++; if (!(x & H)) m++; }
-    const shown = H ? m : n;
-    return {
-      shown, total,
-      label: H ? t().testLeft(m, t().testNames[hate]) : L ? t().testLiked(n) : t().testAll(total),
-      kept: shown / total, gone: H ? (n - m) / total : 0,
-      verdict: H ? t().testVerdict(total - n, n - m) : ""
-    };
+    const H = hate ? 1 << TESTF.indexOf(hate) : 0, total = LD.test.masks.length;
+    let gone = 0, none = 0;
+    for (const x of LD.test.masks) { if (x & H) gone++; if (!(x & LIKED)) none++; }
+    const shown = total - gone;
+    return { shown, total, label: hate ? t().testLeft(shown, t().testNames[hate]) : t().testAll(total), kept: shown / total, gone: gone / total, verdict: hate ? t().testVerdict(gone, none) : "" };
   }
   function testHtml() {
     const v = testView();
-    const pick = (f, kind, on) => `<button type="button" class="lp-pick${kind === "hate" ? " hate" : ""}" data-${kind}="${f}" aria-pressed="${on}" style="--c:${color(LD.families[f].group)}"><i></i>${esc(t().testNames[f])}</button>`;
+    const pick = f => `<button type="button" class="lp-pick hate" data-hate="${f}" aria-pressed="${hate === f}" style="--c:${color(LD.families[f].group)}"><i></i>${esc(t().testNames[f])}</button>`;
     return `<section class="lp-sec lp-test" id="lp-test">${head("testKick", t().testH)}
-      <div class="lp-test-body">
-        <div class="lp-meter">
-          <p class="lp-meter-n"><b id="lp-count" data-now="${v.shown}">${esc(fmt(v.shown))}</b><span id="lp-count-k">${esc(v.label)}</span></p>
-          <div class="lp-meter-bar" aria-hidden="true"><i class="kept" id="lp-kept" style="--w:${(v.kept * 100).toFixed(1)}%"></i><i class="gone" id="lp-gone" style="--w:${(v.gone * 100).toFixed(1)}%"></i></div>
-          <div class="lp-verdict" id="lp-verdict"${v.verdict ? "" : " hidden"}><p id="lp-verdict-t">${esc(v.verdict)}</p><p class="why">${esc(t().testWhy)}</p><a class="btn primary lp-test-go" href="${esc(QUIZ_HREF())}">${esc(t().testGo)}</a></div>
-          <p class="sr" id="lp-test-live" aria-live="polite"></p>
-        </div>
-        <div class="lp-test-picks">
-          <p class="lp-test-k">${esc(t().testLike)}</p>
-          <div class="lp-picks" role="group" aria-label="${esc(t().testLike)}">${LD.test.likes.map(f => pick(f, "like", likes.has(f))).join("")}</div>
-          <p class="lp-test-k">${esc(t().testHate)}</p>
-          <div class="lp-picks" role="group" aria-label="${esc(t().testHate)}">${LD.test.dislikes.map(f => pick(f, "hate", hate === f)).join("")}</div>
-        </div>
+      <div class="lp-picks" role="group" aria-label="${esc(t().testH)}">${LD.test.dislikes.map(pick).join("")}</div>
+      <div class="lp-meter" id="lp-meter">
+        <p class="lp-meter-n"><b id="lp-count" data-now="${v.shown}">${esc(fmt(v.shown))}</b><span id="lp-count-k">${esc(v.label)}</span></p>
+        <div class="lp-meter-bar" aria-hidden="true"><i class="kept" id="lp-kept" style="--w:${(v.kept * 100).toFixed(1)}%"></i><i class="gone" id="lp-gone" style="--w:${(v.gone * 100).toFixed(1)}%"></i></div>
+        <div class="lp-verdict" id="lp-verdict"${v.verdict ? "" : " hidden"}><p id="lp-verdict-t">${esc(v.verdict)}</p><p class="why">${esc(t().testWhy)}</p><a class="btn primary lp-test-go" href="${esc(QUIZ_HREF())}" data-quiz="1">${esc(t().testGo)}</a></div>
+        <p class="sr" id="lp-test-live" aria-live="polite"></p>
       </div>
       ${sources(t().testSrc)}
-      ${next(t().testNext, "lp-list")}
     </section>`;
   }
-  /* after a tap: the chips, the count (which runs), the bar (which slides) and the verdict change in place */
+  /* after a tap: the chips, the count (which runs), the bar (which slides) and the verdict change in place, and the
+     count is brought into view if the tap left it off screen */
   function updateTest() {
     const v = testView();
-    if (host.querySelectorAll) {
-      host.querySelectorAll("[data-like]").forEach(b => b.setAttribute("aria-pressed", likes.has(b.dataset.like)));
-      host.querySelectorAll("[data-hate]").forEach(b => b.setAttribute("aria-pressed", hate === b.dataset.hate));
-    }
+    if (host.querySelectorAll) host.querySelectorAll("[data-hate]").forEach(b => b.setAttribute("aria-pressed", hate === b.dataset.hate));
     countTo($("lp-count"), v.shown);
     $("lp-count-k").textContent = v.label;
     for (const [id, w] of [["lp-kept", v.kept], ["lp-gone", v.gone]]) { const el = $(id); if (el && el.style.setProperty) el.style.setProperty("--w", (w * 100).toFixed(1) + "%"); }
     $("lp-verdict").hidden = !v.verdict;
     $("lp-verdict-t").textContent = v.verdict;
     $("lp-test-live").textContent = `${fmt(v.shown)} ${v.label}. ${v.verdict}`;
+    const m = $("lp-meter");
+    if (m && m.getBoundingClientRect && m.scrollIntoView) { const r = m.getBoundingClientRect(); if (r.top < 0 || r.bottom > window.innerHeight) m.scrollIntoView({ behavior: motion() ? "smooth" : "auto", block: "nearest" }); }
   }
 
   /* ---------- the box turned round: the note list on one side, the ingredient label on the other ---------- */
@@ -466,9 +373,7 @@
         </div>
       </div>
       <p class="lp-fact">${esc(t().labelCount(F.checked, F.iso_top, F.iso_listed))}</p>
-      <p class="lp-fact">${esc(t().jasmine)}</p>
       ${sources(t().listSrc)}
-      ${next(t().listNext, "lp-nose")}
     </section>`;
   }
   /* turning the box plays in place, so the card can turn */
@@ -483,105 +388,28 @@
     }
   }
 
-  /* ---------- the nose: 100 people and one smell; the same dots stay hollow from smell to smell ---------- */
+  /* ---------- the nose: 100 people and one smell, on a plum band; the same dots stay hollow from smell to smell ---------- */
   const PEOPLE = (() => { let a = 7; return shuffle(Array.from({ length: 100 }, (_, i) => i), () => (a = (a * 16807) % 2147483647) / 2147483647); })();
   const RANK = Object.fromEntries(PEOPLE.map((d, k) => [d, k]));
   function noseHtml() {
     const cases = t().noseCases, c = cases.find(x => x.id === noseId) || cases[cases.length - 1], cannot = 100 - c.can;
     const about = c.about ? t().noseAbout + " " : "";
-    return `<section class="lp-sec lp-nose" id="lp-nose">${head("noseKick", t().noseH, t().noseLede)}
-      <div class="lp-pills" role="group">${cases.map(x => `<button type="button" aria-pressed="${x.id === c.id}" data-nose="${x.id}" style="--c:${color(x.g)}"><i></i>${esc(x.name)}</button>`).join("")}</div>
+    return `<section class="lp-sec lp-nose lp-band" id="lp-nose">${head("noseKick", t().noseH, t().noseLede)}
+      <div class="lp-pills" role="group" aria-label="${esc(t().noseGroup)}">${cases.map(x => `<button type="button" aria-pressed="${x.id === c.id}" data-nose="${x.id}" style="--c:${color(x.g)}"><i></i>${esc(x.name)}</button>`).join("")}</div>
       <div class="lp-nose-body">
-        <div class="lp-people" role="img" aria-label="${esc(about + t().noseCan(c.can) + ", " + about + t().noseCannot(cannot))}" style="--c:${color(c.g)}">${Array.from({ length: 100 }, (_, d) => `<i class="${RANK[d] < cannot ? "off" : "on"}" style="--k:${RANK[d]}"></i>`).join("")}</div>
-        <div class="lp-nose-text">
-          <p class="lp-legend"><span class="on" style="--c:${color(c.g)}">${esc(about + t().noseCan(c.can))}</span>${cannot ? `<span class="off">${esc(about + t().noseCannot(cannot))}</span>` : ""}</p>
-          <p class="lp-nose-note">${esc(c.note)}</p>
-          <p class="lp-nose-critics">${esc(t().noseCritics)}</p>
-        </div>
+        <div class="lp-people" role="img" aria-label="${esc(about + t().noseCan(c.can) + ", " + about + t().noseCannot(cannot))}">${Array.from({ length: 100 }, (_, d) => `<i class="${RANK[d] < cannot ? "off" : "on"}" style="--k:${RANK[d]}"></i>`).join("")}</div>
+        <p class="lp-legend"><span class="on">${esc(about + t().noseCan(c.can))}</span>${cannot ? `<span class="off">${esc(about + t().noseCannot(cannot))}</span>` : ""}</p>
+        <p class="lp-nose-note">${esc(c.note)}</p>
       </div>
       ${sources(t().noseSrc)}
-      ${next(t().noseNext, "lp-spoil")}
     </section>`;
   }
 
-  /* a row of perfumes to choose from, one pressed */
-  const tabs = (ids, cur, attr) => `<div class="lp-tabs" role="group">${ids.map(id => { const s = byId[id]; return s ? `<button type="button" aria-pressed="${id === cur}" data-${attr}="${id}"><img src="${esc(s.photo)}" alt="" loading="lazy"><span>${esc(pname(s))}</span></button>` : ""; }).join("")}</div>`;
-  /* ---------- one note: the result in words, which the stable live region below the sections reads out ---------- */
-  function spoilText() {
-    const s = byId[spoilId] || byId[t().spoilIds[0]];
-    const all = STAGES.flatMap(st => s.notes[st].map((n, k) => ({ n, key: st + ":" + k })));
-    const pick = all.find(x => x.key === spoilPick);
-    if (!pick) return [];
-    const F = pick.n.f && LD.families[pick.n.f];
-    return [t().spoilResult(noteWord(pick.n), all.length, pname(s))].concat(F ? [t().spoilFamily(fam(pick.n.f), F.count, LD.total)] : []);
-  }
-  function spoilHtml() {
-    const s = byId[spoilId] || byId[t().spoilIds[0]];
-    const juice = STAGES.flatMap(st => s.notes[st].map(n => color(n.g)));
-    const stops = juice.map((c, i) => `${c} ${Math.round((i / Math.max(1, juice.length - 1)) * 100)}%`).join(", ");
-    const lines = spoilText();
-    const result = lines.length ? lines.map(l => `<p>${esc(l)}</p>`).join("") + `<p class="lp-result-go"><a class="btn primary" href="${esc(QUIZ_HREF())}">${esc(t().start)}</a></p>` : "";
-    return `<section class="lp-sec lp-spoil" id="lp-spoil">${head("spoilKick", t().spoilH, t().spoilLede)}
-      ${tabs(t().spoilIds, s.id, "spoil")}
-      <div class="lp-spoil-body${spoilPick ? " spoiled" : ""}">
-        <div class="lp-vial" aria-hidden="true" style="--juice: linear-gradient(180deg, ${stops})"><i class="lp-vial-cap"></i><i class="lp-vial-glass"><i class="lp-vial-juice"></i></i></div>
-        <div class="lp-spoil-notes">
-          <p class="lp-small">${esc(t().spoilPick)}</p>
-          ${STAGES.map(st => `<div class="lp-row"><span class="lp-row-k">${esc(t().rowStage[st])}</span><div class="lp-chips">${s.notes[st].map((n, k) => { const key = st + ":" + k; return `<button type="button" class="lp-chip${key === spoilPick ? " bad" : ""}" data-note="${key}" aria-pressed="${key === spoilPick}" style="--c:${color(n.g)}"><i></i>${esc(noteWord(n))}</button>`; }).join("")}</div></div>`).join("")}
-          <div class="lp-result">${result}</div>
-        </div>
-      </div>
-      <p class="lp-fact">${esc(t().spoilFact)}</p>
-      ${inQuiz(t().spoilQuiz)}
-      ${sources(t().spoilSrc)}
-      ${next(t().spoilNext, "lp-crit")}
-    </section>`;
-  }
-
-  /* ---------- the rare ones: the critics' stars, counted up as they come into view ---------- */
-  function critHtml() {
-    const max = Math.max(...STARS);
-    return `<section class="lp-sec lp-crit" id="lp-crit">${head("critKick", t().critH)}
-      <div class="lp-crit-body">
-        <p class="lp-stat"><b>${esc(t().statBig)}</b><span>${esc(t().statText)}</span></p>
-        <ul class="lp-stars">${STARS.map((n, i) => `<li class="s${i + 1}"><span class="sr">${esc(t().starsRow(i + 1, n))}</span><span class="lp-stars-k" aria-hidden="true">${"★".repeat(i + 1)}</span><i aria-hidden="true" style="--w:${((n / max) * 100).toFixed(1)}%"></i><span class="lp-stars-n" aria-hidden="true" data-count="${n}">${esc(fmt(n))}</span></li>`).join("")}</ul>
-      </div>
-      <p class="lp-fact">${esc(t().critLove)}</p>
-      ${sources(t().critSrc)}
-      ${next(t().critNext, "lp-time")}
-    </section>`;
-  }
-
-  /* ---------- over the day: the stage a time falls in, the first twenty minutes, then to three hours, then later ---------- */
-  const stageAt = m => (m < 20 ? "opening" : m < 180 ? "heart" : "drydown");
-  const nowHtml = m => `${esc(t().timeNow(m))} · ${esc(t().timeIn)}: <b>${esc(t().timeStage[stageAt(m)])}</b>`;
-  function timeHtml() {
-    const s = byId[timeId] || byId[t().timeIds[0]], cur = stageAt(timeMin);
-    return `<section class="lp-sec lp-time" id="lp-time">${head("timeKick", t().timeH, t().timeLede)}
-      ${tabs(t().timeIds, s.id, "time")}
-      <div class="lp-clock">
-        <label class="sr" for="lp-range">${esc(t().timeSlider)}</label>
-        <input type="range" id="lp-range" min="0" max="480" step="5" value="${timeMin}" aria-valuetext="${esc(t().timeNow(timeMin))}" style="--p:${(timeMin / 480) * 100}%">
-        <div class="lp-ticks" aria-hidden="true">${[0, 2, 4, 6, 8].map(h => `<span>${h ? esc(t().tick(h)) : "0"}</span>`).join("")}</div>
-        <p class="lp-now" id="lp-now">${nowHtml(timeMin)}</p>
-      </div>
-      <div class="lp-stages">${STAGES.map(st => `<div class="lp-stagecard${st === cur ? " on" : ""}" data-st="${st}">
-          <h3>${esc(t().timeStage[st])}</h3>
-          <ul class="lp-bars">${s.stages[st].map(([f, w]) => `<li><span>${esc(fam(f))}</span><i style="--w:${Math.round(w * 100)}%;--c:${color(LD.families[f] ? LD.families[f].group : null)}"></i></li>`).join("")}</ul>
-          <p class="lp-small"><b>${esc(t().timeNotes)}:</b> ${esc(s.notes[st].map(noteWord).join(lang === "ar" ? "، " : ", "))}</p>
-        </div>`).join("")}</div>
-      <p class="lp-fact">${esc(t().timeFact)}</p>
-      ${inQuiz(t().timeQuiz)}
-      ${sources(t().timeSrc)}
-      ${next(t().timeNext, "lp-quiz")}
-    </section>`;
-  }
   function quizHtml() {
     return `<section class="lp-sec lp-quiz" id="lp-quiz">
       <div class="lp-head"><h2>${esc(t().quizH)}</h2><p>${esc(t().quizLede)}</p></div>
-      <ol class="lp-steps">${t().quizSteps.map(([h, p], i) => `<li><b>${i + 1}</b><div><h3>${esc(h)}</h3><p>${esc(p)}</p></div></li>`).join("")}</ol>
-      <div class="lp-gets"><h3>${esc(t().getH)}</h3><ul>${t().gets.map(([h, p]) => `<li><b>${esc(h)}</b><span>${esc(p)}</span></li>`).join("")}</ul></div>
-      <a class="btn primary lp-go" href="${esc(QUIZ_HREF())}">${esc(t().start)}</a>
+      <ol class="lp-steps">${t().quizSteps.map((h, i) => `<li><b>${i + 1}</b><span>${esc(h)}</span></li>`).join("")}</ol>
+      ${goBtn()}
     </section>`;
   }
   function artsHtml() {
@@ -592,7 +420,7 @@
   }
   function footHtml() {
     const d = CONFIG.disclosure && CONFIG.disclosure[lang];
-    return `<footer class="foot"><nav class="footnav"><a href="${esc(QUIZ_HREF())}">${esc(t().navQuiz)}</a><a href="${esc(withEndpoint("profile.html"))}">${esc(t().navProfiler)}</a><a href="articles.html">${esc(t().navArticles)}</a></nav>${t().foot}${d ? `<p>${esc(d)}</p>` : ""}</footer>`;
+    return `<footer class="foot"><nav class="footnav"><a href="${esc(QUIZ_HREF())}" data-quiz="1">${esc(t().navQuiz)}</a><a href="${esc(withEndpoint("profile.html"))}">${esc(t().navProfiler)}</a><a href="articles.html">${esc(t().navArticles)}</a></nav>${t().foot}${d ? `<p>${esc(d)}</p>` : ""}</footer>`;
   }
 
   function chrome() {
@@ -606,18 +434,28 @@
   }
   function render() {
     chrome();
-    host.innerHTML = heroHtml() + testHtml() + listHtml() + noseHtml() + spoilHtml() + critHtml() + timeHtml() + quizHtml() + artsHtml() + footHtml() +
-      `<p class="sr" id="lp-spoil-live" aria-live="polite"></p>`;
+    host.innerHTML = heroHtml() + getHtml() + testHtml() + listHtml() + noseHtml() + quizHtml() + artsHtml() + footHtml() +
+      `<p class="sr" id="lp-tried-live" aria-live="polite"></p>`;
     mist.canvas = $("lp-mist"); mist.ctx = mist.canvas.getContext ? mist.canvas.getContext("2d") : null; mist.parts = []; mist.size();
     if (sprayIdx >= 0) showSpray(false);
     mount3d();
     reveal();
     if (booted) autoSpray();
   }
+  /* every way into the quiz carries the bottles marked as tried, and the calls to action say how many */
+  function quizLinks() {
+    $("nav-quiz").setAttribute("href", QUIZ_HREF());
+    if (!host.querySelectorAll) return;
+    host.querySelectorAll("a[data-quiz]").forEach(a => { a.setAttribute("href", QUIZ_HREF()); if (a.classList.contains("lp-go")) a.textContent = ctaText(); });
+  }
 
   /* ---------- spraying ---------- */
+  /* the next perfume in a shuffled round of the twenty, leaving out those already marked as tried */
   function nextSpray() {
-    if (!sprayOrder.length) sprayOrder = shuffle(LD.sprays.map((s, i) => i), Math.random);
+    const open = i => !tried.includes(LD.sprays[i].id) && i !== sprayIdx;
+    sprayOrder = sprayOrder.filter(open);
+    if (!sprayOrder.length) sprayOrder = shuffle(LD.sprays.map((s, i) => i).filter(open), Math.random);
+    if (!sprayOrder.length) sprayOrder = [Math.floor(Math.random() * LD.sprays.length)];
     sprayIdx = sprayOrder.shift();
     return LD.sprays[sprayIdx];
   }
@@ -628,7 +466,9 @@
     if (!s || !field) return;
     field.innerHTML = STAGES.map(st => `<div class="lp-frow"><span class="lp-frow-k">${esc(t().rowStage[st])}</span><div class="lp-fnotes">${s.notes[st].map(n => `<span class="lp-fnote" style="--c:${color(n.g)}"><i></i>${esc(noteWord(n))}</span>`).join("")}</div></div>`).join("");
     fitField(field, stage);
-    cap.innerHTML = `<img src="${esc(s.photo)}" alt=""><div><b>${esc(t().sprayed(s.house, pname(s)))}</b><span>${esc(t().sprayedNote)} ${esc(t().pressAgain)}.</span></div>`;
+    const focused = cap.contains && cap.contains(document.activeElement) ? document.activeElement.dataset.tried : null;
+    cap.innerHTML = captionHtml(s);
+    refocus(cap, focused);
     cap.classList.add("on"); stage.classList.add("sprayed");
     /* the jewel takes the colour of the perfume's strongest family in its first hours */
     const f = ((s.stages.heart || [])[0] || (s.stages.opening || [])[0] || [])[0], g = f && LD.families[f] ? LD.families[f].group : null;
@@ -694,8 +534,27 @@
     }
     showSpray(true);
   }
+  /* a spray with the bulb's squeeze shown, as a press gives */
+  const pressSpray = () => { squeeze(true); spray(); setTimeout(() => squeeze(false), 220); };
   /* the squeeze as a picture only: it shows while a finger or the mouse is down, and for a moment after a key */
   const squeeze = on => { const st = $("lp-stage"); if (st) st.classList.toggle("pressed", on); if (window.PP_ATOMIZER3D) window.PP_ATOMIZER3D.squeeze(on); };
+  /* the visitor's own first press or answer ends the hint on the bulb */
+  const touch = () => { touched = true; const st = $("lp-stage"); if (st) st.classList.add("touched"); };
+  /* a redrawn caption hands keyboard focus back to the answer button that had it */
+  const refocus = (cap, which) => { if (!which || !cap.querySelector) return; const b = cap.querySelector(`[data-tried="${which}"]`); if (b) b.focus({ preventScroll: true }); };
+  /* Tried it? Yes adds the bottle to the quiz links and says so, then the next perfume comes; Not yet sprays the next. */
+  let nextTimer = null;
+  function answerTried(yes) {
+    const s = LD.sprays[sprayIdx]; if (!s) return;
+    touch();
+    clearTimeout(nextTimer);
+    if (!yes) { pressSpray(); return; }
+    if (!tried.includes(s.id)) { tried.push(s.id); send("land:tried", tried.length); }
+    quizLinks();
+    const cap = $("lp-caption"); if (cap) { cap.innerHTML = captionHtml(s); refocus(cap, "yes"); }
+    const live = $("lp-tried-live"); if (live) live.textContent = `${t().triedDone}: ${pname(s)}. ${ctaText()}.`;
+    nextTimer = setTimeout(pressSpray, 900);
+  }
   /* the live atomizer takes the picture's place after every render, once js/bottle3d.js has loaded; the hint and its
      ring then follow the bulb as drawn */
   function mount3d() {
@@ -734,30 +593,13 @@
   document.addEventListener("pointerup", () => squeeze(false));
   document.addEventListener("pointercancel", () => squeeze(false));
   host.addEventListener("click", e => {
-    /* a section's closing question scrolls to the section that answers it */
-    const a = e.target.closest && e.target.closest("a[data-next]");
-    if (a) { const to = $(a.dataset.next); if (to && to.scrollIntoView) { e.preventDefault(); to.scrollIntoView({ behavior: motion() ? "smooth" : "auto", block: "start" }); } return; }
     const b = e.target.closest("button"); if (!b) return;
     const d = b.dataset;
-    if (b.id === "lp-atomizer") { if (e.detail === 0) { squeeze(true); setTimeout(() => squeeze(false), 160); } spray(); return; }
-    if (d.like) { if (likes.has(d.like)) likes.delete(d.like); else likes.add(d.like); updateTest(); return; }
+    if (b.id === "lp-atomizer") { touch(); clearTimeout(nextTimer); if (e.detail === 0) { squeeze(true); setTimeout(() => squeeze(false), 160); } spray(); return; }
+    if (d.tried) { answerTried(d.tried === "yes"); return; }
     if (d.hate) { hate = hate === d.hate ? null : d.hate; updateTest(); return; }
     if (d.flip) { flip(d.flip === "1"); return; }
-    if (d.spoil) { spoilId = d.spoil; spoilPick = null; swap("lp-spoil", spoilHtml, `[data-spoil="${d.spoil}"]`); announce(); return; }
-    if (d.note) { spoilPick = spoilPick === d.note ? null : d.note; swap("lp-spoil", spoilHtml, `[data-note="${d.note}"]`); announce(); return; }
-    if (d.time) { timeId = d.time; swap("lp-time", timeHtml, `[data-time="${d.time}"]`); return; }
     if (d.nose) { noseId = d.nose; swap("lp-nose", noseHtml, `[data-nose="${d.nose}"]`); return; }
-  });
-  /* the spoiled note's result, read out from a live region that is never redrawn */
-  function announce() { const live = $("lp-spoil-live"); if (live) live.textContent = spoilText().join(" "); }
-  host.addEventListener("input", e => {
-    if (e.target.id !== "lp-range") return;
-    timeMin = +e.target.value;
-    e.target.style.setProperty("--p", (timeMin / 480) * 100 + "%");
-    e.target.setAttribute("aria-valuetext", t().timeNow(timeMin));
-    const cur = stageAt(timeMin);
-    $("lp-now").innerHTML = nowHtml(timeMin);
-    host.querySelectorAll(".lp-stagecard").forEach(c => c.classList.toggle("on", c.dataset.st === cur));
   });
   /* redraw one section in place, keeping it revealed, and keep focus on the control that was used */
   function swap(id, html, focusSel) {
@@ -770,16 +612,16 @@
   $("lang-ar").addEventListener("click", () => { lang = "ar"; store.set("pp_lang", lang); render(); });
   if (window.addEventListener) window.addEventListener("resize", () => { mist.size(); if (sprayIdx >= 0) fitField($("lp-field"), $("lp-stage")); });
 
-  /* one spray on its own once the bottle is well in view, so the page shows what it does; a visitor who presses
-     first skips it (on a phone the bottle sits below the promise, so this waits for the scroll) */
+  /* one spray on its own as soon as the bottle is in view (on most phones it sits under the promise, on the first
+     screen), so the page shows what it does; a visitor who presses first skips it */
   let autoIo = null, booted = false;
   function autoSpray() {
     if (autoIo) { autoIo.disconnect(); autoIo = null; }
     if (sprayIdx >= 0) return;
-    const go = () => { if (sprayIdx >= 0 || document.visibilityState === "hidden") return; squeeze(true); spray(); setTimeout(() => squeeze(false), 220); };
-    const st = $("lp-stage"); if (!st) return;
-    if (!("IntersectionObserver" in window)) { setTimeout(go, 1400); return; }
-    autoIo = new IntersectionObserver(es => { if (es.some(e => e.intersectionRatio >= .6)) { autoIo.disconnect(); autoIo = null; setTimeout(go, 700); } }, { threshold: [.6] });
+    const go = () => { if (sprayIdx >= 0 || document.visibilityState === "hidden") return; pressSpray(); };
+    const st = $("lp-atomizer"); if (!st) return;
+    if (!("IntersectionObserver" in window)) { setTimeout(go, 900); return; }
+    autoIo = new IntersectionObserver(es => { if (es.some(e => e.intersectionRatio >= .5)) { autoIo.disconnect(); autoIo = null; setTimeout(go, 600); } }, { threshold: [.5] });
     autoIo.observe(st);
   }
   render();

@@ -15,7 +15,8 @@ function createPage(opts) {
     const el = {
       _id: id || null, innerHTML: "", textContent: "", placeholder: "", value: "", hidden: false, className: "", type: "",
       dataset: {}, attrs: {}, listeners: {}, style: {}, removed: false, after_: null,
-      classList: { set: new Set(), add(c) { this.set.add(c); }, remove(c) { this.set.delete(c); }, contains(c) { return this.set.has(c); } },
+      classList: { set: new Set(), add(c) { this.set.add(c); }, remove(c) { this.set.delete(c); }, contains(c) { return this.set.has(c); },
+        toggle(c, force) { const on = force === undefined ? !this.set.has(c) : !!force; if (on) this.set.add(c); else this.set.delete(c); return on; } },
       setAttribute(k, v) { this.attrs[k] = String(v); }, getAttribute(k) { return k in this.attrs ? this.attrs[k] : null; },
       addEventListener(type, fn) { (this.listeners[type] = this.listeners[type] || []).push(fn); },
       insertAdjacentHTML(pos, html) { if (pos !== "beforeend") throw new Error("stub supports beforeend only"); this.innerHTML += html; },
