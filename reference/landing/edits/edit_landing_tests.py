@@ -1,0 +1,206 @@
+"""One-off: rewrites tests/landing.test.js for the rebuilt front page (29 Sep 2026). Exact-match edits; fails on a second run."""
+p = r"C:\Users\malha\Desktop\Webapps\perfume-profiler\tests\landing.test.js"
+s = open(p, encoding="utf-8").read()
+
+
+def between(a, b):
+    i = s.index(a)
+    j = s.index(b, i)
+    return i, j
+
+
+# header comment
+old_head = s[:s.index('"use strict";')]
+new_head = '''/* The front page (site/index.html) under the stub browser (lib/dom.js): its generated data is current (the example
+   result included, which is a run of the quiz), it renders in both languages from that data, every way into the quiz
+   opens the quiz on its first question with the bottles marked as tried already picked, it starts the backend's funnel
+   with one reach:start, and its words keep the site's rules. The atomizer's mist and motion need a real browser; here
+   the page must simply render without them. */
+'''
+s = new_head + s[len(old_head):]
+
+# 1. data current: add the example result checks
+a = '''      assert.ok(n.ar, `${s.id} ${n.en}: its Arabic word (the two note lists of that stage must line up in data.js)`);
+    }
+  }
+});'''
+b = '''      assert.ok(n.ar, `${s.id} ${n.en}: its Arabic word (the two note lists of that stage must line up in data.js)`);
+    }
+  }
+  /* the example result is what the quiz gives its visitor: two bottles still used, two that turned, a deal-breaker, three
+     picks, each bottle with a shipped photo and both names */
+  const R = LD.result;
+  assert.equal(R.still.length, 2); assert.equal(R.turned.length, 2);
+  assert.ok(R.breakers.length >= 1 && R.breakers.every(b => b.en && b.ar));
+  assert.equal(R.picks.length, 3);
+  assert.ok(R.palate.en && R.palate.ar && /^<svg class="qemblem" viewBox="0 0 64 64"/.test(R.emblem));
+  assert.ok(R.out > 0 && R.out < LD.total);
+  for (const b of R.still.concat(R.turned, R.picks)) {
+    assert.ok(b.photo && fs.existsSync(path.join(SITE, b.photo)), `${b.id} has a shipped photo`);
+    assert.ok(b.ar && b.name && b.house, `${b.id}: names`);
+  }
+});'''
+assert s.count(a) == 1
+s = s.replace(a, b)
+
+# 3. renders test
+i, j = between('test("the front page renders in Arabic first and in English, from the catalogue\'s data", () => {', 'test("with a backend, the front page starts the funnel')
+s = s[:i] + r'''test("the front page renders in Arabic first and in English, from the catalogue's data", () => {
+  const page = open();
+  let h = html(page);
+  assert.equal(page.snapshot().html.dir, "rtl");
+  assert.match(h, /<h1>اشتريت عطراً ثم تركته؟ قد تكون نوتة واحدة هي السبب\.<\/h1>/);
+  assert.match(h, /class="lp-atomizer" id="lp-atomizer" aria-label="بخّاخ عطر/);
+  /* the atomizer's still picture, turned for Arabic; js/bottle3d.js replaces it with the live one where it can */
+  assert.match(h, /<img class="lp-poster" src="img\/atomizer-rtl\.webp"/);
+  /* the sections in order: the result, then three that turn on one tap each, then the quiz and the articles */
+  const order = [...h.matchAll(/<section class="lp-sec [^"]*" id="([^"]+)"/g)].map(m => m[1]);
+  assert.deepEqual(order, ["lp-get", "lp-test", "lp-list", "lp-nose", "lp-quiz", "lp-arts"]);
+  assert.doesNotMatch(h, /class="lp-next"/, "no closing question cards");
+  assert.equal((h.match(/<details class="lp-srcx"><summary>المصادر<\/summary>/g) || []).length, 3, "the three evidence sections' sources, folded");
+  /* the example result, as the quiz gives it */
+  const R = LD.result;
+  assert.ok(h.includes(R.emblem));
+  assert.match(h, new RegExp(`<p class="lp-res-k">ذائقتك</p><h3>${R.palate.ar}</h3>`));
+  assert.match(h, new RegExp(`<span class="lp-res-chip">${R.breakers[0].ar}</span>`));
+  assert.match(h, new RegExp(`<b data-count="${R.out}">${R.out}</b><span>عطراً استُبعدت من 1000 عطر في قائمتنا</span>`));
+  for (const b of R.picks) assert.match(h, new RegExp(`<img src="${b.photo}" alt="" loading="lazy"><figcaption><b>${b.ar}</b>`));
+  assert.match(h, new RegExp(`مثال: ما زال يستخدم ${R.still[0].ar} و${R.still[1].ar}، وانقلب عليه ${R.turned[0].ar} و${R.turned[1].ar} بعد ساعات\\.`));
+  /* the 1,000-perfume test starts at the whole catalogue, with only the smells to tap as disliked */
+  assert.match(h, /<b id="lp-count" data-now="1000">1000<\/b><span id="lp-count-k">عطر في قائمتنا<\/span>/);
+  assert.equal((h.match(/data-like="/g) || []).length, 0);
+  assert.equal((h.match(/data-hate="/g) || []).length, 8);
+  assert.ok(h.indexOf('data-hate="') < h.indexOf('id="lp-meter"'), "the smells come before the count, so a tap shows its result below it");
+  /* the box and its label: the two materials the note list leaves out are marked, and the count reads in Arabic */
+  assert.deepEqual([...h.matchAll(/<li class="hit"><b>([^<]+)<\/b>/g)].map(m => m[1]), ["إيزو إي سوبر", "غالاكسوليد"]);
+  assert.match(h, /في 11 من 12 ملصقاً راجعناها لهذه الدار يأتي إيزو إي سوبر بين أول خمسة مكونات\. ولا تذكره قائمة نوتات أيّ منها\./);
+  /* every call to action opens the quiz on its first question */
+  const hrefs = [...h.matchAll(/<a class="btn primary[^"]*" href="([^"]+)"/g)].map(m => m[1]);
+  assert.ok(hrefs.length >= 4);
+  for (const href of hrefs) assert.equal(href, "quiz.html?go=1");
+  assert.equal(page.snapshot().els["nav-quiz"].attrs.href, "quiz.html?go=1");
+  assert.match(h, />اكتشف عطورك الثلاثة</);
+  /* a hundred people per smell, from the survey: the clean musk first, a third of them unable to smell it */
+  assert.match(h, /aria-pressed="true" data-nose="musk"/);
+  assert.match(h, /<section class="lp-sec lp-nose lp-band" id="lp-nose">/);
+  assert.equal((h.match(/<i class="(on|off)" style="--k:/g) || []).length, 100);
+  assert.equal((h.match(/<i class="off" style="--k:/g) || []).length, 33);
+  assert.match(h, /<span class="on">نحو 67 يشمّونها<\/span><span class="off">نحو 33 لا يشمّونها<\/span>/, "survey shares are marked as approximate");
+  assert.match(h, /<ol class="lp-steps"><li><b>1<\/b><span>عطورك<\/span><\/li>/);
+  assert.match(h, /href="articles\.html#woody-ambers"/);
+  page.sandbox.document.getElementById("lang-en").listeners.click[0]();
+  h = html(page);
+  assert.equal(page.snapshot().html.dir, "ltr");
+  assert.match(h, /<h1>Bought a perfume you never wear\? One note may be why\.<\/h1>/);
+  assert.match(h, /<img class="lp-poster" src="img\/atomizer-ltr\.webp"/);
+  assert.match(h, />Get my three picks</);
+  assert.match(h, new RegExp(`<p class="lp-res-k">Your palate</p><h3>${R.palate.en}</h3>`));
+  assert.match(h, new RegExp(`<b data-count="${R.out}">${R.out}</b><span>of our 1,000 perfumes ruled out</span>`));
+  assert.match(h, /<b id="lp-count" data-now="1000">1,000<\/b><span id="lp-count-k">perfumes in our catalogue<\/span>/);
+  assert.match(h, /11 of the 12 Parfums de Marly labels we checked list Iso E Super among the first five ingredients\. None of their note lists mentions it\./);
+  assert.equal(JSON.parse(page.localStorage.getItem("pp_lang")), "en");
+});
+
+''' + s[j:]
+
+# 5. quiz ?go: add tried
+a = '''  assert.ok(!page.calls.some(c => c.body && c.body.name === "reach:start"), "Back to the start screen does not send reach:start again");
+});'''
+b = r'''  assert.ok(!page.calls.some(c => c.body && c.body.name === "reach:start"), "Back to the start screen does not send reach:start again");
+
+  /* ?tried: the bottles marked as tried on the front page arrive picked; an unknown id is ignored, a rated one stays rated */
+  const tried = createPage({ search: "?go=1&tried=yara,nosuch,khamrah,libre", localStorage: { pp_device: JSON.stringify("d_go"), pp_lang: JSON.stringify("en"), pp_ratings_v1: JSON.stringify({ libre: { opening: null, heart: null, drydown: 1, again: 1, chips: {} } }) } });
+  tried.load(quizScripts);
+  const tiles = tried.snapshot().els.tiles.innerHTML;
+  assert.deepEqual([...tiles.matchAll(/data-tile="([^"]+)" aria-pressed="true"/g)].map(m => m[1]).sort(), ["khamrah", "yara"]);
+  assert.match(tried.snapshot().els["grid-actions"].innerHTML, /<span class="qgo-t">Continue with 2<\/span>/);
+});'''
+assert s.count(a) == 1
+s = s.replace(a, b)
+
+# 6. words rules: replace the spoil/time loop
+i, j = between('  for (const lang of ["en", "ar"]) {\n    const m = new RegExp(', '});\n\ntest("the sections\' words match the data they describe"')
+s = s[:i] + r'''  for (const lang of ["en", "ar"]) {
+    /* every smell in the test has a short name in both languages */
+    const names = new RegExp(`${lang}: \\{[\\s\\S]*?testNames: \\{([^}]*)\\}`).exec(words);
+    const keys = [...names[1].matchAll(/(\w+):/g)].map(x => x[1]).sort();
+    assert.deepEqual(keys, [...LD.test.dislikes].sort(), `${lang}: the test's smells`);
+  }
+''' + s[j:]
+
+# 7. sections' words match data: replace the stars check
+a_start = s.index("  /* the critics' stars add up to the 1,207 reviews the words cite */")
+a_end = s.index("});", a_start)
+s = s[:a_start] + r'''  /* the result's words: four perfumes, two still used and two that turned hours later (tools/build_landing.js VISITOR);
+     the test's verdict names rose, vanilla and citrus among the popular smells */
+  const src = fs.readFileSync(path.join(__dirname, "..", "tools", "build_landing.js"), "utf8");
+  assert.match(src, /page\.click\(\{ dataset: \{ when: "drydown" \} \}\)/, "the example's bottles turned hours later");
+  assert.equal(LD.result.still.length + LD.result.turned.length, 4, "the copy says four perfumes");
+  for (const f of ["rose", "vanilla_gourmand", "citrus_fresh"]) assert.ok(LD.test.likes.includes(f), `${f} is one of the popular smells`);
+''' + s[a_end:]
+
+# 8. the 1,000-perfume test, and the tried flow
+i = s.index('test("the 1,000-perfume test counts what a visitor likes, then what one dislike takes out", () => {')
+s = s[:i] + r'''test("the 1,000-perfume test: one smell the visitor cannot stand, set beside all the popular smells", () => {
+  const page = open({ localStorage: { pp_lang: JSON.stringify("en") } });
+  const tap = dataset => page.sandbox.document.getElementById("lp").listeners.click[0]({ target: { closest: sel => (sel === "button" ? { id: "", dataset } : null) }, detail: 1, preventDefault() {} });
+  const el = id => page.snapshot().els[id];
+  const all = [...LD.test.likes, ...LD.test.dislikes], bit = f => 1 << all.indexOf(f);
+  const liked = LD.test.likes.reduce((m, f) => m | bit(f), 0);
+  const none = LD.test.masks.filter(x => !(x & liked)).length;
+  const gone = f => LD.test.masks.filter(x => x & bit(f)).length;
+  assert.equal(el("lp-verdict").hidden, true, "no verdict before a tap");
+  tap({ hate: "woody_amber" });
+  assert.equal(el("lp-count").textContent, (LD.total - gone("woody_amber")).toLocaleString("en-US"));
+  assert.equal(el("lp-count-k").textContent, "left without woody amber");
+  assert.equal(el("lp-verdict").hidden, false);
+  assert.equal(el("lp-verdict-t").textContent, `One smell you can't stand ruled out ${gone("woody_amber").toLocaleString("en-US")}. Liking rose, vanilla, citrus and the other popular smells rules out only ${none}.`);
+  /* the headline's claim holds whichever smell is tapped */
+  for (const f of LD.test.dislikes) assert.ok(gone(f) > none, `${f} rules out more (${gone(f)}) than all the popular smells (${none})`);
+  assert.ok(gone("woody_amber") > 10 * none && gone("white_musk") > 10 * none, "the two chips shown first make the largest cut");
+  /* a second tap on the same smell takes it back; another replaces it */
+  tap({ hate: "woody_amber" });
+  assert.equal(el("lp-verdict").hidden, true);
+  assert.equal(el("lp-count").textContent, "1,000");
+  tap({ hate: "white_musk" });
+  assert.equal(el("lp-count-k").textContent, "left without clean musk");
+  /* in Arabic the noun agrees with the number */
+  page.sandbox.document.getElementById("lang-ar").listeners.click[0]();
+  const h = html(page), m = /<b id="lp-count" data-now="(\d+)">(\d+)<\/b><span id="lp-count-k">([^<]+)<\/span>/.exec(h);
+  assert.ok(m, "the count after a language switch");
+  const n = Number(m[2]), r = n % 100, noun = r === 0 || (n > 100 && r <= 2) ? "عطر" : r <= 10 ? "عطور" : "عطراً";
+  assert.equal(m[3], `${noun} خالية من المسك النظيف`);
+  assert.match(h, new RegExp(`رائحة واحدة لا تطيقها استبعدت ${gone("white_musk")} عطراً\\. أما حبّك للورد والفانيلا والحمضيات وغيرها من الروائح الشائعة فلا يستبعد إلا ${none} عطراً\\.`));
+});
+
+test("under the atomizer, tried it? Yes carries the bottle into every link to the quiz, and Not yet sprays another", () => {
+  const page = open({ endpoint: ENDPOINT, localStorage: { pp_device: JSON.stringify("d_tried"), pp_lang: JSON.stringify("en") } });
+  const tap = dataset => page.sandbox.document.getElementById("lp").listeners.click[0]({ target: { closest: sel => (sel === "button" ? { id: "", dataset } : null) }, detail: 1, preventDefault() {} });
+  const sprayed = () => { const m = /<div class="lp-cap-t"><b>([^<]+)<\/b>/.exec(page.snapshot().els["lp-caption"].innerHTML); return m ? LD.sprays.find(s => s.name === m[1]) : null; };
+  assert.equal(sprayed(), null, "nothing sprayed before the page's own first spray");
+  page.flushTimers();   /* the first spray, once the bottle is in view (at once without IntersectionObserver) */
+  const first = sprayed();
+  assert.ok(first, "the first spray names one of the twenty");
+  assert.match(page.snapshot().els["lp-caption"].innerHTML, /<span class="lp-tried-q">Tried it\?<\/span>\s*<button type="button" class="lp-tried-yes" data-tried="yes" aria-pressed="false">Yes, I have<\/button><button type="button" class="lp-tried-no" data-tried="no">Not yet<\/button>/);
+  tap({ tried: "yes" });
+  assert.match(page.snapshot().els["lp-caption"].innerHTML, /<span class="lp-tried-q">Added to your quiz<\/span>/);
+  const quizHref = () => page.snapshot().els["nav-quiz"].attrs.href;
+  assert.equal(quizHref(), `quiz.html?go=1&tried=${first.id}&endpoint=${encodeURIComponent(ENDPOINT)}`);
+  assert.deepEqual(page.calls.filter(c => c.body && c.body.name === "land:tried").map(c => c.body.n), [1]);
+  page.flushTimers();   /* the next perfume comes on its own, never one already marked */
+  const second = sprayed();
+  assert.ok(second && second.id !== first.id);
+  tap({ tried: "no" });
+  const third = sprayed();
+  assert.ok(third && third.id !== second.id && third.id !== first.id, "Not yet sprays another at once");
+  assert.equal(quizHref(), `quiz.html?go=1&tried=${first.id}&endpoint=${encodeURIComponent(ENDPOINT)}`, "Not yet adds nothing");
+  /* a redraw (here a language switch) keeps the tried bottles, and the calls to action say how many */
+  page.sandbox.document.getElementById("lang-ar").listeners.click[0]();
+  const h = html(page);
+  const hrefs = [...h.matchAll(/<a class="btn primary[^"]*" href="([^"]+)"/g)].map(m => m[1]);
+  assert.ok(hrefs.length >= 4 && hrefs.every(x => x === `quiz.html?go=1&amp;tried=${first.id}&amp;endpoint=${encodeURIComponent(ENDPOINT)}`));
+  assert.match(h, />تابع مع عطر واحد</);
+});
+'''
+open(p, "w", encoding="utf-8", newline="\n").write(s)
+print("written")

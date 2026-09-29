@@ -23,3 +23,29 @@ fail loudly on a second run: do not re-run them. Listed in the order they ran. E
 
 Not here: the 3D atomizer (site/js/bottle3d.js and tools/render_atomizer.py were written whole, then tuned by small
 inline edits against renders) and a few one-line fixes made with the editor.
+
+# Edit scripts, 29 to 30 September 2026: the front page for a reader who skims, and its real bottles
+
+The same rule: exact-match edits that fail loudly on a second run; do not re-run them. In the order they ran. Each
+round was checked by `node --test tests/*.test.js` and by Playwright renders at 360, 390 and 412 px, 768 px and
+1280 or 1366 px in both languages, with every one of the twenty sprays checked against the arch, the caption and the
+bottle.
+
+0. `testlogic.js`: the evaluation's analysis, run against the landing data of commit 6d9b478. It counts, for every
+   combination of liked smells and each dislike, whether one dislike rules out more than the likes; with one, two or
+   three likes it did in 0%, 11% and 30% of combinations, so the old demo argued against its own headline.
+1. site/js/landing.js and site/landing.css were rewritten whole with the editor (hook, tried-it question, example
+   result, one-tap demo, cuts, centred text); `edit_landing_tests.py` then rewrote tests/landing.test.js for them.
+2. `edit_review_fixes.py`: the independent review's fixes: the demo counts as the engine rules out (tools/
+   build_landing.js), dry cedar for marine notes, the verdict and the promises reworded, focus kept on the tried
+   buttons, the Arabic corrections, book titles in English.
+3. `edit_tests_after_review.py`: the tests brought to the reviewed wording, and the check that the demo's woody
+   ambers equal the example result's count.
+4. `edit_bottle_js.py`, `edit_bottle_css.py`, `edit_bottle_tests.py`: the brass atomizer replaced by the perfume's
+   own bottle (the owner chose it from mock-ups), spraying straight up into its notes.
+5. `edit_docs.py`: README.md and CLAUDE.md brought in line.
+
+Not here: small inline edits (the hero spacing and stage height, the centred footer and desktop hero, the plum band's
+edge, the phone bottle raised clear of the caption), tools/fetch_hero_bottles.py (written whole) and the removal of
+site/js/bottle3d.js, its still pictures and tools/render_atomizer.py (git rm).
+

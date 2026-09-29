@@ -2,6 +2,56 @@
 
 Continuity record for the perfume profiler. Newest first.
 
+## 2026-09-30: session close, the front page rebuilt for skimmers, with each perfume's own bottle
+
+Session title: the front page rebuilt for skimmers, with each perfume's own bottle (29 to 30 Sep). All pushed and live
+(26e1220, df76d67): the workflow's tests and deploy passed each time, and the live files match the committed ones.
+
+- Evaluation, asked as a designer and copywriter for a reader who barely focuses: at 390 px the page ran 13 screens, the
+  first all text with the atomizer below it; the 1,000-perfume demo argued against its own headline for most taps (one
+  dislike beat the likes in 0%, 11% and 30% of one-, two- and three-like combinations); after a tap its count sat
+  above the screen.
+- Rebuilt at the owner's word ("implement all of it", "consider making the writing mid aligned"): a hook about the
+  bottle you bought and stopped using; under the bottle the quiz's first question (tried it? Yes adds ?tried= to every
+  quiz link, quiz.js picks those tiles, event land:tried); an example result from a real run of the quiz
+  (tools/build_landing.js VISITOR: Yara and Good Girl kept, Sauvage and Hawas turned: The Sweet and Amber Palate,
+  woody ambers, 342 ruled out, three picks); the demo as one tap on a disliked smell, counted as the engine rules out
+  (woody ambers 342, the same as the example); the box turned round; the nose on a plum band; the four parts; the
+  articles. Cut: the critics' stars, the one-note section, the day slider, the question cards. All text centred, the
+  desktop hero too. About 6,500 px on a phone, from 11,000.
+- An independent review (one Opus agent) found three high defects, all fixed: two counts for one family, a verdict
+  that said the likes "rule out" perfumes, and keyboard focus lost on the tried buttons. Also fixed: the promises
+  ("three picks", "find that note"), "hours later" in the example (no-drydown ruling), Arabic agreement and wording,
+  invented Arabic book titles. Kept الكرة, the owner's own word, which is moot now.
+- The bottle: the owner chose from mock-ups (the perfume's own bottle, over keeping the atomizer beside it). The brass
+  atomizer, its still pictures, tools/render_atomizer.py and the three.js import map are removed. Each quiz bottle has
+  a cut-out picture in site/img/hero/ from tools/fetch_hero_bottles.py (reference/images/hero.json holds the sizes and
+  spray points; build/hero_sheet.png is the contact sheet); a press sprays straight up into the notes, and after that
+  each press brings another bottle.
+- Catalogue: Montale Chocolate Greedy's photo was another house's bottle (Fragella's exact slug); dropped and taken
+  from Fragrantica (2186). Fragrantica page numbers added for Khamrah (75805), Interlude Man (15294) and Santal 33
+  (12201) for their larger pictures.
+- Tests 129. Edit scripts: reference/landing/edits/README.md (section of 29 to 30 September).
+- The desktop app's browser pane opened the local page once without ?endpoint (evening of 29 Sep), which may have sent
+  one reach:start to the live sheet under device d_llm4nfggmumj33rg: leave it out of any count.
+
+Open, dated 30 Sep 2026 (operational):
+- Once visitors come: reach:start to reach:grid, and land:tried (how many mark a bottle), set against the counts from
+  before the evening of 29 Sep.
+- The "Press the bottle" hint sits on the bottle's front until the first press and covers part of its label; for the
+  owner to judge.
+- The claude.ai phone preview is still unpublished; tools/build_artifact.py now carries the bottle pictures.
+- Closed from 29 Sep: the atomizer's jewel (the atomizer is gone).
+- Carried from 29 Sep: base-first wording in the article bodies and the profile page, and the base-only engine rules
+  (offered, not changed); reference/launch/ stays out of git; the first 50 to 100 real visitors, the noon affiliate
+  link, FRAGELLA_KEY.
+
+Reflective, not scheduled:
+- Try the button's wording against "Find your deal-breakers" with the funnel events once there is traffic.
+- The tried-it answer could carry a verdict (still use, turned on me) rather than a pick, saving the quiz a screen per
+  bottle; kept as a pick so the quiz still asks how each went.
+- Wide bottles stand shorter than tall ones in the same box; a per-bottle scale could even them out.
+
 ## 2026-09-29: session close, the front page and its brass atomizer
 
 Session title: the front page and its brass atomizer. All pushed and live (334ee48, e6eaec3, 8c9cbf4); the workflow's
